@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Engine", "TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj", "{2E646606-052D-4063-9218-1379430B070E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp3D.Math", "Sharp3D.Math\Sharp3D.Math.csproj", "{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics", "TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj", "{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Desktop", "TreeDim.StackBuilder.Desktop\TreeDim.StackBuilder.Desktop.csproj", "{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.Test", "TreeDim.StackBuilder.Graphics.Test\TreeDim.StackBuilder.Graphics.Test.csproj", "{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E646606-052D-4063-9218-1379430B070E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E646606-052D-4063-9218-1379430B070E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E646606-052D-4063-9218-1379430B070E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E646606-052D-4063-9218-1379430B070E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

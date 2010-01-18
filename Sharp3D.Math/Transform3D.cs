@@ -198,11 +198,30 @@ namespace Sharp3D.Math.Core
 
             return new Transform3D(m);
         }
-
+        /// <summary>
+        /// Perspective
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         public static Transform3D Perspective(double d)
         {
             Matrix4D m = Matrix4D.Identity;
             m.M43 = 1.0 / d;
+            return new Transform3D(m);
+        }
+        #endregion
+
+        #region Projections
+        public static Transform3D OrthographicProjection(Vector3D viewportMin, Vector3D viewportMax, double[] sizeMin, double[] sizeMax)
+        {
+            Matrix4D m = Matrix4D.Identity;
+            m.M11 = (sizeMax[0] - sizeMin[0]) / (viewportMax.X - viewportMin.X);
+            m.M22 = (sizeMax[1] - sizeMin[1]) / (viewportMax.Y - viewportMin.Y);
+            m.M33 = (sizeMax[2] - sizeMin[2]) / (viewportMax.Z - viewportMin.Z);
+            m.M14 = (sizeMin[0] * viewportMax.X - sizeMax[0] * viewportMin.X) / (viewportMax.X - viewportMin.X);
+            m.M24 = (sizeMin[1] * viewportMax.Y - sizeMax[1] * viewportMin.Y) / (viewportMax.Y - viewportMin.Y);
+            m.M34 = (sizeMin[2] * viewportMax.Z - sizeMax[2] * viewportMin.Z) / (viewportMax.Z - viewportMin.Z);
+
             return new Transform3D(m);
         }
         #endregion

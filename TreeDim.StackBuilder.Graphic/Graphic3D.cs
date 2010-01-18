@@ -11,11 +11,10 @@ namespace TreeDim.StackBuilder.Graphics
     public abstract class Graphics3D
     {
         #region Data members
-        double _angleX = 0.0, _angleY = 0.0;
         /// <summary>
         /// Eye position
         /// </summary>
-        Vector3D _vEye = new Vector3D(0.0, 0.0, -1000.0);
+        Vector3D _vCameraPos = new Vector3D(0.0, 0.0, -1000.0);
         /// <summary>
         /// Light position
         /// </summary>
@@ -28,6 +27,14 @@ namespace TreeDim.StackBuilder.Graphics
         /// Viewport
         /// </summary>
         float[] _viewport = new float[4];
+        /// <summary>
+        /// Compute viewport automatically if enabled
+        /// </summary>
+        bool _autoViewport = true;
+        /// <summary>
+        /// Margin coefficient
+        /// </summary>
+        double _margin = 0.01;
         /// <summary>
         /// Background color
         /// </summary>
@@ -42,17 +49,6 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public double AngleX
-        {
-            get { return _angleX; }
-            set { _angleX = value; }
-        }
-        public double AngleY
-        {
-            get { return _angleY; }
-            set { _angleY = value; }
-        }
-
         /// <summary>
         /// Background color
         /// </summary>
@@ -65,10 +61,10 @@ namespace TreeDim.StackBuilder.Graphics
         /// <summary>
         /// View point (position of the observer's eye
         /// </summary>
-        public Vector3D ViewPoint
+        public Vector3D CameraPosition
         {
-            get { return _vEye; }
-            set { _vEye = value; }
+            get { return _vCameraPos; }
+            set { _vCameraPos = value; }
         }
 
         public Vector3D Target
@@ -91,29 +87,59 @@ namespace TreeDim.StackBuilder.Graphics
         #region Helpers
         private Point[] TransformPoint(Transform3D transform, Vector3D[] points3d)
         {
-            float w = (float)Size.Width;
-            float h = (float)Size.Height;
-
             Point[] points = new Point[points3d.Length];
             int i = 0;
             foreach (Vector3D v in points3d)
             {
                 Vector3D vt = transform.transform(v);
-                points[i] = new Point(
-                    (int)(((float)vt.X - _viewport[0]) * w / (_viewport[2] - _viewport[0]))
-                    , (int)(((float)vt.Y - _viewport[1]) * h / (_viewport[3] - _viewport[1]))
-                    );
+                points[i] = new Point( (int)vt.X, (int)vt.Y);
                 ++i;
             }
             return points;
         }
 
-        private Transform3D BuildTransformation()
+        private Transform3D GetWorldToEyeTransformation()
         {
-            return Transform3D.Translation(-_vTarget)
-                * Transform3D.RotationY(_angleY)
-                * Transform3D.RotationX(_angleX)
-                * Transform3D.Translation(_vEye);
+            /*
+            Orthographic transformation chain
+            • Start with coordinates in object’s local coordinates
+            • Transform into world coords (modeling transform, Mm)
+            • Transform into eye coords (camera xf., Mcam = Fc–1)
+            • Orthographic projection, Morth
+            • Viewport transform, Mvp
+
+            ps = Mvp*Morth*Mcam*Mm*po
+            */
+		    Vector3D zaxis = _vCameraPos-_vTarget;
+            zaxis.Normalize();
+            Vector3D up = Vector3D.ZAxis;
+            if (Vector3D.CrossProduct(up, zaxis).GetLengthSquared() < 0.0001)
+                up = Vector3D.ZAxis;
+		    Vector3D xaxis = Vector3D.CrossProduct(up, zaxis);
+		    xaxis.Normalize();
+		    Vector3D yaxis = Vector3D.CrossProduct(zaxis,xaxis);
+            Matrix4D Mcam = new Matrix4D(
+                    xaxis.X, xaxis.Y, xaxis.Z, -Vector3D.DotProduct(_vCameraPos-_vTarget, xaxis),
+                    yaxis.X, yaxis.Y, yaxis.Z, -Vector3D.DotProduct(_vCameraPos-_vTarget, yaxis),
+                    -zaxis.X, -zaxis.Y, -zaxis.Z, -Vector3D.DotProduct(_vCameraPos-_vTarget, -zaxis),
+                    0.0, 0.0, 0.0, 1.0
+                );
+            return new Transform3D(Mcam);
+        }
+
+        private Transform3D GetOrthographicProjection(Vector3D vecMin, Vector3D vecMax)
+        {
+            double[] sizeMin = new double[3];
+            sizeMin[0] = 1.0;
+            sizeMin[1] = Size.Height;
+            sizeMin[2] = 0.0;
+
+            double[] sizeMax = new double[3];
+            sizeMax[0] = Size.Width;
+            sizeMax[1] = 1.0;
+            sizeMax[2] = 1.0;
+
+            return Transform3D.OrthographicProjection(vecMin, vecMax, sizeMin, sizeMax);
         }
 
         public void AddFace(Face face)
@@ -138,13 +164,60 @@ namespace TreeDim.StackBuilder.Graphics
         }
         public void Draw()
         {
-            Transform3D transform = BuildTransformation();
+            // get transformations
+            Transform3D world2eye = GetWorldToEyeTransformation();
+            Transform3D orthographicProj = GetOrthographicProjection(
+                new Vector3D(_viewport[0], _viewport[1], -10000)
+                , new Vector3D(_viewport[2], _viewport[3], 10000));
+
+            // build automatic viewport
+            if (_autoViewport)
+            { 
+                Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
+                Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
+
+                foreach (Face face in _faces)
+                    foreach (Vector3D pt in face.Points)
+                    {
+                        Vector3D ptT = world2eye.transform(pt);
+                        vecMin.X = Math.Min(vecMin.X, ptT.X);
+                        vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                        vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                        vecMax.X = Math.Max(vecMax.X, ptT.X);
+                        vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                        vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                    }
+
+                // adjust width/height
+                if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
+                {
+                    double actualWidth = (vecMax.Y - vecMin.Y) * Size.Width / Size.Height;
+                    vecMin.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
+                    vecMax.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
+                }
+                else
+                {
+                    double actualHeight = (vecMax.X - vecMin.X) * Size.Height / Size.Width;
+                    vecMin.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
+                    vecMax.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
+                }
+                // set margins
+                double width = vecMax.X - vecMin.X;
+                vecMin.X -= _margin * width;
+                vecMax.X += _margin * width;
+                double height = vecMax.Y - vecMin.Y;
+                vecMin.Y -= _margin * height;
+                vecMax.Y += _margin * height;
+
+                orthographicProj = GetOrthographicProjection( vecMin, vecMax);
+            }
+
 
             System.Drawing.Graphics g = Graphics;
             g.Clear(_backgroundColor);
 
             // sort face list
-            FaceComparison faceComparer = new FaceComparison(transform);
+            FaceComparison faceComparer = new FaceComparison(world2eye);
             _faces.Sort(faceComparer);
 
             foreach (Face face in _faces)
@@ -152,7 +225,7 @@ namespace TreeDim.StackBuilder.Graphics
                 // compute face color
                 double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
                 Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
-                Point[] pt = TransformPoint(transform, face.Points);
+                Point[] pt = TransformPoint(orthographicProj * world2eye, face.Points);
                 Console.WriteLine("--- Face ---");
                 foreach (Point p in pt)
                     Console.WriteLine(p.ToString());
@@ -161,6 +234,18 @@ namespace TreeDim.StackBuilder.Graphics
                 g.FillPolygon(brush, pt);
                 Brush brush0 = new SolidBrush(face.ColorPath);
                 g.DrawPolygon(new Pen(brush0), pt);
+                if (face.HasBitmap)
+                {
+                    foreach (Texture texture in face.Textures)
+                    {
+                        Point[] ptsImage = TransformPoint(orthographicProj * world2eye, face.PointsImage(texture));
+                        Point[] pts = new Point[3];
+                        pts[0] = ptsImage[1];
+                        pts[1] = ptsImage[0];
+                        pts[2] = ptsImage[2];
+                        g.DrawImage(texture.Bitmap, pts);
+                    }
+                }                
             }
         }
         #endregion

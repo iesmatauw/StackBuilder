@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using Sharp3D.Math.Core;
+using TreeDim.StackBuilder.Basics;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics
@@ -40,7 +41,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         Color _backgroundColor = Color.White;
         /// <summary>
-        /// face buffer used for drawing
+        /// entity (face) buffer used for drawing
         /// </summary>
         List<Face> _faces = new List<Face>();
         #endregion
@@ -155,6 +156,13 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public methods
+        /// <summary>
+        /// SetViewport
+        /// </summary>
+        /// <param name="xmin">xmin -> bottom</param>
+        /// <param name="ymin">ymin -> left</param>
+        /// <param name="xmax">xmax -> right</param>
+        /// <param name="ymax">ymax -> top</param>
         public void SetViewport(float xmin, float ymin, float xmax, float ymax)
         {
             _viewport[0] = xmin;
@@ -162,7 +170,11 @@ namespace TreeDim.StackBuilder.Graphics
             _viewport[2] = xmax;
             _viewport[3] = ymax;
         }
-        public void Draw()
+
+        /// <summary>
+        /// Draw all entities stored in buffer
+        /// </summary>
+        public void Flush()
         {
             // get transformations
             Transform3D world2eye = GetWorldToEyeTransformation();
@@ -211,7 +223,6 @@ namespace TreeDim.StackBuilder.Graphics
 
                 orthographicProj = GetOrthographicProjection( vecMin, vecMax);
             }
-
 
             System.Drawing.Graphics g = Graphics;
             g.Clear(_backgroundColor);

@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</ProjectGuid>
+    <ProjectGuid>{444C01D0-53FD-49A1-9D55-267B49161357}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TreeDim.StackBuilder.Graphics</RootNamespace>
-    <AssemblyName>TreeDim.StackBuilder.Graphics</AssemblyName>
+    <RootNamespace>TreeDim.StackBuilder.Basics</RootNamespace>
+    <AssemblyName>TreeDim.StackBuilder.Basics</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,22 +34,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Box.cs" />
-    <Compile Include="Face.cs" />
-    <Compile Include="Graphic3D.cs" />
-    <Compile Include="Graphics3DImage.cs" />
-    <Compile Include="GraphicsException.cs" />
+    <Compile Include="BoxProperties.cs" />
+    <Compile Include="ConstraintSet.cs" />
+    <Compile Include="PalletProperties.cs" />
+    <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SolutionViewer.cs" />
+    <Compile Include="Texture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
       <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
       <Name>Sharp3D.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
-      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
-      <Name>TreeDim.StackBuilder.Basics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

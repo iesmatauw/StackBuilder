@@ -7,6 +7,8 @@ using TreeDim.StackBuilder.Graphics;
 using System.Drawing;
 using System.IO;
 using Sharp3D.Math.Core;
+
+using TreeDim.StackBuilder.Basics;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics.Test
@@ -18,7 +20,7 @@ namespace TreeDim.StackBuilder.Graphics.Test
             try
             {
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(1024, 1024));
+                Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
                 graphics.CameraPosition = new Vector3D(1000.0, 1000.0, 1000.0);
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
@@ -38,7 +40,7 @@ namespace TreeDim.StackBuilder.Graphics.Test
                             Box box = new Box(0, 200.0, 160.0, 100.0);
                             box.Position = new Vector3D((double)i * 200.0, (double)j * 160.0, (double)k * 100.0);
                             box.SetAllFacesColor(Color.Chocolate);
-                            box.SetFaceTextures(Box.FaceEnum.AXIS_Y_P, listTexture);
+                            box.SetFaceTextures(HalfAxis.AXIS_Y_P, listTexture);
                             boxList.Add(box);
                         }
 
@@ -46,7 +48,7 @@ namespace TreeDim.StackBuilder.Graphics.Test
                 foreach (Box box in boxList)
                     foreach (Face face in box.Faces)
                         graphics.AddFace(face);
-                graphics.Draw();
+                graphics.Flush();
                 // Save as %TEMP%\Pallet.jpg
                 string filePath = Path.Combine(Path.GetTempPath(), "Pallet.bmp");
                 graphics.SaveAs(filePath);

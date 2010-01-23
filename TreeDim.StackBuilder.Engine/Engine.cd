@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="TreeDim.StackBuilder.Engine.Layer">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Layer.cs</FileName>
+      <HashCode>AAAAAAAgAAgAAQAACAkAAgAAAEAhAAAAAAAAAAIAQAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Engine.LayerPattern">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>LayerPattern.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Engine.LayerPatternColumn">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>LayerPatternColumn.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Engine.Solver">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Solver.cs</FileName>
+      <HashCode>BAAAAAAAAgAACAEEAAAAAAAAAAKACAACAAAAAAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

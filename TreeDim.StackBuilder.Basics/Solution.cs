@@ -50,9 +50,27 @@ namespace TreeDim.StackBuilder.Basics
             else
                 return HalfAxis.AXIS_Z_P;
         }
+        public static string ToString(HalfAxis axis)
+        {
+            switch (axis)
+            {
+                case HalfAxis.AXIS_X_N: return "-X";
+                case HalfAxis.AXIS_X_P: return " X";
+                case HalfAxis.AXIS_Y_N: return "-Y";
+                case HalfAxis.AXIS_Y_P: return " Y";
+                case HalfAxis.AXIS_Z_N: return "-Z";
+                case HalfAxis.AXIS_Z_P: return " Z";
+                default: return " Z";
+            }
+        }
         #endregion
     }
+    #endregion
 
+    #region Solution
+    /// <summary>
+    /// Box position
+    /// </summary>
     public class BoxPosition
     {
         #region Data members
@@ -83,10 +101,14 @@ namespace TreeDim.StackBuilder.Basics
             get { return _axisWidth; }
         }
         #endregion
-    }
-    #endregion
 
-    #region Solution
+        #region Object method overrides
+        public override string ToString()
+        {
+            return string.Format("{0} | ({1},{2})", _vPosition, Convert.ToString(_axisLength), Convert.ToString(_axisWidth));
+        }
+        #endregion
+    }
     /// <summary>
     /// A set of box position and orientation that represent a valid solution
     /// </summary>
@@ -128,6 +150,19 @@ namespace TreeDim.StackBuilder.Basics
             else
                 return 1;
         }
+        #endregion
+
+        #region Object method overrides
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("=== Solution ===> {0} items", this.Count));
+            int index = 0;
+            foreach (BoxPosition boxPosition in this)
+                sb.AppendLine(string.Format("{0} : {1}", index++, boxPosition.ToString()));
+            return sb.ToString();
+        }
+
         #endregion
     }
     #endregion

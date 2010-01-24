@@ -77,12 +77,12 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        Solution Solution
+        public Solution Solution
         {
             get { return _solution; }
             set { _solution = value; }
         }
-        BoxProperties Box
+        public BoxProperties Box
         {
             get { return _boxProperties; }
             set { _boxProperties = value; }

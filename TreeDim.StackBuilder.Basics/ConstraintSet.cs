@@ -121,5 +121,18 @@ namespace TreeDim.StackBuilder.Basics
             return true;
         }
         #endregion
+
+        #region Object method override
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (_useMaximumHeight) sb.AppendLine(string.Format("Maximum height = {0}", _maximumHeight));
+            if (_useMaximumPalletWeight) sb.AppendLine(string.Format("Maximum pallet weight = {0}", _maximumPalletWeight));
+            if (_useMaximumWeightOnBox) sb.AppendLine(string.Format("Maximum weight on box = {0}", 0.0));
+            if (_useMaximumNumberOfItems) sb.AppendLine(string.Format("Maximum number of items = {0}", _maxNumberOfItems));
+
+            return sb.ToString();
+        }
+        #endregion
     }
 }

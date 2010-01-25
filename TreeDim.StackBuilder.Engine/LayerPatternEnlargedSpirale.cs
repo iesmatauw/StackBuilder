@@ -9,12 +9,12 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Engine
 {
-    class LayerPatternInterlocked : LayerPattern
+    class LayerPatternEnlargedSpirale : LayerPattern
     {
-        #region Implementation of LayerPattern abstract properties and methods
+       #region Implementation of LayerPattern abstract properties and methods
         public override string Name
         {
-            get { return "Interlocked"; }
+            get { return "Enlarged spirale"; }
         }
 
         public override void GenerateLayer(Layer layer, double palletLength, double palletWidth)

@@ -1,5 +1,5 @@
 ﻿#region Using directives
-using System;
+
 using System.Collections.Generic;
 using System.Text;
 using TreeDim.StackBuilder.Graphics;
@@ -20,8 +20,8 @@ namespace TreeDim.StackBuilder.Graphics.Test
             try
             {
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
-                graphics.CameraPosition = new Vector3D(1000.0, 1000.0, 1000.0);
+                Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));
+                graphics.CameraPosition = new Vector3D(10000.0, 10000.0, 10000.0);
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
@@ -33,16 +33,35 @@ namespace TreeDim.StackBuilder.Graphics.Test
                 listTexture.Add(texture);
                 // instantiate box and draw
                 List<Box> boxList = new List<Box>();
-                for (int k=0; k<8; ++k)
-                    for (int j= 0; j<5; ++j)
-                        for (int i = 0; i < 4; ++i)
-                        {
-                            Box box = new Box(0, 200.0, 160.0, 100.0);
-                            box.Position = new Vector3D((double)i * 200.0, (double)j * 160.0, (double)k * 100.0);
-                            box.SetAllFacesColor(Color.Chocolate);
-                            box.SetFaceTextures(HalfAxis.AXIS_Y_P, listTexture);
-                            boxList.Add(box);
-                        }
+/*              Box box0 = new Box(0, 200.0, 160.0, 100.0);
+                box0.Position = new Vector3D(0.0, 0.0, 0.0);
+                box0.LengthAxis = Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                box0.WidthAxis = Convert.ToVector3D(HalfAxis.AXIS_X_P);
+                box0.SetAllFacesColor(Color.Chocolate);
+                box0.SetFaceTextures(HalfAxis.AXIS_Y_P, listTexture);
+                boxList.Add(box0);
+
+                Box box1 = new Box(0, 200.0, 160.0, 100.0);
+                box1.Position = new Vector3D(210.0, 0.0, 0.0);
+                box1.LengthAxis = Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                box1.WidthAxis = Convert.ToVector3D(HalfAxis.AXIS_X_P);
+                box1.SetAllFacesColor(Color.Chocolate);
+                box1.SetFaceTextures(HalfAxis.AXIS_Y_P, listTexture);
+                boxList.Add(box1);
+*/
+                Box box2 = new Box(0, 100.0, 100.0, 100.0);
+                box2.Position = new Vector3D(0.0, 50.0, 0.0);
+                box2.LengthAxis = Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                box2.WidthAxis = Convert.ToVector3D(HalfAxis.AXIS_X_P);
+                box2.SetAllFacesColor(Color.Chocolate);
+                boxList.Add(box2);
+
+                Box box3 = new Box(10, 100.0, 100.0, 100.0);
+                box3.Position = new Vector3D(0.0, 0.0, 100.0);
+                box3.LengthAxis = Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                box3.WidthAxis = Convert.ToVector3D(HalfAxis.AXIS_X_P);
+                box3.SetAllFacesColor(Color.Chocolate);
+                boxList.Add(box3);
 
                 // draw
                 foreach (Box box in boxList)
@@ -63,9 +82,9 @@ namespace TreeDim.StackBuilder.Graphics.Test
                     proc.Start();
                 }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                System.Console.WriteLine(ex.ToString());
             }
         }
     }

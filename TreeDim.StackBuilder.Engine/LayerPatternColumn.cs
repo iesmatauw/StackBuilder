@@ -14,7 +14,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Implementation of LayerPattern abstract properties and methods
         public override string Name
         {
-            get { return "Column pattern"; }
+            get { return "Column"; }
         }
 
         public override void GenerateLayer(Layer layer, double palletLength, double palletWidth)

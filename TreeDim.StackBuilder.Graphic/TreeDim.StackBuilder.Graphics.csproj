@@ -35,6 +35,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Box.cs" />
+    <Compile Include="BSPNode.cs" />
+    <Compile Include="BSPTree.cs" />
     <Compile Include="Face.cs" />
     <Compile Include="Graphic3D.cs" />
     <Compile Include="Graphics3DImage.cs" />

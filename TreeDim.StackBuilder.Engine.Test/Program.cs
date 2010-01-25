@@ -64,7 +64,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 {
                     // instantiate graphics
                     Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));
-                    graphics.CameraPosition = new Vector3D(1000.0, 1000.0, 1000.0);
+                    graphics.CameraPosition = new Vector3D(10000.0, 10000.0, 10000.0);
                     graphics.Target = new Vector3D(0.0, 0.0, 0.0);
                     graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                     graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);

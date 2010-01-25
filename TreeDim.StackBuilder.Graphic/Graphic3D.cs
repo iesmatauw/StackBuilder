@@ -11,6 +11,13 @@ namespace TreeDim.StackBuilder.Graphics
 {
     public abstract class Graphics3D
     {
+        #region Enums
+        enum PaintingAlgorithm
+        { 
+            ALGO_PAINTER,
+            ALGO_BSPTREE
+        }
+        #endregion
         #region Data members
         /// <summary>
         /// Eye position
@@ -44,6 +51,11 @@ namespace TreeDim.StackBuilder.Graphics
         /// entity (face) buffer used for drawing
         /// </summary>
         List<Face> _faces = new List<Face>();
+        /// <summary>
+        /// Current transformation
+        /// </summary>
+        private Transform3D _currentTransf;
+        private PaintingAlgorithm _algo = PaintingAlgorithm.ALGO_BSPTREE;
         #endregion
 
         #region Constructors
@@ -145,7 +157,6 @@ namespace TreeDim.StackBuilder.Graphics
 
         public void AddFace(Face face)
         {
-            Console.WriteLine(face.ToString() );
             _faces.Add(face);
         }
         #endregion
@@ -176,87 +187,124 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         public void Flush()
         {
-            // get transformations
-            Transform3D world2eye = GetWorldToEyeTransformation();
-            Transform3D orthographicProj = GetOrthographicProjection(
-                new Vector3D(_viewport[0], _viewport[1], -10000)
-                , new Vector3D(_viewport[2], _viewport[3], 10000));
-
-            // build automatic viewport
-            if (_autoViewport)
-            { 
-                Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
-                Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
-
-                foreach (Face face in _faces)
-                    foreach (Vector3D pt in face.Points)
-                    {
-                        Vector3D ptT = world2eye.transform(pt);
-                        vecMin.X = Math.Min(vecMin.X, ptT.X);
-                        vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
-                        vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
-                        vecMax.X = Math.Max(vecMax.X, ptT.X);
-                        vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                        vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
-                    }
-
-                // adjust width/height
-                if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
-                {
-                    double actualWidth = (vecMax.Y - vecMin.Y) * Size.Width / Size.Height;
-                    vecMin.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
-                    vecMax.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
-                }
-                else
-                {
-                    double actualHeight = (vecMax.X - vecMin.X) * Size.Height / Size.Width;
-                    vecMin.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
-                    vecMax.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
-                }
-                // set margins
-                double width = vecMax.X - vecMin.X;
-                vecMin.X -= _margin * width;
-                vecMax.X += _margin * width;
-                double height = vecMax.Y - vecMin.Y;
-                vecMin.Y -= _margin * height;
-                vecMax.Y += _margin * height;
-
-                orthographicProj = GetOrthographicProjection( vecMin, vecMax);
-            }
-
+            // initialize
+            _currentTransf = null;
             System.Drawing.Graphics g = Graphics;
             g.Clear(_backgroundColor);
 
-            // sort face list
-            FaceComparison faceComparer = new FaceComparison(world2eye);
-            _faces.Sort(faceComparer);
-
-            foreach (Face face in _faces)
+            if (PaintingAlgorithm.ALGO_PAINTER == _algo)
             {
-                // compute face color
-                double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
-                Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
-                Point[] pt = TransformPoint(orthographicProj * world2eye, face.Points);
-                Console.WriteLine("--- Face ---");
-                foreach (Point p in pt)
-                    Console.WriteLine(p.ToString());
+                // sort face list
+                FaceComparison faceComparer = new FaceComparison(GetWorldToEyeTransformation());
+                _faces.Sort(faceComparer);
+                // draw all faces
+                foreach (Face face in _faces)
+                    Draw(face);
+            }
+            else
+            {
+                // build BSP tree
+                BSPTree tree = new BSPTree();
+                foreach (Face face in _faces)
+                    tree.insert(face);
+                // draw
+                tree.draw(_vCameraPos - _vTarget, this);
+            }
+        }
 
-                Brush brush = new SolidBrush(color);
-                g.FillPolygon(brush, pt);
-                Brush brush0 = new SolidBrush(face.ColorPath);
-                g.DrawPolygon(new Pen(brush0), pt);
-                if (face.HasBitmap)
+        private Transform3D GetCurrentTransformation()
+        {
+            if (null == _currentTransf)
+            {
+                // get transformations
+                Transform3D world2eye = GetWorldToEyeTransformation();
+                Transform3D orthographicProj = GetOrthographicProjection(
+                    new Vector3D(_viewport[0], _viewport[1], -10000)
+                    , new Vector3D(_viewport[2], _viewport[3], 10000));
+
+                // build automatic viewport
+                if (_autoViewport)
                 {
-                    foreach (Texture texture in face.Textures)
+                    Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
+                    Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
+
+                    foreach (Face face in _faces)
+                        foreach (Vector3D pt in face.Points)
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                        }
+
+                    // adjust width/height
+                    if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
                     {
-                        Point[] ptsImage = TransformPoint(orthographicProj * world2eye, face.PointsImage(texture));
-                        Point[] pts = new Point[3];
-                        pts[0] = ptsImage[1];
-                        pts[1] = ptsImage[0];
-                        pts[2] = ptsImage[2];
-                        g.DrawImage(texture.Bitmap, pts);
+                        double actualWidth = (vecMax.Y - vecMin.Y) * Size.Width / Size.Height;
+                        vecMin.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
+                        vecMax.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
                     }
-                }                
+                    else
+                    {
+                        double actualHeight = (vecMax.X - vecMin.X) * Size.Height / Size.Width;
+                        vecMin.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
+                        vecMax.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
+                    }
+                    // set margins
+                    double width = vecMax.X - vecMin.X;
+                    vecMin.X -= _margin * width;
+                    vecMax.X += _margin * width;
+                    double height = vecMax.Y - vecMin.Y;
+                    vecMin.Y -= _margin * height;
+                    vecMax.Y += _margin * height;
+
+                    orthographicProj = GetOrthographicProjection(vecMin, vecMax);
+                }
+                _currentTransf = orthographicProj * world2eye;
+            }
+            return _currentTransf;
+        }
+
+        public void Draw(Face face)
+        {
+            System.Drawing.Graphics g = Graphics;
+
+            // compute face color
+            double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
+            Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
+            Point[] pt = TransformPoint(GetCurrentTransformation(), face.Points);
+
+            Brush brush = new SolidBrush(color);
+            g.FillPolygon(brush, pt);
+            // draw path
+            Brush brush0 = new SolidBrush(face.ColorPath);
+            int ptCount = pt.Length;
+            for (int i = 1; i < ptCount; ++i)
+            {
+                if (face._showPath[i - 1] && face._showPath[i])
+                    Console.WriteLine("Hide");
+                else
+                    g.DrawLine(new Pen(brush0, 1.0f), pt[i - 1], pt[i]);
+            }
+            if (face._showPath[ptCount - 1] && face._showPath[0])
+                Console.WriteLine("Hide");
+            else
+                g.DrawLine(new Pen(brush0, 1.0f), pt[ptCount - 1], pt[0]);
+
+            if (face.HasBitmap)
+            {
+                foreach (Texture texture in face.Textures)
+                {
+                    Point[] ptsImage = TransformPoint(GetCurrentTransformation(), face.PointsImage(texture));
+                    Point[] pts = new Point[3];
+                    pts[0] = ptsImage[1];
+                    pts[1] = ptsImage[0];
+                    pts[2] = ptsImage[2];
+                    g.DrawImage(texture.Bitmap, pts);
+                }
             }
         }
         #endregion

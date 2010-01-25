@@ -74,6 +74,15 @@ namespace TreeDim.StackBuilder.Graphics
             set { _widthAxis = value; }
         }
 
+        public Vector3D[] Oriented(Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3, Vector3D pt)
+        {
+            Vector3D crossProduct = Vector3D.CrossProduct(pt1 - pt0, pt2 - pt0);
+            if (Vector3D.DotProduct(crossProduct, pt - pt0) < 0)
+                return new Vector3D[] { pt0, pt1, pt2, pt3 };
+            else
+                return new Vector3D[] { pt3, pt2, pt1, pt0 };
+        }
+
         public Face[] Faces
         {
             get
@@ -90,14 +99,26 @@ namespace TreeDim.StackBuilder.Graphics
                 points[6] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis + _dim[2] * heightAxis;
                 points[7] = _position + _dim[1] * _widthAxis + _dim[2] * heightAxis;
 
+                Vector3D center = Vector3D.Zero;
+                foreach (Vector3D pt in points)
+                    center += pt;
+                center = center * (1.0 / 8.0);
+
                 Face[] faces = new Face[6];
+                faces[0] = new Face(_pickId, Oriented(points[3], points[0], points[4], points[7], center)); // AXIS_X_N
+                faces[1] = new Face(_pickId+1, Oriented(points[1], points[2], points[6], points[5], center)); // AXIS_X_P
+                faces[2] = new Face(_pickId+2, Oriented(points[0], points[1], points[5], points[4], center)); // AXIS_Y_N
+                faces[3] = new Face(_pickId+3, Oriented(points[2], points[3], points[7], points[6], center)); // AXIS_Y_P
+                faces[4] = new Face(_pickId+4, Oriented(points[3], points[2], points[1], points[0], center)); // AXIS_Z_N
+                faces[5] = new Face(_pickId+5, Oriented(points[4], points[5], points[6], points[7], center)); // AXIS_Z_P
+/*
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
                 faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[2], points[6], points[5] }); // AXIS_X_P
                 faces[2] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[5], points[4] }); // AXIS_Y_N
                 faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[3], points[7], points[6] }); // AXIS_Y_P
                 faces[4] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }); // AXIS_Z_N
                 faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }); // AXIS_Z_P
-
+*/
                 int i = 0;
                 foreach (Face face in faces)
                 {

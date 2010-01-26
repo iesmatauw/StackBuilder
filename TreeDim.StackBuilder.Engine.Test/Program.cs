@@ -20,15 +20,22 @@ namespace TreeDim.StackBuilder.Engine.Test
         {
             try
             {
+                bool useSingleColor = false;
                 // define box properties
                 BoxProperties boxProperties = new BoxProperties(600, 400, 200);
                 boxProperties.Weight = 1.0;
-                boxProperties.SetColor(HalfAxis.AXIS_X_N, Color.Red);
-                boxProperties.SetColor(HalfAxis.AXIS_X_P, Color.Red);
-                boxProperties.SetColor(HalfAxis.AXIS_Y_N, Color.Green);
-                boxProperties.SetColor(HalfAxis.AXIS_Y_P, Color.Green);
-                boxProperties.SetColor(HalfAxis.AXIS_Z_N, Color.Blue);
-                boxProperties.SetColor(HalfAxis.AXIS_Z_P, Color.Blue);
+                if (!useSingleColor)
+                {
+                    boxProperties.SetColor(HalfAxis.AXIS_X_N, Color.Red);
+                    boxProperties.SetColor(HalfAxis.AXIS_X_P, Color.Red);
+                    boxProperties.SetColor(HalfAxis.AXIS_Y_N, Color.Green);
+                    boxProperties.SetColor(HalfAxis.AXIS_Y_P, Color.Green);
+                    boxProperties.SetColor(HalfAxis.AXIS_Z_N, Color.Blue);
+                    boxProperties.SetColor(HalfAxis.AXIS_Z_P, Color.Blue);
+                }
+                else
+                    boxProperties.SetAllColors(Color.Chocolate);
+
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
@@ -49,7 +56,6 @@ namespace TreeDim.StackBuilder.Engine.Test
                 constraintSet.UseMaximumWeightOnBox = false;
                 Console.WriteLine("=== Constraint set ===");
                 Console.WriteLine(constraintSet.ToString());
-
 
                 // initialize solver
                 Solver solver = new Solver();

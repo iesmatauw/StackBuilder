@@ -154,7 +154,10 @@ namespace TreeDim.StackBuilder.Graphics
 
             return Transform3D.OrthographicProjection(vecMin, vecMax, sizeMin, sizeMax);
         }
-
+        /// <summary>
+        /// add face
+        /// </summary>
+        /// <param name="face">Face item</param>
         public void AddFace(Face face)
         {
             _faces.Add(face);
@@ -268,7 +271,11 @@ namespace TreeDim.StackBuilder.Graphics
             return _currentTransf;
         }
 
-        public void Draw(Face face)
+        /// <summary>
+        /// Draw a face
+        /// </summary>
+        /// <param name="face">Face object to be drawn</param>
+        internal void Draw(Face face)
         {
             System.Drawing.Graphics g = Graphics;
 
@@ -284,15 +291,11 @@ namespace TreeDim.StackBuilder.Graphics
             int ptCount = pt.Length;
             for (int i = 1; i < ptCount; ++i)
             {
-                if (face._showPath[i - 1] && face._showPath[i])
-                    Console.WriteLine("Hide");
-                else
-                    g.DrawLine(new Pen(brush0, 1.0f), pt[i - 1], pt[i]);
+                if (!(face._isIntersection[i - 1] && face._isIntersection[i]))
+                    g.DrawLine(new Pen(brush0, 1.5f), pt[i - 1], pt[i]);
             }
-            if (face._showPath[ptCount - 1] && face._showPath[0])
-                Console.WriteLine("Hide");
-            else
-                g.DrawLine(new Pen(brush0, 1.0f), pt[ptCount - 1], pt[0]);
+            if (!(face._isIntersection[ptCount - 1] && face._isIntersection[0]))
+                g.DrawLine(new Pen(brush0, 1.5f), pt[ptCount - 1], pt[0]);
 
             if (face.HasBitmap)
             {

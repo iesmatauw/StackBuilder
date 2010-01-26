@@ -16,7 +16,7 @@ namespace TreeDim.StackBuilder.Graphics
         #region Private members
         private uint _pickingId = 0;
         private Vector3D[] _points;
-        public bool[] _showPath;
+        public bool[] _isIntersection;
         /// <summary>
         /// colors
         /// </summary>
@@ -29,8 +29,8 @@ namespace TreeDim.StackBuilder.Graphics
         public Face(uint pickId, Vector3D[] vertices)
         {
             _points = vertices;
-            _showPath = new bool[vertices.Length];
-            for (int i = 0; i < vertices.Length; ++i) _showPath[i] = false;
+            _isIntersection = new bool[vertices.Length];
+            for (int i = 0; i < vertices.Length; ++i) _isIntersection[i] = false;
             if (_points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
@@ -38,7 +38,7 @@ namespace TreeDim.StackBuilder.Graphics
         public Face(uint pickId, Vector3D[] vertices, bool[] isInter)
         {
             _points = vertices;
-            _showPath = isInter;
+            _isIntersection = isInter;
             if (_points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
@@ -163,7 +163,7 @@ namespace TreeDim.StackBuilder.Graphics
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            //sb.Append(string.Format("Face => PickId : {0} Points : ", _pickingId));
+            sb.Append(string.Format("Face => PickId : {0} Points : ", _pickingId));
             foreach (Vector3D point in _points)
             {
                 sb.Append(point.ToString());
@@ -197,7 +197,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// <returns>integer "f1>f2 => 1", "f1<f2 => -1", "f1==f2 => 0"  </returns>
         public int Compare(Face f1, Face f2)
         {
-            bool useBarycenter = false;
+            bool useBarycenter = true;
             if (useBarycenter)
             {
                 if (_transform.transform(f1.Center).Z < _transform.transform(f2.Center).Z)

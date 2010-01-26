@@ -16,7 +16,8 @@ namespace TreeDim.StackBuilder.Engine
     {
         #region Abstract methods
         abstract public string Name { get; }
-        abstract public void GenerateLayer(Layer layer, double palletLength, double palletWidth);
+        abstract public void GetLayerDimensions(Layer layer, double palletLength, double palletWidth, out double actualLength, out double actualWidth);
+        abstract public void GenerateLayer(Layer layer, double palletLength, double palletWidth, double actualLength, double actualWidth);
         #endregion
     }
 }

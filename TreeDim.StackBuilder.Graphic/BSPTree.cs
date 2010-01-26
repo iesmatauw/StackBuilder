@@ -39,10 +39,10 @@ namespace TreeDim.StackBuilder.Graphics
         #region Drawing
         public void draw(Vector3D ptEye, Graphics3D graphics3D)
         {
-            Console.WriteLine("BSP Tree");
+            if (_showInfo) Console.WriteLine("BSP Tree");
             if (_root != null && _showInfo)
                 _root.Print(string.Empty);
-            Console.WriteLine("Drawing");
+            if (_showInfo) Console.WriteLine("Drawing");
             draw(_root, ptEye, graphics3D, string.Empty);
         }
         private void draw(BSPNode node, Vector3D ptEye, Graphics3D graphics3D, string offset)

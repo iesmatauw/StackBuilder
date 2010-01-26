@@ -37,7 +37,7 @@ namespace TreeDim.StackBuilder.Engine
         private HalfAxis _axisOrtho = HalfAxis.AXIS_Z_P;
         private HalfAxis _lengthAxis = HalfAxis.AXIS_X_P, _widthAxis = HalfAxis.AXIS_Y_P;
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight;
-        private Transform3D _transf = Transform3D.Identity; 
+        private Vector3D _vecTransf = Vector3D.Zero; 
         #endregion
 
         #region Constructor
@@ -59,7 +59,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Length;
                     _lengthAxis = HalfAxis.AXIS_Z_N;
                     _widthAxis = HalfAxis.AXIS_X_N;
-                    _transf = Transform3D.Translation(new Vector3D(boxProperties.Width, 0.0, boxProperties.Length));
+                    _vecTransf = new Vector3D(boxProperties.Width, 0.0, boxProperties.Length);
                     break;
                 case HalfAxis.AXIS_X_P:
                     _boxLength = boxProperties.Height;
@@ -67,7 +67,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Length;
                     _lengthAxis = HalfAxis.AXIS_Z_P;
                     _widthAxis = HalfAxis.AXIS_Y_P;
-                    _transf = Transform3D.Translation(new Vector3D(boxProperties.Height, 0.0, 0.0));
+                    _vecTransf = new Vector3D(boxProperties.Height, 0.0, 0.0);
                     break;
                 case HalfAxis.AXIS_Y_N:
                     _boxLength = boxProperties.Length;
@@ -75,7 +75,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Width;
                     _lengthAxis = HalfAxis.AXIS_X_P;
                     _widthAxis = HalfAxis.AXIS_Z_N;
-                    _transf = Transform3D.Translation(new Vector3D(0.0, 0.0, boxProperties.Width));
+                    _vecTransf = new Vector3D(0.0, 0.0, boxProperties.Width);
                     break;
                 case HalfAxis.AXIS_Y_P:
                     _boxLength = boxProperties.Height;
@@ -83,7 +83,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Width;
                     _lengthAxis = HalfAxis.AXIS_Y_P;
                     _widthAxis = HalfAxis.AXIS_Z_P;
-                    _transf = Transform3D.Translation(Vector3D.Zero);
+                    _vecTransf = Vector3D.Zero;
                     break;
                 case HalfAxis.AXIS_Z_N:
                     _boxLength = boxProperties.Width;
@@ -91,7 +91,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Height;
                     _lengthAxis = HalfAxis.AXIS_Y_P;
                     _widthAxis = HalfAxis.AXIS_X_P;
-                    _transf = Transform3D.Translation(new Vector3D(0.0, 0.0, boxProperties.Height));
+                    _vecTransf = new Vector3D(0.0, 0.0, boxProperties.Height);
                     break;
                 case HalfAxis.AXIS_Z_P:
                     _boxLength = boxProperties.Length;
@@ -99,7 +99,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Height;
                     _lengthAxis = HalfAxis.AXIS_X_P;
                     _widthAxis = HalfAxis.AXIS_Y_P;
-                    _transf = Transform3D.Translation(Vector3D.Zero);
+                    _vecTransf = Vector3D.Zero;
                     break;
                 default:
                     _boxLength = boxProperties.Length;
@@ -107,7 +107,7 @@ namespace TreeDim.StackBuilder.Engine
                     _boxHeight = boxProperties.Height;
                     _lengthAxis = HalfAxis.AXIS_X_P;
                     _widthAxis = HalfAxis.AXIS_Y_P;
-                    _transf = Transform3D.Translation(Vector3D.Zero);
+                    _vecTransf = Vector3D.Zero;
                     break;
             }
         }
@@ -131,11 +131,13 @@ namespace TreeDim.StackBuilder.Engine
             mat.M32 = vAxisHeight.Y;
             mat.M33 = vAxisHeight.Z;
             Transform3D localTransf = new Transform3D(mat);
+            Transform3D localTransfInv = localTransf.Inverse();
+            Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(_vecTransf));
 
             LayerPosition layerPos = new LayerPosition(
-                _transf.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0))
-                , Convert.ToHalfAxis(localTransf.transform(Convert.ToVector3D(_lengthAxis)))
-                , Convert.ToHalfAxis(localTransf.transform(Convert.ToVector3D(_widthAxis)))
+                originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0))
+                , Convert.ToHalfAxis(localTransfInv.transform(Convert.ToVector3D(_lengthAxis)))
+                , Convert.ToHalfAxis(localTransfInv.transform(Convert.ToVector3D(_widthAxis)))
                 );
 
             this.Add(layerPos);

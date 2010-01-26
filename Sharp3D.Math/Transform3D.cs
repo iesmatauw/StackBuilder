@@ -48,6 +48,64 @@ namespace Sharp3D.Math.Core
             Vector4D vecTransf = _mat * (new Vector4D(vec.X, vec.Y, vec.Z, 1.0));
             return new Vector3D(vecTransf.X, vecTransf.Y, vecTransf.Z);
         }
+
+        public Transform3D Inverse()
+        {
+            double m00 = _mat.M11;//m[0][0];
+            double m01 = _mat.M12;//m[0][1];
+            double m02 = _mat.M13;//m[0][2];
+            double m03 = _mat.M14;//m[0][3];
+
+            double m10 = _mat.M21; //m[1][0];
+            double m11 = _mat.M22; //m[1][1];
+            double m12 = _mat.M23; //m[1][2];
+            double m13 = _mat.M24; //m[1][3];
+
+            double m20 = _mat.M31; //m[2][0];
+            double m21 = _mat.M32; //m[2][1];
+            double m22 = _mat.M33; //m[2][2];
+            double m23 = _mat.M34; //m[2][3];
+
+            double t4 = m00 * m11;
+            double t6 = m00 * m21;
+            double t8 = m10 * m01;
+            double t10 = m10 * m21;
+            double t12 = m20 * m01;
+            double t14 = m20 * m11;
+            double d = (t4 * m22 - t6 * m12 - t8 * m22 + t10 * m02 + t12 * m12 - t14 * m02);
+
+            if (d == 0.0)
+                throw new Exception("Matrix determinant is 0.0");
+            double t17 = 1 / d;
+
+            double t20 = m21 * m02;
+            double t23 = m01 * m12;
+            double t24 = m11 * m02;
+            double t43 = m20 * m02;
+            double t46 = m00 * m12;
+            double t47 = m10 * m02;
+            double t51 = m00 * m13;
+            double t54 = m10 * m03;
+            double t57 = m20 * m03;
+            double inv00 = (m11 * m22 - m21 * m12) * t17;
+            double inv01 = -(m01 * m22 - t20) * t17;
+            double inv02 = (t23 - t24) * t17;
+            double inv03 =
+              -(t23 * m23 - m01 * m13 * m22 - t24 * m23 + m11 * m03 * m22 + t20 * m13 - m21 * m03 * m12) * t17;
+            double inv10 = -(m10 * m22 - m20 * m12) * t17;
+            double inv11 = (m00 * m22 - t43) * t17;
+            double inv12 = -(t46 - t47) * t17;
+            double inv13 = (t46 * m23 - t51 * m22 - t47 * m23 + t54 * m22 + t43 * m13 - t57 * m12) * t17;
+            double inv20 = (t10 - t14) * t17;
+            double inv21 = -(t6 - t12) * t17;
+            double inv22 = (t4 - t8) * t17;
+            double inv23 = -(t4 * m23 - t51 * m21 - t8 * m23 + t54 * m21 + t12 * m13 - t57 * m11) * t17;
+
+            return new Transform3D(new Matrix4D(inv00, inv01, inv02, inv03,
+                     inv10, inv11, inv12, inv13,
+                     inv20, inv21, inv22, inv23,
+                     0, 0, 0, 1));
+        }
         #endregion
 
         #region ICloneable members

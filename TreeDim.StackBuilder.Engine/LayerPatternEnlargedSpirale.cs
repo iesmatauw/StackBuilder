@@ -17,7 +17,13 @@ namespace TreeDim.StackBuilder.Engine
             get { return "Enlarged spirale"; }
         }
 
-        public override void GenerateLayer(Layer layer, double palletLength, double palletWidth)
+        public override void GetLayerDimensions(Layer layer, double palletLength, double palletWidth, out double actualLength, out double actualWidth)
+        {
+            actualLength = 0.0;
+            actualWidth = 0.0;
+        }
+
+        public override void GenerateLayer(Layer layer, double palletLength, double palletWidth, double actualLength, double actualWidth)
         {
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;

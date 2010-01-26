@@ -45,21 +45,36 @@ namespace TreeDim.StackBuilder.Engine
                         continue;
 
                     Layer layer1 = new Layer(_boxProperties, axisOrtho1);
-                    pattern.GenerateLayer(layer1, _palletProperties.Length, _palletProperties.Width);
                     Layer layer2 = new Layer(_boxProperties, axisOrtho2);
-                    pattern.GenerateLayer(layer2, _palletProperties.Length, _palletProperties.Width);
+                    double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
+                    pattern.GetLayerDimensions(layer1, _palletProperties.Length, _palletProperties.Width, out actualLength1, out actualWidth1);
+                    pattern.GetLayerDimensions(layer2, _palletProperties.Length, _palletProperties.Width, out actualLength2, out actualWidth2);
 
                     for (int j=0; j<4; ++j)
                     {
                         Layer layer1T = null, layer2T = null;
                         if (0 == j && !_constraintSet.ForceAlternateLayer)
-                        { layer1T = layer1; layer2T = layer1; }
+                        {
+                            pattern.GenerateLayer(layer1, _palletProperties.Length, _palletProperties.Width, actualLength1, actualWidth1);
+                            layer1T = layer1; layer2T = layer1; 
+                        }
                         else if (1 == j && !_constraintSet.ForceAlternateLayer)
-                        { layer1T = layer2; layer2T = layer2; }
+                        {
+                            pattern.GenerateLayer(layer2, _palletProperties.Length, _palletProperties.Width, actualLength2, actualWidth2);
+                            layer1T = layer2; layer2T = layer2; 
+                        }
                         else if (2 == j && _constraintSet.AllowAlternateLayer)
-                        { layer1T = layer1; layer2T = layer2; }
+                        {
+                            pattern.GenerateLayer(layer1, _palletProperties.Length, _palletProperties.Width, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                            pattern.GenerateLayer(layer2, _palletProperties.Length, _palletProperties.Width, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                            layer1T = layer1; layer2T = layer2; 
+                        }
                         else if (3 == j && _constraintSet.AllowAlternateLayer)
-                        { layer1T = layer2; layer2T = layer1; }
+                        {
+                            pattern.GenerateLayer(layer1, _palletProperties.Length, _palletProperties.Width, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                            pattern.GenerateLayer(layer2, _palletProperties.Length, _palletProperties.Width, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                            layer1T = layer2; layer2T = layer1; 
+                        }
 
                         if (null == layer1T || null == layer2T)
                             continue;
@@ -150,8 +165,8 @@ namespace TreeDim.StackBuilder.Engine
         {
             _patterns.Add(new LayerPatternColumn());
             _patterns.Add(new LayerPatternInterlocked());
-            _patterns.Add(new LayerPatternSpirale());
-            _patterns.Add(new LayerPatternEnlargedSpirale());
+            //_patterns.Add(new LayerPatternSpirale());
+            //_patterns.Add(new LayerPatternEnlargedSpirale());
         }
 
         protected void ComputeBoxDimensions(

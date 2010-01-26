@@ -61,6 +61,11 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public methods
+        public void SetAllColors(Color color)
+        {
+            for (int i = 0; i < 6; ++i)
+                _colors[i] = color;
+        }
         public void SetColor(HalfAxis axis, Color color)
         {
             _colors[(int)axis] = color;        

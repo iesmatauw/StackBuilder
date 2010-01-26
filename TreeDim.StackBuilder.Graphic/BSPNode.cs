@@ -156,7 +156,7 @@ namespace TreeDim.StackBuilder.Graphics
                         outpts.Add(ptI);    outPath.Add(true);
                         inpts.Add(ptI);     inPath.Add(true);
                     }
-                    outpts.Add(ptB); outPath.Add(face._showPath[i]);
+                    outpts.Add(ptB); outPath.Add(face._isIntersection[i]);
                 }
                 else if (sideB < 0)
                 {
@@ -171,12 +171,12 @@ namespace TreeDim.StackBuilder.Graphics
                         outpts.Add(ptI);    outPath.Add(true);
                         inpts.Add(ptI);     inPath.Add(true);
                     }
-                    inpts.Add(ptB); inPath.Add(face._showPath[i]);
+                    inpts.Add(ptB); inPath.Add(face._isIntersection[i]);
                 }
                 else
                 {
-                    outpts.Add(ptB); outPath.Add(face._showPath[i]);
-                    inpts.Add(ptB); inPath.Add(face._showPath[i]);
+                    outpts.Add(ptB); outPath.Add(face._isIntersection[i]);
+                    inpts.Add(ptB); inPath.Add(face._isIntersection[i]);
                 }
                 ptA = ptB;
                 sideA = sideB;
@@ -263,51 +263,6 @@ namespace TreeDim.StackBuilder.Graphics
             if (_nodeRight != null)         _nodeRight.Print(offset + "---r-");
         }
         #endregion
-        /*
-void Split_Polygon (polygon *poly, plane *part, polygon *&front, polygon *&back )
-{
-int count = poly->NumVertices (), out_c = 0, in_c = 0;
-point ptA, ptB, outpts[MAXPTS], inpts[MAXPTS];
-real sideA, sideB;
-ptA = poly->Vertex (count - 1);
-sideA = part->Classify_Point (ptA);
-for (short i = -1; ++i < count;)
-{
-ptB = poly->Vertex (i);
-sideB = part->Classify_Point (ptB);
-if (sideB > 0)
-{
-if (sideA < 0)
-{
-// compute the intersection point of the line
-// from point A to point B with the partition
-// plane. This is a simple ray-plane intersection.
-vector v = ptB - ptA;
-real sect = - part->Classify_Point (ptA) / (part->Normal () | v);
-outpts[out_c++] = inpts[in_c++] = ptA + (v * sect);
-}
-outpts[out_c++] = ptB;
-}
-else if (sideB < 0)
-{
-if (sideA > 0)
-{
-// compute the intersection point of the line
-// from point A to point B with the partition
-// plane. This is a simple ray-plane intersection.
-vector v = ptB - ptA;
-real sect = - part->Classify_Point (ptA) / (part->Normal () | v);
-outpts[out_c++] = inpts[in_c++] = ptA + (v * sect);
-}
-inpts[in_c++] = ptB;
-} else outpts[out_c++] = inpts[in_c++] = ptB;
-ptA = ptB;
-sideA = sideB;
-}
-front = new polygon (outpts, out_c);
-back = new polygon (inpts, in_c);
-}
-*/
 
         #region IDisposable interface
         public void Dispose()

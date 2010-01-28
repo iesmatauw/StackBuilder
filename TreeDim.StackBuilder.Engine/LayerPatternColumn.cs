@@ -17,20 +17,24 @@ namespace TreeDim.StackBuilder.Engine
             get { return "Column"; }
         }
 
-        public override void GetLayerDimensions(Layer layer, double palletLength, double palletWidth, out double actualLength, out double actualWidth)
+        public override void GetLayerDimensions(Layer layer, out double actualLength, out double actualWidth)
         {
+            double palletLength = layer.PalletLength;
+            double palletWidth = layer.PalletWidth;
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
             actualLength = Math.Floor(palletLength / boxLength) * boxLength;
             actualWidth = Math.Floor(palletWidth / boxWidth) * boxWidth;
         }
 
-        public override void GenerateLayer(Layer layer, double palletLength, double palletWidth, double actualLength, double actualWidth)
+        public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
             layer.Clear();
 
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
 
             int sizeX = (int)Math.Floor(palletLength / boxLength);
             int sizeY = (int)Math.Floor(palletWidth / boxWidth);
@@ -49,6 +53,16 @@ namespace TreeDim.StackBuilder.Engine
                             , offsetY + j * (boxWidth + spaceY)
                             )
                         , HalfAxis.AXIS_X_P, HalfAxis.AXIS_Y_P);
+        }
+
+        public override int GetNumberOfVariants(Layer layer)
+        {
+            return 1;
+        }
+
+        public override bool CanBeSwaped
+        {
+            get { return false; }
         }
         #endregion
     }

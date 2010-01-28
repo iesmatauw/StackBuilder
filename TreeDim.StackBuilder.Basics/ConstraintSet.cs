@@ -17,11 +17,16 @@ namespace TreeDim.StackBuilder.Basics
         private bool _useMaximumHeight;
         private bool _useMaximumNumberOfItems;
         private bool _useMaximumWeightOnBox;
+        private bool[] _allowedOrthoAxis = new bool[6];
+        private bool _allowAlternateLayer = true;
+        private bool _forceAlternateLayer = false;
+        System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
         #endregion
 
         #region Constructor
         public ConstraintSet()
         {
+            for (int i = 0; i < 6; ++i) _allowedOrthoAxis[i] = false;
         }
         #endregion
 
@@ -39,11 +44,17 @@ namespace TreeDim.StackBuilder.Basics
 
         public bool ForceAlternateLayer
         {
-            get { return false; }
+            set {
+                _forceAlternateLayer = value;
+                if (_forceAlternateLayer)
+                    _allowAlternateLayer = true;
+            }
+            get { return _forceAlternateLayer; }
         }
         public bool AllowAlternateLayer
         {
-            get { return true; }
+            set { _allowAlternateLayer = value;  }
+            get { return _allowAlternateLayer; }
         }
         public bool UseMaximumNumberOfItems
         {
@@ -104,9 +115,13 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public methods
+        public void SetAllowedPattern(string patternName)
+        {
+            _allowedPatterns.Add(patternName);
+        }
         public bool AllowPattern(string patternName)
         {
-            return true;
+            return _allowedPatterns.Contains(patternName);
         }
         public bool AllowNewLayer(int iNoLayer)
         {
@@ -118,7 +133,11 @@ namespace TreeDim.StackBuilder.Basics
         }
         public bool AllowOrthoAxis(HalfAxis orthoAxis)
         {
-            return true;
+            return _allowedOrthoAxis[(int)orthoAxis];
+        }
+        public void SetAllowedOrthoAxis(HalfAxis axis, bool allowed)
+        {
+            _allowedOrthoAxis[(int)axis] = allowed;
         }
         #endregion
 

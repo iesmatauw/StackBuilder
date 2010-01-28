@@ -143,7 +143,7 @@ namespace TreeDim.StackBuilder.Basics
         public int CompareTo(object obj)
         {
             Solution sol = (Solution)obj;
-            if (this.Count < sol.Count)
+            if (this.Count > sol.Count)
                 return -1;
             else if (this.Count == sol.Count)
                 return 0;

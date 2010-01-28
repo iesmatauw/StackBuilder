@@ -17,10 +17,12 @@ namespace TreeDim.StackBuilder.Engine
             get { return "Interlocked"; }
         }
 
-        public override void GetLayerDimensions(Layer layer, double palletLength, double palletWidth, out double actualLength, out double actualWidth)
+        public override void GetLayerDimensions(Layer layer, out double actualLength, out double actualWidth)
         {
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
 
             int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
@@ -30,12 +32,14 @@ namespace TreeDim.StackBuilder.Engine
             actualWidth = Math.Max(maxSizeYLength * boxWidth, maxSizeYWidth * boxLength);
         }
 
-        public override void GenerateLayer(Layer layer, double palletLength, double palletWidth, double actualLength, double actualWidth)
+        public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
             layer.Clear();
 
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
+            double palletLength = GetPalletLength(layer);
+            double palletWidth = GetPalletWidth(layer);
 
             int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
             GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
@@ -51,16 +55,18 @@ namespace TreeDim.StackBuilder.Engine
             for (int i=0; i<maxSizeXLength; ++i)
                 for (int j = 0; j < maxSizeYLength; ++j)
                 {
-                    layer.AddPosition(
-                        new Vector2D(
+                    AddPosition(
+                        layer
+                        , new Vector2D(
                             offsetX + i * (boxLength + spaceX)
                             , offsetY + j * (boxWidth + spaceYLength))
                         , HalfAxis.AXIS_X_P, HalfAxis.AXIS_Y_P);
                 }
             for (int i = 0; i < maxSizeXWidth; ++i)
                 for (int j = 0; j < maxSizeYWidth; ++j)
-                    layer.AddPosition(
-                        new Vector2D(
+                    AddPosition(
+                        layer
+                        , new Vector2D(
                             offsetX + maxSizeXLength * (boxLength + spaceX) + i * (boxWidth + spaceX) + boxWidth
                             , offsetY + j * (boxLength + spaceYWidth))
                         , HalfAxis.AXIS_Y_P, HalfAxis.AXIS_X_N);
@@ -81,6 +87,14 @@ namespace TreeDim.StackBuilder.Engine
             maxSizeYLength = (int)Math.Floor(palletWidth / boxWidth);
             // for turned boxes
             maxSizeYWidth = (int)Math.Floor(palletWidth / boxLength);
+        }
+        public override int GetNumberOfVariants(Layer layer)
+        {
+            return 2;
+        }
+        public override bool CanBeSwaped
+        {
+            get { return true; }
         }
         #endregion
     }

@@ -37,13 +37,16 @@ namespace TreeDim.StackBuilder.Engine
         private HalfAxis _axisOrtho = HalfAxis.AXIS_Z_P;
         private HalfAxis _lengthAxis = HalfAxis.AXIS_X_P, _widthAxis = HalfAxis.AXIS_Y_P;
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight;
+        private double _palletLength = 0.0, _palletWidth = 0.0;
         private Vector3D _vecTransf = Vector3D.Zero; 
         #endregion
 
         #region Constructor
-        public Layer(BoxProperties boxProperties, HalfAxis axisOrtho)
+        public Layer(BoxProperties boxProperties, PalletProperties palletProperties, HalfAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
+            _palletLength = palletProperties.Length;
+            _palletWidth = palletProperties.Width;
             Initialize(boxProperties);
         }
         #endregion
@@ -160,6 +163,14 @@ namespace TreeDim.StackBuilder.Engine
         public HalfAxis AxisOrtho
         {
             get { return _axisOrtho; }
+        }
+        public double PalletLength
+        {
+            get { return _palletLength; }
+        }
+        public double PalletWidth
+        {
+            get { return _palletWidth; }
         }
         #endregion
     }

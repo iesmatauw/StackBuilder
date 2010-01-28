@@ -17,16 +17,25 @@ namespace TreeDim.StackBuilder.Engine
             get { return "Spirale"; }
         }
 
-        public override void GetLayerDimensions(Layer layer, double palletLength, double palletWidth, out double actualLength, out double actualWidth)
+        public override void GetLayerDimensions(Layer layer, out double actualLength, out double actualWidth)
         {
             actualLength = 0.0;
             actualWidth = 0.0;
         }
 
-        public override void GenerateLayer(Layer layer, double palletLength, double palletWidth, double actualLength, double actualWidth)
+        public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
+        }
+
+        public override int GetNumberOfVariants(Layer layer)
+        {
+            return 1;
+        }
+        public override bool CanBeSwaped
+        {
+            get { return true; }
         }
         #endregion
     }

@@ -42,6 +42,24 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysis.Designer.cs">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBox.Designer.cs">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPallet.Designer.cs">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </Compile>
     <Compile Include="StackBuilder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +71,18 @@
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +96,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -76,6 +107,42 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pallet.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Analysis.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View90.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View180.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View270.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_Top.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

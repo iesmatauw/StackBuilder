@@ -15,10 +15,12 @@ namespace TreeDim.StackBuilder.Basics
     public class BoxProperties
     {
         #region Data members
+        private string _name, _description;
         private double _length, _width, _height;
         private double _weight;
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis, Texture>> _textures = new List<Pair<HalfAxis, Texture>>();
+        private List<Analysis> _dependingAnalyses = new List<Analysis>();
         #endregion
 
         #region Constructor
@@ -34,6 +36,16 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
         public double Length
         {
             get { return _length; }
@@ -57,6 +69,7 @@ namespace TreeDim.StackBuilder.Basics
         public Color[] Colors
         {
             get { return _colors; }
+            set { _colors = value; }
         }
         #endregion
 
@@ -90,6 +103,10 @@ namespace TreeDim.StackBuilder.Basics
                 default:
                     return 0.0;
             }
+        }
+        public void AddDependingAnalysis(Analysis analysis)
+        {
+            _dependingAnalyses.Add(analysis);
         }
         #endregion
 

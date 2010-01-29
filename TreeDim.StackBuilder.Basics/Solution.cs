@@ -162,7 +162,6 @@ namespace TreeDim.StackBuilder.Basics
                 sb.AppendLine(string.Format("{0} : {1}", index++, boxPosition.ToString()));
             return sb.ToString();
         }
-
         #endregion
     }
     #endregion

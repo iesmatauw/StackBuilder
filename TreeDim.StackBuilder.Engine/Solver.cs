@@ -26,7 +26,18 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public methods
-        public List<Solution> GenerateSolutions()
+        public void ProcessAnalysis(Analysis analysis)
+        {
+            _boxProperties = analysis.BoxProperties;
+            _palletProperties = analysis.PalletProperties;
+            _constraintSet = analysis.ConstraintSet;
+
+            analysis.Solutions = GenerateSolutions();
+        }
+        #endregion
+
+        #region Private methods
+        private List<Solution> GenerateSolutions()
         {
             List<Solution> solutions = new List<Solution>();
 
@@ -144,8 +155,15 @@ namespace TreeDim.StackBuilder.Engine
 
             return solutions;
         }
-        #endregion
 
+        private void LoadPatterns()
+        {
+            _patterns.Add(new LayerPatternColumn());
+            _patterns.Add(new LayerPatternInterlocked());
+            _patterns.Add(new LayerPatternSpirale());
+            _patterns.Add(new LayerPatternEnlargedSpirale());
+        }
+        #endregion
         #region Public properties
         public BoxProperties Box
         {
@@ -164,74 +182,6 @@ namespace TreeDim.StackBuilder.Engine
         }
         #endregion
 
-        #region Private methods
-        private void LoadPatterns()
-        {
-            _patterns.Add(new LayerPatternColumn());
-            _patterns.Add(new LayerPatternInterlocked());
-            _patterns.Add(new LayerPatternSpirale());
-            _patterns.Add(new LayerPatternEnlargedSpirale());
-        }
-
-        protected void ComputeBoxDimensions(
-            BoxProperties boxProperties, HalfAxis axisOrtho
-            , out double boxLength, out double boxWidth
-            , out Vector3D lengthAxis, out Vector3D widthAxis
-            , out Transform3D transf)
-        {
-            switch (axisOrtho)
-            {
-                case HalfAxis.AXIS_X_N:
-                    boxLength = boxProperties.Width;
-                    boxWidth = boxProperties.Height;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Z_N);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
-                    transf = Transform3D.Translation(new Vector3D(boxProperties.Width, 0.0, boxProperties.Length));
-                    break;
-                case HalfAxis.AXIS_X_P:
-                    boxLength = boxProperties.Height;
-                    boxWidth = boxProperties.Width;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Z_P);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                    transf = Transform3D.Translation(new Vector3D(boxProperties.Height, 0.0, 0.0));
-                    break;
-                case HalfAxis.AXIS_Y_N:
-                    boxLength = boxProperties.Length;
-                    boxWidth = boxProperties.Height;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_X_P);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Z_N);
-                    transf = Transform3D.Translation(new Vector3D(0.0, 0.0, boxProperties.Width));
-                    break;
-                case HalfAxis.AXIS_Y_P:
-                    boxLength = boxProperties.Height;
-                    boxWidth = boxProperties.Length;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Z_P);
-                    transf = Transform3D.Translation(Vector3D.Zero);
-                    break;
-                case HalfAxis.AXIS_Z_N:
-                    boxLength = boxProperties.Width;
-                    boxWidth = boxProperties.Length;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_X_P);
-                    transf = Transform3D.Translation(new Vector3D(0.0,0.0,boxProperties.Height));
-                    break;
-                case HalfAxis.AXIS_Z_P:
-                    boxLength = boxProperties.Length;
-                    boxWidth = boxProperties.Width;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_X_P);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                    transf = Transform3D.Translation(Vector3D.Zero);
-                    break;
-                default:
-                    boxLength = boxProperties.Length;
-                    boxWidth = boxProperties.Width;
-                    lengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_X_P);
-                    widthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                    transf = Transform3D.Translation(Vector3D.Zero);
-                    break;
-            }
-        }
-        #endregion
+ 
     }
 }

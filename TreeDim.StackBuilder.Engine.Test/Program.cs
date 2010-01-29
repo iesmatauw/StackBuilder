@@ -39,10 +39,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties();
-                palletProperties.Length = 1200;
-                palletProperties.Width = 1000;
-                palletProperties.Height = 50;
+                PalletProperties palletProperties = new PalletProperties(1200, 1000, 50);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
@@ -69,16 +66,16 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine("=== Constraint set ===");
                 Console.WriteLine(constraintSet.ToString());
 
+                // initialize analysis
+                Analysis analysis = new Analysis(boxProperties, palletProperties, constraintSet);
+
                 // initialize solver
                 Solver solver = new Solver();
-                solver.Box = boxProperties;
-                solver.Pallet = palletProperties;
-                solver.ConstraintSet = constraintSet;
-                List<Solution> solutions = solver.GenerateSolutions();
+                solver.ProcessAnalysis(analysis);
 
                 Console.WriteLine("=== Solutions ===");
                 int solIndex = 0;
-                foreach (Solution sol in solutions)
+                foreach (Solution sol in analysis.Solutions)
                 {
                     // instantiate graphics
                     Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));

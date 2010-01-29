@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Engine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Basics", "TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj", "{444C01D0-53FD-49A1-9D55-267B49161357}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficePickers", "OfficePickers\OfficePickers.csproj", "{CAD56B75-481B-4C76-B090-4BC2FF5E5681}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test projects", "Test projects", "{36E4D3C5-28FD-46B9-8763-C3316F67C6BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,8 +55,17 @@ Global
 		{444C01D0-53FD-49A1-9D55-267B49161357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444C01D0-53FD-49A1-9D55-267B49161357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444C01D0-53FD-49A1-9D55-267B49161357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD56B75-481B-4C76-B090-4BC2FF5E5681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD56B75-481B-4C76-B090-4BC2FF5E5681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD56B75-481B-4C76-B090-4BC2FF5E5681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD56B75-481B-4C76-B090-4BC2FF5E5681}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAD56B75-481B-4C76-B090-4BC2FF5E5681} = {C6DE47A1-1707-4139-9638-37CA983F3086}
+		{B6A88209-B71C-4045-BF3D-371BC9D21784} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 EndGlobal

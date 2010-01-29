@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="TreeDim.StackBuilder.Basics.Analysis">
+    <Position X="6" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Analysis.cs</FileName>
+      <HashCode>AAAAABAAAgAAAAEEgAAAAAABAAAAAAAAAAAAAAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.BoxProperties">
+    <Position X="2.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>BoxProperties.cs</FileName>
+      <HashCode>AAABIAAABQCgEAAEAAAAAERAADAAQAAABA0AgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.PalletProperties">
+    <Position X="5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>PalletProperties.cs</FileName>
+      <HashCode>AAAAIAAABACAEAAEAAAAAERAABAAAAAABAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.ConstraintSet">
+    <Position X="7.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>ConstraintSet.cs</FileName>
+      <HashCode>ABEOAAAAQgMACYhEAAwAAACAIACAAAIAAAAAAIIAUAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.Convert">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Solution.cs</FileName>
+      <HashCode>AAAAAAAAAAUAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.BoxPosition">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Solution.cs</FileName>
+      <HashCode>EAAAAACAAAAAAAAkAAAIAAAAAAAgAAAAAAAAAAAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.Solution" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Solution.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAEQEAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Enum Name="TreeDim.StackBuilder.Basics.HalfAxis">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Solution.cs</FileName>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

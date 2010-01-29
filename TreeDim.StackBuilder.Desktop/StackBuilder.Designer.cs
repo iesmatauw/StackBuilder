@@ -71,6 +71,8 @@
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
+            this.gridSolutions = new SourceGrid.Grid();
             this.menuStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +81,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -192,34 +195,34 @@
             this.toolStripMenuItem4,
             this.toolStripMenuItem5});
             this.cornerToolStripMenuItem.Name = "cornerToolStripMenuItem";
-            this.cornerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cornerToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.cornerToolStripMenuItem.Text = "&Corner";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(97, 22);
             this.toolStripMenuItem2.Text = "0°";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.onViewCorner_0);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(97, 22);
             this.toolStripMenuItem3.Text = "90°";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.onViewCorner_90);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(97, 22);
             this.toolStripMenuItem4.Text = "180°";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.onViewCorner_180);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(97, 22);
             this.toolStripMenuItem5.Text = "270°";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.onViewCorner_270);
             // 
@@ -231,34 +234,34 @@
             this.backSideToolStripMenuItem,
             this.frontToolStripMenuItem});
             this.sideToolStripMenuItem.Name = "sideToolStripMenuItem";
-            this.sideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sideToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.sideToolStripMenuItem.Text = "&Side";
             // 
             // sideToolStripMenuItem1
             // 
             this.sideToolStripMenuItem1.Name = "sideToolStripMenuItem1";
-            this.sideToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sideToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.sideToolStripMenuItem1.Text = "Side";
-            this.sideToolStripMenuItem1.Click += new System.EventHandler(this.onViewSideSide);
+            this.sideToolStripMenuItem1.Click += new System.EventHandler(this.onViewSideRight);
             // 
             // rearToolStripMenuItem
             // 
             this.rearToolStripMenuItem.Name = "rearToolStripMenuItem";
-            this.rearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rearToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.rearToolStripMenuItem.Text = "Rear";
-            this.rearToolStripMenuItem.Click += new System.EventHandler(this.onViewSideRearSide);
+            this.rearToolStripMenuItem.Click += new System.EventHandler(this.onViewSideLeft);
             // 
             // backSideToolStripMenuItem
             // 
             this.backSideToolStripMenuItem.Name = "backSideToolStripMenuItem";
-            this.backSideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.backSideToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.backSideToolStripMenuItem.Text = "Back side";
-            this.backSideToolStripMenuItem.Click += new System.EventHandler(this.onViewSideBackSide);
+            this.backSideToolStripMenuItem.Click += new System.EventHandler(this.onViewSideRear);
             // 
             // frontToolStripMenuItem
             // 
             this.frontToolStripMenuItem.Name = "frontToolStripMenuItem";
-            this.frontToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.frontToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.frontToolStripMenuItem.Text = "Front";
             this.frontToolStripMenuItem.Click += new System.EventHandler(this.onViewSideFront);
             // 
@@ -343,7 +346,9 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.pictureBoxSolution);
             this.splitContainer2.Panel1.Controls.Add(this.toolStrip2);
+            this.splitContainer2.Panel2.Controls.Add(this.gridSolutions);
             this.splitContainer2.Size = new System.Drawing.Size(547, 558);
             this.splitContainer2.SplitterDistance = 362;
             this.splitContainer2.TabIndex = 0;
@@ -454,6 +459,24 @@
             this.toolStripButton9.Text = "toolStripButtonTop";
             this.toolStripButton9.Click += new System.EventHandler(this.onViewTop);
             // 
+            // pictureBoxSolution
+            // 
+            this.pictureBoxSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxSolution.Location = new System.Drawing.Point(0, 25);
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.Size = new System.Drawing.Size(547, 337);
+            this.pictureBoxSolution.TabIndex = 1;
+            this.pictureBoxSolution.TabStop = false;
+            //
+            // gridSolutions
+            //
+            this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridSolutions.Location = new System.Drawing.Point();
+            this.gridSolutions.Name = "gridSolutions";
+            this.gridSolutions.Size = new System.Drawing.Size(547, 200);
+            this.gridSolutions.TabIndex = 1;
+            this.gridSolutions.TabStop = false;
+            // 
             // StackBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,6 +500,7 @@
             this.splitContainer2.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,6 +551,9 @@
         private System.Windows.Forms.ToolStripMenuItem rearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backSideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frontToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBoxSolution;
+        private SourceGrid.Grid gridSolutions;
+
     }
 }
 

@@ -40,5 +40,12 @@ namespace TreeDim.StackBuilder.Graphics
             _bitmap.Save(filename, format);
         }
         #endregion
+
+        #region Public properties
+        public Bitmap Bitmap
+        {
+            get { return _bitmap; }
+        }
+        #endregion
     }
 }

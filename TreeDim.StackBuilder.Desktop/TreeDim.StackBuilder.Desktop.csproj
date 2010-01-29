@@ -28,6 +28,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SourceGrid, Version=4.21.3680.42354, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SourceGrid\bin\Release\SourceGrid.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -42,6 +46,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document.cs" />
     <Compile Include="FormNewAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +148,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\View_Top.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
+      <Project>{CAD56B75-481B-4C76-B090-4BC2FF5E5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
+      <Name>Sharp3D.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
+      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Name>TreeDim.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
+      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
+      <Name>TreeDim.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj">
+      <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
+      <Name>TreeDim.StackBuilder.Graphics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

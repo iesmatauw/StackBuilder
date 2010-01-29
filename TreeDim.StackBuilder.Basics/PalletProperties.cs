@@ -9,6 +9,16 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         string _name;
         double _length, _width, _height;
+        private List<Analysis> _dependingAnalyses = new List<Analysis>();
+        #endregion
+
+        #region Constructor
+        public PalletProperties(double length, double width, double height)
+        {
+            _length = length;
+            _width = width;
+            _height = height;
+        }
         #endregion
 
         #region Public properties
@@ -31,6 +41,13 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _height; }
             set { _height = value; }
+        }
+        #endregion
+
+        #region Public methods
+        public void AddDependingAnalysis(Analysis analysis)
+        {
+            _dependingAnalyses.Add(analysis);
         }
         #endregion
 

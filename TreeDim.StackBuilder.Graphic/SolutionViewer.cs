@@ -17,12 +17,14 @@ namespace TreeDim.StackBuilder.Graphics
     {
         #region Data members
         private Solution _solution;
-        private BoxProperties _boxProperties;
+        private Analysis _analysis;
         #endregion
 
         #region Constructor
-        public SolutionViewer()
+        public SolutionViewer(Analysis analysis, Solution solution)
         {
+            _analysis = analysis;
+            _solution = solution;
         }
         #endregion
 
@@ -35,7 +37,7 @@ namespace TreeDim.StackBuilder.Graphics
             uint pickId = 0;
             foreach (BoxPosition bPosition in _solution)
             {
-                Box box = new Box(pickId++, _boxProperties);
+                Box box = new Box(pickId++, _analysis.BoxProperties);
                 // set position
                 box.Position = bPosition.Position;
                 // set direction length
@@ -81,11 +83,6 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _solution; }
             set { _solution = value; }
-        }
-        public BoxProperties Box
-        {
-            get { return _boxProperties; }
-            set { _boxProperties = value; }
         }
         #endregion
     }

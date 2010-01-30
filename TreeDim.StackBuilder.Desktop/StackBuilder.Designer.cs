@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StackBuilder));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPalletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,12 +58,18 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.analysisTreeView = new TreeDim.StackBuilder.Desktop.AnalysisTreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonNewFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFileSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFileSaveAll = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAddNewBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAddNewPallet = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -71,7 +81,6 @@
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.gridSolutions = new SourceGrid.Grid();
             this.menuStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -79,9 +88,10 @@
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,8 +112,10 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
             this.toolStripSeparator2,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.saveAllToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -111,26 +123,44 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.ToolTipText = "Create new file";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.onFileNew);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.ToolTipText = "Open file";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.onFileOpen);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.ToolTipText = "Save file";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.onFileSave);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(112, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.onFileExit);
+            // 
+            // saveAllToolStripMenuItem
+            // 
+            this.saveAllToolStripMenuItem.Name = "saveAllToolStripMenuItem";
+            this.saveAllToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.saveAllToolStripMenuItem.Text = "Save &All";
             // 
             // toolStripMenuItemTools
             // 
@@ -277,7 +307,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.analysisTreeView);
             this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1.Panel2
@@ -287,17 +317,25 @@
             this.splitContainer1.SplitterDistance = 275;
             this.splitContainer1.TabIndex = 1;
             // 
-            // treeView1
+            // analysisTreeView
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 25);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(275, 533);
-            this.treeView1.TabIndex = 1;
+            this.analysisTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.analysisTreeView.ImageIndex = 0;
+            this.analysisTreeView.Location = new System.Drawing.Point(0, 25);
+            this.analysisTreeView.Name = "analysisTreeView";
+            this.analysisTreeView.SelectedImageIndex = 0;
+            this.analysisTreeView.Size = new System.Drawing.Size(275, 533);
+            this.analysisTreeView.TabIndex = 1;
+            this.analysisTreeView.Click += new System.EventHandler(this.onFileSaveAll);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonNewFile,
+            this.toolStripButtonFileOpen,
+            this.toolStripButtonFileSave,
+            this.toolStripButtonFileSaveAll,
+            this.toolStripSeparator3,
             this.toolStripButtonAddNewBox,
             this.toolStripButtonAddNewPallet,
             this.toolStripButtonCreateNewAnalysis});
@@ -306,6 +344,53 @@
             this.toolStrip1.Size = new System.Drawing.Size(275, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonNewFile
+            // 
+            this.toolStripButtonNewFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonNewFile.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileNew;
+            this.toolStripButtonNewFile.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonNewFile.Name = "toolStripButtonNewFile";
+            this.toolStripButtonNewFile.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonNewFile.Text = "&New file";
+            this.toolStripButtonNewFile.ToolTipText = "Create new file";
+            this.toolStripButtonNewFile.Click += new System.EventHandler(this.onFileNew);
+            // 
+            // toolStripButtonFileOpen
+            // 
+            this.toolStripButtonFileOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFileOpen.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileOpen;
+            this.toolStripButtonFileOpen.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonFileOpen.Name = "toolStripButtonFileOpen";
+            this.toolStripButtonFileOpen.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFileOpen.Text = "&Open file";
+            this.toolStripButtonFileOpen.ToolTipText = "Open file";
+            this.toolStripButtonFileOpen.Click += new System.EventHandler(this.onFileOpen);
+            // 
+            // toolStripButtonFileSave
+            // 
+            this.toolStripButtonFileSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFileSave.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileSave;
+            this.toolStripButtonFileSave.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonFileSave.Name = "toolStripButtonFileSave";
+            this.toolStripButtonFileSave.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFileSave.Text = "&Save file";
+            this.toolStripButtonFileSave.Click += new System.EventHandler(this.onFileSave);
+            // 
+            // toolStripButtonFileSaveAll
+            // 
+            this.toolStripButtonFileSaveAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFileSaveAll.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileSaveAll;
+            this.toolStripButtonFileSaveAll.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonFileSaveAll.Name = "toolStripButtonFileSaveAll";
+            this.toolStripButtonFileSaveAll.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFileSaveAll.Text = "Sale &All files";
+            this.toolStripButtonFileSaveAll.Click += new System.EventHandler(this.onFileSaveAll);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButtonAddNewBox
             // 
@@ -348,10 +433,22 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.pictureBoxSolution);
             this.splitContainer2.Panel1.Controls.Add(this.toolStrip2);
+            // 
+            // splitContainer2.Panel2
+            // 
             this.splitContainer2.Panel2.Controls.Add(this.gridSolutions);
             this.splitContainer2.Size = new System.Drawing.Size(547, 558);
-            this.splitContainer2.SplitterDistance = 362;
+            this.splitContainer2.SplitterDistance = 329;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // pictureBoxSolution
+            // 
+            this.pictureBoxSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxSolution.Location = new System.Drawing.Point(0, 25);
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.Size = new System.Drawing.Size(547, 304);
+            this.pictureBoxSolution.TabIndex = 1;
+            this.pictureBoxSolution.TabStop = false;
             // 
             // toolStrip2
             // 
@@ -459,23 +556,18 @@
             this.toolStripButton9.Text = "toolStripButtonTop";
             this.toolStripButton9.Click += new System.EventHandler(this.onViewTop);
             // 
-            // pictureBoxSolution
-            // 
-            this.pictureBoxSolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxSolution.Location = new System.Drawing.Point(0, 25);
-            this.pictureBoxSolution.Name = "pictureBoxSolution";
-            this.pictureBoxSolution.Size = new System.Drawing.Size(547, 337);
-            this.pictureBoxSolution.TabIndex = 1;
-            this.pictureBoxSolution.TabStop = false;
-            //
             // gridSolutions
-            //
+            // 
             this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSolutions.Location = new System.Drawing.Point();
+            this.gridSolutions.EnableSort = true;
+            this.gridSolutions.Location = new System.Drawing.Point(0, 0);
             this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.Size = new System.Drawing.Size(547, 200);
+            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridSolutions.Size = new System.Drawing.Size(547, 225);
             this.gridSolutions.TabIndex = 1;
-            this.gridSolutions.TabStop = false;
+            this.gridSolutions.TabStop = true;
+            this.gridSolutions.ToolTipText = "";
             // 
             // StackBuilder
             // 
@@ -484,6 +576,7 @@
             this.ClientSize = new System.Drawing.Size(826, 582);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StackBuilder";
             this.Text = "StackBuilder";
@@ -497,10 +590,11 @@
             this.toolStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,7 +619,7 @@
         private System.Windows.Forms.ToolStripMenuItem newBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPalletToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newAnalysisToolStripMenuItem;
-        private System.Windows.Forms.TreeView treeView1;
+        private TreeDim.StackBuilder.Desktop.AnalysisTreeView analysisTreeView;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -553,6 +647,13 @@
         private System.Windows.Forms.ToolStripMenuItem frontToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBoxSolution;
         private SourceGrid.Grid gridSolutions;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNewFile;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFileOpen;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFileSave;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFileSaveAll;
+        private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem;
 
     }
 }

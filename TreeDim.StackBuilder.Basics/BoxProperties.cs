@@ -104,9 +104,20 @@ namespace TreeDim.StackBuilder.Basics
                     return 0.0;
             }
         }
+        #endregion
+
+        #region Depending analyses
         public void AddDependingAnalysis(Analysis analysis)
         {
             _dependingAnalyses.Add(analysis);
+        }
+        public bool HasDependingAnalyses
+        {
+            get { return _dependingAnalyses.Count > 0; }
+        }
+        public void RemoveDependingAnalysis(Analysis analysis)
+        {
+            _dependingAnalyses.Remove(analysis);
         }
         #endregion
 

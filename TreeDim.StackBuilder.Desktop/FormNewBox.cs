@@ -38,6 +38,44 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        #region Public properties
+        public string BoxName
+        {
+            get { return tbName.Text; }
+        }
+        public string Description
+        {
+            get { return tbDescription.Text; }
+        }
+        public double BoxLength
+        {
+            get { return (double)nudLength.Value; }
+            set { nudLength.Value = (decimal)value; }
+        }
+        public double BoxWidth
+        {
+            get { return (double)nudWidth.Value; }
+            set { nudWidth.Value = (decimal)value; }
+        }
+        public double BoxHeight
+        {
+            get { return (double)nudHeight.Value; }
+            set { nudHeight.Value = (decimal)value; }
+        }
+        public double Weight
+        {
+            get { return (double)nudWeight.Value; }
+        }
+        public double WeightOnTop
+        {
+            get { return (double)nudWeightOnTop.Value; }
+        }
+        public Color[] Colors
+        {
+            get { return _faceColors; }
+        }
+        #endregion
+
         #region Handlers
         private void FormNewBox_Load(object sender, EventArgs e)
         {

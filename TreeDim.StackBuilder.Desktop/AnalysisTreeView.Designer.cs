@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TreeDim.StackBuilder.Desktop.Properties {
+namespace TreeDim.StackBuilder.Desktop {
     using System;
     
     
@@ -22,15 +22,11 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "2.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    partial class AnalysisTreeView {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
-        }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
@@ -39,7 +35,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TreeDim.StackBuilder.Desktop.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TreeDim.StackBuilder.Desktop.AnalysisTreeView", typeof(AnalysisTreeView).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -74,30 +70,23 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap FileNew {
+        internal static System.Drawing.Bitmap CLSDFOLD {
             get {
-                object obj = ResourceManager.GetObject("FileNew", resourceCulture);
+                object obj = ResourceManager.GetObject("CLSDFOLD", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap FileOpen {
+        internal static System.Drawing.Bitmap DOC {
             get {
-                object obj = ResourceManager.GetObject("FileOpen", resourceCulture);
+                object obj = ResourceManager.GetObject("DOC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap FileSave {
+        internal static System.Drawing.Bitmap OPENFOLD {
             get {
-                object obj = ResourceManager.GetObject("FileSave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap FileSaveAll {
-            get {
-                object obj = ResourceManager.GetObject("FileSaveAll", resourceCulture);
+                object obj = ResourceManager.GetObject("OPENFOLD", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,69 +94,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static System.Drawing.Bitmap Pallet {
             get {
                 object obj = ResourceManager.GetObject("Pallet", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View_1 {
-            get {
-                object obj = ResourceManager.GetObject("View_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View_2 {
-            get {
-                object obj = ResourceManager.GetObject("View_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View_3 {
-            get {
-                object obj = ResourceManager.GetObject("View_3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View_4 {
-            get {
-                object obj = ResourceManager.GetObject("View_4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View_Top {
-            get {
-                object obj = ResourceManager.GetObject("View_Top", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View0 {
-            get {
-                object obj = ResourceManager.GetObject("View0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View180 {
-            get {
-                object obj = ResourceManager.GetObject("View180", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View270 {
-            get {
-                object obj = ResourceManager.GetObject("View270", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap View90 {
-            get {
-                object obj = ResourceManager.GetObject("View90", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -39,7 +39,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(1200, 1000, 50);
+                PalletProperties palletProperties = new PalletProperties(PalletProperties.PalletType.BLOCK, 1200, 1000, 50);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
@@ -84,9 +84,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                     graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                     // instantiate solution viewer
-                    SolutionViewer sv = new SolutionViewer();
-                    sv.Box = boxProperties;
-                    sv.Solution = sol;
+                    SolutionViewer sv = new SolutionViewer(analysis, sol);
                     sv.Draw(graphics);
                     // save
                     string fileName = string.Format("Pallet_{0}.bmp", solIndex++);

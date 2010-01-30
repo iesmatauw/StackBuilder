@@ -164,6 +164,7 @@ namespace TreeDim.StackBuilder.Engine
             _patterns.Add(new LayerPatternEnlargedSpirale());
         }
         #endregion
+
         #region Public properties
         public BoxProperties Box
         {
@@ -181,7 +182,5 @@ namespace TreeDim.StackBuilder.Engine
             set { _constraintSet = value; }
         }
         #endregion
-
- 
     }
 }

@@ -5,7 +5,7 @@
     <Position X="6" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <FileName>Analysis.cs</FileName>
-      <HashCode>AAAAABAAAgAAAAEEgAAAAAABAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAAAIBAAAgAgAAEEgAAAAAQBAAAAAAAAAAAAAAAAAAE=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.BoxProperties">
@@ -21,6 +21,13 @@
       <FileName>PalletProperties.cs</FileName>
       <HashCode>AAAAIAAABACAEAAEAAAAAERAABAAAAAABAEAAAAAAAA=</HashCode>
     </TypeIdentifier>
+    <NestedTypes>
+      <Enum Name="TreeDim.StackBuilder.Basics.PalletProperties.PalletType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>PalletProperties.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.ConstraintSet">
     <Position X="7.25" Y="0.5" Width="2.25" />

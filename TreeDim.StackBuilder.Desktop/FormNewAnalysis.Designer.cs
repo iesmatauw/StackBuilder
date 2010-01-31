@@ -112,6 +112,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(113, 20);
             this.tbName.TabIndex = 4;
+            this.tbName.Validated += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbDescription
             // 
@@ -119,6 +120,7 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(186, 20);
             this.tbDescription.TabIndex = 5;
+            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // pictureBoxPositionX
             // 

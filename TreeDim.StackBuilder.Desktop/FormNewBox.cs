@@ -35,6 +35,9 @@ namespace TreeDim.StackBuilder.Desktop
 
             // set horizontal angle
             trackBarHorizAngle.Value = 45;
+
+            // disable Ok button
+            UpdateButtonOkStatus();
         }
         #endregion
 
@@ -79,7 +82,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void FormNewBox_Load(object sender, EventArgs e)
         {
-           DrawBox();
+            DrawBox();
         }
         private void onBoxPropertyChanged(object sender, EventArgs e)
         {
@@ -101,6 +104,14 @@ namespace TreeDim.StackBuilder.Desktop
         private void onHorizAngleChanged(object sender, EventArgs e)
         {
             DrawBox();
+        }
+        private void UpdateButtonOkStatus()
+        {
+            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+        }
+        private void onNameDescriptionChanged(object sender, EventArgs e)
+        {
+            UpdateButtonOkStatus();
         }
         #endregion
 
@@ -130,5 +141,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         public Color[] _faceColors = new Color[6];
         #endregion
+
+
     }
 }

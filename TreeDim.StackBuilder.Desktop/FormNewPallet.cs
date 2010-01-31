@@ -48,6 +48,7 @@ namespace TreeDim.StackBuilder.Desktop
                 radioButtonPallet2.Checked = true;
             }
             onPalletInsertionModeChanged(this, null);
+            UpdateButtonOkStatus();
         }
         #endregion
 
@@ -175,9 +176,14 @@ namespace TreeDim.StackBuilder.Desktop
             lbKg1.Enabled = radioButtonPallet2.Checked;
             lbKg2.Enabled = radioButtonPallet2.Checked;
         }
+        private void UpdateButtonOkStatus()
+        {
+            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+        }
+        private void onNameDescriptionChanged(object sender, EventArgs e)
+        {
+            UpdateButtonOkStatus();
+        }
         #endregion
-
-
-
     }
 }

@@ -30,7 +30,9 @@ namespace TreeDim.StackBuilder.Graphics
 
         #region Public methods
         public void Draw(Graphics3D graphics)
-        { 
+        {
+            if (null == _solution)
+                return;
             // initialize Graphics3D object
             // draw pallet
             // draw solution

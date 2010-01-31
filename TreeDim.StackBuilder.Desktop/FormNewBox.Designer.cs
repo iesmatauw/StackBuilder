@@ -234,6 +234,7 @@
             this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 20);
             this.cbColor.Name = "cbColor";
@@ -356,6 +357,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(143, 20);
             this.tbName.TabIndex = 23;
+            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbDescription
             // 
@@ -363,6 +365,7 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(266, 20);
             this.tbDescription.TabIndex = 24;
+            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // FormNewBox
             // 

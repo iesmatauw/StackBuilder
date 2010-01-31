@@ -78,6 +78,8 @@ namespace TreeDim.StackBuilder.Desktop
                 cbPallet.Items.Add(new PalletItem(pallet));
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
+
+            UpdateButtonOkStatus();
         }
         #endregion
 
@@ -110,6 +112,15 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-
+        #region Handlers
+        private void UpdateButtonOkStatus()
+        {
+            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+        }
+        private void onNameDescriptionChanged(object sender, EventArgs e)
+        {
+            UpdateButtonOkStatus();
+        }
+        #endregion
     }
 }

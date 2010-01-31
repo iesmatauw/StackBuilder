@@ -151,6 +151,7 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(329, 20);
             this.tbDescription.TabIndex = 7;
+            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbName
             // 
@@ -158,6 +159,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(146, 20);
             this.tbName.TabIndex = 8;
+            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // lbLength
             // 
@@ -401,6 +403,7 @@
             this.cbColor.IntegralHeight = false;
             this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(378, 453);
             this.cbColor.Name = "cbColor";

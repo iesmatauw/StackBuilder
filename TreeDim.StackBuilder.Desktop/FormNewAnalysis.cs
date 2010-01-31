@@ -64,7 +64,10 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewAnalysis()
         {
             InitializeComponent();
+        }
 
+        private void onFormLoad(object sender, EventArgs e)
+        {
             // fill boxes combo
             foreach (BoxProperties box in _boxes)
                 cbBox.Items.Add(new BoxItem(box));
@@ -106,5 +109,7 @@ namespace TreeDim.StackBuilder.Desktop
             get { return _palletProperties[cbPallet.SelectedIndex]; }
         }
         #endregion
+
+
     }
 }

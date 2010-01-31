@@ -102,6 +102,13 @@ namespace TreeDim.StackBuilder.Desktop
                     return Path.GetFileNameWithoutExtension(_filePath);
             }
         }
+        public List<BoxProperties> Boxes { get { return _boxList; } }
+        public List<PalletProperties> Pallets { get { return _palletList; } }
+
+        public bool CanCreateAnalysis
+        {
+            get { return _boxList.Count > 0 && _palletList.Count > 0; }
+        }
         #endregion
 
         #region Save / load methods

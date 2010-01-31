@@ -42,8 +42,10 @@ namespace TreeDim.StackBuilder.Desktop
         public StackBuilder()
         {
             InitializeComponent();
-
+            // connect event handlers
             analysisTreeView.AnalysisSelected += new AnalysisTreeView.AnalysisSelectHandler(onAnalysisSelected);
+            // update tools menu/toolbar state
+            UpdateToolbarState();
         }
         #endregion
 
@@ -61,23 +63,28 @@ namespace TreeDim.StackBuilder.Desktop
             FormNewBox form = new FormNewBox();
             if (DialogResult.OK == form.ShowDialog())
                 _currentDocument.CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
+            UpdateToolbarState();
         }
 
         private void onToolsNewPallet(object sender, EventArgs e)
         {
             FormNewPallet form = new FormNewPallet();
             if (DialogResult.OK == form.ShowDialog())
-            {
                 _currentDocument.CreateNewPallet(form.PalletName, form.Description, form.PalletType
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
                     , form.Weight
                     , form.AdmissibleLoadWeight, form.AdmissibleLoadHeight);
-            }
+            UpdateToolbarState();
         }
 
         private void onToolsNewAnalysis(object sender, EventArgs e)
         {
+            if (null == CurrentDocument || !CurrentDocument.CanCreateAnalysis)
+                return;
+
             FormNewAnalysis form = new FormNewAnalysis();
+            form.Boxes = CurrentDocument.Boxes.ToArray();
+            form.Pallets = CurrentDocument.Pallets.ToArray();
             if (DialogResult.OK == form.ShowDialog())
             {
                 ConstraintSet constraintSet = new ConstraintSet();
@@ -122,43 +129,51 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Update tool state
-        void onUpdateToolState(object sender, EventArgs e)
+        #region Update toolbar state
+        void UpdateToolbarState()
         {
-            bool enable = (null != CurrentDocument) && (null == CurrentAnalysis);
+            // new box
+             newBoxToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+             toolStripButtonAddNewBox.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
 
+             newPalletToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+             toolStripButtonAddNewPallet.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
 
+             newAnalysisToolStripMenuItem.Enabled = (null != CurrentDocument) && CurrentDocument.CanCreateAnalysis;
+             toolStripButtonCreateNewAnalysis.Enabled = (null != CurrentDocument) && CurrentDocument.CanCreateAnalysis;
         }
         #endregion
 
         #region Drawing
         private void Draw()
         {
+            // instantiate graphics
+            Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
+            // set camera position 
+            double angleHorizRad = _angleHoriz * Math.PI / 180.0;
+            double angleVertRad = _angleVert * Math.PI / 180.0;
+            graphics.CameraPosition = new Vector3D(
+                _cameraDistance * Math.Cos(angleHorizRad)
+                , _cameraDistance * Math.Sin(angleHorizRad)
+                , _cameraDistance * Math.Cos(angleVertRad));
+            // set camera target
+            graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+            // set light direction
+            graphics.LightDirection = new Vector3D(0.0, 0.0, 1.0);
+            // set viewport (not actually needed)
+            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+
             if (null != _currentAnalysis)
-            { 
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
-                // set camera position 
-                double angleHorizRad = _angleHoriz * Math.PI / 180.0;
-                double angleVertRad = _angleVert * Math.PI / 180.0;
-                graphics.CameraPosition = new Vector3D(
-                    _cameraDistance * Math.Cos(angleHorizRad)
-                    , _cameraDistance * Math.Sin(angleHorizRad)
-                    , _cameraDistance * Math.Cos(angleVertRad) );
-                // set camera target
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                // set light direction
-                graphics.LightDirection = new Vector3D(0.0, 0.0, 1.0);
-                // set viewport (not actually needed)
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                
+            {
                 // instantiate solution viewer
                 SolutionViewer sv = new SolutionViewer(_currentAnalysis, _sol);
                 sv.Draw(graphics);
-
-                // show generated bitmap on picture box control
-                pictureBoxSolution.Image = graphics.Bitmap;
             }
+            else
+                graphics.Flush();
+
+            // show generated bitmap on picture box control
+            pictureBoxSolution.Image = graphics.Bitmap;
         }
         #endregion
 
@@ -182,6 +197,9 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void onAnalysisSelected()
         {
+            UpdateToolbarState();
+
+
             // select first solution
             
 
@@ -189,7 +207,6 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public void onSolutionSelected()
         {
-
             Draw();
         }
         #endregion

@@ -263,7 +263,7 @@
             this.checkBoxMaximumPalletHeight.Text = "when pallet height reaches";
             this.checkBoxMaximumPalletHeight.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // lbStopStacking
             // 
             this.lbStopStacking.AutoSize = true;
             this.lbStopStacking.Location = new System.Drawing.Point(17, 296);
@@ -272,7 +272,7 @@
             this.lbStopStacking.TabIndex = 21;
             this.lbStopStacking.Text = "Stop stacking when :";
             // 
-            // checkBox3
+            // checkBoxMaximumPalletWeight
             // 
             this.checkBoxMaximumPalletWeight.AutoSize = true;
             this.checkBoxMaximumPalletWeight.Location = new System.Drawing.Point(16, 386);
@@ -282,17 +282,17 @@
             this.checkBoxMaximumPalletWeight.Text = "when total pallet weight reaches";
             this.checkBoxMaximumPalletWeight.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBoxMaximumLoadOnBox
             // 
             this.checkBoxMaximumLoadOnBox.AutoSize = true;
             this.checkBoxMaximumLoadOnBox.Location = new System.Drawing.Point(16, 416);
-            this.checkBoxMaximumLoadOnBox.Name = "checkBox4";
+            this.checkBoxMaximumLoadOnBox.Name = "checkBoxMaximumLoadOnBox";
             this.checkBoxMaximumLoadOnBox.Size = new System.Drawing.Size(190, 17);
             this.checkBoxMaximumLoadOnBox.TabIndex = 23;
             this.checkBoxMaximumLoadOnBox.Text = "when load on lower boxes reaches";
             this.checkBoxMaximumLoadOnBox.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbMaximumNumberOfBoxes
             // 
             this.tbMaximumNumberOfBoxes.Location = new System.Drawing.Point(213, 323);
             this.tbMaximumNumberOfBoxes.Name = "tbMaximumNumberOfBoxes";
@@ -384,6 +384,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Create new Analysis...";
+            this.Load += new System.EventHandler(this.onFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).EndInit();

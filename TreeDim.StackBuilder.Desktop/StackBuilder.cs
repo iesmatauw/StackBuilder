@@ -277,7 +277,9 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
             }
+            gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.AutoSizeCells();
+            gridSolutions.Columns.StretchToFit();
 
             // select first solution
             onSolutionSelected();

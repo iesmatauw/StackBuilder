@@ -53,9 +53,9 @@
             this.checkBoxMaximumPalletWeight = new System.Windows.Forms.CheckBox();
             this.checkBoxMaximumLoadOnBox = new System.Windows.Forms.CheckBox();
             this.tbMaximumNumberOfBoxes = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbMaximumPalletHeight = new System.Windows.Forms.TextBox();
+            this.tbMaximumPalletWeight = new System.Windows.Forms.TextBox();
+            this.tbMaximumLoadOnBox = new System.Windows.Forms.TextBox();
             this.lbKg2 = new System.Windows.Forms.Label();
             this.lbKg1 = new System.Windows.Forms.Label();
             this.lbMm = new System.Windows.Forms.Label();
@@ -230,6 +230,9 @@
             // checkedListBoxPatterns
             // 
             this.checkedListBoxPatterns.FormattingEnabled = true;
+            this.checkedListBoxPatterns.Items.AddRange(new object[] {
+            "Column",
+            "Interlocked"});
             this.checkedListBoxPatterns.Location = new System.Drawing.Point(20, 18);
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             this.checkedListBoxPatterns.Size = new System.Drawing.Size(143, 109);
@@ -254,6 +257,7 @@
             this.checkBoxMaximumNumberOfBoxes.TabIndex = 19;
             this.checkBoxMaximumNumberOfBoxes.Text = "number of boxes reaches";
             this.checkBoxMaximumNumberOfBoxes.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumNumberOfBoxes.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // checkBoxMaximumPalletHeight
             // 
@@ -264,6 +268,7 @@
             this.checkBoxMaximumPalletHeight.TabIndex = 20;
             this.checkBoxMaximumPalletHeight.Text = "when pallet height reaches";
             this.checkBoxMaximumPalletHeight.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumPalletHeight.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // lbStopStacking
             // 
@@ -283,6 +288,7 @@
             this.checkBoxMaximumPalletWeight.TabIndex = 22;
             this.checkBoxMaximumPalletWeight.Text = "when total pallet weight reaches";
             this.checkBoxMaximumPalletWeight.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumPalletWeight.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // checkBoxMaximumLoadOnBox
             // 
@@ -293,6 +299,7 @@
             this.checkBoxMaximumLoadOnBox.TabIndex = 23;
             this.checkBoxMaximumLoadOnBox.Text = "when load on lower boxes reaches";
             this.checkBoxMaximumLoadOnBox.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumLoadOnBox.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // tbMaximumNumberOfBoxes
             // 
@@ -301,26 +308,26 @@
             this.tbMaximumNumberOfBoxes.Size = new System.Drawing.Size(55, 20);
             this.tbMaximumNumberOfBoxes.TabIndex = 24;
             // 
-            // textBox2
+            // tbMaximumPalletHeight
             // 
-            this.textBox2.Location = new System.Drawing.Point(213, 353);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(55, 20);
-            this.textBox2.TabIndex = 25;
+            this.tbMaximumPalletHeight.Location = new System.Drawing.Point(213, 353);
+            this.tbMaximumPalletHeight.Name = "tbMaximumPalletHeight";
+            this.tbMaximumPalletHeight.Size = new System.Drawing.Size(55, 20);
+            this.tbMaximumPalletHeight.TabIndex = 25;
             // 
-            // textBox3
+            // tbMaximumPalletWeight
             // 
-            this.textBox3.Location = new System.Drawing.Point(213, 383);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(55, 20);
-            this.textBox3.TabIndex = 26;
+            this.tbMaximumPalletWeight.Location = new System.Drawing.Point(213, 383);
+            this.tbMaximumPalletWeight.Name = "tbMaximumPalletWeight";
+            this.tbMaximumPalletWeight.Size = new System.Drawing.Size(55, 20);
+            this.tbMaximumPalletWeight.TabIndex = 26;
             // 
-            // textBox4
+            // tbMaximumLoadOnBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(213, 413);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(55, 20);
-            this.textBox4.TabIndex = 27;
+            this.tbMaximumLoadOnBox.Location = new System.Drawing.Point(213, 413);
+            this.tbMaximumLoadOnBox.Name = "tbMaximumLoadOnBox";
+            this.tbMaximumLoadOnBox.Size = new System.Drawing.Size(55, 20);
+            this.tbMaximumLoadOnBox.TabIndex = 27;
             // 
             // lbKg2
             // 
@@ -359,9 +366,9 @@
             this.Controls.Add(this.lbMm);
             this.Controls.Add(this.lbKg1);
             this.Controls.Add(this.lbKg2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbMaximumLoadOnBox);
+            this.Controls.Add(this.tbMaximumPalletWeight);
+            this.Controls.Add(this.tbMaximumPalletHeight);
             this.Controls.Add(this.tbMaximumNumberOfBoxes);
             this.Controls.Add(this.checkBoxMaximumLoadOnBox);
             this.Controls.Add(this.checkBoxMaximumPalletWeight);
@@ -425,9 +432,9 @@
         private System.Windows.Forms.CheckBox checkBoxMaximumPalletWeight;
         private System.Windows.Forms.CheckBox checkBoxMaximumLoadOnBox;
         private System.Windows.Forms.TextBox tbMaximumNumberOfBoxes;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbMaximumPalletHeight;
+        private System.Windows.Forms.TextBox tbMaximumPalletWeight;
+        private System.Windows.Forms.TextBox tbMaximumLoadOnBox;
         private System.Windows.Forms.Label lbKg2;
         private System.Windows.Forms.Label lbKg1;
         private System.Windows.Forms.Label lbMm;

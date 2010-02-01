@@ -7,6 +7,7 @@ using System.IO;
 
 using TreeDim.StackBuilder.Graphics;
 using TreeDim.StackBuilder.Basics;
+using TreeDim.StackBuilder.Engine;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -81,6 +82,10 @@ namespace TreeDim.StackBuilder.Desktop
             _analyses.Add(analysis);
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
+
+            // compute
+            Solver solver = new Solver();
+            solver.ProcessAnalysis(analysis);
 
             return analysis;
         }

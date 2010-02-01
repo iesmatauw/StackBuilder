@@ -87,10 +87,35 @@ namespace TreeDim.StackBuilder.Desktop
             form.Pallets = CurrentDocument.Pallets.ToArray();
             if (DialogResult.OK == form.ShowDialog())
             {
+                // build constraint set
                 ConstraintSet constraintSet = new ConstraintSet();
-                _currentDocument.CreateNewAnalysis(form.AnalysisName, form.AnalysisDescription,
+                // allowed axes
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_P, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_N, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_P, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_N, form.AllowVerticalZ);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_P, form.AllowVerticalZ);
+                // allowed patterns
+                foreach (string s in form.AllowedPatterns)
+                    constraintSet.SetAllowedPattern(s);
+                // allow alternate layer
+                constraintSet.AllowAlternateLayer = true;
+                constraintSet.ForceAlternateLayer = false;
+                // stop criterion
+                constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
+                constraintSet.MaximumHeight = form.MaximumPalletHeight;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                
+                Analysis analysis = _currentDocument.CreateNewAnalysis(form.AnalysisName, form.AnalysisDescription,
                     form.SelectedBox, form.SelectedPallet, constraintSet);
-
+                _currentAnalysis = analysis;
+                if (analysis.Solutions.Count > 0)
+                    _sol = analysis.Solutions[0];
                 onAnalysisSelected();
             }
         }
@@ -155,11 +180,11 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.CameraPosition = new Vector3D(
                 _cameraDistance * Math.Cos(angleHorizRad)
                 , _cameraDistance * Math.Sin(angleHorizRad)
-                , _cameraDistance * Math.Cos(angleVertRad));
+                , _cameraDistance * Math.Sin(angleVertRad));
             // set camera target
             graphics.Target = new Vector3D(0.0, 0.0, 0.0);
             // set light direction
-            graphics.LightDirection = new Vector3D(0.0, 0.0, 1.0);
+            graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
             // set viewport (not actually needed)
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
@@ -201,8 +226,6 @@ namespace TreeDim.StackBuilder.Desktop
 
 
             // select first solution
-            
-
             onSolutionSelected();
         }
         public void onSolutionSelected()
@@ -275,6 +298,11 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
+
+        private void onPictureBoxSizeChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
 
 
 

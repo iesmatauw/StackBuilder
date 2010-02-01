@@ -64,6 +64,7 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewAnalysis()
         {
             InitializeComponent();
+
         }
 
         private void onFormLoad(object sender, EventArgs e)
@@ -79,6 +80,26 @@ namespace TreeDim.StackBuilder.Desktop
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
 
+            // allowed position box
+            AllowVerticalX = true;
+            AllowVerticalY = true;
+            AllowVerticalZ = true;
+
+            // stop stacking criterion
+            UseMaximumNumberOfBoxes = false;
+            UseMaximumPalletHeight = true;
+            UseMaximumPalletWeight = true;
+            UseMaximumLoadOnBox = false;
+            MaximumNumberOfBoxes = 500;
+            MaximumPalletHeight = 3000.0;
+            MaximumPalletWeight = 1000.0;
+            MaximumLoadOnBox = 100.0;
+
+            // check all patterns
+            for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                checkedListBoxPatterns.SetItemChecked(i, true);
+
+            UpdateCriterionTextBoxes();
             UpdateButtonOkStatus();
         }
         #endregion
@@ -110,6 +131,75 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return _palletProperties[cbPallet.SelectedIndex]; }
         }
+        public bool UseMaximumNumberOfBoxes
+        {
+            get { return checkBoxMaximumNumberOfBoxes.Checked; }
+            set { checkBoxMaximumNumberOfBoxes.Checked = value; }
+        }
+        public int MaximumNumberOfBoxes
+        {
+            get { return System.Convert.ToInt32(tbMaximumNumberOfBoxes.Text); }
+            set { tbMaximumNumberOfBoxes.Text = string.Format("{0}", value); }
+        }
+        public bool UseMaximumPalletHeight
+        {
+            get { return checkBoxMaximumPalletHeight.Checked; }
+            set { checkBoxMaximumPalletHeight.Checked = value; }
+        }
+        public double MaximumPalletHeight
+        {
+            get { return System.Convert.ToDouble(tbMaximumPalletHeight.Text); }
+            set { tbMaximumPalletHeight.Text = string.Format("{0}", value); }
+        }
+        public bool UseMaximumPalletWeight
+        {
+            get { return checkBoxMaximumPalletWeight.Checked; }
+            set { checkBoxMaximumPalletWeight.Checked = value; }
+        }
+        public double MaximumPalletWeight
+        {
+            get { return System.Convert.ToDouble(tbMaximumPalletWeight.Text); }
+            set { tbMaximumPalletWeight.Text = string.Format("{0}", value); }
+        }
+        public bool UseMaximumLoadOnBox
+        {
+            get { return checkBoxMaximumLoadOnBox.Checked; }
+            set { checkBoxMaximumLoadOnBox.Checked = value; }
+        }
+        public double MaximumLoadOnBox
+        {
+            get { return System.Convert.ToDouble(tbMaximumLoadOnBox.Text); }
+            set { tbMaximumLoadOnBox.Text = string.Format("{0}", value); }
+        }
+        public bool AllowVerticalX
+        {
+            get { return checkBoxPositionX.Checked; }
+            set { checkBoxPositionX.Checked = value; }
+        }
+        public bool AllowVerticalY
+        {
+            get { return checkBoxPositionY.Checked; }
+            set { checkBoxPositionY.Checked = value; }
+        }
+        public bool AllowVerticalZ
+        {
+            get { return checkBoxPositionZ.Checked; }
+            set { checkBoxPositionZ.Checked = value; }
+        }
+        public List<string> AllowedPatterns
+        {
+            get
+            {
+                List<string> listAllowedPatterns = new List<string>();
+                foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
+                {
+                    // use the IndexOf method to get the index of an item
+                    if (checkedListBoxPatterns.GetItemCheckState(checkedListBoxPatterns.Items.IndexOf(itemChecked)) == CheckState.Checked)
+                        listAllowedPatterns.Add(itemChecked.ToString());
+                }
+                return listAllowedPatterns;
+            }
+        }
         #endregion
 
         #region Handlers
@@ -120,6 +210,17 @@ namespace TreeDim.StackBuilder.Desktop
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
+        }
+        private void UpdateCriterionTextBoxes()
+        { 
+            tbMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;
+            tbMaximumPalletHeight.Enabled = checkBoxMaximumPalletHeight.Checked;
+            tbMaximumPalletWeight.Enabled = checkBoxMaximumPalletWeight.Checked;
+            tbMaximumLoadOnBox.Enabled = checkBoxMaximumLoadOnBox.Checked;
+        }
+        private void onCriterionCheckChanged(object sender, EventArgs e)
+        {
+            UpdateCriterionTextBoxes();
         }
         #endregion
     }

@@ -224,11 +224,70 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateToolbarState();
 
+            // fill grid solution
+            gridSolutions.Rows.Clear();
+
+            if (null == _currentAnalysis)
+                return;
+
+            // border
+            DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
+            DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
+
+            // views
+            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+            viewNormal.Border = cellBorder;
+
+            // column header view
+            SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
+            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
+            backHeader.BackColor = Color.LightGray;
+            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            viewColumnHeader.Background = backHeader;
+            viewColumnHeader.ForeColor = Color.White;
+            viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+
+            // create the grid
+            gridSolutions.BorderStyle = BorderStyle.FixedSingle;
+
+            gridSolutions.ColumnsCount = 2;
+            gridSolutions.FixedRows = 1;
+            gridSolutions.Rows.Insert(0);
+
+            // header
+            SourceGrid.Cells.ColumnHeader columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 0] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 1] = columnHeader;
+
+            // data rows
+            int iIndex = 0;
+            foreach (Solution sol in _currentAnalysis.Solutions)
+            {
+                ++iIndex;
+                gridSolutions.Rows.Insert(iIndex);
+                gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
+                gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.Count));
+
+                gridSolutions[iIndex, 0].View = viewNormal;
+                gridSolutions[iIndex, 1].View = viewNormal;
+            }
+            gridSolutions.AutoSizeCells();
 
             // select first solution
             onSolutionSelected();
         }
         public void onSolutionSelected()
+        {
+            Draw();
+        }
+
+        private void onPictureBoxSizeChanged(object sender, EventArgs e)
         {
             Draw();
         }
@@ -299,15 +358,93 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        private void onPictureBoxSizeChanged(object sender, EventArgs e)
+        #region Form override
+        protected override void OnLoad(EventArgs e)
         {
-            Draw();
+            base.OnLoad(e);
+
+            // border
+            DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
+            DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
+
+            // views
+            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.DarkBlue);
+            viewNormal.Border = cellBorder;
+
+            // column header view
+            SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
+            DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
+            backHeader.BackColor = Color.LightGray;
+            backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
+            viewColumnHeader.Background = backHeader;
+            viewColumnHeader.ForeColor = Color.White;
+            viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Bold);
+
+            // create the grid
+            gridSolutions.BorderStyle = BorderStyle.FixedSingle;
+
+            gridSolutions.ColumnsCount = 2;
+            gridSolutions.FixedRows = 1;
+            gridSolutions.Rows.Insert(0);
+
+            SourceGrid.Cells.ColumnHeader columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 0] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 1] = columnHeader;
+
+            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
 
+        void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
+        {
+            SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
+            int[] indexes = region.GetRowsIndex();
+            if (null == _currentAnalysis || indexes.Length == 0)
+                return;
 
+            _sol = _currentAnalysis.Solutions[indexes[0]-1];
+            Draw();
+        }
+        #endregion
 
+        #region CellBackColorAlternate
+        private class CellBackColorAlternate : SourceGrid.Cells.Views.Cell
+        {
+            public CellBackColorAlternate(Color firstColor, Color secondColor)
+            {
+                FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
+                SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
+            }
 
+            private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
+            public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
+            {
+                get { return mFirstBackground; }
+                set { mFirstBackground = value; }
+            }
 
+            private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
+            public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
+            {
+                get { return mSecondBackground; }
+                set { mSecondBackground = value; }
+            }
 
+            protected override void PrepareView(SourceGrid.CellContext context)
+            {
+                base.PrepareView(context);
+
+                if (Math.IEEERemainder(context.Position.Row, 2) == 0)
+                    Background = FirstBackground;
+                else
+                    Background = SecondBackground;
+            }
+        }
+        #endregion
     }
 }

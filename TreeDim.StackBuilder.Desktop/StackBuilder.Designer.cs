@@ -58,6 +58,7 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.analysisTreeView = new TreeDim.StackBuilder.Desktop.AnalysisTreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNewFile = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
@@ -81,7 +82,6 @@
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.gridSolutions = new SourceGrid.Grid();
-            this.analysisTreeView = new TreeDim.StackBuilder.Desktop.AnalysisTreeView();
             this.menuStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -317,6 +317,17 @@
             this.splitContainer1.SplitterDistance = 275;
             this.splitContainer1.TabIndex = 1;
             // 
+            // analysisTreeView
+            // 
+            this.analysisTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.analysisTreeView.ImageIndex = 0;
+            this.analysisTreeView.Location = new System.Drawing.Point(0, 25);
+            this.analysisTreeView.Name = "analysisTreeView";
+            this.analysisTreeView.SelectedImageIndex = 0;
+            this.analysisTreeView.Size = new System.Drawing.Size(275, 533);
+            this.analysisTreeView.TabIndex = 1;
+            this.analysisTreeView.Click += new System.EventHandler(this.onFileSaveAll);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -468,7 +479,7 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButtonView1";
+            this.toolStripButton1.Text = "Corner view 0°";
             this.toolStripButton1.Click += new System.EventHandler(this.onViewCorner_0);
             // 
             // toolStripButton2
@@ -478,7 +489,7 @@
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButtonView2";
+            this.toolStripButton2.Text = "Corner view 90°";
             this.toolStripButton2.Click += new System.EventHandler(this.onViewCorner_90);
             // 
             // toolStripButton3
@@ -488,7 +499,7 @@
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButtonView3";
+            this.toolStripButton3.Text = "Corner view 180°";
             this.toolStripButton3.Click += new System.EventHandler(this.onViewCorner_180);
             // 
             // toolStripButton4
@@ -498,7 +509,7 @@
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButtonView4";
+            this.toolStripButton4.Text = "Corner view 270°";
             this.toolStripButton4.Click += new System.EventHandler(this.onViewCorner_270);
             // 
             // toolStripSeparator1
@@ -513,7 +524,7 @@
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButtonFront";
+            this.toolStripButton5.Text = "Front view";
             this.toolStripButton5.Click += new System.EventHandler(this.onViewSideFront);
             // 
             // toolStripButton6
@@ -523,7 +534,7 @@
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "toolStripButtonBack";
+            this.toolStripButton6.Text = "Back view";
             this.toolStripButton6.Click += new System.EventHandler(this.onViewSideLeft);
             // 
             // toolStripButton7
@@ -533,7 +544,7 @@
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton7.Name = "toolStripButton7";
             this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "toolStripButtonLeft";
+            this.toolStripButton7.Text = "Left view";
             this.toolStripButton7.Click += new System.EventHandler(this.onViewSideRear);
             // 
             // toolStripButton8
@@ -543,7 +554,7 @@
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "toolStripButtonRight";
+            this.toolStripButton8.Text = "Right view";
             this.toolStripButton8.Click += new System.EventHandler(this.onViewSideRight);
             // 
             // toolStripButton9
@@ -553,32 +564,22 @@
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.White;
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "toolStripButtonTop";
+            this.toolStripButton9.Text = "Top view";
             this.toolStripButton9.Click += new System.EventHandler(this.onViewTop);
             // 
             // gridSolutions
             // 
+            this.gridSolutions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSolutions.EnableSort = true;
             this.gridSolutions.Location = new System.Drawing.Point(0, 0);
             this.gridSolutions.Name = "gridSolutions";
             this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
             this.gridSolutions.Size = new System.Drawing.Size(547, 225);
             this.gridSolutions.TabIndex = 1;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
-            // 
-            // analysisTreeView
-            // 
-            this.analysisTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.analysisTreeView.ImageIndex = 0;
-            this.analysisTreeView.Location = new System.Drawing.Point(0, 25);
-            this.analysisTreeView.Name = "analysisTreeView";
-            this.analysisTreeView.SelectedImageIndex = 0;
-            this.analysisTreeView.Size = new System.Drawing.Size(275, 533);
-            this.analysisTreeView.TabIndex = 1;
-            this.analysisTreeView.Click += new System.EventHandler(this.onFileSaveAll);
             // 
             // StackBuilder
             // 

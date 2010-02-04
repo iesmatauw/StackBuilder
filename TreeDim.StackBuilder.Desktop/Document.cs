@@ -19,8 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
         void OnNewTypeCreated(Document doc, ItemProperties itemProperties);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
         // remove
-        void OnBoxRemoved(Document doc, Analysis analysis);
-        void OnPalletRemoved(Document doc, Analysis analysis);
+        void OnTypeRemoved(Document doc, Analysis analysis);
         void OnAnalysisRemoved(Document doc, Analysis analysis);
     }
 
@@ -33,7 +32,7 @@ namespace TreeDim.StackBuilder.Desktop
         private string _filePath = string.Empty;
         #endregion
 
-        #region Public methods
+        #region Public ItemProperties instantiation methods
         public BoxProperties CreateNewBox(
             string name, string description
             , double length, double width, double height, double weight
@@ -60,7 +59,7 @@ namespace TreeDim.StackBuilder.Desktop
             , int noFlats)
         {
             // instantiate and initialize
-            BundleProperties bundle = new BundleProperties(length, width, thickness, weight, noFlats);
+            BundleProperties bundle = new BundleProperties(name, description, length, width, thickness, weight, noFlats, color);
             // notify listeners
             NotifyOnNewTypeCreated(bundle);
             return bundle;
@@ -118,6 +117,21 @@ namespace TreeDim.StackBuilder.Desktop
             solver.ProcessAnalysis(analysis);
 
             return analysis;
+        }
+        #endregion
+
+        #region Name methods
+        public bool IsValidTypeName(string name)
+        { 
+            // make sure is not empty
+            if (name.Trim() == string.Empty)
+                return false;            
+            // make sure that name is not already used
+            foreach (ItemProperties item in _typeList)
+                if (item.Name.Trim().ToLower() == name.Trim().ToLower())
+                    return false;            
+            // success
+            return true;
         }
         #endregion
 

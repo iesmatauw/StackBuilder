@@ -15,18 +15,21 @@ namespace TreeDim.StackBuilder.Desktop
 {
     public partial class FormNewBundle : Form
     {
+        #region Data members
+        private Document _document;
+        #endregion
+
         #region Constructor
-        public FormNewBundle()
+        public FormNewBundle(Document document)
         {
             InitializeComponent();
-
+            // save document reference
+            _document = document;
             // initialize value
             BundleLength = 400.0;
             BundleWidth = 300.0;
-
             // set horizontal angle
             trackBarHorizAngle.Value = 45;
-
             // disable Ok buttons
             UpdateButtonOkStatus();
         }
@@ -85,7 +88,10 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+            bnAccept.Enabled =
+                tbName.Text.Length > 0 
+                && tbDescription.Text.Length > 0 
+                && _document.IsValidTypeName(tbName.Text);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

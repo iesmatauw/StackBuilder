@@ -20,6 +20,7 @@ namespace TreeDim.StackBuilder.Desktop
         private BoxProperties[] _boxes;
         private PalletProperties[] _palletProperties;
         private InterlayerProperties[] _interlayerProperties;
+        private Document _document;
         #endregion
 
         #region Combo box item private classes
@@ -83,10 +84,11 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public FormNewAnalysis()
+        public FormNewAnalysis(Document document)
         {
             InitializeComponent();
-
+            // save document reference
+            _document = document;
             onInterlayerChecked(this, null);
         }
 
@@ -107,6 +109,11 @@ namespace TreeDim.StackBuilder.Desktop
                 cbInterlayer.Items.Add(new InterlayerItem(interlayer));
             if (cbInterlayer.Items.Count > 0)
                 cbInterlayer.SelectedIndex = 0;
+            else
+            {
+                checkBoxInterlayer.Checked = false;
+                checkBoxInterlayer.Enabled = false;
+            }
 
             // allowed position box
             AllowVerticalX = true;
@@ -253,7 +260,10 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+            bnAccept.Enabled =
+                tbName.Text.Length > 0
+                && tbDescription.Text.Length > 0
+                && _document.IsValidTypeName(tbName.Text);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

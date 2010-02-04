@@ -15,9 +15,16 @@ namespace TreeDim.StackBuilder.Desktop
 {
     public partial class FormNewInterlayer : Form
     {
-        public FormNewInterlayer()
+        #region Data members
+        private Document _document;
+        #endregion
+
+        #region Constructor
+        public FormNewInterlayer(Document document)
         {
             InitializeComponent();
+            // save document reference
+            _document = document;
             // initialize value
             InterlayerLength = 1200.0;
             InterlayerWidth = 1000.0;
@@ -26,6 +33,7 @@ namespace TreeDim.StackBuilder.Desktop
             // disable Ok button
             UpdateButtonOkStatus();
         }
+        #endregion
 
         #region Public properties
         public string InterlayerName
@@ -79,7 +87,10 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+            bnAccept.Enabled =
+                tbName.Text.Length > 0
+                && tbDescription.Text.Length > 0
+                && _document.IsValidTypeName(tbName.Text);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

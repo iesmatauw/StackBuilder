@@ -97,5 +97,20 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static System.Drawing.Bitmap Bundle {
+            get {
+                object obj = ResourceManager.GetObject("Bundle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap Interlayer {
+            get
+            {
+                object obj = ResourceManager.GetObject("Interlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

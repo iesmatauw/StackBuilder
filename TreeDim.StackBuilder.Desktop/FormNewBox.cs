@@ -16,10 +16,16 @@ namespace TreeDim.StackBuilder.Desktop
 {
     public partial class FormNewBox : Form
     {
+        #region Data members
+        private Document _document;
+        #endregion
+
         #region Constructor
-        public FormNewBox()
+        public FormNewBox(Document document)
         {
             InitializeComponent();
+            // save document reference
+            _document = document;
             // initialize value
             nudLength.Value = 400.0M;
             nudWidth.Value = 300.0M;
@@ -104,7 +110,10 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+            bnAccept.Enabled =
+                tbName.Text.Length > 0
+                && tbDescription.Text.Length > 0
+                && _document.IsValidTypeName(tbName.Text);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

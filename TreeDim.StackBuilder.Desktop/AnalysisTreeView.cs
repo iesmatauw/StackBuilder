@@ -26,13 +26,14 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 // build image list for tree
                 ImageList = new ImageList();
-                ImageList.Images.Add(AnalysisTreeView.CLSDFOLD);
-                ImageList.Images.Add(AnalysisTreeView.OPENFOLD);
-                ImageList.Images.Add(AnalysisTreeView.DOC);
-                ImageList.Images.Add(AnalysisTreeView.Box);
-                ImageList.Images.Add(AnalysisTreeView.Pallet);
-                ImageList.Images.Add(AnalysisTreeView.Analysis);
-
+                ImageList.Images.Add(AnalysisTreeView.CLSDFOLD);    // 0
+                ImageList.Images.Add(AnalysisTreeView.OPENFOLD);    // 1
+                ImageList.Images.Add(AnalysisTreeView.DOC);         // 2
+                ImageList.Images.Add(AnalysisTreeView.Box);         // 3
+                ImageList.Images.Add(AnalysisTreeView.Bundle);      // 4
+                ImageList.Images.Add(AnalysisTreeView.Pallet);      // 5
+                ImageList.Images.Add(AnalysisTreeView.Interlayer);  // 6
+                ImageList.Images.Add(AnalysisTreeView.Analysis);    // 7
                 AfterSelect += new TreeViewEventHandler(AnalysisTreeView_AfterSelect);
             }
             catch (Exception ex)
@@ -108,72 +109,94 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // add document node
             TreeNode nodeDoc = new TreeNode(doc.Title, 2, 2);
-            nodeDoc.Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc, null, null, null);
+            nodeDoc.Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc, null, null);
             this.Nodes.Add(nodeDoc);
             // add box list node
             TreeNode nodeBoxes = new TreeNode("Boxes", 0, 1);
-            nodeBoxes.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc, null, null, null);
+            nodeBoxes.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc,  null, null);
             nodeDoc.Nodes.Add(nodeBoxes);
+            // add bundle list node
+            TreeNode nodeBundles = new TreeNode("Bundles", 0, 1);
+            nodeBundles.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBUNDLE, doc, null, null);
+            nodeDoc.Nodes.Add(nodeBundles);
             // add pallet list node
             TreeNode nodePallets = new TreeNode("Pallets", 0, 1);
-            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc, null, null, null);
+            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc,  null, null);
             nodeDoc.Nodes.Add(nodePallets);
-            // add analysis list node
+            // add pallet list node
+            TreeNode nodeInterlayers = new TreeNode("Interlayers", 0, 1);
+            nodeInterlayers.Tag = new NodeTag(NodeTag.NodeType.NT_LISTINTERLAYER, doc, null, null);
+            nodeDoc.Nodes.Add(nodeInterlayers);
+             // add analysis list node
             TreeNode nodeAnalyses = new TreeNode("Analyses", 0, 1);
-            nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc, null, null, null);
+            nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc,  null, null);
             nodeDoc.Nodes.Add(nodeAnalyses);
         }
         public void OnNewTypeCreated(Document doc, ItemProperties itemProperties)
         {
+            int iconIndex = 0;
+            NodeTag.NodeType nodeType = NodeTag.NodeType.NT_BOX;
+            NodeTag.NodeType parentNodeType = NodeTag.NodeType.NT_LISTBOX;
+
             if (itemProperties.GetType() == typeof(BoxProperties))
             {
-                BoxProperties boxProperties = itemProperties as BoxProperties;
-                // get parent node
-                TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc, null, null, null));
-                // insert box node
-                TreeNode nodeBox = new TreeNode(boxProperties.Name, 3, 3);
-                nodeBox.Tag = new NodeTag(NodeTag.NodeType.NT_BOX, doc, boxProperties, null, null);
-                parentNode.Nodes.Add(nodeBox);
+                iconIndex = 3;
+                nodeType = NodeTag.NodeType.NT_BOX;
+                parentNodeType = NodeTag.NodeType.NT_LISTBOX;
+            }
+            else if (itemProperties.GetType() == typeof(BundleProperties))
+            {
+                iconIndex = 4;
+                nodeType = NodeTag.NodeType.NT_BUNDLE;
+                parentNodeType = NodeTag.NodeType.NT_LISTBUNDLE;
             }
             else if (itemProperties.GetType() == typeof(PalletProperties))
             {
-                PalletProperties palletProperties = itemProperties as PalletProperties;
-                // get parent node
-                TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc, null, null, null));
-                // insert pallet node
-                TreeNode nodePallet = new TreeNode(palletProperties.Name, 4, 4);
-                nodePallet.Tag = new NodeTag(NodeTag.NodeType.NT_PALLET, doc, null, palletProperties, null);
-                parentNode.Nodes.Add(nodePallet);
+                iconIndex = 5;
+                nodeType = NodeTag.NodeType.NT_PALLET;
+                parentNodeType = NodeTag.NodeType.NT_LISTPALLET;
             }
             else if (itemProperties.GetType() == typeof(InterlayerProperties))
-            { 
+            {
+                iconIndex = 6;
+                nodeType = NodeTag.NodeType.NT_INTERLAYER;
+                parentNodeType = NodeTag.NodeType.NT_LISTINTERLAYER;
             }
-            else if (itemProperties.GetType() == typeof(BundleProperties))
-            {            
+            else
+            {
+                System.Diagnostics.Debug.Fail("Unknown type");
+                return;
             }
+
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(parentNodeType, doc, null, null));
+            // instantiate node
+            TreeNode nodeItem = new TreeNode(itemProperties.Name, iconIndex, iconIndex);
+            // set node tag
+            nodeItem.Tag = new NodeTag(nodeType, doc, itemProperties, null);
+            // insert
+            parentNode.Nodes.Add(nodeItem);
         }
+
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
         {
             // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc, null, null, null));
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc, null, null));
             // insert analysis node
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 5, 5);
-            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, null, analysis);
+            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 7, 7);
+            nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
             // insert sub box node
             TreeNode subBoxNode = new TreeNode(analysis.BoxProperties.Name, 3, 3);
-            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis.BoxProperties, null, analysis);
+            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis.BoxProperties, analysis);
             nodeAnalysis.Nodes.Add(subBoxNode);
             // insert sub pallet node
-            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 4, 4);
-            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, null, analysis.PalletProperties, analysis);
+            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 5, 5);
+            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis.PalletProperties, analysis);
             nodeAnalysis.Nodes.Add(subPalletNode);
         }
-        public void OnBoxRemoved(Document doc, Analysis analysis)
+        public void OnTypeRemoved(Document doc, Analysis analysis)
         {        
-        }
-        public void OnPalletRemoved(Document doc, Analysis analysis)
-        {
         }
         public void OnAnalysisRemoved(Document doc, Analysis analysis)
         { 
@@ -190,10 +213,14 @@ namespace TreeDim.StackBuilder.Desktop
         { 
             NT_DOCUMENT
             , NT_LISTBOX
+            , NT_LISTBUNDLE
             , NT_LISTPALLET
+            , NT_LISTINTERLAYER
             , NT_LISTANALYSIS
             , NT_BOX
+            , NT_BUNDLE
             , NT_PALLET
+            , NT_INTERLAYER
             , NT_ANALYSIS
             , NT_ANALYSISBOX
             , NT_ANALYSISPALLET
@@ -203,18 +230,16 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private NodeType _type;
         private Document _document;
-        private BoxProperties _boxProperties;
-        private PalletProperties _palletProperties;
+        private ItemProperties _itemProperties;
         private Analysis _analysis;
         #endregion
 
         #region Constructor
-        public NodeTag(NodeType type, Document document, BoxProperties boxProperties, PalletProperties palletProperties, Analysis analysis)
+        public NodeTag(NodeType type, Document document, ItemProperties itemProperties, Analysis analysis)
         {
             _type = type;
             _document = document;
-            _boxProperties = boxProperties;
-            _palletProperties = palletProperties;
+            _itemProperties = itemProperties;
             _analysis = analysis;
         }
         #endregion
@@ -226,16 +251,14 @@ namespace TreeDim.StackBuilder.Desktop
             if (null == nodeTag) return false;
             return _type == nodeTag._type
                 && _document == nodeTag._document
-                && _boxProperties == nodeTag._boxProperties
-                && _palletProperties == nodeTag._palletProperties
+                && _itemProperties == nodeTag._itemProperties
                 && _analysis == nodeTag._analysis;
         }
         public override int GetHashCode()
         {
             return _type.GetHashCode() 
                 ^ _document.GetHashCode() 
-                ^ _boxProperties.GetHashCode() 
-                ^ _palletProperties.GetHashCode() 
+                ^ _itemProperties.GetHashCode() 
                 ^ _analysis.GetHashCode();
         }
         #endregion
@@ -243,8 +266,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Public properties
         public NodeType Type { get { return _type; } }
         public Document Document { get { return _document; } }
-        public BoxProperties BoxProperties { get { return _boxProperties; } }
-        public PalletProperties PalletProperties { get { return _palletProperties; } }
+        public ItemProperties ItemProperties { get { return _itemProperties; } }
         public Analysis Analysis { get { return _analysis; } }
         #endregion
     }

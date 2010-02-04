@@ -17,12 +17,15 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewPallet : Form
     {
         #region Data members
+        private Document _document;
         #endregion
 
         #region Constructor
-        public FormNewPallet()
+        public FormNewPallet(Document document)
         {
             InitializeComponent();
+            // save document reference
+            _document = document;
 
             // initialize data
             PalletLength = 1200;
@@ -178,7 +181,10 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
+            bnAccept.Enabled =
+                tbName.Text.Length > 0
+                && tbDescription.Text.Length > 0
+                && _document.IsValidTypeName(tbName.Text);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

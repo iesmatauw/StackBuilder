@@ -60,7 +60,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers for item creation
         private void onToolsNewBox(object sender, EventArgs e)
         {
-            FormNewBox form = new FormNewBox();
+            FormNewBox form = new FormNewBox(CurrentDocument);
             if (DialogResult.OK == form.ShowDialog())
                 _currentDocument.CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
             UpdateToolbarState();
@@ -68,7 +68,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void onToolsNewPallet(object sender, EventArgs e)
         {
-            FormNewPallet form = new FormNewPallet();
+            FormNewPallet form = new FormNewPallet(CurrentDocument);
             if (DialogResult.OK == form.ShowDialog())
                 _currentDocument.CreateNewPallet(form.PalletName, form.Description, form.PalletType
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
@@ -82,7 +82,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (null == CurrentDocument || !CurrentDocument.CanCreateAnalysis)
                 return;
 
-            FormNewAnalysis form = new FormNewAnalysis();
+            FormNewAnalysis form = new FormNewAnalysis(CurrentDocument);
             form.Boxes = CurrentDocument.Boxes.ToArray();
             form.Pallets = CurrentDocument.Pallets.ToArray();
             form.Interlayers = CurrentDocument.Interlayers.ToArray();
@@ -123,7 +123,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void onToolsNewInterlayer(object sender, EventArgs e)
         {
-            FormNewInterlayer form = new FormNewInterlayer();
+            FormNewInterlayer form = new FormNewInterlayer(CurrentDocument);
             if (DialogResult.OK == form.ShowDialog())
                 _currentDocument.CreateNewInterlayer(
                     form.InterlayerName, form.Description
@@ -134,7 +134,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void onToolsNewBundle(object sender, EventArgs e)
         {
-            FormNewBundle form = new FormNewBundle();
+            FormNewBundle form = new FormNewBundle(CurrentDocument);
             if (DialogResult.OK == form.ShowDialog())
                 _currentDocument.CreateNewBundle(
                     form.BundleName, form.Description

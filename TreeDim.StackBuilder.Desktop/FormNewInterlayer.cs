@@ -7,100 +7,75 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewBox : Form
+    public partial class FormNewInterlayer : Form
     {
-        #region Constructor
-        public FormNewBox()
+        public FormNewInterlayer()
         {
             InitializeComponent();
             // initialize value
-            nudLength.Value = 400.0M;
-            nudWidth.Value = 300.0M;
-            nudHeight.Value = 200.0M;
-            // set colors
-            for (int i=0; i<6; ++i)
-                _faceColors[i] = Color.Chocolate;
-            // set default face
-            cbFace.SelectedIndex = 0;
+            InterlayerLength = 1200.0;
+            InterlayerWidth = 1000.0;
             // set horizontal angle
             trackBarHorizAngle.Value = 45;
             // disable Ok button
             UpdateButtonOkStatus();
         }
-        #endregion
 
         #region Public properties
-        public string BoxName
+        public string InterlayerName
         {
             get { return tbName.Text; }
+            set { tbName.Text = value; }
         }
         public string Description
         {
             get { return tbDescription.Text; }
+            set { tbDescription.Text = value; }
         }
-        public double BoxLength
+        public double InterlayerLength
         {
             get { return (double)nudLength.Value; }
             set { nudLength.Value = (decimal)value; }
         }
-        public double BoxWidth
+        public double InterlayerWidth
         {
             get { return (double)nudWidth.Value; }
             set { nudWidth.Value = (decimal)value; }
         }
-        public double BoxHeight
+        public double Thickness
         {
-            get { return (double)nudHeight.Value; }
-            set { nudHeight.Value = (decimal)value; }
+            get { return (double)nudThickness.Value; }
+            set { nudThickness.Value = (decimal)value; }
         }
         public double Weight
         {
             get { return (double)nudWeight.Value; }
-            set { nudWeight.Value = (decimal)value; }
         }
-        public double WeightOnTop
+        public Color Color
         {
-            get { return (double)nudWeightOnTop.Value; }
-            set { nudWeightOnTop.Value = (decimal)value; }
-        }
-        public Color[] Colors
-        {
-            get { return _faceColors; }
+            get { return cbColor.Color; }
+            set { cbColor.Color = value; }
         }
         #endregion
 
         #region Handlers
-        private void FormNewBox_Load(object sender, EventArgs e)
+        private void onLoad(object sender, EventArgs e)
         {
-            DrawBox();
+            DrawInterlayer();
         }
-        private void onBoxPropertyChanged(object sender, EventArgs e)
+        private void onInterlayerPropertyChanged(object sender, EventArgs e)
         {
-            DrawBox();
-        }
-        private void onSelectedFaceChanged(object sender, EventArgs e)
-        {
-            // get current index
-            int iSel = cbFace.SelectedIndex;
-            cbColor.Color = _faceColors[iSel];
-            DrawBox();
-        }
-        private void onFaceColorChanged(object sender, EventArgs e)
-        {
-            int iSel = cbFace.SelectedIndex;
-            _faceColors[iSel] = cbColor.Color;
-            DrawBox();
+            DrawInterlayer();
         }
         private void onHorizAngleChanged(object sender, EventArgs e)
         {
-            DrawBox();
+            DrawInterlayer();
         }
         private void UpdateButtonOkStatus()
         {
@@ -112,9 +87,9 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Draw box
-        private void DrawBox()
-        {
+        #region Draw interlayer
+        private void DrawInterlayer()
+        { 
             // get horizontal angle
             double angle = trackBarHorizAngle.Value;
             // instantiate graphics
@@ -127,19 +102,10 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
-            BoxProperties boxProperties = new BoxProperties((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
-            boxProperties.Colors = _faceColors;
-            Box box = new Box(0, boxProperties);
-            foreach (Face face in box.Faces)
-                graphics.AddFace(face);
             graphics.Flush();
             // set to picture box
             pictureBox.Image = graphics.Bitmap;
         }
-        #endregion
-
-        #region Data members
-        public Color[] _faceColors = new Color[6];
         #endregion
     }
 }

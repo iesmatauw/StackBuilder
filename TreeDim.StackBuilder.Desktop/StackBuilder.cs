@@ -26,8 +26,8 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Document class to hold data (boxes/pallets/anslyses)
         /// </summary>
-        List<Document> _documents = new List<Document>();
-        Document _currentDocument;
+        private List<Document> _documents = new List<Document>();
+        private Document _currentDocument;
         /// <summary>
         /// Currently selected analysis
         /// </summary>
@@ -85,6 +85,7 @@ namespace TreeDim.StackBuilder.Desktop
             FormNewAnalysis form = new FormNewAnalysis();
             form.Boxes = CurrentDocument.Boxes.ToArray();
             form.Pallets = CurrentDocument.Pallets.ToArray();
+            form.Interlayers = CurrentDocument.Interlayers.ToArray();
             if (DialogResult.OK == form.ShowDialog())
             {
                 // build constraint set
@@ -118,6 +119,30 @@ namespace TreeDim.StackBuilder.Desktop
                     _sol = analysis.Solutions[0];
                 onAnalysisSelected();
             }
+        }
+
+        private void onToolsNewInterlayer(object sender, EventArgs e)
+        {
+            FormNewInterlayer form = new FormNewInterlayer();
+            if (DialogResult.OK == form.ShowDialog())
+                _currentDocument.CreateNewInterlayer(
+                    form.InterlayerName, form.Description
+                    , form.InterlayerLength, form.InterlayerWidth, form.Thickness
+                    , form.Weight
+                    , form.Color);
+        }
+
+        private void onToolsNewBundle(object sender, EventArgs e)
+        {
+            FormNewBundle form = new FormNewBundle();
+            if (DialogResult.OK == form.ShowDialog())
+                _currentDocument.CreateNewBundle(
+                    form.BundleName, form.Description
+                    , form.BundleLength, form.BundleWidth, form.UnitThickness
+                    , form.UnitWeight
+                    , form.Color
+                    , form.NoFlats);
+            UpdateToolbarState();            
         }
         #endregion
 
@@ -158,47 +183,60 @@ namespace TreeDim.StackBuilder.Desktop
         void UpdateToolbarState()
         {
             // new box
-             newBoxToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
-             toolStripButtonAddNewBox.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            newBoxToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            toolStripButtonAddNewBox.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            // new pallet
+            newPalletToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            toolStripButtonAddNewPallet.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
 
-             newPalletToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
-             toolStripButtonAddNewPallet.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            newInterlayerToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            toolStripButtonCreateNewInterlayer.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
 
-             newAnalysisToolStripMenuItem.Enabled = (null != CurrentDocument) && CurrentDocument.CanCreateAnalysis;
-             toolStripButtonCreateNewAnalysis.Enabled = (null != CurrentDocument) && CurrentDocument.CanCreateAnalysis;
+            newBundleToolStripMenuItem.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+            toolStripButtonCreateNewBundle.Enabled = (null != CurrentDocument) && (null == CurrentAnalysis);
+
+            newAnalysisToolStripMenuItem.Enabled = (null != CurrentDocument) && CurrentDocument.CanCreateAnalysis;
+            toolStripButtonCreateNewAnalysis.Enabled = (null != CurrentDocument) && CurrentDocument.CanCreateAnalysis;
         }
         #endregion
 
         #region Drawing
         private void Draw()
         {
-            // instantiate graphics
-            Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
-            // set camera position 
-            double angleHorizRad = _angleHoriz * Math.PI / 180.0;
-            double angleVertRad = _angleVert * Math.PI / 180.0;
-            graphics.CameraPosition = new Vector3D(
-                _cameraDistance * Math.Cos(angleHorizRad)
-                , _cameraDistance * Math.Sin(angleHorizRad)
-                , _cameraDistance * Math.Sin(angleVertRad));
-            // set camera target
-            graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-            // set light direction
-            graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-            // set viewport (not actually needed)
-            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-
-            if (null != _currentAnalysis)
+            try
             {
-                // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(_currentAnalysis, _sol);
-                sv.Draw(graphics);
-            }
-            else
-                graphics.Flush();
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
+                // set camera position 
+                double angleHorizRad = _angleHoriz * Math.PI / 180.0;
+                double angleVertRad = _angleVert * Math.PI / 180.0;
+                graphics.CameraPosition = new Vector3D(
+                    _cameraDistance * Math.Cos(angleHorizRad)
+                    , _cameraDistance * Math.Sin(angleHorizRad)
+                    , _cameraDistance * Math.Sin(angleVertRad));
+                // set camera target
+                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+                // set light direction
+                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                // set viewport (not actually needed)
+                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
-            // show generated bitmap on picture box control
-            pictureBoxSolution.Image = graphics.Bitmap;
+                if (null != _currentAnalysis)
+                {
+                    // instantiate solution viewer
+                    SolutionViewer sv = new SolutionViewer(_currentAnalysis, _sol);
+                    sv.Draw(graphics);
+                }
+                else
+                    graphics.Flush();
+
+                // show generated bitmap on picture box control
+                pictureBoxSolution.Image = graphics.Bitmap;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Fail(ex.ToString());
+            }
         }
         #endregion
 
@@ -296,6 +334,17 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Handlers to define point of view
+        private void onAngleHorizChanged(object sender, EventArgs e)
+        {
+            _angleHoriz = trackBarAngleHoriz.Value;
+            Draw();
+        }
+
+        private void onAngleVertChanged(object sender, EventArgs e)
+        {
+            _angleVert = trackBarAngleVert.Value;
+            Draw();
+        }
         private void onViewSideFront(object sender, EventArgs e)
         {
             _angleHoriz = 0.0;

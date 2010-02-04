@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class PalletProperties
+    public class PalletProperties : ItemProperties
     {
         #region Enums
         public enum PalletType
@@ -18,11 +18,9 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Data members
-        string _name, _description;
         double _length, _width, _height;
         double _weight;
         double _admissibleLoadWeight, _admissibleLoadHeight;
-        private List<Analysis> _dependingAnalyses = new List<Analysis>();
         private Color _color = Color.Yellow;
         private PalletType _type = PalletType.BLOCK;
         #endregion
@@ -38,16 +36,6 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        public string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
         public double Length
         {
             get { return _length; }
@@ -89,25 +77,13 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
-        #region Depending analysis
-        public void AddDependingAnalysis(Analysis analysis)
-        {
-            _dependingAnalyses.Add(analysis);
-        }
-        public bool HasDependingAnalyses
-        {
-            get { return _dependingAnalyses.Count > 0; }
-        }
-        public void RemoveDependingAnalysis(Analysis analysis)
-        {
-            _dependingAnalyses.Remove(analysis);
-        }
-        #endregion
-
         #region Object override
         public override string ToString()
         {
-            return string.Format("PalletProperties => Length {0} Width {0} Height {0}", _length, _width, _height) ;
+            StringBuilder sBuilder = new StringBuilder();
+            sBuilder.Append(base.ToString());
+            sBuilder.Append(string.Format("PalletProperties => Length {0} Width {0} Height {0}", _length, _width, _height));
+            return sBuilder.ToString();
         }
         #endregion
     }

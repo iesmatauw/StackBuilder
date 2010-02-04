@@ -41,6 +41,7 @@
     <Compile Include="Graphic3D.cs" />
     <Compile Include="Graphics3DImage.cs" />
     <Compile Include="GraphicsException.cs" />
+    <Compile Include="Interlayer.cs" />
     <Compile Include="Pallet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionViewer.cs" />

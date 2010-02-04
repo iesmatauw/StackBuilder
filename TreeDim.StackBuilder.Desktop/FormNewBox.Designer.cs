@@ -235,6 +235,7 @@
             this.cbColor.Items.AddRange(new object[] {
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 20);
             this.cbColor.Name = "cbColor";
@@ -328,7 +329,7 @@
             this.trackBarHorizAngle.Location = new System.Drawing.Point(260, 286);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(208, 45);
+            this.trackBarHorizAngle.Size = new System.Drawing.Size(210, 45);
             this.trackBarHorizAngle.TabIndex = 20;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);

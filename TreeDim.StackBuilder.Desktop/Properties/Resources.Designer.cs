@@ -74,6 +74,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Bundle {
+            get {
+                object obj = ResourceManager.GetObject("Bundle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FileNew {
             get {
                 object obj = ResourceManager.GetObject("FileNew", resourceCulture);
@@ -102,9 +109,30 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Interlayer {
+            get {
+                object obj = ResourceManager.GetObject("Interlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Pallet {
             get {
                 object obj = ResourceManager.GetObject("Pallet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap PatternCollumn {
+            get {
+                object obj = ResourceManager.GetObject("PatternCollumn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap PatternInterlocked {
+            get {
+                object obj = ResourceManager.GetObject("PatternInterlocked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

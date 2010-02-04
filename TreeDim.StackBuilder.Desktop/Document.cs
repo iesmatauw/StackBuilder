@@ -16,8 +16,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         // new
         void OnNewDocument(Document doc);
-        void OnNewBoxCreated(Document doc, BoxProperties boxProperties);
-        void OnNewPalletCreated(Document doc, PalletProperties palletProperties);
+        void OnNewTypeCreated(Document doc, ItemProperties itemProperties);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
         // remove
         void OnBoxRemoved(Document doc, Analysis analysis);
@@ -28,15 +27,17 @@ namespace TreeDim.StackBuilder.Desktop
     public class Document
     {
         #region Data members
-        private List<BoxProperties> _boxList = new List<BoxProperties>();
-        private List<PalletProperties> _palletList = new List<PalletProperties>();
+        private List<ItemProperties> _typeList = new List<ItemProperties>();
         private List<Analysis> _analyses = new List<Analysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         private string _filePath = string.Empty;
         #endregion
 
         #region Public methods
-        public BoxProperties CreateNewBox(string name, string description, double length, double width, double height, double weight, Color[] colors)
+        public BoxProperties CreateNewBox(
+            string name, string description
+            , double length, double width, double height, double weight
+            , Color[] colors)
         {
             // instantiate and initialize
             BoxProperties boxProperties = new BoxProperties(length, width, height);
@@ -44,11 +45,40 @@ namespace TreeDim.StackBuilder.Desktop
             boxProperties.Description = description;
             boxProperties.Colors = colors;
             // insert in list
-            _boxList.Add(boxProperties);
+            _typeList.Add(boxProperties);
             // notify listeners
-            NotifyOnNewBoxCreated(boxProperties);
+            NotifyOnNewTypeCreated(boxProperties);
 
             return boxProperties;
+        }
+
+        public BundleProperties CreateNewBundle(
+            string name, string description
+            , double length, double width, double thickness
+            , double weight
+            , Color color
+            , int noFlats)
+        {
+            // instantiate and initialize
+            BundleProperties bundle = new BundleProperties(length, width, thickness, weight, noFlats);
+            // notify listeners
+            NotifyOnNewTypeCreated(bundle);
+            return bundle;
+        }
+
+        public InterlayerProperties CreateNewInterlayer(
+            string name, string description
+            , double length, double width, double thickness
+            , double weight
+            , Color color)
+        { 
+            // instantiate and intialize
+            InterlayerProperties interlayer = new InterlayerProperties(
+                name, description
+                , length, width, thickness
+                , weight, color);
+            NotifyOnNewTypeCreated(interlayer);
+            return interlayer;
         }
 
         public PalletProperties CreateNewPallet(
@@ -65,9 +95,9 @@ namespace TreeDim.StackBuilder.Desktop
             palletProperties.AdmissibleLoadWeight = admissibleLoadWeight;
             palletProperties.AdmissibleLoadHeight = admissibleLoadHeight;
             // insert in list
-            _palletList.Add(palletProperties);
+            _typeList.Add(palletProperties);
             // notify listeners
-            NotifyOnNewPalletCreated(palletProperties);
+            NotifyOnNewTypeCreated(palletProperties);
 
             return palletProperties;
         }
@@ -107,12 +137,63 @@ namespace TreeDim.StackBuilder.Desktop
                     return Path.GetFileNameWithoutExtension(_filePath);
             }
         }
-        public List<BoxProperties> Boxes { get { return _boxList; } }
-        public List<PalletProperties> Pallets { get { return _palletList; } }
+        public List<BoxProperties> Boxes
+        {
+            get
+            {
+                List<BoxProperties> boxList = new List<BoxProperties>();
+                foreach (ItemProperties item in _typeList)
+                {
+                    BoxProperties boxProperties = item as BoxProperties;
+                    if (null != boxProperties)
+                        boxList.Add(boxProperties);                        
+                }
+                return boxList;
+            }
+        }
+        public List<PalletProperties> Pallets
+        {
+            get
+            {
+                List<PalletProperties> palletList = new List<PalletProperties>();
+                foreach (ItemProperties item in _typeList)
+                {
+                    PalletProperties palletProperties = item as PalletProperties;
+                    if (null != palletProperties)
+                        palletList.Add(palletProperties);
+                }
+                return palletList;
+            }
+        }
+        public List<InterlayerProperties> Interlayers
+        {
+            get
+            {
+                List<InterlayerProperties> interlayerList = new List<InterlayerProperties>();
+                foreach (ItemProperties item in _typeList)
+                {
+                    InterlayerProperties interlayerProperties = item as InterlayerProperties;
+                    if (null != interlayerProperties)
+                        interlayerList.Add(interlayerProperties);
+                }
+                return interlayerList;
+            }
+        }
 
         public bool CanCreateAnalysis
         {
-            get { return _boxList.Count > 0 && _palletList.Count > 0; }
+            get
+            {
+                int iNoBox = 0, iNoPallets = 0;
+                foreach (ItemProperties item in _typeList)
+                {
+                    if (item.GetType() == typeof(BoxProperties))
+                        ++iNoBox;
+                    else if (item.GetType() == typeof(PalletProperties))
+                        ++iNoPallets;
+                }
+                return iNoBox > 0 && iNoPallets > 0; 
+            }
         }
         #endregion
 
@@ -128,15 +209,10 @@ namespace TreeDim.StackBuilder.Desktop
             _listeners.Add(listener);
             listener.OnNewDocument(this);
         }
-        private void NotifyOnNewBoxCreated(BoxProperties boxProperties)
+        private void NotifyOnNewTypeCreated(ItemProperties itemProperties)
         {
             foreach (IDocumentListener listener in _listeners)
-                listener.OnNewBoxCreated(this, boxProperties);
-        }
-        private void NotifyOnNewPalletCreated(PalletProperties palletProperties)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnNewPalletCreated(this, palletProperties);       
+                listener.OnNewTypeCreated(this, itemProperties);
         }
         private void NotifyOnNewAnalysisCreated(Analysis analysis)
         {

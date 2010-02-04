@@ -18,6 +18,7 @@ namespace TreeDim.StackBuilder.Graphics
             ALGO_BSPTREE
         }
         #endregion
+
         #region Data members
         /// <summary>
         /// Eye position
@@ -242,29 +243,29 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
-
+                    Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
                     // adjust width/height
                     if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
                     {
                         double actualWidth = (vecMax.Y - vecMin.Y) * Size.Width / Size.Height;
-                        vecMin.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
-                        vecMax.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
+                        vecMin1.X = 0.5 * (vecMin.X + vecMax.X) - 0.5 * actualWidth;
+                        vecMax1.X = 0.5 * (vecMin.X + vecMax.X) + 0.5 * actualWidth;
                     }
                     else
                     {
                         double actualHeight = (vecMax.X - vecMin.X) * Size.Height / Size.Width;
-                        vecMin.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
-                        vecMax.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
+                        vecMin1.Y = 0.5 * (vecMin.Y + vecMax.Y) - 0.5 * actualHeight;
+                        vecMax1.Y = 0.5 * (vecMin.Y + vecMax.Y) + 0.5 * actualHeight;
                     }
                     // set margins
-                    double width = vecMax.X - vecMin.X;
-                    vecMin.X -= _margin * width;
-                    vecMax.X += _margin * width;
-                    double height = vecMax.Y - vecMin.Y;
-                    vecMin.Y -= _margin * height;
-                    vecMax.Y += _margin * height;
+                    double width = vecMax1.X - vecMin1.X;
+                    vecMin1.X -= _margin * width;
+                    vecMax1.X += _margin * width;
+                    double height = vecMax1.Y - vecMin1.Y;
+                    vecMin1.Y -= _margin * height;
+                    vecMax1.Y += _margin * height;
 
-                    orthographicProj = GetOrthographicProjection(vecMin, vecMax);
+                    orthographicProj = GetOrthographicProjection(vecMin1, vecMax1);
                 }
                 _currentTransf = orthographicProj * world2eye;
             }

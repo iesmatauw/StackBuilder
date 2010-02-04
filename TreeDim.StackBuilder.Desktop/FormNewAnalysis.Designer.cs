@@ -52,25 +52,35 @@
             this.lbStopStacking = new System.Windows.Forms.Label();
             this.checkBoxMaximumPalletWeight = new System.Windows.Forms.CheckBox();
             this.checkBoxMaximumLoadOnBox = new System.Windows.Forms.CheckBox();
-            this.tbMaximumNumberOfBoxes = new System.Windows.Forms.TextBox();
-            this.tbMaximumPalletHeight = new System.Windows.Forms.TextBox();
-            this.tbMaximumPalletWeight = new System.Windows.Forms.TextBox();
-            this.tbMaximumLoadOnBox = new System.Windows.Forms.TextBox();
+            this.nudMaximumNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
+            this.nudMaximumPalletHeight = new System.Windows.Forms.NumericUpDown();
+            this.nudMaximumPalletWeight = new System.Windows.Forms.NumericUpDown();
+            this.nudMaximumLoadOnBox = new System.Windows.Forms.NumericUpDown();
             this.lbKg2 = new System.Windows.Forms.Label();
             this.lbKg1 = new System.Windows.Forms.Label();
             this.lbMm = new System.Windows.Forms.Label();
+            this.checkBoxInterlayer = new System.Windows.Forms.CheckBox();
+            this.cbInterlayer = new System.Windows.Forms.ComboBox();
+            this.lbInterlayerFreq1 = new System.Windows.Forms.Label();
+            this.nudInterlayerFreq = new System.Windows.Forms.NumericUpDown();
+            this.lbInterlayerFreq2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
             this.gbAllowedBoxPositions.SuspendLayout();
             this.gbAllowedLayerPatterns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumLoadOnBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInterlayerFreq)).BeginInit();
             this.SuspendLayout();
             // 
             // bnAccept
             // 
             this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(518, 13);
+            this.bnAccept.Location = new System.Drawing.Point(518, 9);
             this.bnAccept.Name = "bnAccept";
             this.bnAccept.Size = new System.Drawing.Size(75, 23);
             this.bnAccept.TabIndex = 0;
@@ -81,7 +91,7 @@
             // 
             this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(518, 42);
+            this.bnCancel.Location = new System.Drawing.Point(518, 38);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 1;
@@ -91,7 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -100,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 49);
+            this.label2.Location = new System.Drawing.Point(13, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 3;
@@ -108,17 +118,17 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(128, 13);
+            this.tbName.Location = new System.Drawing.Point(128, 10);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(113, 20);
+            this.tbName.Size = new System.Drawing.Size(150, 20);
             this.tbName.TabIndex = 4;
             this.tbName.Validated += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(128, 42);
+            this.tbDescription.Location = new System.Drawing.Point(128, 36);
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(186, 20);
+            this.tbDescription.Size = new System.Drawing.Size(280, 20);
             this.tbDescription.TabIndex = 5;
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
@@ -194,7 +204,7 @@
             // lbBox
             // 
             this.lbBox.AutoSize = true;
-            this.lbBox.Location = new System.Drawing.Point(16, 97);
+            this.lbBox.Location = new System.Drawing.Point(17, 63);
             this.lbBox.Name = "lbBox";
             this.lbBox.Size = new System.Drawing.Size(25, 13);
             this.lbBox.TabIndex = 13;
@@ -203,7 +213,7 @@
             // lbPallet
             // 
             this.lbPallet.AutoSize = true;
-            this.lbPallet.Location = new System.Drawing.Point(337, 97);
+            this.lbPallet.Location = new System.Drawing.Point(312, 63);
             this.lbPallet.Name = "lbPallet";
             this.lbPallet.Size = new System.Drawing.Size(33, 13);
             this.lbPallet.TabIndex = 14;
@@ -213,16 +223,17 @@
             // 
             this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBox.FormattingEnabled = true;
-            this.cbBox.Location = new System.Drawing.Point(128, 97);
+            this.cbBox.Location = new System.Drawing.Point(129, 63);
             this.cbBox.Name = "cbBox";
             this.cbBox.Size = new System.Drawing.Size(121, 21);
             this.cbBox.TabIndex = 15;
+            this.cbBox.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // cbPallet
             // 
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            this.cbPallet.Location = new System.Drawing.Point(392, 97);
+            this.cbPallet.Location = new System.Drawing.Point(362, 63);
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.Size = new System.Drawing.Size(121, 21);
             this.cbPallet.TabIndex = 16;
@@ -301,33 +312,55 @@
             this.checkBoxMaximumLoadOnBox.UseVisualStyleBackColor = true;
             this.checkBoxMaximumLoadOnBox.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
-            // tbMaximumNumberOfBoxes
+            // nudMaximumNumberOfBoxes
             // 
-            this.tbMaximumNumberOfBoxes.Location = new System.Drawing.Point(213, 323);
-            this.tbMaximumNumberOfBoxes.Name = "tbMaximumNumberOfBoxes";
-            this.tbMaximumNumberOfBoxes.Size = new System.Drawing.Size(55, 20);
-            this.tbMaximumNumberOfBoxes.TabIndex = 24;
+            this.nudMaximumNumberOfBoxes.Location = new System.Drawing.Point(213, 323);
+            this.nudMaximumNumberOfBoxes.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaximumNumberOfBoxes.Name = "nudMaximumNumberOfBoxes";
+            this.nudMaximumNumberOfBoxes.Size = new System.Drawing.Size(55, 20);
+            this.nudMaximumNumberOfBoxes.TabIndex = 24;
             // 
-            // tbMaximumPalletHeight
+            // nudMaximumPalletHeight
             // 
-            this.tbMaximumPalletHeight.Location = new System.Drawing.Point(213, 353);
-            this.tbMaximumPalletHeight.Name = "tbMaximumPalletHeight";
-            this.tbMaximumPalletHeight.Size = new System.Drawing.Size(55, 20);
-            this.tbMaximumPalletHeight.TabIndex = 25;
+            this.nudMaximumPalletHeight.Location = new System.Drawing.Point(213, 353);
+            this.nudMaximumPalletHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaximumPalletHeight.Name = "nudMaximumPalletHeight";
+            this.nudMaximumPalletHeight.Size = new System.Drawing.Size(55, 20);
+            this.nudMaximumPalletHeight.TabIndex = 25;
             // 
-            // tbMaximumPalletWeight
+            // nudMaximumPalletWeight
             // 
-            this.tbMaximumPalletWeight.Location = new System.Drawing.Point(213, 383);
-            this.tbMaximumPalletWeight.Name = "tbMaximumPalletWeight";
-            this.tbMaximumPalletWeight.Size = new System.Drawing.Size(55, 20);
-            this.tbMaximumPalletWeight.TabIndex = 26;
+            this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            this.nudMaximumPalletWeight.Location = new System.Drawing.Point(213, 383);
+            this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaximumPalletWeight.Name = "nudMaximumPalletWeight";
+            this.nudMaximumPalletWeight.Size = new System.Drawing.Size(55, 20);
+            this.nudMaximumPalletWeight.TabIndex = 26;
             // 
-            // tbMaximumLoadOnBox
+            // nudMaximumLoadOnBox
             // 
-            this.tbMaximumLoadOnBox.Location = new System.Drawing.Point(213, 413);
-            this.tbMaximumLoadOnBox.Name = "tbMaximumLoadOnBox";
-            this.tbMaximumLoadOnBox.Size = new System.Drawing.Size(55, 20);
-            this.tbMaximumLoadOnBox.TabIndex = 27;
+            this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            this.nudMaximumLoadOnBox.Location = new System.Drawing.Point(213, 413);
+            this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudMaximumLoadOnBox.Name = "nudMaximumLoadOnBox";
+            this.nudMaximumLoadOnBox.Size = new System.Drawing.Size(55, 20);
+            this.nudMaximumLoadOnBox.TabIndex = 27;
             // 
             // lbKg2
             // 
@@ -356,20 +389,80 @@
             this.lbMm.TabIndex = 30;
             this.lbMm.Text = "mm";
             // 
+            // checkBoxInterlayer
+            // 
+            this.checkBoxInterlayer.AutoSize = true;
+            this.checkBoxInterlayer.Location = new System.Drawing.Point(20, 116);
+            this.checkBoxInterlayer.Name = "checkBoxInterlayer";
+            this.checkBoxInterlayer.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxInterlayer.TabIndex = 31;
+            this.checkBoxInterlayer.Text = "Interlayer";
+            this.checkBoxInterlayer.UseVisualStyleBackColor = true;
+            this.checkBoxInterlayer.CheckedChanged += new System.EventHandler(this.onInterlayerChecked);
+            // 
+            // cbInterlayer
+            // 
+            this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbInterlayer.FormattingEnabled = true;
+            this.cbInterlayer.Location = new System.Drawing.Point(129, 116);
+            this.cbInterlayer.Name = "cbInterlayer";
+            this.cbInterlayer.Size = new System.Drawing.Size(121, 21);
+            this.cbInterlayer.TabIndex = 32;
+            // 
+            // lbInterlayerFreq1
+            // 
+            this.lbInterlayerFreq1.AutoSize = true;
+            this.lbInterlayerFreq1.Location = new System.Drawing.Point(262, 120);
+            this.lbInterlayerFreq1.Name = "lbInterlayerFreq1";
+            this.lbInterlayerFreq1.Size = new System.Drawing.Size(39, 13);
+            this.lbInterlayerFreq1.TabIndex = 33;
+            this.lbInterlayerFreq1.Text = "every  ";
+            // 
+            // nudInterlayerFreq
+            // 
+            this.nudInterlayerFreq.Location = new System.Drawing.Point(308, 116);
+            this.nudInterlayerFreq.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudInterlayerFreq.Name = "nudInterlayerFreq";
+            this.nudInterlayerFreq.Size = new System.Drawing.Size(45, 20);
+            this.nudInterlayerFreq.TabIndex = 34;
+            this.nudInterlayerFreq.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lbInterlayerFreq2
+            // 
+            this.lbInterlayerFreq2.AutoSize = true;
+            this.lbInterlayerFreq2.Location = new System.Drawing.Point(368, 120);
+            this.lbInterlayerFreq2.Name = "lbInterlayerFreq2";
+            this.lbInterlayerFreq2.Size = new System.Drawing.Size(34, 13);
+            this.lbInterlayerFreq2.TabIndex = 35;
+            this.lbInterlayerFreq2.Text = "layers";
+            // 
             // FormNewAnalysis
             // 
             this.AcceptButton = this.bnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(605, 458);
+            this.ClientSize = new System.Drawing.Size(605, 507);
+            this.Controls.Add(this.lbInterlayerFreq2);
+            this.Controls.Add(this.nudInterlayerFreq);
+            this.Controls.Add(this.lbInterlayerFreq1);
+            this.Controls.Add(this.cbInterlayer);
+            this.Controls.Add(this.checkBoxInterlayer);
             this.Controls.Add(this.lbMm);
             this.Controls.Add(this.lbKg1);
             this.Controls.Add(this.lbKg2);
-            this.Controls.Add(this.tbMaximumLoadOnBox);
-            this.Controls.Add(this.tbMaximumPalletWeight);
-            this.Controls.Add(this.tbMaximumPalletHeight);
-            this.Controls.Add(this.tbMaximumNumberOfBoxes);
+            this.Controls.Add(this.nudMaximumLoadOnBox);
+            this.Controls.Add(this.nudMaximumPalletWeight);
+            this.Controls.Add(this.nudMaximumPalletHeight);
+            this.Controls.Add(this.nudMaximumNumberOfBoxes);
             this.Controls.Add(this.checkBoxMaximumLoadOnBox);
             this.Controls.Add(this.checkBoxMaximumPalletWeight);
             this.Controls.Add(this.lbStopStacking);
@@ -400,6 +493,11 @@
             this.gbAllowedBoxPositions.ResumeLayout(false);
             this.gbAllowedBoxPositions.PerformLayout();
             this.gbAllowedLayerPatterns.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumLoadOnBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInterlayerFreq)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,12 +529,17 @@
         private System.Windows.Forms.Label lbStopStacking;
         private System.Windows.Forms.CheckBox checkBoxMaximumPalletWeight;
         private System.Windows.Forms.CheckBox checkBoxMaximumLoadOnBox;
-        private System.Windows.Forms.TextBox tbMaximumNumberOfBoxes;
-        private System.Windows.Forms.TextBox tbMaximumPalletHeight;
-        private System.Windows.Forms.TextBox tbMaximumPalletWeight;
-        private System.Windows.Forms.TextBox tbMaximumLoadOnBox;
+        private System.Windows.Forms.NumericUpDown nudMaximumNumberOfBoxes;
+        private System.Windows.Forms.NumericUpDown nudMaximumPalletHeight;
+        private System.Windows.Forms.NumericUpDown nudMaximumPalletWeight;
+        private System.Windows.Forms.NumericUpDown nudMaximumLoadOnBox;
         private System.Windows.Forms.Label lbKg2;
         private System.Windows.Forms.Label lbKg1;
         private System.Windows.Forms.Label lbMm;
+        private System.Windows.Forms.CheckBox checkBoxInterlayer;
+        private System.Windows.Forms.ComboBox cbInterlayer;
+        private System.Windows.Forms.Label lbInterlayerFreq1;
+        private System.Windows.Forms.NumericUpDown nudInterlayerFreq;
+        private System.Windows.Forms.Label lbInterlayerFreq2;
     }
 }

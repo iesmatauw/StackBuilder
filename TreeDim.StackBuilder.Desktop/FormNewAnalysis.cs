@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using TreeDim.StackBuilder.Basics;
+using TreeDim.StackBuilder.Graphics;
+using Sharp3D.Math.Core;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -17,6 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private BoxProperties[] _boxes;
         private PalletProperties[] _palletProperties;
+        private InterlayerProperties[] _interlayerProperties;
         #endregion
 
         #region Combo box item private classes
@@ -58,6 +61,25 @@ namespace TreeDim.StackBuilder.Desktop
                 return _palletProperties.Name;
             }       
         }
+        private class InterlayerItem
+        {
+            private InterlayerProperties _interlayerProperties;
+
+            public InterlayerItem(InterlayerProperties interlayerProperties)
+            {
+                _interlayerProperties = interlayerProperties;
+            }
+
+            public InterlayerProperties Item
+            {
+                get { return _interlayerProperties; }
+            }
+
+            public override string ToString()
+            {
+                return _interlayerProperties.Name;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -65,6 +87,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             InitializeComponent();
 
+            onInterlayerChecked(this, null);
         }
 
         private void onFormLoad(object sender, EventArgs e)
@@ -79,6 +102,11 @@ namespace TreeDim.StackBuilder.Desktop
                 cbPallet.Items.Add(new PalletItem(pallet));
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
+            // fill interlayer combo
+            foreach (InterlayerProperties interlayer in _interlayerProperties)
+                cbInterlayer.Items.Add(new InterlayerItem(interlayer));
+            if (cbInterlayer.Items.Count > 0)
+                cbInterlayer.SelectedIndex = 0;
 
             // allowed position box
             AllowVerticalX = true;
@@ -99,7 +127,7 @@ namespace TreeDim.StackBuilder.Desktop
             for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
                 checkedListBoxPatterns.SetItemChecked(i, true);
 
-            UpdateCriterionTextBoxes();
+            UpdateCriterionFields();
             UpdateButtonOkStatus();
         }
         #endregion
@@ -123,6 +151,11 @@ namespace TreeDim.StackBuilder.Desktop
             get { return _palletProperties; }
             set { _palletProperties = value; }
         }
+        public InterlayerProperties[] Interlayers
+        {
+            get { return _interlayerProperties; }
+            set { _interlayerProperties = value; }
+        }
         public BoxProperties SelectedBox
         {
             get { return _boxes[cbBox.SelectedIndex]; }
@@ -138,8 +171,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public int MaximumNumberOfBoxes
         {
-            get { return System.Convert.ToInt32(tbMaximumNumberOfBoxes.Text); }
-            set { tbMaximumNumberOfBoxes.Text = string.Format("{0}", value); }
+            get { return (int)nudMaximumNumberOfBoxes.Value; }
+            set { nudMaximumNumberOfBoxes.Value = (decimal)value; }
         }
         public bool UseMaximumPalletHeight
         {
@@ -148,8 +181,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public double MaximumPalletHeight
         {
-            get { return System.Convert.ToDouble(tbMaximumPalletHeight.Text); }
-            set { tbMaximumPalletHeight.Text = string.Format("{0}", value); }
+            get { return (double)nudMaximumPalletHeight.Value; }
+            set { nudMaximumPalletHeight.Value = (decimal)value; }
         }
         public bool UseMaximumPalletWeight
         {
@@ -158,8 +191,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public double MaximumPalletWeight
         {
-            get { return System.Convert.ToDouble(tbMaximumPalletWeight.Text); }
-            set { tbMaximumPalletWeight.Text = string.Format("{0}", value); }
+            get { return (double)nudMaximumPalletWeight.Value; }
+            set { nudMaximumPalletWeight.Value = (decimal)value; }
         }
         public bool UseMaximumLoadOnBox
         {
@@ -168,8 +201,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public double MaximumLoadOnBox
         {
-            get { return System.Convert.ToDouble(tbMaximumLoadOnBox.Text); }
-            set { tbMaximumLoadOnBox.Text = string.Format("{0}", value); }
+            get { return (double)nudMaximumLoadOnBox.Value; }
+            set { nudMaximumLoadOnBox.Value = (decimal) value; }
         }
         public bool AllowVerticalX
         {
@@ -200,9 +233,24 @@ namespace TreeDim.StackBuilder.Desktop
                 return listAllowedPatterns;
             }
         }
+        public bool HasInterlayers
+        {
+            get { return checkBoxInterlayer.Checked; }
+            set { checkBoxInterlayer.Checked = value; }
+        }
+        public int InterlayerFrequency
+        {
+            get { return (int)nudInterlayerFreq.Value; }
+            set { nudInterlayerFreq.Value = (decimal)value; }
+        }
         #endregion
 
         #region Handlers
+        private void onBoxChanged(object sender, EventArgs e)
+        {
+            DrawBoxPositions();
+        }
+
         private void UpdateButtonOkStatus()
         {
             bnAccept.Enabled = tbName.Text.Length > 0 && tbDescription.Text.Length > 0;
@@ -211,16 +259,70 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateButtonOkStatus();
         }
-        private void UpdateCriterionTextBoxes()
+        private void UpdateCriterionFields()
         { 
-            tbMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;
-            tbMaximumPalletHeight.Enabled = checkBoxMaximumPalletHeight.Checked;
-            tbMaximumPalletWeight.Enabled = checkBoxMaximumPalletWeight.Checked;
-            tbMaximumLoadOnBox.Enabled = checkBoxMaximumLoadOnBox.Checked;
+            nudMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;
+            nudMaximumPalletHeight.Enabled = checkBoxMaximumPalletHeight.Checked;
+            nudMaximumPalletWeight.Enabled = checkBoxMaximumPalletWeight.Checked;
+            nudMaximumLoadOnBox.Enabled = checkBoxMaximumLoadOnBox.Checked;
         }
         private void onCriterionCheckChanged(object sender, EventArgs e)
         {
-            UpdateCriterionTextBoxes();
+            UpdateCriterionFields();
+        }
+        private void onInterlayerChecked(object sender, EventArgs e)
+        {
+            cbInterlayer.Enabled = checkBoxInterlayer.Checked;
+            lbInterlayerFreq1.Enabled = checkBoxInterlayer.Checked;
+            lbInterlayerFreq2.Enabled = checkBoxInterlayer.Checked;
+            nudInterlayerFreq.Enabled = checkBoxInterlayer.Checked;
+        }
+        #endregion
+
+        #region Box position drawings
+        private void DrawBoxPositions()
+        { 
+            // get current boxProperties
+            BoxProperties selectedBox = SelectedBox;
+            DrawBoxPosition(selectedBox, HalfAxis.AXIS_X_P, pictureBoxPositionX);
+            DrawBoxPosition(selectedBox, HalfAxis.AXIS_Y_P, pictureBoxPositionY);
+            DrawBoxPosition(selectedBox, HalfAxis.AXIS_Z_P, pictureBoxPositionZ);
+        }
+        private void DrawBoxPosition(BoxProperties boxProperties, HalfAxis axis, PictureBox pictureBox)
+        {
+            // get horizontal angle
+            double angle = 45;
+            // instantiate graphics
+            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
+            graphics.CameraPosition = new Vector3D(
+                Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                , 10000.0);
+            graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+            graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+            // draw
+            Box box = new Box(0, boxProperties);
+
+            // set axes
+            HalfAxis lengthAxis = HalfAxis.AXIS_X_P;
+            HalfAxis widthAxis = HalfAxis.AXIS_Y_P;
+            switch (axis)
+            {
+                case HalfAxis.AXIS_X_P: lengthAxis = HalfAxis.AXIS_Z_P; widthAxis = HalfAxis.AXIS_X_P; break;
+                case HalfAxis.AXIS_Y_P: lengthAxis = HalfAxis.AXIS_X_P;  widthAxis = HalfAxis.AXIS_Z_N; break;
+                case HalfAxis.AXIS_Z_P: lengthAxis = HalfAxis.AXIS_X_P;  widthAxis = HalfAxis.AXIS_Y_P; break;
+                default: break;
+            }
+            box.LengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(lengthAxis);
+            box.WidthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(widthAxis);
+
+            // draw box
+            foreach (Face face in box.Faces)
+                graphics.AddFace(face);
+            graphics.Flush();
+            // set to picture box
+            pictureBox.Image = graphics.Bitmap;
         }
         #endregion
     }

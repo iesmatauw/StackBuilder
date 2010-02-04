@@ -52,6 +52,12 @@
     <Compile Include="AnalysisTreeView.Designer.cs">
       <DependentUpon>AnalysisTreeView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckedListBoxWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckedListBoxWithImage.Designer.cs">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document.cs" />
     <Compile Include="FormNewAnalysis.cs">
       <SubType>Form</SubType>
@@ -64,6 +70,18 @@
     </Compile>
     <Compile Include="FormNewBox.Designer.cs">
       <DependentUpon>FormNewBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBundle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBundle.Designer.cs">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewInterlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewInterlayer.Designer.cs">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewPallet.cs">
       <SubType>Form</SubType>
@@ -87,6 +105,10 @@
       <DependentUpon>AnalysisTreeView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
@@ -94,6 +116,14 @@
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.resx">
       <SubType>Designer</SubType>
@@ -201,6 +231,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FileSave.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unchecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxUnchecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxChecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Interlayer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bundle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PatternCollumn.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PatternInterlocked.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

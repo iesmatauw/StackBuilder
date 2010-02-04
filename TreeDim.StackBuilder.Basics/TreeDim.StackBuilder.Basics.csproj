@@ -36,7 +36,10 @@
   <ItemGroup>
     <Compile Include="Analysis.cs" />
     <Compile Include="BoxProperties.cs" />
+    <Compile Include="BundleProperties.cs" />
     <Compile Include="ConstraintSet.cs" />
+    <Compile Include="InterlayerProperties.cs" />
+    <Compile Include="ItemProperties.cs" />
     <Compile Include="PalletProperties.cs" />
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

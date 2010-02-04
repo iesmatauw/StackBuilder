@@ -123,23 +123,34 @@ namespace TreeDim.StackBuilder.Desktop
             nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc, null, null, null);
             nodeDoc.Nodes.Add(nodeAnalyses);
         }
-        public void OnNewBoxCreated(Document doc, BoxProperties boxProperties)
+        public void OnNewTypeCreated(Document doc, ItemProperties itemProperties)
         {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc, null, null, null));
-            // insert box node
-            TreeNode nodeBox = new TreeNode(boxProperties.Name, 3, 3);
-            nodeBox.Tag = new NodeTag(NodeTag.NodeType.NT_BOX, doc, boxProperties, null, null);
-            parentNode.Nodes.Add(nodeBox);
-        }
-        public void OnNewPalletCreated(Document doc, PalletProperties palletProperties)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc, null, null, null));
-            // insert pallet node
-            TreeNode nodePallet = new TreeNode(palletProperties.Name, 4, 4);
-            nodePallet.Tag = new NodeTag(NodeTag.NodeType.NT_PALLET, doc, null, palletProperties, null);
-            parentNode.Nodes.Add(nodePallet);
+            if (itemProperties.GetType() == typeof(BoxProperties))
+            {
+                BoxProperties boxProperties = itemProperties as BoxProperties;
+                // get parent node
+                TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc, null, null, null));
+                // insert box node
+                TreeNode nodeBox = new TreeNode(boxProperties.Name, 3, 3);
+                nodeBox.Tag = new NodeTag(NodeTag.NodeType.NT_BOX, doc, boxProperties, null, null);
+                parentNode.Nodes.Add(nodeBox);
+            }
+            else if (itemProperties.GetType() == typeof(PalletProperties))
+            {
+                PalletProperties palletProperties = itemProperties as PalletProperties;
+                // get parent node
+                TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc, null, null, null));
+                // insert pallet node
+                TreeNode nodePallet = new TreeNode(palletProperties.Name, 4, 4);
+                nodePallet.Tag = new NodeTag(NodeTag.NodeType.NT_PALLET, doc, null, palletProperties, null);
+                parentNode.Nodes.Add(nodePallet);
+            }
+            else if (itemProperties.GetType() == typeof(InterlayerProperties))
+            { 
+            }
+            else if (itemProperties.GetType() == typeof(BundleProperties))
+            {            
+            }
         }
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
         {

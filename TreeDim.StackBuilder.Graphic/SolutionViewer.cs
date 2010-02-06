@@ -37,37 +37,38 @@ namespace TreeDim.StackBuilder.Graphics
             // draw pallet
             // draw solution
             uint pickId = 0;
-            foreach (BoxPosition bPosition in _solution)
-            {
-                Box box = new Box(pickId++, _analysis.BoxProperties);
-                // set position
-                box.Position = bPosition.Position;
-                // set direction length
-                switch (bPosition.DirectionLength)
+            foreach (BoxLayer layer in _solution)
+                foreach (BoxPosition bPosition in layer)
                 {
-                    case HalfAxis.AXIS_X_N: box.LengthAxis = -Vector3D.XAxis; break;
-                    case HalfAxis.AXIS_X_P: box.LengthAxis = Vector3D.XAxis; break;
-                    case HalfAxis.AXIS_Y_N: box.LengthAxis = -Vector3D.YAxis; break;
-                    case HalfAxis.AXIS_Y_P: box.LengthAxis = Vector3D.YAxis; break;
-                    case HalfAxis.AXIS_Z_N: box.LengthAxis = -Vector3D.ZAxis; break;
-                    case HalfAxis.AXIS_Z_P: box.LengthAxis = Vector3D.ZAxis; break;
-                    default:
-                        Debug.Assert(false);
-                        break;
-                }
-                // set direction width
-                switch (bPosition.DirectionWidth)
-                {
-                    case HalfAxis.AXIS_X_N: box.WidthAxis = -Vector3D.XAxis; break;
-                    case HalfAxis.AXIS_X_P: box.WidthAxis = Vector3D.XAxis; break;
-                    case HalfAxis.AXIS_Y_N: box.WidthAxis = -Vector3D.YAxis; break;
-                    case HalfAxis.AXIS_Y_P: box.WidthAxis = Vector3D.YAxis; break;
-                    case HalfAxis.AXIS_Z_N: box.WidthAxis = -Vector3D.ZAxis; break;
-                    case HalfAxis.AXIS_Z_P: box.WidthAxis = Vector3D.ZAxis; break;
-                    default:
-                        Debug.Assert(false);
-                        break;
-                }
+                    Box box = new Box(pickId++, _analysis.BoxProperties);
+                    // set position
+                    box.Position = bPosition.Position;
+                    // set direction length
+                    switch (bPosition.DirectionLength)
+                    {
+                        case HalfAxis.AXIS_X_N: box.LengthAxis = -Vector3D.XAxis; break;
+                        case HalfAxis.AXIS_X_P: box.LengthAxis = Vector3D.XAxis; break;
+                        case HalfAxis.AXIS_Y_N: box.LengthAxis = -Vector3D.YAxis; break;
+                        case HalfAxis.AXIS_Y_P: box.LengthAxis = Vector3D.YAxis; break;
+                        case HalfAxis.AXIS_Z_N: box.LengthAxis = -Vector3D.ZAxis; break;
+                        case HalfAxis.AXIS_Z_P: box.LengthAxis = Vector3D.ZAxis; break;
+                        default:
+                            Debug.Assert(false);
+                            break;
+                    }
+                    // set direction width
+                    switch (bPosition.DirectionWidth)
+                    {
+                        case HalfAxis.AXIS_X_N: box.WidthAxis = -Vector3D.XAxis; break;
+                        case HalfAxis.AXIS_X_P: box.WidthAxis = Vector3D.XAxis; break;
+                        case HalfAxis.AXIS_Y_N: box.WidthAxis = -Vector3D.YAxis; break;
+                        case HalfAxis.AXIS_Y_P: box.WidthAxis = Vector3D.YAxis; break;
+                        case HalfAxis.AXIS_Z_N: box.WidthAxis = -Vector3D.ZAxis; break;
+                        case HalfAxis.AXIS_Z_P: box.WidthAxis = Vector3D.ZAxis; break;
+                        default:
+                            Debug.Assert(false);
+                            break;
+                    }
                 // draw
                 foreach (Face face in box.Faces)
                     graphics.AddFace(face);

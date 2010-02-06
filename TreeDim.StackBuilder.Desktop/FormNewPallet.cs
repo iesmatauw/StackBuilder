@@ -27,18 +27,6 @@ namespace TreeDim.StackBuilder.Desktop
             // save document reference
             _document = document;
 
-            // initialize data
-            PalletLength = 1200;
-            PalletWidth = 1000;
-            PalletHeight = 100;
-            Weight = 20;
-            AdmissibleLoadWeight = 1000;
-            AdmissibleLoadHeight = 3000;
-
-            // select radio button
-            radioButtonPallet1.Checked = false;
-            radioButtonPallet2.Checked = true;
-
             // initialize type combo
             for (int i = 0; i < 1; ++i)
                 cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
@@ -50,6 +38,17 @@ namespace TreeDim.StackBuilder.Desktop
                 radioButtonPallet1.Checked = false;
                 radioButtonPallet2.Checked = true;
             }
+            // initialize data
+            PalletLength = 1200;
+            PalletWidth = 1000;
+            PalletHeight = 100;
+            Weight = 20;
+            AdmissibleLoadWeight = 1000;
+            AdmissibleLoadHeight = 3000;
+
+            // select radio button
+            radioButtonPallet1.Checked = false;
+            radioButtonPallet2.Checked = true;
             onPalletInsertionModeChanged(this, null);
             UpdateButtonOkStatus();
         }

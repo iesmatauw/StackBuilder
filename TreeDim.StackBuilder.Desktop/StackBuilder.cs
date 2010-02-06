@@ -310,7 +310,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ++iIndex;
                 gridSolutions.Rows.Insert(iIndex);
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
-                gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.Count));
+                gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;

@@ -67,7 +67,7 @@ namespace TreeDim.StackBuilder.Basics
     }
     #endregion
 
-    #region Solution
+    #region BoxPosition
     /// <summary>
     /// Box position
     /// </summary>
@@ -109,13 +109,97 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
+
+    #region Layer classes (box layer + interlayer)
+    /// <summary>
+    /// Layer interface to be implemented by either BoxLayer or InterlayerPos
+    /// </summary>
+    public interface ILayer
+    {
+        double ZLow { get; }
+        int BoxCount { get; }
+        int InterlayerCount { get; }
+    }
+
+    public class InterlayerPos : ILayer
+    {
+        #region Data members
+        private double _zLower = 0.0;
+        #endregion
+
+        #region Constructor
+        public InterlayerPos(double zLow)
+        {
+            _zLower = zLow;
+        }
+        #endregion
+
+        #region ILayer implementation
+        public double ZLow
+        {
+            get { return _zLower; }
+        }
+        public int BoxCount
+        {
+            get { return 0; }
+        }
+        public int InterlayerCount
+        {
+            get { return 1; }
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// A layer of box
+    /// </summary>
+    public class BoxLayer : List<BoxPosition>, ILayer
+    {
+        #region Data members
+        double _zLower = 0.0;
+        #endregion
+
+        #region Constructor
+        public BoxLayer(double zLow)
+        {
+            _zLower = zLow;
+        }
+        #endregion
+
+        #region Public properties
+        public double ZLow
+        {
+            get { return _zLower; }
+        }
+        public int BoxCount
+        {
+            get { return Count; }
+        }
+
+        public int InterlayerCount
+        {
+            get { return 0; }
+        }
+        #endregion
+
+        #region Public methods
+        public void AddPosition(Vector3D vPosition, HalfAxis dirLength, HalfAxis dirWidth)
+        {
+            Add(new BoxPosition(vPosition, dirLength, dirWidth));
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Solution
     /// <summary>
     /// A set of box position and orientation that represent a valid solution
     /// </summary>
-    public class Solution : List<BoxPosition>, IComparable
+    public class Solution : List<ILayer>, IComparable  
     {
         #region Data members
-        string _title;
+        private string _title;
         #endregion
 
         #region Constructor
@@ -126,16 +210,44 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        string Title
+        public string Title
         {
             get { return _title; }
+        }
+        public int BoxCount
+        {
+            get
+            {
+                int iCount = 0;
+                foreach (ILayer layer in this)
+                    iCount += layer.BoxCount;
+                return iCount;
+            }
+        }
+        public int InterlayerCount
+        {
+            get
+            {
+                int iCount = 0;
+                foreach (ILayer layer in this)
+                    iCount += layer.InterlayerCount;
+                return iCount;
+            }
         }
         #endregion
 
         #region Public methods
-        public void AddPosition(Vector3D vPosition, HalfAxis dirLength, HalfAxis dirWidth)
-        { 
-            Add(new BoxPosition(vPosition, dirLength, dirWidth));
+        public BoxLayer CreateNewLayer(double zLow)
+        {
+            BoxLayer layer = new BoxLayer(zLow);
+            Add(layer);
+            return layer;
+        }
+        public InterlayerPos CreateNewInterlayer(double zLow)
+        {
+            InterlayerPos layer = new InterlayerPos(zLow);
+            Add(layer);
+            return layer;
         }
         #endregion
 
@@ -143,9 +255,9 @@ namespace TreeDim.StackBuilder.Basics
         public int CompareTo(object obj)
         {
             Solution sol = (Solution)obj;
-            if (this.Count > sol.Count)
+            if (this.BoxCount > sol.BoxCount)
                 return -1;
-            else if (this.Count == sol.Count)
+            else if (this.BoxCount == sol.BoxCount)
                 return 0;
             else
                 return 1;
@@ -156,10 +268,11 @@ namespace TreeDim.StackBuilder.Basics
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(string.Format("=== Solution ===> {0} items", this.Count));
+            sb.AppendLine(string.Format("=== Solution ===> {0} layers -> {1} boxes", this.Count, this.BoxCount));
             int index = 0;
-            foreach (BoxPosition boxPosition in this)
-                sb.AppendLine(string.Format("{0} : {1}", index++, boxPosition.ToString()));
+            foreach (BoxLayer layer in this)
+                foreach (BoxPosition boxPosition in layer)
+                    sb.AppendLine(string.Format("{0} : {1}", index++, boxPosition.ToString()));
             return sb.ToString();
         }
         #endregion

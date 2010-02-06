@@ -9,6 +9,9 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Engine
 {
+    /// <summary>
+    /// Solver
+    /// </summary>
     public class Solver
     {
         #region Data members
@@ -115,6 +118,8 @@ namespace TreeDim.StackBuilder.Engine
                                 (!_constraintSet.UseMaximumHeight || ((iLayerIndex + 1) * _boxProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
                                 )
                             {
+                                BoxLayer layer = sol.CreateNewLayer(zLayer);
+
                                 // select current layer type
                                 Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
                                 foreach (LayerPosition layerPos in currentLayer)
@@ -131,7 +136,7 @@ namespace TreeDim.StackBuilder.Engine
                                             , layerPos.WidthAxis
                                             );
 
-                                        sol.Add(boxPos);
+                                        layer.Add(boxPos);
                                     }
                                     else
                                         break;

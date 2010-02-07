@@ -13,8 +13,9 @@ namespace TreeDim.StackBuilder.Basics
         public enum PalletType
         { 
             BLOCK
+            , UK_STANDARD
         }
-        public static string[] PalletTypeNames = { "Block" };
+        public static string[] PalletTypeNames = { "Block", "UK Standard" };
         #endregion
 
         #region Data members

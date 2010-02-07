@@ -35,6 +35,8 @@ namespace TreeDim.StackBuilder.Graphics
                 return;
             // initialize Graphics3D object
             // draw pallet
+            Pallet pallet = new Pallet(_analysis.PalletProperties);
+            pallet.Draw(graphics);
             // draw solution
             uint pickId = 0;
             foreach (BoxLayer layer in _solution)

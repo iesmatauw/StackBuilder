@@ -9,7 +9,7 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Graphics
 {
-    public class Box
+    public class Box : Drawable
     {
         #region Data members
         uint _pickId = 0;
@@ -61,6 +61,18 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _position; }
             set { _position = value; }
+        }
+        public double Length
+        {
+            get { return _dim[0]; }
+        }
+        public double Width
+        {
+            get { return _dim[1]; }
+        }
+        public double Height
+        {
+            get { return _dim[2]; }
         }
 
         public Vector3D LengthAxis
@@ -126,6 +138,12 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public methods
+        public override void Draw(Graphics3D graphics)
+        {
+            foreach (Face face in Faces)
+                graphics.AddFace(face);
+        }
+
         public void SetAllFacesColor(Color color)
         {
             for (int i = 0; i < 6; ++i)

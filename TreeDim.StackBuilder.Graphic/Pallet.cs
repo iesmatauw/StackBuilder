@@ -29,41 +29,111 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
+        #region Overrides
+        public void Draw(Graphics3D graphics)
+        {
+            switch (_type)
+            {
+                case PalletProperties.PalletType.BLOCK:
+                    {
+                        foreach (Face face in Faces)
+                            graphics.AddFace(face);
+                    }
+                    break;
+                case PalletProperties.PalletType.UK_STANDARD:
+                    {
+                        double coefLength = _length / 1200.0;
+                        double coefWidth = _width / 1000.0;
+                        double coefHeight = _height / 150.0;
+
+                        // planks
+                        Box plank1 = new Box(0, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
+                        Box plank2 = new Box(0, 138.0 * coefWidth, 98.0* coefLength, 95.0 * coefHeight);     plank2.SetAllFacesColor(_color);
+                        Box plank3 = new Box(0, 95.0 * coefWidth, 95.0* coefLength, 95.0 * coefHeight);      plank3.SetAllFacesColor(_color);
+                        Box plank4 = new Box(0, 1200.0* coefLength, 95.0 * coefWidth, 18.0 * coefHeight);    plank4.SetAllFacesColor(_color);
+                        Box plank5 = new Box(0, 1000.0 * coefWidth, 120.0* coefLength, 19.0 * coefHeight);   plank5.SetAllFacesColor(_color);
+
+                        // first layer
+                        double z = 0.0;
+                        double xStep = (1200.0* coefLength - plank1.Width) / 2.0;
+                        plank1.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                        plank1.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
+                        for (int i = 0; i < 3; ++i)
+                        {
+                            plank1.Position = new Vector3D(plank1.Width + i * xStep, 0.0, z);
+                            plank1.Draw(graphics); ;
+                        }
+                        
+                        // second layer
+                        z = plank1.Height;
+                        double yStep = (1000.0* coefWidth - plank2.Length) / 2.0;
+                        plank2.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                        plank2.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
+                        for (int i = 0; i < 3; ++i)
+                            for (int j = 0; j < 3; ++j)
+                            {
+                                plank2.Position = new Vector3D(plank2.Width + i * xStep, j*yStep, z);
+                                plank2.Draw(graphics);
+                            }
+
+                        // third layer
+                        z = plank1.Height + plank2.Height;
+                        yStep = plank4.Width + (1000.0* coefWidth - 3.0 * plank4.Width) / 2.0;
+                        plank4.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_P);
+                        plank4.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                        for (int j = 0; j < 3; ++j)
+                        {
+                            plank4.Position = new Vector3D(0.0, j * yStep, z);
+                            plank4.Draw(graphics);
+                        }
+
+                        // fourth layer
+                        z = plank1.Height + plank2.Height + plank4.Height;
+                        xStep = plank5.Width + (1200.0* coefLength-7.0*plank5.Width) / 6.0;
+                        plank5.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                        plank5.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
+                        for (int i = 0; i < 7; ++i)
+                        {
+                            plank5.Position = new Vector3D(plank5.Width + i * xStep, 0.0, z);
+                            plank5.Draw(graphics);
+                        }
+
+
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
+
         #region Public properties
         public Face[] Faces
         {
             get
             {
-                Face[] faces= new Face[6];
-                switch (_type)
-                {
-                    case PalletProperties.PalletType.BLOCK:
-                        {
-                            // points
-                            Vector3D[] points = new Vector3D[8];
-                            points[0] = Vector3D.Zero;
-                            points[1] = _length * Vector3D.XAxis;
-                            points[2] = _length * Vector3D.XAxis +_width * Vector3D.YAxis;
-                            points[3] = _width * Vector3D.YAxis;
-                            points[4] = _height * Vector3D.ZAxis;
-                            points[5] = _length * Vector3D.XAxis + _height * Vector3D.ZAxis;
-                            points[6] = _length * Vector3D.XAxis + _width * Vector3D.YAxis + _height * Vector3D.ZAxis;
-                            points[7] = _width * Vector3D.YAxis + _height * Vector3D.ZAxis;
+                Face[] faces = new Face[6];
+                // points
+                Vector3D[] points = new Vector3D[8];
+                points[0] = Vector3D.Zero;
+                points[1] = _length * Vector3D.XAxis;
+                points[2] = _length * Vector3D.XAxis + _width * Vector3D.YAxis;
+                points[3] = _width * Vector3D.YAxis;
+                points[4] = _height * Vector3D.ZAxis;
+                points[5] = _length * Vector3D.XAxis + _height * Vector3D.ZAxis;
+                points[6] = _length * Vector3D.XAxis + _width * Vector3D.YAxis + _height * Vector3D.ZAxis;
+                points[7] = _width * Vector3D.YAxis + _height * Vector3D.ZAxis;
 
-                            faces[0] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
-                            faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }); // AXIS_X_P
-                            faces[2] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }); // AXIS_Y_N
-                            faces[3] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }); // AXIS_Y_P
-                            faces[4] = new Face(0, new Vector3D[] { points[3], points[2], points[1], points[0] }); // AXIS_Z_N
-                            faces[5] = new Face(0, new Vector3D[] { points[4], points[5], points[6], points[7] }); // AXIS_Z_P
+                faces[0] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
+                faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }); // AXIS_X_P
+                faces[2] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }); // AXIS_Y_N
+                faces[3] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }); // AXIS_Y_P
+                faces[4] = new Face(0, new Vector3D[] { points[3], points[2], points[1], points[0] }); // AXIS_Z_N
+                faces[5] = new Face(0, new Vector3D[] { points[4], points[5], points[6], points[7] }); // AXIS_Z_P
 
-                            foreach (Face face in faces)
-                                face.ColorFill = _color;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                foreach (Face face in faces)
+                    face.ColorFill = _color;
+
                 return faces;            
             }
         }

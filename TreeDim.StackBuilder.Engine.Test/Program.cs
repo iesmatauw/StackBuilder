@@ -39,27 +39,28 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(PalletProperties.PalletType.BLOCK, 1200, 1000, 50);
+                PalletProperties palletProperties = new PalletProperties(PalletProperties.PalletType.BLOCK, 1200, 1000, 150);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
                 // define constraints
                 ConstraintSet constraintSet = new ConstraintSet();
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_P, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_N, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_P, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_N, true);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_P, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_N, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_P, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_N, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_P, true);
 
-                constraintSet.SetAllowedPattern("Column");
-                constraintSet.SetAllowedPattern("Interlocked");
+                //constraintSet.SetAllowedPattern("Column");
+                //constraintSet.SetAllowedPattern("Interlocked");
+                constraintSet.SetAllowedPattern("Spirale");
                 constraintSet.ForceAlternateLayer = false;
                 constraintSet.AllowAlternateLayer = true;
                 
-                constraintSet.MaximumPalletWeight = 1000.0;
-                constraintSet.MaximumNumberOfItems = 1000;
-                constraintSet.MaximumHeight = 1450;
+                constraintSet.MaximumPalletWeight = 2000;
+                constraintSet.MaximumNumberOfItems = 2000;
+                constraintSet.MaximumHeight = 2000.0;
                 constraintSet.UseMaximumHeight = true;
                 constraintSet.UseMaximumPalletWeight = true;
                 constraintSet.UseMaximumWeightOnBox = false;

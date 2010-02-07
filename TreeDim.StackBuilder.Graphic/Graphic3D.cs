@@ -292,6 +292,9 @@ namespace TreeDim.StackBuilder.Graphics
             int ptCount = pt.Length;
             for (int i = 1; i < ptCount; ++i)
             {
+                // there is a bug here!
+                // -> a polygon that result from first split will lose all edges
+                // when split a second time
                 if (!(face._isIntersection[i - 1] && face._isIntersection[i]))
                     g.DrawLine(new Pen(brush0, 1.5f), pt[i - 1], pt[i]);
             }

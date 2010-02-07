@@ -28,7 +28,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
 
             // initialize type combo
-            for (int i = 0; i < 1; ++i)
+            for (int i = 0; i < 2; ++i)
                 cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
             cbType.SelectedIndex = 0;
 
@@ -130,8 +130,7 @@ namespace TreeDim.StackBuilder.Desktop
             PalletProperties palletProperties = new PalletProperties(PalletType, PalletLength, PalletWidth, PalletHeight);
             palletProperties.Color = Color;
             Pallet pallet = new Pallet(palletProperties);
-            foreach (Face face in pallet.Faces)
-                graphics.AddFace(face);
+            pallet.Draw(graphics);
             graphics.Flush();
             pictureBox.Image = graphics.Bitmap;
         }

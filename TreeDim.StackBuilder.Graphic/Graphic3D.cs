@@ -56,7 +56,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// Current transformation
         /// </summary>
         private Transform3D _currentTransf;
-        private PaintingAlgorithm _algo = PaintingAlgorithm.ALGO_BSPTREE;
+        private PaintingAlgorithm _algo = PaintingAlgorithm.ALGO_PAINTER;
         #endregion
 
         #region Constructors

@@ -69,8 +69,8 @@
             this.nudPalletOverhangX = new System.Windows.Forms.NumericUpDown();
             this.nudPalletOverhangY = new System.Windows.Forms.NumericUpDown();
             this.gbOverhangUnderhang = new System.Windows.Forms.GroupBox();
-            this.lbMm1 = new System.Windows.Forms.Label();
             this.lbMm2 = new System.Windows.Forms.Label();
+            this.lbMm1 = new System.Windows.Forms.Label();
             this.checkBoxAllowAlignedLayer = new System.Windows.Forms.CheckBox();
             this.checkBoxAllowAlternateLayer = new System.Windows.Forms.CheckBox();
             this.gbLayerAlignment = new System.Windows.Forms.GroupBox();
@@ -265,7 +265,8 @@
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
             "Column",
-            "Interlocked"});
+            "Interlocked",
+            "Spirale"});
             this.checkedListBoxPatterns.Location = new System.Drawing.Point(12, 18);
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             this.checkedListBoxPatterns.Size = new System.Drawing.Size(162, 109);
@@ -513,15 +514,6 @@
             this.gbOverhangUnderhang.TabStop = false;
             this.gbOverhangUnderhang.Text = "Pallet overhang / underhang";
             // 
-            // lbMm1
-            // 
-            this.lbMm1.AutoSize = true;
-            this.lbMm1.Location = new System.Drawing.Point(197, 20);
-            this.lbMm1.Name = "lbMm1";
-            this.lbMm1.Size = new System.Drawing.Size(23, 13);
-            this.lbMm1.TabIndex = 40;
-            this.lbMm1.Text = "mm";
-            // 
             // lbMm2
             // 
             this.lbMm2.AutoSize = true;
@@ -530,6 +522,15 @@
             this.lbMm2.Size = new System.Drawing.Size(23, 13);
             this.lbMm2.TabIndex = 41;
             this.lbMm2.Text = "mm";
+            // 
+            // lbMm1
+            // 
+            this.lbMm1.AutoSize = true;
+            this.lbMm1.Location = new System.Drawing.Point(197, 20);
+            this.lbMm1.Name = "lbMm1";
+            this.lbMm1.Size = new System.Drawing.Size(23, 13);
+            this.lbMm1.TabIndex = 40;
+            this.lbMm1.Text = "mm";
             // 
             // checkBoxAllowAlignedLayer
             // 

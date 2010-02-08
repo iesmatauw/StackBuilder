@@ -126,7 +126,7 @@ namespace TreeDim.StackBuilder.Desktop
             UseMaximumPalletWeight = true;
             UseMaximumLoadOnBox = false;
             MaximumNumberOfBoxes = 500;
-            MaximumPalletHeight = 3000.0;
+            MaximumPalletHeight = 1500.0;
             MaximumPalletWeight = 1000.0;
             MaximumLoadOnBox = 100.0;
 

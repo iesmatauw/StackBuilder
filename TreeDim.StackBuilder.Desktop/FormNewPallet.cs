@@ -30,7 +30,7 @@ namespace TreeDim.StackBuilder.Desktop
             // initialize type combo
             for (int i = 0; i < 2; ++i)
                 cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
-            cbType.SelectedIndex = 0;
+            cbType.SelectedIndex = 1;
 
             // initialize database pallet combo
             if (0 == cbPallet.Items.Count)
@@ -41,7 +41,7 @@ namespace TreeDim.StackBuilder.Desktop
             // initialize data
             PalletLength = 1200;
             PalletWidth = 1000;
-            PalletHeight = 100;
+            PalletHeight = 150;
             Weight = 20;
             AdmissibleLoadWeight = 1000;
             AdmissibleLoadHeight = 3000;
@@ -117,22 +117,28 @@ namespace TreeDim.StackBuilder.Desktop
         #region Draw pallet
         private void DrawPallet()
         {
-            double angle = trackBarHorizAngle.Value;
-            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-            graphics.CameraPosition = new Vector3D(
-                Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , 10000.0);
-            graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-            graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+            try
+            {
+                double angle = trackBarHorizAngle.Value;
+                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
+                graphics.CameraPosition = new Vector3D(
+                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                    , 10000.0);
+                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
-            PalletProperties palletProperties = new PalletProperties(PalletType, PalletLength, PalletWidth, PalletHeight);
-            palletProperties.Color = Color;
-            Pallet pallet = new Pallet(palletProperties);
-            pallet.Draw(graphics);
-            graphics.Flush();
-            pictureBox.Image = graphics.Bitmap;
+                PalletProperties palletProperties = new PalletProperties(PalletType, PalletLength, PalletWidth, PalletHeight);
+                palletProperties.Color = Color;
+                Pallet pallet = new Pallet(palletProperties);
+                pallet.Draw(graphics);
+                graphics.Flush();
+                pictureBox.Image = graphics.Bitmap;
+            }
+            catch (Exception /*ex*/)
+            { 
+            }
         }
         #endregion
 

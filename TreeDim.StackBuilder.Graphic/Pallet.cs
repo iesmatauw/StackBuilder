@@ -97,8 +97,6 @@ namespace TreeDim.StackBuilder.Graphics
                             plank5.Position = new Vector3D(plank5.Width + i * xStep, 0.0, z);
                             plank5.Draw(graphics);
                         }
-
-
                     }
                     break;
                 default:

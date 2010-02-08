@@ -21,7 +21,6 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// View parameters
         /// </summary>
-        private double _angleHoriz = 45.0, _angleVert = 45.0;
         private const double _cameraDistance = 10000.0;
         /// <summary>
         /// Document class to hold data (boxes/pallets/anslyses)
@@ -208,11 +207,11 @@ namespace TreeDim.StackBuilder.Desktop
                 // instantiate graphics
                 Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
                 // set camera position 
-                double angleHorizRad = _angleHoriz * Math.PI / 180.0;
-                double angleVertRad = _angleVert * Math.PI / 180.0;
+                double angleHorizRad = trackBarAngleHoriz.Value * Math.PI / 180.0;
+                double angleVertRad = trackBarAngleVert.Value * Math.PI / 180.0;
                 graphics.CameraPosition = new Vector3D(
-                    _cameraDistance * Math.Cos(angleHorizRad)
-                    , _cameraDistance * Math.Sin(angleHorizRad)
+                    _cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
+                    , _cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
                     , _cameraDistance * Math.Sin(angleVertRad));
                 // set camera target
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
@@ -336,75 +335,75 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers to define point of view
         private void onAngleHorizChanged(object sender, EventArgs e)
         {
-            _angleHoriz = trackBarAngleHoriz.Value;
+            trackBarAngleHoriz.Value = trackBarAngleHoriz.Value;
             Draw();
         }
 
         private void onAngleVertChanged(object sender, EventArgs e)
         {
-            _angleVert = trackBarAngleVert.Value;
+            trackBarAngleVert.Value = trackBarAngleVert.Value;
             Draw();
         }
         private void onViewSideFront(object sender, EventArgs e)
         {
-            _angleHoriz = 0.0;
-            _angleVert = 0.0;
+            trackBarAngleHoriz.Value = 0;
+            trackBarAngleVert.Value = 0;
             Draw();
          }
 
         private void onViewSideLeft(object sender, EventArgs e)
         {
-            _angleHoriz = 90.0;
-            _angleVert = 0.0;
+            trackBarAngleHoriz.Value = 90;
+            trackBarAngleVert.Value = 0;
             Draw();
         }
 
         private void onViewSideRear(object sender, EventArgs e)
         {
-            _angleHoriz = 180.0;
-            _angleVert = 0.0;
+            trackBarAngleHoriz.Value = 180;
+            trackBarAngleVert.Value = 0;
             Draw();
         }
 
         private void onViewSideRight(object sender, EventArgs e)
         {
-            _angleHoriz = 270.0;
-            _angleVert = 0.0;
+            trackBarAngleHoriz.Value = 270;
+            trackBarAngleVert.Value = 0;
             Draw();
         }
 
         private void onViewCorner_0(object sender, EventArgs e)
         {
-            _angleHoriz = 45.0 + 0.0;
-            _angleVert = 45.0;
+            trackBarAngleHoriz.Value = 45 + 0;
+            trackBarAngleVert.Value = 45;
             Draw();
         }
 
         private void onViewCorner_90(object sender, EventArgs e)
         {
-            _angleHoriz = 45.0 + 90.0;
-            _angleVert = 45.0;
+            trackBarAngleHoriz.Value = 45 + 90;
+            trackBarAngleVert.Value = 45;
             Draw();
         }
 
         private void onViewCorner_180(object sender, EventArgs e)
         {
-            _angleHoriz = 45.0 + 180.0;
-            _angleVert = 45.0;
+            trackBarAngleHoriz.Value = 45 + 180;
+            trackBarAngleVert.Value = 45;
             Draw();
         }
 
         private void onViewCorner_270(object sender, EventArgs e)
         {
-            _angleHoriz = 45.0 + 270.0;
-            _angleVert = 45.0;
+            trackBarAngleHoriz.Value = 45 + 270;
+            trackBarAngleVert.Value = 45;
             Draw();
         }
 
         private void onViewTop(object sender, EventArgs e)
         {
-            _angleHoriz = 0.0;
-            _angleVert = 90.0;
+            trackBarAngleHoriz.Value = 0;
+            trackBarAngleVert.Value = 90;
             Draw();
         }
         #endregion

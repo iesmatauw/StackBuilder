@@ -197,8 +197,24 @@ namespace TreeDim.StackBuilder.Graphics
         /// <returns>integer "f1>f2 => 1", "f1<f2 => -1", "f1==f2 => 0"  </returns>
         public int Compare(Face f1, Face f2)
         {
-            bool useBarycenter = true;
-            if (useBarycenter)
+            int mode = 0;
+            if (0 == mode) // use barycenter.Z in global coordinate then in distance
+            {
+                if (f1.Center.Z > f2.Center.Z)
+                    return 1;
+                else if (f1.Center.Z == f2.Center.Z)
+                {
+                    if (_transform.transform(f1.Center).Z < _transform.transform(f2.Center).Z)
+                        return 1;
+                    else if (_transform.transform(f1.Center).Z == _transform.transform(f2.Center).Z)
+                        return 0;
+                    else
+                        return -1;
+                }
+                else
+                    return -1;
+            }
+            else if (1 == mode) // use barycenter distance to eye only
             {
                 if (_transform.transform(f1.Center).Z < _transform.transform(f2.Center).Z)
                     return 1;

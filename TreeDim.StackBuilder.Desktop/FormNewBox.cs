@@ -139,8 +139,7 @@ namespace TreeDim.StackBuilder.Desktop
             BoxProperties boxProperties = new BoxProperties((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
             boxProperties.Colors = _faceColors;
             Box box = new Box(0, boxProperties);
-            foreach (Face face in box.Faces)
-                graphics.AddFace(face);
+            graphics.AddBox(box);
             graphics.Flush();
             // set to picture box
             pictureBox.Image = graphics.Bitmap;

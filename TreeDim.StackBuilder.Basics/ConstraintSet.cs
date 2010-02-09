@@ -13,14 +13,17 @@ namespace TreeDim.StackBuilder.Basics
         private int _maxNumberOfItems;
         private double _maximumPalletWeight;
         private double _maximumHeight;
+        private double _overhangX, _overhangY;
         private bool _useMaximumPalletWeight;
         private bool _useMaximumHeight;
         private bool _useMaximumNumberOfItems;
         private bool _useMaximumWeightOnBox;
         private bool[] _allowedOrthoAxis = new bool[6];
-        private bool _allowAlternateLayer = true;
-        private bool _forceAlternateLayer = false;
-        System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
+        private bool _allowAlternateLayers = true;
+        private bool _allowAlignedLayers = false;
+        private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
+        private bool _hasInterlayer;
+        private int _interlayerPeriod;
         #endregion
 
         #region Constructor
@@ -30,7 +33,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
-        #region Public properties
+        #region Validity
         public bool IsValid
         {
             get
@@ -41,21 +44,22 @@ namespace TreeDim.StackBuilder.Basics
                 || _useMaximumPalletWeight;
             }
         }
+        #endregion
 
-        public bool ForceAlternateLayer
+        #region Allowed layer alignments
+        public bool AllowAlignedLayers
         {
-            set {
-                _forceAlternateLayer = value;
-                if (_forceAlternateLayer)
-                    _allowAlternateLayer = true;
-            }
-            get { return _forceAlternateLayer; }
+            set { _allowAlignedLayers = value;  }
+            get { return _allowAlignedLayers;   }
         }
-        public bool AllowAlternateLayer
+        public bool AllowAlternateLayers
         {
-            set { _allowAlternateLayer = value;  }
-            get { return _allowAlternateLayer; }
+            set { _allowAlternateLayers = value;  }
+            get { return _allowAlternateLayers; }
         }
+        #endregion
+
+        #region Stop conditions
         public bool UseMaximumNumberOfItems
         {
             set { _useMaximumNumberOfItems = value; }
@@ -83,10 +87,7 @@ namespace TreeDim.StackBuilder.Basics
                 _useMaximumNumberOfItems = true;
                 _maxNumberOfItems = value;
             }
-            get
-            {
-                return _maxNumberOfItems;
-            }
+            get { return _maxNumberOfItems; }
         }
         public double MaximumPalletWeight
         {
@@ -95,10 +96,7 @@ namespace TreeDim.StackBuilder.Basics
                 _useMaximumPalletWeight = true;
                 _maximumPalletWeight = value;
             }
-            get
-            {
-                return _maximumPalletWeight;
-            }
+            get { return _maximumPalletWeight; }
         }
         public double MaximumHeight
         {
@@ -107,14 +105,11 @@ namespace TreeDim.StackBuilder.Basics
                 _useMaximumHeight = true;
                 _maximumHeight = value;
             }
-            get
-            {
-                return _maximumHeight;
-            }
+            get { return _maximumHeight; }
         }
         #endregion
 
-        #region Public methods
+        #region Allowed patterns and box axis
         public void SetAllowedPattern(string patternName)
         {
             _allowedPatterns.Add(patternName);
@@ -123,14 +118,6 @@ namespace TreeDim.StackBuilder.Basics
         {
             return _allowedPatterns.Contains(patternName);
         }
-        public bool AllowNewLayer(int iNoLayer)
-        {
-            return !_useMaximumWeightOnBox;
-        }
-        public bool AllowNewBox(int iNoBox)
-        {
-            return !_useMaximumNumberOfItems || (iNoBox <= _maxNumberOfItems);
-        }
         public bool AllowOrthoAxis(HalfAxis orthoAxis)
         {
             return _allowedOrthoAxis[(int)orthoAxis];
@@ -138,6 +125,43 @@ namespace TreeDim.StackBuilder.Basics
         public void SetAllowedOrthoAxis(HalfAxis axis, bool allowed)
         {
             _allowedOrthoAxis[(int)axis] = allowed;
+        }
+        #endregion
+
+        #region Overhang / underhang
+        public double OverhangX
+        {
+            get { return _overhangX; }
+            set { _overhangX = value; }
+        }
+        public double OverhangY
+        {
+            get { return _overhangY; }
+            set { _overhangY = value; }
+        }
+        #endregion
+
+        #region Interlayer
+        public bool HasInterlayer
+        {
+            get { return _hasInterlayer; }
+            set { _hasInterlayer = value; }
+        }
+        public int InterlayerPeriod
+        {
+            get { return _interlayerPeriod; }
+            set { _interlayerPeriod = value; }
+        }
+        #endregion
+
+        #region Allow new layer / allow new box
+        public bool AllowNewLayer(int iNoLayer)
+        {
+            return !_useMaximumWeightOnBox;
+        }
+        public bool AllowNewBox(int iNoBox)
+        {
+            return !_useMaximumNumberOfItems || (iNoBox <= _maxNumberOfItems);
         }
         #endregion
 

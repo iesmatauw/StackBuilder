@@ -23,35 +23,39 @@ namespace TreeDim.StackBuilder.Graphics
         /// <summary>
         /// Eye position
         /// </summary>
-        Vector3D _vCameraPos = new Vector3D(0.0, 0.0, -1000.0);
+        private Vector3D _vCameraPos = new Vector3D(0.0, 0.0, -1000.0);
         /// <summary>
         /// Light position
         /// </summary>
-        Vector3D _vLight = new Vector3D(0.0, 0.0, -1.0);
+        private Vector3D _vLight = new Vector3D(0.0, 0.0, -1.0);
         /// <summary>
         /// Target position
         /// </summary>
-        Vector3D _vTarget = new Vector3D();
+        private Vector3D _vTarget = new Vector3D();
         /// <summary>
         /// Viewport
         /// </summary>
-        float[] _viewport = new float[4];
+        private float[] _viewport = new float[4];
         /// <summary>
         /// Compute viewport automatically if enabled
         /// </summary>
-        bool _autoViewport = true;
+        private bool _autoViewport = true;
         /// <summary>
         /// Margin coefficient
         /// </summary>
-        double _margin = 0.01;
+        private double _margin = 0.01;
         /// <summary>
         /// Background color
         /// </summary>
-        Color _backgroundColor = Color.White;
+        private Color _backgroundColor = Color.White;
         /// <summary>
-        /// entity (face) buffer used for drawing
+        /// face buffer used for drawing
         /// </summary>
-        List<Face> _faces = new List<Face>();
+        private List<Face> _faces = new List<Face>();
+        /// <summay>
+        /// box buffer used for drawing
+        /// </summay>
+        private List<Box> _boxes = new List<Box>();
         /// <summary>
         /// Current transformation
         /// </summary>
@@ -163,6 +167,11 @@ namespace TreeDim.StackBuilder.Graphics
         {
             _faces.Add(face);
         }
+
+        public void AddBox(Box box)
+        {
+            _boxes.Add(box);
+        }
         #endregion
 
         #region Abstract methods
@@ -204,6 +213,13 @@ namespace TreeDim.StackBuilder.Graphics
                 // draw all faces
                 foreach (Face face in _faces)
                     Draw(face);
+
+                // sort box list
+                BoxComparison boxComparer = new BoxComparison(GetWorldToEyeTransformation());
+                _boxes.Sort(boxComparer);
+                // draw all boxes
+                foreach (Box box in _boxes)
+                    Draw(box);
             }
             else
             {
@@ -231,6 +247,18 @@ namespace TreeDim.StackBuilder.Graphics
                 {
                     Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
                     Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
+
+                    foreach (Box box in _boxes)
+                        foreach (Vector3D pt in box.Points)
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                        }
 
                     foreach (Face face in _faces)
                         foreach (Vector3D pt in face.Points)
@@ -313,6 +341,61 @@ namespace TreeDim.StackBuilder.Graphics
                     g.DrawImage(texture.Bitmap, pts);
                 }
             }
+        }
+
+        internal void Draw(Box box)
+        {
+            System.Drawing.Graphics g = Graphics;
+
+            Vector3D[] points = box.Points;
+
+            Face[] faces = new Face[6];
+            faces[0] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
+            faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }); // AXIS_X_P
+            faces[2] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }); // AXIS_Y_N
+            faces[3] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }); // AXIS_Y_P
+            faces[4] = new Face(0, new Vector3D[] { points[3], points[2], points[1], points[0] }); // AXIS_Z_N
+            faces[5] = new Face(0, new Vector3D[] { points[4], points[5], points[6], points[7] }); // AXIS_Z_P
+
+            for (int i=0; i<6; ++i)
+            {
+                // face normal
+                Vector3D normal = faces[i].Normal;
+                // visible ?
+                if (Vector3D.DotProduct(_vCameraPos - faces[i].Center, normal) > 0.0)
+                    continue;
+                // color
+                faces[i].ColorFill = box.Colors[i];
+                double cosA = System.Math.Abs(Vector3D.DotProduct(faces[i].Normal, _vLight));
+                Color color = Color.FromArgb((int)(faces[i].ColorFill.R * cosA), (int)(faces[i].ColorFill.G * cosA), (int)(faces[i].ColorFill.B * cosA));
+                // points
+                Vector3D[] points3D = faces[i].Points;
+                Point[] pt = TransformPoint(GetCurrentTransformation(), points3D);
+                //  draw solid face
+                Brush brush = new SolidBrush(color);
+                g.FillPolygon(brush, pt);
+                // draw path
+                Brush brushPath = new SolidBrush(faces[i].ColorPath);
+                Pen penPath = new Pen(brushPath, 1.5f);
+                int ptCount = pt.Length;
+                for (int j = 1; j < ptCount; ++j)
+                    g.DrawLine(penPath, pt[j - 1], pt[j]);
+                g.DrawLine(penPath, pt[ptCount - 1], pt[0]);
+                // draw bundle lines
+                if (box.IsBundle && i<4)
+                {
+                    int noSlice = box.BundleFlats;
+                    for (int iSlice = 0; iSlice < noSlice - 1; ++iSlice)
+                    {
+                        Vector3D[] ptSlice = new Vector3D[2];
+                        ptSlice[0] = points3D[0] + ((double)(iSlice + 1) / (double)noSlice) * (points3D[3] - points3D[0]);
+                        ptSlice[1] = points3D[1] + ((double)(iSlice + 1) / (double)noSlice) * (points3D[2] - points3D[1]);
+
+                        Point[] pt2D = TransformPoint(GetCurrentTransformation(), ptSlice);
+                        g.DrawLine(penPath, pt2D[0], pt2D[1]);                        
+                    }
+                }
+            }  
         }
         #endregion
     }

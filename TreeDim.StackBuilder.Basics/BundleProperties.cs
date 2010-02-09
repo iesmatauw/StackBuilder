@@ -29,6 +29,7 @@ namespace TreeDim.StackBuilder.Basics
             _unitThickness = unitThickness;
             _unitWeight = unitWeight;
             _noFlats = noFlats;
+            _color = color;
         }
         #endregion
 
@@ -37,6 +38,22 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _color; }
             set { _color = value; }
+        }
+        public double Length
+        {
+            get { return _length; }
+        }
+        public double Width
+        {
+            get { return _width; }
+        }
+        public double TotalThickness
+        {
+            get { return _unitThickness * _noFlats; }
+        }
+        public int NoFlats
+        {
+            get { return _noFlats; }
         }
         #endregion
     }

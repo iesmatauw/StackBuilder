@@ -472,18 +472,18 @@
             this.lbPalletOverhangLength.AutoSize = true;
             this.lbPalletOverhangLength.Location = new System.Drawing.Point(12, 22);
             this.lbPalletOverhangLength.Name = "lbPalletOverhangLength";
-            this.lbPalletOverhangLength.Size = new System.Drawing.Size(47, 13);
+            this.lbPalletOverhangLength.Size = new System.Drawing.Size(40, 13);
             this.lbPalletOverhangLength.TabIndex = 36;
-            this.lbPalletOverhangLength.Text = "in length";
+            this.lbPalletOverhangLength.Text = "Length";
             // 
             // lbPalletOverhangWidth
             // 
             this.lbPalletOverhangWidth.AutoSize = true;
             this.lbPalletOverhangWidth.Location = new System.Drawing.Point(12, 47);
             this.lbPalletOverhangWidth.Name = "lbPalletOverhangWidth";
-            this.lbPalletOverhangWidth.Size = new System.Drawing.Size(43, 13);
+            this.lbPalletOverhangWidth.Size = new System.Drawing.Size(35, 13);
             this.lbPalletOverhangWidth.TabIndex = 37;
-            this.lbPalletOverhangWidth.Text = "in width";
+            this.lbPalletOverhangWidth.Text = "Width";
             // 
             // nudPalletOverhangX
             // 
@@ -541,6 +541,7 @@
             this.checkBoxAllowAlignedLayer.TabIndex = 41;
             this.checkBoxAllowAlignedLayer.Text = "allow aligned layer";
             this.checkBoxAllowAlignedLayer.UseVisualStyleBackColor = true;
+            this.checkBoxAllowAlignedLayer.CheckedChanged += new System.EventHandler(this.onCheckedChangedAlignedLayer);
             // 
             // checkBoxAllowAlternateLayer
             // 
@@ -551,6 +552,7 @@
             this.checkBoxAllowAlternateLayer.TabIndex = 42;
             this.checkBoxAllowAlternateLayer.Text = "allow alternate layer";
             this.checkBoxAllowAlternateLayer.UseVisualStyleBackColor = true;
+            this.checkBoxAllowAlternateLayer.CheckedChanged += new System.EventHandler(this.onCheckedChangedAlternateLayer);
             // 
             // gbLayerAlignment
             // 

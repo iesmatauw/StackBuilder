@@ -100,8 +100,11 @@ namespace TreeDim.StackBuilder.Desktop
                 foreach (string s in form.AllowedPatterns)
                     constraintSet.SetAllowedPattern(s);
                 // allow alternate layer
-                constraintSet.AllowAlternateLayer = true;
-                constraintSet.ForceAlternateLayer = false;
+                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                // interlayers
+                constraintSet.HasInterlayer = form.HasInterlayers;
+                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
                 // stop criterion
                 constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
                 constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
@@ -111,8 +114,10 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
                 
-                Analysis analysis = _currentDocument.CreateNewAnalysis(form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedBox, form.SelectedPallet, constraintSet);
+                Analysis analysis = _currentDocument.CreateNewAnalysis(
+                    form.AnalysisName, form.AnalysisDescription,
+                    form.SelectedBox, form.SelectedPallet, form.SelectedInterlayer
+                    , constraintSet);
                 _currentAnalysis = analysis;
                 if (analysis.Solutions.Count > 0)
                     _sol = analysis.Solutions[0];

@@ -171,6 +171,19 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return _palletProperties[cbPallet.SelectedIndex]; }
         }
+        public InterlayerProperties SelectedInterlayer
+        {
+            get
+            {
+                if (null == _interlayerProperties
+                    || _interlayerProperties.Length == 0
+                    || !checkBoxInterlayer.Checked
+                    || -1 == cbInterlayer.SelectedIndex)
+                    return null;
+                else
+                    return _interlayerProperties[cbInterlayer.SelectedIndex]; 
+            }
+        }
         public bool UseMaximumNumberOfBoxes
         {
             get { return checkBoxMaximumNumberOfBoxes.Checked; }
@@ -245,10 +258,20 @@ namespace TreeDim.StackBuilder.Desktop
             get { return checkBoxInterlayer.Checked; }
             set { checkBoxInterlayer.Checked = value; }
         }
-        public int InterlayerFrequency
+        public int InterlayerPeriod
         {
             get { return (int)nudInterlayerFreq.Value; }
             set { nudInterlayerFreq.Value = (decimal)value; }
+        }
+        public bool AllowAlternateLayers
+        {
+            get { return checkBoxAllowAlternateLayer.Checked; }
+            set { checkBoxAllowAlternateLayer.Checked = value; }
+        }
+        public bool AllowAlignedLayers
+        {
+            get { return checkBoxAllowAlignedLayer.Checked; }
+            set { checkBoxAllowAlignedLayer.Checked = value; }
         }
         #endregion
 
@@ -286,6 +309,17 @@ namespace TreeDim.StackBuilder.Desktop
             lbInterlayerFreq1.Enabled = checkBoxInterlayer.Checked;
             lbInterlayerFreq2.Enabled = checkBoxInterlayer.Checked;
             nudInterlayerFreq.Enabled = checkBoxInterlayer.Checked;
+        }
+
+        private void onCheckedChangedAlignedLayer(object sender, EventArgs e)
+        {
+            if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
+                checkBoxAllowAlternateLayer.Checked = true;
+        }
+        private void onCheckedChangedAlternateLayer(object sender, EventArgs e)
+        {
+            if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
+                checkBoxAllowAlignedLayer.Checked = true;
         }
         #endregion
 

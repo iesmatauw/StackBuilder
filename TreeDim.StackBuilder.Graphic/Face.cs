@@ -22,6 +22,9 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         private Color _colorFill = Color.Red;
         private Color _colorPath = Color.Black;
+        /// <summary>
+        /// textures
+        /// </summary>
         private List<Texture> _textureList = new List<Texture>();
         #endregion
 

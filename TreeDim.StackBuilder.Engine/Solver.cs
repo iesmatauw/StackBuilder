@@ -18,6 +18,7 @@ namespace TreeDim.StackBuilder.Engine
         private List<LayerPattern> _patterns= new List<LayerPattern>();
         private BoxProperties _boxProperties;
         private PalletProperties _palletProperties;
+        private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
         #endregion
 
@@ -33,6 +34,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             _boxProperties = analysis.BoxProperties;
             _palletProperties = analysis.PalletProperties;
+            _interlayerProperties = analysis.InterlayerProperties;
             _constraintSet = analysis.ConstraintSet;
 
             analysis.Solutions = GenerateSolutions();
@@ -70,23 +72,23 @@ namespace TreeDim.StackBuilder.Engine
                         for (int j = 0; j < 4; ++j)
                         {
                             Layer layer1T = null, layer2T = null;
-                            if (0 == j && !_constraintSet.ForceAlternateLayer)
+                            if (0 == j && _constraintSet.AllowAlignedLayers)
                             {
                                 pattern.GenerateLayer(layer1, actualLength1, actualWidth1);
                                 layer1T = layer1; layer2T = layer1;
                             }
-                            else if (1 == j && !_constraintSet.ForceAlternateLayer)
+                            else if (1 == j && _constraintSet.AllowAlignedLayers)
                             {
                                 pattern.GenerateLayer(layer2, actualLength2, actualWidth2);
                                 layer1T = layer2; layer2T = layer2;
                             }
-                            else if (2 == j && _constraintSet.AllowAlternateLayer)
+                            else if (2 == j && _constraintSet.AllowAlternateLayers)
                             {
                                 pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                 pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                 layer1T = layer1; layer2T = layer2;
                             }
-                            else if (3 == j && _constraintSet.AllowAlternateLayer)
+                            else if (3 == j && _constraintSet.AllowAlternateLayers)
                             {
                                 pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                 pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
@@ -111,6 +113,7 @@ namespace TreeDim.StackBuilder.Engine
                             int iLayerIndex = 0;
                             bool innerLoopStop = false;
                             double zLayer = _palletProperties.Height;
+                            int iInterlayer = 0;
 
                             while (
                                 !innerLoopStop
@@ -145,6 +148,17 @@ namespace TreeDim.StackBuilder.Engine
                                 // increment layer index
                                 ++iLayerIndex;
                                 zLayer += currentLayer.BoxHeight;
+
+                                if (_constraintSet.HasInterlayer)
+                                {
+                                    ++iInterlayer;
+                                    if (iInterlayer >= _constraintSet.InterlayerPeriod)
+                                    {
+                                        InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
+                                        zLayer += _interlayerProperties.Thickness;
+                                        iInterlayer = 0;
+                                    }
+                                }
                             }
 
                             // insert solution

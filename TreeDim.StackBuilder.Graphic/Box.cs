@@ -9,6 +9,7 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Graphics
 {
+    #region Box
     public class Box : Drawable
     {
         #region Data members
@@ -19,6 +20,11 @@ namespace TreeDim.StackBuilder.Graphics
         Vector3D _widthAxis = Vector3D.YAxis;
         Color[] _colors;
         List<Texture>[] _textureLists = new List<Texture>[6];
+        /// <summary>
+        /// Bundle properties
+        /// </summary>
+        private bool _isBundle = false;
+        private int _noFlats = 0;
         #endregion
 
         #region Constructor
@@ -54,6 +60,29 @@ namespace TreeDim.StackBuilder.Graphics
             
             }
         }
+        public Box(uint pickId, InterlayerProperties interlayerProperties)
+        {
+            _pickId = pickId;
+            _dim[0] = interlayerProperties.Length;
+            _dim[1] = interlayerProperties.Width;
+            _dim[2] = interlayerProperties.Thickness;
+            _colors = new Color[6];
+            for (int i=0; i<6; ++i)
+                _colors[i] = interlayerProperties.Color;
+        }
+
+        public Box(uint pickId, BundleProperties bundleProperties)
+        {
+            _pickId = pickId;
+            _isBundle = true;
+            _dim[0] = bundleProperties.Length;
+            _dim[1] = bundleProperties.Width;
+            _dim[2] = bundleProperties.TotalThickness;
+            _colors = new Color[6]; 
+            for (int i = 0; i < 6; ++i)
+                _colors[i] = bundleProperties.Color;
+            _noFlats = bundleProperties.NoFlats;
+        }
         #endregion
 
         #region Public properties
@@ -86,6 +115,22 @@ namespace TreeDim.StackBuilder.Graphics
             set { _widthAxis = value; }
         }
 
+        public Color[] Colors
+        {
+            get { return _colors; }
+        }
+
+        public bool IsBundle
+        {
+            get { return _isBundle; }
+            set { _isBundle = value; }
+        }
+        public int BundleFlats
+        {
+            get { return _noFlats; }
+        }
+
+
         public Vector3D[] Oriented(Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3, Vector3D pt)
         {
             Vector3D crossProduct = Vector3D.CrossProduct(pt1 - pt0, pt2 - pt0);
@@ -95,26 +140,52 @@ namespace TreeDim.StackBuilder.Graphics
                 return new Vector3D[] { pt3, pt2, pt1, pt0 };
         }
 
-        public Face[] Faces
+        public Vector3D[] Points
         {
             get
             {
+                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
                 Vector3D[] points = new Vector3D[8];
                 points[0] = _position;
                 points[1] = _position + _dim[0] * _lengthAxis;
                 points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
                 points[3] = _position + _dim[1] * _widthAxis;
 
-                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
                 points[4] = _position + _dim[2] * heightAxis;
-                points[5] = _position + _dim[0] * _lengthAxis + _dim[2] * heightAxis;
-                points[6] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis + _dim[2] * heightAxis;
-                points[7] = _position + _dim[1] * _widthAxis + _dim[2] * heightAxis;
+                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
+                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
+                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
 
-                Vector3D center = Vector3D.Zero;
-                foreach (Vector3D pt in points)
-                    center += pt;
-                center = center * (1.0 / 8.0);
+                return points;
+            }
+        }
+
+        public Vector3D Center
+        {
+            get
+            {
+                return _position
+                    + 0.5 * _dim[0] * _lengthAxis
+                    + 0.5 * _dim[1] * _widthAxis
+                    + 0.5 * _dim[2] * Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+            }
+        }
+
+        public Face[] Faces
+        {
+            get
+            {
+                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                Vector3D[] points = new Vector3D[8];
+                points[0] = _position;
+                points[1] = _position + _dim[0] * _lengthAxis;
+                points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
+                points[3] = _position + _dim[1] * _widthAxis;
+
+                points[4] = _position + _dim[2] * heightAxis;
+                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis ;
+                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis ;
+                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis ;
 
                 Face[] faces = new Face[6];
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
@@ -161,4 +232,40 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
     }
+    #endregion
+
+    #region Box comparison
+    public class BoxComparison : IComparer<Box>
+    {
+        #region Constructor
+        public BoxComparison(Transform3D transform)
+        {
+            _transform = transform;
+        }
+        #endregion
+
+        #region Implementation IComparer
+        public int Compare(Box b1, Box b2)
+        {
+            if (b1.Center.Z > b2.Center.Z)
+                return 1;
+            else if (b1.Center.Z == b2.Center.Z)
+            {
+                if (_transform.transform(b1.Center).Z < _transform.transform(b2.Center).Z)
+                    return 1;
+                else if (_transform.transform(b1.Center).Z == _transform.transform(b2.Center).Z)
+                    return 0;
+                else
+                    return -1;
+            }
+            else
+                return -1;
+        }
+        #endregion
+
+        #region Data members
+        Transform3D _transform;
+        #endregion
+    }
+    #endregion
 }

@@ -42,6 +42,8 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
+            this.lbNoFlats = new System.Windows.Forms.Label();
+            this.nudNoFlats = new System.Windows.Forms.NumericUpDown();
             this.nudThickness = new System.Windows.Forms.NumericUpDown();
             this.nudWidth = new System.Windows.Forms.NumericUpDown();
             this.lbWidth = new System.Windows.Forms.Label();
@@ -49,18 +51,16 @@
             this.bnCancel = new System.Windows.Forms.Button();
             this.bnAccept = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.nudNoFlats = new System.Windows.Forms.NumericUpDown();
-            this.lbNoFlats = new System.Windows.Forms.Label();
             this.gbFaceColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             this.gbDimensions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).BeginInit();
             this.SuspendLayout();
             // 
             // cbColor
@@ -78,11 +78,13 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 20);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(75, 22);
             this.cbColor.TabIndex = 12;
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
             // lbColor
             // 
@@ -139,6 +141,7 @@
             this.nudWeight.Name = "nudWeight";
             this.nudWeight.Size = new System.Drawing.Size(75, 20);
             this.nudWeight.TabIndex = 16;
+            this.nudWeight.ValueChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
             // nudLength
             // 
@@ -161,6 +164,7 @@
             0,
             0,
             0});
+            this.nudLength.ValueChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
             // gbWeight
             // 
@@ -237,6 +241,38 @@
             this.gbDimensions.TabStop = false;
             this.gbDimensions.Text = "Dimentions";
             // 
+            // lbNoFlats
+            // 
+            this.lbNoFlats.AutoSize = true;
+            this.lbNoFlats.Location = new System.Drawing.Point(10, 103);
+            this.lbNoFlats.Name = "lbNoFlats";
+            this.lbNoFlats.Size = new System.Drawing.Size(78, 13);
+            this.lbNoFlats.TabIndex = 10;
+            this.lbNoFlats.Text = "Number of flats";
+            // 
+            // nudNoFlats
+            // 
+            this.nudNoFlats.Location = new System.Drawing.Point(161, 103);
+            this.nudNoFlats.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudNoFlats.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNoFlats.Name = "nudNoFlats";
+            this.nudNoFlats.Size = new System.Drawing.Size(75, 20);
+            this.nudNoFlats.TabIndex = 9;
+            this.nudNoFlats.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNoFlats.ValueChanged += new System.EventHandler(this.onBundlePropertyChanged);
+            // 
             // nudThickness
             // 
             this.nudThickness.DecimalPlaces = 2;
@@ -259,6 +295,7 @@
             0,
             0,
             0});
+            this.nudThickness.ValueChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
             // nudWidth
             // 
@@ -281,6 +318,7 @@
             0,
             0,
             0});
+            this.nudWidth.ValueChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
             // lbWidth
             // 
@@ -333,37 +371,6 @@
             this.pictureBox.TabIndex = 30;
             this.pictureBox.TabStop = false;
             // 
-            // nudNoFlats
-            // 
-            this.nudNoFlats.Location = new System.Drawing.Point(161, 103);
-            this.nudNoFlats.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudNoFlats.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudNoFlats.Name = "nudNoFlats";
-            this.nudNoFlats.Size = new System.Drawing.Size(75, 20);
-            this.nudNoFlats.TabIndex = 9;
-            this.nudNoFlats.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbNoFlats
-            // 
-            this.lbNoFlats.AutoSize = true;
-            this.lbNoFlats.Location = new System.Drawing.Point(10, 103);
-            this.lbNoFlats.Name = "lbNoFlats";
-            this.lbNoFlats.Size = new System.Drawing.Size(78, 13);
-            this.lbNoFlats.TabIndex = 10;
-            this.lbNoFlats.Text = "Number of flats";
-            // 
             // FormNewBundle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,10 +402,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             this.gbDimensions.ResumeLayout(false);
             this.gbDimensions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

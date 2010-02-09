@@ -11,15 +11,17 @@ namespace TreeDim.StackBuilder.Basics
         private string _description;
         private BoxProperties _boxProperties;
         private PalletProperties _palletProperties;
+        private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
         private List<Solution> _solutions;
         #endregion
 
         #region Constructor
-        public Analysis(BoxProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet)
+        public Analysis(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, ConstraintSet constraintSet)
         {
             _boxProperties = boxProperties;
             _palletProperties = palletProperties;
+            _interlayerProperties = interlayerProperties;
             _constraintSet = constraintSet;
         }
         #endregion
@@ -53,6 +55,12 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _palletProperties; }
             set { _palletProperties = value; }
+        }
+
+        public InterlayerProperties InterlayerProperties
+        {
+            get { return _interlayerProperties; }
+            set { _interlayerProperties = value; }
         }
 
         public ConstraintSet ConstraintSet

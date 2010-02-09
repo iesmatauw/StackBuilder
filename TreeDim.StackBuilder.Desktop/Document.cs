@@ -60,6 +60,8 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // instantiate and initialize
             BundleProperties bundle = new BundleProperties(name, description, length, width, thickness, weight, noFlats, color);
+            // insert in list
+            _typeList.Add(bundle);
             // notify listeners
             NotifyOnNewTypeCreated(bundle);
             return bundle;
@@ -76,6 +78,9 @@ namespace TreeDim.StackBuilder.Desktop
                 name, description
                 , length, width, thickness
                 , weight, color);
+            // insert in list
+            _typeList.Add(interlayer);
+            // notify listeners
             NotifyOnNewTypeCreated(interlayer);
             return interlayer;
         }
@@ -102,9 +107,10 @@ namespace TreeDim.StackBuilder.Desktop
         }
 
         public Analysis CreateNewAnalysis(string name, string description
-            , BoxProperties box, PalletProperties pallet, ConstraintSet constraintSet)
+            , BoxProperties box, PalletProperties pallet, InterlayerProperties interlayer
+            , ConstraintSet constraintSet)
         {
-            Analysis analysis = new Analysis(box, pallet, constraintSet);
+            Analysis analysis = new Analysis(box, pallet, interlayer, constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list

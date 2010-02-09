@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
 #endregion
@@ -113,6 +114,12 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
+            InterlayerProperties interlayerProperties = new InterlayerProperties(
+                tbName.Text, tbDescription.Text
+                , InterlayerLength, InterlayerWidth
+                , Thickness, Weight, Color);
+            Box box = new Box(0, interlayerProperties);
+            graphics.AddBox(box);
             graphics.Flush();
             // set to picture box
             pictureBox.Image = graphics.Bitmap;

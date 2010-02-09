@@ -43,6 +43,8 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
+                InterlayerProperties interlayerProperties = null;
+
                 // define constraints
                 ConstraintSet constraintSet = new ConstraintSet();
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, false);
@@ -55,8 +57,8 @@ namespace TreeDim.StackBuilder.Engine.Test
                 //constraintSet.SetAllowedPattern("Column");
                 //constraintSet.SetAllowedPattern("Interlocked");
                 constraintSet.SetAllowedPattern("Spirale");
-                constraintSet.ForceAlternateLayer = false;
-                constraintSet.AllowAlternateLayer = true;
+                constraintSet.AllowAlignedLayers = false;
+                constraintSet.AllowAlternateLayers = true;
                 
                 constraintSet.MaximumPalletWeight = 2000;
                 constraintSet.MaximumNumberOfItems = 2000;
@@ -68,7 +70,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(constraintSet.ToString());
 
                 // initialize analysis
-                Analysis analysis = new Analysis(boxProperties, palletProperties, constraintSet);
+                Analysis analysis = new Analysis(boxProperties, palletProperties, interlayerProperties, constraintSet);
 
                 // initialize solver
                 Solver solver = new Solver();

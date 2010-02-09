@@ -63,6 +63,7 @@
             // bnAccept
             // 
             this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnAccept.Location = new System.Drawing.Point(393, 8);
             this.bnAccept.Name = "bnAccept";
             this.bnAccept.Size = new System.Drawing.Size(75, 23);
@@ -245,6 +246,7 @@
             this.cbColor.IntegralHeight = false;
             this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
+            "Color",
             "Color",
             "Color",
             "Color",

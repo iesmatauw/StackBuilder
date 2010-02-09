@@ -234,6 +234,24 @@ namespace TreeDim.StackBuilder.Basics
                 return iCount;
             }
         }
+        public double Efficiency(Analysis analysis)
+        {
+            return 100.0 * BoxCount * analysis.BoxProperties.Volume
+                /
+                (
+                    (analysis.PalletProperties.Length - analysis.ConstraintSet.OverhangX)
+                    * (analysis.PalletProperties.Width - analysis.ConstraintSet.OverhangY)
+                    * (analysis.ConstraintSet.MaximumHeight - analysis.PalletProperties.Height)
+                );
+        }
+        public double PalletWeight(Analysis analysis)
+        {
+            return analysis.PalletProperties.Weight + BoxCount * analysis.BoxProperties.Weight;
+        }
+        public double PalletHeight(Analysis analysis)
+        {
+            return this[Count - 1].ZLow + analysis.BoxProperties.Height;
+        }
         #endregion
 
         #region Public methods

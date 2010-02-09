@@ -362,7 +362,7 @@ namespace TreeDim.StackBuilder.Graphics
                 // face normal
                 Vector3D normal = faces[i].Normal;
                 // visible ?
-                if (Vector3D.DotProduct(_vCameraPos - faces[i].Center, normal) > 0.0)
+                if (Vector3D.DotProduct(_vCameraPos - _vTarget, normal) > 0.0)
                     continue;
                 // color
                 faces[i].ColorFill = box.Colors[i];

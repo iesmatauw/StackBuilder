@@ -292,7 +292,7 @@ namespace TreeDim.StackBuilder.Desktop
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
-            gridSolutions.ColumnsCount = 2;
+            gridSolutions.ColumnsCount = 5;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
 
@@ -307,6 +307,18 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 2] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet weight (kg)");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 3] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet height (mm)");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 4] = columnHeader;
+
             // data rows
             int iIndex = 0;
             foreach (Solution sol in _currentAnalysis.Solutions)
@@ -315,9 +327,15 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions.Rows.Insert(iIndex);
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
                 gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency(_currentAnalysis)));
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight(_currentAnalysis)));
+                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight(_currentAnalysis)));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
+                gridSolutions[iIndex, 2].View = viewNormal;
+                gridSolutions[iIndex, 3].View = viewNormal;
+                gridSolutions[iIndex, 4].View = viewNormal;
             }
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.AutoSizeCells();
@@ -438,7 +456,7 @@ namespace TreeDim.StackBuilder.Desktop
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
-            gridSolutions.ColumnsCount = 2;
+            gridSolutions.ColumnsCount = 5;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
 
@@ -451,6 +469,22 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 2] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet weight");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 3] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet height");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 4] = columnHeader;
+
+            gridSolutions.AutoStretchColumnsToFitWidth = true;
+            gridSolutions.AutoSizeCells();
+            gridSolutions.Columns.StretchToFit();
 
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }

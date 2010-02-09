@@ -118,9 +118,20 @@ namespace TreeDim.StackBuilder.Engine
                             while (
                                 !innerLoopStop
                                 &&
-                                (!_constraintSet.UseMaximumHeight || ((iLayerIndex + 1) * _boxProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
+                                (!_constraintSet.UseMaximumHeight || (zLayer + _boxProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
                                 )
                             {
+                                if (_constraintSet.HasInterlayer)
+                                {
+                                    if (iInterlayer >= _constraintSet.InterlayerPeriod)
+                                    {
+                                        InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
+                                        zLayer += _interlayerProperties.Thickness;
+                                        iInterlayer = 0;
+                                    }
+                                    ++iInterlayer;
+                                }
+
                                 BoxLayer layer = sol.CreateNewLayer(zLayer);
 
                                 // select current layer type
@@ -148,19 +159,7 @@ namespace TreeDim.StackBuilder.Engine
                                 // increment layer index
                                 ++iLayerIndex;
                                 zLayer += currentLayer.BoxHeight;
-
-                                if (_constraintSet.HasInterlayer)
-                                {
-                                    ++iInterlayer;
-                                    if (iInterlayer >= _constraintSet.InterlayerPeriod)
-                                    {
-                                        InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
-                                        zLayer += _interlayerProperties.Thickness;
-                                        iInterlayer = 0;
-                                    }
-                                }
                             }
-
                             // insert solution
                             if (sol.Count > 0)
                                 solutions.Add(sol);
@@ -168,7 +167,6 @@ namespace TreeDim.StackBuilder.Engine
                     }
                 }
             }
-
             // sort solutions
             solutions.Sort();
 

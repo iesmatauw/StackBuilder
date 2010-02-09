@@ -120,6 +120,10 @@ namespace TreeDim.StackBuilder.Desktop
             AllowVerticalY = true;
             AllowVerticalZ = true;
 
+            // alternate / aligned layers
+            AllowAlternateLayers = true;
+            AllowAlignedLayers = true;
+
             // stop stacking criterion
             UseMaximumNumberOfBoxes = false;
             UseMaximumPalletHeight = true;

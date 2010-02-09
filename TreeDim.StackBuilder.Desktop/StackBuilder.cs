@@ -89,6 +89,9 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 // build constraint set
                 ConstraintSet constraintSet = new ConstraintSet();
+                // overhang / underhang
+                constraintSet.OverhangX = form.OverhangX;
+                constraintSet.OverhangY = form.OverhangY;
                 // allowed axes
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, form.AllowVerticalX);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_P, form.AllowVerticalX);

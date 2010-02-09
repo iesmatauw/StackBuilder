@@ -277,6 +277,15 @@ namespace TreeDim.StackBuilder.Desktop
             get { return checkBoxAllowAlignedLayer.Checked; }
             set { checkBoxAllowAlignedLayer.Checked = value; }
         }
+
+        public double OverhangX
+        {
+            get { return (double)nudPalletOverhangX.Value; }
+        }
+        public double OverhangY
+        {
+            get { return (double)nudPalletOverhangY.Value; }
+        }
         #endregion
 
         #region Handlers

@@ -63,8 +63,8 @@ namespace TreeDim.StackBuilder.Engine
                         if (!_constraintSet.AllowOrthoAxis(axisOrtho2))
                             continue;
 
-                        Layer layer1 = new Layer(_boxProperties, _palletProperties, axisOrtho1);
-                        Layer layer2 = new Layer(_boxProperties, _palletProperties, axisOrtho2);
+                        Layer layer1 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho1);
+                        Layer layer2 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho2);
                         double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
                         pattern.GetLayerDimensions(layer1, out actualLength1, out actualWidth1);
                         pattern.GetLayerDimensions(layer2, out actualLength2, out actualWidth2);

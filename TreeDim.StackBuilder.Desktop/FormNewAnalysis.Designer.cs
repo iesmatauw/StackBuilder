@@ -488,6 +488,11 @@
             // nudPalletOverhangX
             // 
             this.nudPalletOverhangX.Location = new System.Drawing.Point(129, 20);
+            this.nudPalletOverhangX.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudPalletOverhangX.Name = "nudPalletOverhangX";
             this.nudPalletOverhangX.Size = new System.Drawing.Size(56, 20);
             this.nudPalletOverhangX.TabIndex = 38;
@@ -495,6 +500,11 @@
             // nudPalletOverhangY
             // 
             this.nudPalletOverhangY.Location = new System.Drawing.Point(129, 47);
+            this.nudPalletOverhangY.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudPalletOverhangY.Name = "nudPalletOverhangY";
             this.nudPalletOverhangY.Size = new System.Drawing.Size(56, 20);
             this.nudPalletOverhangY.TabIndex = 39;

@@ -42,11 +42,11 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Constructor
-        public Layer(BoxProperties boxProperties, PalletProperties palletProperties, HalfAxis axisOrtho)
+        public Layer(BoxProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet, HalfAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
-            _palletLength = palletProperties.Length;
-            _palletWidth = palletProperties.Width;
+            _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
+            _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
             Initialize(boxProperties);
         }
         #endregion

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
@@ -156,15 +157,29 @@ namespace TreeDim.StackBuilder.Desktop
         #region File menu handlers
         private void onFileNew(object sender, EventArgs e)
         {
-            Document doc = new Document();
-            _documents.Add(doc);
-            _currentDocument = doc;
-            doc.AddListener(analysisTreeView);
+            FormNewDocument form = new FormNewDocument();
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                Document doc = new Document(form.DocName, form.DocDescription, form.Author, form.DateCreated);
+                doc.AddListener(analysisTreeView);
+                _documents.Add(doc);
+                _currentDocument = doc;
+            }
         }
 
         private void onFileOpen(object sender, EventArgs e)
         {
-            
+            if (DialogResult.OK == openFileDialogSB.ShowDialog())
+            {
+                foreach (string fileName in openFileDialogSB.FileNames)
+                {
+                    if (File.Exists(fileName))
+                    {
+                        Document doc = Document.Load(openFileDialogSB.FileName, analysisTreeView);
+                        _documents.Add(doc);
+                    }
+                }
+            }
         }
 
         private void onFileSave(object sender, EventArgs e)

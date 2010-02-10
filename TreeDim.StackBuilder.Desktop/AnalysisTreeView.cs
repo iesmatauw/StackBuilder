@@ -108,7 +108,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void OnNewDocument(Document doc)
         {
             // add document node
-            TreeNode nodeDoc = new TreeNode(doc.Title, 2, 2);
+            TreeNode nodeDoc = new TreeNode(doc.Name, 2, 2);
             nodeDoc.Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc, null, null);
             this.Nodes.Add(nodeDoc);
             // add box list node

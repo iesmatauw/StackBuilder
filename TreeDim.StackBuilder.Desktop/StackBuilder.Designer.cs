@@ -330,6 +330,7 @@
             // openFileDialogSB
             // 
             this.openFileDialogSB.FileName = "File.xml";
+            this.openFileDialogSB.Filter = "StackBuilder files|*.stb|All files|*.*";
             // 
             // splitContainer1
             // 
@@ -674,7 +675,6 @@
             this.analysisTreeView.SelectedImageIndex = 0;
             this.analysisTreeView.Size = new System.Drawing.Size(275, 533);
             this.analysisTreeView.TabIndex = 1;
-            this.analysisTreeView.Click += new System.EventHandler(this.onFileSaveAll);
             // 
             // StackBuilder
             // 

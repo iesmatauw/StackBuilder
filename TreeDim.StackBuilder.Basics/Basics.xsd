@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="Basics" targetNamespace="http://tempuri.org/Basics.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/Basics.xsd" xmlns:mstns="http://tempuri.org/Basics.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AxisDir">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="XN" />
+      <xs:enumeration value="XP" />
+      <xs:enumeration value="YN" />
+      <xs:enumeration value="YP" />
+      <xs:enumeration value="ZN" />
+      <xs:enumeration value="ZP" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:element name="Document">
     <xs:complexType>
       <xs:sequence>
@@ -19,9 +29,9 @@
                           <xs:element maxOccurs="6" minOccurs="6" name="FaceColor">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="FaceIndex" type="xs:short" />
-                                <xs:element name="Color" type="xs:nonNegativeInteger" />
                               </xs:sequence>
+                              <xs:attribute name="FaceIndex" type="xs:short" />
+                              <xs:attribute name="Color" type="xs:nonNegativeInteger" />
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
@@ -33,9 +43,9 @@
                           <xs:element maxOccurs="unbounded" name="Texture">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="Position" type="xs:string" />
-                                <xs:element name="Size" type="xs:string" />
                               </xs:sequence>
+                              <xs:attribute name="Position" type="xs:string" />
+                              <xs:attribute name="Size" type="xs:string" />
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
@@ -125,8 +135,8 @@
                                             <xs:element maxOccurs="unbounded" name="BoxPosition">
                                               <xs:complexType>
                                                 <xs:attribute name="Position" type="xs:string" />
-                                                <xs:attribute name="AxisLength" type="xs:string" />
-                                                <xs:attribute name="AxisWidth" type="xs:string" />
+                                                <xs:attribute name="AxisLength" type="AxisDir" />
+                                                <xs:attribute name="AxisWidth" type="AxisDir" />
                                               </xs:complexType>
                                             </xs:element>
                                           </xs:sequence>
@@ -151,6 +161,32 @@
                     <xs:element name="ConstraintSet">
                       <xs:complexType>
                         <xs:sequence>
+                          <xs:element name="StopConditions">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="StopMaximumHeight">
+                                  <xs:complexType>
+                                    <xs:attribute name="MaximumHeight" type="xs:double" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="StopMaximumWeight">
+                                  <xs:complexType>
+                                    <xs:attribute name="MaximumWeight" type="xs:double" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="StopMaximumWeightOnBox">
+                                  <xs:complexType>
+                                    <xs:attribute name="MaximumWeightOnBox" type="xs:double" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="StopMaximumNumberOfBoxes">
+                                  <xs:complexType>
+                                    <xs:attribute name="MaximumNumberOfBoxes" type="xs:integer" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
                         </xs:sequence>
                         <xs:attribute name="AllowAlignedLayers" type="xs:boolean" />
                         <xs:attribute name="AllowAlternateLayers" type="xs:boolean" />
@@ -159,15 +195,15 @@
                         <xs:attribute name="OverhangY" type="xs:double" />
                         <xs:attribute name="AllowedPatterns" type="xs:string" />
                         <xs:attribute name="HasInterlayer" type="xs:boolean" />
-                        <xs:attribute name="InterlayerPeriod" type="xs:double" />
+                        <xs:attribute name="InterlayerPeriod" type="xs:integer" />
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
                   <xs:attribute name="Name" type="xs:string" />
                   <xs:attribute name="Description" type="xs:string" />
-                  <xs:attribute name="BoxGuid" type="xs:IDREF" use="required" />
-                  <xs:attribute name="PalletGuid" type="xs:IDREF" use="required" />
-                  <xs:attribute name="InterlayerGuid" type="xs:IDREF" />
+                  <xs:attribute name="BoxId" type="xs:IDREF" use="required" />
+                  <xs:attribute name="PalletId" type="xs:IDREF" use="required" />
+                  <xs:attribute name="InterlayerId" type="xs:IDREF" />
                 </xs:complexType>
               </xs:element>
               <xs:element maxOccurs="unbounded" name="AnalysisTruck">

@@ -47,6 +47,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _width; }
         }
+        public double UnitThickness
+        {
+            get { return _unitThickness; }
+            set { _unitThickness = value; }
+        }
+        public double UnitWeight
+        {
+            get { return _unitWeight; }
+            set { _unitWeight = value; }
+        }
         public double TotalThickness
         {
             get { return _unitThickness * _noFlats; }

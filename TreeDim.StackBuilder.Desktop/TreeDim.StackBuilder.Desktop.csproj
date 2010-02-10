@@ -77,6 +77,12 @@
     <Compile Include="FormNewBundle.Designer.cs">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewDocument.Designer.cs">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewInterlayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,10 @@
     <EmbeddedResource Include="FormNewBundle.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.resx">
       <SubType>Designer</SubType>

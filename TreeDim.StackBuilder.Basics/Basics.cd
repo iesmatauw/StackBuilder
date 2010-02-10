@@ -79,7 +79,7 @@
       <HashCode>AAAAIAAAAAAgEAAEAIAAAIQAAAAABAAAQAEAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="TreeDim.StackBuilder.Basics.Pair&lt;T1, T2&gt;" Collapsed="true">
+  <Class Name="TreeDim.StackBuilder.Basics.Pair&lt;T1, T2&gt;">
     <Position X="10.75" Y="10" Width="1.5" />
     <TypeIdentifier>
       <FileName>Texture.cs</FileName>

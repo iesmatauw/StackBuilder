@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Basics.cd" />
+    <None Include="Basics.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Basics.xsx">
+      <DependentUpon>Basics.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

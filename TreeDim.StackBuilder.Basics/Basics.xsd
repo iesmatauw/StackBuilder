@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Basics" targetNamespace="http://tempuri.org/Basics.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/Basics.xsd" xmlns:mstns="http://tempuri.org/Basics.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" />
+        <xs:element name="Description" type="xs:string" />
+        <xs:element name="Author" type="xs:string" />
+        <xs:element name="DateCreation" type="xs:string" />
+        <xs:element maxOccurs="1" name="ItemProperties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="BoxProperties">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="FaceColors">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="6" minOccurs="6" name="FaceColor">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="FaceIndex" type="xs:short" />
+                                <xs:element name="Color" type="xs:nonNegativeInteger" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" name="Textures">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="Texture">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Position" type="xs:string" />
+                                <xs:element name="Size" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                  <xs:attribute name="Length" type="xs:double" />
+                  <xs:attribute name="Width" type="xs:double" />
+                  <xs:attribute name="Height" type="xs:double" />
+                  <xs:attribute name="Weight" type="xs:double" />
+                  <xs:attribute name="Id" type="xs:ID" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="PalletProperties">
+                <xs:complexType>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                  <xs:attribute name="Length" type="xs:double" />
+                  <xs:attribute name="Width" type="xs:double" />
+                  <xs:attribute name="Height" type="xs:double" />
+                  <xs:attribute name="Weight" type="xs:double" />
+                  <xs:attribute name="Type" type="xs:nonNegativeInteger" />
+                  <xs:attribute name="Color" type="xs:nonNegativeInteger" />
+                  <xs:attribute name="Id" type="xs:ID" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="InterlayerProperties">
+                <xs:complexType>
+                  <xs:sequence>
+                  </xs:sequence>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                  <xs:attribute name="Length" type="xs:double" />
+                  <xs:attribute name="Width" type="xs:double" />
+                  <xs:attribute name="Thickness" type="xs:double" />
+                  <xs:attribute name="Weight" type="xs:double" />
+                  <xs:attribute name="Color" type="xs:nonNegativeInteger" />
+                  <xs:attribute name="Id" type="xs:ID" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="BundleProperties">
+                <xs:complexType>
+                  <xs:sequence>
+                  </xs:sequence>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                  <xs:attribute name="Length" type="xs:double" />
+                  <xs:attribute name="Width" type="xs:double" />
+                  <xs:attribute name="UnitThickness" type="xs:double" />
+                  <xs:attribute name="UnitWeight" type="xs:double" />
+                  <xs:attribute name="Color" type="xs:nonNegativeInteger" />
+                  <xs:attribute name="NumberFlats" type="xs:nonNegativeInteger" />
+                  <xs:attribute name="Id" type="xs:ID" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="1" name="Analyses">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="AnalysisCase">
+                <xs:complexType>
+                  <xs:sequence>
+                  </xs:sequence>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="AnalysisPallet">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="1" name="Solutions">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="Solution">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Layers">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element maxOccurs="unbounded" name="BoxLayer">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element maxOccurs="unbounded" name="BoxPosition">
+                                              <xs:complexType>
+                                                <xs:attribute name="Position" type="xs:string" />
+                                                <xs:attribute name="AxisLength" type="xs:string" />
+                                                <xs:attribute name="AxisWidth" type="xs:string" />
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="ZLow" type="xs:double" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element maxOccurs="unbounded" name="Interlayer">
+                                        <xs:complexType>
+                                          <xs:attribute name="ZLow" type="xs:double" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="Title" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ConstraintSet">
+                      <xs:complexType>
+                        <xs:sequence>
+                        </xs:sequence>
+                        <xs:attribute name="AllowAlignedLayers" type="xs:boolean" />
+                        <xs:attribute name="AllowAlternateLayers" type="xs:boolean" />
+                        <xs:attribute name="AllowedOrthoAxis" type="xs:string" />
+                        <xs:attribute name="OverhangX" type="xs:double" />
+                        <xs:attribute name="OverhangY" type="xs:double" />
+                        <xs:attribute name="AllowedPatterns" type="xs:string" />
+                        <xs:attribute name="HasInterlayer" type="xs:boolean" />
+                        <xs:attribute name="InterlayerPeriod" type="xs:double" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                  <xs:attribute name="BoxGuid" type="xs:IDREF" use="required" />
+                  <xs:attribute name="PalletGuid" type="xs:IDREF" use="required" />
+                  <xs:attribute name="InterlayerGuid" type="xs:IDREF" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="AnalysisTruck">
+                <xs:complexType>
+                  <xs:sequence>
+                  </xs:sequence>
+                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Description" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

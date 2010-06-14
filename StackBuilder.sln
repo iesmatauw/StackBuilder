@@ -1,6 +1,10 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test projects", "Test projects", "{36E4D3C5-28FD-46B9-8763-C3316F67C6BE}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Engine", "TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj", "{2E646606-052D-4063-9218-1379430B070E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp3D.Math", "Sharp3D.Math\Sharp3D.Math.csproj", "{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}"
@@ -16,10 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Basics", "TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj", "{444C01D0-53FD-49A1-9D55-267B49161357}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficePickers", "OfficePickers\OfficePickers.csproj", "{CAD56B75-481B-4C76-B090-4BC2FF5E5681}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test projects", "Test projects", "{36E4D3C5-28FD-46B9-8763-C3316F67C6BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,7 +65,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CAD56B75-481B-4C76-B090-4BC2FF5E5681} = {C6DE47A1-1707-4139-9638-37CA983F3086}
-		{B6A88209-B71C-4045-BF3D-371BC9D21784} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{B6A88209-B71C-4045-BF3D-371BC9D21784} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 EndGlobal

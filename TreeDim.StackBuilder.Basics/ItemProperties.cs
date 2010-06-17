@@ -32,6 +32,7 @@ namespace TreeDim.StackBuilder.Basics
         public Guid Guid
         {
             get { return _guid; }
+            set { _guid = value; }
         }
         public string Name
         {

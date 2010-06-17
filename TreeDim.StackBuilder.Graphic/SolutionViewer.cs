@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 using System.Diagnostics;
 
 using TreeDim.StackBuilder.Basics;
@@ -45,40 +46,7 @@ namespace TreeDim.StackBuilder.Graphics
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
-                    {
-                        Box box = new Box(pickId++, _analysis.BoxProperties);
-                        // set position
-                        box.Position = bPosition.Position;
-                        // set direction length
-                        switch (bPosition.DirectionLength)
-                        {
-                            case HalfAxis.AXIS_X_N: box.LengthAxis = -Vector3D.XAxis; break;
-                            case HalfAxis.AXIS_X_P: box.LengthAxis = Vector3D.XAxis; break;
-                            case HalfAxis.AXIS_Y_N: box.LengthAxis = -Vector3D.YAxis; break;
-                            case HalfAxis.AXIS_Y_P: box.LengthAxis = Vector3D.YAxis; break;
-                            case HalfAxis.AXIS_Z_N: box.LengthAxis = -Vector3D.ZAxis; break;
-                            case HalfAxis.AXIS_Z_P: box.LengthAxis = Vector3D.ZAxis; break;
-                            default:
-                                Debug.Assert(false);
-                                break;
-                        }
-                        // set direction width
-                        switch (bPosition.DirectionWidth)
-                        {
-                            case HalfAxis.AXIS_X_N: box.WidthAxis = -Vector3D.XAxis; break;
-                            case HalfAxis.AXIS_X_P: box.WidthAxis = Vector3D.XAxis; break;
-                            case HalfAxis.AXIS_Y_N: box.WidthAxis = -Vector3D.YAxis; break;
-                            case HalfAxis.AXIS_Y_P: box.WidthAxis = Vector3D.YAxis; break;
-                            case HalfAxis.AXIS_Z_N: box.WidthAxis = -Vector3D.ZAxis; break;
-                            case HalfAxis.AXIS_Z_P: box.WidthAxis = Vector3D.ZAxis; break;
-                            default:
-                                Debug.Assert(false);
-                                break;
-                        }
-
-                        // draw
-                        graphics.AddBox(box);
-                    }
+                        graphics.AddBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
                 }
 
                 InterlayerPos interlayerPos = layer as InterlayerPos;
@@ -92,10 +60,72 @@ namespace TreeDim.StackBuilder.Graphics
                 }
             }
 
-            // draw cotations
+            // draw axis
+            graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(2000.0, 0.0, 0.0), Color.Red));
+            graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 2000.0, 0.0), Color.Green));
+            graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 0.0, 2000.0), Color.Blue));
 
             // flush
             graphics.Flush();
+        }
+
+        public void Draw(Graphics2D graphics)
+        {
+            if (null == _solution || _solution.Count == 0)
+                return;
+
+            if (_solution.HasHomogeneousLayer)
+            {
+                // initialize Graphics2D object
+                graphics.NumberOfViews = 1;
+                graphics.SetViewport(0.0f, 0.0f, (float)_analysis.PalletProperties.Length, (float)_analysis.PalletProperties.Width);
+
+                BoxLayer blayer = _solution[0] as BoxLayer;
+                if (blayer != null)
+                {
+                    graphics.SetCurrentView(0);
+                    graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
+                    uint pickId = 0;
+                    foreach (BoxPosition bPosition in blayer)
+                        graphics.DrawBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                    // draw axis X
+                    graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
+                    // draw axis Y
+                    graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                }
+            }
+            else
+            {
+                graphics.NumberOfViews = 2;
+                graphics.SetViewport(0.0f, 0.0f, (float)_analysis.PalletProperties.Length, (float)_analysis.PalletProperties.Width);
+
+                BoxLayer blayer0 = _solution[0] as BoxLayer;
+                if (blayer0 != null)
+                {
+                    graphics.SetCurrentView(0);
+                    graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
+                    uint pickId = 0;
+                    foreach (BoxPosition bPosition in blayer0)
+                        graphics.DrawBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                    // draw axis X
+                    graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
+                    // draw axis Y
+                    graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                }
+                BoxLayer blayer1 = _solution[1] as BoxLayer;
+                if (blayer1 != null)
+                {
+                    graphics.SetCurrentView(1);
+                    graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
+                    uint pickId = 0;
+                    foreach (BoxPosition bPosition in blayer1)
+                        graphics.DrawBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                    // draw axis X
+                    graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
+                    // draw axis Y
+                    graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                }
+            }
         }
         #endregion
 

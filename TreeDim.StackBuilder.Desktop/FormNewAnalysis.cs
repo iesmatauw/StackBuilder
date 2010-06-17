@@ -341,11 +341,11 @@ namespace TreeDim.StackBuilder.Desktop
         { 
             // get current boxProperties
             BoxProperties selectedBox = SelectedBox;
-            DrawBoxPosition(selectedBox, HalfAxis.AXIS_X_P, pictureBoxPositionX);
-            DrawBoxPosition(selectedBox, HalfAxis.AXIS_Y_P, pictureBoxPositionY);
-            DrawBoxPosition(selectedBox, HalfAxis.AXIS_Z_P, pictureBoxPositionZ);
+            DrawBoxPosition(selectedBox, HalfAxis.HAxis.AXIS_X_P, pictureBoxPositionX);
+            DrawBoxPosition(selectedBox, HalfAxis.HAxis.AXIS_Y_P, pictureBoxPositionY);
+            DrawBoxPosition(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
         }
-        private void DrawBoxPosition(BoxProperties boxProperties, HalfAxis axis, PictureBox pictureBox)
+        private void DrawBoxPosition(BoxProperties boxProperties, HalfAxis.HAxis axis, PictureBox pictureBox)
         {
             // get horizontal angle
             double angle = 45;
@@ -362,17 +362,17 @@ namespace TreeDim.StackBuilder.Desktop
             Box box = new Box(0, boxProperties);
 
             // set axes
-            HalfAxis lengthAxis = HalfAxis.AXIS_X_P;
-            HalfAxis widthAxis = HalfAxis.AXIS_Y_P;
+            HalfAxis.HAxis lengthAxis = HalfAxis.HAxis.AXIS_X_P;
+            HalfAxis.HAxis widthAxis = HalfAxis.HAxis.AXIS_Y_P;
             switch (axis)
             {
-                case HalfAxis.AXIS_X_P: lengthAxis = HalfAxis.AXIS_Z_P; widthAxis = HalfAxis.AXIS_X_P; break;
-                case HalfAxis.AXIS_Y_P: lengthAxis = HalfAxis.AXIS_X_P;  widthAxis = HalfAxis.AXIS_Z_N; break;
-                case HalfAxis.AXIS_Z_P: lengthAxis = HalfAxis.AXIS_X_P;  widthAxis = HalfAxis.AXIS_Y_P; break;
+                case HalfAxis.HAxis.AXIS_X_P: lengthAxis = HalfAxis.HAxis.AXIS_Z_P; widthAxis = HalfAxis.HAxis.AXIS_X_P; break;
+                case HalfAxis.HAxis.AXIS_Y_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Z_N; break;
+                case HalfAxis.HAxis.AXIS_Z_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Y_P; break;
                 default: break;
             }
-            box.LengthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(lengthAxis);
-            box.WidthAxis = TreeDim.StackBuilder.Basics.Convert.ToVector3D(widthAxis);
+            box.LengthAxis = TreeDim.StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis);
+            box.WidthAxis = TreeDim.StackBuilder.Basics.HalfAxis.ToVector3D(widthAxis);
 
             // draw box
             foreach (Face face in box.Faces)

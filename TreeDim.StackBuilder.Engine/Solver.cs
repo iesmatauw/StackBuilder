@@ -57,8 +57,8 @@ namespace TreeDim.StackBuilder.Engine
 
                     for (int i = 0; i < 3; ++i)
                     {
-                        HalfAxis axisOrtho1 = (HalfAxis)(2 * i);
-                        HalfAxis axisOrtho2 = (HalfAxis)(2 * i + 1);
+                        HalfAxis.HAxis axisOrtho1 = (HalfAxis.HAxis)(2 * i);
+                        HalfAxis.HAxis axisOrtho2 = (HalfAxis.HAxis)(2 * i + 1);
 
                         if (!_constraintSet.AllowOrthoAxis(axisOrtho2))
                             continue;
@@ -109,7 +109,7 @@ namespace TreeDim.StackBuilder.Engine
                             }
                             string title = string.Format("Pattern name : {0}\nVertical axis : {0}\n", pattern.Name, axisName);
 
-                            Solution sol = new Solution(title);
+                            Solution sol = new Solution(title, layer1T == layer2T);
                             int iLayerIndex = 0;
                             bool innerLoopStop = false;
                             double zLayer = _palletProperties.Height;

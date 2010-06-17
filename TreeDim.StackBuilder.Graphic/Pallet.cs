@@ -59,8 +59,8 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int i = 0; i < 3; ++i)
                         {
                             plank1 = new Box(0, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
-                            plank1.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                            plank1.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
+                            plank1.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
+                            plank1.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_N);
                             plank1.Position = new Vector3D(plank1.Width + i * xStep, 0.0, z);
                             graphics.AddBox(plank1);
                         }
@@ -72,8 +72,8 @@ namespace TreeDim.StackBuilder.Graphics
                             for (int j = 0; j < 3; ++j)
                             {
                                 plank2 = new Box(0, 138.0 * coefWidth, 98.0* coefLength, 95.0 * coefHeight);     plank2.SetAllFacesColor(_color);
-                                plank2.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                                plank2.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
+                                plank2.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
+                                plank2.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_N);
                                 plank2.Position = new Vector3D(plank2.Width + i * xStep, j*yStep, z);
                                 graphics.AddBox(plank2);
                             }
@@ -84,8 +84,8 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int j = 0; j < 3; ++j)
                         {
                             plank4 = new Box(0, 1200.0* coefLength, 95.0 * coefWidth, 18.0 * coefHeight);    plank4.SetAllFacesColor(_color);
-                            plank4.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_P);
-                            plank4.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
+                            plank4.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_P);
+                            plank4.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
                             plank4.Position = new Vector3D(0.0, j * yStep, z);
                             graphics.AddBox(plank4);
                         }
@@ -96,8 +96,8 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int i = 0; i < 7; ++i)
                         {
                             plank5 = new Box(0, 1000.0 * coefWidth, 120.0 * coefLength, 19.0 * coefHeight); plank5.SetAllFacesColor(_color);
-                            plank5.LengthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_Y_P);
-                            plank5.WidthAxis = Basics.Convert.ToVector3D(HalfAxis.AXIS_X_N);
+                            plank5.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
+                            plank5.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_N);
                             plank5.Position = new Vector3D(plank5.Width + i * xStep, 0.0, z);
                             graphics.AddBox(plank5);
                         }

@@ -9,23 +9,23 @@ using System.Drawing.Imaging;
 
 namespace TreeDim.StackBuilder.Graphics
 {
-    public class Graphics3DImage : Graphics3D
+    public class Graphics2DImage : Graphics2D
     {
         #region Data members
         private Bitmap _bitmap;
         #endregion
 
         #region Constructor
-        public Graphics3DImage(Size size)
+        public Graphics2DImage(Size size)
         {
-            _bitmap = new Bitmap(size.Width, size.Height);        
+            _bitmap = new Bitmap(size.Width, size.Height);
         }
         #endregion
 
-        #region Graphics3D abstract method implementation
+        #region Graphics2D abstract method implementation
         public override Size Size
         {
-            get { return _bitmap.Size;}
+            get { return _bitmap.Size; }
         }
         public override System.Drawing.Graphics Graphics
         {
@@ -36,8 +36,7 @@ namespace TreeDim.StackBuilder.Graphics
         #region Public methods
         public void SaveAs(string filename)
         {
-            ImageFormat format = ImageFormat.Bmp;
-            _bitmap.Save(filename, format);
+            _bitmap.Save(filename, ImageFormat.Bmp);
         }
         #endregion
 

@@ -94,12 +94,12 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.OverhangX = form.OverhangX;
                 constraintSet.OverhangY = form.OverhangY;
                 // allowed axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_P, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_N, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_P, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_N, form.AllowVerticalZ);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_P, form.AllowVerticalZ);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
                 // allowed patterns
                 foreach (string s in form.AllowedPatterns)
                     constraintSet.SetAllowedPattern(s);
@@ -310,7 +310,7 @@ namespace TreeDim.StackBuilder.Desktop
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
-            gridSolutions.ColumnsCount = 5;
+            gridSolutions.ColumnsCount = 6;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
 
@@ -321,21 +321,25 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Layer pattern(s)");
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet weight (kg)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet height (mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet weight (kg)");
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet height (mm)");
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 5] = columnHeader;
 
             // data rows
             int iIndex = 0;
@@ -344,16 +348,23 @@ namespace TreeDim.StackBuilder.Desktop
                 ++iIndex;
                 gridSolutions.Rows.Insert(iIndex);
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
-                gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency(_currentAnalysis)));
-                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight(_currentAnalysis)));
-                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight(_currentAnalysis)));
+                {
+                    Graphics2DImage graphics = new Graphics2DImage(new Size(100, 50));
+                    SolutionViewer sv = new SolutionViewer(_currentAnalysis, sol);
+                    sv.Draw(graphics);
+                    gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);
+                }
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency(_currentAnalysis)));
+                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight(_currentAnalysis)));
+                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight(_currentAnalysis)));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
                 gridSolutions[iIndex, 2].View = viewNormal;
                 gridSolutions[iIndex, 3].View = viewNormal;
                 gridSolutions[iIndex, 4].View = viewNormal;
+                gridSolutions[iIndex, 5].View = viewNormal;
             }
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.AutoSizeCells();

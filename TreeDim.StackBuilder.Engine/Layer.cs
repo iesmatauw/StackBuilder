@@ -11,7 +11,7 @@ namespace TreeDim.StackBuilder.Engine
     public class LayerPosition
     {
         #region Constructor
-        public LayerPosition(Vector3D position, HalfAxis lengthAxis, HalfAxis widthAxis)
+        public LayerPosition(Vector3D position, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             _position = position;
             _lengthAxis = lengthAxis;
@@ -21,28 +21,28 @@ namespace TreeDim.StackBuilder.Engine
 
         #region Public properties
         public Vector3D Position { get { return _position; } }
-        public HalfAxis LengthAxis { get { return _lengthAxis; } }
-        public HalfAxis WidthAxis { get { return _widthAxis; } }
+        public HalfAxis.HAxis LengthAxis { get { return _lengthAxis; } }
+        public HalfAxis.HAxis WidthAxis { get { return _widthAxis; } }
         #endregion
 
         #region Data members
         private Vector3D _position;
-        private HalfAxis _lengthAxis, _widthAxis;
+        private HalfAxis.HAxis _lengthAxis, _widthAxis;
         #endregion
     }
 
     public class Layer : List<LayerPosition>
     {
         #region Data members
-        private HalfAxis _axisOrtho = HalfAxis.AXIS_Z_P;
-        private HalfAxis _lengthAxis = HalfAxis.AXIS_X_P, _widthAxis = HalfAxis.AXIS_Y_P;
+        private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
+        private HalfAxis.HAxis _lengthAxis = HalfAxis.HAxis.AXIS_X_P, _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight;
         private double _palletLength = 0.0, _palletWidth = 0.0;
         private Vector3D _vecTransf = Vector3D.Zero; 
         #endregion
 
         #region Constructor
-        public Layer(BoxProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet, HalfAxis axisOrtho)
+        public Layer(BoxProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
             _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
@@ -56,60 +56,60 @@ namespace TreeDim.StackBuilder.Engine
         {
             switch (_axisOrtho)
             {
-                case HalfAxis.AXIS_X_N:
+                case HalfAxis.HAxis.AXIS_X_N:
                     _boxLength = boxProperties.Width;
                     _boxWidth = boxProperties.Height;
                     _boxHeight = boxProperties.Length;
-                    _lengthAxis = HalfAxis.AXIS_Z_N;
-                    _widthAxis = HalfAxis.AXIS_X_N;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_Z_N;
+                    _widthAxis = HalfAxis.HAxis.AXIS_X_N;
                     _vecTransf = new Vector3D(boxProperties.Width, 0.0, boxProperties.Length);
                     break;
-                case HalfAxis.AXIS_X_P:
+                case HalfAxis.HAxis.AXIS_X_P:
                     _boxLength = boxProperties.Height;
                     _boxWidth = boxProperties.Width;
                     _boxHeight = boxProperties.Length;
-                    _lengthAxis = HalfAxis.AXIS_Z_P;
-                    _widthAxis = HalfAxis.AXIS_Y_P;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_Z_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
                     _vecTransf = new Vector3D(boxProperties.Height, 0.0, 0.0);
                     break;
-                case HalfAxis.AXIS_Y_N:
+                case HalfAxis.HAxis.AXIS_Y_N:
                     _boxLength = boxProperties.Length;
                     _boxWidth = boxProperties.Height;
                     _boxHeight = boxProperties.Width;
-                    _lengthAxis = HalfAxis.AXIS_X_P;
-                    _widthAxis = HalfAxis.AXIS_Z_N;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_Z_N;
                     _vecTransf = new Vector3D(0.0, 0.0, boxProperties.Width);
                     break;
-                case HalfAxis.AXIS_Y_P:
+                case HalfAxis.HAxis.AXIS_Y_P:
                     _boxLength = boxProperties.Height;
                     _boxWidth = boxProperties.Length;
                     _boxHeight = boxProperties.Width;
-                    _lengthAxis = HalfAxis.AXIS_Y_P;
-                    _widthAxis = HalfAxis.AXIS_Z_P;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_Z_P;
                     _vecTransf = Vector3D.Zero;
                     break;
-                case HalfAxis.AXIS_Z_N:
+                case HalfAxis.HAxis.AXIS_Z_N:
                     _boxLength = boxProperties.Width;
                     _boxWidth = boxProperties.Length;
                     _boxHeight = boxProperties.Height;
-                    _lengthAxis = HalfAxis.AXIS_Y_P;
-                    _widthAxis = HalfAxis.AXIS_X_P;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_X_P;
                     _vecTransf = new Vector3D(0.0, 0.0, boxProperties.Height);
                     break;
-                case HalfAxis.AXIS_Z_P:
+                case HalfAxis.HAxis.AXIS_Z_P:
                     _boxLength = boxProperties.Length;
                     _boxWidth = boxProperties.Width;
                     _boxHeight = boxProperties.Height;
-                    _lengthAxis = HalfAxis.AXIS_X_P;
-                    _widthAxis = HalfAxis.AXIS_Y_P;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
                     _vecTransf = Vector3D.Zero;
                     break;
                 default:
                     _boxLength = boxProperties.Length;
                     _boxWidth = boxProperties.Width;
                     _boxHeight = boxProperties.Height;
-                    _lengthAxis = HalfAxis.AXIS_X_P;
-                    _widthAxis = HalfAxis.AXIS_Y_P;
+                    _lengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
                     _vecTransf = Vector3D.Zero;
                     break;
             }
@@ -117,11 +117,11 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public methods
-        public void AddPosition(Vector2D vPosition, HalfAxis lengthAxis, HalfAxis widthAxis)
+        public void AddPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             // build 4D matrix
-            Vector3D vAxisLength = Convert.ToVector3D(lengthAxis);
-            Vector3D vAxisWidth = Convert.ToVector3D(widthAxis);
+            Vector3D vAxisLength = HalfAxis.ToVector3D(lengthAxis);
+            Vector3D vAxisWidth = HalfAxis.ToVector3D(widthAxis);
             Vector3D vAxisHeight = Vector3D.CrossProduct(vAxisLength, vAxisWidth);
             Matrix4D mat = Matrix4D.Identity;
             mat.M11 = vAxisLength.X;
@@ -139,8 +139,8 @@ namespace TreeDim.StackBuilder.Engine
 
             LayerPosition layerPos = new LayerPosition(
                 originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0))
-                , Convert.ToHalfAxis(localTransfInv.transform(Convert.ToVector3D(_lengthAxis)))
-                , Convert.ToHalfAxis(localTransfInv.transform(Convert.ToVector3D(_widthAxis)))
+                , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))
+                , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_widthAxis)))
                 );
 
             this.Add(layerPos);
@@ -160,7 +160,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return _boxHeight; }
         }
-        public HalfAxis AxisOrtho
+        public HalfAxis.HAxis AxisOrtho
         {
             get { return _axisOrtho; }
         }

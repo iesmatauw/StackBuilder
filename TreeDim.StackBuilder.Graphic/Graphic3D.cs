@@ -57,6 +57,10 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summay>
         private List<Box> _boxes = new List<Box>();
         /// <summary>
+        /// segment
+        /// </summary>
+        private List<Segment> _segments = new List<Segment>();
+        /// <summary>
         /// Current transformation
         /// </summary>
         private Transform3D _currentTransf;
@@ -174,7 +178,7 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
-        #region Abstract methods
+        #region Abstract methods and properties
         abstract public Size Size { get; }
         abstract public System.Drawing.Graphics Graphics { get; }
         #endregion
@@ -220,6 +224,10 @@ namespace TreeDim.StackBuilder.Graphics
                 // draw all boxes
                 foreach (Box box in _boxes)
                     Draw(box);
+
+                // sort segment list
+                foreach (Segment seg in _segments)
+                    Draw(seg);
             }
             else
             {
@@ -298,6 +306,24 @@ namespace TreeDim.StackBuilder.Graphics
                 _currentTransf = orthographicProj * world2eye;
             }
             return _currentTransf;
+        }
+
+        public void AddSegment(Segment seg)
+        {
+            _segments.Add(seg);        
+        }
+
+        /// <summary>
+        /// Draw a line segment
+        /// </summary>
+        /// <param name="seg">Segment object to be drawn</param>
+        internal void Draw(Segment seg)
+        {
+            System.Drawing.Graphics g = Graphics;
+            Brush brush = new SolidBrush(seg.Color);
+            Pen pen = new Pen(brush);
+            Point[] pt = TransformPoint(GetCurrentTransformation(), seg.Points);
+            g.DrawLine(pen, pt[0], pt[1]);
         }
 
         /// <summary>

@@ -118,11 +118,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             return _allowedPatterns.Contains(patternName);
         }
-        public bool AllowOrthoAxis(HalfAxis orthoAxis)
+        public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
             return _allowedOrthoAxis[(int)orthoAxis];
         }
-        public void SetAllowedOrthoAxis(HalfAxis axis, bool allowed)
+        public void SetAllowedOrthoAxis(HalfAxis.HAxis axis, bool allowed)
         {
             _allowedOrthoAxis[(int)axis] = allowed;
         }

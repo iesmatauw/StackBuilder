@@ -18,7 +18,7 @@ namespace TreeDim.StackBuilder.Basics
         private double _length, _width, _height;
         private double _weight;
         private Color[] _colors = new Color[6];
-        private List<Pair<HalfAxis, Texture>> _textures = new List<Pair<HalfAxis, Texture>>();
+        private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
         #endregion
 
         #region Constructor
@@ -71,26 +71,26 @@ namespace TreeDim.StackBuilder.Basics
             for (int i = 0; i < 6; ++i)
                 _colors[i] = color;
         }
-        public void SetColor(HalfAxis axis, Color color)
+        public void SetColor(HalfAxis.HAxis axis, Color color)
         {
             _colors[(int)axis] = color;        
         }
-        public void AddTexture(HalfAxis axis, Vector2D position, Vector2D size, Bitmap bmp)
+        public void AddTexture(HalfAxis.HAxis axis, Vector2D position, Vector2D size, Bitmap bmp)
         {
-            _textures.Add(new Pair<HalfAxis, Texture>(axis, new Texture(bmp, position, size)));
+            _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size)));
         }
-        public double Dimension(HalfAxis axis)
+        public double Dimension(HalfAxis.HAxis axis)
         {
             switch (axis)
-            { 
-                case HalfAxis.AXIS_X_N:
-                case HalfAxis.AXIS_X_P:
+            {
+                case HalfAxis.HAxis.AXIS_X_N:
+                case HalfAxis.HAxis.AXIS_X_P:
                     return _length;
-                case HalfAxis.AXIS_Y_N:
-                case HalfAxis.AXIS_Y_P:
+                case HalfAxis.HAxis.AXIS_Y_N:
+                case HalfAxis.HAxis.AXIS_Y_P:
                     return _width;
-                case HalfAxis.AXIS_Z_N:
-                case HalfAxis.AXIS_Z_P:
+                case HalfAxis.HAxis.AXIS_Z_N:
+                case HalfAxis.HAxis.AXIS_Z_P:
                     return _height;
                 default:
                     return 0.0;

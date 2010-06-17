@@ -36,13 +36,13 @@ namespace TreeDim.StackBuilder.Graphics.Test
                 Box box0 = new Box(0, 200.0, 160.0, 100.0);
                 box0.Position = new Vector3D(0.0, 0.0, 0.0);
                 box0.SetAllFacesColor(Color.Chocolate);
-                box0.SetFaceTextures(HalfAxis.AXIS_Y_P, listTexture);
+                box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_P, listTexture);
                 boxList.Add(box0);
 
                 Box box1 = new Box(1, 200.0, 160.0, 100.0);
                 box1.Position = new Vector3D(210.0, 0.0, 0.0);
                 box1.SetAllFacesColor(Color.Chocolate);
-                box1.SetFaceTextures(HalfAxis.AXIS_Y_P, listTexture);
+                box1.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_P, listTexture);
                 boxList.Add(box1);
 
                 Box box2 = new Box(2, 200.0, 160.0, 100.0);

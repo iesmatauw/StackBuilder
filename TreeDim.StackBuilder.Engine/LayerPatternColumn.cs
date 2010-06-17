@@ -52,7 +52,7 @@ namespace TreeDim.StackBuilder.Engine
                             offsetX + i * (boxLength + spaceX)
                             , offsetY + j * (boxWidth + spaceY)
                             )
-                        , HalfAxis.AXIS_X_P, HalfAxis.AXIS_Y_P);
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
         }
 
         public override int GetNumberOfVariants(Layer layer)

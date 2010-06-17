@@ -30,7 +30,7 @@ using System.Security.Permissions;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.ComponentModel;
-
+using System.Globalization;
 #endregion
 
 namespace Sharp3D.Math.Core
@@ -176,20 +176,28 @@ namespace Sharp3D.Math.Core
 		/// <returns>A <see cref="Vector3D"/> that represents the vector specified by the <paramref name="value"/> parameter.</returns>
 		public static Vector3D Parse(string value)
 		{
-			Regex r = new Regex(@"\((?<x>.*),(?<y>.*),(?<z>.*)\)", RegexOptions.Singleline);
-			Match m = r.Match(value);
-			if (m.Success)
-			{
-				return new Vector3D(
-					double.Parse(m.Result("${x}")),
-					double.Parse(m.Result("${y}")),
-					double.Parse(m.Result("${z}"))
-					);
-			}
-			else
-			{
-				throw new ParseException("Unsuccessful Match.");
-			}
+            try
+            {
+                Regex r = new Regex(@"\((?<x>.*),(?<y>.*),(?<z>.*)\)", RegexOptions.Singleline);
+                Match m = r.Match(value);
+                if (m.Success)
+                {
+                    CultureInfo ci = new CultureInfo("en-US");
+                    return new Vector3D(
+                        double.Parse(m.Result("${x}"), ci),
+                        double.Parse(m.Result("${y}"), ci),
+                        double.Parse(m.Result("${z}"), ci)
+                        );
+                }
+                else
+                {
+                    throw new ParseException(string.Format("Unsuccessful Match with {0}\n", value));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ParseException(string.Format("Failed to parse Vector3D from {0}\n", value), ex);
+            }
 		}
 		/// <summary>
 		/// Converts the specified string to its <see cref="Vector3D"/> equivalent.
@@ -207,10 +215,11 @@ namespace Sharp3D.Math.Core
 			Match m = r.Match(value);
 			if (m.Success)
 			{
+                CultureInfo ci = new CultureInfo("en-US");
 				result = new Vector3D(
-					double.Parse(m.Result("${x}")),
-					double.Parse(m.Result("${y}")),
-					double.Parse(m.Result("${z}"))
+					double.Parse(m.Result("${x}"), ci),
+					double.Parse(m.Result("${y}"), ci),
+					double.Parse(m.Result("${z}"), ci)
 					);
 
 				return true;
@@ -618,7 +627,8 @@ namespace Sharp3D.Math.Core
 		/// <returns>A string representation of this object.</returns>
 		public override string ToString()
 		{
-			return string.Format("({0}, {1}, {2})", _x, _y, _z);
+            CultureInfo ci = new CultureInfo("en-US");
+            return string.Format("({0},{1},{2})", _x.ToString(ci), _y.ToString(ci), _z.ToString(ci));
 		}
 		#endregion
 

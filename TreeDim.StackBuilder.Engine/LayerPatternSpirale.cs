@@ -66,7 +66,7 @@ namespace TreeDim.StackBuilder.Engine
                 AddPosition(
                     layer
                     , new Vector2D(xBase + boxWidth, yBase)
-                    , HalfAxis.AXIS_Y_P, HalfAxis.AXIS_X_N);
+                    , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
 
                 // along X
                 for (int ix = 0; ix < maxSizeXLength - i; ++ix)
@@ -75,7 +75,7 @@ namespace TreeDim.StackBuilder.Engine
                         , new Vector2D(
                         xBase + boxWidth + spaceX + ix * (boxLength + spaceX)
                         , yBase)
-                        , HalfAxis.AXIS_X_P, HalfAxis.AXIS_Y_P);
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
 
                 // along Y
                 for (int iy = 0; iy < maxSizeYWidth - i; ++iy)
@@ -84,7 +84,7 @@ namespace TreeDim.StackBuilder.Engine
                         , new Vector2D(
                         xBase
                         , yBase + boxLength + spaceY + iy * (boxWidth + spaceY))
-                        , HalfAxis.AXIS_X_P, HalfAxis.AXIS_Y_P);
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             }
         }
 

@@ -52,7 +52,7 @@ namespace TreeDim.StackBuilder.Engine
                 return layer.PalletLength;        
         }
 
-        public void AddPosition(Layer layer, Vector2D vPosition, HalfAxis lengthAxis, HalfAxis widthAxis)
+        public void AddPosition(Layer layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             if (!_swaped)
             {
@@ -62,8 +62,8 @@ namespace TreeDim.StackBuilder.Engine
             {
                 Matrix4D matRot = new Matrix4D(0.0, -1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0);
                 Transform3D transfRot = new Transform3D(matRot);
-                HalfAxis lengthAxisSwaped = StackBuilder.Basics.Convert.ToHalfAxis(transfRot.transform(StackBuilder.Basics.Convert.ToVector3D(lengthAxis)));
-                HalfAxis widthAxisSwaped = StackBuilder.Basics.Convert.ToHalfAxis(transfRot.transform(StackBuilder.Basics.Convert.ToVector3D(widthAxis)));
+                HalfAxis.HAxis lengthAxisSwaped = StackBuilder.Basics.HalfAxis.ToHalfAxis(transfRot.transform(StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis)));
+                HalfAxis.HAxis widthAxisSwaped = StackBuilder.Basics.HalfAxis.ToHalfAxis(transfRot.transform(StackBuilder.Basics.HalfAxis.ToVector3D(widthAxis)));
 
                 matRot.M14 = layer.PalletLength;
                 Transform3D transfRotTranslation = new Transform3D(matRot);

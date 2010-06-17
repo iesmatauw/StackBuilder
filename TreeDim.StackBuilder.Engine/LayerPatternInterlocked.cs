@@ -60,7 +60,7 @@ namespace TreeDim.StackBuilder.Engine
                         , new Vector2D(
                             offsetX + i * (boxLength + spaceX)
                             , offsetY + j * (boxWidth + spaceYLength))
-                        , HalfAxis.AXIS_X_P, HalfAxis.AXIS_Y_P);
+                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                 }
             for (int i = 0; i < maxSizeXWidth; ++i)
                 for (int j = 0; j < maxSizeYWidth; ++j)
@@ -69,7 +69,7 @@ namespace TreeDim.StackBuilder.Engine
                         , new Vector2D(
                             offsetX + maxSizeXLength * (boxLength + spaceX) + i * (boxWidth + spaceX) + boxWidth
                             , offsetY + j * (boxLength + spaceYWidth))
-                        , HalfAxis.AXIS_Y_P, HalfAxis.AXIS_X_N);
+                        , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
         }
 
         private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,

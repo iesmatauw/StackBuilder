@@ -10,6 +10,50 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Graphics
 {
+    #region Segment
+    public class Segment
+    {
+        #region Private members
+        private uint _pickingId = 0;
+        private Vector3D[] _points = new Vector3D[2];
+        private Color _color = Color.Black;
+        #endregion
+
+        #region Constructor
+        public Segment(Vector3D pt0, Vector3D pt1, Color color)
+        {
+            _points[0] = pt0; _points[1] = pt1; _color = color;
+        }
+        #endregion
+
+        #region Public properties
+        public Color Color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
+        public Vector3D[] Points
+        {
+            get { return _points; }
+        }
+        #endregion
+
+        #region Public methods
+        #endregion
+
+        #region Object override
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format("Segment => PickId : {0} Points : ", _pickingId));
+            foreach (Vector3D v in _points)
+                sb.Append(v.ToString());
+            return sb.ToString();
+        }
+        #endregion
+    }
+    #endregion
+
     #region Face
     public class Face
     {
@@ -115,10 +159,10 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get
             {
-                Vector3D vCenter = new Vector3D();
+                Vector3D vCenter = Vector3D.Zero;
                 foreach (Vector3D v in _points)
                     vCenter += v;
-                return vCenter * 1.0 / _points.Length;
+                return vCenter * (1.0 / _points.Length);
             }
         }
         /// <summary>
@@ -168,9 +212,7 @@ namespace TreeDim.StackBuilder.Graphics
             StringBuilder sb = new StringBuilder();
             sb.Append(string.Format("Face => PickId : {0} Points : ", _pickingId));
             foreach (Vector3D point in _points)
-            {
                 sb.Append(point.ToString());
-            }
             return sb.ToString();
         }
         #endregion

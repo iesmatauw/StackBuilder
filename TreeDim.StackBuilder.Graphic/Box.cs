@@ -5,6 +5,8 @@ using System.Text;
 using Sharp3D.Math.Core;
 using System.Drawing;
 using TreeDim.StackBuilder.Basics;
+
+using System.Diagnostics;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics
@@ -54,12 +56,46 @@ namespace TreeDim.StackBuilder.Graphics
             _dim[2] = boxProperties.Height;
 
             _colors = boxProperties.Colors;
-
-            for (int i = 0; i < 6; ++i)
-            { 
-            
-            }
         }
+        public Box(uint pickId, BoxProperties boxProperties, BoxPosition bPosition)
+        { 
+            _pickId = pickId;
+            _dim[0] = boxProperties.Length;
+            _dim[1] = boxProperties.Width;
+            _dim[2] = boxProperties.Height;
+
+            _colors = boxProperties.Colors;
+
+            // set position
+            Position = bPosition.Position;
+            // set direction length
+            switch (bPosition.DirectionLength)
+            {
+                case HalfAxis.HAxis.AXIS_X_N: LengthAxis = -Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_X_P: LengthAxis = Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_N: LengthAxis = -Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_P: LengthAxis = Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_N: LengthAxis = -Vector3D.ZAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_P: LengthAxis = Vector3D.ZAxis; break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+            // set direction width
+            switch (bPosition.DirectionWidth)
+            {
+                case HalfAxis.HAxis.AXIS_X_N: WidthAxis = -Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_X_P: WidthAxis = Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_N: WidthAxis = -Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_P: WidthAxis = Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_N: WidthAxis = -Vector3D.ZAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_P: WidthAxis = Vector3D.ZAxis; break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }        
+        }
+
         public Box(uint pickId, InterlayerProperties interlayerProperties)
         {
             _pickId = pickId;
@@ -128,6 +164,19 @@ namespace TreeDim.StackBuilder.Graphics
         public int BundleFlats
         {
             get { return _noFlats; }
+        }
+
+        public Face TopFace
+        {
+            get
+            {
+                Face[] faces = Faces;
+                Face topFace = faces[0];
+                foreach (Face face in faces)
+                    if (face.Center.Z > topFace.Center.Z)
+                        topFace = face;
+                return topFace;
+            }
         }
 
 
@@ -221,12 +270,12 @@ namespace TreeDim.StackBuilder.Graphics
                 _colors[i] = color;        
         }
 
-        public void SetFaceColor(HalfAxis iFace, Color color)
+        public void SetFaceColor(HalfAxis.HAxis iFace, Color color)
         {
             _colors[(int)iFace] = color;
         }
 
-        public void SetFaceTextures(HalfAxis iFace, List<Texture> textures)
+        public void SetFaceTextures(HalfAxis.HAxis iFace, List<Texture> textures)
         {
             _textureLists[(int)iFace] = textures;
         }
@@ -251,12 +300,35 @@ namespace TreeDim.StackBuilder.Graphics
                 return 1;
             else if (b1.Center.Z == b2.Center.Z)
             {
+                #if USE_MAX
+                double zb1Min = double.MaxValue, zb1Max = double.MinValue;
+                foreach (Vector3D vPoint in b1.Points)
+                {
+                    zb1Min = Math.Min(_transform.transform(vPoint).Z, zb1Min);
+                    zb1Max = Math.Max(_transform.transform(vPoint).Z, zb1Max);
+                }
+
+                double zb2Min = double.MaxValue, zb2Max = double.MinValue;
+                foreach (Vector3D vPoint in b2.Points)
+                {
+                    zb2Min = Math.Min(_transform.transform(vPoint).Z, zb2Min);
+                    zb2Max = Math.Max(_transform.transform(vPoint).Z, zb2Max);
+                }
+
+                if (zb1Max < zb2Max)
+                    return 1;
+                else if (zb1Max == zb2Max)
+                    return 0;
+                else
+                    return -1;
+                #else   
                 if (_transform.transform(b1.Center).Z < _transform.transform(b2.Center).Z)
                     return 1;
                 else if (_transform.transform(b1.Center).Z == _transform.transform(b2.Center).Z)
                     return 0;
                 else
                     return -1;
+                #endif
             }
             else
                 return -1;

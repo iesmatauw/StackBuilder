@@ -26,12 +26,12 @@ namespace TreeDim.StackBuilder.Engine.Test
                 boxProperties.Weight = 1.0;
                 if (!useSingleColor)
                 {
-                    boxProperties.SetColor(HalfAxis.AXIS_X_N, Color.Red);
-                    boxProperties.SetColor(HalfAxis.AXIS_X_P, Color.Red);
-                    boxProperties.SetColor(HalfAxis.AXIS_Y_N, Color.Green);
-                    boxProperties.SetColor(HalfAxis.AXIS_Y_P, Color.Green);
-                    boxProperties.SetColor(HalfAxis.AXIS_Z_N, Color.Blue);
-                    boxProperties.SetColor(HalfAxis.AXIS_Z_P, Color.Blue);
+                    boxProperties.SetColor(HalfAxis.HAxis.AXIS_X_N, Color.Red);
+                    boxProperties.SetColor(HalfAxis.HAxis.AXIS_X_P, Color.Red);
+                    boxProperties.SetColor(HalfAxis.HAxis.AXIS_Y_N, Color.Green);
+                    boxProperties.SetColor(HalfAxis.HAxis.AXIS_Y_P, Color.Green);
+                    boxProperties.SetColor(HalfAxis.HAxis.AXIS_Z_N, Color.Blue);
+                    boxProperties.SetColor(HalfAxis.HAxis.AXIS_Z_P, Color.Blue);
                 }
                 else
                     boxProperties.SetAllColors(Color.Chocolate);
@@ -47,12 +47,12 @@ namespace TreeDim.StackBuilder.Engine.Test
 
                 // define constraints
                 ConstraintSet constraintSet = new ConstraintSet();
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_N, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_X_P, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_N, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Y_P, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_N, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.AXIS_Z_P, true);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
 
                 //constraintSet.SetAllowedPattern("Column");
                 //constraintSet.SetAllowedPattern("Interlocked");

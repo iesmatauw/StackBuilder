@@ -3,65 +3,79 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sharp3D.Math.Core;
+using System.Drawing;
 #endregion
 
 namespace TreeDim.StackBuilder.Basics
 {
     #region HalfAxis enum and Convert class
-    public enum HalfAxis
-    {
-        AXIS_X_N // -X
-      , AXIS_X_P // X
-      , AXIS_Y_N // -Y
-      , AXIS_Y_P // Y
-      , AXIS_Z_N // -Z
-      , AXIS_Z_P // Z
-    }
 
-    public class Convert
+
+    public class HalfAxis
     {
+        #region Values
+        public enum HAxis
+        {
+            AXIS_X_N // -X
+          , AXIS_X_P // X
+          , AXIS_Y_N // -Y
+          , AXIS_Y_P // Y
+          , AXIS_Z_N // -Z
+          , AXIS_Z_P // Z
+        }
+        #endregion
         #region Static conversion methods
-        public static Vector3D ToVector3D(HalfAxis axis)
+        public static Vector3D ToVector3D(HAxis axis)
         {
             switch (axis)
             {
-                case HalfAxis.AXIS_X_N: return -Vector3D.XAxis;
-                case HalfAxis.AXIS_X_P: return Vector3D.XAxis;
-                case HalfAxis.AXIS_Y_N: return -Vector3D.YAxis;
-                case HalfAxis.AXIS_Y_P: return Vector3D.YAxis;
-                case HalfAxis.AXIS_Z_N: return -Vector3D.ZAxis;
+                case HAxis.AXIS_X_N: return -Vector3D.XAxis;
+                case HAxis.AXIS_X_P: return Vector3D.XAxis;
+                case HAxis.AXIS_Y_N: return -Vector3D.YAxis;
+                case HAxis.AXIS_Y_P: return Vector3D.YAxis;
+                case HAxis.AXIS_Z_N: return -Vector3D.ZAxis;
                 default:                return Vector3D.ZAxis;
             }
         }
-        public static HalfAxis ToHalfAxis(Vector3D v)
+        public static HAxis ToHalfAxis(Vector3D v)
         {
             const double eps = 1.0E-03;
             v.Normalize();
             if (Math.Abs(Vector3D.DotProduct(v, -Vector3D.XAxis) - 1) < eps)
-                return HalfAxis.AXIS_X_N;
+                return HAxis.AXIS_X_N;
             else if (Math.Abs(Vector3D.DotProduct(v, Vector3D.XAxis) - 1) < eps)
-                return HalfAxis.AXIS_X_P;
+                return HAxis.AXIS_X_P;
             else if (Math.Abs(Vector3D.DotProduct(v, -Vector3D.YAxis) - 1) < eps)
-                return HalfAxis.AXIS_Y_N;
+                return HAxis.AXIS_Y_N;
             else if (Math.Abs(Vector3D.DotProduct(v, Vector3D.YAxis) - 1) < eps)
-                return HalfAxis.AXIS_Y_P;
+                return HAxis.AXIS_Y_P;
             else if (Math.Abs(Vector3D.DotProduct(v, -Vector3D.ZAxis) - 1) < eps)
-                return HalfAxis.AXIS_Z_N;
+                return HAxis.AXIS_Z_N;
             else
-                return HalfAxis.AXIS_Z_P;
+                return HAxis.AXIS_Z_P;
         }
-        public static string ToString(HalfAxis axis)
+        public static string ToString(HAxis axis)
         {
             switch (axis)
             {
-                case HalfAxis.AXIS_X_N: return "-X";
-                case HalfAxis.AXIS_X_P: return " X";
-                case HalfAxis.AXIS_Y_N: return "-Y";
-                case HalfAxis.AXIS_Y_P: return " Y";
-                case HalfAxis.AXIS_Z_N: return "-Z";
-                case HalfAxis.AXIS_Z_P: return " Z";
+                case HAxis.AXIS_X_N: return "-X";
+                case HAxis.AXIS_X_P: return " X";
+                case HAxis.AXIS_Y_N: return "-Y";
+                case HAxis.AXIS_Y_P: return " Y";
+                case HAxis.AXIS_Z_N: return "-Z";
+                case HAxis.AXIS_Z_P: return " Z";
                 default: return " Z";
             }
+        }
+        public static HAxis Parse(string sAxis)
+        {
+            if (string.Equals(sAxis, "XN", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_X_N;
+            else if (string.Equals(sAxis, "XP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_X_P;
+            else if (string.Equals(sAxis, "YN", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Y_N;
+            else if (string.Equals(sAxis, "YP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Y_P;
+            else if (string.Equals(sAxis, "ZN", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_N;
+            else if (string.Equals(sAxis, "ZP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_P;
+            throw new Exception(string.Format("Invalid HalfAxis value {0}", sAxis));
         }
         #endregion
     }
@@ -75,11 +89,11 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private Vector3D _vPosition = new Vector3D();
-        private HalfAxis _axisLength, _axisWidth;
+        private HalfAxis.HAxis _axisLength, _axisWidth;
         #endregion
 
         #region Constructor
-        public BoxPosition(Vector3D vPosition, HalfAxis dirLength, HalfAxis dirWidth)
+        public BoxPosition(Vector3D vPosition, HalfAxis.HAxis dirLength, HalfAxis.HAxis dirWidth)
         {
             _vPosition = vPosition;
             _axisLength = dirLength;
@@ -92,11 +106,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _vPosition; }
         }
-        public HalfAxis DirectionLength
+        public HalfAxis.HAxis DirectionLength
         {
             get { return _axisLength; }
         }
-        public HalfAxis DirectionWidth
+        public HalfAxis.HAxis DirectionWidth
         {
             get { return _axisWidth; }
         }
@@ -105,7 +119,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Object method overrides
         public override string ToString()
         {
-            return string.Format("{0} | ({1},{2})", _vPosition, Convert.ToString(_axisLength), Convert.ToString(_axisWidth));
+            return string.Format("{0} | ({1},{2})", _vPosition, HalfAxis.ToString(_axisLength), HalfAxis.ToString(_axisWidth));
         }
         #endregion
     }
@@ -184,7 +198,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public methods
-        public void AddPosition(Vector3D vPosition, HalfAxis dirLength, HalfAxis dirWidth)
+        public void AddPosition(Vector3D vPosition, HalfAxis.HAxis dirLength, HalfAxis.HAxis dirWidth)
         {
             Add(new BoxPosition(vPosition, dirLength, dirWidth));
         }
@@ -200,12 +214,14 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private string _title;
+        private bool _homogeneousLayer = false;
         #endregion
 
         #region Constructor
-        public Solution(string title)
+        public Solution(string title, bool homogenousLayer)
         {
             _title = title;
+            _homogeneousLayer = homogenousLayer;
         }
         #endregion
 
@@ -251,6 +267,20 @@ namespace TreeDim.StackBuilder.Basics
         public double PalletHeight(Analysis analysis)
         {
             return this[Count - 1].ZLow + analysis.BoxProperties.Height;
+        }
+        public Image PatternImage
+        {
+            get
+            {
+                Bitmap bmp = new Bitmap(200,75);
+                Graphics g = System.Drawing.Graphics.FromImage(bmp);
+                g.FillRectangle(Brushes.Blue, 0, 0, 200, 75);
+                return bmp;
+            }
+        }
+        public bool HasHomogeneousLayer
+        {
+            get { return _homogeneousLayer; }
         }
         #endregion
 

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using TreeDim.StackBuilder.Graphics;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
+
+using Sharp3D.Math.Core;
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -37,12 +40,14 @@ namespace TreeDim.StackBuilder.Desktop
         private List<Analysis> _analyses = new List<Analysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         private string _filePath = string.Empty;
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
         #endregion
 
         #region Constructor
         public Document(string filePath)
         {
             _filePath = filePath;
+            _name = Path.GetFileNameWithoutExtension(_filePath);
         }
 
         public Document(string name, string description, string author, DateTime dateCreated)
@@ -57,14 +62,9 @@ namespace TreeDim.StackBuilder.Desktop
         #region Document Load method
         public static Document Load(string filePath, IDocumentListener docListener)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);            
-
             Document doc = new Document(filePath);
             doc.AddListener(docListener);
-
-
-
+            doc.Load(); // uses _filePath
             return doc;
         }
 
@@ -251,13 +251,245 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Save / load methods
+        #region Load methods
+        public void Load()
+        {
+            // get a valid file path
+            if (string.IsNullOrEmpty(_filePath) || !File.Exists(_filePath))
+            {
+                OpenFileDialog form = new OpenFileDialog();
+                form.Filter = "Stackbuilder files (*.stb)|*.stb|All files (*.*)|*.*";
+                if (DialogResult.OK == form.ShowDialog())
+                    _filePath = form.FileName;
+                else
+                    return;
+            }
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                using (FileStream fileStream = new FileStream(_filePath, FileMode.Open))
+                {
+                    xmlDoc.Load(fileStream);
+                    XmlElement xmlRootElement = xmlDoc.DocumentElement;
+                    LoadDocumentElement(xmlRootElement);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
+        void LoadDocumentElement(XmlElement docElement)
+        {
+            if (docElement.HasAttribute("Name"))
+                _name = docElement.Attributes["Name"].Value;
+            if (docElement.HasAttribute("Description"))
+                _description = docElement.Attributes["Description"].Value;
+            if (docElement.HasAttribute("Description"))
+                _author = docElement.Attributes["Author"].Value;
+            if (docElement.HasAttribute("DateCreated"))
+                _dateCreated = System.Convert.ToDateTime(docElement.Attributes["DateCreated"].Value);
+
+            foreach (XmlNode docChildNode in docElement.ChildNodes)
+            {
+                // load item properties
+                if (string.Equals(docChildNode.Name, "ItemProperties", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    foreach (XmlNode itemPropertiesNode in docChildNode.ChildNodes)
+                    {
+                        try
+                        {
+                            if (string.Equals(itemPropertiesNode.Name, "BoxProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadBoxProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "PalletProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadPalletProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "InterlayerProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadInterlayerProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "BundleProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadBundleProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "TruckProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadTruckProperties(itemPropertiesNode as XmlElement);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(ex.ToString());
+                        }
+                    }
+                }
+
+                // load analyses
+                if (string.Equals(docChildNode.Name, "Analyses", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    foreach (XmlNode analysisNode in docChildNode.ChildNodes)
+                    {
+                        try
+                        {
+                            LoadAnalysis(analysisNode as XmlElement);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(ex.ToString());
+                        }
+                    }
+                }
+            }
+        }
+        private void LoadBoxProperties(XmlElement eltBoxProperties)
+        {
+            string sid = eltBoxProperties.Attributes["Id"].Value;
+            string sname = eltBoxProperties.Attributes["Name"].Value;
+            string sdescription = eltBoxProperties.Attributes["Description"].Value;
+            string slength = eltBoxProperties.Attributes["Length"].Value;
+            string swidth = eltBoxProperties.Attributes["Width"].Value;
+            string sheight = eltBoxProperties.Attributes["Height"].Value;
+            string sweight = eltBoxProperties.Attributes["Weight"].Value;
+
+            Color[] colors = new Color[6];
+            foreach (XmlNode node in eltBoxProperties.ChildNodes)
+            {
+                if (string.Equals(node.Name, "FaceColors", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement faceColorList = node as XmlElement;
+                    foreach (XmlNode faceColorNode in faceColorList.ChildNodes)
+                    {
+                        XmlElement faceColorElt = faceColorNode as XmlElement;
+                        string sFaceIndex = faceColorElt.Attributes["FaceIndex"].Value;
+                        string sColorArgb = faceColorElt.Attributes["Color"].Value;
+                        int iFaceIndex = System.Convert.ToInt32(sFaceIndex);
+                        Color faceColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
+                        colors[iFaceIndex] = faceColor;
+                    }
+                }
+            }
+            // create new BoxProperties instance
+            BoxProperties boxProperties = CreateNewBox(
+                sname
+                , sdescription
+                , System.Convert.ToDouble(slength)
+                , System.Convert.ToDouble(swidth)
+                , System.Convert.ToDouble(sheight)
+                , System.Convert.ToDouble(sweight)
+                , colors);
+
+            boxProperties.Guid = new Guid(sid);
+        }
+        private void LoadPalletProperties(XmlElement eltPalletProperties)
+        {
+            string sid = eltPalletProperties.Attributes["Id"].Value;
+            string sname = eltPalletProperties.Attributes["Name"].Value;
+            string sdescription = eltPalletProperties.Attributes["Description"].Value;
+            string slength = eltPalletProperties.Attributes["Length"].Value;
+            string swidth = eltPalletProperties.Attributes["Width"].Value;
+            string sheight = eltPalletProperties.Attributes["Height"].Value;
+            string sweight = eltPalletProperties.Attributes["Weight"].Value;
+            string sadmissibleloadweight = eltPalletProperties.Attributes["AdmissibleLoadWeight"].Value;
+            string sadmissibleloadheight = eltPalletProperties.Attributes["AdmissibleLoadHeight"].Value;
+            string stype = eltPalletProperties.Attributes["Type"].Value;
+            string sColor = eltPalletProperties.Attributes["Color"].Value;
+
+            // create new PalletProperties instance
+            PalletProperties palletProperties = CreateNewPallet(
+                sname
+                , sdescription
+                , (PalletProperties.PalletType)System.Convert.ToInt32(stype)
+                , System.Convert.ToDouble(slength)
+                , System.Convert.ToDouble(swidth)
+                , System.Convert.ToDouble(sheight)
+                , System.Convert.ToDouble(sweight)
+                , System.Convert.ToDouble(sadmissibleloadweight)
+                , System.Convert.ToDouble(sadmissibleloadheight));
+            palletProperties.Color = Color.FromArgb(System.Convert.ToInt32(sColor));
+            palletProperties.Guid = new Guid(sid);
+        }
+        private void LoadInterlayerProperties(XmlElement eltInterlayerProperties)
+        {
+        }
+        private void LoadBundleProperties(XmlElement eltBundleProperties)
+        { 
+        }
+        private void LoadTruckProperties(XmlElement eltBundleProperties)
+        {
+        }
+        private void LoadAnalysis(XmlElement eltAnalysis)
+        {
+            string sName = eltAnalysis.Attributes["Name"].Value;
+            string sDescription = eltAnalysis.Attributes["Description"].Value;
+            string sBoxId = eltAnalysis.Attributes["BoxId"].Value;
+            string sPalletId = eltAnalysis.Attributes["PalletId"].Value;
+            string sInterlayerId = string.Empty;
+            if (eltAnalysis.HasAttribute("InterlayerId"))
+                sInterlayerId = eltAnalysis.Attributes["InterlayerId"].Value;
+
+            // load constraint set / solution list
+            ConstraintSet constraintSet = null;
+            List<Solution> solutions = new List<Solution>();
+
+            foreach (XmlNode node in eltAnalysis.ChildNodes)
+            {
+                // load constraint set
+                if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                    constraintSet = LoadConstraintSet(node as XmlElement);
+                // load solutions
+                else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    foreach (XmlNode solutionNode in node.ChildNodes)
+                        solutions.Add(LoadSolution(solutionNode as XmlElement));
+                }
+            }
+
+            // instantiate analysis
+            Analysis analysis = CreateNewAnalysis(
+                sName
+                , sDescription
+                , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
+                , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
+                , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
+                , constraintSet);
+            // set solution list
+            analysis.Solutions = solutions;
+        }
+        ConstraintSet LoadConstraintSet(XmlElement eltConstraintSet)
+        {
+            ConstraintSet constraints = new ConstraintSet();
+            return constraints;
+        }
+
+        Solution LoadSolution(XmlElement eltSolution)
+        {
+            string stitle = eltSolution.Attributes["Title"].Value;
+            Solution sol = new Solution(stitle, true);
+
+            XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
+            foreach (XmlNode nodeLayer in eltLayers.ChildNodes)
+                sol.Add( LoadLayer(nodeLayer as XmlElement));
+            return sol;
+        }
+
+        ILayer LoadLayer(XmlElement eltLayer)
+        {
+            double zLow = System.Convert.ToDouble(eltLayer.Attributes["ZLow"].Value);
+            BoxLayer layer = new BoxLayer(zLow);
+            foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
+            { 
+                XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;
+                string sPosition = eltBoxPosition.Attributes["Position"].Value;
+                string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
+                string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
+                layer.AddPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));                
+                
+            }
+            return layer;
+        }
+        #endregion
+
+        #region Save methods
         public void Save()
         {
             // get a valid file path
-            if ( null == _filePath || string.Empty == _filePath || !File.Exists(_filePath) )
+            if ( string.IsNullOrEmpty(_filePath) || !File.Exists(_filePath) )
             {
-                SaveFileDialog form = new System.Windows.Forms.SaveFileDialog();
+                SaveFileDialog form = new SaveFileDialog();
                 form.FileName = _name + ".stb";
                 form.Filter = "StackBuilder files (*.stb)|*.stb|All files (*.*)|*.*";
                 if (DialogResult.OK == form.ShowDialog())
@@ -291,7 +523,6 @@ namespace TreeDim.StackBuilder.Desktop
                 XmlAttribute xmlDateCreatedAttribute = xmlDoc.CreateAttribute("DateCreated");
                 xmlDateCreatedAttribute.Value = string.Format("{0}", _dateCreated);
                 xmlRootElement.Attributes.Append(xmlDateCreatedAttribute);
-
                 // create ItemProperties element
                 XmlElement xmlItemPropertiesElt = xmlDoc.CreateElement("ItemProperties");
                 xmlRootElement.AppendChild(xmlItemPropertiesElt);
@@ -325,7 +556,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                _log.Error(ex.ToString());
             }
         }
 
@@ -417,6 +648,14 @@ namespace TreeDim.StackBuilder.Desktop
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
             weightAttribute.Value = string.Format("{0}", palletProperties.Weight);
             xmlPalletProperties.Attributes.Append(weightAttribute);
+            // admissible load weight
+            XmlAttribute admLoadWeightAttribute = xmlDoc.CreateAttribute("AdmissibleLoadWeight");
+            admLoadWeightAttribute.Value = string.Format("{0}", palletProperties.AdmissibleLoadWeight);
+            xmlPalletProperties.Attributes.Append(admLoadWeightAttribute);
+            // admissible load height
+            XmlAttribute admLoadHeightAttribute = xmlDoc.CreateAttribute("AdmissibleLoadHeight");
+            admLoadHeightAttribute.Value = string.Format("{0}", palletProperties.AdmissibleLoadHeight);
+            xmlPalletProperties.Attributes.Append(admLoadHeightAttribute);
             // type
             XmlAttribute typeAttribute = xmlDoc.CreateAttribute("Type");
             typeAttribute.Value = string.Format("{0}", (int)palletProperties.Type);
@@ -576,10 +815,7 @@ namespace TreeDim.StackBuilder.Desktop
                             boxlayerElt.AppendChild(boxPositionElt);
                             // Position
                             XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
-                            positionAttribute.Value = string.Format("{0} {1} {2}"
-                                , boxPosition.Position.X
-                                , boxPosition.Position.Y
-                                , boxPosition.Position.Z);
+                            positionAttribute.Value = boxPosition.Position.ToString();
                             boxPositionElt.Attributes.Append(positionAttribute);
                             // AxisLength
                             XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
@@ -606,17 +842,27 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
-        private string AxisToEnum(HalfAxis axis)
+        private string AxisToEnum(HalfAxis.HAxis axis)
         {
             switch (axis)
             {
-                case HalfAxis.AXIS_X_N: return "XN";
-                case HalfAxis.AXIS_X_P: return "XP";
-                case HalfAxis.AXIS_Y_N: return "YN";
-                case HalfAxis.AXIS_Y_P: return "YP";
-                case HalfAxis.AXIS_Z_N: return "ZN";
+                case HalfAxis.HAxis.AXIS_X_N: return "XN";
+                case HalfAxis.HAxis.AXIS_X_P: return "XP";
+                case HalfAxis.HAxis.AXIS_Y_N: return "YN";
+                case HalfAxis.HAxis.AXIS_Y_P: return "YP";
+                case HalfAxis.HAxis.AXIS_Z_N: return "ZN";
                 default: return "ZP";
             }
+        }
+        #endregion
+
+        #region Helpers
+        private ItemProperties GetTypeByGuid(Guid guid)
+        {
+            foreach (ItemProperties type in _typeList)
+                if (type.Guid == guid)
+                    return type;
+            throw new Exception(string.Format("No type with Guid = {0}", guid.ToString()));
         }
         #endregion
 

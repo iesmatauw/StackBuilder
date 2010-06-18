@@ -74,7 +74,7 @@ namespace TreeDim.StackBuilder.Graphics
             if (null == _solution || _solution.Count == 0)
                 return;
 
-            if (_solution.HasHomogeneousLayer)
+            if (_solution.HasHomogeneousLayers)
             {
                 // initialize Graphics2D object
                 graphics.NumberOfViews = 1;
@@ -99,6 +99,8 @@ namespace TreeDim.StackBuilder.Graphics
                 graphics.NumberOfViews = 2;
                 graphics.SetViewport(0.0f, 0.0f, (float)_analysis.PalletProperties.Length, (float)_analysis.PalletProperties.Width);
 
+                // get first box layer
+                if (_solution.Count < 1) return;
                 BoxLayer blayer0 = _solution[0] as BoxLayer;
                 if (blayer0 != null)
                 {
@@ -112,7 +114,12 @@ namespace TreeDim.StackBuilder.Graphics
                     // draw axis Y
                     graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
                 }
+
+                // get second box layer
+                if (_solution.Count < 2) return;
                 BoxLayer blayer1 = _solution[1] as BoxLayer;
+                if (null == blayer1 && _solution.Count > 2)
+                    blayer1 = _solution[2] as BoxLayer;
                 if (blayer1 != null)
                 {
                     graphics.SetCurrentView(1);

@@ -11,5 +11,11 @@ namespace TreeDim.StackBuilder.Graphics
     {
         #region Data members
         #endregion
+
+        #region Constructor
+        public Interlayer()
+        {
+        }
+        #endregion
     }
 }

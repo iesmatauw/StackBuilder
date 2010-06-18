@@ -24,6 +24,7 @@ namespace TreeDim.StackBuilder.Basics
           , AXIS_Z_P // Z
         }
         #endregion
+
         #region Static conversion methods
         public static Vector3D ToVector3D(HAxis axis)
         {
@@ -278,9 +279,10 @@ namespace TreeDim.StackBuilder.Basics
                 return bmp;
             }
         }
-        public bool HasHomogeneousLayer
+        public bool HasHomogeneousLayers
         {
             get { return _homogeneousLayer; }
+            set { _homogeneousLayer = value; }
         }
         #endregion
 

@@ -404,6 +404,25 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void LoadInterlayerProperties(XmlElement eltInterlayerProperties)
         {
+            string sid = eltInterlayerProperties.Attributes["Id"].Value;
+            string sname = eltInterlayerProperties.Attributes["Name"].Value;
+            string sdescription = eltInterlayerProperties.Attributes["Description"].Value;
+            string slength = eltInterlayerProperties.Attributes["Length"].Value;
+            string swidth = eltInterlayerProperties.Attributes["Width"].Value;
+            string sthickness = eltInterlayerProperties.Attributes["Thickness"].Value;
+            string sweight = eltInterlayerProperties.Attributes["Weight"].Value;
+            string sColor = eltInterlayerProperties.Attributes["Color"].Value;
+
+            // create new InterlayerProperties instance
+            InterlayerProperties interlayerProperties = CreateNewInterlayer(
+                sname
+                , sdescription
+                , Convert.ToDouble(slength)
+                , Convert.ToDouble(swidth)
+                , Convert.ToDouble(sthickness)
+                , Convert.ToDouble(sweight)
+                , Color.FromArgb(System.Convert.ToInt32(sColor)));
+            interlayerProperties.Guid = new Guid(sid);
         }
         private void LoadBundleProperties(XmlElement eltBundleProperties)
         { 
@@ -460,6 +479,14 @@ namespace TreeDim.StackBuilder.Desktop
             string stitle = eltSolution.Attributes["Title"].Value;
             Solution sol = new Solution(stitle, true);
 
+            if (eltSolution.HasAttribute("HomogeneousLayers"))
+            {
+                string sHomogeneousLayers = eltSolution.Attributes["HomogeneousLayers"].Value;
+                sol.HasHomogeneousLayers = string.Equals(sHomogeneousLayers, "true", StringComparison.CurrentCultureIgnoreCase);
+            }
+            else
+                sol.HasHomogeneousLayers = false;
+
             XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
             foreach (XmlNode nodeLayer in eltLayers.ChildNodes)
                 sol.Add( LoadLayer(nodeLayer as XmlElement));
@@ -468,17 +495,25 @@ namespace TreeDim.StackBuilder.Desktop
 
         ILayer LoadLayer(XmlElement eltLayer)
         {
+            ILayer layer = null;
             double zLow = System.Convert.ToDouble(eltLayer.Attributes["ZLow"].Value);
-            BoxLayer layer = new BoxLayer(zLow);
-            foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
-            { 
-                XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;
-                string sPosition = eltBoxPosition.Attributes["Position"].Value;
-                string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
-                string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
-                layer.AddPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));                
-                
+            if (string.Equals(eltLayer.Name, "BoxLayer", StringComparison.CurrentCultureIgnoreCase))
+            {
+                BoxLayer boxLayer = new BoxLayer(zLow);
+                foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
+                {
+
+                    XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;
+                    string sPosition = eltBoxPosition.Attributes["Position"].Value;
+                    string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
+                    string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
+                    boxLayer.AddPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
+                }
+                layer = boxLayer;
             }
+            else if (string.Equals(eltLayer.Name, "InterLayer", StringComparison.CurrentCultureIgnoreCase))
+                layer = new InterlayerPos(zLow);
+
             return layer;
         }
         #endregion
@@ -691,7 +726,7 @@ namespace TreeDim.StackBuilder.Desktop
             widthAttribute.Value = string.Format("{0}", interlayerProperties.Width);
             xmlInterlayerProperties.Attributes.Append(widthAttribute);
             // height
-            XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
+            XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Thickness");
             heightAttribute.Value = string.Format("{0}", interlayerProperties.Thickness);
             xmlInterlayerProperties.Attributes.Append(heightAttribute);
             // weight
@@ -793,6 +828,10 @@ namespace TreeDim.StackBuilder.Desktop
                 XmlAttribute titleAttribute = xmlDoc.CreateAttribute("Title");
                 titleAttribute.Value = sol.Title;
                 solutionElt.Attributes.Append(titleAttribute);
+                // homogeneousLayers ?
+                XmlAttribute homogeneousLayersAttribute = xmlDoc.CreateAttribute("HomogeneousLayers");
+                homogeneousLayersAttribute.Value = sol.HasHomogeneousLayers ? "true" : "false";
+                solutionElt.Attributes.Append(homogeneousLayersAttribute);
                 // layers
                 XmlElement layersElt = xmlDoc.CreateElement("Layers");
                 solutionElt.AppendChild(layersElt);
@@ -841,7 +880,6 @@ namespace TreeDim.StackBuilder.Desktop
                 }
             }
         }
-
         private string AxisToEnum(HalfAxis.HAxis axis)
         {
             switch (axis)

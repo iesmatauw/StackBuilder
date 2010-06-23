@@ -218,9 +218,7 @@ namespace TreeDim.StackBuilder.Desktop
             // close document
             doc.Close();
             // remove from document list
-            _documents.Remove(_activeDocument);
-            // select a new document as active
-            _activeDocument = null; 
+            _documents.Remove(doc);
         }
 
         public void SaveDocumentAs(IDocument doc, CancelEventArgs e)

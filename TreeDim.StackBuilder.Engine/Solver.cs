@@ -12,7 +12,7 @@ namespace TreeDim.StackBuilder.Engine
     /// <summary>
     /// Solver
     /// </summary>
-    public class Solver
+    public class Solver : IAnalysisSolver
     {
         #region Data members
         private List<LayerPattern> _patterns= new List<LayerPattern>();

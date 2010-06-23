@@ -12,23 +12,30 @@ namespace TreeDim.StackBuilder.Basics
     public class ItemProperties
     {
         #region Data members
+        private Document _parentDocument;
         protected string _name, _description;
         protected Guid _guid = Guid.NewGuid();
         private List<Analysis> _dependingAnalyses = new List<Analysis>();
         #endregion
 
         #region Constructors
-        public ItemProperties()
-        { 
-        }
-        public ItemProperties(string name, string description)
+        public ItemProperties(Document document)
         {
+            _parentDocument = document;
+        }
+        public ItemProperties(Document document, string name, string description)
+        {
+            _parentDocument = document;
             _name = name;
             _description = description;
         }
         #endregion
 
         #region Public properties
+        public Document ParentDocument
+        {
+            get { return _parentDocument; }
+        }
         public Guid Guid
         {
             get { return _guid; }

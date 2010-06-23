@@ -22,10 +22,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public BoxProperties()
+        public BoxProperties(Document document)
+            : base(document)
         { 
         }
-        public BoxProperties(double length, double width, double height)
+        public BoxProperties(Document document, double length, double width, double height)
+            : base(document)
         {
             _length     = length;
             _width      = width;

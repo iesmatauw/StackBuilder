@@ -16,11 +16,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public InterlayerProperties(string name, string description
+        public InterlayerProperties(
+            Document document, string name, string description
             , double length, double width, double thickness
             , double weight
             , Color color)
-            : base(name, description)
+            : base(document, name, description)
         {
             _length = length;
             _width = width;

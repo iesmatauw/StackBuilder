@@ -27,7 +27,8 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public PalletProperties(PalletType type, double length, double width, double height)
+        public PalletProperties(Document document, PalletType type, double length, double width, double height)
+            : base(document)
         {
             _type = type;
             _length = length;

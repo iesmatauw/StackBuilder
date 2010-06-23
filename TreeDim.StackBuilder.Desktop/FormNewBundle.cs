@@ -120,7 +120,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
                 BundleProperties bundleProperties = new BundleProperties(
-                    BundleName, Description
+                    null, BundleName, Description
                     , BundleLength, BundleWidth, UnitThickness, UnitWeight, NoFlats, Color);
                 Box box = new Box(0, bundleProperties);
                 graphics.AddBox(box);

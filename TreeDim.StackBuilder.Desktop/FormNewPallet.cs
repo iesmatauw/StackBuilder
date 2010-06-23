@@ -129,7 +129,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
-                PalletProperties palletProperties = new PalletProperties(PalletType, PalletLength, PalletWidth, PalletHeight);
+                PalletProperties palletProperties = new PalletProperties(null, PalletType, PalletLength, PalletWidth, PalletHeight);
                 palletProperties.Color = Color;
                 Pallet pallet = new Pallet(palletProperties);
                 pallet.Draw(graphics);

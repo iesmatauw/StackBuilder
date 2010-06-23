@@ -1,9 +1,12 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Text;
+#endregion
 
 namespace TreeDim.StackBuilder.Basics
 {
+    #region Analysis
     public class Analysis
     {
         #region Data members
@@ -27,6 +30,11 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        public Document ParentDocument
+        {
+            get { return _boxProperties.ParentDocument; }
+        }
+
         public string Name
         {
             get { return _name; }
@@ -70,4 +78,12 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
+
+    #region IAnalysisSolver
+    public interface IAnalysisSolver
+    { 
+        void ProcessAnalysis(Analysis analysis);
+    }
+    #endregion
 }

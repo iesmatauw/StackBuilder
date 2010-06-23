@@ -62,6 +62,7 @@
     <Compile Include="BoxProperties.cs" />
     <Compile Include="BundleProperties.cs" />
     <Compile Include="ConstraintSet.cs" />
+    <Compile Include="Document.cs" />
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemProperties.cs" />
     <Compile Include="PalletProperties.cs" />

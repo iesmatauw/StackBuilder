@@ -34,14 +34,13 @@ namespace TreeDim.StackBuilder.Desktop
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new StackBuilder());
+                Application.Run(new FormMain());
 
                 _log.Info("Closing " + Application.ProductName);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
-                Debug.Fail(ex.ToString());
             }
         }
     }

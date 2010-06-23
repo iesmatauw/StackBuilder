@@ -21,8 +21,10 @@ namespace TreeDim.StackBuilder.Engine.Test
             try
             {
                 bool useSingleColor = false;
+                // instantiate document
+                Document doc = new Document("Test", "Test", "fga", DateTime.Now, null);
                 // define box properties
-                BoxProperties boxProperties = new BoxProperties(400, 300, 200);
+                BoxProperties boxProperties = new BoxProperties(doc, 400, 300, 200);
                 boxProperties.Weight = 1.0;
                 if (!useSingleColor)
                 {
@@ -39,7 +41,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(PalletProperties.PalletType.BLOCK, 1200, 1000, 150);
+                PalletProperties palletProperties = new PalletProperties(doc, PalletProperties.PalletType.BLOCK, 1200, 1000, 150);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 

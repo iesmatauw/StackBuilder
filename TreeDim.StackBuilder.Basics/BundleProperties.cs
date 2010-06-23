@@ -16,13 +16,13 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public BundleProperties(string name, string description,
+        public BundleProperties(Document document, string name, string description,
             double length, double width
             , double unitThickness
             , double unitWeight
             , int noFlats
             , Color color)
-            : base(name, description)
+            : base(document, name, description)
         {
             _length = length;
             _width = width;

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 
 using TreeDim.StackBuilder.Basics;
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -34,18 +35,36 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Pallet);      // 5
                 ImageList.Images.Add(AnalysisTreeView.Interlayer);  // 6
                 ImageList.Images.Add(AnalysisTreeView.Analysis);    // 7
-                AfterSelect += new TreeViewEventHandler(AnalysisTreeView_AfterSelect);
+                this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
             }
             catch (Exception ex)
             {
-                Debug.Fail(ex.ToString());
+                _log.Error(ex.ToString());
             }
         }
+
+
 
         private void InitializeComponent()
         {
             this.SuspendLayout();
             this.ResumeLayout(false);
+        }
+        #endregion
+
+        #region Event handlers
+        void AnalysisTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            try
+            {
+                NodeTag tag = CurrentTag;
+                if (null != AnalysisNodeClicked && null != tag.Analysis)
+                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag.Document, tag.Analysis));
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 
@@ -81,27 +100,12 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Select event handler
-        void AnalysisTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            try
-            {
-                NodeTag tag = CurrentTag;
-                AnalysisSelected(this, new AnalysisTreeViewEventArgs(tag.Document, tag.Analysis));
-            }
-            catch (Exception ex)
-            {
-                Debug.Fail(ex.ToString());
-            }
-        }
-        #endregion
-
         #region Delegates
-        public delegate void AnalysisSelectHandler(object sender, AnalysisTreeViewEventArgs eventArg);
+        public delegate void AnalysisNodeClickHandler(object sender, AnalysisTreeViewEventArgs eventArg);
         #endregion
 
         #region Events 
-        public event AnalysisSelectHandler AnalysisSelected;
+        public event AnalysisNodeClickHandler AnalysisNodeClicked;
         #endregion
 
         #region IDocumentListener implementation
@@ -164,7 +168,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else
             {
-                System.Diagnostics.Debug.Fail("Unknown type");
+                _log.Error("AnalysisTreeView.OnNewTypeCreated() -> unknown type!");
                 return;
             }
 
@@ -201,6 +205,13 @@ namespace TreeDim.StackBuilder.Desktop
         public void OnAnalysisRemoved(Document doc, Analysis analysis)
         { 
         }
+        public void OnDocumentClosed(Document doc)
+        { 
+        }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisTreeView));
         #endregion
     }
     #endregion

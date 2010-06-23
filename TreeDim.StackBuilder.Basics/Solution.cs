@@ -8,9 +8,7 @@ using System.Drawing;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    #region HalfAxis enum and Convert class
-
-
+    #region HalfAxis
     public class HalfAxis
     {
         #region Values

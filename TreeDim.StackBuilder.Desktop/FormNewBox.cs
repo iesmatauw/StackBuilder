@@ -136,7 +136,7 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
-            BoxProperties boxProperties = new BoxProperties((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
+            BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
             boxProperties.Colors = _faceColors;
             Box box = new Box(0, boxProperties);
             graphics.AddBox(box);

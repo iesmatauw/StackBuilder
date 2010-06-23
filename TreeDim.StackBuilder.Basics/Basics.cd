@@ -1,26 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Font Name="Segoe UI" Size="9" />
   <Class Name="TreeDim.StackBuilder.Basics.Analysis">
     <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAAIBAAAkggAAEMgAAAAAQBACAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Analysis.cs</FileName>
-      <HashCode>AAAAIBAAAgAgAAEMgAAAAAQBACAAAAAAAAAAAAAAAAE=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.BoxProperties">
     <Position X="2.5" Y="2.5" Width="2.25" />
     <TypeIdentifier>
-      <FileName>BoxProperties.cs</FileName>
       <HashCode>AAABAAAABQCAAAAEAAAAAEBAADAAQAAABA4AgAAAAAA=</HashCode>
+      <FileName>BoxProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.PalletProperties">
     <Position X="5" Y="2.5" Width="2" />
-    <TypeIdentifier>
-      <FileName>PalletProperties.cs</FileName>
-      <HashCode>AAABAAAABACIAIQUAAEAAEBAADAAAAAABQAAgEAAAAA=</HashCode>
-    </TypeIdentifier>
     <NestedTypes>
       <Enum Name="TreeDim.StackBuilder.Basics.PalletProperties.PalletType" Collapsed="true">
         <TypeIdentifier>
@@ -28,99 +23,104 @@
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAABAAAABACIAIQUAAEAAEBAADAAAAAABQAAgEAAAAA=</HashCode>
+      <FileName>PalletProperties.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.ConstraintSet">
     <Position X="11.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <FileName>ConstraintSet.cs</FileName>
       <HashCode>ABmOAAAAggMACYhEAA4ACACAIACEAgIAAAAAAIAAVEA=</HashCode>
+      <FileName>ConstraintSet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TreeDim.StackBuilder.Basics.Convert">
+  <Class Name="TreeDim.StackBuilder.Basics.HalfAxis">
     <Position X="0.5" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="TreeDim.StackBuilder.Basics.HalfAxis.HAxis" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Solution.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
+      <HashCode>AAAgAAAAAAUAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Solution.cs</FileName>
-      <HashCode>AAAAAAAAAAUAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.BoxPosition">
     <Position X="14.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Solution.cs</FileName>
       <HashCode>EAAAAACAAAAAAAAkAAAIAAAAAAAgAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Solution.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.Solution" BaseTypeListCollapsed="true">
     <Position X="14.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AgAADCAAAIAAAEQEAEIAAAAAAAAgAAAAAAAEAAAAAQI=</HashCode>
       <FileName>Solution.cs</FileName>
-      <HashCode>AgAACCAAAIAAAEQEAEIAAAAAAAAgAAAAAAAAAAAAAQA=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.InterlayerProperties">
     <Position X="7.25" Y="2.5" Width="2" />
     <TypeIdentifier>
-      <FileName>InterlayerProperties.cs</FileName>
       <HashCode>AAABAAAAAAAJAAAEAAAAAEBAADAAAACABAAAgAAAAAA=</HashCode>
+      <FileName>InterlayerProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.BundleProperties">
     <Position X="9.5" Y="2.5" Width="2" />
     <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIADAAAAAAAEBAABAhAAgEBAAAgAAACAA=</HashCode>
       <FileName>BundleProperties.cs</FileName>
-      <HashCode>AAAAAAAAAAAIADAAAAAAAEBAABAgAAAEBAAAgAAACAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.ItemProperties" Collapsed="true">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAAIAAAAAggEAAEAIAAAIQAAAAABAAAQAEAACAAAAA=</HashCode>
       <FileName>ItemProperties.cs</FileName>
-      <HashCode>AAAAIAAAAAAgEAAEAIAAAIQAAAAABAAAQAEAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.Pair&lt;T1, T2&gt;">
     <Position X="10.75" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Texture.cs</FileName>
       <HashCode>AAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Texture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.Texture">
     <Position X="12.5" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Texture.cs</FileName>
       <HashCode>AAAAAAAAAQAAgAAkAAgAAAAAAAAAAAAAAAAAgAIAAAA=</HashCode>
+      <FileName>Texture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.BoxLayer">
-    <Position X="14.25" Y="10" Width="1.5" />
+    <Position X="14.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Solution.cs</FileName>
       <HashCode>AgAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAQQA=</HashCode>
+      <FileName>Solution.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.InterlayerPos">
-    <Position X="16" Y="10" Width="1.5" />
+    <Position X="16" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Solution.cs</FileName>
       <HashCode>AgAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Solution.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="TreeDim.StackBuilder.Basics.ILayer">
-    <Position X="14.25" Y="8" Width="1.5" />
+    <Position X="14.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Solution.cs</FileName>
       <HashCode>AgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Solution.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="TreeDim.StackBuilder.Basics.HalfAxis">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <FileName>Solution.cs</FileName>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-    </TypeIdentifier>
-  </Enum>
+  <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

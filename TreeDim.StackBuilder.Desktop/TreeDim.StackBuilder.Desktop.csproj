@@ -48,9 +48,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileSelect, Version=1.0.3824.25874, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\FileSelect.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\PropertyGridEx.dll</HintPath>
     </Reference>
     <Reference Include="SourceGrid, Version=4.21.3680.42354, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -62,6 +70,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutBox.cs">
@@ -82,7 +94,19 @@
     <Compile Include="CheckedListBoxWithImage.Designer.cs">
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Document.cs" />
+    <Compile Include="DockContentAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysis.Designer.cs">
+      <DependentUpon>DockContentAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentDocumentExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentDocumentExplorer.Designer.cs">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentSB.cs" />
     <Compile Include="FormNewAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,12 +143,15 @@
     <Compile Include="FormNewPallet.Designer.cs">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </Compile>
-    <Compile Include="StackBuilder.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StackBuilder.Designer.cs">
-      <DependentUpon>StackBuilder.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDocument.cs" />
+    <Compile Include="IDocumentFactory.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">
@@ -138,6 +165,12 @@
     <EmbeddedResource Include="CheckedListBoxWithImage.resx">
       <SubType>Designer</SubType>
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysis.resx">
+      <DependentUpon>DockContentAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <SubType>Designer</SubType>
@@ -163,14 +196,13 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StackBuilder.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>StackBuilder.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -316,6 +348,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\treeDim.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Analysis1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\StackBuilderAbout.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

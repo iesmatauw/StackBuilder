@@ -115,7 +115,7 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
             InterlayerProperties interlayerProperties = new InterlayerProperties(
-                tbName.Text, tbDescription.Text
+                null, tbName.Text, tbDescription.Text
                 , InterlayerLength, InterlayerWidth
                 , Thickness, Weight, Color);
             Box box = new Box(0, interlayerProperties);

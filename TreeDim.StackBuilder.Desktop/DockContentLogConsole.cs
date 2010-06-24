@@ -11,10 +11,10 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class DockContentDocumentExplorer : DockContent
+    public partial class DockContentLogConsole : DockContent
     {
         #region Constructor
-        public DockContentDocumentExplorer()
+        public DockContentLogConsole()
         {
             InitializeComponent();
         }
@@ -59,9 +59,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public AnalysisTreeView DocumentTreeView
+        public RichTextBox RichTextBox
         {
-            get { return _documentTreeView; }
+            get { return richTextBoxLog; }
         }
         #endregion
     }

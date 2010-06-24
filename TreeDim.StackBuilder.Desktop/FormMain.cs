@@ -8,10 +8,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using log4net;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
-
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -23,6 +23,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Docking manager
         /// </summary>
         private DockContentDocumentExplorer _documentExplorer = new DockContentDocumentExplorer();
+        private DockContentLogConsole _logConsole = new DockContentLogConsole();
         private ToolStripProfessionalRenderer _defaultRenderer = new ToolStripProfessionalRenderer(new PropertyGridEx.CustomColorScheme());
         private DeserializeDockContent _deserializeDockContent;
         /// <summary>
@@ -31,6 +32,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         private List<IDocument> _documents = new List<IDocument>();
         private IDocument _activeDocument;
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormMain));
         #endregion
 
         #region Constructor
@@ -46,6 +48,9 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_AnalysisNodeClicked);
+
+            if (log4net.Appender.RichTextBoxAppender.SetRichTextBox(_logConsole.RichTextBox, "RichTextBoxAppender"))
+                _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
         }
         private IDockContent ReloadContent(string persistString)
         {
@@ -56,6 +61,9 @@ namespace TreeDim.StackBuilder.Desktop
                 case "frmSolution":
                     _documentExplorer = new DockContentDocumentExplorer();
                     return _documentExplorer;
+                case "frmLogConsole":
+                    _logConsole = new DockContentLogConsole();
+                    return _logConsole;
                 default:
                     return null;
             }
@@ -147,12 +155,16 @@ namespace TreeDim.StackBuilder.Desktop
         {
             FormNewDocument form = new FormNewDocument();
             if (DialogResult.OK == form.ShowDialog())
+            {
                 AddDocument(new DocumentSB(form.DocName, form.DocDescription, form.Author, _documentExplorer.DocumentTreeView));
+                _log.Debug("New document added!");
+            }
         }
 
         public void OpenDocument(string filePath)
         {
             AddDocument(new DocumentSB(filePath, _documentExplorer.DocumentTreeView));
+            _log.Debug(string.Format("File {0} loaded!", filePath));
         }
 
         public void AddDocument(IDocument doc)

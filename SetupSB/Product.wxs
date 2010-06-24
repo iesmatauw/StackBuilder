@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+	<Product Id="911b462d-19dc-490d-ba24-8ff7c6cc38d2" Name="StackBuilder"
+           Language="1033"
+           Version="0.1.0.0"
+           Manufacturer="TreeDim"
+           UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c">
+		<Package InstallerVersion="200" Compressed="yes" />
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <!-- define the directory structure-->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="TreeDimDir" Name="TreeDim">
+          <Directory Id="INSTALLLOCATION" Name="StackBuilder"/>
+        </Directory>
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="TreeDim"/>
+      </Directory>
+    </Directory>
+    <!--Properties-->
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch StackBuilder"/>
+    <!--Property references-->
+    <PropertyRef Id="NETFRAMEWORK20"/>
+    <!-- Conditions-->
+    <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT NEWERVERSIONDETECTED OR Installed</Condition>
+    <Condition Message="This application is only supported on Windows Vista, Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 600)]]></Condition>
+    <Condition Message="This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK20]]>
+    </Condition>
+    <!-- Add files to installer package -->
+    <DirectoryRef Id="INSTALLLOCATION">
+      <Component Id="References" Guid="{F464B17D-D223-4c7a-BDDD-A0647B7D7430}">
+        <File Id="log4net.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\log4net.dll" KeyPath="yes" Checksum="yes"/>
+        <File Id ="WeifenLuo.WinFormsUI.Docking.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes"/>
+        <File Id ="OfficePickers.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\OfficePickers.dll" Checksum="yes"/>
+        <File Id ="PropertyGridEx.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\PropertyGridEx.dll" Checksum="yes"/>
+        <File Id ="SourceGrid.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\SourceGrid.dll" Checksum="yes"/>
+        <File Id ="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
+      </Component>
+      <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
+        <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Desktop.exe.config" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe.config" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Graphics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Graphics.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Engine.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+        <Component Id="ApplicationShortcut" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">
+          <Shortcut Id="ApplicationStartMenuShortcut" Name="StackBuilder"
+                    Description="StackBuilder palettization application" Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
+                    WorkingDirectory="INSTALLLOCATION"
+                    Icon="treeDim.ico"/>
+          <Shortcut Id="UninstallProduct"  Name="Uninstall StackBuilder"
+                    Description="Uninstalls StackBuilder"
+                    Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]"/>
+          <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+          <RegistryValue Root="HKCU" Key="Software\TreeDim\StackBuilder" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        </Component>
+      </DirectoryRef>
+    <!-- Tell WiX to install the files -->
+		<Feature Id="ProductFeature" Title="SetupSB" Level="1">
+      <ComponentRef Id="References" />
+      <ComponentRef Id="Application"/>
+      <ComponentRef Id="ApplicationShortcut"/>
+		</Feature>
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize"/>
+    </InstallExecuteSequence>
+    <Upgrade Id="{4BB3D1AA-76C3-4b74-B3EB-FE703459398B}">
+      <UpgradeVersion Minimum="0.0.1"
+                      IncludeMinimum="yes"
+                      Maximum="0.1.0"
+                      Property="OLDERVERSIONBEINGUPGRADED" />
+    </Upgrade>
+    <UI>
+      <!-- Add UI to the installer -->
+      <UIRef Id="WixUI_Minimal" />
+      <!-- Trigger custom action -->
+      <Publish Dialog="ExitDialog"
+            Control="Finish"
+            Event="DoAction"
+            Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+    <!-- Include 'Start' custom action-->
+    <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+    <!---->
+    <Icon Id="treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="treeDim.ico" />
+	</Product>
+</Wix>

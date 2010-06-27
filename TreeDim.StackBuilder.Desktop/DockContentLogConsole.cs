@@ -17,6 +17,15 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentLogConsole()
         {
             InitializeComponent();
+
+            this.Load += new EventHandler(DockContentLogConsole_Load);
+        }
+        #endregion
+
+        #region Load event to set rich text box to RichTextBoxAppender
+        void DockContentLogConsole_Load(object sender, EventArgs e)
+        {
+            log4net.Appender.RichTextBoxAppender.SetRichTextBox(richTextBoxLog, "RichTextBoxAppender");
         }
         #endregion
 
@@ -56,6 +65,8 @@ namespace TreeDim.StackBuilder.Desktop
                     break;
             }
         }
+
+
         #endregion
 
         #region Public properties

@@ -40,15 +40,15 @@ namespace TreeDim.StackBuilder.Engine
             int sizeY = (int)Math.Floor(palletWidth / boxWidth);
 
             double offsetX = 0.5 * (palletLength - actualLength);
-            double offsetY = 0.5 * (palletLength - actualWidth);
+            double offsetY = 0.5 * (palletWidth - actualWidth);
 
             double spaceX = sizeX > 1 ? (actualLength - sizeX * boxLength) / (sizeX - 1) : 0.0;
             double spaceY = sizeY > 1 ? (actualWidth - sizeY * boxWidth) / (sizeY - 1) : 0.0;
 
             for (int i = 0; i < sizeX; ++i)
                 for (int j = 0; j < sizeY; ++j)
-                    layer.AddPosition(
-                        new Vector2D(
+                    AddPosition(layer
+                        , new Vector2D(
                             offsetX + i * (boxLength + spaceX)
                             , offsetY + j * (boxWidth + spaceY)
                             )

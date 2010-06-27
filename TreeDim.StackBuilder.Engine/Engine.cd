@@ -1,53 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Font Name="Segoe UI" Size="9" />
   <Class Name="TreeDim.StackBuilder.Engine.Layer">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Layer.cs</FileName>
       <HashCode>AAAAQAAgAAgAASAACAgAAgAAAEAlAAAFAAAAAAIAQAQ=</HashCode>
+      <FileName>Layer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPattern">
     <Position X="5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <FileName>LayerPattern.cs</FileName>
       <HashCode>AABAAAAABACAAAAAAAAAAAQAACAUAABAAAAAAEAGQAA=</HashCode>
+      <FileName>LayerPattern.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternColumn">
     <Position X="5" Y="5" Width="2" />
     <TypeIdentifier>
-      <FileName>LayerPatternColumn.cs</FileName>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
+      <FileName>LayerPatternColumn.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.Solver">
     <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAACAEEAAAAAAAAACqACAAAAAAAAAAAAAE=</HashCode>
       <FileName>Solver.cs</FileName>
-      <HashCode>BAAAAAAAAgAACAEEAAAAAAAAAAKACAACAAAAAAAAAAE=</HashCode>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternInterlocked">
     <Position X="7.25" Y="5" Width="2" />
     <TypeIdentifier>
-      <FileName>LayerPatternInterlocked.cs</FileName>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
+      <FileName>LayerPatternInterlocked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternSpirale">
     <Position X="9.5" Y="5" Width="2" />
     <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
       <FileName>LayerPatternSpirale.cs</FileName>
-      <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternEnlargedSpirale">
     <Position X="11.75" Y="5" Width="2.25" />
     <TypeIdentifier>
-      <FileName>LayerPatternEnlargedSpirale.cs</FileName>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
+      <FileName>LayerPatternEnlargedSpirale.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -36,7 +36,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Data members
         private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
         private HalfAxis.HAxis _lengthAxis = HalfAxis.HAxis.AXIS_X_P, _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
-        private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight;
+        private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight = 0.0;
         private double _palletLength = 0.0, _palletWidth = 0.0;
         private Vector3D _vecTransf = Vector3D.Zero; 
         #endregion
@@ -117,6 +117,23 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public methods
+        public bool IsValidPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
+        { 
+            // check layerPos
+            // get 4 points
+            Vector3D[] pts = new Vector3D[4];
+            pts[0] = new Vector3D(vPosition.X, vPosition.Y, 0.0);
+            pts[1] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(lengthAxis) * _boxLength;
+            pts[2] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(widthAxis) * _boxWidth;
+            pts[3] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(lengthAxis) * _boxLength + HalfAxis.ToVector3D(widthAxis) * _boxWidth;
+            foreach (Vector3D pt in pts)
+            {
+                if (pt.X < 0 || pt.X > _palletLength || pt.Y < 0 || pt.Y > _palletWidth)
+                    return false;
+            }
+            return true;
+        }
+
         public void AddPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             // build 4D matrix
@@ -142,6 +159,10 @@ namespace TreeDim.StackBuilder.Engine
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_widthAxis)))
                 );
+
+            
+            
+            
 
             this.Add(layerPos);
         }

@@ -5,6 +5,7 @@ using System.Text;
 using TreeDim.StackBuilder.Basics;
 
 using Sharp3D.Math.Core;
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Engine
@@ -56,6 +57,11 @@ namespace TreeDim.StackBuilder.Engine
         {
             if (!_swaped)
             {
+                if (!layer.IsValidPosition(vPosition, lengthAxis, widthAxis))
+                {
+                    _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Variant = {1}, Swaped = false", this.Name, _variantIndex));
+                    return;
+                }
                 layer.AddPosition(vPosition, lengthAxis, widthAxis);
             }
             else
@@ -69,6 +75,11 @@ namespace TreeDim.StackBuilder.Engine
                 Transform3D transfRotTranslation = new Transform3D(matRot);
                 Vector3D vPositionSwapped = transfRotTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
 
+                if (!layer.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwaped, widthAxisSwaped))
+                {
+                    _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Variant = {1}, Swaped = true", this.Name, _variantIndex));
+                    return;
+                }
                 layer.AddPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y), lengthAxisSwaped, widthAxisSwaped);
             }
         }
@@ -76,7 +87,8 @@ namespace TreeDim.StackBuilder.Engine
 
         #region Data members
         private int _variantIndex = 0;
-        bool _swaped = false;
+        private bool _swaped = false;
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
         #endregion
     }
 }

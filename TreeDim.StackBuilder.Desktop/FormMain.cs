@@ -48,9 +48,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_AnalysisNodeClicked);
-
-            if (log4net.Appender.RichTextBoxAppender.SetRichTextBox(_logConsole.RichTextBox, "RichTextBoxAppender"))
-                _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
+            _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
         }
         private IDockContent ReloadContent(string persistString)
         {

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
 
@@ -38,8 +39,24 @@ namespace TreeDim.StackBuilder.Desktop
         #region Constructor
         public FormMain()
         {
+
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
             InitializeComponent();
+
+            // show splach screen
+            Thread th = new Thread(new ThreadStart(DoSplash));
+            th.Start();
+            Thread.Sleep(1000);
+            th.Abort();
+            Thread.Sleep(100);
+        }
+        #endregion
+
+        #region SplashScreen
+        public void DoSplash()
+        {
+            SplashScreen sp = new SplashScreen();
+            sp.ShowDialog();
         }
         #endregion
 

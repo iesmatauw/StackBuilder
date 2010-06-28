@@ -29,7 +29,7 @@ namespace TreeDim.StackBuilder.Engine
                 , out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
 
             actualLength = maxSizeXLength * boxLength + maxSizeXWidth * boxWidth;
-            actualWidth = maxSizeYWidth * boxWidth +  maxSizeYLength * boxLength;
+            actualWidth = maxSizeYWidth * boxWidth + maxSizeYLength * boxLength;
         }
 
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
@@ -47,7 +47,6 @@ namespace TreeDim.StackBuilder.Engine
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
-
 
             for (int i = 0; i < Math.Min(maxSizeXLength + maxSizeXWidth, maxSizeYWidth + maxSizeYLength); ++i)
             {

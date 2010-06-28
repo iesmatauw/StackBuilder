@@ -10,6 +10,8 @@ using TreeDim.StackBuilder.Engine;
 using TreeDim.StackBuilder.Graphics;
 
 using Sharp3D.Math.Core;
+using log4net;
+using log4net.Config;
 #endregion
 
 namespace TreeDim.StackBuilder.Engine.Test
@@ -18,6 +20,9 @@ namespace TreeDim.StackBuilder.Engine.Test
     {
         static int Main(string[] args)
         {
+            ILog log = LogManager.GetLogger(typeof(Program));
+            XmlConfigurator.Configure();
+
             try
             {
                 bool useSingleColor = false;
@@ -100,7 +105,7 @@ namespace TreeDim.StackBuilder.Engine.Test
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                log.Error(ex.ToString());
             }
             return 0;
         }

@@ -14,6 +14,8 @@
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>TreeDim.StackBuilder.Desktop.Program</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,9 +28,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationIcon>treeDim.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -233,6 +235,7 @@
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pallet.bmp" />
@@ -372,6 +375,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\StackBuilderAbout.bmp" />
+    <Content Include="treeDim.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -251,6 +251,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 16);
             this.cbColor.Name = "cbColor";
@@ -350,6 +351,8 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Create new Interlayer...";
+            this.Load += new System.EventHandler(this.FormNewInterlayer_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewInterlayer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
             this.gbDimensions.ResumeLayout(false);

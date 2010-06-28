@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -123,6 +124,22 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.Flush();
             // set to picture box
             pictureBox.Image = graphics.Bitmap;
+        }
+        #endregion
+
+        #region Load / FormClosing
+        private void FormNewInterlayer_Load(object sender, EventArgs e)
+        {
+            // windows settings
+            if (null != Settings.Default.FormNewInterlayerPosition)
+                Settings.Default.FormNewInterlayerPosition.Restore(this);
+        }
+        private void FormNewInterlayer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // window position
+            if (null == Settings.Default.FormNewInterlayerPosition)
+                Settings.Default.FormNewInterlayerPosition = new WindowSettings();
+            Settings.Default.FormNewInterlayerPosition.Record(this);
         }
         #endregion
     }

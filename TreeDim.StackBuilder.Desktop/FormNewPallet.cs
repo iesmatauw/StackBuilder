@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
+using log4net;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -18,6 +21,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
         #endregion
 
         #region Constructor
@@ -136,8 +140,9 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.Flush();
                 pictureBox.Image = graphics.Bitmap;
             }
-            catch (Exception /*ex*/)
-            { 
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         #endregion
@@ -193,6 +198,22 @@ namespace TreeDim.StackBuilder.Desktop
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
+        }
+        #endregion
+
+        #region Load / FormClosing event
+        private void FormNewPallet_Load(object sender, EventArgs e)
+        {
+            // windows settings
+            if (null != Settings.Default.FormNewPalletPosition)
+                Settings.Default.FormNewPalletPosition.Restore(this);
+        }
+        private void FormNewPallet_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // window position
+            if (null == Settings.Default.FormNewPalletPosition)
+                Settings.Default.FormNewPalletPosition = new WindowSettings();
+            Settings.Default.FormNewPalletPosition.Record(this); 
         }
         #endregion
     }

@@ -432,6 +432,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(378, 453);
             this.cbColor.Name = "cbColor";
@@ -486,6 +487,8 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Create new Pallet...";
+            this.Load += new System.EventHandler(this.FormNewPallet_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewPallet_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();

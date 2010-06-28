@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
+using log4net;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -21,6 +24,7 @@ namespace TreeDim.StackBuilder.Desktop
         private PalletProperties[] _palletProperties;
         private InterlayerProperties[] _interlayerProperties;
         private Document _document;
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion
 
         #region Combo box item private classes
@@ -91,55 +95,107 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             onInterlayerChecked(this, null);
         }
+        #endregion
 
-        private void onFormLoad(object sender, EventArgs e)
+        #region Load / FormClosing event
+        private void FormNewAnalysis_Load(object sender, EventArgs e)
         {
-            // fill boxes combo
-            foreach (BoxProperties box in _boxes)
-                cbBox.Items.Add(new BoxItem(box));
-            if (cbBox.Items.Count > 0)
-                cbBox.SelectedIndex = 0;
-            // fill pallet combo
-            foreach (PalletProperties pallet in _palletProperties)
-                cbPallet.Items.Add(new PalletItem(pallet));
-            if (cbPallet.Items.Count > 0)
-                cbPallet.SelectedIndex = 0;
-            // fill interlayer combo
-            foreach (InterlayerProperties interlayer in _interlayerProperties)
-                cbInterlayer.Items.Add(new InterlayerItem(interlayer));
-            if (cbInterlayer.Items.Count > 0)
-                cbInterlayer.SelectedIndex = 0;
-            else
+            try
             {
-                checkBoxInterlayer.Checked = false;
-                checkBoxInterlayer.Enabled = false;
+                // fill boxes combo
+                foreach (BoxProperties box in _boxes)
+                    cbBox.Items.Add(new BoxItem(box));
+                if (cbBox.Items.Count > 0)
+                    cbBox.SelectedIndex = 0;
+                // fill pallet combo
+                foreach (PalletProperties pallet in _palletProperties)
+                    cbPallet.Items.Add(new PalletItem(pallet));
+                if (cbPallet.Items.Count > 0)
+                    cbPallet.SelectedIndex = 0;
+                // fill interlayer combo
+                foreach (InterlayerProperties interlayer in _interlayerProperties)
+                    cbInterlayer.Items.Add(new InterlayerItem(interlayer));
+                if (cbInterlayer.Items.Count > 0)
+                    cbInterlayer.SelectedIndex = 0;
+                else
+                {
+                    checkBoxInterlayer.Checked = false;
+                    checkBoxInterlayer.Enabled = false;
+                }
+
+                // allowed position box
+                AllowVerticalX = Settings.Default.AllowVerticalX;
+                AllowVerticalY = Settings.Default.AllowVerticalY;
+                AllowVerticalZ = Settings.Default.AllowVerticalZ;
+
+                // alternate / aligned layers
+                AllowAlignedLayers = Settings.Default.AllowAlignedLayer;
+                AllowAlternateLayers = Settings.Default.AllowAlternateLayer;
+
+                // stop stacking criterion
+                UseMaximumNumberOfBoxes = false;
+                UseMaximumPalletHeight = true;
+                UseMaximumPalletWeight = true;
+                UseMaximumLoadOnBox = false;
+                MaximumNumberOfBoxes = 500;
+                MaximumPalletHeight = 1500.0;
+                MaximumPalletWeight = 1000.0;
+                MaximumLoadOnBox = 100.0;
+
+                // check all patterns
+                string allowedPatterns = Settings.Default.AllowedPatterns;
+                int iCountAllowedPatterns = 0;
+                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                {
+                    string patternName = checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]);
+                    bool patternAllowed = allowedPatterns.Contains(patternName);
+                    checkedListBoxPatterns.SetItemChecked(i, patternAllowed);
+                    if (patternAllowed)
+                        ++iCountAllowedPatterns;
+                }
+                if (iCountAllowedPatterns == 0)
+                    for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                        checkedListBoxPatterns.SetItemChecked(i, true);
+
+                UpdateCriterionFields();
+                UpdateButtonOkStatus();
+
+                // windows settings
+                if (null != Settings.Default.FormNewAnalysisPosition)
+                    Settings.Default.FormNewAnalysisPosition.Restore(this);
             }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
 
-            // allowed position box
-            AllowVerticalX = true;
-            AllowVerticalY = true;
-            AllowVerticalZ = true;
-
-            // alternate / aligned layers
-            AllowAlternateLayers = true;
-            AllowAlignedLayers = true;
-
-            // stop stacking criterion
-            UseMaximumNumberOfBoxes = false;
-            UseMaximumPalletHeight = true;
-            UseMaximumPalletWeight = true;
-            UseMaximumLoadOnBox = false;
-            MaximumNumberOfBoxes = 500;
-            MaximumPalletHeight = 1500.0;
-            MaximumPalletWeight = 1000.0;
-            MaximumLoadOnBox = 100.0;
-
-            // check all patterns
-            for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
-                checkedListBoxPatterns.SetItemChecked(i, true);
-
-            UpdateCriterionFields();
-            UpdateButtonOkStatus();
+        private void FormNewAnalysis_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                // allowed position box
+                Settings.Default.AllowVerticalX = AllowVerticalX;
+                Settings.Default.AllowVerticalY = AllowVerticalY;
+                Settings.Default.AllowVerticalZ = AllowVerticalZ;
+                // alternate / aligned layers
+                Settings.Default.AllowAlignedLayer = AllowAlignedLayers;
+                Settings.Default.AllowAlternateLayer = AllowAlternateLayers;
+                // allowed patterns
+                string allowedPatterns = string.Empty;
+                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                    if (checkedListBoxPatterns.GetItemChecked(i))
+                        allowedPatterns += checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]) + ";";
+                Settings.Default.AllowedPatterns = allowedPatterns;
+                // window position
+                if (null == Settings.Default.FormNewAnalysisPosition)
+                    Settings.Default.FormNewAnalysisPosition = new WindowSettings();
+                Settings.Default.FormNewAnalysisPosition.Record(this);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 

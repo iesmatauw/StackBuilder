@@ -236,6 +236,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 20);
             this.cbColor.Name = "cbColor";
@@ -393,6 +394,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Create new Box...";
             this.Load += new System.EventHandler(this.FormNewBox_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewBox_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();

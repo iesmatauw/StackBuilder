@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
+using log4net;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -18,6 +21,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBundle));
         #endregion
 
         #region Constructor
@@ -35,6 +39,22 @@ namespace TreeDim.StackBuilder.Desktop
             trackBarHorizAngle.Value = 45;
             // disable Ok buttons
             UpdateButtonOkStatus();
+        }
+        #endregion
+
+        #region Load / FormClosing event handlers
+        private void FormNewBundle_Load(object sender, EventArgs e)
+        {
+            // windows settings
+            if (null != Settings.Default.FormNewBoxPosition)
+                Settings.Default.FormNewBundlePosition.Restore(this);
+        }
+        private void FormNewBundle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // window position
+            if (null == Settings.Default.FormNewBoxPosition)
+                Settings.Default.FormNewBoxPosition = new WindowSettings();
+            Settings.Default.FormNewBundlePosition.Record(this);
         }
         #endregion
 
@@ -127,10 +147,13 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.Flush();
                 pictureBox.Image = graphics.Bitmap;
             }
-            catch (Exception /*ex*/)
-            { 
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         #endregion
+
+
     }
 }

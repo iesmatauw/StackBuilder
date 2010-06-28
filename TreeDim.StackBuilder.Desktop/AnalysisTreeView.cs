@@ -43,8 +43,6 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
-
-
         private void InitializeComponent()
         {
             this.SuspendLayout();

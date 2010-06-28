@@ -79,6 +79,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 20);
             this.cbColor.Name = "cbColor";
@@ -393,6 +394,8 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Create new Bundle...";
+            this.Load += new System.EventHandler(this.FormNewBundle_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewBundle_FormClosing);
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();

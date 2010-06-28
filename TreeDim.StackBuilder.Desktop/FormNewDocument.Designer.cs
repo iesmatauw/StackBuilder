@@ -160,6 +160,8 @@
             this.Name = "FormNewDocument";
             this.ShowIcon = false;
             this.Text = "Create new document...";
+            this.Load += new System.EventHandler(this.FormNewDocument_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewDocument_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

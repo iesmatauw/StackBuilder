@@ -1,5 +1,4 @@
 ﻿#region Using directives
-
 using System.Collections.Generic;
 using System.Text;
 using TreeDim.StackBuilder.Graphics;
@@ -9,6 +8,8 @@ using System.IO;
 using Sharp3D.Math.Core;
 
 using TreeDim.StackBuilder.Basics;
+using log4net;
+using log4net.Config;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics.Test
@@ -17,6 +18,9 @@ namespace TreeDim.StackBuilder.Graphics.Test
     {
         static void Main(string[] args)
         {
+            ILog log = LogManager.GetLogger(typeof(Program));
+            XmlConfigurator.Configure(); 
+
             try
             {
                 // instantiate graphics
@@ -76,7 +80,7 @@ namespace TreeDim.StackBuilder.Graphics.Test
             }
             catch (System.Exception ex)
             {
-                System.Console.WriteLine(ex.ToString());
+                log.Error(ex.ToString());
             }
         }
     }

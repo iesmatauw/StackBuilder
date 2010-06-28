@@ -6,6 +6,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -45,9 +47,31 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        #region Event handlers
         private void onDocumentNameChanged(object sender, EventArgs e)
         {
             bnAccept.Enabled = (DocName.Length > 0);
         }
+        #endregion
+
+        #region Load / FormClosing event
+        private void FormNewDocument_Load(object sender, EventArgs e)
+        {
+            // author
+            Author = Settings.Default.DocumentAuthor;
+            // windows settings
+            if (null != Settings.Default.FormNewDocumentPosition)
+                Settings.Default.FormNewDocumentPosition.Restore(this);
+        }
+        private void FormNewDocument_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // author
+            Settings.Default.DocumentAuthor = Author;
+            // window position
+            if (null == Settings.Default.FormNewDocumentPosition)
+                Settings.Default.FormNewDocumentPosition = new WindowSettings();
+            Settings.Default.FormNewDocumentPosition.Record(this);
+        }
+        #endregion
     }
 }

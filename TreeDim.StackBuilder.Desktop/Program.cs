@@ -23,7 +23,6 @@ namespace TreeDim.StackBuilder.Desktop
         static void Main()
         {
             // set up a simple configuration
-            //XmlConfigurator.Configure();
             XmlConfigurator.Configure();
             if (!LogManager.GetRepository().Configured)
                 Debug.Fail("Logging not configured!\n Press ignore to continue");

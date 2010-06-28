@@ -1,7 +1,54 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TreeDim.StackBuilder.Desktop.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FormMainPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewDocumentPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewBoxPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewPalletPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewInterlayerPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewBundlePosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DocumentAuthor" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AllowAlignedLayer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowAlternateLayer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowedPatterns" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewAnalysis" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AllowVerticalX" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowVerticalY" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowVerticalZ" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PalletOverhangLength" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PalletOverhangWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

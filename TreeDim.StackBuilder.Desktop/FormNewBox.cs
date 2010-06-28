@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 using Sharp3D.Math.Core;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -82,11 +84,26 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Handlers
+        #region Load / FormClosing event
         private void FormNewBox_Load(object sender, EventArgs e)
         {
+            // windows settings
+            if (null != Settings.Default.FormNewBoxPosition)
+                Settings.Default.FormNewBoxPosition.Restore(this);
+
             DrawBox();
         }
+        private void FormNewBox_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // window position
+            if (null == Settings.Default.FormNewBoxPosition)
+                Settings.Default.FormNewBoxPosition = new WindowSettings();
+            Settings.Default.FormNewBoxPosition.Record(this);
+        }
+        #endregion
+
+        #region Handlers
+
         private void onBoxPropertyChanged(object sender, EventArgs e)
         {
             DrawBox();

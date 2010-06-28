@@ -59,11 +59,13 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.AddBox(box);
                 }
             }
-
-            // draw axis
-            graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(2000.0, 0.0, 0.0), Color.Red));
-            graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 2000.0, 0.0), Color.Green));
-            graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 0.0, 2000.0), Color.Blue));
+            if (false)
+            {
+                // draw axis
+                graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(2000.0, 0.0, 0.0), Color.Red));
+                graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 2000.0, 0.0), Color.Green));
+                graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 0.0, 2000.0), Color.Blue));
+            }
 
             // flush
             graphics.Flush();

@@ -673,7 +673,8 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Create new Analysis...";
-            this.Load += new System.EventHandler(this.onFormLoad);
+            this.Load += new System.EventHandler(this.FormNewAnalysis_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewAnalysis_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).EndInit();

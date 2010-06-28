@@ -13,6 +13,8 @@ using log4net;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -39,16 +41,16 @@ namespace TreeDim.StackBuilder.Desktop
         #region Constructor
         public FormMain()
         {
-
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
             InitializeComponent();
 
-            // show splach screen
+            // --- instantiate and start splach screen thread
             Thread th = new Thread(new ThreadStart(DoSplash));
             th.Start();
             Thread.Sleep(1000);
             th.Abort();
             Thread.Sleep(100);
+            // ---
         }
         #endregion
 
@@ -105,6 +107,18 @@ namespace TreeDim.StackBuilder.Desktop
             dockPanel.ResumeLayout(true, true);
 
             UpdateToolbarState();
+
+            // windows settings
+            if (null != Settings.Default.FormMainPosition)
+                Settings.Default.FormMainPosition.Restore(this);
+        }
+
+        private void FormMain_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            if (null == Settings.Default.FormMainPosition)
+                Settings.Default.FormMainPosition = new WindowSettings();
+            Settings.Default.FormMainPosition.Record(this);
+            Settings.Default.Save();                
         }
         #endregion
 

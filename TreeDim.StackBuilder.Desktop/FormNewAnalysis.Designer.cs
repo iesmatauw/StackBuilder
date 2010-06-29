@@ -266,6 +266,7 @@
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
             "Column",
             "Interlocked",
+            "Diagonale",
             "Spirale"});
             this.checkedListBoxPatterns.Location = new System.Drawing.Point(12, 18);
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";

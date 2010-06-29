@@ -140,9 +140,8 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.Flush();
                 pictureBox.Image = graphics.Bitmap;
             }
-            catch (Exception ex)
+            catch (Exception /*ex*/)
             {
-                _log.Error(ex.ToString());
             }
         }
         #endregion

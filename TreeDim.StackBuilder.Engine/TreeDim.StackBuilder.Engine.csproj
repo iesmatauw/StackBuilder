@@ -61,6 +61,7 @@
     <Compile Include="Layer.cs" />
     <Compile Include="LayerPattern.cs" />
     <Compile Include="LayerPatternColumn.cs" />
+    <Compile Include="LayerPatternDiagonale.cs" />
     <Compile Include="LayerPatternEnlargedSpirale.cs" />
     <Compile Include="LayerPatternInterlocked.cs" />
     <Compile Include="LayerPatternSpirale.cs" />

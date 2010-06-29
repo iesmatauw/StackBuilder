@@ -177,6 +177,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             _patterns.Add(new LayerPatternColumn());
             _patterns.Add(new LayerPatternInterlocked());
+            _patterns.Add(new LayerPatternDiagonale());
             _patterns.Add(new LayerPatternSpirale());
             _patterns.Add(new LayerPatternEnlargedSpirale());
         }

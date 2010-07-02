@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 using TreeDim.StackBuilder.Basics;
 using Sharp3D.Math.Core;
@@ -66,8 +67,8 @@ namespace TreeDim.StackBuilder.Engine
                         Layer layer1 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho1);
                         Layer layer2 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho2);
                         double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
-                        pattern.GetLayerDimensions(layer1, out actualLength1, out actualWidth1);
-                        pattern.GetLayerDimensions(layer2, out actualLength2, out actualWidth2);
+                        pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
+                        pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
 
                         for (int j = 0; j < 4; ++j)
                         {
@@ -178,8 +179,9 @@ namespace TreeDim.StackBuilder.Engine
             _patterns.Add(new LayerPatternColumn());
             _patterns.Add(new LayerPatternInterlocked());
             _patterns.Add(new LayerPatternDiagonale());
-            _patterns.Add(new LayerPatternSpirale());
-            _patterns.Add(new LayerPatternEnlargedSpirale());
+            _patterns.Add(new LayerPatternTrilock());
+            //_patterns.Add(new LayerPatternSpirale());
+            //_patterns.Add(new LayerPatternEnlargedSpirale());
         }
         #endregion
 

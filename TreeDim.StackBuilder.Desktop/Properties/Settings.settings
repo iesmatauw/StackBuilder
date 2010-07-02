@@ -50,5 +50,11 @@
     <Setting Name="PalletOverhangWidth" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="FormNewTruckPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormNewAnalysisPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

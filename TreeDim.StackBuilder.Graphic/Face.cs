@@ -82,6 +82,18 @@ namespace TreeDim.StackBuilder.Graphics
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
         }
+        public Face(uint pickId, Vector3D[] vertices, Color colorFill, Color colorPath)
+        {
+            _points = vertices;
+            _isIntersection = new bool[vertices.Length];
+            for (int i = 0; i < vertices.Length; ++i) _isIntersection[i] = false;
+            if (_points.Length < 3)
+                throw new GraphicsException("Face is degenerated");
+            _pickingId = pickId;
+            _colorFill = colorFill;
+            _colorPath = colorPath;
+        }
+
         public Face(uint pickId, Vector3D[] vertices, bool[] isInter)
         {
             _points = vertices;

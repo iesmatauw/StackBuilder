@@ -139,12 +139,12 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewAnalysisPosition {
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewAnalysis {
             get {
-                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewAnalysisPosition"]));
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewAnalysis"]));
             }
             set {
-                this["FormNewAnalysisPosition"] = value;
+                this["FormNewAnalysis"] = value;
             }
         }
         
@@ -205,6 +205,28 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
             set {
                 this["PalletOverhangWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewTruckPosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewTruckPosition"]));
+            }
+            set {
+                this["FormNewTruckPosition"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewAnalysisPosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewAnalysisPosition"]));
+            }
+            set {
+                this["FormNewAnalysisPosition"] = value;
             }
         }
     }

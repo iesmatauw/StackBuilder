@@ -267,7 +267,7 @@
             "Column",
             "Interlocked",
             "Diagonale",
-            "Spirale"});
+            "Trilock"});
             this.checkedListBoxPatterns.Location = new System.Drawing.Point(12, 18);
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             this.checkedListBoxPatterns.Size = new System.Drawing.Size(162, 109);

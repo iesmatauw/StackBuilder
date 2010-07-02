@@ -23,6 +23,7 @@ namespace TreeDim.StackBuilder.Desktop
         public DocumentSB(string filePath, IDocumentListener listener)
             :base(filePath, listener)
         {
+            _filePath = filePath;
             _dirty = false;
         }
         public DocumentSB(string name, string description, string author, IDocumentListener listener)

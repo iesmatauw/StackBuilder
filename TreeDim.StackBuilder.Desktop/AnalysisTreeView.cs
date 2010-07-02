@@ -34,7 +34,9 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Bundle);      // 4
                 ImageList.Images.Add(AnalysisTreeView.Pallet);      // 5
                 ImageList.Images.Add(AnalysisTreeView.Interlayer);  // 6
-                ImageList.Images.Add(AnalysisTreeView.Analysis);    // 7
+                ImageList.Images.Add(AnalysisTreeView.Truck);       // 7
+                ImageList.Images.Add(AnalysisTreeView.Analysis);    // 8
+                ImageList.Images.Add(AnalysisTreeView.Solution);    // 9
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
             }
             catch (Exception ex)
@@ -122,17 +124,22 @@ namespace TreeDim.StackBuilder.Desktop
             nodeBundles.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBUNDLE, doc, null, null);
             nodeDoc.Nodes.Add(nodeBundles);
             // add pallet list node
-            TreeNode nodePallets = new TreeNode("Pallets", 0, 1);
-            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc,  null, null);
-            nodeDoc.Nodes.Add(nodePallets);
-            // add pallet list node
             TreeNode nodeInterlayers = new TreeNode("Interlayers", 0, 1);
             nodeInterlayers.Tag = new NodeTag(NodeTag.NodeType.NT_LISTINTERLAYER, doc, null, null);
             nodeDoc.Nodes.Add(nodeInterlayers);
-             // add analysis list node
+            // add pallet list node
+            TreeNode nodePallets = new TreeNode("Pallets", 0, 1);
+            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc,  null, null);
+            nodeDoc.Nodes.Add(nodePallets);
+            // add truck list node
+            TreeNode nodeTrucks = new TreeNode("Trucks", 0, 1);
+            nodeTrucks.Tag = new NodeTag(NodeTag.NodeType.NT_LISTTRUCK, doc, null, null);
+            nodeDoc.Nodes.Add(nodeTrucks);
+            // add analysis list node
             TreeNode nodeAnalyses = new TreeNode("Analyses", 0, 1);
             nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc,  null, null);
             nodeDoc.Nodes.Add(nodeAnalyses);
+            nodeDoc.Expand();
         }
         public void OnNewTypeCreated(Document doc, ItemProperties itemProperties)
         {
@@ -164,6 +171,12 @@ namespace TreeDim.StackBuilder.Desktop
                 nodeType = NodeTag.NodeType.NT_INTERLAYER;
                 parentNodeType = NodeTag.NodeType.NT_LISTINTERLAYER;
             }
+            else if (itemProperties.GetType() == typeof(TruckProperties))
+            {
+                iconIndex = 7;
+                nodeType = NodeTag.NodeType.NT_TRUCK;
+                parentNodeType = NodeTag.NodeType.NT_LISTTRUCK;
+            }
             else
             {
                 _log.Error("AnalysisTreeView.OnNewTypeCreated() -> unknown type!");
@@ -178,6 +191,7 @@ namespace TreeDim.StackBuilder.Desktop
             nodeItem.Tag = new NodeTag(nodeType, doc, itemProperties, null);
             // insert
             parentNode.Nodes.Add(nodeItem);
+            parentNode.Expand();
         }
 
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
@@ -185,9 +199,10 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc, null, null));
             // insert analysis node
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 7, 7);
+            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 8, 8);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
+            parentNode.Expand();
             // insert sub box node
             TreeNode subBoxNode = new TreeNode(analysis.BoxProperties.Name, 3, 3);
             subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis.BoxProperties, analysis);
@@ -196,6 +211,11 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 5, 5);
             subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis.PalletProperties, analysis);
             nodeAnalysis.Nodes.Add(subPalletNode);
+            nodeAnalysis.Expand();
+        }
+
+        public void OnNewSolutionAdded(Document doc, Analysis analysis, Solution sol)
+        {
         }
         public void OnTypeRemoved(Document doc, Analysis analysis)
         {        
@@ -225,11 +245,13 @@ namespace TreeDim.StackBuilder.Desktop
             , NT_LISTBUNDLE
             , NT_LISTPALLET
             , NT_LISTINTERLAYER
+            , NT_LISTTRUCK
             , NT_LISTANALYSIS
             , NT_BOX
             , NT_BUNDLE
             , NT_PALLET
             , NT_INTERLAYER
+            , NT_TRUCK
             , NT_ANALYSIS
             , NT_ANALYSISBOX
             , NT_ANALYSISPALLET

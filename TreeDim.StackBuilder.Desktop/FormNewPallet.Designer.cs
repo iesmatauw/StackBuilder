@@ -32,7 +32,6 @@
             this.bnCancel = new System.Windows.Forms.Button();
             this.radioButtonPallet1 = new System.Windows.Forms.RadioButton();
             this.radioButtonPallet2 = new System.Windows.Forms.RadioButton();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.lbName = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
@@ -62,7 +61,7 @@
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.lbColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
@@ -70,10 +69,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmissibleLoadHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // bnAccept
             // 
+            this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnAccept.Location = new System.Drawing.Point(383, 13);
             this.bnAccept.Name = "bnAccept";
@@ -84,6 +85,7 @@
             // 
             // bnCancel
             // 
+            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bnCancel.Location = new System.Drawing.Point(383, 42);
             this.bnCancel.Name = "bnCancel";
@@ -96,7 +98,7 @@
             // 
             this.radioButtonPallet1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButtonPallet1.AutoSize = true;
-            this.radioButtonPallet1.Location = new System.Drawing.Point(11, 253);
+            this.radioButtonPallet1.Location = new System.Drawing.Point(11, 252);
             this.radioButtonPallet1.Name = "radioButtonPallet1";
             this.radioButtonPallet1.Size = new System.Drawing.Size(149, 17);
             this.radioButtonPallet1.TabIndex = 3;
@@ -109,7 +111,7 @@
             // 
             this.radioButtonPallet2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButtonPallet2.AutoSize = true;
-            this.radioButtonPallet2.Location = new System.Drawing.Point(11, 365);
+            this.radioButtonPallet2.Location = new System.Drawing.Point(11, 364);
             this.radioButtonPallet2.Name = "radioButtonPallet2";
             this.radioButtonPallet2.Size = new System.Drawing.Size(107, 17);
             this.radioButtonPallet2.TabIndex = 6;
@@ -118,22 +120,11 @@
             this.radioButtonPallet2.UseVisualStyleBackColor = true;
             this.radioButtonPallet2.CheckedChanged += new System.EventHandler(this.onPalletInsertionModeChanged);
             // 
-            // pictureBox
-            // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.Location = new System.Drawing.Point(11, 8);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(356, 184);
-            this.pictureBox.TabIndex = 4;
-            this.pictureBox.TabStop = false;
-            // 
             // lbName
             // 
             this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(11, 395);
+            this.lbName.Location = new System.Drawing.Point(11, 394);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(35, 13);
             this.lbName.TabIndex = 7;
@@ -143,7 +134,7 @@
             // 
             this.lbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbDescription.AutoSize = true;
-            this.lbDescription.Location = new System.Drawing.Point(11, 426);
+            this.lbDescription.Location = new System.Drawing.Point(11, 425);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(60, 13);
             this.lbDescription.TabIndex = 9;
@@ -152,7 +143,7 @@
             // tbDescription
             // 
             this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbDescription.Location = new System.Drawing.Point(129, 423);
+            this.tbDescription.Location = new System.Drawing.Point(129, 422);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(329, 20);
             this.tbDescription.TabIndex = 10;
@@ -161,7 +152,7 @@
             // tbName
             // 
             this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbName.Location = new System.Drawing.Point(129, 395);
+            this.tbName.Location = new System.Drawing.Point(129, 394);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(146, 20);
             this.tbName.TabIndex = 8;
@@ -171,7 +162,7 @@
             // 
             this.lbLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbLength.AutoSize = true;
-            this.lbLength.Location = new System.Drawing.Point(11, 496);
+            this.lbLength.Location = new System.Drawing.Point(11, 495);
             this.lbLength.Name = "lbLength";
             this.lbLength.Size = new System.Drawing.Size(40, 13);
             this.lbLength.TabIndex = 15;
@@ -181,7 +172,7 @@
             // 
             this.lbWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbWidth.AutoSize = true;
-            this.lbWidth.Location = new System.Drawing.Point(11, 522);
+            this.lbWidth.Location = new System.Drawing.Point(11, 521);
             this.lbWidth.Name = "lbWidth";
             this.lbWidth.Size = new System.Drawing.Size(35, 13);
             this.lbWidth.TabIndex = 21;
@@ -191,7 +182,7 @@
             // 
             this.lbHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbHeight.AutoSize = true;
-            this.lbHeight.Location = new System.Drawing.Point(11, 548);
+            this.lbHeight.Location = new System.Drawing.Point(11, 547);
             this.lbHeight.Name = "lbHeight";
             this.lbHeight.Size = new System.Drawing.Size(38, 13);
             this.lbHeight.TabIndex = 24;
@@ -200,7 +191,7 @@
             // nudLength
             // 
             this.nudLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudLength.Location = new System.Drawing.Point(129, 496);
+            this.nudLength.Location = new System.Drawing.Point(129, 495);
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -214,7 +205,7 @@
             // nudWidth
             // 
             this.nudWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudWidth.Location = new System.Drawing.Point(129, 522);
+            this.nudWidth.Location = new System.Drawing.Point(129, 521);
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -228,7 +219,7 @@
             // nudHeight
             // 
             this.nudHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudHeight.Location = new System.Drawing.Point(129, 548);
+            this.nudHeight.Location = new System.Drawing.Point(129, 547);
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -259,7 +250,7 @@
             // 
             this.lbMm1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbMm1.AutoSize = true;
-            this.lbMm1.Location = new System.Drawing.Point(202, 496);
+            this.lbMm1.Location = new System.Drawing.Point(202, 495);
             this.lbMm1.Name = "lbMm1";
             this.lbMm1.Size = new System.Drawing.Size(23, 13);
             this.lbMm1.TabIndex = 17;
@@ -269,7 +260,7 @@
             // 
             this.lbMm2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbMm2.AutoSize = true;
-            this.lbMm2.Location = new System.Drawing.Point(202, 522);
+            this.lbMm2.Location = new System.Drawing.Point(202, 521);
             this.lbMm2.Name = "lbMm2";
             this.lbMm2.Size = new System.Drawing.Size(23, 13);
             this.lbMm2.TabIndex = 23;
@@ -279,7 +270,7 @@
             // 
             this.lbMm3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbMm3.AutoSize = true;
-            this.lbMm3.Location = new System.Drawing.Point(202, 548);
+            this.lbMm3.Location = new System.Drawing.Point(202, 547);
             this.lbMm3.Name = "lbMm3";
             this.lbMm3.Size = new System.Drawing.Size(23, 13);
             this.lbMm3.TabIndex = 26;
@@ -289,7 +280,7 @@
             // 
             this.lbAdmissibleWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbAdmissibleWeight.AutoSize = true;
-            this.lbAdmissibleWeight.Location = new System.Drawing.Point(250, 580);
+            this.lbAdmissibleWeight.Location = new System.Drawing.Point(250, 579);
             this.lbAdmissibleWeight.Name = "lbAdmissibleWeight";
             this.lbAdmissibleWeight.Size = new System.Drawing.Size(79, 13);
             this.lbAdmissibleWeight.TabIndex = 30;
@@ -298,7 +289,7 @@
             // nudAdmissibleLoadWeight
             // 
             this.nudAdmissibleLoadWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudAdmissibleLoadWeight.Location = new System.Drawing.Point(331, 580);
+            this.nudAdmissibleLoadWeight.Location = new System.Drawing.Point(331, 579);
             this.nudAdmissibleLoadWeight.Name = "nudAdmissibleLoadWeight";
             this.nudAdmissibleLoadWeight.Size = new System.Drawing.Size(60, 20);
             this.nudAdmissibleLoadWeight.TabIndex = 31;
@@ -307,7 +298,7 @@
             // 
             this.lbKg1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbKg1.AutoSize = true;
-            this.lbKg1.Location = new System.Drawing.Point(398, 496);
+            this.lbKg1.Location = new System.Drawing.Point(398, 495);
             this.lbKg1.Name = "lbKg1";
             this.lbKg1.Size = new System.Drawing.Size(19, 13);
             this.lbKg1.TabIndex = 20;
@@ -317,7 +308,7 @@
             // 
             this.lbKg2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbKg2.AutoSize = true;
-            this.lbKg2.Location = new System.Drawing.Point(398, 580);
+            this.lbKg2.Location = new System.Drawing.Point(398, 579);
             this.lbKg2.Name = "lbKg2";
             this.lbKg2.Size = new System.Drawing.Size(19, 13);
             this.lbKg2.TabIndex = 32;
@@ -338,7 +329,7 @@
             // 
             this.tbPalletProperties.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPalletProperties.Location = new System.Drawing.Point(11, 281);
+            this.tbPalletProperties.Location = new System.Drawing.Point(11, 280);
             this.tbPalletProperties.Multiline = true;
             this.tbPalletProperties.Name = "tbPalletProperties";
             this.tbPalletProperties.ReadOnly = true;
@@ -349,7 +340,7 @@
             // 
             this.lbAdmissibleHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbAdmissibleHeight.AutoSize = true;
-            this.lbAdmissibleHeight.Location = new System.Drawing.Point(11, 580);
+            this.lbAdmissibleHeight.Location = new System.Drawing.Point(11, 579);
             this.lbAdmissibleHeight.Name = "lbAdmissibleHeight";
             this.lbAdmissibleHeight.Size = new System.Drawing.Size(111, 13);
             this.lbAdmissibleHeight.TabIndex = 27;
@@ -358,7 +349,7 @@
             // nudAmissibleLoadHeight
             // 
             this.nudAmissibleLoadHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudAmissibleLoadHeight.Location = new System.Drawing.Point(129, 580);
+            this.nudAmissibleLoadHeight.Location = new System.Drawing.Point(129, 579);
             this.nudAmissibleLoadHeight.Name = "nudAmissibleLoadHeight";
             this.nudAmissibleLoadHeight.Size = new System.Drawing.Size(60, 20);
             this.nudAmissibleLoadHeight.TabIndex = 28;
@@ -368,7 +359,7 @@
             // 
             this.lbMm4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbMm4.AutoSize = true;
-            this.lbMm4.Location = new System.Drawing.Point(202, 580);
+            this.lbMm4.Location = new System.Drawing.Point(202, 579);
             this.lbMm4.Name = "lbMm4";
             this.lbMm4.Size = new System.Drawing.Size(23, 13);
             this.lbMm4.TabIndex = 29;
@@ -378,7 +369,7 @@
             // 
             this.lbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbType.AutoSize = true;
-            this.lbType.Location = new System.Drawing.Point(11, 453);
+            this.lbType.Location = new System.Drawing.Point(11, 452);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(31, 13);
             this.lbType.TabIndex = 11;
@@ -389,7 +380,7 @@
             this.cbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(129, 453);
+            this.cbType.Location = new System.Drawing.Point(129, 452);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(146, 21);
             this.cbType.TabIndex = 12;
@@ -398,7 +389,7 @@
             // trackBarHorizAngle
             // 
             this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.trackBarHorizAngle.Location = new System.Drawing.Point(11, 198);
+            this.trackBarHorizAngle.Location = new System.Drawing.Point(11, 197);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
             this.trackBarHorizAngle.Size = new System.Drawing.Size(356, 45);
@@ -411,7 +402,7 @@
             // 
             this.lbColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(341, 453);
+            this.lbColor.Location = new System.Drawing.Point(341, 452);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(31, 13);
             this.lbColor.TabIndex = 13;
@@ -433,12 +424,24 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
-            this.cbColor.Location = new System.Drawing.Point(378, 453);
+            this.cbColor.Location = new System.Drawing.Point(378, 452);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(79, 22);
             this.cbColor.TabIndex = 14;
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.Location = new System.Drawing.Point(11, 8);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(356, 183);
+            this.pictureBox.TabIndex = 4;
+            this.pictureBox.TabStop = false;
             // 
             // FormNewPallet
             // 
@@ -446,7 +449,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(470, 613);
+            this.ClientSize = new System.Drawing.Size(470, 612);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.trackBarHorizAngle);
@@ -489,7 +492,6 @@
             this.Text = "Create new Pallet...";
             this.Load += new System.EventHandler(this.FormNewPallet_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewPallet_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
@@ -497,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmissibleLoadHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

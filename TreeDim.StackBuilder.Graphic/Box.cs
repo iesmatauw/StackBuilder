@@ -15,13 +15,13 @@ namespace TreeDim.StackBuilder.Graphics
     public class Box : Drawable
     {
         #region Data members
-        uint _pickId = 0;
-        double[] _dim = new double[3];
-        Vector3D _position = Vector3D.Zero;
-        Vector3D _lengthAxis = Vector3D.XAxis;
-        Vector3D _widthAxis = Vector3D.YAxis;
-        Color[] _colors;
-        List<Texture>[] _textureLists = new List<Texture>[6];
+        private uint _pickId = 0;
+        private double[] _dim = new double[3];
+        private Vector3D _position = Vector3D.Zero;
+        private Vector3D _lengthAxis = Vector3D.XAxis;
+        private Vector3D _widthAxis = Vector3D.YAxis;
+        private Color[] _colors;
+        private List<Texture>[] _textureLists = new List<Texture>[6];
         /// <summary>
         /// Bundle properties
         /// </summary>

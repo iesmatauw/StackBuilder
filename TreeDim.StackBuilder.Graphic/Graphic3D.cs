@@ -279,6 +279,18 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
+
+                    foreach (Segment seg in _segments)
+                        foreach (Vector3D pt in seg.Points)
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                        }
                     Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
                     // adjust width/height
                     if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
@@ -333,6 +345,10 @@ namespace TreeDim.StackBuilder.Graphics
         internal void Draw(Face face)
         {
             System.Drawing.Graphics g = Graphics;
+
+            // test if face can actuallt be seen
+            if (Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) > 0.0)
+                return;
 
             // compute face color
             double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));

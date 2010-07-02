@@ -62,6 +62,15 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static System.Drawing.Bitmap Solution
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Solution", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         
         internal static System.Drawing.Bitmap Box {
             get {
@@ -109,6 +118,14 @@ namespace TreeDim.StackBuilder.Desktop {
             get
             {
                 object obj = ResourceManager.GetObject("Interlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+		
+		internal static System.Drawing.Bitmap Truck {
+            get
+            {
+                object obj = ResourceManager.GetObject("Truck", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

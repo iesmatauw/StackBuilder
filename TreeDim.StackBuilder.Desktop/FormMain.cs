@@ -173,6 +173,10 @@ namespace TreeDim.StackBuilder.Desktop
             // new bundle
             newBundleToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonCreateNewBundle.Enabled = (null != doc);
+            // new truck
+            newTruckToolStripMenuItem.Enabled = (null != doc);
+            toolStripButtonAddNewTruck.Enabled = (null != doc);
+
             // new analysis
             newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysis;
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysis;
@@ -208,7 +212,7 @@ namespace TreeDim.StackBuilder.Desktop
             IDocument doc = ActiveDocument;
             if (null == doc) return;
             CancelEventArgs e = new CancelEventArgs();
-            SaveDocumentAs(doc, e);
+            SaveDocument(doc, e);
         }
 
         public void SaveDocument(IDocument doc, CancelEventArgs e)
@@ -427,6 +431,19 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
                     , form.Weight
                     , form.AdmissibleLoadWeight, form.AdmissibleLoadHeight);
+        }
+
+        private void toolAddNewTruck(object sender, EventArgs e)
+        {
+            DocumentSB doc = (DocumentSB)ActiveDocument;
+            if (null == doc) return;
+
+            FormNewTruck form = new FormNewTruck(doc);
+            if (DialogResult.OK == form.ShowDialog())
+                doc.CreateNewTruck(form.TruckName, form.Description
+                    , form.TruckLength, form.TruckWidth, form.TruckHeight
+                    , form.TruckAdmissibleLoadWeight
+                    , form.TruckColor);
         }
 
         private void toolAddNewAnalysis(object sender, EventArgs e)

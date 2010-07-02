@@ -137,6 +137,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Truck {
+            get {
+                object obj = ResourceManager.GetObject("Truck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap View_1 {
             get {
                 object obj = ResourceManager.GetObject("View_1", resourceCulture);

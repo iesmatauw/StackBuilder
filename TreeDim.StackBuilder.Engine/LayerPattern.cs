@@ -53,6 +53,15 @@ namespace TreeDim.StackBuilder.Engine
                 return layer.PalletLength;        
         }
 
+        public void GetLayerDimensionsChecked(Layer layer, out double actualLength, out double actualWidth)
+        {
+            GetLayerDimensions(layer, out actualLength, out actualWidth);
+            if (actualLength > GetPalletLength(layer))
+                throw new EngineException("actualLength > palletLength ?");
+            if (actualWidth > GetPalletWidth(layer))
+                throw new EngineException("actualWidth > palletWidth ?");
+        }
+
         public void AddPosition(Layer layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             if (!_swaped)

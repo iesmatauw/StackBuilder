@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-	<Product Id="911b462d-19dc-490d-ba24-8ff7c6cc38d2" Name="StackBuilder"
+	<Product Id="*" Name="StackBuilder"
            Language="1033"
-           Version="0.1.0.0"
+           Version="0.1.1.0"
            Manufacturer="TreeDim"
            UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c">
+    <!-- Id="911b462d-19dc-490d-ba24-8ff7c6cc38d2" -->
+    <!--UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c"-->
 		<Package InstallerVersion="200" Compressed="yes" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
     <!-- define the directory structure-->
@@ -69,11 +71,14 @@
     <InstallExecuteSequence>
       <RemoveExistingProducts After="InstallInitialize"/>
     </InstallExecuteSequence>
-    <Upgrade Id="{4BB3D1AA-76C3-4b74-B3EB-FE703459398B}">
-      <UpgradeVersion Minimum="0.0.1"
+    <Upgrade Id="3ea15bae-a660-4872-a937-0a7c8a0f595c">
+      <UpgradeVersion Minimum="0.1.0.0"
                       IncludeMinimum="yes"
-                      Maximum="0.1.0"
+                      Maximum="0.1.1.0"
                       Property="OLDERVERSIONBEINGUPGRADED" />
+      <UpgradeVersion Minimum="0.1.1"
+                    OnlyDetect="yes"
+                    Property="NEWERVERSIONDETECTED" />
     </Upgrade>
     <UI>
       <!-- Add UI to the installer -->

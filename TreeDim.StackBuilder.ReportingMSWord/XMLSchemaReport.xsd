@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchemaReport" targetNamespace="http://tempuri.org/XMLSchemaReport.xsd" xmlns:mstns="http://tempuri.org/XMLSchemaReport.xsd" xmlns="http://tempuri.org/XMLSchemaReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" xmlns:NameSpace1="urn:schemas-microsoft-com:xml-msdatasource" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Document" msprop:Generator_UserTableName="Document" msprop:Generator_RowDeletedName="DocumentRowDeleted" msprop:Generator_TableClassName="DocumentDataTable" msprop:Generator_RowChangedName="DocumentRowChanged" msprop:Generator_RowClassName="DocumentRow" msprop:Generator_RowChangingName="DocumentRowChanging" msprop:Generator_RowEvArgName="DocumentRowChangeEvent" msprop:Generator_RowEvHandlerName="DocumentRowChangeEventHandler" msprop:Generator_TablePropName="Document" msprop:Generator_TableVarName="tableDocument" msprop:Generator_RowDeletingName="DocumentRowDeleting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" type="xs:string" />
+        <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInTable="descriptionColumn" type="xs:string" />
+        <xs:element name="author" msprop:Generator_UserColumnName="author" msprop:Generator_ColumnPropNameInRow="author" msprop:Generator_ColumnVarNameInTable="columnauthor" msprop:Generator_ColumnPropNameInTable="authorColumn" type="xs:string" />
+        <xs:element name="dateOfCreation" msprop:Generator_UserColumnName="dateOfCreation" msprop:Generator_ColumnPropNameInRow="dateOfCreation" msprop:Generator_ColumnVarNameInTable="columndateOfCreation" msprop:Generator_ColumnPropNameInTable="dateOfCreationColumn" type="xs:time" />
+        <xs:element name="PalletAnalysis" msprop:Generator_UserTableName="PalletAnalysis" msprop:Generator_RowDeletedName="PalletAnalysisRowDeleted" msprop:Generator_TableClassName="PalletAnalysisDataTable" msprop:Generator_RowChangedName="PalletAnalysisRowChanged" msprop:Generator_RowClassName="PalletAnalysisRow" msprop:Generator_RowChangingName="PalletAnalysisRowChanging" msprop:Generator_RowEvArgName="PalletAnalysisRowChangeEvent" msprop:Generator_RowEvHandlerName="PalletAnalysisRowChangeEventHandler" msprop:Generator_TablePropName="PalletAnalysis" msprop:Generator_TableVarName="tablePalletAnalysis" msprop:Generator_RowDeletingName="PalletAnalysisRowDeleting" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" type="xs:string" />
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInTable="descriptionColumn" type="xs:string" />
+              <xs:element name="pallet" msprop:Generator_UserTableName="pallet" msprop:Generator_RowDeletedName="palletRowDeleted" msprop:Generator_TableClassName="palletDataTable" msprop:Generator_RowChangedName="palletRowChanged" msprop:Generator_RowClassName="palletRow" msprop:Generator_RowChangingName="palletRowChanging" msprop:Generator_RowEvArgName="palletRowChangeEvent" msprop:Generator_RowEvHandlerName="palletRowChangeEventHandler" msprop:Generator_TablePropName="pallet" msprop:Generator_TableVarName="tablepallet" msprop:Generator_RowDeletingName="palletRowDeleting" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" type="xs:string" />
+                    <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInTable="descriptionColumn" type="xs:string" />
+                    <xs:element name="length" msprop:Generator_UserColumnName="Length" msprop:Generator_ColumnPropNameInRow="Length" msprop:Generator_ColumnVarNameInTable="columnLength" msprop:Generator_ColumnPropNameInTable="LengthColumn" type="xs:double" />
+                    <xs:element name="width" msprop:Generator_UserColumnName="Width" msprop:Generator_ColumnPropNameInRow="Width" msprop:Generator_ColumnVarNameInTable="columnWidth" msprop:Generator_ColumnPropNameInTable="WidthColumn" type="xs:double" />
+                    <xs:element name="height" msprop:Generator_UserColumnName="Height" msprop:Generator_ColumnPropNameInRow="Height" msprop:Generator_ColumnVarNameInTable="columnHeight" msprop:Generator_ColumnPropNameInTable="HeightColumn" type="xs:double" />
+                    <xs:element name="weight" msprop:Generator_UserColumnName="Weight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInTable="WeightColumn" type="xs:double" />
+                    <xs:element name="admissibleLoad" msprop:Generator_UserColumnName="AdmissibleLoad" msprop:Generator_ColumnPropNameInRow="AdmissibleLoad" msprop:Generator_ColumnVarNameInTable="columnAdmissibleLoad" msprop:Generator_ColumnPropNameInTable="AdmissibleLoadColumn" type="xs:double" />
+                    <xs:element name="type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:string" />
+                    <xs:element name="imageBinary" msprop:Generator_UserColumnName="ImageBinary" msprop:Generator_ColumnPropNameInRow="ImageBinary" msprop:Generator_ColumnVarNameInTable="columnImageBinary" msprop:Generator_ColumnPropNameInTable="ImageBinaryColumn" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="case" msprop:Generator_UserTableName="case" msprop:Generator_RowDeletedName="caseRowDeleted" msprop:Generator_TableClassName="caseDataTable" msprop:Generator_RowChangedName="caseRowChanged" msprop:Generator_RowClassName="caseRow" msprop:Generator_RowChangingName="caseRowChanging" msprop:Generator_RowEvArgName="caseRowChangeEvent" msprop:Generator_RowEvHandlerName="caseRowChangeEventHandler" msprop:Generator_TablePropName="_case" msprop:Generator_TableVarName="tablecase" msprop:Generator_RowDeletingName="caseRowDeleting" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn" type="xs:string" />
+                    <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInTable="descriptionColumn" type="xs:string" />
+                    <xs:element name="length" msprop:Generator_UserColumnName="Length" msprop:Generator_ColumnPropNameInRow="Length" msprop:Generator_ColumnVarNameInTable="columnLength" msprop:Generator_ColumnPropNameInTable="LengthColumn" type="xs:double" />
+                    <xs:element name="width" msprop:Generator_UserColumnName="Width" msprop:Generator_ColumnPropNameInRow="Width" msprop:Generator_ColumnVarNameInTable="columnWidth" msprop:Generator_ColumnPropNameInTable="WidthColumn" type="xs:double" />
+                    <xs:element name="height" msprop:Generator_UserColumnName="Height" msprop:Generator_ColumnPropNameInRow="Height" msprop:Generator_ColumnVarNameInTable="columnHeight" msprop:Generator_ColumnPropNameInTable="HeightColumn" type="xs:double" />
+                    <xs:element name="weight" msprop:Generator_UserColumnName="Weight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInTable="WeightColumn" type="xs:double" />
+                    <xs:element name="imageBinary" msprop:Generator_UserColumnName="ImageBinary" msprop:Generator_ColumnPropNameInRow="ImageBinary" msprop:Generator_ColumnVarNameInTable="columnImageBinary" msprop:Generator_ColumnPropNameInTable="ImageBinaryColumn" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="constraintSet" msprop:Generator_UserTableName="constraintSet" msprop:Generator_RowDeletedName="constraintSetRowDeleted" msprop:Generator_TableClassName="constraintSetDataTable" msprop:Generator_RowChangedName="constraintSetRowChanged" msprop:Generator_RowClassName="constraintSetRow" msprop:Generator_RowChangingName="constraintSetRowChanging" msprop:Generator_RowEvArgName="constraintSetRowChangeEvent" msprop:Generator_RowEvHandlerName="constraintSetRowChangeEventHandler" msprop:Generator_TablePropName="constraintSet" msprop:Generator_TableVarName="tableconstraintSet" msprop:Generator_RowDeletingName="constraintSetRowDeleting">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="allowedPatterns" msprop:Generator_UserColumnName="allowedPatterns" msprop:Generator_ColumnPropNameInRow="allowedPatterns" msprop:Generator_ColumnVarNameInTable="columnallowedPatterns" msprop:Generator_ColumnPropNameInTable="allowedPatternsColumn" type="xs:string" />
+                    <xs:element name="hasInterlayers" type="xs:boolean" />
+                    <xs:element name="interlayerPeriod" type="xs:short" />
+                    <xs:element name="allowedBoxAxis" type="xs:string" />
+                    <xs:element name="allowAlternateLayers" type="xs:boolean" />
+                    <xs:element name="allowAlignedLayers" type="xs:boolean" />
+                    <xs:element name="overhangX" type="xs:double" />
+                    <xs:element name="overhangY" type="xs:double" />
+                    <xs:element name="stopCriterion">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name" type="xs:string" />
+                          <xs:element name="value" type="xs:string" />
+                          <xs:element name="unit" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="interlayer">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="description" type="xs:string" />
+                    <xs:element name="length" type="xs:double" />
+                    <xs:element name="width" type="xs:double" />
+                    <xs:element name="thickness" type="xs:double" />
+                    <xs:element name="weight" type="xs:double" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="solution">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="efficiency" type="xs:double" />
+                    <xs:element name="palletWeight" type="xs:double" />
+                    <xs:element name="palletHeight" type="xs:double" />
+                    <xs:element name="boxCount" type="xs:int" />
+                    <xs:element name="title" type="xs:string" />
+                    <xs:element name="homogeneousLayer" type="xs:boolean" />
+                    <xs:element name="layers">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="description" type="xs:string" />
+                          <xs:element name="imageBinary" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="imageBinary" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

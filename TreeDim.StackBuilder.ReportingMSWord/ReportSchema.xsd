@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportSchema" targetNamespace="http://treeDim/StackBuilder/ReportSchema.xsd" xmlns:mstns="http://treeDim/StackBuilder/ReportSchema.xsd" xmlns="http://treeDim/StackBuilder/ReportSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" xmlns:NameSpace1="urn:schemas-microsoft-com:xml-msdatasource" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element name="dateOfCreation" type="xs:string" />
+        <xs:element name="palletAnalysis" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="pallet" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="admissibleLoad" type="xs:string" />
+                    <xs:element name="type" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="case" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="interlayer" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="description" type="xs:string" />
+                    <xs:element name="length" type="xs:string" />
+                    <xs:element name="width" type="xs:string" />
+                    <xs:element name="thickness" type="xs:string" />
+                    <xs:element name="weight" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

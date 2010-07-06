@@ -118,6 +118,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             return _allowedPatterns.Contains(patternName);
         }
+        public string AllowedPatternString
+        {
+            get
+            {
+                string sGlobal = string.Empty;
+                foreach (string s in _allowedPatterns)
+                    sGlobal += s + ";";
+                return sGlobal;
+            }
+        }
         public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
             return _allowedOrthoAxis[(int)orthoAxis];
@@ -125,6 +135,20 @@ namespace TreeDim.StackBuilder.Basics
         public void SetAllowedOrthoAxis(HalfAxis.HAxis axis, bool allowed)
         {
             _allowedOrthoAxis[(int)axis] = allowed;
+        }
+        public string AllowOrthoAxisString
+        {
+            get
+            {
+                string sGlobal = string.Empty;
+                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N)) sGlobal += "X-;";
+                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P)) sGlobal += "X+;";
+                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N)) sGlobal += "Y-;";
+                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P)) sGlobal += "Y+;";
+                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N)) sGlobal += "Z-;";
+                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P)) sGlobal += "Z+;";
+                return sGlobal;
+            }
         }
         #endregion
 

@@ -191,10 +191,8 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return truckProperties;
         }
- 
-
         /// <summary>
-        /// Creates a new analysis in this document
+        /// Creates a new analysis in this document + compute solutions
         /// </summary>
         /// <param name="name"></param>
         /// <param name="description"></param>
@@ -222,7 +220,17 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return analysis;
         }
-
+        /// <summary>
+        /// Creates a new analysis without generating solutions
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="box"></param>
+        /// <param name="pallet"></param>
+        /// <param name="interlayer"></param>
+        /// <param name="constraintSet"></param>
+        /// <param name="solutions"></param>
+        /// <returns></returns>
         public Analysis CreateNewAnalysis(
             string name, string description
             , BoxProperties box, PalletProperties pallet, InterlayerProperties interlayer
@@ -262,6 +270,21 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _name; }
             set { _name = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+        public string Author
+        {
+            get { return _author; }
+            set { _author = value; }
+        }
+        public DateTime DateOfCreation
+        {
+            get { return _dateCreated; }
+            set { _dateCreated = value; }
         }
         public List<BoxProperties> Boxes
         {
@@ -304,6 +327,11 @@ namespace TreeDim.StackBuilder.Basics
                 }
                 return interlayerList;
             }
+        }
+
+        public List<Analysis> Analyses
+        {
+            get { return _analyses; }
         }
 
         public bool CanCreateAnalysis

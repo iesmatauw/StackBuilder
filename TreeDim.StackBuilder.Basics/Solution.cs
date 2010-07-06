@@ -267,16 +267,6 @@ namespace TreeDim.StackBuilder.Basics
         {
             return this[Count - 1].ZLow + analysis.BoxProperties.Height;
         }
-        public Image PatternImage
-        {
-            get
-            {
-                Bitmap bmp = new Bitmap(200,75);
-                Graphics g = System.Drawing.Graphics.FromImage(bmp);
-                g.FillRectangle(Brushes.Blue, 0, 0, 200, 75);
-                return bmp;
-            }
-        }
         public bool HasHomogeneousLayers
         {
             get { return _homogeneousLayer; }

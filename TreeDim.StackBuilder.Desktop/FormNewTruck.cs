@@ -147,14 +147,14 @@ namespace TreeDim.StackBuilder.Desktop
         private void FormNewTruck_Load(object sender, EventArgs e)
         {
             // windows settings
-            if (null != Settings.Default.FormNewPalletPosition)
+            if (null != Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition.Restore(this);
         }
 
         private void FormNewTruck_FormClosing(object sender, FormClosingEventArgs e)
         {
             // window position
-            if (null == Settings.Default.FormNewPalletPosition)
+            if (null == Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition = new WindowSettings();
             Settings.Default.FormNewPalletPosition.Record(this);
         }

@@ -21,10 +21,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Product.wxs" />
-    <Compile Include="Product.Generated.wxs">
-      <DependentUpon>Product.wxs</DependentUpon>
-      <GenerateComponentGroups>True</GenerateComponentGroups>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixNetFxExtension">
@@ -59,6 +55,6 @@
 	</Target>
 	-->
   <Target Name="AfterBuild">
-    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="My Application Name" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="C:\Program Files (x86)\Microsoft SDKs\Windows\v6.0A\Bootstrapper\" />
+    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="My Application Name" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="C:\Program Files\Microsoft SDKs\Windows\v6.0A\Bootstrapper\" />
   </Target>
 </Project>

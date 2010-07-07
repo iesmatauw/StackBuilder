@@ -46,14 +46,14 @@ namespace TreeDim.StackBuilder.Desktop
         private void FormNewBundle_Load(object sender, EventArgs e)
         {
             // windows settings
-            if (null != Settings.Default.FormNewBoxPosition)
+            if (null != Settings.Default.FormNewBundlePosition)
                 Settings.Default.FormNewBundlePosition.Restore(this);
         }
         private void FormNewBundle_FormClosing(object sender, FormClosingEventArgs e)
         {
             // window position
-            if (null == Settings.Default.FormNewBoxPosition)
-                Settings.Default.FormNewBoxPosition = new WindowSettings();
+            if (null == Settings.Default.FormNewBundlePosition)
+                Settings.Default.FormNewBundlePosition = new WindowSettings();
             Settings.Default.FormNewBundlePosition.Record(this);
         }
         #endregion

@@ -3,7 +3,7 @@
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 	<Product Id="*" Name="StackBuilder"
            Language="1033"
-           Version="0.1.1.0"
+           Version="0.1.2.0"
            Manufacturer="TreeDim"
            UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c">
     <!-- Id="911b462d-19dc-490d-ba24-8ff7c6cc38d2" -->
@@ -74,9 +74,9 @@
     <Upgrade Id="3ea15bae-a660-4872-a937-0a7c8a0f595c">
       <UpgradeVersion Minimum="0.1.0.0"
                       IncludeMinimum="yes"
-                      Maximum="0.1.1.0"
+                      Maximum="0.1.2.0"
                       Property="OLDERVERSIONBEINGUPGRADED" />
-      <UpgradeVersion Minimum="0.1.1"
+      <UpgradeVersion Minimum="0.1.2"
                     OnlyDetect="yes"
                     Property="NEWERVERSIONDETECTED" />
     </Upgrade>

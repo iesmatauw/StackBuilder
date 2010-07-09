@@ -44,8 +44,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
                 Console.ReadKey();
 
                 // Display resulting report in Word
-                Process.Start(new ProcessStartInfo(outputFilePath));
-                
+                Process.Start(new ProcessStartInfo(outputFilePath));                
             }
             catch (Exception ex)
             {

@@ -57,9 +57,11 @@ namespace TreeDim.StackBuilder.Engine
         {
             GetLayerDimensions(layer, out actualLength, out actualWidth);
             if (actualLength > GetPalletLength(layer))
-                throw new EngineException("actualLength > palletLength ?");
+                throw new EngineException(string.Format("Pattern name={0} : actualLength={1} > palletLength={2} ?"
+                    , this.Name, actualLength, GetPalletLength(layer)));
             if (actualWidth > GetPalletWidth(layer))
-                throw new EngineException("actualWidth > palletWidth ?");
+                throw new EngineException(string.Format("Pattern name={0} : actualWidth={1} > palletWidth={2} ?"
+                    , this.Name, actualWidth, GetPalletWidth(layer)));
         }
 
         public void AddPosition(Layer layer, Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)

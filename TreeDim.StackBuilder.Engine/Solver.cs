@@ -6,6 +6,8 @@ using System.Diagnostics;
 
 using TreeDim.StackBuilder.Basics;
 using Sharp3D.Math.Core;
+
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Engine
@@ -16,11 +18,12 @@ namespace TreeDim.StackBuilder.Engine
     public class Solver : IAnalysisSolver
     {
         #region Data members
-        private List<LayerPattern> _patterns= new List<LayerPattern>();
+        private List<LayerPattern> _patterns = new List<LayerPattern>();
         private BoxProperties _boxProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
+        static readonly ILog _log = LogManager.GetLogger(typeof(Solver));
         #endregion
 
         #region Solver
@@ -63,107 +66,113 @@ namespace TreeDim.StackBuilder.Engine
 
                         if (!_constraintSet.AllowOrthoAxis(axisOrtho2))
                             continue;
-
-                        Layer layer1 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho1);
-                        Layer layer2 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho2);
-                        double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
-                        pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
-                        pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
-
-                        for (int j = 0; j < 4; ++j)
+                        try
                         {
-                            Layer layer1T = null, layer2T = null;
-                            if (0 == j && _constraintSet.AllowAlignedLayers)
-                            {
-                                pattern.GenerateLayer(layer1, actualLength1, actualWidth1);
-                                layer1T = layer1; layer2T = layer1;
-                            }
-                            else if (1 == j && _constraintSet.AllowAlignedLayers)
-                            {
-                                pattern.GenerateLayer(layer2, actualLength2, actualWidth2);
-                                layer1T = layer2; layer2T = layer2;
-                            }
-                            else if (2 == j && _constraintSet.AllowAlternateLayers)
-                            {
-                                pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
-                                pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
-                                layer1T = layer1; layer2T = layer2;
-                            }
-                            else if (3 == j && _constraintSet.AllowAlternateLayers)
-                            {
-                                pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
-                                pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
-                                layer1T = layer2; layer2T = layer1;
-                            }
+                            Layer layer1 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho1);
+                            Layer layer2 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho2);
+                            double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
+                            pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
+                            pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
 
-                            if (null == layer1T || null == layer2T)
-                                continue;
-
-                            // counters
-                            string axisName = string.Empty;
-                            switch (i)
+                            for (int j = 0; j < 4; ++j)
                             {
-                                case 0: axisName = "X"; break;
-                                case 1: axisName = "Y"; break;
-                                case 2: axisName = "Z"; break;
-                                default: break;
-                            }
-                            string title = string.Format("Pattern name : {0}\nVertical axis : {0}\n", pattern.Name, axisName);
-
-                            Solution sol = new Solution(title, layer1T == layer2T);
-                            int iLayerIndex = 0;
-                            bool innerLoopStop = false;
-                            double zLayer = _palletProperties.Height;
-                            int iInterlayer = 0;
-
-                            while (
-                                !innerLoopStop
-                                &&
-                                (!_constraintSet.UseMaximumHeight || (zLayer + _boxProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
-                                )
-                            {
-                                if (_constraintSet.HasInterlayer)
+                                Layer layer1T = null, layer2T = null;
+                                if (0 == j && _constraintSet.AllowAlignedLayers)
                                 {
-                                    if (iInterlayer >= _constraintSet.InterlayerPeriod)
-                                    {
-                                        InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
-                                        zLayer += _interlayerProperties.Thickness;
-                                        iInterlayer = 0;
-                                    }
-                                    ++iInterlayer;
+                                    pattern.GenerateLayer(layer1, actualLength1, actualWidth1);
+                                    layer1T = layer1; layer2T = layer1;
+                                }
+                                else if (1 == j && _constraintSet.AllowAlignedLayers)
+                                {
+                                    pattern.GenerateLayer(layer2, actualLength2, actualWidth2);
+                                    layer1T = layer2; layer2T = layer2;
+                                }
+                                else if (2 == j && _constraintSet.AllowAlternateLayers)
+                                {
+                                    pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                                    pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                                    layer1T = layer1; layer2T = layer2;
+                                }
+                                else if (3 == j && _constraintSet.AllowAlternateLayers)
+                                {
+                                    pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                                    pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
+                                    layer1T = layer2; layer2T = layer1;
                                 }
 
-                                BoxLayer layer = sol.CreateNewLayer(zLayer);
+                                if (null == layer1T || null == layer2T)
+                                    continue;
 
-                                // select current layer type
-                                Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
-                                foreach (LayerPosition layerPos in currentLayer)
+                                // counters
+                                string axisName = string.Empty;
+                                switch (i)
                                 {
-                                    int iCount = sol.Count + 1;
-                                    innerLoopStop = (iCount * _boxProperties.Weight > _constraintSet.MaximumPalletWeight)
-                                    || (_constraintSet.UseMaximumNumberOfItems && (iCount > _constraintSet.MaximumNumberOfItems));
-
-                                    if (!innerLoopStop)
-                                    {
-                                        BoxPosition boxPos = new BoxPosition(
-                                            layerPos.Position + zLayer * Vector3D.ZAxis
-                                            , layerPos.LengthAxis
-                                            , layerPos.WidthAxis
-                                            );
-
-                                        layer.Add(boxPos);
-                                    }
-                                    else
-                                        break;
+                                    case 0: axisName = "X"; break;
+                                    case 1: axisName = "Y"; break;
+                                    case 2: axisName = "Z"; break;
+                                    default: break;
                                 }
+                                string title = string.Format("Pattern name : {0}\nVertical axis : {0}\n", pattern.Name, axisName);
 
-                                // increment layer index
-                                ++iLayerIndex;
-                                zLayer += currentLayer.BoxHeight;
+                                Solution sol = new Solution(title, layer1T == layer2T);
+                                int iLayerIndex = 0;
+                                bool innerLoopStop = false;
+                                double zLayer = _palletProperties.Height;
+                                int iInterlayer = 0;
+
+                                while (
+                                    !innerLoopStop
+                                    &&
+                                    (!_constraintSet.UseMaximumHeight || (zLayer + _boxProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
+                                    )
+                                {
+                                    if (_constraintSet.HasInterlayer)
+                                    {
+                                        if (iInterlayer >= _constraintSet.InterlayerPeriod)
+                                        {
+                                            InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
+                                            zLayer += _interlayerProperties.Thickness;
+                                            iInterlayer = 0;
+                                        }
+                                        ++iInterlayer;
+                                    }
+
+                                    BoxLayer layer = sol.CreateNewLayer(zLayer);
+
+                                    // select current layer type
+                                    Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
+                                    foreach (LayerPosition layerPos in currentLayer)
+                                    {
+                                        int iCount = sol.Count + 1;
+                                        innerLoopStop = (iCount * _boxProperties.Weight > _constraintSet.MaximumPalletWeight)
+                                        || (_constraintSet.UseMaximumNumberOfItems && (iCount > _constraintSet.MaximumNumberOfItems));
+
+                                        if (!innerLoopStop)
+                                        {
+                                            BoxPosition boxPos = new BoxPosition(
+                                                layerPos.Position + zLayer * Vector3D.ZAxis
+                                                , layerPos.LengthAxis
+                                                , layerPos.WidthAxis
+                                                );
+
+                                            layer.Add(boxPos);
+                                        }
+                                        else
+                                            break;
+                                    }
+
+                                    // increment layer index
+                                    ++iLayerIndex;
+                                    zLayer += currentLayer.BoxHeight;
+                                }
+                                // insert solution
+                                if (sol.Count > 0)
+                                    solutions.Add(sol);
                             }
-                            // insert solution
-                            if (sol.Count > 0)
-                                solutions.Add(sol);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(string.Format("Exception caught: {0}", ex.Message));
                         }
                     }
                 }

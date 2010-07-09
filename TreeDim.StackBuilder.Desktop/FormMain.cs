@@ -493,7 +493,11 @@ namespace TreeDim.StackBuilder.Desktop
                     form.SelectedBox, form.SelectedPallet, form.SelectedInterlayer
                     , constraintSet
                     , new Solver());
-                CreateOrActivateViewAnalysis(analysis);
+                if (null != analysis)
+                    CreateOrActivateViewAnalysis(analysis);
+                else
+                    MessageBox.Show(string.Format("Failed to build valid analysis with given constraints")
+                        , Application.ProductName, MessageBoxButtons.OK);
             }
         }
         #endregion

@@ -215,6 +215,11 @@ namespace TreeDim.StackBuilder.Basics
             _analyses.Add(analysis);
             // compute analysis
             solver.ProcessAnalysis(analysis);
+            if (analysis.Solutions.Count < 1)
+            {	// remove analysis from list if it has no valid solution
+                _analyses.Remove(analysis);
+                return null;
+            }
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
             Modify();

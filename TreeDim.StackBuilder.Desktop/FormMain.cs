@@ -44,13 +44,21 @@ namespace TreeDim.StackBuilder.Desktop
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
             InitializeComponent();
 
-            // --- instantiate and start splach screen thread
-            Thread th = new Thread(new ThreadStart(DoSplash));
-            th.Start();
-            Thread.Sleep(1000);
-            th.Abort();
-            Thread.Sleep(100);
-            // ---
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length >= 2)
+            {
+                OpenDocument(args[1]);
+            }
+            else
+            {
+                // --- instantiate and start splach screen thread
+                Thread th = new Thread(new ThreadStart(DoSplash));
+                th.Start();
+                Thread.Sleep(1000);
+                th.Abort();
+                Thread.Sleep(100);
+                // ---
+            }
         }
         #endregion
 

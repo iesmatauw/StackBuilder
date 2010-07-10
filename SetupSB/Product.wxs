@@ -43,6 +43,13 @@
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
+        <!--File type association : begin-->
+        <ProgId Id="TreeDim.StackBuilder" Description="TreeDim StachBuilder Data File" Icon="TreeDim.StackBuilder.Desktop.exe" IconIndex="0">
+          <Extension Id="stb" ContentType="application/xml">
+            <Verb Id="open" Command="Open" TargetFile="TreeDim.StackBuilder.Desktop.exe" Argument='"%1\"' />
+          </Extension>
+        </ProgId>
+        <!--File type association : end-->
         <File Id="TreeDim.StackBuilder.Desktop.exe.config" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe.config" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Graphics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Graphics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Engine.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes"/>

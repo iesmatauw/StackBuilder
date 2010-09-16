@@ -378,12 +378,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\treeDim.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Analysis1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\Truck.bmp" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 using System.Xml;
+using System.Diagnostics;
 
 using TreeDim.StackBuilder.Basics;
 
@@ -22,10 +23,10 @@ namespace TreeDim.StackBuilder.Basics
     {
         // new
         void OnNewDocument(Document doc);
-        void OnNewTypeCreated(Document doc, ItemProperties itemProperties);
+        void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
         // remove
-        void OnTypeRemoved(Document doc, Analysis analysis);
+        void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, Analysis analysis);
         // close
         void OnDocumentClosed(Document doc);
@@ -42,7 +43,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private string _name, _description, _author;
         private DateTime _dateCreated;
-        private List<ItemProperties> _typeList = new List<ItemProperties>();
+        private List<ItemBase> _typeList = new List<ItemBase>();
         private List<Analysis> _analyses = new List<Analysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
@@ -100,7 +101,7 @@ namespace TreeDim.StackBuilder.Basics
             _typeList.Add(boxProperties);
             // notify listeners
             NotifyOnNewTypeCreated(boxProperties);
-
+            Modify();
             return boxProperties;
         }
 
@@ -253,16 +254,45 @@ namespace TreeDim.StackBuilder.Basics
             NotifyOnNewAnalysisCreated(analysis);
             return analysis;
         }
+
+        public void RemoveItem(ItemBase item)
+        {
+            // sanity check
+            if (null == item)
+            {
+                Debug.Assert(false);
+                return;
+            }
+            // notify listeners / remove
+            if (item.GetType() == typeof(BoxProperties)
+                || item.GetType() == typeof(BundleProperties)
+                || item.GetType() == typeof(PalletProperties)
+                || item.GetType() == typeof(InterlayerProperties)
+                || item.GetType() == typeof(TruckProperties))
+            {
+                NotifyOnTypeRemoved(item);
+                _typeList.Remove(item);
+            }
+            else if (item.GetType() == typeof(Analysis))
+            {
+                NotifyOnAnalysisRemoved(item as Analysis);
+                _analyses.Remove(item as Analysis);
+            }
+            else
+                Debug.Assert(false);
+            item.Dispose();
+            Modify();
+        }
         #endregion
 
         #region Name methods
-        public bool IsValidTypeName(string name)
+        public bool IsValidNewTypeName(string name)
         { 
             // make sure is not empty
             if (name.Trim() == string.Empty)
                 return false;            
             // make sure that name is not already used
-            foreach (ItemProperties item in _typeList)
+            foreach (ItemBase item in _typeList)
                 if (item.Name.Trim().ToLower() == name.Trim().ToLower())
                     return false;            
             // success
@@ -296,7 +326,7 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 List<BoxProperties> boxList = new List<BoxProperties>();
-                foreach (ItemProperties item in _typeList)
+                foreach (ItemBase item in _typeList)
                 {
                     BoxProperties boxProperties = item as BoxProperties;
                     if (null != boxProperties)
@@ -310,7 +340,7 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 List<PalletProperties> palletList = new List<PalletProperties>();
-                foreach (ItemProperties item in _typeList)
+                foreach (ItemBase item in _typeList)
                 {
                     PalletProperties palletProperties = item as PalletProperties;
                     if (null != palletProperties)
@@ -324,7 +354,7 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 List<InterlayerProperties> interlayerList = new List<InterlayerProperties>();
-                foreach (ItemProperties item in _typeList)
+                foreach (ItemBase item in _typeList)
                 {
                     InterlayerProperties interlayerProperties = item as InterlayerProperties;
                     if (null != interlayerProperties)
@@ -344,7 +374,7 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 int iNoBox = 0, iNoPallets = 0;
-                foreach (ItemProperties item in _typeList)
+                foreach (ItemBase item in _typeList)
                 {
                     if (item.GetType() == typeof(BoxProperties))
                         ++iNoBox;
@@ -665,7 +695,7 @@ namespace TreeDim.StackBuilder.Basics
                 // create ItemProperties element
                 XmlElement xmlItemPropertiesElt = xmlDoc.CreateElement("ItemProperties");
                 xmlRootElement.AppendChild(xmlItemPropertiesElt);
-                foreach (ItemProperties itemProperties in _typeList)
+                foreach (ItemBase itemProperties in _typeList)
                 {
                     BoxProperties boxProperties = itemProperties as BoxProperties;
                     if (null != boxProperties)
@@ -1043,9 +1073,9 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Helpers
-        private ItemProperties GetTypeByGuid(Guid guid)
+        private ItemBase GetTypeByGuid(Guid guid)
         {
-            foreach (ItemProperties type in _typeList)
+            foreach (ItemBase type in _typeList)
                 if (type.Guid == guid)
                     return type;
             throw new Exception(string.Format("No type with Guid = {0}", guid.ToString()));
@@ -1061,10 +1091,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             _listeners.Add(listener);
         }
-        private void NotifyOnNewTypeCreated(ItemProperties itemProperties)
+        private void NotifyOnNewTypeCreated(ItemBase item)
         {
             foreach (IDocumentListener listener in _listeners)
-                listener.OnNewTypeCreated(this, itemProperties);
+                listener.OnNewTypeCreated(this, item);
         }
         private void NotifyOnNewAnalysisCreated(Analysis analysis)
         {
@@ -1075,6 +1105,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnDocumentClosed(this);
+        }
+        private void NotifyOnTypeRemoved(ItemBase item)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnTypeRemoved(this, item);
+        }
+        private void NotifyOnAnalysisRemoved(Analysis analysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnAnalysisRemoved(this, analysis);
         }
         #endregion
     }

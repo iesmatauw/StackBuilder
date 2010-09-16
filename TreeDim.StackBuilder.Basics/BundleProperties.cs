@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class BundleProperties : ItemProperties
+    public class BundleProperties : ItemBase
     {
         #region Data members
         private double _length = 0.0, _width = 0.0, _unitThickness = 0.0, _unitWeight = 0.0;

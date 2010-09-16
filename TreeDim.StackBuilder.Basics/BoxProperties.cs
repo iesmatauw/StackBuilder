@@ -12,7 +12,7 @@ namespace TreeDim.StackBuilder.Basics
     /// <summary>
     /// Box properties (dimensions, colors, textures)
     /// </summary>
-    public class BoxProperties : ItemProperties
+    public class BoxProperties : ItemBase
     {
         #region Data members
         private double _length, _width, _height;

@@ -7,11 +7,9 @@ using System.Text;
 namespace TreeDim.StackBuilder.Basics
 {
     #region Analysis
-    public class Analysis
+    public class Analysis : ItemBase
     {
         #region Data members
-        private string _name;
-        private string _description;
         private BoxProperties _boxProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
@@ -21,32 +19,26 @@ namespace TreeDim.StackBuilder.Basics
 
         #region Constructor
         public Analysis(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, ConstraintSet constraintSet)
+            : base(boxProperties.ParentDocument)
         {
+            // sanity check
+            if (palletProperties.ParentDocument != ParentDocument
+                || (interlayerProperties != null && interlayerProperties.ParentDocument != ParentDocument))
+                throw new Exception();
+
             _boxProperties = boxProperties;
             _palletProperties = palletProperties;
             _interlayerProperties = interlayerProperties;
             _constraintSet = constraintSet;
+
+            boxProperties.AddDependancie(this);
+            palletProperties.AddDependancie(this);
+            if (null != interlayerProperties)
+                interlayerProperties.AddDependancie(this);
         }
         #endregion
 
         #region Public properties
-        public Document ParentDocument
-        {
-            get { return _boxProperties.ParentDocument; }
-        }
-
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        public string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
-
         public List<Solution> Solutions
         {
             set { _solutions = value; }
@@ -75,6 +67,17 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _constraintSet; }
             set { _constraintSet = value; }
+        }
+        #endregion
+
+        #region Dependancies
+        protected override void RemoveItselfFromDependancies()
+        {
+            _boxProperties.RemoveDependancie(this);
+            _palletProperties.RemoveDependancie(this);
+            if (null != _interlayerProperties)
+                _interlayerProperties.RemoveDependancie(this);
+            base.RemoveItselfFromDependancies();
         }
         #endregion
     }

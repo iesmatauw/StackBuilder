@@ -80,13 +80,14 @@
     </InstallExecuteSequence>
     <Upgrade Id="3ea15bae-a660-4872-a937-0a7c8a0f595c">
       <UpgradeVersion Minimum="0.1.0.0"
-                      IncludeMinimum="yes"
                       Maximum="0.1.2.0"
+                      IncludeMinimum="yes"
                       Property="OLDERVERSIONBEINGUPGRADED" />
       <UpgradeVersion Minimum="0.1.2"
                     OnlyDetect="yes"
                     Property="NEWERVERSIONDETECTED" />
     </Upgrade>
+    <!--UI-->
     <UI>
       <!-- Add UI to the installer -->
       <UIRef Id="WixUI_Minimal" />
@@ -96,6 +97,10 @@
             Event="DoAction"
             Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
     </UI>
+    <!--UI-->
+    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf"/>
     <!-- Include 'Start' custom action-->
     <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
     <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />

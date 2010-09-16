@@ -64,7 +64,7 @@
     <Compile Include="ConstraintSet.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="InterlayerProperties.cs" />
-    <Compile Include="ItemProperties.cs" />
+    <Compile Include="ItemBase.cs" />
     <Compile Include="PalletProperties.cs" />
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,9 +81,6 @@
     <None Include="Basics.cd" />
     <None Include="Basics.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Basics.xsx">
-      <DependentUpon>Basics.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

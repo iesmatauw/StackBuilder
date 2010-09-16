@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class PalletProperties : ItemProperties
+    public class PalletProperties : ItemBase
     {
         #region Enums
         public enum PalletType

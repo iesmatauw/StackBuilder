@@ -37,7 +37,11 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Truck);       // 7
                 ImageList.Images.Add(AnalysisTreeView.Analysis);    // 8
                 ImageList.Images.Add(AnalysisTreeView.Solution);    // 9
+                // instantiate context menu
+                ContextMenu = new ContextMenu();
+                // attach event handlers
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
+                ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
             }
             catch (Exception ex)
             {
@@ -49,6 +53,44 @@ namespace TreeDim.StackBuilder.Desktop
         {
             this.SuspendLayout();
             this.ResumeLayout(false);
+        }
+        #endregion
+
+        #region Context menu
+        /// <summary>
+        /// Handler for ContextMenu.Popup event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContextMenu_Popup(object sender, EventArgs e)
+        {
+            // retrieve node which was clicked
+            TreeNode node = GetNodeAt(PointToClient(Cursor.Position));
+            if (node == null) return; // user might right click no valid node
+            // clear previous items
+            ContextMenu.MenuItems.Clear();
+            // let the provider do his work
+            NodeTag nodeTag = node.Tag as NodeTag;
+            if (null != nodeTag)
+                QueryContextMenuItems(nodeTag, this.ContextMenu);
+        }
+
+        private void QueryContextMenuItems(NodeTag nodeTag, ContextMenu contextMenu)
+        {
+            if (nodeTag.Type == NodeTag.NodeType.NT_BOX
+                || nodeTag.Type == NodeTag.NodeType.NT_PALLET
+                || nodeTag.Type == NodeTag.NodeType.NT_BUNDLE
+                || nodeTag.Type == NodeTag.NodeType.NT_INTERLAYER
+                || nodeTag.Type == NodeTag.NodeType.NT_TRUCK)
+                contextMenu.MenuItems.Add(new MenuItem("Delete", new EventHandler(onBaseItemDelete)));
+        }
+
+        private void onBaseItemDelete(object sender, EventArgs e)
+        {
+            NodeTag tag = SelectedNode.Tag as NodeTag;
+            if (null == tag) return;
+
+            tag.Document.RemoveItem(tag.ItemProperties);
         }
         #endregion
 
@@ -141,7 +183,7 @@ namespace TreeDim.StackBuilder.Desktop
             nodeDoc.Nodes.Add(nodeAnalyses);
             nodeDoc.Expand();
         }
-        public void OnNewTypeCreated(Document doc, ItemProperties itemProperties)
+        public void OnNewTypeCreated(Document doc, ItemBase itemProperties)
         {
             int iconIndex = 0;
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_BOX;
@@ -217,11 +259,34 @@ namespace TreeDim.StackBuilder.Desktop
         public void OnNewSolutionAdded(Document doc, Analysis analysis, Solution sol)
         {
         }
-        public void OnTypeRemoved(Document doc, Analysis analysis)
-        {        
+        public void OnTypeRemoved(Document doc, ItemBase itemBase)
+        {
+            NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
+            if (itemBase.GetType() == typeof(BoxProperties))    {
+                nodeType = NodeTag.NodeType.NT_BOX;
+            } else if (itemBase.GetType() == typeof(BundleProperties))  {
+                nodeType = NodeTag.NodeType.NT_BUNDLE;
+            } else if (itemBase.GetType() == typeof(InterlayerProperties))  {
+                nodeType = NodeTag.NodeType.NT_INTERLAYER;
+            } else if (itemBase.GetType() == typeof(PalletProperties))  {
+                nodeType = NodeTag.NodeType.NT_PALLET;
+            } else if (itemBase.GetType() == typeof(TruckProperties))   {
+                nodeType = NodeTag.NodeType.NT_TRUCK;
+            }
+            Debug.Assert(nodeType != NodeTag.NodeType.NT_UNKNOWN);
+            if (nodeType == NodeTag.NodeType.NT_UNKNOWN)
+                return; // ->not found exit
+            // get node
+            TreeNode typeNode = FindNode(null, new NodeTag(nodeType, doc, itemBase, null));
+            // remove node
+            Nodes.Remove(typeNode);
         }
         public void OnAnalysisRemoved(Document doc, Analysis analysis)
-        { 
+        {
+            // get node
+            TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis));
+            // remove node
+            Nodes.Remove(analysisNode);
         }
         public void OnDocumentClosed(Document doc)
         { 
@@ -230,7 +295,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisTreeView));
-        #endregion
+       #endregion
     }
     #endregion
 
@@ -255,18 +320,19 @@ namespace TreeDim.StackBuilder.Desktop
             , NT_ANALYSIS
             , NT_ANALYSISBOX
             , NT_ANALYSISPALLET
+            , NT_UNKNOWN
         }
         #endregion
 
         #region Data members
         private NodeType _type;
         private Document _document;
-        private ItemProperties _itemProperties;
+        private ItemBase _itemProperties;
         private Analysis _analysis;
         #endregion
 
         #region Constructor
-        public NodeTag(NodeType type, Document document, ItemProperties itemProperties, Analysis analysis)
+        public NodeTag(NodeType type, Document document, ItemBase itemProperties, Analysis analysis)
         {
             _type = type;
             _document = document;
@@ -297,7 +363,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Public properties
         public NodeType Type { get { return _type; } }
         public Document Document { get { return _document; } }
-        public ItemProperties ItemProperties { get { return _itemProperties; } }
+        public ItemBase ItemProperties { get { return _itemProperties; } }
         public Analysis Analysis { get { return _analysis; } }
         #endregion
     }

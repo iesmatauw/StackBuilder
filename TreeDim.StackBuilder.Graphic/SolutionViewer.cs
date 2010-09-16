@@ -59,7 +59,8 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.AddBox(box);
                 }
             }
-            if (false)
+            bool showAxes = false;
+            if (showAxes)
             {
                 // draw axis
                 graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(2000.0, 0.0, 0.0), Color.Red));

@@ -124,7 +124,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0
                 && tbDescription.Text.Length > 0
-                && _document.IsValidTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text);
         }
 
         private void onTruckPropertyChanged(object sender, EventArgs e)

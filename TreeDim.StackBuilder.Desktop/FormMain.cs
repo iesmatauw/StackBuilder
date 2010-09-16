@@ -231,6 +231,12 @@ namespace TreeDim.StackBuilder.Desktop
                 doc.Save();
         }
 
+        public void SaveAllDocuments()
+        {
+            CancelEventArgs e = new CancelEventArgs();
+            SaveAllDocuments(e);
+        }
+
         public void SaveAllDocuments(CancelEventArgs e)
         {
             if (e.Cancel) return;
@@ -375,25 +381,13 @@ namespace TreeDim.StackBuilder.Desktop
         {
             if (DialogResult.OK == openFileDialogSB.ShowDialog())
                 foreach(string fileName in openFileDialogSB.FileNames)
-                    OpenDocument(fileName);
-            
+                    OpenDocument(fileName);            
         }
 
-        private void fileSave(object sender, EventArgs e)
-        {
-            SaveDocument();
-        }
-
-        private void fileSaveAll(object sender, EventArgs e)
-        {
-            CancelEventArgs ea = new CancelEventArgs();
-            SaveAllDocuments(ea);
-        }
-
-        private void fileExit(object sender, EventArgs e)
-        {
-            Close();                
-        }
+        private void fileSave(object sender, EventArgs e)        {   SaveDocument();   }
+        private void fileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs(); }
+        private void fileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();  }
+        private void fileExit(object sender, EventArgs e)        {   Close();   }
         #endregion
 
         #region Tools

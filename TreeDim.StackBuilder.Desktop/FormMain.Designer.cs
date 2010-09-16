@@ -201,7 +201,9 @@
             this.saveAsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.saveAsToolStripMenuItem.Text = "Save as...";
+            this.saveAsToolStripMenuItem.Text = "Save &as...";
+            this.saveAsToolStripMenuItem.ToolTipText = "Save &as...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.fileSaveAs);
             // 
             // saveAllToolStripMenuItem
             // 
@@ -447,7 +449,7 @@
             // 
             // openFileDialogSB
             // 
-            this.openFileDialogSB.FileName = "File.xml";
+            this.openFileDialogSB.FileName = string.Empty;
             this.openFileDialogSB.Filter = "StackBuilder files|*.stb|All files|*.*";
             this.openFileDialogSB.Title = "Open file...";
             // 

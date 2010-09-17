@@ -26,13 +26,15 @@ namespace TreeDim.StackBuilder.Desktop
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             // set up a simple logging configuration
             XmlConfigurator.Configure();
             if (!LogManager.GetRepository().Configured)
                 Debug.Fail("Logging not configured!\n Press ignore to continue");
 
+            // note: arguments are handled within FormMain constructor
+            // using Environment.GetCommandLineArgs()
             try
             {
                 _log.Info("Starting " + Application.ProductName);

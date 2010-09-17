@@ -21,6 +21,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        private PalletProperties _palletProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
         #endregion
 
@@ -55,6 +56,49 @@ namespace TreeDim.StackBuilder.Desktop
             radioButtonPallet2.Checked = true;
             onPalletInsertionModeChanged(this, null);
             UpdateButtonOkStatus();
+        }
+        public FormNewPallet(Document document, PalletProperties palletProperties)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _palletProperties = palletProperties;
+            // initialize type combo
+            for (int i = 0; i < 2; ++i)
+                cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
+            cbType.SelectedIndex = 1;
+
+            // initialize database pallet combo
+            if (0 == cbPallet.Items.Count)
+            {
+                radioButtonPallet1.Checked = false;
+                radioButtonPallet2.Checked = true;
+            }
+            // set caption text
+            Text = string.Format("Edit {0}...", _palletProperties.Name);
+            // initialize data
+            tbName.Text = _palletProperties.Name;
+            tbDescription.Text = _palletProperties.Description;
+            PalletLength = _palletProperties.Length;
+            PalletWidth = _palletProperties.Width;
+            PalletHeight = _palletProperties.Height;
+            Weight = _palletProperties.Weight;
+            AdmissibleLoadWeight = _palletProperties.AdmissibleLoadWeight;
+            AdmissibleLoadHeight = _palletProperties.AdmissibleLoadHeight;
+
+            // select radio button
+            radioButtonPallet1.Checked = false;
+            radioButtonPallet2.Checked = true;
+            onPalletInsertionModeChanged(this, null);
+            UpdateButtonOkStatus();
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnResize(EventArgs e)
+        {
+            DrawPallet();
+            base.OnResize(e);
         }
         #endregion
 
@@ -192,7 +236,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0
                 && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text, _palletProperties);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
@@ -206,6 +250,7 @@ namespace TreeDim.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition.Restore(this);
+            DrawPallet();
         }
         private void FormNewPallet_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -76,7 +76,7 @@
             // 
             this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(383, 13);
+            this.bnAccept.Location = new System.Drawing.Point(397, 13);
             this.bnAccept.Name = "bnAccept";
             this.bnAccept.Size = new System.Drawing.Size(75, 23);
             this.bnAccept.TabIndex = 0;
@@ -87,7 +87,7 @@
             // 
             this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(383, 42);
+            this.bnCancel.Location = new System.Drawing.Point(397, 42);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 1;
@@ -142,7 +142,8 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDescription.Location = new System.Drawing.Point(129, 422);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(329, 20);
@@ -232,6 +233,7 @@
             // 
             // lbWeight
             // 
+            this.lbWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbWeight.AutoSize = true;
             this.lbWeight.Location = new System.Drawing.Point(250, 496);
             this.lbWeight.Name = "lbWeight";
@@ -241,6 +243,7 @@
             // 
             // nudWeight
             // 
+            this.nudWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nudWeight.Location = new System.Drawing.Point(331, 496);
             this.nudWeight.Name = "nudWeight";
             this.nudWeight.Size = new System.Drawing.Size(60, 20);
@@ -316,13 +319,13 @@
             // 
             // cbPallet
             // 
-            this.cbPallet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cbPallet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
             this.cbPallet.Location = new System.Drawing.Point(182, 253);
             this.cbPallet.Name = "cbPallet";
-            this.cbPallet.Size = new System.Drawing.Size(185, 21);
+            this.cbPallet.Size = new System.Drawing.Size(199, 21);
             this.cbPallet.TabIndex = 4;
             // 
             // tbPalletProperties
@@ -333,7 +336,7 @@
             this.tbPalletProperties.Multiline = true;
             this.tbPalletProperties.Name = "tbPalletProperties";
             this.tbPalletProperties.ReadOnly = true;
-            this.tbPalletProperties.Size = new System.Drawing.Size(446, 78);
+            this.tbPalletProperties.Size = new System.Drawing.Size(460, 78);
             this.tbPalletProperties.TabIndex = 5;
             // 
             // lbAdmissibleHeight
@@ -388,11 +391,12 @@
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarHorizAngle.Location = new System.Drawing.Point(11, 197);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(356, 45);
+            this.trackBarHorizAngle.Size = new System.Drawing.Size(370, 45);
             this.trackBarHorizAngle.TabIndex = 2;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.Value = 45;
@@ -425,6 +429,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(378, 452);
             this.cbColor.Name = "cbColor";
@@ -439,7 +444,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.Location = new System.Drawing.Point(11, 8);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(356, 183);
+            this.pictureBox.Size = new System.Drawing.Size(370, 183);
             this.pictureBox.TabIndex = 4;
             this.pictureBox.TabStop = false;
             // 
@@ -449,7 +454,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(470, 612);
+            this.ClientSize = new System.Drawing.Size(484, 612);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.trackBarHorizAngle);
@@ -486,6 +491,7 @@
             this.Controls.Add(this.bnAccept);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(500, 650);
             this.Name = "FormNewPallet";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

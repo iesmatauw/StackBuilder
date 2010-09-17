@@ -64,7 +64,7 @@
             // 
             this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(393, 8);
+            this.bnAccept.Location = new System.Drawing.Point(397, 8);
             this.bnAccept.Name = "bnAccept";
             this.bnAccept.Size = new System.Drawing.Size(75, 23);
             this.bnAccept.TabIndex = 0;
@@ -75,7 +75,7 @@
             // 
             this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(393, 34);
+            this.bnCancel.Location = new System.Drawing.Point(397, 34);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 1;
@@ -84,6 +84,8 @@
             // 
             // tbDescription
             // 
+            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDescription.Location = new System.Drawing.Point(96, 34);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(280, 20);
@@ -252,6 +254,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(161, 16);
             this.cbColor.Name = "cbColor";
@@ -308,10 +311,10 @@
             this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Location = new System.Drawing.Point(254, 285);
+            this.trackBarHorizAngle.Location = new System.Drawing.Point(254, 284);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(210, 45);
+            this.trackBarHorizAngle.Size = new System.Drawing.Size(214, 45);
             this.trackBarHorizAngle.TabIndex = 37;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
@@ -323,7 +326,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.Location = new System.Drawing.Point(254, 67);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(213, 212);
+            this.pictureBox.Size = new System.Drawing.Size(217, 211);
             this.pictureBox.TabIndex = 30;
             this.pictureBox.TabStop = false;
             // 
@@ -333,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(480, 339);
+            this.ClientSize = new System.Drawing.Size(484, 338);
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.gbWeight);
@@ -347,6 +350,7 @@
             this.Controls.Add(this.bnAccept);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(500, 376);
             this.Name = "FormNewInterlayer";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

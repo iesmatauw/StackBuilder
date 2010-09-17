@@ -129,7 +129,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
 
         internal System.Windows.Forms.ContextMenuStrip ContextMenuDock;

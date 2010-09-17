@@ -123,6 +123,8 @@
             // 
             // lbDateCreated
             // 
+            this.lbDateCreated.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDateCreated.AutoSize = true;
             this.lbDateCreated.Location = new System.Drawing.Point(13, 182);
             this.lbDateCreated.Name = "lbDateCreated";
@@ -132,6 +134,8 @@
             // 
             // tbDateCreated
             // 
+            this.tbDateCreated.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDateCreated.Location = new System.Drawing.Point(109, 182);
             this.tbDateCreated.Name = "tbDateCreated";
             this.tbDateCreated.ReadOnly = true;
@@ -157,6 +161,7 @@
             this.Controls.Add(this.lbName);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "FormNewDocument";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

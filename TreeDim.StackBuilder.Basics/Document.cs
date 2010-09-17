@@ -286,15 +286,19 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Name methods
-        public bool IsValidNewTypeName(string name)
+        public bool IsValidNewTypeName(string name, ItemBase itemToName)
         { 
             // make sure is not empty
             if (name.Trim() == string.Empty)
                 return false;            
             // make sure that name is not already used
             foreach (ItemBase item in _typeList)
+            {
+                if (item == itemToName)
+                    continue;
                 if (item.Name.Trim().ToLower() == name.Trim().ToLower())
-                    return false;            
+                    return false;
+            }
             // success
             return true;
         }

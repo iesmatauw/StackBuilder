@@ -19,6 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        private InterlayerProperties _interlayerProperties;
         #endregion
 
         #region Constructor
@@ -34,6 +35,36 @@ namespace TreeDim.StackBuilder.Desktop
             trackBarHorizAngle.Value = 45;
             // disable Ok button
             UpdateButtonOkStatus();
+        }
+        public FormNewInterlayer(Document document, InterlayerProperties interlayerProperties)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _interlayerProperties = interlayerProperties;
+            // set caption text
+            Text = string.Format("Edit {0}...", _interlayerProperties.Name);
+            // initialize value
+            tbName.Text = _interlayerProperties.Name;
+            tbDescription.Text = _interlayerProperties.Description;
+            InterlayerLength = _interlayerProperties.Length;
+            InterlayerWidth = _interlayerProperties.Width;
+            Thickness = _interlayerProperties.Thickness;
+            Weight = _interlayerProperties.Weight;
+            this.Color = _interlayerProperties.Color;
+
+            // set horizontal angle
+            trackBarHorizAngle.Value = 45;
+            // disable Ok button
+            UpdateButtonOkStatus();
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnResize(EventArgs e)
+        {
+            DrawInterlayer();
+            base.OnResize(e);
         }
         #endregion
 
@@ -66,6 +97,7 @@ namespace TreeDim.StackBuilder.Desktop
         public double Weight
         {
             get { return (double)nudWeight.Value; }
+            set { nudWeight.Value = (decimal)value; }
         }
         public Color Color
         {
@@ -92,7 +124,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0
                 && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text, _interlayerProperties);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
@@ -133,6 +165,7 @@ namespace TreeDim.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewInterlayerPosition)
                 Settings.Default.FormNewInterlayerPosition.Restore(this);
+            DrawInterlayer();
         }
         private void FormNewInterlayer_FormClosing(object sender, FormClosingEventArgs e)
         {

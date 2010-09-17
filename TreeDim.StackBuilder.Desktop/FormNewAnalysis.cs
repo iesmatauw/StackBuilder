@@ -24,6 +24,7 @@ namespace TreeDim.StackBuilder.Desktop
         private PalletProperties[] _palletProperties;
         private InterlayerProperties[] _interlayerProperties;
         private Document _document;
+        private Analysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion
 
@@ -93,6 +94,17 @@ namespace TreeDim.StackBuilder.Desktop
             InitializeComponent();
             // save document reference
             _document = document;
+            onInterlayerChecked(this, null);
+        }
+        public FormNewAnalysis(Document document, Analysis analysis)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _analysis = analysis;
+            // set caption text
+            Text = string.Format("Edit {0}...", _analysis.Name);
+
             onInterlayerChecked(this, null);
         }
         #endregion
@@ -355,7 +367,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0
                 && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text, _analysis);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

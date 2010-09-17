@@ -79,6 +79,9 @@
             this.nudNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
             this.lbBoxes = new System.Windows.Forms.Label();
             this.gbAdditionalData = new System.Windows.Forms.GroupBox();
+            this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
+            this.nudSolutions = new System.Windows.Forms.NumericUpDown();
+            this.lbSolutions = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -96,6 +99,7 @@
             this.gbStopStackingCondition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).BeginInit();
             this.gbAdditionalData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).BeginInit();
             this.SuspendLayout();
             // 
             // bnAccept
@@ -150,7 +154,7 @@
             // 
             this.tbDescription.Location = new System.Drawing.Point(128, 36);
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(280, 20);
+            this.tbDescription.Size = new System.Drawing.Size(355, 20);
             this.tbDescription.TabIndex = 5;
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
@@ -592,7 +596,7 @@
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
             this.gbStopStackingCondition.Location = new System.Drawing.Point(8, 356);
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
-            this.gbStopStackingCondition.Size = new System.Drawing.Size(373, 154);
+            this.gbStopStackingCondition.Size = new System.Drawing.Size(304, 154);
             this.gbStopStackingCondition.TabIndex = 44;
             this.gbStopStackingCondition.TabStop = false;
             this.gbStopStackingCondition.Text = "Stop stacking condition";
@@ -600,7 +604,7 @@
             // checkBoxNumberOfPallets
             // 
             this.checkBoxNumberOfPallets.AutoSize = true;
-            this.checkBoxNumberOfPallets.Location = new System.Drawing.Point(8, 27);
+            this.checkBoxNumberOfPallets.Location = new System.Drawing.Point(8, 16);
             this.checkBoxNumberOfPallets.Name = "checkBoxNumberOfPallets";
             this.checkBoxNumberOfPallets.Size = new System.Drawing.Size(221, 17);
             this.checkBoxNumberOfPallets.TabIndex = 45;
@@ -609,7 +613,7 @@
             // 
             // nudNumberOfBoxes
             // 
-            this.nudNumberOfBoxes.Location = new System.Drawing.Point(231, 27);
+            this.nudNumberOfBoxes.Location = new System.Drawing.Point(231, 16);
             this.nudNumberOfBoxes.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -622,7 +626,7 @@
             // lbBoxes
             // 
             this.lbBoxes.AutoSize = true;
-            this.lbBoxes.Location = new System.Drawing.Point(310, 27);
+            this.lbBoxes.Location = new System.Drawing.Point(310, 16);
             this.lbBoxes.Name = "lbBoxes";
             this.lbBoxes.Size = new System.Drawing.Size(35, 13);
             this.lbBoxes.TabIndex = 47;
@@ -630,15 +634,59 @@
             // 
             // gbAdditionalData
             // 
+            this.gbAdditionalData.Controls.Add(this.lbSolutions);
+            this.gbAdditionalData.Controls.Add(this.nudSolutions);
+            this.gbAdditionalData.Controls.Add(this.checkBoxKeepSolutions);
             this.gbAdditionalData.Controls.Add(this.lbBoxes);
             this.gbAdditionalData.Controls.Add(this.nudNumberOfBoxes);
             this.gbAdditionalData.Controls.Add(this.checkBoxNumberOfPallets);
             this.gbAdditionalData.Location = new System.Drawing.Point(8, 516);
             this.gbAdditionalData.Name = "gbAdditionalData";
-            this.gbAdditionalData.Size = new System.Drawing.Size(568, 54);
+            this.gbAdditionalData.Size = new System.Drawing.Size(568, 62);
             this.gbAdditionalData.TabIndex = 48;
             this.gbAdditionalData.TabStop = false;
             this.gbAdditionalData.Text = "Additional data";
+            // 
+            // checkBoxKeepSolutions
+            // 
+            this.checkBoxKeepSolutions.AutoSize = true;
+            this.checkBoxKeepSolutions.Location = new System.Drawing.Point(8, 39);
+            this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
+            this.checkBoxKeepSolutions.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxKeepSolutions.TabIndex = 48;
+            this.checkBoxKeepSolutions.Text = "Only keep the ";
+            this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
+            // 
+            // nudSolutions
+            // 
+            this.nudSolutions.Location = new System.Drawing.Point(103, 37);
+            this.nudSolutions.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudSolutions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSolutions.Name = "nudSolutions";
+            this.nudSolutions.Size = new System.Drawing.Size(72, 20);
+            this.nudSolutions.TabIndex = 49;
+            this.nudSolutions.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // lbSolutions
+            // 
+            this.lbSolutions.AutoSize = true;
+            this.lbSolutions.Location = new System.Drawing.Point(191, 40);
+            this.lbSolutions.Name = "lbSolutions";
+            this.lbSolutions.Size = new System.Drawing.Size(71, 13);
+            this.lbSolutions.TabIndex = 50;
+            this.lbSolutions.Text = "best solutions";
             // 
             // FormNewAnalysis
             // 
@@ -646,7 +694,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(584, 575);
+            this.ClientSize = new System.Drawing.Size(584, 582);
             this.Controls.Add(this.gbAdditionalData);
             this.Controls.Add(this.gbStopStackingCondition);
             this.Controls.Add(this.gbLayerAlignment);
@@ -670,6 +718,7 @@
             this.Controls.Add(this.bnAccept);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(600, 620);
             this.Name = "FormNewAnalysis";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -698,6 +747,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).EndInit();
             this.gbAdditionalData.ResumeLayout(false);
             this.gbAdditionalData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -756,5 +806,8 @@
         private System.Windows.Forms.NumericUpDown nudNumberOfBoxes;
         private System.Windows.Forms.Label lbBoxes;
         private System.Windows.Forms.GroupBox gbAdditionalData;
+        private System.Windows.Forms.CheckBox checkBoxKeepSolutions;
+        private System.Windows.Forms.Label lbSolutions;
+        private System.Windows.Forms.NumericUpDown nudSolutions;
     }
 }

@@ -20,9 +20,15 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        public Color[] _faceColors = new Color[6];
+        public BoxProperties _boxProperties;
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// FormNewBox constructor used when defining a new BoxProperties item
+        /// </summary>
+        /// <param name="document">Document in which the BoxProperties item is to be created</param>
         public FormNewBox(Document document)
         {
             InitializeComponent();
@@ -42,16 +48,49 @@ namespace TreeDim.StackBuilder.Desktop
             // disable Ok button
             UpdateButtonOkStatus();
         }
+        /// <summary>
+        /// FormNewBox constructor used to edit existing boxes
+        /// </summary>
+        /// <param name="document">Document that contains the edited box</param>
+        /// <param name="boxProperties">Edited box</param>
+        public FormNewBox(Document document, BoxProperties boxProperties)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _boxProperties = boxProperties;
+            // set caption text
+            Text = string.Format("Edit {0}...", _boxProperties.Name);
+            // initialize value
+            tbName.Text = _boxProperties.Name;
+            tbDescription.Text = _boxProperties.Description;
+            nudLength.Value = (decimal)_boxProperties.Length;
+            nudWidth.Value = (decimal)_boxProperties.Width;
+            nudHeight.Value = (decimal)_boxProperties.Height;
+            nudWeight.Value = (decimal)_boxProperties.Weight;
+            nudWeightOnTop.Value = (decimal)0.0;
+            // set colors
+            for (int i=0; i<6; ++i)
+                _faceColors[i] = _boxProperties.Colors[i];
+            // set default face
+            cbFace.SelectedIndex = 0;
+            // set horizontal angle
+            trackBarHorizAngle.Value = 45;
+            // disable Ok button
+            UpdateButtonOkStatus();            
+        }
         #endregion
 
         #region Public properties
         public string BoxName
         {
             get { return tbName.Text; }
+            set { tbName.Text = value; }
         }
         public string Description
         {
             get { return tbDescription.Text; }
+            set { tbDescription.Text = value; }
         }
         public double BoxLength
         {
@@ -81,6 +120,7 @@ namespace TreeDim.StackBuilder.Desktop
         public Color[] Colors
         {
             get { return _faceColors; }
+            set { }
         }
         #endregion
 
@@ -90,7 +130,6 @@ namespace TreeDim.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition.Restore(this);
-
             DrawBox();
         }
         private void FormNewBox_FormClosing(object sender, FormClosingEventArgs e)
@@ -99,6 +138,14 @@ namespace TreeDim.StackBuilder.Desktop
             if (null == Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition = new WindowSettings();
             Settings.Default.FormNewBoxPosition.Record(this);
+        }
+        #endregion
+
+        #region Form override
+        protected override void  OnResize(EventArgs e)
+        {
+            DrawBox();
+ 	         base.OnResize(e);
         }
         #endregion
 
@@ -130,7 +177,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0
                 && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text, _boxProperties);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
@@ -161,10 +208,6 @@ namespace TreeDim.StackBuilder.Desktop
             // set to picture box
             pictureBox.Image = graphics.Bitmap;
         }
-        #endregion
-
-        #region Data members
-        public Color[] _faceColors = new Color[6];
         #endregion
     }
 }

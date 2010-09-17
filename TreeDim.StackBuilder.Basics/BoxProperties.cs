@@ -39,17 +39,17 @@ namespace TreeDim.StackBuilder.Basics
         public double Length
         {
             get { return _length; }
-            set { _length = value; }
+            set { _length = value; Modify(); }
         }
         public double Width
         {
             get { return _width; }
-            set { _width = value; }
+            set { _width = value; Modify(); }
         }
         public double Height
         {
             get { return _height; }
-            set { _height = value; }
+            set { _height = value; Modify(); }
         }
         public double Volume
         {
@@ -58,7 +58,7 @@ namespace TreeDim.StackBuilder.Basics
         public double Weight
         {
             get { return _weight; }
-            set { _weight = value; }
+            set { _weight = value; Modify(); }
         }
         public Color[] Colors
         {
@@ -68,18 +68,27 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public methods
-        public void SetAllColors(Color color)
+        public void SetColor(Color color)
         {
             for (int i = 0; i < 6; ++i)
                 _colors[i] = color;
+            Modify();
         }
         public void SetColor(HalfAxis.HAxis axis, Color color)
         {
-            _colors[(int)axis] = color;        
+            _colors[(int)axis] = color;
+            Modify();
+        }
+        public void SetAllColors(Color[] color)
+        {
+            for (int i = 0; i < 6; ++i)
+                _colors[i] = color[i];
+            Modify();
         }
         public void AddTexture(HalfAxis.HAxis axis, Vector2D position, Vector2D size, Bitmap bmp)
         {
             _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size)));
+            Modify();
         }
         public double Dimension(HalfAxis.HAxis axis)
         {

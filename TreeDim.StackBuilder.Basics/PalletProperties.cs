@@ -41,36 +41,37 @@ namespace TreeDim.StackBuilder.Basics
         public double Length
         {
             get { return _length; }
-            set { _length = value; }
+            set { _length = value; Modify(); }
         }
         public double Width
         {
             get { return _width; }
-            set { _width = value; }
+            set { _width = value; Modify(); }
         }
         public double Height
         {
             get { return _height; }
-            set { _height = value; }
+            set { _height = value; Modify(); }
         }
         public double Weight
         {
             get { return _weight; }
-            set { _weight = value; }
+            set { _weight = value; Modify(); }
         }
         public double AdmissibleLoadWeight
         {
             get { return _admissibleLoadWeight; }
-            set { _admissibleLoadWeight = value; }
+            set { _admissibleLoadWeight = value; Modify(); }
         }
         public double AdmissibleLoadHeight
         {
             get { return _admissibleLoadHeight; }
-            set { _admissibleLoadHeight = value; }
+            set { _admissibleLoadHeight = value; Modify(); }
         }
         public PalletType Type
         {
             get { return _type; }
+            set { _type = value; Modify(); }
         }
         public Color Color
         {

@@ -66,7 +66,7 @@
             // 
             this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(383, 41);
+            this.bnCancel.Location = new System.Drawing.Point(397, 41);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(383, 12);
+            this.bnAccept.Location = new System.Drawing.Point(397, 12);
             this.bnAccept.Name = "bnAccept";
             this.bnAccept.Size = new System.Drawing.Size(75, 23);
             this.bnAccept.TabIndex = 2;
@@ -86,11 +86,12 @@
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarHorizAngle.Location = new System.Drawing.Point(12, 201);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(356, 45);
+            this.trackBarHorizAngle.Size = new System.Drawing.Size(370, 45);
             this.trackBarHorizAngle.TabIndex = 5;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.Value = 45;
@@ -104,18 +105,18 @@
             this.tbPalletProperties.Multiline = true;
             this.tbPalletProperties.Name = "tbPalletProperties";
             this.tbPalletProperties.ReadOnly = true;
-            this.tbPalletProperties.Size = new System.Drawing.Size(446, 78);
+            this.tbPalletProperties.Size = new System.Drawing.Size(460, 78);
             this.tbPalletProperties.TabIndex = 13;
             // 
             // cbTruck
             // 
-            this.cbTruck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cbTruck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbTruck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTruck.FormattingEnabled = true;
             this.cbTruck.Location = new System.Drawing.Point(183, 230);
             this.cbTruck.Name = "cbTruck";
-            this.cbTruck.Size = new System.Drawing.Size(185, 21);
+            this.cbTruck.Size = new System.Drawing.Size(199, 21);
             this.cbTruck.TabIndex = 12;
             // 
             // tbName
@@ -133,7 +134,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDescription.Location = new System.Drawing.Point(130, 399);
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(329, 20);
+            this.tbDescription.Size = new System.Drawing.Size(343, 20);
             this.tbDescription.TabIndex = 18;
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
@@ -175,10 +176,10 @@
             this.radioButtonTruck1.AutoSize = true;
             this.radioButtonTruck1.Location = new System.Drawing.Point(12, 229);
             this.radioButtonTruck1.Name = "radioButtonTruck1";
-            this.radioButtonTruck1.Size = new System.Drawing.Size(149, 17);
+            this.radioButtonTruck1.Size = new System.Drawing.Size(148, 17);
             this.radioButtonTruck1.TabIndex = 11;
             this.radioButtonTruck1.TabStop = true;
-            this.radioButtonTruck1.Text = "Insert pallet from database";
+            this.radioButtonTruck1.Text = "Insert truck from database";
             this.radioButtonTruck1.UseVisualStyleBackColor = true;
             // 
             // lbMm3
@@ -302,6 +303,8 @@
             "Color",
             "Color",
             "Color",
+            "Color",
+            "Color",
             "Color"});
             this.cbColor.Location = new System.Drawing.Point(130, 428);
             this.cbColor.Name = "cbColor";
@@ -326,12 +329,13 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(356, 183);
+            this.pictureBox.Size = new System.Drawing.Size(370, 183);
             this.pictureBox.TabIndex = 6;
             this.pictureBox.TabStop = false;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 542);
             this.label1.Name = "label1";
@@ -341,6 +345,7 @@
             // 
             // nudAdmissibleLoadWeight
             // 
+            this.nudAdmissibleLoadWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nudAdmissibleLoadWeight.Location = new System.Drawing.Point(130, 542);
             this.nudAdmissibleLoadWeight.Name = "nudAdmissibleLoadWeight";
             this.nudAdmissibleLoadWeight.Size = new System.Drawing.Size(60, 20);
@@ -349,6 +354,7 @@
             // 
             // lbKg
             // 
+            this.lbKg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbKg.AutoSize = true;
             this.lbKg.Location = new System.Drawing.Point(195, 544);
             this.lbKg.Name = "lbKg";
@@ -360,7 +366,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 612);
+            this.ClientSize = new System.Drawing.Size(484, 612);
             this.Controls.Add(this.lbKg);
             this.Controls.Add(this.nudAdmissibleLoadWeight);
             this.Controls.Add(this.label1);
@@ -389,6 +395,7 @@
             this.Controls.Add(this.bnAccept);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(500, 650);
             this.Name = "FormNewTruck";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

@@ -21,6 +21,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        private TruckProperties _truckProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewTruck));
         #endregion
 
@@ -41,6 +42,36 @@ namespace TreeDim.StackBuilder.Desktop
             TruckColor = Color.LightBlue;
             
             DrawTruck();
+        }
+        public FormNewTruck(Document document, TruckProperties truckProperties)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _truckProperties = truckProperties;
+
+            radioButtonTruck1.Checked = false;
+            radioButtonTruck2.Checked = true;
+            // set caption text
+            Text = string.Format("Edit {0}...", _truckProperties.Name);
+            // initialize data
+            tbName.Text = _truckProperties.Name;
+            tbDescription.Text = _truckProperties.Description;
+            TruckLength = _truckProperties.Length;
+            TruckWidth = _truckProperties.Width;
+            TruckHeight = _truckProperties.Height;
+            TruckAdmissibleLoadWeight = _truckProperties.AdmissibleLoadWeight;
+            TruckColor = _truckProperties.Color;
+
+            DrawTruck();
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnResize(EventArgs e)
+        {
+            DrawTruck();
+            base.OnResize(e);
         }
         #endregion
 
@@ -124,7 +155,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0
                 && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text, _truckProperties);
         }
 
         private void onTruckPropertyChanged(object sender, EventArgs e)
@@ -149,6 +180,7 @@ namespace TreeDim.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition.Restore(this);
+            DrawTruck();
         }
 
         private void FormNewTruck_FormClosing(object sender, FormClosingEventArgs e)

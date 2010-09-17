@@ -66,8 +66,12 @@ namespace TreeDim.StackBuilder.Basics
         { get { return _dependancies.Count > 0; } }
         public void RemoveDependancie(ItemBase dependancie)
         {   _dependancies.Remove(dependancie);  }
-        protected void NotifyDependancies()
-        {   foreach (ItemBase item in _dependancies)  item.OnAttributeModified(this); }
+        protected void Modify()
+        {
+            foreach (ItemBase item in _dependancies)
+                item.OnAttributeModified(this);
+            _parentDocument.Modify();
+        }
         public virtual void OnAttributeModified(ItemBase modifiedAttribute) {}
         protected virtual void RemoveItselfFromDependancies() {}
         #endregion

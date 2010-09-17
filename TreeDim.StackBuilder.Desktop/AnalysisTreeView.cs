@@ -42,6 +42,8 @@ namespace TreeDim.StackBuilder.Desktop
                 // attach event handlers
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
                 ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
+                this.DrawMode = TreeViewDrawMode.OwnerDrawText;
+                this.DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
             }
             catch (Exception ex)
             {
@@ -52,7 +54,12 @@ namespace TreeDim.StackBuilder.Desktop
         private void InitializeComponent()
         {
             this.SuspendLayout();
+            // 
+            // AnalysisTreeView
+            // 
+            this.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this.ResumeLayout(false);
+
         }
         #endregion
 
@@ -99,14 +106,27 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                SelectedNode = e.Node;
+                // handle only left mouse button click
+                if (e.Button != MouseButtons.Left) return;
                 NodeTag tag = CurrentTag;
-                if (null != AnalysisNodeClicked && null != tag.Analysis)
-                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag.Document, tag.Analysis));
+                if (null != AnalysisNodeClicked)
+                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag.Document, tag.Analysis, tag.ItemProperties));
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
+        }
+        void AnalysisTreeView_DrawNode(object sender, System.Windows.Forms.DrawTreeNodeEventArgs e)
+        {
+            // get NodeTag
+            NodeTag tag = e.Node.Tag as NodeTag;
+            Rectangle nodeBounds = e.Node.Bounds;
+            if (null != tag.ItemProperties)
+                TextRenderer.DrawText(e.Graphics, tag.ItemProperties.Name, Font, nodeBounds, System.Drawing.Color.Black, Color.Transparent, TextFormatFlags.VerticalCenter | TextFormatFlags.NoClipping);
+            else
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, Font, nodeBounds, System.Drawing.Color.Black, Color.Transparent, TextFormatFlags.VerticalCenter | TextFormatFlags.NoClipping);
         }
         #endregion
 
@@ -146,7 +166,7 @@ namespace TreeDim.StackBuilder.Desktop
         public delegate void AnalysisNodeClickHandler(object sender, AnalysisTreeViewEventArgs eventArg);
         #endregion
 
-        #region Events 
+        #region Events
         public event AnalysisNodeClickHandler AnalysisNodeClicked;
         #endregion
 
@@ -159,7 +179,7 @@ namespace TreeDim.StackBuilder.Desktop
             this.Nodes.Add(nodeDoc);
             // add box list node
             TreeNode nodeBoxes = new TreeNode("Boxes", 0, 1);
-            nodeBoxes.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc,  null, null);
+            nodeBoxes.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc, null, null);
             nodeDoc.Nodes.Add(nodeBoxes);
             // add bundle list node
             TreeNode nodeBundles = new TreeNode("Bundles", 0, 1);
@@ -171,7 +191,7 @@ namespace TreeDim.StackBuilder.Desktop
             nodeDoc.Nodes.Add(nodeInterlayers);
             // add pallet list node
             TreeNode nodePallets = new TreeNode("Pallets", 0, 1);
-            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc,  null, null);
+            nodePallets.Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc, null, null);
             nodeDoc.Nodes.Add(nodePallets);
             // add truck list node
             TreeNode nodeTrucks = new TreeNode("Trucks", 0, 1);
@@ -179,7 +199,7 @@ namespace TreeDim.StackBuilder.Desktop
             nodeDoc.Nodes.Add(nodeTrucks);
             // add analysis list node
             TreeNode nodeAnalyses = new TreeNode("Analyses", 0, 1);
-            nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc,  null, null);
+            nodeAnalyses.Tag = new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc, null, null);
             nodeDoc.Nodes.Add(nodeAnalyses);
             nodeDoc.Expand();
         }
@@ -262,15 +282,24 @@ namespace TreeDim.StackBuilder.Desktop
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
-            if (itemBase.GetType() == typeof(BoxProperties))    {
+            if (itemBase.GetType() == typeof(BoxProperties))
+            {
                 nodeType = NodeTag.NodeType.NT_BOX;
-            } else if (itemBase.GetType() == typeof(BundleProperties))  {
+            }
+            else if (itemBase.GetType() == typeof(BundleProperties))
+            {
                 nodeType = NodeTag.NodeType.NT_BUNDLE;
-            } else if (itemBase.GetType() == typeof(InterlayerProperties))  {
+            }
+            else if (itemBase.GetType() == typeof(InterlayerProperties))
+            {
                 nodeType = NodeTag.NodeType.NT_INTERLAYER;
-            } else if (itemBase.GetType() == typeof(PalletProperties))  {
+            }
+            else if (itemBase.GetType() == typeof(PalletProperties))
+            {
                 nodeType = NodeTag.NodeType.NT_PALLET;
-            } else if (itemBase.GetType() == typeof(TruckProperties))   {
+            }
+            else if (itemBase.GetType() == typeof(TruckProperties))
+            {
                 nodeType = NodeTag.NodeType.NT_TRUCK;
             }
             Debug.Assert(nodeType != NodeTag.NodeType.NT_UNKNOWN);
@@ -289,13 +318,13 @@ namespace TreeDim.StackBuilder.Desktop
             Nodes.Remove(analysisNode);
         }
         public void OnDocumentClosed(Document doc)
-        { 
+        {
         }
         #endregion
 
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisTreeView));
-       #endregion
+        #endregion
     }
     #endregion
 
@@ -304,23 +333,37 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Enums
         public enum NodeType
-        { 
+        {
             NT_DOCUMENT
-            , NT_LISTBOX
-            , NT_LISTBUNDLE
-            , NT_LISTPALLET
-            , NT_LISTINTERLAYER
-            , NT_LISTTRUCK
-            , NT_LISTANALYSIS
-            , NT_BOX
-            , NT_BUNDLE
-            , NT_PALLET
-            , NT_INTERLAYER
-            , NT_TRUCK
-            , NT_ANALYSIS
-            , NT_ANALYSISBOX
-            , NT_ANALYSISPALLET
-            , NT_UNKNOWN
+            ,
+            NT_LISTBOX
+                ,
+            NT_LISTBUNDLE
+                ,
+            NT_LISTPALLET
+                ,
+            NT_LISTINTERLAYER
+                ,
+            NT_LISTTRUCK
+                ,
+            NT_LISTANALYSIS
+                ,
+            NT_BOX
+                ,
+            NT_BUNDLE
+                ,
+            NT_PALLET
+                ,
+            NT_INTERLAYER
+                ,
+            NT_TRUCK
+                ,
+            NT_ANALYSIS
+                ,
+            NT_ANALYSISBOX
+                ,
+            NT_ANALYSISPALLET
+                , NT_UNKNOWN
         }
         #endregion
 
@@ -353,9 +396,9 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public override int GetHashCode()
         {
-            return _type.GetHashCode() 
-                ^ _document.GetHashCode() 
-                ^ _itemProperties.GetHashCode() 
+            return _type.GetHashCode()
+                ^ _document.GetHashCode()
+                ^ _itemProperties.GetHashCode()
                 ^ _analysis.GetHashCode();
         }
         #endregion
@@ -375,21 +418,23 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private Document _document;
         private Analysis _analysis;
+        private ItemBase _itemBase;
         #endregion
 
         #region Constructor
-        public AnalysisTreeViewEventArgs(Document document, Analysis analysis)
+        public AnalysisTreeViewEventArgs(Document document, Analysis analysis, ItemBase itemBase)
         {
             _document = document;
             _analysis = analysis;
+            _itemBase = itemBase;
         }
         #endregion
 
         #region Public properties
         public Document Document { get { return _document; } }
         public Analysis Analysis { get { return _analysis; } }
+        public ItemBase ItemBase { get { return _itemBase; } }
         #endregion
-
     }
     #endregion
 }

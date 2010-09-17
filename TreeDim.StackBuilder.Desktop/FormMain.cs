@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
+
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
 
@@ -133,7 +135,93 @@ namespace TreeDim.StackBuilder.Desktop
         #region DocumentTreeView event handlers
         void DocumentTreeView_AnalysisNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
-            CreateOrActivateViewAnalysis(eventArg.Analysis);
+            if ((null == eventArg.ItemBase) && (null != eventArg.Analysis))
+                CreateOrActivateViewAnalysis(eventArg.Analysis);
+            else if (null != eventArg.ItemBase)
+            {
+                ItemBase itemProp = eventArg.ItemBase;
+                if (itemProp.GetType() == typeof(BoxProperties))
+                {
+                    BoxProperties box = itemProp as BoxProperties;
+                    FormNewBox form = new FormNewBox(eventArg.Document, eventArg.ItemBase as BoxProperties);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        box.Name = form.BoxName;
+                        box.Description = form.Description;
+                        box.Length = form.BoxLength;
+                        box.Width = form.BoxWidth;
+                        box.Height = form.BoxHeight;
+                        box.Weight = form.Weight;
+                        box.Colors = form.Colors;
+                        box.SetAllColors(form.Colors);
+                    }
+                }
+                else if (itemProp.GetType() == typeof(BundleProperties))
+                {
+                    BundleProperties bundle = itemProp as BundleProperties;
+                    FormNewBundle form = new FormNewBundle(eventArg.Document, bundle);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        bundle.Name = form.BundleName;
+                        bundle.Description = form.Description;
+                        bundle.Length = form.BundleLength;
+                        bundle.Width = form.BundleWidth;
+                        bundle.UnitThickness = form.UnitThickness;
+                        bundle.UnitWeight = form.UnitWeight;
+                        bundle.NoFlats = form.NoFlats;
+                    }
+                }
+                else if (itemProp.GetType() == typeof(InterlayerProperties))
+                {
+                    InterlayerProperties interlayer = itemProp as InterlayerProperties;
+                    FormNewInterlayer form = new FormNewInterlayer(eventArg.Document, interlayer);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        interlayer.Name = form.InterlayerName;
+                        interlayer.Description = form.Description;
+                        interlayer.Length = form.InterlayerLength;
+                        interlayer.Width = form.InterlayerWidth;
+                        interlayer.Thickness = form.Thickness;
+                        interlayer.Weight = form.Weight;
+                        interlayer.Color = form.Color;
+                    }
+                }
+                else if (itemProp.GetType() == typeof(PalletProperties))
+                {
+                    PalletProperties pallet = itemProp as PalletProperties;
+                    FormNewPallet form = new FormNewPallet(eventArg.Document, pallet);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        pallet.Name = form.PalletName;
+                        pallet.Description = form.Description;
+                        pallet.Length = form.PalletLength;
+                        pallet.Width = form.PalletWidth;
+                        pallet.Height = form.PalletHeight;
+                        pallet.Type = form.PalletType;
+                        pallet.AdmissibleLoadHeight = form.AdmissibleLoadHeight;
+                        pallet.AdmissibleLoadWeight = form.AdmissibleLoadWeight;
+                        pallet.Color = form.Color;
+                    }
+                }
+                else if (itemProp.GetType() == typeof(TruckProperties))
+                {
+                    TruckProperties truck = itemProp as TruckProperties;
+                    FormNewTruck form = new FormNewTruck(eventArg.Document, truck);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        truck.Name = form.TruckName;
+                        truck.Description = form.Description;
+                        truck.Length = form.TruckLength;
+                        truck.Width = form.TruckWidth;
+                        truck.Height = form.TruckHeight;
+                        truck.AdmissibleLoadWeight = form.TruckAdmissibleLoadWeight;
+                        truck.Color = form.TruckColor;
+                    }
+                }
+                else
+                    Debug.Assert(false);
+            }
+
         }
         #endregion
 

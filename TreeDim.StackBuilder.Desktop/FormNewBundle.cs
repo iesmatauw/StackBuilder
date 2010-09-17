@@ -21,6 +21,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Document _document;
+        private BundleProperties _bundleProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBundle));
         #endregion
 
@@ -35,6 +36,26 @@ namespace TreeDim.StackBuilder.Desktop
             BundleWidth = 300.0;
             UnitThickness = 5.0;
             NoFlats = 10;
+            // set horizontal angle
+            trackBarHorizAngle.Value = 45;
+            // disable Ok buttons
+            UpdateButtonOkStatus();
+        }
+        public FormNewBundle(Document document, BundleProperties bundleProperties)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _bundleProperties = bundleProperties;
+            // set caption text
+            Text = string.Format("Edit {0}...", _bundleProperties.Name);
+            // initialize value
+            tbName.Text = bundleProperties.Name;
+            tbDescription.Text = bundleProperties.Description;
+            BundleLength = bundleProperties.Length;
+            BundleWidth = bundleProperties.Width;
+            UnitThickness = bundleProperties.UnitThickness;
+            NoFlats = bundleProperties.NoFlats;
             // set horizontal angle
             trackBarHorizAngle.Value = 45;
             // disable Ok buttons
@@ -55,6 +76,14 @@ namespace TreeDim.StackBuilder.Desktop
             if (null == Settings.Default.FormNewBundlePosition)
                 Settings.Default.FormNewBundlePosition = new WindowSettings();
             Settings.Default.FormNewBundlePosition.Record(this);
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnResize(EventArgs e)
+        {
+            DrawBundle();
+            base.OnResize(e);
         }
         #endregion
 
@@ -114,7 +143,7 @@ namespace TreeDim.StackBuilder.Desktop
             bnAccept.Enabled =
                 tbName.Text.Length > 0 
                 && tbDescription.Text.Length > 0 
-                && _document.IsValidNewTypeName(tbName.Text);
+                && _document.IsValidNewTypeName(tbName.Text, _bundleProperties);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

@@ -41,10 +41,12 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double Length
         {
+            set { _length = value; Modify(); }
             get { return _length; }
         }
         public double Width
         {
+            set { _width = value; Modify(); }
             get { return _width; }
         }
         public double UnitThickness
@@ -64,6 +66,7 @@ namespace TreeDim.StackBuilder.Basics
         public int NoFlats
         {
             get { return _noFlats; }
+            set { _noFlats = value; Modify(); }
         }
         #endregion
     }

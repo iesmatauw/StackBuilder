@@ -41,7 +41,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     boxProperties.SetColor(HalfAxis.HAxis.AXIS_Z_P, Color.Blue);
                 }
                 else
-                    boxProperties.SetAllColors(Color.Chocolate);
+                    boxProperties.SetColor(Color.Chocolate);
 
                 Console.WriteLine(boxProperties.ToString());
 

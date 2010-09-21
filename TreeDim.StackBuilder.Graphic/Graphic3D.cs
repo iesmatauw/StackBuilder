@@ -219,11 +219,27 @@ namespace TreeDim.StackBuilder.Graphics
                     Draw(face);
 
                 // sort box list
-                BoxComparison boxComparer = new BoxComparison(GetWorldToEyeTransformation());
+                Transform3D transform = GetWorldToEyeTransformation();
+                Vector3D ptRef = Vector3D.Zero;
+                double zRef = double.MaxValue;
+                foreach (Box box in _boxes)
+                {
+                    foreach (Vector3D pt in box.Points)
+                    {
+                        double z = transform.transform(pt).Z;
+                        if (z < zRef)
+                        {
+                            zRef = z;
+                            ptRef = pt;
+                        }
+                    }
+                }
+
+                BoxComparison boxComparer = new BoxComparison(GetWorldToEyeTransformation(), ptRef.X, ptRef.Y);
                 _boxes.Sort(boxComparer);
                 // draw all boxes
-                foreach (Box box in _boxes)
-                    Draw(box);
+                foreach (Box box_ in _boxes)
+                    Draw(box_);
 
                 // sort segment list
                 foreach (Segment seg in _segments)

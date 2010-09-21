@@ -68,9 +68,9 @@ namespace TreeDim.StackBuilder.Graphics
             Point[] pt = TransformPoint( box.TopFace.Points);
 
             // draw solid face
-            Brush brushSolid = new SolidBrush(box.Faces[5].ColorFill);
+            Brush brushSolid = new SolidBrush(box.TopFace.ColorFill);
             g.FillPolygon(brushSolid, pt);
-            Brush brushPath = new SolidBrush(box.Faces[5].ColorPath);
+            Brush brushPath = new SolidBrush(box.TopFace.ColorPath);
             Pen penPath = new Pen(brushPath);
             g.DrawPolygon(penPath, pt);
         }

@@ -16,7 +16,7 @@ using TreeDim.StackBuilder.Graphics;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class DockContentAnalysis : DockContent, IView
+    public partial class DockContentAnalysis : DockContent, IView, IItemListener
     {
         #region Data members
         /// <summary>
@@ -46,6 +46,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _document = document;
             _analysis = analysis;
+            _analysis.AddListener(this);
 
             InitializeComponent();
         }
@@ -58,11 +59,17 @@ namespace TreeDim.StackBuilder.Desktop
 
             // Text
             this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
+            // fill grid
+            FillGrid();
 
+            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
+        }
+        private void FillGrid()
+        {
             // fill grid solution
             gridSolutions.Rows.Clear();
 
-            // border
+             // border
             DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
 
@@ -142,10 +149,11 @@ namespace TreeDim.StackBuilder.Desktop
             gridSolutions.AutoSizeCells();
             gridSolutions.Columns.StretchToFit();
 
-            gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
-
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
+            if (_analysis.Solutions.Count > 0)
+                _sol = _analysis.Solutions[0];
+            Draw();
         }
 
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
@@ -164,6 +172,25 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // redraw
             Draw();
+        }
+        #endregion
+
+        #region IItemListener implementation
+        public void Update(ItemBase item)
+        {
+            TreeDim.StackBuilder.Engine.Solver solver = new TreeDim.StackBuilder.Engine.Solver();
+            solver.ProcessAnalysis(_analysis);
+            FillGrid();
+            // select first solution
+            gridSolutions.Selection.SelectRow(1, true);
+            if (_analysis.Solutions.Count > 0)
+                _sol = _analysis.Solutions[0];
+            Draw();
+        }
+        public void Kill(ItemBase item)
+        {
+            Close();
+            _analysis.RemoveListener(this);
         }
         #endregion
 

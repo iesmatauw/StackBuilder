@@ -57,13 +57,13 @@ namespace TreeDim.StackBuilder.Basics
         {
             switch (axis)
             {
-                case HAxis.AXIS_X_N: return "-X";
-                case HAxis.AXIS_X_P: return " X";
-                case HAxis.AXIS_Y_N: return "-Y";
-                case HAxis.AXIS_Y_P: return " Y";
-                case HAxis.AXIS_Z_N: return "-Z";
-                case HAxis.AXIS_Z_P: return " Z";
-                default: return " Z";
+                case HAxis.AXIS_X_N: return "XN";
+                case HAxis.AXIS_X_P: return "XP";
+                case HAxis.AXIS_Y_N: return "YN";
+                case HAxis.AXIS_Y_P: return "YP";
+                case HAxis.AXIS_Z_N: return "ZN";
+                case HAxis.AXIS_Z_P: return "ZP";
+                default: return "ZP";
             }
         }
         public static HAxis Parse(string sAxis)

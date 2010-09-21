@@ -79,6 +79,15 @@ namespace TreeDim.StackBuilder.Basics
                 _interlayerProperties.RemoveDependancie(this);
             base.RemoveItselfFromDependancies();
         }
+        public override void OnAttributeModified(ItemBase modifiedAttribute)
+        {
+            _solutions.Clear();
+        }
+        public override void OnEndUpdate(ItemBase updatedAttribute)
+        {
+            _solutions.Clear();
+            Modify();
+        }
         #endregion
     }
     #endregion

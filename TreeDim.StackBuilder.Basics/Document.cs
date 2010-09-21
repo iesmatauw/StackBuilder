@@ -620,6 +620,43 @@ namespace TreeDim.StackBuilder.Basics
         ConstraintSet LoadConstraintSet(XmlElement eltConstraintSet)
         {
             ConstraintSet constraints = new ConstraintSet();
+            // align layers alowed
+            if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
+                constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
+            // alternate layers allowed
+            if (eltConstraintSet.HasAttribute("AlternativeLayersAllowed"))
+                constraints.AllowAlternateLayers = string.Equals(eltConstraintSet.Attributes["AlternativeLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
+            // allowed orthogonal axes
+            if (eltConstraintSet.HasAttribute("AllowedBoxPositions"))
+            {
+                string allowedOrthoAxes = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
+                string[] sAxes = allowedOrthoAxes.Split(',');
+                foreach (string sAxis in sAxes)
+                    constraints.SetAllowedOrthoAxis(HalfAxis.Parse(sAxis), true);
+            }
+            // allowed patterns
+            if (eltConstraintSet.HasAttribute("AllowedPatterns"))
+                constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
+            // stop criterions
+            if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
+                constraints.MaximumHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
+            if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
+                constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
+            if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
+                constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
+            if (constraints.UseMaximumWeightOnBox = eltConstraintSet.HasAttribute("MaximumWeightOnBox"))
+                constraints.MaximumWeightOnBox = double.Parse(eltConstraintSet.Attributes["MaximumWeightOnBox"].Value);
+            // overhang / underhang
+            if (eltConstraintSet.HasAttribute("OverhangX"))
+                constraints.OverhangX = double.Parse(eltConstraintSet.Attributes["OverhangX"].Value);
+            if (eltConstraintSet.HasAttribute("OverhangY"))
+                constraints.OverhangY = double.Parse(eltConstraintSet.Attributes["OverhangY"].Value);
+            // number of solutions to keep
+            if (eltConstraintSet.HasAttribute("NumberOfSolutions"))
+                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
+            // sanity check
+            if (!constraints.IsValid)
+                throw new Exception("Invalid constraint set");
             return constraints;
         }
 
@@ -987,9 +1024,71 @@ namespace TreeDim.StackBuilder.Basics
                 interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
+            // ###
             // ConstraintSet
             XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSet");
+            XmlAttribute alignedLayersAttribute = xmlDoc.CreateAttribute("AlignedLayersAllowed");
+            alignedLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlignedLayers);
+            constraintSetElement.Attributes.Append(alignedLayersAttribute);
+            XmlAttribute alternateLayersAttribute = xmlDoc.CreateAttribute("AlternativeLayersAllowed");
+            alternateLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlternateLayers);
+            constraintSetElement.Attributes.Append(alternateLayersAttribute);
+            // allowed box positions
+            XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
+            HalfAxis.HAxis[] axes = { HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P };
+            string allowedAxes = string.Empty;
+            foreach (HalfAxis.HAxis axis in axes)
+                if (analysis.ConstraintSet.AllowOrthoAxis(axis))
+                {
+                    if (!string.IsNullOrEmpty(allowedAxes))
+                        allowedAxes += ",";
+                    allowedAxes += HalfAxis.ToString(axis);
+                }
+            allowedAxisAttribute.Value = allowedAxes;
+            constraintSetElement.Attributes.Append(allowedAxisAttribute);
+            // allowed layer patterns
+            XmlAttribute allowedPatternAttribute = xmlDoc.CreateAttribute("AllowedPatterns");
+            allowedPatternAttribute.Value = analysis.ConstraintSet.AllowedPatternString;
+            constraintSetElement.Attributes.Append(allowedPatternAttribute);
+            // stop criterions
+            if (analysis.ConstraintSet.UseMaximumHeight)
+            { 
+                XmlAttribute maximumHeightAttribute = xmlDoc.CreateAttribute("MaximumHeight");
+                maximumHeightAttribute.Value = string.Format("{0}", analysis.ConstraintSet.MaximumHeight);
+                constraintSetElement.Attributes.Append(maximumHeightAttribute);
+            }
+            if (analysis.ConstraintSet.UseMaximumNumberOfItems)
+            {
+                XmlAttribute maximumNumberOfItems = xmlDoc.CreateAttribute("ManimumNumberOfItems");
+                maximumNumberOfItems.Value = string.Format("{0}", analysis.ConstraintSet.MaximumNumberOfItems);
+                constraintSetElement.Attributes.Append(maximumNumberOfItems);
+            }
+            if (analysis.ConstraintSet.UseMaximumPalletWeight)
+            {
+                XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumPalletWeight");
+                maximumPalletWeight.Value = string.Format("{0}", analysis.ConstraintSet.MaximumPalletWeight);
+                constraintSetElement.Attributes.Append(maximumPalletWeight);
+            }
+            if (analysis.ConstraintSet.UseMaximumWeightOnBox)
+            {
+                XmlAttribute maximumWeightOnBox = xmlDoc.CreateAttribute("MaximumWeightOnBox");
+                maximumWeightOnBox.Value = string.Format("{0}", analysis.ConstraintSet.MaximumWeightOnBox);
+                constraintSetElement.Attributes.Append(maximumWeightOnBox);
+            }
+            // overhang / underhang
+            XmlAttribute overhangX = xmlDoc.CreateAttribute("OverhangX");
+            overhangX.Value = string.Format("{0}", analysis.ConstraintSet.OverhangX);
+            constraintSetElement.Attributes.Append(overhangX);
+            XmlAttribute overhangY = xmlDoc.CreateAttribute("OverhangY");
+            overhangY.Value = string.Format("{0}", analysis.ConstraintSet.OverhangY);
+            constraintSetElement.Attributes.Append(overhangY);
+            // number of solutions to keep
+            XmlAttribute numberOfSolutionsKept = xmlDoc.CreateAttribute("NumberOfSolutions");
+            numberOfSolutionsKept.Value = string.Format("{0}", analysis.ConstraintSet.NumberOfSolutionsKept);
+            constraintSetElement.Attributes.Append(numberOfSolutionsKept);
+
             xmlAnalysisElt.AppendChild(constraintSetElement);
+            // ###
 
             // Solutions
             XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
@@ -1033,11 +1132,11 @@ namespace TreeDim.StackBuilder.Basics
                             boxPositionElt.Attributes.Append(positionAttribute);
                             // AxisLength
                             XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
-                            axisLengthAttribute.Value = AxisToEnum(boxPosition.DirectionLength);
+                            axisLengthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionLength);
                             boxPositionElt.Attributes.Append(axisLengthAttribute);
                             // AxisWidth
                             XmlAttribute axisWidthAttribute = xmlDoc.CreateAttribute("AxisWidth");
-                            axisWidthAttribute.Value = AxisToEnum(boxPosition.DirectionWidth);
+                            axisWidthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionWidth);
                             boxPositionElt.Attributes.Append(axisWidthAttribute);
                         }
                     }
@@ -1053,18 +1152,6 @@ namespace TreeDim.StackBuilder.Basics
                         interlayerElt.Attributes.Append(zlowAttribute);
                     }
                 }
-            }
-        }
-        private string AxisToEnum(HalfAxis.HAxis axis)
-        {
-            switch (axis)
-            {
-                case HalfAxis.HAxis.AXIS_X_N: return "XN";
-                case HalfAxis.HAxis.AXIS_X_P: return "XP";
-                case HalfAxis.HAxis.AXIS_Y_N: return "YN";
-                case HalfAxis.HAxis.AXIS_Y_P: return "YP";
-                case HalfAxis.HAxis.AXIS_Z_N: return "ZN";
-                default: return "ZP";
             }
         }
         #endregion

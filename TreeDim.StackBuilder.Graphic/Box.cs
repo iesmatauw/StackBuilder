@@ -287,20 +287,65 @@ namespace TreeDim.StackBuilder.Graphics
     public class BoxComparison : IComparer<Box>
     {
         #region Constructor
-        public BoxComparison(Transform3D transform)
+        public BoxComparison(Transform3D transform, double xRef, double yRef)
         {
             _transform = transform;
+            _xRef = xRef;
+            _yRef = yRef;
         }
         #endregion
 
         #region Implementation IComparer
         public int Compare(Box b1, Box b2)
         {
-            if (b1.Center.Z > b2.Center.Z)
+           if (b1.Center.Z > b2.Center.Z)
                 return 1;
             else if (b1.Center.Z == b2.Center.Z)
             {
-                #if USE_MAX
+/*                 // distance to yRef
+                double d1Y = Math.Abs(b1.Center.Y - _yRef);
+                double d2Y = Math.Abs(b2.Center.Y - _yRef);
+                double d1X = Math.Abs(b1.Center.X - _xRef);
+                double d2X = Math.Abs(b2.Center.X - _xRef);
+
+                if (d1X < d2X)
+                    return 1;
+                else if (d1X == d2X)
+                {
+                    if (d1Y < d2Y)
+                        return 1;
+                    else if (d1Y == d2Y)
+                        return 0;
+                    else
+                        return -1;
+                }
+                else
+                    return - 1;
+
+
+                // use distance to point ref
+                Vector3D ptRef = new Vector3D(_xRef, _yRef, b1.Center.Z);
+                double distMin1 = double.MaxValue, distMax1 = double.MinValue;
+                foreach (Vector3D vPoint in b1.Points)
+                {
+                    distMin1 = Math.Min((vPoint-ptRef).GetLength(), distMin1);
+                    distMax1 = Math.Max((vPoint-ptRef).GetLength(), distMax1);
+                }
+                double distMin2 = double.MaxValue, distMax2 = double.MinValue;
+                foreach (Vector3D vPoint in b2.Points)
+                {
+                    distMin2 = Math.Min((vPoint - ptRef).GetLength(), distMin2);
+                    distMax2 = Math.Max((vPoint - ptRef).GetLength(), distMax2);
+                }
+                if (distMax1 < distMax2)
+                    return 1;
+                else if (distMax1 == distMax2)
+                    return 0;
+                else
+                    return -1;
+*/
+
+                #if USE_CENTER
                 double zb1Min = double.MaxValue, zb1Max = double.MinValue;
                 foreach (Vector3D vPoint in b1.Points)
                 {
@@ -314,10 +359,9 @@ namespace TreeDim.StackBuilder.Graphics
                     zb2Min = Math.Min(_transform.transform(vPoint).Z, zb2Min);
                     zb2Max = Math.Max(_transform.transform(vPoint).Z, zb2Max);
                 }
-
-                if (zb1Max < zb2Max)
+                if (zb1Min < zb2Min)
                     return 1;
-                else if (zb1Max == zb2Max)
+                else if (zb1Min == zb2Min)
                     return 0;
                 else
                     return -1;
@@ -329,6 +373,7 @@ namespace TreeDim.StackBuilder.Graphics
                 else
                     return -1;
                 #endif
+ 
             }
             else
                 return -1;
@@ -337,6 +382,7 @@ namespace TreeDim.StackBuilder.Graphics
 
         #region Data members
         Transform3D _transform;
+        double _xRef, _yRef;
         #endregion
     }
     #endregion

@@ -6,8 +6,15 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
+    public interface IItemListener
+    {
+        void Update(ItemBase itemFrom);
+        void Kill(ItemBase itemFrom);
+    }
+
     /// <summary>
-    /// Name / description properties for Box / Pallet / Interlayer
+    /// This class holds Name / description properties for Box / Pallet / Interlayer / Analysis
+    /// it also handle dependancy problems
     /// </summary>
     public class ItemBase : IDisposable
     {
@@ -22,6 +29,8 @@ namespace TreeDim.StackBuilder.Basics
         private List<ItemBase> _dependancies = new List<ItemBase>();
         // Track whether Dispose has been called.
         private bool disposed = false;
+        // listeners
+        List<IItemListener> _listeners = new List<IItemListener>();
         #endregion
 
         #region Constructors
@@ -68,11 +77,22 @@ namespace TreeDim.StackBuilder.Basics
         {   _dependancies.Remove(dependancie);  }
         protected void Modify()
         {
+            // update dependancies
             foreach (ItemBase item in _dependancies)
                 item.OnAttributeModified(this);
+            // update listeners
+            UpdateListeners();
+            // update parent document
             _parentDocument.Modify();
         }
+        public void EndUpdate()
+        {
+            // update dependancies
+            foreach (ItemBase item in _dependancies)
+                item.OnEndUpdate(this);
+        }
         public virtual void OnAttributeModified(ItemBase modifiedAttribute) {}
+        public virtual void OnEndUpdate(ItemBase updatedAttribute) {}
         protected virtual void RemoveItselfFromDependancies() {}
         #endregion
 
@@ -115,6 +135,7 @@ namespace TreeDim.StackBuilder.Basics
                     }
                 }
                 RemoveItselfFromDependancies();
+                KillListeners();
                 // Call the appropriate methods to clean up
                 // unmanaged resources here.
                 // If disposing is false, only the following code is executed.
@@ -129,6 +150,27 @@ namespace TreeDim.StackBuilder.Basics
         public override string ToString()
         {
             return string.Format("Name:{0} \nDescription: {1}\n", _name, _description);
+        }
+        #endregion
+
+        #region Listeners
+        public void AddListener(IItemListener listener)
+        {
+            _listeners.Add(listener);
+        }
+        public void RemoveListener(IItemListener listener)
+        {
+            _listeners.Remove(listener);
+        }
+        protected void UpdateListeners()
+        {
+            foreach (IItemListener listener in _listeners)
+                listener.Update(this);
+        }
+        protected void KillListeners()
+        {
+            while (_listeners.Count > 0)
+                _listeners[0].Kill(this);
         }
         #endregion
     }

@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics", "TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj", "{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Desktop", "TreeDim.StackBuilder.Desktop\TreeDim.StackBuilder.Desktop.csproj", "{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1505A6E5-E6F9-4408-A5C8-968417081CBD} = {1505A6E5-E6F9-4408-A5C8-968417081CBD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.Test", "TreeDim.StackBuilder.Graphics.Test\TreeDim.StackBuilder.Graphics.Test.csproj", "{D5FBE9D8-DFAE-49F0-B9DA-0795B98D887F}"
 EndProject
@@ -22,8 +25,20 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficePickers", "OfficePickers\OfficePickers.csproj", "{CAD56B75-481B-4C76-B090-4BC2FF5E5681}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupSB", "SetupSB\SetupSB.wixproj", "{125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E646606-052D-4063-9218-1379430B070E} = {2E646606-052D-4063-9218-1379430B070E}
+		{87F1FC0B-C544-4D99-9BF7-21F2CB09A596} = {87F1FC0B-C544-4D99-9BF7-21F2CB09A596}
+		{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7} = {2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}
+		{CAD56B75-481B-4C76-B090-4BC2FF5E5681} = {CAD56B75-481B-4C76-B090-4BC2FF5E5681}
+		{444C01D0-53FD-49A1-9D55-267B49161357} = {444C01D0-53FD-49A1-9D55-267B49161357}
+		{A8A2C6D7-58CF-4DA2-A754-C9686173B5EE} = {A8A2C6D7-58CF-4DA2-A754-C9686173B5EE}
+		{1505A6E5-E6F9-4408-A5C8-968417081CBD} = {1505A6E5-E6F9-4408-A5C8-968417081CBD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.ReportingMSWord", "TreeDim.StackBuilder.ReportingMSWord\TreeDim.StackBuilder.ReportingMSWord.csproj", "{1505A6E5-E6F9-4408-A5C8-968417081CBD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E646606-052D-4063-9218-1379430B070E} = {2E646606-052D-4063-9218-1379430B070E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.ReportingMSWord.Test", "TreeDim.StackBuilder.ReportingMSWord.Test\TreeDim.StackBuilder.ReportingMSWord.Test.csproj", "{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576}"
 EndProject

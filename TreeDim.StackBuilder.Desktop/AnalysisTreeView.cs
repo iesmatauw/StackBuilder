@@ -41,6 +41,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ContextMenu = new ContextMenu();
                 // attach event handlers
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseClick);
+                this.NodeMouseDoubleClick += new TreeNodeMouseClickEventHandler(AnalysisTreeView_NodeMouseDoubleClick);
                 ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
                 this.DrawMode = TreeViewDrawMode.OwnerDrawText;
                 this.DrawNode += new DrawTreeNodeEventHandler(AnalysisTreeView_DrawNode);
@@ -50,6 +51,7 @@ namespace TreeDim.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
+
 
         private void InitializeComponent()
         {
@@ -102,7 +104,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        void AnalysisTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        void AnalysisTreeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             try
             {
@@ -117,6 +119,9 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
+        }
+        void AnalysisTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
         }
         void AnalysisTreeView_DrawNode(object sender, System.Windows.Forms.DrawTreeNodeEventArgs e)
         {

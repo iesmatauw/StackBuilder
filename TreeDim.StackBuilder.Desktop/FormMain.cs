@@ -154,6 +154,7 @@ namespace TreeDim.StackBuilder.Desktop
                         box.Weight = form.Weight;
                         box.Colors = form.Colors;
                         box.SetAllColors(form.Colors);
+                        box.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BundleProperties))
@@ -169,6 +170,7 @@ namespace TreeDim.StackBuilder.Desktop
                         bundle.UnitThickness = form.UnitThickness;
                         bundle.UnitWeight = form.UnitWeight;
                         bundle.NoFlats = form.NoFlats;
+                        bundle.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(InterlayerProperties))
@@ -184,6 +186,7 @@ namespace TreeDim.StackBuilder.Desktop
                         interlayer.Thickness = form.Thickness;
                         interlayer.Weight = form.Weight;
                         interlayer.Color = form.Color;
+                        interlayer.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletProperties))
@@ -201,6 +204,7 @@ namespace TreeDim.StackBuilder.Desktop
                         pallet.AdmissibleLoadHeight = form.AdmissibleLoadHeight;
                         pallet.AdmissibleLoadWeight = form.AdmissibleLoadWeight;
                         pallet.Color = form.Color;
+                        pallet.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(TruckProperties))
@@ -216,6 +220,7 @@ namespace TreeDim.StackBuilder.Desktop
                         truck.Height = form.TruckHeight;
                         truck.AdmissibleLoadWeight = form.TruckAdmissibleLoadWeight;
                         truck.Color = form.TruckColor;
+                        truck.EndUpdate();
                     }
                 }
                 else
@@ -577,6 +582,7 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumHeight = form.MaximumPalletHeight;
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
 
                 Analysis analysis = doc.CreateNewAnalysis(
                     form.AnalysisName, form.AnalysisDescription,

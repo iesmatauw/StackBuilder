@@ -13,6 +13,7 @@ namespace TreeDim.StackBuilder.Basics
         private int _maxNumberOfItems;
         private double _maximumPalletWeight;
         private double _maximumHeight;
+        private double _maximumWeightOnBox;
         private double _overhangX, _overhangY;
         private bool _useMaximumPalletWeight;
         private bool _useMaximumHeight;
@@ -24,6 +25,8 @@ namespace TreeDim.StackBuilder.Basics
         private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
         private bool _hasInterlayer;
         private int _interlayerPeriod;
+        private bool _useNoSolutionsKept;
+        private int _noSolutionsKept;
         #endregion
 
         #region Constructor
@@ -107,6 +110,15 @@ namespace TreeDim.StackBuilder.Basics
             }
             get { return _maximumHeight; }
         }
+        public double MaximumWeightOnBox
+        {
+            set
+            {
+                _useMaximumWeightOnBox = true;
+                _maximumWeightOnBox = value;
+            }
+            get { return _maximumWeightOnBox; }
+        }
         #endregion
 
         #region Allowed patterns and box axis
@@ -120,11 +132,17 @@ namespace TreeDim.StackBuilder.Basics
         }
         public string AllowedPatternString
         {
+            set
+            {
+                string[] patternNames = value.Split(',');
+                foreach (string patternName in patternNames)
+                    _allowedPatterns.Add(patternName);
+            }
             get
             {
                 string sGlobal = string.Empty;
                 foreach (string s in _allowedPatterns)
-                    sGlobal += s + ";";
+                    sGlobal += s + ",";
                 return sGlobal;
             }
         }
@@ -175,6 +193,23 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _interlayerPeriod; }
             set { _interlayerPeriod = value; }
+        }
+        #endregion
+
+        #region Number of solutions
+        public bool UseNumberOfSolutionsKept
+        {
+            set { _useNoSolutionsKept = value; }
+            get { return _useNoSolutionsKept; }
+        }
+        public int NumberOfSolutionsKept
+        {
+            set
+            {
+                _useNoSolutionsKept = true;
+                _noSolutionsKept = value;
+            }
+            get { return _noSolutionsKept; }
         }
         #endregion
 

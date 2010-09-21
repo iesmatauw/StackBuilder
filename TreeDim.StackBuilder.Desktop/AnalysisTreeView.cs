@@ -73,33 +73,147 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="e"></param>
         private void ContextMenu_Popup(object sender, EventArgs e)
         {
-            // retrieve node which was clicked
-            TreeNode node = GetNodeAt(PointToClient(Cursor.Position));
-            if (node == null) return; // user might right click no valid node
-            // clear previous items
-            ContextMenu.MenuItems.Clear();
-            // let the provider do his work
-            NodeTag nodeTag = node.Tag as NodeTag;
-            if (null != nodeTag)
-                QueryContextMenuItems(nodeTag, this.ContextMenu);
+            try
+            {
+                // retrieve node which was clicked
+                TreeNode node = GetNodeAt(PointToClient(Cursor.Position));
+                if (node == null) return; // user might right click no valid node
+                SelectedNode = node;
+                // clear previous items
+                ContextMenu.MenuItems.Clear();
+                // let the provider do his work
+                NodeTag nodeTag = node.Tag as NodeTag;
+                if (null != nodeTag)
+                    QueryContextMenuItems(nodeTag, this.ContextMenu);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
 
         private void QueryContextMenuItems(NodeTag nodeTag, ContextMenu contextMenu)
         {
+            if (nodeTag.Type == NodeTag.NodeType.NT_DOCUMENT)
+            {
+                contextMenu.MenuItems.Add(new MenuItem("Add new box..."         , new EventHandler(onCreateNewBox)));
+                contextMenu.MenuItems.Add(new MenuItem("Add new pallet..."      , new EventHandler(onCreateNewPallet)));
+                contextMenu.MenuItems.Add(new MenuItem("Add new interlayer..."  , new EventHandler(onCreateNewInterlayer)));
+                contextMenu.MenuItems.Add(new MenuItem("Add new bundle..."      , new EventHandler(onCreateNewBundle)));
+                contextMenu.MenuItems.Add(new MenuItem("Add new truck..."       , new EventHandler(onCreateNewTruck)));
+                contextMenu.MenuItems.Add(new MenuItem("Add new analysis..."    , new EventHandler(onCreateNewAnalysis)));
+                contextMenu.MenuItems.Add(new MenuItem("-"));
+                contextMenu.MenuItems.Add(new MenuItem("Close"                  , new EventHandler(onDocumentClose)));
+
+            }
             if (nodeTag.Type == NodeTag.NodeType.NT_BOX
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLET
                 || nodeTag.Type == NodeTag.NodeType.NT_BUNDLE
                 || nodeTag.Type == NodeTag.NodeType.NT_INTERLAYER
-                || nodeTag.Type == NodeTag.NodeType.NT_TRUCK)
-                contextMenu.MenuItems.Add(new MenuItem("Delete", new EventHandler(onBaseItemDelete)));
+                || nodeTag.Type == NodeTag.NodeType.NT_TRUCK
+                )
+            {
+                string message = string.Format("Delete {0}...", nodeTag.ItemProperties.Name);
+                contextMenu.MenuItems.Add(new MenuItem(message, new EventHandler(onBaseItemDelete)));
+            }
+            if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
+            {
+                string message = string.Format("Delete {0}...", nodeTag.Analysis.Name);
+                contextMenu.MenuItems.Add(new MenuItem(message, new EventHandler(onAnalysisDelete)));
+            }
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
+                contextMenu.MenuItems.Add(new MenuItem("Add new box...", new EventHandler(onCreateNewBox)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
+                contextMenu.MenuItems.Add(new MenuItem("Add new pallet...", new EventHandler(onCreateNewPallet)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
+                contextMenu.MenuItems.Add(new MenuItem("Add new interlayer...", new EventHandler(onCreateNewInterlayer)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
+                contextMenu.MenuItems.Add(new MenuItem("Add new bundle...", new EventHandler(onCreateNewBundle)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
+                contextMenu.MenuItems.Add(new MenuItem("Add new truck...", new EventHandler(onCreateNewTruck)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS && nodeTag.Document.CanCreateAnalysis)
+                contextMenu.MenuItems.Add(new MenuItem("Add new analysis...", new EventHandler(onCreateNewAnalysis)));
         }
+        #endregion
 
+        #region Handling context menus
         private void onBaseItemDelete(object sender, EventArgs e)
         {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;                
+                tag.Document.RemoveItem(tag.ItemProperties);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisDelete(object sender, EventArgs e)
+        {
             NodeTag tag = SelectedNode.Tag as NodeTag;
-            if (null == tag) return;
-
-            tag.Document.RemoveItem(tag.ItemProperties);
+            tag.Document.RemoveItem(tag.Analysis);
+        }
+        private void onCreateNewBox(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewBoxUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewPallet(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewPalletUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewInterlayer(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewInterlayerUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewBundle(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewBundleUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewTruck(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewTruckUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewAnalysisUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onDocumentClose(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                CancelEventArgs cea = new CancelEventArgs();
+                FormMain.GetInstance().CloseDocument((DocumentSB)tag.Document, cea); ;
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         #endregion
 
@@ -324,6 +438,11 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public void OnDocumentClosed(Document doc)
         {
+            NodeTag.NodeType nodeType = NodeTag.NodeType.NT_DOCUMENT;
+            // get node
+            TreeNode docNode = FindNode(null, new NodeTag(nodeType, doc, null, null));
+            // remove node
+            Nodes.Remove(docNode);
         }
         #endregion
 

@@ -38,11 +38,13 @@ namespace TreeDim.StackBuilder.Desktop
         private List<IDocument> _documents = new List<IDocument>();
         private IDocument _activeDocument;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormMain));
+        private static FormMain _instance;
         #endregion
 
         #region Constructor
         public FormMain()
         {
+            _instance = this;
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
             InitializeComponent();
 
@@ -477,124 +479,58 @@ namespace TreeDim.StackBuilder.Desktop
                     OpenDocument(fileName);            
         }
 
-        private void fileSave(object sender, EventArgs e)        {   SaveDocument();   }
-        private void fileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs(); }
-        private void fileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();  }
-        private void fileExit(object sender, EventArgs e)        {   Close();   }
+        private void fileSave(object sender, EventArgs e)        {   SaveDocument();                }
+        private void fileSaveAs(object sender, EventArgs e)      {   SaveDocumentAs();              }
+        private void fileSaveAll(object sender, EventArgs e)     {   SaveAllDocuments();            }
+        private void fileExit(object sender, EventArgs e)
+        {
+            CancelEventArgs cea = new CancelEventArgs();
+            CloseAllDocuments(cea);
+            Close();
+            Application.Exit(); 
+        }
         #endregion
 
         #region Tools
         private void toolAddNewBox(object sender, EventArgs e)
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
-            FormNewBox form = new FormNewBox(doc);
-            if (DialogResult.OK == form.ShowDialog())
-                doc.CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
+            try { ((DocumentSB)ActiveDocument).CreateNewBoxUI();    }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
         private void toolAddNewBundle(object sender, EventArgs e)
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
-            FormNewBundle form = new FormNewBundle(doc);
-            if (DialogResult.OK == form.ShowDialog())
-                doc.CreateNewBundle(
-                    form.BundleName, form.Description
-                    , form.BundleLength, form.BundleWidth, form.UnitThickness
-                    , form.UnitWeight
-                    , form.Color
-                    , form.NoFlats);
+            try { ((DocumentSB)ActiveDocument).CreateNewBundleUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
         private void toolAddNewInterlayer(object sender, EventArgs e)
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
-            FormNewInterlayer form = new FormNewInterlayer(doc);
-            if (DialogResult.OK == form.ShowDialog())
-                doc.CreateNewInterlayer(
-                    form.InterlayerName, form.Description
-                    , form.InterlayerLength, form.InterlayerWidth, form.Thickness
-                    , form.Weight
-                    , form.Color);
+            try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
         private void toolAddNewPallet(object sender, EventArgs e)
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
-            FormNewPallet form = new FormNewPallet(doc);
-            if (DialogResult.OK == form.ShowDialog())
-                doc.CreateNewPallet(form.PalletName, form.Description, form.PalletType
-                    , form.PalletLength, form.PalletWidth, form.PalletHeight
-                    , form.Weight
-                    , form.AdmissibleLoadWeight, form.AdmissibleLoadHeight);
+            try { ((DocumentSB)ActiveDocument).CreateNewPalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
         private void toolAddNewTruck(object sender, EventArgs e)
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
-            if (null == doc) return;
-
-            FormNewTruck form = new FormNewTruck(doc);
-            if (DialogResult.OK == form.ShowDialog())
-                doc.CreateNewTruck(form.TruckName, form.Description
-                    , form.TruckLength, form.TruckWidth, form.TruckHeight
-                    , form.TruckAdmissibleLoadWeight
-                    , form.TruckColor);
+            try { ((DocumentSB)ActiveDocument).CreateNewTruckUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
         private void toolAddNewAnalysis(object sender, EventArgs e)
         {
-            DocumentSB doc = (DocumentSB)ActiveDocument;
-            if (null == doc || !doc.CanCreateAnalysis)
-                return;
-
-            FormNewAnalysis form = new FormNewAnalysis(doc);
-            form.Boxes = doc.Boxes.ToArray();
-            form.Pallets = doc.Pallets.ToArray();
-            form.Interlayers = doc.Interlayers.ToArray();
-            if (DialogResult.OK == form.ShowDialog())
+            try
             {
-                // build constraint set
-                ConstraintSet constraintSet = new ConstraintSet();
-                // overhang / underhang
-                constraintSet.OverhangX = form.OverhangX;
-                constraintSet.OverhangY = form.OverhangY;
-                // allowed axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
-                // allowed patterns
-                foreach (string s in form.AllowedPatterns)
-                    constraintSet.SetAllowedPattern(s);
-                // allow alternate layer
-                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
-                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
-                // interlayers
-                constraintSet.HasInterlayer = form.HasInterlayers;
-                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
-                // stop criterion
-                constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
-                constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
-                constraintSet.MaximumHeight = form.MaximumPalletHeight;
-                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
-                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
-
-                Analysis analysis = doc.CreateNewAnalysis(
-                    form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedBox, form.SelectedPallet, form.SelectedInterlayer
-                    , constraintSet
-                    , new Solver());
+                Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI();
                 if (null != analysis)
                     CreateOrActivateViewAnalysis(analysis);
-                else
-                    MessageBox.Show(string.Format("Failed to build valid analysis with given constraints")
-                        , Application.ProductName, MessageBoxButtons.OK);
             }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         #endregion
 
@@ -635,6 +571,13 @@ namespace TreeDim.StackBuilder.Desktop
         {
             AboutBox dlg = new AboutBox();
             dlg.ShowDialog();
+        }
+        #endregion
+
+        #region Static instance accessor
+        public static FormMain GetInstance()
+        {
+            return _instance;
         }
         #endregion
     }

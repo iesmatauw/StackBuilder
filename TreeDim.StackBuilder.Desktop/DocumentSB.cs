@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 using TreeDim.StackBuilder.Basics;
+using TreeDim.StackBuilder.Engine;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -93,6 +95,103 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentAnalysis form = new DockContentAnalysis(this, analysis);
             _views.Add(form);
             return form;
+        }
+        #endregion
+
+        #region UI item creation
+        public void CreateNewBoxUI()
+        {
+            FormNewBox form = new FormNewBox(this);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
+        }
+        public void CreateNewBundleUI()
+        { 
+            FormNewBundle form = new FormNewBundle(this);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewBundle(
+                    form.BundleName, form.Description
+                    , form.BundleLength, form.BundleWidth, form.UnitThickness
+                    , form.UnitWeight
+                    , form.Color
+                    , form.NoFlats);
+        }
+        public void CreateNewInterlayerUI()
+        { 
+            FormNewInterlayer form = new FormNewInterlayer(this);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewInterlayer(
+                    form.InterlayerName, form.Description
+                    , form.InterlayerLength, form.InterlayerWidth, form.Thickness
+                    , form.Weight
+                    , form.Color);
+        }
+        public void CreateNewPalletUI()
+        {        
+            FormNewPallet form = new FormNewPallet(this);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewPallet(form.PalletName, form.Description, form.PalletType
+                    , form.PalletLength, form.PalletWidth, form.PalletHeight
+                    , form.Weight
+                    , form.AdmissibleLoadWeight, form.AdmissibleLoadHeight);
+        }
+        public void CreateNewTruckUI()
+        {
+            FormNewTruck form = new FormNewTruck(this);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewTruck(form.TruckName, form.Description
+                    , form.TruckLength, form.TruckWidth, form.TruckHeight
+                    , form.TruckAdmissibleLoadWeight
+                    , form.TruckColor);
+        }
+        public Analysis CreateNewAnalysisUI()
+        {
+            if (!CanCreateAnalysis) return null;
+
+            FormNewAnalysis form = new FormNewAnalysis(this);
+            form.Boxes = Boxes.ToArray();
+            form.Pallets = Pallets.ToArray();
+            form.Interlayers = Interlayers.ToArray();
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                // build constraint set
+                ConstraintSet constraintSet = new ConstraintSet();
+                // overhang / underhang
+                constraintSet.OverhangX = form.OverhangX;
+                constraintSet.OverhangY = form.OverhangY;
+                // allowed axes
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
+                // allowed patterns
+                foreach (string s in form.AllowedPatterns)
+                    constraintSet.SetAllowedPattern(s);
+                // allow alternate layer
+                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                // interlayers
+                constraintSet.HasInterlayer = form.HasInterlayers;
+                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                // stop criterion
+                constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
+                constraintSet.MaximumHeight = form.MaximumPalletHeight;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
+
+                return CreateNewAnalysis(
+                    form.AnalysisName, form.AnalysisDescription,
+                    form.SelectedBox, form.SelectedPallet, form.SelectedInterlayer
+                    , constraintSet
+                    , new Solver());
+            }
+            return null;
         }
         #endregion
     }

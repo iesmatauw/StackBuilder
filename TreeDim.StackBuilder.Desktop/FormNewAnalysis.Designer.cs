@@ -79,9 +79,9 @@
             this.nudNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
             this.lbBoxes = new System.Windows.Forms.Label();
             this.gbAdditionalData = new System.Windows.Forms.GroupBox();
-            this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
-            this.nudSolutions = new System.Windows.Forms.NumericUpDown();
             this.lbSolutions = new System.Windows.Forms.Label();
+            this.nudSolutions = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -230,7 +230,7 @@
             // lbBox
             // 
             this.lbBox.AutoSize = true;
-            this.lbBox.Location = new System.Drawing.Point(17, 63);
+            this.lbBox.Location = new System.Drawing.Point(13, 63);
             this.lbBox.Name = "lbBox";
             this.lbBox.Size = new System.Drawing.Size(25, 13);
             this.lbBox.TabIndex = 13;
@@ -420,7 +420,7 @@
             // checkBoxInterlayer
             // 
             this.checkBoxInterlayer.AutoSize = true;
-            this.checkBoxInterlayer.Location = new System.Drawing.Point(20, 93);
+            this.checkBoxInterlayer.Location = new System.Drawing.Point(13, 93);
             this.checkBoxInterlayer.Name = "checkBoxInterlayer";
             this.checkBoxInterlayer.Size = new System.Drawing.Size(69, 17);
             this.checkBoxInterlayer.TabIndex = 31;
@@ -647,15 +647,14 @@
             this.gbAdditionalData.TabStop = false;
             this.gbAdditionalData.Text = "Additional data";
             // 
-            // checkBoxKeepSolutions
+            // lbSolutions
             // 
-            this.checkBoxKeepSolutions.AutoSize = true;
-            this.checkBoxKeepSolutions.Location = new System.Drawing.Point(8, 39);
-            this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
-            this.checkBoxKeepSolutions.Size = new System.Drawing.Size(95, 17);
-            this.checkBoxKeepSolutions.TabIndex = 48;
-            this.checkBoxKeepSolutions.Text = "Only keep the ";
-            this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
+            this.lbSolutions.AutoSize = true;
+            this.lbSolutions.Location = new System.Drawing.Point(191, 40);
+            this.lbSolutions.Name = "lbSolutions";
+            this.lbSolutions.Size = new System.Drawing.Size(71, 13);
+            this.lbSolutions.TabIndex = 50;
+            this.lbSolutions.Text = "best solutions";
             // 
             // nudSolutions
             // 
@@ -679,14 +678,15 @@
             0,
             0});
             // 
-            // lbSolutions
+            // checkBoxKeepSolutions
             // 
-            this.lbSolutions.AutoSize = true;
-            this.lbSolutions.Location = new System.Drawing.Point(191, 40);
-            this.lbSolutions.Name = "lbSolutions";
-            this.lbSolutions.Size = new System.Drawing.Size(71, 13);
-            this.lbSolutions.TabIndex = 50;
-            this.lbSolutions.Text = "best solutions";
+            this.checkBoxKeepSolutions.AutoSize = true;
+            this.checkBoxKeepSolutions.Location = new System.Drawing.Point(8, 39);
+            this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
+            this.checkBoxKeepSolutions.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxKeepSolutions.TabIndex = 48;
+            this.checkBoxKeepSolutions.Text = "Only keep the ";
+            this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
             // 
             // FormNewAnalysis
             // 

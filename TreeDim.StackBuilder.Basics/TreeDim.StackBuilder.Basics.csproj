@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Analysis.cs" />
     <Compile Include="BoxProperties.cs" />
+    <Compile Include="BProperties.cs" />
     <Compile Include="BundleProperties.cs" />
     <Compile Include="ConstraintSet.cs" />
     <Compile Include="ConstraintSetBox.cs" />

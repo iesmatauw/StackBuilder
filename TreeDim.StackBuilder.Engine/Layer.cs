@@ -42,7 +42,7 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Constructor
-        public Layer(BoxProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
+        public Layer(BProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
             _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
@@ -52,7 +52,7 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Private methods
-        private void Initialize(BoxProperties boxProperties)
+        private void Initialize(BProperties boxProperties)
         {
             switch (_axisOrtho)
             {

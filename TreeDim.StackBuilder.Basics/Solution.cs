@@ -251,7 +251,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double Efficiency(Analysis analysis)
         {
-            return 100.0 * BoxCount * analysis.BoxProperties.Volume
+            return 100.0 * BoxCount * analysis.BProperties.Volume
                 /
                 (
                     (analysis.PalletProperties.Length - analysis.ConstraintSet.OverhangX)
@@ -261,11 +261,11 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double PalletWeight(Analysis analysis)
         {
-            return analysis.PalletProperties.Weight + BoxCount * analysis.BoxProperties.Weight;
+            return analysis.PalletProperties.Weight + BoxCount * analysis.BProperties.Weight;
         }
         public double PalletHeight(Analysis analysis)
         {
-            return this[Count - 1].ZLow + analysis.BoxProperties.Height;
+            return this[Count - 1].ZLow + analysis.BProperties.Height;
         }
         public bool HasHomogeneousLayers
         {

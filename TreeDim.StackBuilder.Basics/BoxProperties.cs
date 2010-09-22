@@ -12,20 +12,15 @@ namespace TreeDim.StackBuilder.Basics
     /// <summary>
     /// Box properties (dimensions, colors, textures)
     /// </summary>
-    public class BoxProperties : ItemBase
+    public class BoxProperties : BProperties
     {
         #region Data members
-        private double _length, _width, _height;
-        private double _weight;
+        private double _height;
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
         #endregion
 
         #region Constructor
-        public BoxProperties(Document document)
-            : base(document)
-        { 
-        }
         public BoxProperties(Document document, double length, double width, double height)
             : base(document)
         {
@@ -35,44 +30,29 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
-        #region Public properties
-        public double Length
-        {
-            get { return _length; }
-            set { _length = value; Modify(); }
-        }
-        public double Width
-        {
-            get { return _width; }
-            set { _width = value; Modify(); }
-        }
-        public double Height
+        #region Height
+        public override double Height
         {
             get { return _height; }
             set { _height = value; Modify(); }
         }
-        public double Volume
-        {
-            get { return _length * _width * _height; }
-        }
-        public double Weight
-        {
-            get { return _weight; }
-            set { _weight = value; Modify(); }
-        }
-        public Color[] Colors
-        {
-            get { return _colors; }
-            set { _colors = value; }
-        }
         #endregion
 
-        #region Public methods
-        public void SetColor(Color color)
+        #region Colors
+        public override void SetColor(Color color)
         {
             for (int i = 0; i < 6; ++i)
                 _colors[i] = color;
             Modify();
+        }
+        public override Color GetColor(HalfAxis.HAxis axis)
+        {
+            return _colors[(int)axis];
+        }
+
+        public override Color[] Colors
+        {
+            get { return _colors; }
         }
         public void SetColor(HalfAxis.HAxis axis, Color color)
         {
@@ -90,33 +70,10 @@ namespace TreeDim.StackBuilder.Basics
             _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size)));
             Modify();
         }
-        public double Dimension(HalfAxis.HAxis axis)
-        {
-            switch (axis)
-            {
-                case HalfAxis.HAxis.AXIS_X_N:
-                case HalfAxis.HAxis.AXIS_X_P:
-                    return _length;
-                case HalfAxis.HAxis.AXIS_Y_N:
-                case HalfAxis.HAxis.AXIS_Y_P:
-                    return _width;
-                case HalfAxis.HAxis.AXIS_Z_N:
-                case HalfAxis.HAxis.AXIS_Z_P:
-                    return _height;
-                default:
-                    return 0.0;
-            }
-        }
         #endregion
 
-        #region Object override
-        public override string ToString()
-        {
-            StringBuilder sBuilder = new StringBuilder();
-            sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("BoxProperties => Length = {0}      Width = {1}     Height = {2}", _length, _width, _height) );
-            return sBuilder.ToString();
-        }
+        #region IsBundle
+        public override bool IsBundle { get { return false; } }
         #endregion
     }
 }

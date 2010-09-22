@@ -83,7 +83,8 @@ namespace TreeDim.StackBuilder.Basics
             // update listeners
             UpdateListeners();
             // update parent document
-            _parentDocument.Modify();
+            if (null != _parentDocument)
+                _parentDocument.Modify();
         }
         public void EndUpdate()
         {

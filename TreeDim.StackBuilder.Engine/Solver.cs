@@ -19,7 +19,7 @@ namespace TreeDim.StackBuilder.Engine
     {
         #region Data members
         private List<LayerPattern> _patterns = new List<LayerPattern>();
-        private BoxProperties _boxProperties;
+        private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
@@ -36,10 +36,12 @@ namespace TreeDim.StackBuilder.Engine
         #region Public methods
         public void ProcessAnalysis(Analysis analysis)
         {
-            _boxProperties = analysis.BoxProperties;
+            _bProperties = analysis.BProperties;
             _palletProperties = analysis.PalletProperties;
             _interlayerProperties = analysis.InterlayerProperties;
             _constraintSet = analysis.ConstraintSet;
+            if (!_constraintSet.IsValid)
+                throw new Exception("Constraint set is invalid!");
 
             analysis.Solutions = GenerateSolutions();
         }
@@ -68,8 +70,8 @@ namespace TreeDim.StackBuilder.Engine
                             continue;
                         try
                         {
-                            Layer layer1 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho1);
-                            Layer layer2 = new Layer(_boxProperties, _palletProperties, _constraintSet, axisOrtho2);
+                            Layer layer1 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho1);
+                            Layer layer2 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho2);
                             double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
                             pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
                             pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
@@ -100,7 +102,7 @@ namespace TreeDim.StackBuilder.Engine
                                     layer1T = layer2; layer2T = layer1;
                                 }
 
-                                if (null == layer1T || null == layer2T)
+                                if (null == layer1T || null == layer2T || 0 == layer1T.Count || 0 == layer2T.Count)
                                     continue;
 
                                 // counters
@@ -123,7 +125,7 @@ namespace TreeDim.StackBuilder.Engine
                                 while (
                                     !innerLoopStop
                                     &&
-                                    (!_constraintSet.UseMaximumHeight || (zLayer + _boxProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
+                                    (!_constraintSet.UseMaximumHeight || (zLayer + _bProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
                                     )
                                 {
                                     if (_constraintSet.HasInterlayer)
@@ -137,14 +139,14 @@ namespace TreeDim.StackBuilder.Engine
                                         ++iInterlayer;
                                     }
 
-                                    BoxLayer layer = sol.CreateNewLayer(zLayer);
-
                                     // select current layer type
                                     Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
+                                    BoxLayer layer = sol.CreateNewLayer(zLayer);
+
                                     foreach (LayerPosition layerPos in currentLayer)
                                     {
                                         int iCount = sol.Count + 1;
-                                        innerLoopStop = (iCount * _boxProperties.Weight > _constraintSet.MaximumPalletWeight)
+                                        innerLoopStop = (iCount * _bProperties.Weight > _constraintSet.MaximumPalletWeight)
                                         || (_constraintSet.UseMaximumNumberOfItems && (iCount > _constraintSet.MaximumNumberOfItems));
 
                                         if (!innerLoopStop)
@@ -180,6 +182,16 @@ namespace TreeDim.StackBuilder.Engine
             // sort solutions
             solutions.Sort();
 
+            // remove unwanted solutions
+            if (_constraintSet.UseNumberOfSolutionsKept && solutions.Count > _constraintSet.NumberOfSolutionsKept)
+            { 
+                // get minimum box count
+                int minBoxCount = solutions[_constraintSet.NumberOfSolutionsKept].BoxCount;
+                // remove any solution with less boxes than minBoxCount
+                while (solutions[solutions.Count - 1].BoxCount < minBoxCount)
+                    solutions.RemoveAt(solutions.Count - 1);
+            }
+
             return solutions;
         }
 
@@ -195,10 +207,10 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public properties
-        public BoxProperties Box
+        public BProperties Box
         {
-            get { return _boxProperties; }
-            set { _boxProperties = value; }
+            get { return _bProperties; }
+            set { _bProperties = value; }
         }
         public PalletProperties Pallet
         {

@@ -46,7 +46,7 @@ namespace TreeDim.StackBuilder.Graphics
                 if (null != blayer)
                 {
                     foreach (BoxPosition bPosition in blayer)
-                        graphics.AddBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                        graphics.AddBox(new Box(pickId++, _analysis.BProperties, bPosition));
                 }
 
                 InterlayerPos interlayerPos = layer as InterlayerPos;
@@ -90,7 +90,7 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
                     uint pickId = 0;
                     foreach (BoxPosition bPosition in blayer)
-                        graphics.DrawBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                        graphics.DrawBox(new Box(pickId++, _analysis.BProperties, bPosition));
                     // draw axis X
                     graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
                     // draw axis Y
@@ -111,7 +111,7 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
                     uint pickId = 0;
                     foreach (BoxPosition bPosition in blayer0)
-                        graphics.DrawBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                        graphics.DrawBox(new Box(pickId++, _analysis.BProperties, bPosition));
                     // draw axis X
                     graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
                     // draw axis Y
@@ -129,7 +129,7 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
                     uint pickId = 0;
                     foreach (BoxPosition bPosition in blayer1)
-                        graphics.DrawBox(new Box(pickId++, _analysis.BoxProperties, bPosition));
+                        graphics.DrawBox(new Box(pickId++, _analysis.BProperties, bPosition));
                     // draw axis X
                     graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
                     // draw axis Y

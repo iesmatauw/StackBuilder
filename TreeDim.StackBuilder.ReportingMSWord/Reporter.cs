@@ -193,7 +193,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get BoxProperties
-            BoxProperties boxProp = analysis.BoxProperties;
+            BProperties boxProp = analysis.BProperties;
             if (null == boxProp) return;
             // case
             XmlElement elemCase = xmlDoc.CreateElement("case", ns);

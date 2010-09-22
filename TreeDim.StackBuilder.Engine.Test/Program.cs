@@ -53,7 +53,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 InterlayerProperties interlayerProperties = null;
 
                 // define constraints
-                ConstraintSet constraintSet = new ConstraintSet();
+                ConstraintSetBox constraintSet = new ConstraintSetBox();
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);

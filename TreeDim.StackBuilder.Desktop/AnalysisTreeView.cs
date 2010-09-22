@@ -101,7 +101,10 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenu.MenuItems.Add(new MenuItem("Add new interlayer..."  , new EventHandler(onCreateNewInterlayer)));
                 contextMenu.MenuItems.Add(new MenuItem("Add new bundle..."      , new EventHandler(onCreateNewBundle)));
                 contextMenu.MenuItems.Add(new MenuItem("Add new truck..."       , new EventHandler(onCreateNewTruck)));
-                contextMenu.MenuItems.Add(new MenuItem("Add new analysis..."    , new EventHandler(onCreateNewAnalysis)));
+                if (((DocumentSB)nodeTag.Document).CanCreateAnalysis)
+                    contextMenu.MenuItems.Add(new MenuItem("Add new analysis..."    , new EventHandler(onCreateNewAnalysis)));
+                if (((DocumentSB)nodeTag.Document).CanCreateBundleAnalysis)
+                    contextMenu.MenuItems.Add(new MenuItem("Add new bundle analysis...", new EventHandler(onCreateNewBundleAnalysis)));
                 contextMenu.MenuItems.Add(new MenuItem("-"));
                 contextMenu.MenuItems.Add(new MenuItem("Close"                  , new EventHandler(onDocumentClose)));
 
@@ -131,8 +134,13 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenu.MenuItems.Add(new MenuItem("Add new bundle...", new EventHandler(onCreateNewBundle)));
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
                 contextMenu.MenuItems.Add(new MenuItem("Add new truck...", new EventHandler(onCreateNewTruck)));
-            if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS && nodeTag.Document.CanCreateAnalysis)
-                contextMenu.MenuItems.Add(new MenuItem("Add new analysis...", new EventHandler(onCreateNewAnalysis)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
+            {
+                if (nodeTag.Document.CanCreateAnalysis)
+                    contextMenu.MenuItems.Add(new MenuItem("Add new analysis...", new EventHandler(onCreateNewAnalysis)));
+                if (nodeTag.Document.CanCreateBundleAnalysis)
+                    contextMenu.MenuItems.Add(new MenuItem("Add new bundle analysis", new EventHandler(onCreateNewBundleAnalysis)));
+            }
         }
         #endregion
 
@@ -202,6 +210,15 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 ((DocumentSB)tag.Document).CreateNewAnalysisUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewBundleAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewAnalysisBundleUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -360,6 +377,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else
             {
+                Debug.Assert(false);
                 _log.Error("AnalysisTreeView.OnNewTypeCreated() -> unknown type!");
                 return;
             }
@@ -385,8 +403,8 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
             // insert sub box node
-            TreeNode subBoxNode = new TreeNode(analysis.BoxProperties.Name, 3, 3);
-            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis.BoxProperties, analysis);
+            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, 3, 3);
+            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis.BProperties, analysis);
             nodeAnalysis.Nodes.Add(subBoxNode);
             // insert sub pallet node
             TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 5, 5);
@@ -401,7 +419,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
-            if (itemBase.GetType() == typeof(BoxProperties))
+            if (itemBase.GetType() == typeof(BProperties))
             {
                 nodeType = NodeTag.NodeType.NT_BOX;
             }

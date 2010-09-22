@@ -201,7 +201,7 @@ namespace TreeDim.StackBuilder.Desktop
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw
             BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
-            boxProperties.Colors = _faceColors;
+            boxProperties.SetAllColors(_faceColors);
             Box box = new Box(0, boxProperties);
             graphics.AddBox(box);
             graphics.Flush();

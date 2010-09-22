@@ -155,7 +155,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
             {
                 // build constraint set
-                ConstraintSet constraintSet = new ConstraintSet();
+                ConstraintSetBox constraintSet = new ConstraintSetBox();
                 // overhang / underhang
                 constraintSet.OverhangX = form.OverhangX;
                 constraintSet.OverhangY = form.OverhangY;
@@ -184,6 +184,9 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
                 constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
+                // number of solution kept
+                constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
+                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
 
                 return CreateNewAnalysis(
                     form.AnalysisName, form.AnalysisDescription,
@@ -191,6 +194,42 @@ namespace TreeDim.StackBuilder.Desktop
                     , constraintSet
                     , new Solver());
             }
+            return null;
+        }
+        public Analysis CreateNewAnalysisBundleUI()
+        {
+            FormNewAnalysisBundle form = new FormNewAnalysisBundle(this);
+            form.Boxes = Bundles.ToArray();
+            form.Pallets = Pallets.ToArray();
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                // build constraintSet
+                ConstraintSetBundle constraintSet = new ConstraintSetBundle();
+                // overhang / underhang
+                constraintSet.OverhangX = form.OverhangX;
+                constraintSet.OverhangY = form.OverhangY;
+                // allowed patterns
+                foreach (string s in form.AllowedPatterns)
+                    constraintSet.SetAllowedPattern(s);
+                // allow alternate layer
+                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                // stop criterion
+                constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.MaximumHeight = form.MaximumPalletHeight;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                // number of solution kept
+                constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
+                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+ 
+                return CreateNewAnalysis(form.AnalysisName, form.AnalysisDescription,
+                    form.SelectedBundle, form.SelectedPallet, null
+                    , constraintSet
+                    , new Solver());
+            }                
             return null;
         }
         #endregion

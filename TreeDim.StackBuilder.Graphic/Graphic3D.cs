@@ -219,23 +219,8 @@ namespace TreeDim.StackBuilder.Graphics
                     Draw(face);
 
                 // sort box list
-                Transform3D transform = GetWorldToEyeTransformation();
-                Vector3D ptRef = Vector3D.Zero;
-                double zRef = double.MaxValue;
-                foreach (Box box in _boxes)
-                {
-                    foreach (Vector3D pt in box.Points)
-                    {
-                        double z = transform.transform(pt).Z;
-                        if (z < zRef)
-                        {
-                            zRef = z;
-                            ptRef = pt;
-                        }
-                    }
-                }
-
-                BoxComparison boxComparer = new BoxComparison(GetWorldToEyeTransformation(), ptRef.X, ptRef.Y);
+                BoxComparisonOld boxComparer = new BoxComparisonOld(GetWorldToEyeTransformation());
+                //BoxComparison boxComparer = new BoxComparison(_vCameraPos, _vTarget);
                 _boxes.Sort(boxComparer);
                 // draw all boxes
                 foreach (Box box_ in _boxes)
@@ -407,14 +392,7 @@ namespace TreeDim.StackBuilder.Graphics
 
             Vector3D[] points = box.Points;
 
-            Face[] faces = new Face[6];
-            faces[0] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
-            faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }); // AXIS_X_P
-            faces[2] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }); // AXIS_Y_N
-            faces[3] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }); // AXIS_Y_P
-            faces[4] = new Face(0, new Vector3D[] { points[3], points[2], points[1], points[0] }); // AXIS_Z_N
-            faces[5] = new Face(0, new Vector3D[] { points[4], points[5], points[6], points[7] }); // AXIS_Z_P
-
+            Face[] faces = box.Faces;
             for (int i=0; i<6; ++i)
             {
                 // face normal

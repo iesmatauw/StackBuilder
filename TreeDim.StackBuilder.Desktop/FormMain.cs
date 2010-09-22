@@ -154,7 +154,7 @@ namespace TreeDim.StackBuilder.Desktop
                         box.Width = form.BoxWidth;
                         box.Height = form.BoxHeight;
                         box.Weight = form.Weight;
-                        box.Colors = form.Colors;
+                        box.SetAllColors( form.Colors );
                         box.SetAllColors(form.Colors);
                         box.EndUpdate();
                     }
@@ -279,10 +279,11 @@ namespace TreeDim.StackBuilder.Desktop
             // new truck
             newTruckToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewTruck.Enabled = (null != doc);
-
             // new analysis
             newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysis;
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysis;
+            // new analysis bundle
+            newBundleAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
         }
         #endregion
 
@@ -527,6 +528,16 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI();
+                if (null != analysis)
+                    CreateOrActivateViewAnalysis(analysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void toolAddNewAnalysisBundle(object sender, EventArgs e)
+        {
+            try
+            {
+                Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI();
                 if (null != analysis)
                     CreateOrActivateViewAnalysis(analysis);
             }

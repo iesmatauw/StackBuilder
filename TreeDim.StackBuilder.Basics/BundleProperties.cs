@@ -7,10 +7,10 @@ using System.Drawing;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class BundleProperties : ItemBase
+    public class BundleProperties : BProperties
     {
         #region Data members
-        private double _length = 0.0, _width = 0.0, _unitThickness = 0.0, _unitWeight = 0.0;
+        private double _unitThickness = 0.0, _unitWeight = 0.0;
         private int _noFlats;
         private Color _color;
         #endregion
@@ -34,40 +34,50 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        public override double Height
+        {
+            get { return _unitThickness * _noFlats; }
+            set { }
+        }
         public Color Color
         {
             get { return _color; }
             set { _color = value; }
         }
-        public double Length
+        public override Color[] Colors
         {
-            set { _length = value; Modify(); }
-            get { return _length; }
+            get
+            {
+                Color[] colors = new Color[6];
+                for (int i = 0; i < 6; ++i)
+                    colors[i] = _color;
+                return colors;
+            }
         }
-        public double Width
+        public override Color GetColor(HalfAxis.HAxis axis)
         {
-            set { _width = value; Modify(); }
-            get { return _width; }
+            return _color;
+        }
+        public override void SetColor(Color color)
+        {
+            _color = color;
         }
         public double UnitThickness
         {
             get { return _unitThickness; }
-            set { _unitThickness = value; }
+            set { _unitThickness = value; Modify(); }
         }
         public double UnitWeight
         {
             get { return _unitWeight; }
-            set { _unitWeight = value; }
-        }
-        public double TotalThickness
-        {
-            get { return _unitThickness * _noFlats; }
+            set { _unitWeight = value; Modify(); }
         }
         public int NoFlats
         {
             get { return _noFlats; }
             set { _noFlats = value; Modify(); }
         }
+        public override bool IsBundle { get { return true; } }
         #endregion
     }
 }

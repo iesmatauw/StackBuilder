@@ -55,6 +55,7 @@ namespace TreeDim.StackBuilder.Desktop
             BundleLength = bundleProperties.Length;
             BundleWidth = bundleProperties.Width;
             UnitThickness = bundleProperties.UnitThickness;
+            UnitWeight = bundleProperties.UnitWeight;
             NoFlats = bundleProperties.NoFlats;
             // set horizontal angle
             trackBarHorizAngle.Value = 45;
@@ -116,6 +117,7 @@ namespace TreeDim.StackBuilder.Desktop
         public double UnitWeight
         {
             get { return (double)nudWeight.Value; }
+            set { nudWeight.Value = (decimal)value; }
         }
         public int NoFlats
         {

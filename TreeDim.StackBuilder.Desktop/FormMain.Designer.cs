@@ -60,6 +60,7 @@
             this.newInterlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPalletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTruckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.newAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,9 +78,9 @@
             this.toolStripButtonAddNewTruck = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
+            this.newBundleAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
-            this.newTruckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -254,7 +255,7 @@
             this.newBoxToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Box;
             this.newBoxToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.newBoxToolStripMenuItem.Name = "newBoxToolStripMenuItem";
-            this.newBoxToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newBoxToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newBoxToolStripMenuItem.Text = "New &Box";
             this.newBoxToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBox);
             // 
@@ -263,7 +264,7 @@
             this.newInterlayerToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Interlayer;
             this.newInterlayerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.newInterlayerToolStripMenuItem.Name = "newInterlayerToolStripMenuItem";
-            this.newInterlayerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newInterlayerToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newInterlayerToolStripMenuItem.Text = "New &Interlayer";
             this.newInterlayerToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewInterlayer);
             // 
@@ -272,7 +273,7 @@
             this.newBundleToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Bundle;
             this.newBundleToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.newBundleToolStripMenuItem.Name = "newBundleToolStripMenuItem";
-            this.newBundleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newBundleToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newBundleToolStripMenuItem.Text = "New B&undle";
             this.newBundleToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundle);
             // 
@@ -281,21 +282,29 @@
             this.newPalletToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Pallet;
             this.newPalletToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.newPalletToolStripMenuItem.Name = "newPalletToolStripMenuItem";
-            this.newPalletToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newPalletToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newPalletToolStripMenuItem.Text = "New &Pallet";
             this.newPalletToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewPallet);
+            // 
+            // newTruckToolStripMenuItem
+            // 
+            this.newTruckToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Truck;
+            this.newTruckToolStripMenuItem.Name = "newTruckToolStripMenuItem";
+            this.newTruckToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.newTruckToolStripMenuItem.Text = "New &Truck";
+            this.newTruckToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewTruck);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(147, 6);
             // 
             // newAnalysisToolStripMenuItem
             // 
             this.newAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Analysis;
             this.newAnalysisToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.newAnalysisToolStripMenuItem.Name = "newAnalysisToolStripMenuItem";
-            this.newAnalysisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newAnalysisToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newAnalysisToolStripMenuItem.Text = "New &Analysis";
             // 
             // helpToolStripMenuItem
@@ -327,7 +336,8 @@
             this.toolStripButtonAddNewPallet,
             this.toolStripButtonAddNewTruck,
             this.toolStripSeparator4,
-            this.toolStripButtonCreateNewAnalysis});
+            this.toolStripButtonCreateNewAnalysis,
+            this.newBundleAnalysisToolStripMenuItem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(784, 25);
@@ -447,9 +457,18 @@
             this.toolStripButtonCreateNewAnalysis.Text = "Create new Analysis";
             this.toolStripButtonCreateNewAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysis);
             // 
+            // newBundleAnalysisToolStripMenuItem
+            // 
+            this.newBundleAnalysisToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newBundleAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisBundle;
+            this.newBundleAnalysisToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.newBundleAnalysisToolStripMenuItem.Name = "newBundleAnalysisToolStripMenuItem";
+            this.newBundleAnalysisToolStripMenuItem.Size = new System.Drawing.Size(23, 22);
+            this.newBundleAnalysisToolStripMenuItem.Text = "Create new bundle analysis";
+            this.newBundleAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
+            // 
             // openFileDialogSB
             // 
-            this.openFileDialogSB.FileName = string.Empty;
             this.openFileDialogSB.Filter = "StackBuilder files|*.stb|All files|*.*";
             this.openFileDialogSB.Title = "Open file...";
             // 
@@ -457,14 +476,6 @@
             // 
             this.saveFileDialogSB.Filter = "StackBuilder files|*.stb";
             this.saveFileDialogSB.Title = "Save file...";
-            // 
-            // newTruckToolStripMenuItem
-            // 
-            this.newTruckToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Truck;
-            this.newTruckToolStripMenuItem.Name = "newTruckToolStripMenuItem";
-            this.newTruckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newTruckToolStripMenuItem.Text = "New &Truck";
-            this.newTruckToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewTruck);
             // 
             // FormMain
             // 
@@ -506,6 +517,7 @@
         private System.Windows.Forms.ToolStripMenuItem newPalletToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem newAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton newBundleAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;

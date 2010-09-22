@@ -96,7 +96,7 @@ namespace TreeDim.StackBuilder.Basics
             boxProperties.Weight = weight;
             boxProperties.Name = name;
             boxProperties.Description = description;
-            boxProperties.Colors = colors;
+            boxProperties.SetAllColors(colors);
             // insert in list
             _typeList.Add(boxProperties);
             // notify listeners
@@ -205,7 +205,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <returns>An analysis</returns>
         public Analysis CreateNewAnalysis(
             string name, string description
-            , BoxProperties box, PalletProperties pallet, InterlayerProperties interlayer
+            , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
             , ConstraintSet constraintSet
             , IAnalysisSolver solver)
         {
@@ -239,7 +239,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <returns></returns>
         public Analysis CreateNewAnalysis(
             string name, string description
-            , BoxProperties box, PalletProperties pallet, InterlayerProperties interlayer
+            , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
             , ConstraintSet constraintSet
             , List<Solution> solutions)
         {
@@ -264,7 +264,7 @@ namespace TreeDim.StackBuilder.Basics
                 return;
             }
             // notify listeners / remove
-            if (item.GetType() == typeof(BoxProperties)
+            if (item.GetType() == typeof(BProperties)
                 || item.GetType() == typeof(BundleProperties)
                 || item.GetType() == typeof(PalletProperties)
                 || item.GetType() == typeof(InterlayerProperties)
@@ -339,6 +339,20 @@ namespace TreeDim.StackBuilder.Basics
                 return boxList;
             }
         }
+        public List<BundleProperties> Bundles
+        {
+            get
+            {
+                List<BundleProperties> bundleList = new List<BundleProperties>();
+                foreach (ItemBase item in _typeList)
+                {
+                    BundleProperties bundleProperties = item as BundleProperties;
+                    if (null != bundleProperties)
+                        bundleList.Add(bundleProperties); 
+                }
+                return bundleList;
+            }
+        }
         public List<PalletProperties> Pallets
         {
             get
@@ -386,6 +400,22 @@ namespace TreeDim.StackBuilder.Basics
                         ++iNoPallets;
                 }
                 return iNoBox > 0 && iNoPallets > 0; 
+            }
+        }
+
+        public bool CanCreateBundleAnalysis
+        {
+            get
+            {
+                int iNoBundles = 0, iNoPallets = 0;
+                foreach (ItemBase item in _typeList)
+                {
+                    if (item.GetType() == typeof(BundleProperties))
+                        ++iNoBundles;
+                    else if (item.GetType() == typeof(PalletProperties))
+                        ++iNoPallets;
+                }
+                return iNoBundles > 0 && iNoPallets > 0;
             }
         }
         #endregion
@@ -555,7 +585,26 @@ namespace TreeDim.StackBuilder.Basics
             interlayerProperties.Guid = new Guid(sid);
         }
         private void LoadBundleProperties(XmlElement eltBundleProperties)
-        { 
+        {
+            string sid = eltBundleProperties.Attributes["Id"].Value;
+            string sname = eltBundleProperties.Attributes["Name"].Value;
+            string sdescription = eltBundleProperties.Attributes["Description"].Value;
+            double length = double.Parse(eltBundleProperties.Attributes["Length"].Value);
+            double width = double.Parse(eltBundleProperties.Attributes["Width"].Value);
+            double unitThickness = double.Parse(eltBundleProperties.Attributes["UnitThickness"].Value);
+            double unitWeight = double.Parse(eltBundleProperties.Attributes["UnitWeight"].Value);
+            Color color = Color.FromArgb(Int32.Parse(eltBundleProperties.Attributes["Color"].Value));
+            int noFlats = int.Parse(eltBundleProperties.Attributes["NumberFlats"].Value);
+            BundleProperties bundleProperties = CreateNewBundle(
+                sname
+                , sdescription
+                , length
+                , width
+                , unitThickness
+                , unitWeight
+                , color
+                , noFlats);
+            bundleProperties.Guid = new Guid(sid);
         }
         private void LoadTruckProperties(XmlElement eltTruckProperties)
         {
@@ -611,7 +660,7 @@ namespace TreeDim.StackBuilder.Basics
             Analysis analysis = CreateNewAnalysis(
                 sName
                 , sDescription
-                , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
+                , GetTypeByGuid(new Guid(sBoxId)) as BProperties
                 , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
                 , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
                 , constraintSet
@@ -741,15 +790,15 @@ namespace TreeDim.StackBuilder.Basics
                     BoxProperties boxProperties = itemProperties as BoxProperties;
                     if (null != boxProperties)
                         Save(boxProperties, xmlItemPropertiesElt, xmlDoc);
+                    BundleProperties bundleProperties = itemProperties as BundleProperties;
+                    if (null != bundleProperties)
+                        Save(bundleProperties, xmlItemPropertiesElt, xmlDoc);
                     PalletProperties palletProperties = itemProperties as PalletProperties;
                     if (null != palletProperties)
                         Save(palletProperties, xmlItemPropertiesElt, xmlDoc);
                     InterlayerProperties interlayerProperties = itemProperties as InterlayerProperties;
                     if (null != interlayerProperties)
                         Save(interlayerProperties, xmlItemPropertiesElt, xmlDoc);
-                    BundleProperties bundleProperties = itemProperties as BundleProperties;
-                    if (null != bundleProperties)
-                        Save(bundleProperties, xmlItemPropertiesElt, xmlDoc);
                     TruckProperties truckProperties = itemProperties as TruckProperties;
                     if (null != truckProperties)
                         Save(truckProperties, xmlItemPropertiesElt, xmlDoc);
@@ -1011,7 +1060,7 @@ namespace TreeDim.StackBuilder.Basics
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
-            boxIdAttribute.Value = string.Format("{0}", analysis.BoxProperties.Guid);
+            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.Guid);
             xmlAnalysisElt.Attributes.Append(boxIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("PalletId");

@@ -10,7 +10,7 @@ namespace TreeDim.StackBuilder.Basics
     public class Analysis : ItemBase
     {
         #region Data members
-        private BoxProperties _boxProperties;
+        private BProperties _boxProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
@@ -18,7 +18,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public Analysis(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, ConstraintSet constraintSet)
+        public Analysis(BProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, ConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
             // sanity check
@@ -45,7 +45,7 @@ namespace TreeDim.StackBuilder.Basics
             get { return _solutions; }
         }
 
-        public BoxProperties BoxProperties
+        public BProperties BProperties
         {
             get { return _boxProperties; }
             set { _boxProperties = value; }

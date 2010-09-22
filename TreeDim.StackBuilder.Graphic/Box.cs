@@ -48,23 +48,26 @@ namespace TreeDim.StackBuilder.Graphics
             for (int i=0; i<6; ++i)
                 _textureLists[i] = null;
         }
-        public Box(uint pickId, BoxProperties boxProperties)
+        public Box(uint pickId, BProperties bProperties)
         {
             _pickId = pickId;
-            _dim[0] = boxProperties.Length;
-            _dim[1] = boxProperties.Width;
-            _dim[2] = boxProperties.Height;
+            _dim[0] = bProperties.Length;
+            _dim[1] = bProperties.Width;
+            _dim[2] = bProperties.Height;
 
-            _colors = boxProperties.Colors;
+            _colors = bProperties.Colors;
+
+            // IsBundle ?
+            _isBundle = bProperties.IsBundle;
         }
-        public Box(uint pickId, BoxProperties boxProperties, BoxPosition bPosition)
+        public Box(uint pickId, BProperties bProperties, BoxPosition bPosition)
         { 
             _pickId = pickId;
-            _dim[0] = boxProperties.Length;
-            _dim[1] = boxProperties.Width;
-            _dim[2] = boxProperties.Height;
+            _dim[0] = bProperties.Length;
+            _dim[1] = bProperties.Width;
+            _dim[2] = bProperties.Height;
 
-            _colors = boxProperties.Colors;
+            _colors = bProperties.Colors;
 
             // set position
             Position = bPosition.Position;
@@ -93,7 +96,11 @@ namespace TreeDim.StackBuilder.Graphics
                 default:
                     Debug.Assert(false);
                     break;
-            }        
+            }
+            // IsBundle ?
+            _noFlats = 3;
+            _isBundle = bProperties.IsBundle;
+
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties)
@@ -103,7 +110,7 @@ namespace TreeDim.StackBuilder.Graphics
             _dim[1] = interlayerProperties.Width;
             _dim[2] = interlayerProperties.Thickness;
             _colors = new Color[6];
-            for (int i=0; i<6; ++i)
+            for (int i = 0; i < 6; ++i)
                 _colors[i] = interlayerProperties.Color;
         }
 
@@ -113,11 +120,13 @@ namespace TreeDim.StackBuilder.Graphics
             _isBundle = true;
             _dim[0] = bundleProperties.Length;
             _dim[1] = bundleProperties.Width;
-            _dim[2] = bundleProperties.TotalThickness;
+            _dim[2] = bundleProperties.Height;
             _colors = new Color[6]; 
             for (int i = 0; i < 6; ++i)
                 _colors[i] = bundleProperties.Color;
             _noFlats = bundleProperties.NoFlats;
+            // IsBundle ?
+            _isBundle = bundleProperties.IsBundle;
         }
         #endregion
 
@@ -287,11 +296,14 @@ namespace TreeDim.StackBuilder.Graphics
     public class BoxComparison : IComparer<Box>
     {
         #region Constructor
-        public BoxComparison(Transform3D transform, double xRef, double yRef)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="viewingDirection">vCameraPos - vTarget</param>
+        public BoxComparison(Vector3D vCameraPos, Vector3D vTarget)
         {
-            _transform = transform;
-            _xRef = xRef;
-            _yRef = yRef;
+            _vCameraPos = vCameraPos;
+            _vTarget = vTarget;
         }
         #endregion
 
@@ -302,78 +314,79 @@ namespace TreeDim.StackBuilder.Graphics
                 return 1;
             else if (b1.Center.Z == b2.Center.Z)
             {
-/*                 // distance to yRef
-                double d1Y = Math.Abs(b1.Center.Y - _yRef);
-                double d2Y = Math.Abs(b2.Center.Y - _yRef);
-                double d1X = Math.Abs(b1.Center.X - _xRef);
-                double d2X = Math.Abs(b2.Center.X - _xRef);
-
-                if (d1X < d2X)
-                    return 1;
-                else if (d1X == d2X)
-                {
-                    if (d1Y < d2Y)
-                        return 1;
-                    else if (d1Y == d2Y)
-                        return 0;
-                    else
-                        return -1;
-                }
-                else
-                    return - 1;
-
-
-                // use distance to point ref
-                Vector3D ptRef = new Vector3D(_xRef, _yRef, b1.Center.Z);
-                double distMin1 = double.MaxValue, distMax1 = double.MinValue;
-                foreach (Vector3D vPoint in b1.Points)
-                {
-                    distMin1 = Math.Min((vPoint-ptRef).GetLength(), distMin1);
-                    distMax1 = Math.Max((vPoint-ptRef).GetLength(), distMax1);
-                }
-                double distMin2 = double.MaxValue, distMax2 = double.MinValue;
-                foreach (Vector3D vPoint in b2.Points)
-                {
-                    distMin2 = Math.Min((vPoint - ptRef).GetLength(), distMin2);
-                    distMax2 = Math.Max((vPoint - ptRef).GetLength(), distMax2);
-                }
-                if (distMax1 < distMax2)
-                    return 1;
-                else if (distMax1 == distMax2)
+                if (b1 == b2)
                     return 0;
-                else
+                bool b1BehindB2 = HasSomePointBehind(b1, b2);
+                if (b1BehindB2)
                     return -1;
-*/
-
-                #if USE_CENTER
-                double zb1Min = double.MaxValue, zb1Max = double.MinValue;
-                foreach (Vector3D vPoint in b1.Points)
-                {
-                    zb1Min = Math.Min(_transform.transform(vPoint).Z, zb1Min);
-                    zb1Max = Math.Max(_transform.transform(vPoint).Z, zb1Max);
-                }
-
-                double zb2Min = double.MaxValue, zb2Max = double.MinValue;
-                foreach (Vector3D vPoint in b2.Points)
-                {
-                    zb2Min = Math.Min(_transform.transform(vPoint).Z, zb2Min);
-                    zb2Max = Math.Max(_transform.transform(vPoint).Z, zb2Max);
-                }
-                if (zb1Min < zb2Min)
+                else
                     return 1;
-                else if (zb1Min == zb2Min)
-                    return 0;
-                else
-                    return -1;
-                #else   
+            }
+            else
+                return -1;
+        }
+
+        private bool HasSomePointBehind(Box b1, Box b2)
+        {            
+            const double eps = 1.0e-04;
+
+            // check if b2 as some points behind b1
+            foreach (Vector3D ptb1 in b1.Points)
+            {
+                int iCount = 0;
+                foreach (Face faceb2 in b2.Faces)
+                {
+                    // face normal
+                    Vector3D normal = faceb2.Normal;
+
+                    // if face not visible -> skip
+                    if (Vector3D.DotProduct(_vCameraPos - _vTarget, normal) > 0.0)
+                        continue;
+                    // if face is top/bottom face -> skip
+                    if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, normal) - 1.0) < eps)
+                        continue;
+                    if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, normal) - 1.0) < eps)
+                        continue;
+
+                    if (Vector3D.DotProduct(ptb1 - faceb2.Center, normal) > eps)
+                        ++iCount;
+                }
+
+                return iCount > 1;
+            }
+            return false;
+        }
+        #endregion
+
+        #region Data members
+        private Vector3D _vCameraPos, _vTarget;
+        #endregion
+    }
+    #endregion
+
+    #region Box comparison
+    public class BoxComparisonOld : IComparer<Box>
+    {
+        #region Constructor
+        public BoxComparisonOld(Transform3D transform)
+        {
+            _transform = transform;
+        }
+        #endregion
+
+        #region Implementation IComparer
+        public int Compare(Box b1, Box b2)
+        {
+            if (b1.Center.Z > b2.Center.Z)
+                return 1;
+            else if (b1.Center.Z == b2.Center.Z)
+            {
                 if (_transform.transform(b1.Center).Z < _transform.transform(b2.Center).Z)
                     return 1;
                 else if (_transform.transform(b1.Center).Z == _transform.transform(b2.Center).Z)
                     return 0;
                 else
                     return -1;
-                #endif
- 
             }
             else
                 return -1;
@@ -382,7 +395,6 @@ namespace TreeDim.StackBuilder.Graphics
 
         #region Data members
         Transform3D _transform;
-        double _xRef, _yRef;
         #endregion
     }
     #endregion

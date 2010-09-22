@@ -619,7 +619,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         ConstraintSet LoadConstraintSet(XmlElement eltConstraintSet)
         {
-            ConstraintSet constraints = new ConstraintSet();
+            ConstraintSetBox constraints = new ConstraintSetBox();
             // align layers alowed
             if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
                 constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
@@ -652,7 +652,7 @@ namespace TreeDim.StackBuilder.Basics
             if (eltConstraintSet.HasAttribute("OverhangY"))
                 constraints.OverhangY = double.Parse(eltConstraintSet.Attributes["OverhangY"].Value);
             // number of solutions to keep
-            if (eltConstraintSet.HasAttribute("NumberOfSolutions"))
+            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
                 constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
             // sanity check
             if (!constraints.IsValid)

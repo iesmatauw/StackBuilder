@@ -1,30 +1,27 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Text;
+#endregion
 
 namespace TreeDim.StackBuilder.Basics
 {
     /// <summary>
     /// Gathers a set of constraint to be used while computing solutions
     /// </summary>
-    public class ConstraintSet
+    public abstract class ConstraintSet
     {
         #region Data members
         private int _maxNumberOfItems;
         private double _maximumPalletWeight;
         private double _maximumHeight;
-        private double _maximumWeightOnBox;
         private double _overhangX, _overhangY;
         private bool _useMaximumPalletWeight;
         private bool _useMaximumHeight;
         private bool _useMaximumNumberOfItems;
-        private bool _useMaximumWeightOnBox;
-        private bool[] _allowedOrthoAxis = new bool[6];
         private bool _allowAlternateLayers = true;
         private bool _allowAlignedLayers = false;
         private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
-        private bool _hasInterlayer;
-        private int _interlayerPeriod;
         private bool _useNoSolutionsKept;
         private int _noSolutionsKept;
         #endregion
@@ -32,7 +29,6 @@ namespace TreeDim.StackBuilder.Basics
         #region Constructor
         public ConstraintSet()
         {
-            for (int i = 0; i < 6; ++i) _allowedOrthoAxis[i] = false;
         }
         #endregion
 
@@ -41,10 +37,27 @@ namespace TreeDim.StackBuilder.Basics
         {
             get
             {
-                return _useMaximumNumberOfItems
+                bool hasValidStopCriterion =
+                   _useMaximumNumberOfItems
                 || _useMaximumHeight
-                || _useMaximumWeightOnBox
+                || UseMaximumWeightOnBox
                 || _useMaximumPalletWeight;
+
+                bool allowsAtLeastOneOrthoAxis = false;
+                for (int i=0; i<6; ++i)
+                {
+                    if (AllowOrthoAxis((HalfAxis.HAxis)i))
+                    {
+                        allowsAtLeastOneOrthoAxis = true;
+                        break;
+                    }
+                }
+
+                return hasValidStopCriterion
+                    && allowsAtLeastOneOrthoAxis
+                    && (_allowAlignedLayers || _allowAlternateLayers)
+                    && _allowedPatterns.Count > 0
+                    && (!_useNoSolutionsKept || _noSolutionsKept > 0);
             }
         }
         #endregion
@@ -78,11 +91,8 @@ namespace TreeDim.StackBuilder.Basics
             set { _useMaximumPalletWeight = value; }
             get { return _useMaximumPalletWeight; }
         }
-        public bool UseMaximumWeightOnBox
-        {
-            set { _useMaximumWeightOnBox = value; }
-            get { return _useMaximumWeightOnBox; }
-        }
+        abstract public bool UseMaximumWeightOnBox { get; set; }
+ 
         public int MaximumNumberOfItems
         {
             set
@@ -110,18 +120,12 @@ namespace TreeDim.StackBuilder.Basics
             }
             get { return _maximumHeight; }
         }
-        public double MaximumWeightOnBox
-        {
-            set
-            {
-                _useMaximumWeightOnBox = true;
-                _maximumWeightOnBox = value;
-            }
-            get { return _maximumWeightOnBox; }
-        }
+
+        abstract public double MaximumWeightOnBox { get; set; }
+
         #endregion
 
-        #region Allowed patterns and box axis
+        #region Allowed patterns
         public void SetAllowedPattern(string patternName)
         {
             _allowedPatterns.Add(patternName);
@@ -142,29 +146,31 @@ namespace TreeDim.StackBuilder.Basics
             {
                 string sGlobal = string.Empty;
                 foreach (string s in _allowedPatterns)
-                    sGlobal += s + ",";
+                {
+                    if (!string.IsNullOrEmpty(sGlobal))
+                        sGlobal += ",";
+                    sGlobal += s;
+                }
                 return sGlobal;
             }
         }
-        public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
-        {
-            return _allowedOrthoAxis[(int)orthoAxis];
-        }
-        public void SetAllowedOrthoAxis(HalfAxis.HAxis axis, bool allowed)
-        {
-            _allowedOrthoAxis[(int)axis] = allowed;
-        }
+        #endregion
+
+        #region Allowed box axis
+        abstract public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis);
         public string AllowOrthoAxisString
         {
             get
             {
                 string sGlobal = string.Empty;
-                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N)) sGlobal += "X-;";
-                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P)) sGlobal += "X+;";
-                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N)) sGlobal += "Y-;";
-                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P)) sGlobal += "Y+;";
-                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N)) sGlobal += "Z-;";
-                if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P)) sGlobal += "Z+;";
+                for (int i=0; i<6; ++i)
+                {
+                    if (!string.IsNullOrEmpty(sGlobal))
+                        sGlobal += ",";
+                    HalfAxis.HAxis axis = (HalfAxis.HAxis)i;
+                    if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N))
+                        sGlobal += HalfAxis.ToString(axis);
+                }
                 return sGlobal;
             }
         }
@@ -184,19 +190,11 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Interlayer
-        public bool HasInterlayer
-        {
-            get { return _hasInterlayer; }
-            set { _hasInterlayer = value; }
-        }
-        public int InterlayerPeriod
-        {
-            get { return _interlayerPeriod; }
-            set { _interlayerPeriod = value; }
-        }
+        abstract public bool HasInterlayer { get; set; }
+        abstract public int InterlayerPeriod { get; set; }
         #endregion
 
-        #region Number of solutions
+        #region Number of solutions kept
         public bool UseNumberOfSolutionsKept
         {
             set { _useNoSolutionsKept = value; }
@@ -216,7 +214,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Allow new layer / allow new box
         public bool AllowNewLayer(int iNoLayer)
         {
-            return !_useMaximumWeightOnBox;
+            return !UseMaximumWeightOnBox;
         }
         public bool AllowNewBox(int iNoBox)
         {
@@ -230,7 +228,7 @@ namespace TreeDim.StackBuilder.Basics
             StringBuilder sb = new StringBuilder();
             if (_useMaximumHeight) sb.AppendLine(string.Format("Maximum height = {0}", _maximumHeight));
             if (_useMaximumPalletWeight) sb.AppendLine(string.Format("Maximum pallet weight = {0}", _maximumPalletWeight));
-            if (_useMaximumWeightOnBox) sb.AppendLine(string.Format("Maximum weight on box = {0}", 0.0));
+            if (UseMaximumWeightOnBox) sb.AppendLine(string.Format("Maximum weight on box = {0}", 0.0));
             if (_useMaximumNumberOfItems) sb.AppendLine(string.Format("Maximum number of items = {0}", _maxNumberOfItems));
 
             return sb.ToString();

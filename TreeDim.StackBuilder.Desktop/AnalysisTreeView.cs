@@ -18,7 +18,8 @@ namespace TreeDim.StackBuilder.Desktop
     /// <summary>
     /// AnalysisTreeView : left frame treeview control
     /// </summary>
-    public partial class AnalysisTreeView : System.Windows.Forms.TreeView, IDocumentListener
+    public partial class AnalysisTreeView
+        : System.Windows.Forms.TreeView, IDocumentListener
     {
         #region Constructor
         public AnalysisTreeView()
@@ -36,7 +37,8 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Interlayer);  // 6
                 ImageList.Images.Add(AnalysisTreeView.Truck);       // 7
                 ImageList.Images.Add(AnalysisTreeView.Analysis);    // 8
-                ImageList.Images.Add(AnalysisTreeView.Solution);    // 9
+                ImageList.Images.Add(AnalysisTreeView.AnalysisBundle);    // 8
+                ImageList.Images.Add(AnalysisTreeView.Solution);    // 10
                 // instantiate context menu
                 ContextMenu = new ContextMenu();
                 // attach event handlers
@@ -413,8 +415,21 @@ namespace TreeDim.StackBuilder.Desktop
             nodeAnalysis.Expand();
         }
 
-        public void OnNewSolutionAdded(Document doc, Analysis analysis, Solution sol)
+        public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selSolution)
         {
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis));
+            // insert selected solution node
+            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 10, 10);
+            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution);
+            parentNode.Nodes.Add(nodeSelSolution);
+        }
+        public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selSolution)
+        {
+            // get parent node
+            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            // remove node
+            Nodes.Remove(selSolutionNode);
         }
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
@@ -476,36 +491,26 @@ namespace TreeDim.StackBuilder.Desktop
         #region Enums
         public enum NodeType
         {
-            NT_DOCUMENT
-            ,
-            NT_LISTBOX
-                ,
-            NT_LISTBUNDLE
-                ,
-            NT_LISTPALLET
-                ,
-            NT_LISTINTERLAYER
-                ,
-            NT_LISTTRUCK
-                ,
-            NT_LISTANALYSIS
-                ,
-            NT_BOX
-                ,
-            NT_BUNDLE
-                ,
-            NT_PALLET
-                ,
-            NT_INTERLAYER
-                ,
-            NT_TRUCK
-                ,
-            NT_ANALYSIS
-                ,
-            NT_ANALYSISBOX
-                ,
-            NT_ANALYSISPALLET
-                , NT_UNKNOWN
+            NT_DOCUMENT,
+            NT_LISTBOX,
+            NT_LISTBUNDLE,
+            NT_LISTPALLET,
+            NT_LISTINTERLAYER,
+            NT_LISTTRUCK,
+            NT_LISTANALYSIS,
+            NT_BOX,
+            NT_BUNDLE,
+            NT_PALLET,
+            NT_INTERLAYER,
+            NT_TRUCK,
+            NT_ANALYSIS,
+            NT_ANALYSISBOX,
+            NT_ANALYSISPALLET,
+            NT_ANALYSISSOL,
+            NT_ANALYSISSOLREPORT,
+            NT_TRUCKANALYSIS,
+            NT_TRUCKANALYSISSOL,
+            NT_UNKNOWN
         }
         #endregion
 
@@ -514,6 +519,7 @@ namespace TreeDim.StackBuilder.Desktop
         private Document _document;
         private ItemBase _itemProperties;
         private Analysis _analysis;
+        private SelSolution _selSolution;
         #endregion
 
         #region Constructor
@@ -523,6 +529,14 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             _itemProperties = itemProperties;
             _analysis = analysis;
+        }
+        public NodeTag(NodeType type, Document document, Analysis analysis, SelSolution selSolution)
+        {
+            _type = type;
+            _document = document;
+            _itemProperties = null;
+            _analysis = analysis;
+            _selSolution = selSolution;
         }
         #endregion
 
@@ -550,6 +564,7 @@ namespace TreeDim.StackBuilder.Desktop
         public Document Document { get { return _document; } }
         public ItemBase ItemProperties { get { return _itemProperties; } }
         public Analysis Analysis { get { return _analysis; } }
+        public SelSolution SelSolution { get { return _selSolution; } }
         #endregion
     }
     #endregion

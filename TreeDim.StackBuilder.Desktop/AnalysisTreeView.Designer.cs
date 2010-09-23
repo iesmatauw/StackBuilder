@@ -63,6 +63,15 @@ namespace TreeDim.StackBuilder.Desktop {
             }
         }
 
+        internal static System.Drawing.Bitmap AnalysisBundle
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("AnalysisBundle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         internal static System.Drawing.Bitmap Solution
         {
             get

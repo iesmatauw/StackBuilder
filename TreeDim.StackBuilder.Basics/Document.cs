@@ -25,9 +25,11 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
+        void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, Analysis analysis);
+        void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution);
         // close
         void OnDocumentClosed(Document doc);
     }

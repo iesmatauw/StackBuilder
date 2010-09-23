@@ -72,11 +72,19 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             {
                 _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
             }
+            public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution)
+            {
+                _log.Info(string.Format("Selected solution added {0}", selectedSolution.Name));
+            }
             public void OnTypeRemoved(Document doc, ItemBase itemBase)
             { 
             }
             public void OnAnalysisRemoved(Document doc, Analysis analysis)
             { 
+            }
+            public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution)
+            {
+                _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));
             }
             public void OnDocumentClosed(Document doc)
             { 

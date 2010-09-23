@@ -412,14 +412,15 @@ namespace TreeDim.StackBuilder.Graphics
                 g.FillPolygon(brush, pt);
                 // draw path
                 Brush brushPath = new SolidBrush(faces[i].ColorPath);
-                Pen penPath = new Pen(brushPath, 1.5f);
+                Pen penPathThick = new Pen(brushPath, box.IsBundle ? 2.0f : 1.5f);
                 int ptCount = pt.Length;
                 for (int j = 1; j < ptCount; ++j)
-                    g.DrawLine(penPath, pt[j - 1], pt[j]);
-                g.DrawLine(penPath, pt[ptCount - 1], pt[0]);
+                    g.DrawLine(penPathThick, pt[j - 1], pt[j]);
+                g.DrawLine(penPathThick, pt[ptCount - 1], pt[0]);
                 // draw bundle lines
                 if (box.IsBundle && i<4)
                 {
+                    Pen penPathThin = new Pen(brushPath, 1.5f);
                     int noSlice = box.BundleFlats;
                     for (int iSlice = 0; iSlice < noSlice - 1; ++iSlice)
                     {
@@ -428,7 +429,7 @@ namespace TreeDim.StackBuilder.Graphics
                         ptSlice[1] = points3D[1] + ((double)(iSlice + 1) / (double)noSlice) * (points3D[2] - points3D[1]);
 
                         Point[] pt2D = TransformPoint(GetCurrentTransformation(), ptSlice);
-                        g.DrawLine(penPath, pt2D[0], pt2D[1]);                        
+                        g.DrawLine(penPathThin, pt2D[0], pt2D[1]);                        
                     }
                 }
             }  

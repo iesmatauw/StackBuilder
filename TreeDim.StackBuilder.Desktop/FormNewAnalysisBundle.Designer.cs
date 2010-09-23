@@ -357,6 +357,7 @@
             this.checkBoxKeepSolutions.TabIndex = 48;
             this.checkBoxKeepSolutions.Text = "Only keep the ";
             this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
+            this.checkBoxKeepSolutions.CheckedChanged += new System.EventHandler(this.onCheckedChangedKeepSolutions);
             // 
             // lbBoxes
             // 

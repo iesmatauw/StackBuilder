@@ -391,6 +391,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />

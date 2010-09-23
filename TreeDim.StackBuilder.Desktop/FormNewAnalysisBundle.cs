@@ -129,6 +129,11 @@ namespace TreeDim.StackBuilder.Desktop
                     for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
                         checkedListBoxPatterns.SetItemChecked(i, true);
 
+                // keep best solutions
+                UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
+                NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;                
+
+                UpdateSolutionsToKeep();
                 UpdateCriterionFields();
                 UpdateButtonOkStatus();
 
@@ -154,6 +159,9 @@ namespace TreeDim.StackBuilder.Desktop
                     if (checkedListBoxPatterns.GetItemChecked(i))
                         allowedPatterns += checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]) + ";";
                 Settings.Default.AllowedPatterns = allowedPatterns;
+                // keep best solutions
+                Settings.Default.KeepBestSolutions = UseNumberOfSolutionsKept;
+                Settings.Default.NoSolutionsToKeep = NumberOfSolutionsKept;                
                 // window position
                 if (null == Settings.Default.FormNewAnalysisPosition)
                     Settings.Default.FormNewAnalysisPosition = new WindowSettings();
@@ -223,14 +231,6 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudMaximumPalletWeight.Value; }
             set { nudMaximumPalletWeight.Value = (decimal)value; }
         }
-        public bool UseNumberOfSolutionsKept
-        {
-            get { return checkBoxKeepSolutions.Checked; }
-        }
-        public int NumberOfSolutionsKept
-        {
-            get { return (int)nudSolutions.Value; }
-        }
         public bool AllowAlternateLayers
         {
             get { return checkBoxAllowAlternateLayer.Checked; }
@@ -262,6 +262,16 @@ namespace TreeDim.StackBuilder.Desktop
         public double OverhangY
         {
             get { return (double)nudPalletOverhangY.Value; }
+        }
+        public bool UseNumberOfSolutionsKept
+        {
+            get { return checkBoxKeepSolutions.Checked; }
+            set { checkBoxKeepSolutions.Checked = value; }
+        }
+        public int NumberOfSolutionsKept
+        {
+            get { return (int)nudSolutions.Value; }
+            set { nudSolutions.Value = (decimal)value; }
         }
         #endregion
 
@@ -296,6 +306,14 @@ namespace TreeDim.StackBuilder.Desktop
         {
             if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
                 checkBoxAllowAlignedLayer.Checked = true;
+        }
+        private void UpdateSolutionsToKeep()
+        {
+            nudSolutions.Enabled = checkBoxKeepSolutions.Checked;
+        }
+        private void onCheckedChangedKeepSolutions(object sender, EventArgs e)
+        {
+            UpdateSolutionsToKeep();
         }
         #endregion
 

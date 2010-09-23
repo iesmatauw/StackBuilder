@@ -186,7 +186,8 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
                 // number of solution kept
                 constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
-                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+                if (form.UseNumberOfSolutionsKept)
+                    constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
 
                 return CreateNewAnalysis(
                     form.AnalysisName, form.AnalysisDescription,
@@ -223,7 +224,8 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
                 // number of solution kept
                 constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
-                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+                if (form.UseNumberOfSolutionsKept)
+                    constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
  
                 return CreateNewAnalysis(form.AnalysisName, form.AnalysisDescription,
                     form.SelectedBundle, form.SelectedPallet, null

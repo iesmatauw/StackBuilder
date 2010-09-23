@@ -56,5 +56,14 @@
     <Setting Name="FormNewAnalysisPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="FormNewBundleAnalysisPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="KeepBestSolutions" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NoSolutionsToKeep" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

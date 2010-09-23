@@ -490,6 +490,7 @@ namespace TreeDim.StackBuilder.Basics
                         }
                         catch (Exception ex)
                         {
+                            Debug.Assert(false);
                             _log.Error(ex.ToString());
                         }
                     }
@@ -646,14 +647,18 @@ namespace TreeDim.StackBuilder.Basics
             foreach (XmlNode node in eltAnalysis.ChildNodes)
             {
                 // load constraint set
-                if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
-                    constraintSet = LoadConstraintSet(node as XmlElement);
+                if (string.Equals(node.Name, "ConstraintSetBox", StringComparison.CurrentCultureIgnoreCase))
+                    constraintSet = LoadConstraintSetBox(node as XmlElement);
+                else if (string.Equals(node.Name, "ConstraintSetBundle", StringComparison.CurrentCultureIgnoreCase))
+                    constraintSet = LoadConstraintSetBundle(node as XmlElement);
                 // load solutions
                 else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
                 {
                     foreach (XmlNode solutionNode in node.ChildNodes)
                         solutions.Add(LoadSolution(solutionNode as XmlElement));
                 }
+                if (null == constraintSet)
+                    throw new Exception("Failed to load a valid ConstraintSet");
             }
 
             // instantiate analysis
@@ -666,7 +671,7 @@ namespace TreeDim.StackBuilder.Basics
                 , constraintSet
                 , solutions);
         }
-        ConstraintSet LoadConstraintSet(XmlElement eltConstraintSet)
+        ConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
         {
             ConstraintSetBox constraints = new ConstraintSetBox();
             // align layers alowed
@@ -695,6 +700,38 @@ namespace TreeDim.StackBuilder.Basics
                 constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
             if (constraints.UseMaximumWeightOnBox = eltConstraintSet.HasAttribute("MaximumWeightOnBox"))
                 constraints.MaximumWeightOnBox = double.Parse(eltConstraintSet.Attributes["MaximumWeightOnBox"].Value);
+            // overhang / underhang
+            if (eltConstraintSet.HasAttribute("OverhangX"))
+                constraints.OverhangX = double.Parse(eltConstraintSet.Attributes["OverhangX"].Value);
+            if (eltConstraintSet.HasAttribute("OverhangY"))
+                constraints.OverhangY = double.Parse(eltConstraintSet.Attributes["OverhangY"].Value);
+            // number of solutions to keep
+            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
+                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
+            // sanity check
+            if (!constraints.IsValid)
+                throw new Exception("Invalid constraint set");
+            return constraints;
+        }
+        ConstraintSet LoadConstraintSetBundle(XmlElement eltConstraintSet)
+        {
+            ConstraintSetBundle constraints = new ConstraintSetBundle();
+            // align layers alowed
+            if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
+                constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
+            // alternate layers allowed
+            if (eltConstraintSet.HasAttribute("AlternativeLayersAllowed"))
+                constraints.AllowAlternateLayers = string.Equals(eltConstraintSet.Attributes["AlternativeLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
+            // allowed patterns
+            if (eltConstraintSet.HasAttribute("AllowedPatterns"))
+                constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
+            // stop criterions
+            if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
+                constraints.MaximumHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
+            if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
+                constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
+            if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
+                constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
             // overhang / underhang
             if (eltConstraintSet.HasAttribute("OverhangX"))
                 constraints.OverhangX = double.Parse(eltConstraintSet.Attributes["OverhangX"].Value);
@@ -1075,26 +1112,30 @@ namespace TreeDim.StackBuilder.Basics
             }
             // ###
             // ConstraintSet
-            XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSet");
+            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(ConstraintSetBox));
+            XmlElement constraintSetElement = xmlDoc.CreateElement(bundleAnalysis ? "ConstraintSetBundle":"ConstraintSetBox");
             XmlAttribute alignedLayersAttribute = xmlDoc.CreateAttribute("AlignedLayersAllowed");
             alignedLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlignedLayers);
             constraintSetElement.Attributes.Append(alignedLayersAttribute);
             XmlAttribute alternateLayersAttribute = xmlDoc.CreateAttribute("AlternativeLayersAllowed");
             alternateLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlternateLayers);
             constraintSetElement.Attributes.Append(alternateLayersAttribute);
-            // allowed box positions
-            XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
-            HalfAxis.HAxis[] axes = { HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P };
-            string allowedAxes = string.Empty;
-            foreach (HalfAxis.HAxis axis in axes)
-                if (analysis.ConstraintSet.AllowOrthoAxis(axis))
-                {
-                    if (!string.IsNullOrEmpty(allowedAxes))
-                        allowedAxes += ",";
-                    allowedAxes += HalfAxis.ToString(axis);
-                }
-            allowedAxisAttribute.Value = allowedAxes;
-            constraintSetElement.Attributes.Append(allowedAxisAttribute);
+            if (!bundleAnalysis)
+            {
+                // allowed box positions
+                XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
+                HalfAxis.HAxis[] axes = { HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P };
+                string allowedAxes = string.Empty;
+                foreach (HalfAxis.HAxis axis in axes)
+                    if (analysis.ConstraintSet.AllowOrthoAxis(axis))
+                    {
+                        if (!string.IsNullOrEmpty(allowedAxes))
+                            allowedAxes += ",";
+                        allowedAxes += HalfAxis.ToString(axis);
+                    }
+                allowedAxisAttribute.Value = allowedAxes;
+                constraintSetElement.Attributes.Append(allowedAxisAttribute);
+            }
             // allowed layer patterns
             XmlAttribute allowedPatternAttribute = xmlDoc.CreateAttribute("AllowedPatterns");
             allowedPatternAttribute.Value = analysis.ConstraintSet.AllowedPatternString;

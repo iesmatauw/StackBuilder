@@ -15,6 +15,7 @@ namespace TreeDim.StackBuilder.Basics
         private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
         private List<Solution> _solutions;
+        private List<SelSolution> _selectedSolutions;
         #endregion
 
         #region Constructor
@@ -67,6 +68,17 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _constraintSet; }
             set { _constraintSet = value; }
+        }
+        #endregion
+
+        #region Solution selection
+        public void SelectSolutionByIndex(int index)
+        {
+            if (index < 0 || index > _solutions.Count) return;
+        }
+        public void UnselectSolutionByIndex(int index)
+        {
+            if (index < 0 || index > _solutions.Count) return;
         }
         #endregion
 

@@ -16,6 +16,7 @@
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <StartupObject>TreeDim.StackBuilder.Desktop.Program</StartupObject>
+    <ApplicationIcon>treeDim.ico</ApplicationIcon>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,7 +31,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>treeDim.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,9 +58,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\PropertyGridEx.dll</HintPath>
     </Reference>
-    <Reference Include="SourceGrid, Version=4.21.3680.42354, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=x86">
+    <Reference Include="SourceGrid, Version=4.30.3918.24227, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SourceGrid\bin\Release\SourceGrid.dll</HintPath>
+      <HintPath>..\ThirdPartyAssemblies\SourceGrid.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

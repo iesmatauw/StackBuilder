@@ -76,6 +76,8 @@ namespace TreeDim.StackBuilder.Desktop
             // views
             CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
             viewNormal.Border = cellBorder;
+            CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White);
+            viewNormalCheck.Border = cellBorder;
 
             // column header view
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
@@ -85,11 +87,12 @@ namespace TreeDim.StackBuilder.Desktop
             viewColumnHeader.Background = backHeader;
             viewColumnHeader.ForeColor = Color.White;
             viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Bold);
-
+            viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
+ 
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
-            gridSolutions.ColumnsCount = 6;
+            gridSolutions.ColumnsCount = 7;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
 
@@ -97,28 +100,44 @@ namespace TreeDim.StackBuilder.Desktop
             SourceGrid.Cells.ColumnHeader columnHeader;
 
             columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
+            columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
 
             columnHeader = new SourceGrid.Cells.ColumnHeader("Layer pattern(s)");
+            columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
             columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
+            columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
 
             columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
+            columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
 
             columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet weight (kg)");
+            columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
 
             columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet height (mm)");
+            columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
+
+            columnHeader = new SourceGrid.Cells.ColumnHeader("Selected");
+            columnHeader.AutomaticSortEnabled = false;
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 6] = columnHeader;
+
+            // handling check box click
+            SourceGrid.Cells.Controllers.CustomEvents solCheckboxClickEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+            solCheckboxClickEvent.Click += new EventHandler(clickEvent_Click);
+
 
             // data rows
             int iIndex = 0;
@@ -137,6 +156,7 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency(_analysis)));
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight(_analysis)));
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight(_analysis)));
+                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, true);
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
@@ -144,7 +164,10 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 3].View = viewNormal;
                 gridSolutions[iIndex, 4].View = viewNormal;
                 gridSolutions[iIndex, 5].View = viewNormal;
-            }
+                gridSolutions[iIndex, 6].View = viewNormalCheck;
+
+                gridSolutions[iIndex, 6].AddController(solCheckboxClickEvent);
+             }
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.AutoSizeCells();
             gridSolutions.Columns.StretchToFit();
@@ -155,7 +178,15 @@ namespace TreeDim.StackBuilder.Desktop
                 _sol = _analysis.Solutions[0];
             Draw();
         }
+        #endregion
 
+        #region Event handlers
+        // checkbox event handler
+        void clickEvent_Click(object sender, EventArgs e)
+        {
+            SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
+            _analysis.SelectSolutionByIndex(context.Position.Row - 1);
+        }
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
@@ -322,10 +353,43 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region CellBackColorAlternate
+        #region CellBackColorAlternate and CellBackColorAlternateCheck
         private class CellBackColorAlternate : SourceGrid.Cells.Views.Cell
         {
             public CellBackColorAlternate(Color firstColor, Color secondColor)
+            {
+                FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
+                SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
+            }
+
+            private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
+            public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
+            {
+                get { return mFirstBackground; }
+                set { mFirstBackground = value; }
+            }
+
+            private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
+            public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
+            {
+                get { return mSecondBackground; }
+                set { mSecondBackground = value; }
+            }
+
+            protected override void PrepareView(SourceGrid.CellContext context)
+            {
+                base.PrepareView(context);
+
+                if (Math.IEEERemainder(context.Position.Row, 2) == 0)
+                    Background = FirstBackground;
+                else
+                    Background = SecondBackground;
+            }
+        }
+
+        private class CheckboxBackColorAlternate : SourceGrid.Cells.Views.CheckBox
+        {
+            public CheckboxBackColorAlternate(Color firstColor, Color secondColor)
             {
                 FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
                 SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);

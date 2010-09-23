@@ -93,14 +93,16 @@
             // 
             // gridSolutions
             // 
+            this.gridSolutions.AcceptsInputChar = false;
             this.gridSolutions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gridSolutions.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridSolutions.EnableSort = true;
+            this.gridSolutions.EnableSort = false;
             this.gridSolutions.Location = new System.Drawing.Point(0, 360);
             this.gridSolutions.Name = "gridSolutions";
             this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
             this.gridSolutions.Size = new System.Drawing.Size(593, 287);
+            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
             this.gridSolutions.TabIndex = 13;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";

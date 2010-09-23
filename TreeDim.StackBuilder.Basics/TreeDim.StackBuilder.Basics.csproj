@@ -69,10 +69,14 @@
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
     <Compile Include="PalletProperties.cs" />
+    <Compile Include="SelSolution.cs" />
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Texture.cs" />
+    <Compile Include="TruckAnalysis.cs" />
+    <Compile Include="TruckConstraintSet.cs" />
     <Compile Include="TruckProperties.cs" />
+    <Compile Include="TruckSolution.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">

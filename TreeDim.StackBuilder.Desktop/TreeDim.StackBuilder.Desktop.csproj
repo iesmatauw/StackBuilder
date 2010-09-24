@@ -395,7 +395,7 @@
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
-    <None Include="Resources\Truck.bmp" />
+    <None Include="Resources\TruckAnalysis.bmp" />
     <Content Include="treeDim.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

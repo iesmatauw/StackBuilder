@@ -424,12 +424,14 @@ namespace TreeDim.StackBuilder.Desktop
             nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution);
             parentNode.Nodes.Add(nodeSelSolution);
         }
-        public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selSolution)
+        public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get parent node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
-            // remove node
-            Nodes.Remove(selSolutionNode);
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            // insert truckAnalysis node
+            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 11, 11);
+            nodeTruckAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis);
+            parentNode.Nodes.Add(nodeTruckAnalysis);
         }
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
@@ -468,6 +470,20 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis));
             // remove node
             Nodes.Remove(analysisNode);
+        }
+        public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selSolution)
+        {
+            // get node
+            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            // remove node
+            Nodes.Remove(selSolutionNode);
+        }
+        public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        {
+            // get node
+            TreeNode truckAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis));
+            // remove node
+            Nodes.Remove(truckAnalysisNode);  
         }
         public void OnDocumentClosed(Document doc)
         {
@@ -520,6 +536,7 @@ namespace TreeDim.StackBuilder.Desktop
         private ItemBase _itemProperties;
         private Analysis _analysis;
         private SelSolution _selSolution;
+        private TruckAnalysis _truckAnalysis;
         #endregion
 
         #region Constructor
@@ -537,6 +554,15 @@ namespace TreeDim.StackBuilder.Desktop
             _itemProperties = null;
             _analysis = analysis;
             _selSolution = selSolution;
+        }
+        public NodeTag(NodeType type, Document document, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        {
+            _type = type;
+            _document = document;
+            _itemProperties = null;
+            _analysis = analysis;
+            _selSolution = selSolution;
+            _truckAnalysis = truckAnalysis;
         }
         #endregion
 

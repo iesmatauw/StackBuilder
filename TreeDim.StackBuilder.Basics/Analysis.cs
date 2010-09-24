@@ -15,7 +15,7 @@ namespace TreeDim.StackBuilder.Basics
         private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
         private List<Solution> _solutions;
-        private List<SelSolution> _selectedSolutions;
+        private List<SelSolution> _selectedSolutions = new List<SelSolution>();
         #endregion
 
         #region Constructor
@@ -74,11 +74,32 @@ namespace TreeDim.StackBuilder.Basics
         #region Solution selection
         public void SelectSolutionByIndex(int index)
         {
-            if (index < 0 || index > _solutions.Count) return;
+            if (index < 0 || index > _solutions.Count) return;  // no solution with this index
+            if (HasSolutionSelected(index)) return;             // solution already selected
+            // instantiate new SelSolution
+            SelSolution selSolution = new SelSolution(ParentDocument, this, _solutions[index]);
+            // insert in list
+            _selectedSolutions.Add(selSolution);
+            // notify document listeners
+            ParentDocument.NotifyOnNewSolutionAdded(this, selSolution);
         }
         public void UnselectSolutionByIndex(int index)
         {
-            if (index < 0 || index > _solutions.Count) return;
+            SelSolution selSolution = GetSelSolutionBySolutionIndex(index);
+            if (null == selSolution) return; // this solution not selected
+            // remove from list
+            _selectedSolutions.Remove(selSolution);
+            // notify document listeners
+            ParentDocument.NotifyOnSolutionRemoved(this, selSolution);
+        }
+        public bool HasSolutionSelected(int index)
+        {
+            return (null != GetSelSolutionBySolutionIndex(index));
+        }
+        private SelSolution GetSelSolutionBySolutionIndex(int index)
+        {
+            if (index < 0 || index > _solutions.Count) return null;  // no solution with this index
+            return _selectedSolutions.Find(delegate(SelSolution selSol) { return selSol.Solution == _solutions[index]; });
         }
         #endregion
 

@@ -156,7 +156,7 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency(_analysis)));
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight(_analysis)));
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight(_analysis)));
-                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, true);
+                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, _analysis.HasSolutionSelected(iIndex-1));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
@@ -185,7 +185,13 @@ namespace TreeDim.StackBuilder.Desktop
         void clickEvent_Click(object sender, EventArgs e)
         {
             SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
-            _analysis.SelectSolutionByIndex(context.Position.Row - 1);
+            int iSel = context.Position.Row - 1;
+            if (!_analysis.HasSolutionSelected(iSel))
+                _analysis.SelectSolutionByIndex(iSel);
+            else
+                _analysis.UnselectSolutionByIndex(iSel);
+            UpdateGridCheckBoxes();
+            UpdateSelectButtonText();
         }
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
@@ -195,14 +201,62 @@ namespace TreeDim.StackBuilder.Desktop
             if (indexes.Length == 0) return;
             // get selected solution
             _sol = _analysis.Solutions[indexes[0] - 1];
+            // update select/unselect button text
+            UpdateSelectButtonText();
             // redraw
             Draw();
         }
-
         private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
         {
             // redraw
             Draw();
+        }
+        private void btSelectSolution_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int iSel = GetCurrentSolutionIndex();
+                if (-1 == iSel) return;
+                if (!_analysis.HasSolutionSelected(iSel))
+                    _analysis.SelectSolutionByIndex(iSel);
+                else
+                    _analysis.UnselectSolutionByIndex(iSel);
+                UpdateSelectButtonText();
+                UpdateGridCheckBoxes();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region Solution selection
+        private void UpdateGridCheckBoxes()
+        {
+            int iRow = 0;
+            foreach (Solution sol in _analysis.Solutions)
+            {
+                ++iRow;
+                SourceGrid.Cells.CheckBox checkBox = gridSolutions[iRow, 6] as SourceGrid.Cells.CheckBox;
+                checkBox.Checked = _analysis.HasSolutionSelected(iRow - 1);                
+            }
+        }
+        private void UpdateSelectButtonText()
+        {
+            int iSel = GetCurrentSolutionIndex();
+            btSelectSolution.Enabled = (iSel != -1);
+            if (-1 == iSel) return; // no valid selection
+            btSelectSolution.Text = _analysis.HasSolutionSelected(iSel) ? "Deselect" : "Select";
+        }
+        private int GetCurrentSolutionIndex()
+        { 
+            SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
+            int[] indexes = region.GetRowsIndex();
+            // no selection -> exit
+            if (indexes.Length == 0) return -1;
+            // return index
+            return indexes[0]-1;            
         }
         #endregion
 

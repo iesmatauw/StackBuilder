@@ -76,6 +76,9 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             {
                 _log.Info(string.Format("Selected solution added {0}", selectedSolution.Name));
             }
+            public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+            { 
+            }
             public void OnTypeRemoved(Document doc, ItemBase itemBase)
             { 
             }
@@ -85,6 +88,9 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution)
             {
                 _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));
+            }
+            public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+            { 
             }
             public void OnDocumentClosed(Document doc)
             { 

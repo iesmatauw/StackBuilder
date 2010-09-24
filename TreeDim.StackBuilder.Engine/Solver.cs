@@ -76,6 +76,7 @@ namespace TreeDim.StackBuilder.Engine
                             pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
                             pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
 
+                            string layerAlignment = string.Empty;
                             for (int j = 0; j < 4; ++j)
                             {
                                 Layer layer1T = null, layer2T = null;
@@ -83,23 +84,27 @@ namespace TreeDim.StackBuilder.Engine
                                 {
                                     pattern.GenerateLayer(layer1, actualLength1, actualWidth1);
                                     layer1T = layer1; layer2T = layer1;
+                                    layerAlignment = "aligned-1";
                                 }
                                 else if (1 == j && _constraintSet.AllowAlignedLayers)
                                 {
                                     pattern.GenerateLayer(layer2, actualLength2, actualWidth2);
                                     layer1T = layer2; layer2T = layer2;
+                                    layerAlignment = "aligned-2";
                                 }
                                 else if (2 == j && _constraintSet.AllowAlternateLayers)
                                 {
                                     pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                     pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                     layer1T = layer1; layer2T = layer2;
+                                    layerAlignment = "alternate-12";
                                 }
                                 else if (3 == j && _constraintSet.AllowAlternateLayers)
                                 {
                                     pattern.GenerateLayer(layer1, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                     pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                     layer1T = layer2; layer2T = layer1;
+                                    layerAlignment = "alternate-21";
                                 }
 
                                 if (null == layer1T || null == layer2T || 0 == layer1T.Count || 0 == layer2T.Count)
@@ -114,7 +119,7 @@ namespace TreeDim.StackBuilder.Engine
                                     case 2: axisName = "Z"; break;
                                     default: break;
                                 }
-                                string title = string.Format("Pattern name : {0}\nVertical axis : {0}\n", pattern.Name, axisName);
+                                string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swaped" : "");
 
                                 Solution sol = new Solution(title, layer1T == layer2T);
                                 int iLayerIndex = 0;

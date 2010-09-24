@@ -43,6 +43,7 @@
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.btSelectSolution = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
@@ -70,7 +71,7 @@
             this.trackBarAngleHoriz.Margin = new System.Windows.Forms.Padding(1);
             this.trackBarAngleHoriz.Maximum = 360;
             this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
-            this.trackBarAngleHoriz.Size = new System.Drawing.Size(394, 45);
+            this.trackBarAngleHoriz.Size = new System.Drawing.Size(296, 45);
             this.trackBarAngleHoriz.SmallChange = 45;
             this.trackBarAngleHoriz.TabIndex = 11;
             this.trackBarAngleHoriz.TickFrequency = 90;
@@ -81,7 +82,7 @@
             // 
             this.trackBarAngleVert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarAngleVert.LargeChange = 15;
-            this.trackBarAngleVert.Location = new System.Drawing.Point(406, 326);
+            this.trackBarAngleVert.Location = new System.Drawing.Point(297, 326);
             this.trackBarAngleVert.Margin = new System.Windows.Forms.Padding(1);
             this.trackBarAngleVert.Maximum = 90;
             this.trackBarAngleVert.Name = "trackBarAngleVert";
@@ -221,11 +222,23 @@
             this.toolStripButton9.Text = "Top view";
             this.toolStripButton9.Click += new System.EventHandler(this.onViewTop);
             // 
+            // btSelectSolution
+            // 
+            this.btSelectSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSelectSolution.Location = new System.Drawing.Point(488, 326);
+            this.btSelectSolution.Name = "btSelectSolution";
+            this.btSelectSolution.Size = new System.Drawing.Size(101, 30);
+            this.btSelectSolution.TabIndex = 15;
+            this.btSelectSolution.Text = "Select";
+            this.btSelectSolution.UseVisualStyleBackColor = true;
+            this.btSelectSolution.Click += new System.EventHandler(this.btSelectSolution_Click);
+            // 
             // DockContentAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 647);
+            this.Controls.Add(this.btSelectSolution);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.gridSolutions);
             this.Controls.Add(this.trackBarAngleVert);
@@ -264,5 +277,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.Button btSelectSolution;
     }
 }

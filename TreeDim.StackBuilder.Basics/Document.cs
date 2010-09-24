@@ -26,10 +26,13 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
         void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution);
+        void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, Analysis analysis);
         void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution);
+        void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
+
         // close
         void OnDocumentClosed(Document doc);
     }
@@ -1284,6 +1287,16 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
         }
+        internal void NotifyOnNewSolutionAdded(Analysis analysis, SelSolution selSolution)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewSolutionAdded(this, analysis, selSolution);
+        }
+        private void NotifyOnNewTruckAnalysisCreated(Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewTruckAnalysisCreated(this, analysis, selSolution, truckAnalysis);
+        }
         private void NotifyOnDocumentClosed()
         {
             foreach (IDocumentListener listener in _listeners)
@@ -1298,6 +1311,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
+        }
+        internal void NotifyOnSolutionRemoved(Analysis analysis, SelSolution selSolution)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnSolutionRemoved(this, analysis, selSolution);
         }
         #endregion
     }

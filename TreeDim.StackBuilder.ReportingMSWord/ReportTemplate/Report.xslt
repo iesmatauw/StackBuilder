@@ -2070,11 +2070,6 @@
               </v:shape>
             </w:pict>
           </w:r>
-          <w:r>
-            <w:t>
-              <xsl:value-of select="." />
-            </w:t>
-          </w:r>
         </w:p>
       </ns0:view_case_iso>
     </w:tc>
@@ -2461,11 +2456,6 @@
                 <v:imagedata src="wordml://01000004.gif" o:title="convert" />
               </v:shape>
             </w:pict>
-          </w:r>
-          <w:r>
-            <w:t>
-              <xsl:value-of select="." />
-            </w:t>
           </w:r>
         </w:p>
       </ns0:view_interlayer_iso>
@@ -3913,11 +3903,6 @@
               </v:shape>
             </w:pict>
           </w:r>
-          <w:r>
-            <w:t>
-              <xsl:value-of select="." />
-            </w:t>
-          </w:r>
         </w:p>
       </ns0:view_pallet_iso>
     </w:tc>
@@ -4508,11 +4493,6 @@
                 </v:shape>
               </w:pict>
             </w:r>
-            <w:r>
-              <w:t>
-                <xsl:value-of select="." />
-              </w:t>
-            </w:r>
           </w:p>
         </ns0:view_truck_iso>
       </w:tc>
@@ -5040,11 +5020,6 @@
                 </v:shape>
               </w:pict>
             </w:r>
-            <w:r>
-              <w:t>
-                <xsl:value-of select="." />
-              </w:t>
-            </w:r>
           </w:p>
         </ns0:view_trucksolution_top>
       </w:tc>
@@ -5081,11 +5056,6 @@
                   <v:imagedata src="wordml://01000008.gif" o:title="convert" />
                 </v:shape>
               </w:pict>
-            </w:r>
-            <w:r>
-              <w:t>
-                <xsl:value-of select="." />
-              </w:t>
             </w:r>
           </w:p>
         </ns0:view_trucksolution_iso>

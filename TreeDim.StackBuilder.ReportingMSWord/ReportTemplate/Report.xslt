@@ -1547,18 +1547,17 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <v:shape id="_x0000_i1032" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+          <w:binData w:name="wordml://01000009.gif">
+            <xsl:value-of select="." />
+          </w:binData>
+          <v:shape id="_x0000_i1033" type="#_x0000_t83">
+            <xsl:attribute name="style">
+              <xsl:value-of select="@style"/>
+            </xsl:attribute>
+            <v:imagedata src="wordml://01000009.gif" o:title="convert" />
           </v:shape>
         </w:pict>
       </w:r>
-      <w:p>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="." />
-          </w:t>
-        </w:r>
-      </w:p>
     </ns0:view_palletsolution_front>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:efficiency">
@@ -1596,18 +1595,17 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <v:shape id="_x0000_i1033" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+          <w:binData w:name="wordml://01000010.gif">
+            <xsl:value-of select="." />
+          </w:binData>
+          <v:shape id="_x0000_i1034" type="#_x0000_t84">
+            <xsl:attribute name="style">
+              <xsl:value-of select="@style"/>
+            </xsl:attribute>
+            <v:imagedata src="wordml://01000010.gif" o:title="convert" />
           </v:shape>
         </w:pict>
       </w:r>
-      <w:p>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="." />
-          </w:t>
-        </w:r>
-      </w:p>
     </ns0:view_palletsolution_left>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:view_palletsolution_iso">
@@ -1619,18 +1617,17 @@
       </xsl:for-each>
       <w:r wsp:rsidR="0003283F">
         <w:pict>
-          <v:shape id="_x0000_i1028" type="#_x0000_t75" style="width:283.5pt;height:283.5pt;mso-position-horizontal:center;mso-position-horizontal-relative:margin;mso-position-vertical:top;mso-position-vertical-relative:margin" o:allowoverlap="f">
-            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+          <w:binData w:name="wordml://01000011.gif">
+            <xsl:value-of select="." />
+          </w:binData>
+          <v:shape id="_x0000_i1035" type="#_x0000_t85">
+            <xsl:attribute name="style">
+              <xsl:value-of select="@style"/>
+            </xsl:attribute>
+            <v:imagedata src="wordml://01000011.gif" o:title="convert" />
           </v:shape>
         </w:pict>
       </w:r>
-      <w:p>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="." />
-          </w:t>
-        </w:r>
-      </w:p>
     </ns0:view_palletsolution_iso>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:boxCount">
@@ -1655,18 +1652,17 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <v:shape id="_x0000_i1035" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+          <w:binData w:name="wordml://01000001.gif">
+            <xsl:value-of select="." />
+          </w:binData>
+          <v:shape id="_x0000_i1025" type="#_x0000_t75">
+            <xsl:attribute name="style">
+              <xsl:value-of select="@style"/>
+            </xsl:attribute>
+            <v:imagedata src="wordml://01000001.gif" o:title="convert" />
           </v:shape>
         </w:pict>
       </w:r>
-      <w:p>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="." />
-          </w:t>
-        </w:r>
-      </w:p>
     </ns0:view_palletsolution_back>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:view_palletsolution_right">
@@ -1678,18 +1674,17 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <v:shape id="_x0000_i1034" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+          <w:binData w:name="wordml://01000002.gif">
+            <xsl:value-of select="." />
+          </w:binData>
+          <v:shape id="_x0000_i1026" type="#_x0000_t76">
+            <xsl:attribute name="style">
+              <xsl:value-of select="@style"/>
+            </xsl:attribute>
+            <v:imagedata src="wordml://01000002.gif" o:title="convert" />
           </v:shape>
         </w:pict>
       </w:r>
-      <w:p>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="." />
-          </w:t>
-        </w:r>
-      </w:p>
     </ns0:view_palletsolution_right>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:title">
@@ -2064,33 +2059,14 @@
           </w:pPr>
           <w:r>
             <w:pict>
-              <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
-                <v:stroke joinstyle="miter" />
-                <v:formulas>
-                  <v:f eqn="if lineDrawn pixelLineWidth 0" />
-                  <v:f eqn="sum @0 1 0" />
-                  <v:f eqn="sum 0 0 @1" />
-                  <v:f eqn="prod @2 1 2" />
-                  <v:f eqn="prod @3 21600 pixelWidth" />
-                  <v:f eqn="prod @3 21600 pixelHeight" />
-                  <v:f eqn="sum @0 0 1" />
-                  <v:f eqn="prod @6 1 2" />
-                  <v:f eqn="prod @7 21600 pixelWidth" />
-                  <v:f eqn="sum @8 21600 0" />
-                  <v:f eqn="prod @7 21600 pixelHeight" />
-                  <v:f eqn="sum @10 21600 0" />
-                </v:formulas>
-                <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect" />
-                <o:lock v:ext="edit" aspectratio="t" />
-              </v:shapetype>
-              <w:binData w:name="wordml://03000001.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGFBMVEUAAAAAALAAsACwAACw/7D/
-sLD///////9XSiD5AAAACHRSTlP/////////AN6DvVkAAAABYktHRAZhZrh9AAAADGNtUFBKQ21w
-MDcxMgAAAAdPbbelAAAAVElEQVQY02MohwKG8nJ2KKMgoFxQHMRgDWYvSwQyCkKDDcoL08EibCA5
-kJr08sI0kC42oB6QFAgUlEMZLOwQRoGLAoTB4qLEDhNJh6phg+mCaQcCALN5MTERx2mgAAAAAElF
-TkSuQmCC
-</w:binData>
-              <v:shape id="_x0000_i1025" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+              <w:binData w:name="wordml://01000003.gif">
+                <xsl:value-of select="." />
+              </w:binData>
+              <v:shape id="_x0000_i1027" type="#_x0000_t77">
+                <xsl:attribute name="style">
+                  <xsl:value-of select="@style"/>
+                </xsl:attribute>
+                <v:imagedata src="wordml://01000003.gif" o:title="convert" />
               </v:shape>
             </w:pict>
           </w:r>
@@ -2475,8 +2451,14 @@ TkSuQmCC
           </w:pPr>
           <w:r>
             <w:pict>
-              <v:shape id="_x0000_i1027" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+              <w:binData w:name="wordml://01000004.gif">
+                <xsl:value-of select="." />
+              </w:binData>
+              <v:shape id="_x0000_i1028" type="#_x0000_t78">
+                <xsl:attribute name="style">
+                  <xsl:value-of select="@style"/>
+                </xsl:attribute>
+                <v:imagedata src="wordml://01000004.gif" o:title="convert" />
               </v:shape>
             </w:pict>
           </w:r>
@@ -3920,8 +3902,14 @@ TkSuQmCC
           </w:pPr>
           <w:r>
             <w:pict>
-              <v:shape id="_x0000_i1026" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+              <w:binData w:name="wordml://01000005.gif">
+                <xsl:value-of select="." />
+              </w:binData>
+              <v:shape id="_x0000_i1029" type="#_x0000_t79">
+                <xsl:attribute name="style">
+                  <xsl:value-of select="@style"/>
+                </xsl:attribute>
+                <v:imagedata src="wordml://01000005.gif" o:title="convert" />
               </v:shape>
             </w:pict>
           </w:r>
@@ -4509,8 +4497,14 @@ TkSuQmCC
             </w:pPr>
             <w:r>
               <w:pict>
-                <v:shape id="_x0000_i1029" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
-                  <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <w:binData w:name="wordml://01000006.gif">
+                  <xsl:value-of select="." />
+                </w:binData>
+                <v:shape id="_x0000_i1030" type="#_x0000_t80">
+                  <xsl:attribute name="style">
+                    <xsl:value-of select="@style"/>
+                  </xsl:attribute>
+                  <v:imagedata src="wordml://01000006.gif" o:title="convert" />
                 </v:shape>
               </w:pict>
             </w:r>
@@ -5035,8 +5029,14 @@ TkSuQmCC
             </w:pPr>
             <w:r>
               <w:pict>
-                <v:shape id="_x0000_i1030" type="#_x0000_t75" style="width:283.5pt;height:283.5pt">
-                  <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <w:binData w:name="wordml://01000007.gif">
+                  <xsl:value-of select="." />
+                </w:binData>
+                <v:shape id="_x0000_i1031" type="#_x0000_t81">
+                  <xsl:attribute name="style">
+                    <xsl:value-of select="@style"/>
+                  </xsl:attribute>
+                  <v:imagedata src="wordml://01000007.gif" o:title="convert" />
                 </v:shape>
               </w:pict>
             </w:r>
@@ -5071,8 +5071,14 @@ TkSuQmCC
             </w:pPr>
             <w:r>
               <w:pict>
-                <v:shape id="_x0000_i1031" type="#_x0000_t75" style="width:283.5pt;height:283.5pt">
-                  <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <w:binData w:name="wordml://01000008.gif">
+                  <xsl:value-of select="." />
+                </w:binData>
+                <v:shape id="_x0000_i1032" type="#_x0000_t82">
+                  <xsl:attribute name="style">
+                    <xsl:value-of select="@style"/>
+                  </xsl:attribute>
+                  <v:imagedata src="wordml://01000008.gif" o:title="convert" />
                 </v:shape>
               </w:pict>
             </w:r>

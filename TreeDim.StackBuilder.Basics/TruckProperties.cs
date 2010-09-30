@@ -33,27 +33,27 @@ namespace TreeDim.StackBuilder.Basics
         public double AdmissibleLoadWeight
         {
             get { return _admissibleLoadWeight; }
-            set { _admissibleLoadWeight = value; }
+            set { _admissibleLoadWeight = value; Modify(); }
         }
         public double Length
         {
             get { return _length; }
-            set { _length = value; }
+            set { _length = value; Modify(); }
         }
         public double Width
         {
             get { return _width; }
-            set { _width = value; }
+            set { _width = value; Modify(); }
         }
         public double Height
         {
             get { return _height; }
-            set { _height = value; }
+            set { _height = value; Modify(); }
         }
         public Color Color
         {
             set { _color = value; }
-            get { return _color; }
+            get { return _color; Modify(); }
         }
         #endregion
     }

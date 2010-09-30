@@ -25,8 +25,21 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
 
             try
             {
+                // check arguments
+                if (args.Length != 1)
+                {
+                    log.Info("No command argument. Exiting...");
+                    return;
+                }
+                if (!File.Exists(args[0]))
+                { 
+                    log.Info(string.Format("File {0} could not be found. Exiting...", args[0]));
+                    return;
+                }
+
+                string filePath = args[0];
                 // load document
-                Document doc = new Document(@"..\..\..\Samples\d1.stb",  new DocumentListenerLog());
+                Document doc = new Document(filePath,  new DocumentListenerLog());
                 // get first analysis
                 List<Analysis> analyses = doc.Analyses;
                 if (analyses.Count == 0)
@@ -40,8 +53,6 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
                 Reporter.BuidAnalysisReport(analyses[0], analyses[0].Solutions[0], xsltTemplateFilePath, outputFilePath);
 
                 Console.WriteLine("Saved report to: {0}", outputFilePath);
-                Console.WriteLine("\nPress any key to continue");
-                Console.ReadKey();
 
                 // Display resulting report in Word
                 Process.Start(new ProcessStartInfo(outputFilePath));                

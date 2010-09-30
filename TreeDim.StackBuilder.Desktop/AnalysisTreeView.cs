@@ -39,6 +39,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Analysis);    // 8
                 ImageList.Images.Add(AnalysisTreeView.AnalysisBundle);    // 8
                 ImageList.Images.Add(AnalysisTreeView.Solution);    // 10
+                ImageList.Images.Add(AnalysisTreeView.Word);        // 11
                 // instantiate context menu
                 ContextMenu = new ContextMenu();
                 // attach event handlers
@@ -245,8 +246,10 @@ namespace TreeDim.StackBuilder.Desktop
                 // handle only left mouse button click
                 if (e.Button != MouseButtons.Left) return;
                 NodeTag tag = CurrentTag;
-                if (null != AnalysisNodeClicked)
-                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag.Document, tag.Analysis, tag.ItemProperties));
+                if ((tag.Type == NodeTag.NodeType.NT_ANALYSIS) && null != AnalysisNodeClicked)
+                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+                else if (tag.Type == NodeTag.NodeType.NT_ANALYSISSOLREPORT)
+                    SolutionReportNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
             }
             catch (Exception ex)
             {
@@ -306,6 +309,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         #region Events
         public event AnalysisNodeClickHandler AnalysisNodeClicked;
+        public event AnalysisNodeClickHandler SolutionReportNodeClicked;
         #endregion
 
         #region IDocumentListener implementation
@@ -423,6 +427,9 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 10, 10);
             nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution);
             parentNode.Nodes.Add(nodeSelSolution);
+            TreeNode nodeReport = new TreeNode("Report", 11, 11);
+            nodeReport.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOLREPORT, doc, analysis, selSolution);
+            nodeSelSolution.Nodes.Add(nodeReport);
         }
         public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
@@ -599,24 +606,21 @@ namespace TreeDim.StackBuilder.Desktop
     public class AnalysisTreeViewEventArgs : EventArgs
     {
         #region Data members
-        private Document _document;
-        private Analysis _analysis;
-        private ItemBase _itemBase;
+        private NodeTag _nodeTag;
         #endregion
 
         #region Constructor
-        public AnalysisTreeViewEventArgs(Document document, Analysis analysis, ItemBase itemBase)
+        public AnalysisTreeViewEventArgs(NodeTag nodeTag)
         {
-            _document = document;
-            _analysis = analysis;
-            _itemBase = itemBase;
+            _nodeTag = nodeTag;
         }
         #endregion
 
         #region Public properties
-        public Document Document { get { return _document; } }
-        public Analysis Analysis { get { return _analysis; } }
-        public ItemBase ItemBase { get { return _itemBase; } }
+        public Document Document { get { return _nodeTag.Document; } }
+        public Analysis Analysis { get { return _nodeTag.Analysis; } }
+        public ItemBase ItemBase { get { return _nodeTag.ItemProperties; } }
+        public SelSolution SelSolution { get { return _nodeTag.SelSolution; } }
         #endregion
     }
     #endregion

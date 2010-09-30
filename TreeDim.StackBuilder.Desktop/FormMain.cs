@@ -15,6 +15,7 @@ using log4net;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
+using TreeDim.StackBuilder.ReportingMSWord;
 
 using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
@@ -79,8 +80,11 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_AnalysisNodeClicked);
+            _documentExplorer.DocumentTreeView.SolutionReportNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
             _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
         }
+
+
         private IDockContent ReloadContent(string persistString)
         {
             switch (persistString)
@@ -229,6 +233,28 @@ namespace TreeDim.StackBuilder.Desktop
                     Debug.Assert(false);
             }
 
+        }
+
+        void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+            try
+            {
+                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null != eventArg.SelSolution))
+                {
+                    // build output file path
+                    string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
+                    string xsltTemplateFilePath = @"..\..\..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt";
+                    Reporter.BuidAnalysisReport(eventArg.Analysis, eventArg.SelSolution.Solution, xsltTemplateFilePath, outputFilePath);
+                    // logging
+                    _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
+                    // Display resulting report in Word
+                    Process.Start(new ProcessStartInfo(outputFilePath));
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 

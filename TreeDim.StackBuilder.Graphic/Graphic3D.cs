@@ -27,11 +27,11 @@ namespace TreeDim.StackBuilder.Graphics
         /// <summary>
         /// Light position
         /// </summary>
-        private Vector3D _vLight = new Vector3D(0.0, 0.0, -1.0);
+        private Vector3D _vLight = new Vector3D(-0.75, -0.5, 1.0);
         /// <summary>
         /// Target position
         /// </summary>
-        private Vector3D _vTarget = new Vector3D();
+        private Vector3D _vTarget = Vector3D.Zero;
         /// <summary>
         /// Viewport
         /// </summary>
@@ -65,9 +65,25 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         private Transform3D _currentTransf;
         private PaintingAlgorithm _algo = PaintingAlgorithm.ALGO_PAINTER;
+
+        public static readonly Vector3D Front = new Vector3D(10000.0, 0.0, 0.0);
+        public static readonly Vector3D Back = new Vector3D(-10000.0, 0.0, 0.0);
+        public static readonly Vector3D Left = new Vector3D(0.0, -10000.0, 0.0);
+        public static readonly Vector3D Right = new Vector3D(0.0, 10000.0, 0.0);
+        public static readonly Vector3D Iso = new Vector3D(
+                Math.Cos(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                , Math.Sin(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+                , 10000.0);
         #endregion
 
         #region Constructors
+        public Graphics3D()
+        {
+            _viewport[0] = -500.0f;
+            _viewport[1] = -500.0f;
+            _viewport[2] = 500.0f;
+            _viewport[3] = 500.0f;
+        }
         #endregion
 
         #region Public properties

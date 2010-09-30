@@ -128,6 +128,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Allowed patterns
         public void SetAllowedPattern(string patternName)
         {
+            if (patternName == string.Empty)  return;
             _allowedPatterns.Add(patternName);
         }
         public bool AllowPattern(string patternName)
@@ -140,16 +141,16 @@ namespace TreeDim.StackBuilder.Basics
             {
                 string[] patternNames = value.Split(',');
                 foreach (string patternName in patternNames)
-                    _allowedPatterns.Add(patternName);
+                    SetAllowedPattern(patternName);
             }
             get
             {
                 string sGlobal = string.Empty;
-                foreach (string s in _allowedPatterns)
+                foreach (string patternName in _allowedPatterns)
                 {
                     if (!string.IsNullOrEmpty(sGlobal))
                         sGlobal += ",";
-                    sGlobal += s;
+                    sGlobal += patternName;
                 }
                 return sGlobal;
             }

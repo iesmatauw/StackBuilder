@@ -188,7 +188,7 @@ namespace TreeDim.StackBuilder.Desktop
             // window position
             if (null == Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition = new WindowSettings();
-            Settings.Default.FormNewPalletPosition.Record(this);
+            Settings.Default.FormNewTruckPosition.Record(this);
         }
         #endregion
     }

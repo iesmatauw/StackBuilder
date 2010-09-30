@@ -264,5 +264,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["NoSolutionsToKeep"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder1\\TreeDim.StackBuilder.ReportingMSWord\\ReportTemplate\\Rep" +
+            "ort.xslt")]
+        public string ReportTemplatePath {
+            get {
+                return ((string)(this["ReportTemplatePath"]));
+            }
+        }
     }
 }

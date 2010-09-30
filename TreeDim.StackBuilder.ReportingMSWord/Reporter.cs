@@ -107,12 +107,16 @@ namespace TreeDim.StackBuilder.ReportingMSWord
         }
         public static void BuidAnalysisReport(Analysis analysis, Solution sol, string xsltTemplateFilePath, string outputFilePath)
         {
+            // create xml data file + XmlTextReader
             string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
             CreateAnalysisDataFile(analysis, sol, xmlFilePath);
             XmlTextReader xmlData = new XmlTextReader(new FileStream(xmlFilePath, FileMode.Open, FileAccess.Read));
+            // test path + load template
+            if (!File.Exists(xsltTemplateFilePath))
+                throw new Exception(string.Format("Report template path ({0}) is invalid", xsltTemplateFilePath));
             XmlTextReader xsltReader = new XmlTextReader(new FileStream(xsltTemplateFilePath, FileMode.Open, FileAccess.Read));
             byte[] wordDoc = GetWord(xmlData, xsltReader);
-            // Write resulting array to HDD, show process information
+            // write resulting array to HDD, show process information
             using (FileStream fs = new FileStream(outputFilePath, FileMode.Create))
                 fs.Write(wordDoc, 0, wordDoc.Length);
         }

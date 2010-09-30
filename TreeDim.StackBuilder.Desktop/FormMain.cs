@@ -243,11 +243,15 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                     // build output file path
                     string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
-                    string xsltTemplateFilePath = @"..\..\..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt";
-                    Reporter.BuidAnalysisReport(eventArg.Analysis, eventArg.SelSolution.Solution, xsltTemplateFilePath, outputFilePath);
+                    // build report
+                    Reporter.BuidAnalysisReport(
+                        eventArg.Analysis
+                        , eventArg.SelSolution.Solution
+                        , Settings.Default.ReportTemplatePath
+                        , outputFilePath);
                     // logging
                     _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
-                    // Display resulting report in Word
+                    // open resulting report in Word
                     Process.Start(new ProcessStartInfo(outputFilePath));
                 }
             }

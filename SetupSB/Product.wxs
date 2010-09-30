@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 	<Product Id="*" Name="StackBuilder"
            Language="1033"
-           Version="0.1.4.0"
+           Version="0.1.5.0"
            Manufacturer="TreeDim"
            UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c">
     <!-- Id="911b462d-19dc-490d-ba24-8ff7c6cc38d2" -->
@@ -14,7 +15,9 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
         <Directory Id="TreeDimDir" Name="TreeDim">
-          <Directory Id="INSTALLLOCATION" Name="StackBuilder"/>
+          <Directory Id="INSTALLLOCATION" Name="StackBuilder">
+            <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
+          </Directory>
         </Directory>
 			</Directory>
       <Directory Id="ProgramMenuFolder">
@@ -55,7 +58,23 @@
         <File Id="TreeDim.StackBuilder.Engine.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
+        <!--update config file-->
+        <util:XmlFile Id="SetInitialReportTemplatePath"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting/value"
+                      Value="[REPORTTEMPLATES]Report.xslt"/>
+        <!--update config file-->
       </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="REPORTTEMPLATES">
+      <Component Id="ReportTemplateFiles" Guid="{1F629F03-7A0C-4e2f-B5D1-C85188C75A57}">
+        <File Id="Report.doc" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.doc" KeyPath="yes" Checksum="yes"/>
+        <File Id="Report.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xml" Checksum="yes"/>
+        <File Id="Report.xslt" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt" Checksum="yes"/>
+        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\WML2XSLT.EXE" Checksum="yes"/>
+        <File Id="xml2xslt.bat" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\xml2xslt.bat" Checksum="yes"/>
+      </Component>        
     </DirectoryRef>
     <DirectoryRef Id="ApplicationProgramsFolder">
         <Component Id="ApplicationShortcut" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">
@@ -74,6 +93,7 @@
 		<Feature Id="ProductFeature" Title="SetupSB" Level="1">
       <ComponentRef Id="References" />
       <ComponentRef Id="Application"/>
+      <ComponentRef Id="ReportTemplateFiles"/>
       <ComponentRef Id="ApplicationShortcut"/>
 		</Feature>
     <InstallExecuteSequence>
@@ -81,7 +101,7 @@
     </InstallExecuteSequence>
     <Upgrade Id="3ea15bae-a660-4872-a937-0a7c8a0f595c">
       <UpgradeVersion Minimum="0.1.0.0"
-                      Maximum="0.1.4.0"
+                      Maximum="0.1.5.0"
                       IncludeMinimum="yes"
                       Property="OLDERVERSIONBEINGUPGRADED" />
       <UpgradeVersion Minimum="0.1.2"

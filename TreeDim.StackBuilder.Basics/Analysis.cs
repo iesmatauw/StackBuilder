@@ -85,10 +85,10 @@ namespace TreeDim.StackBuilder.Basics
             SelSolution selSolution = new SelSolution(ParentDocument, this, _solutions[index]);
             // insert in list
             _selectedSolutions.Add(selSolution);
-            // set analysis modified
-            //Modify();
             // notify document listeners
             ParentDocument.NotifyOnNewSolutionAdded(this, selSolution);
+            // set document modified (not analysis, otherwise selected solutions are erased)
+            ParentDocument.Modify();
         }
         public void UnselectSolutionByIndex(int index)
         {
@@ -99,8 +99,9 @@ namespace TreeDim.StackBuilder.Basics
             if (null == selSolution) return; // this solution not selected
             // remove from list
             _selectedSolutions.Remove(selSolution);
-            // dispose selected solution
-            selSolution.Dispose();
+            ParentDocument.RemoveItem(selSolution);
+            // set document modified (not analysis, otherwise selected solutions are erased)
+            ParentDocument.Modify();
         }
         public bool HasSolutionSelected(int index)
         {

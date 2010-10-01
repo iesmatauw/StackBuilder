@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is application version number, update for each release -->
+<?define Version = "0.1.6" ?>
+<!-- This is package upgade code, do not modify -->
+<?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 	<Product Id="*" Name="StackBuilder"
            Language="1033"
-           Version="0.1.5.0"
+           Version="$(var.Version)"
            Manufacturer="TreeDim"
-           UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c">
-    <!-- Id="911b462d-19dc-490d-ba24-8ff7c6cc38d2" -->
-    <!--UpgradeCode="3ea15bae-a660-4872-a937-0a7c8a0f595c"-->
-		<Package InstallerVersion="200" Compressed="yes" />
+           UpgradeCode="$(var.UpgradeCode)">
+		<Package Id="*"
+             Description="A palletization simulation software"
+             Comments="$(var.Version)"
+             Manufacturer="TreeDim"
+             InstallerVersion="200" Compressed="yes" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
     <!-- define the directory structure-->
     <Directory Id="TARGETDIR" Name="SourceDir">
@@ -29,7 +37,7 @@
     <!--Property references-->
     <PropertyRef Id="NETFRAMEWORK20"/>
     <!-- Conditions-->
-    <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT NEWERVERSIONDETECTED OR Installed</Condition>
+    <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
     <Condition Message="This application is only supported on Windows Vista, Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 600)]]></Condition>
     <Condition Message="This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again.">
       <![CDATA[Installed OR NETFRAMEWORK20]]>
@@ -96,17 +104,17 @@
       <ComponentRef Id="ReportTemplateFiles"/>
       <ComponentRef Id="ApplicationShortcut"/>
 		</Feature>
-    <InstallExecuteSequence>
-      <RemoveExistingProducts After="InstallInitialize"/>
-    </InstallExecuteSequence>
-    <Upgrade Id="3ea15bae-a660-4872-a937-0a7c8a0f595c">
-      <UpgradeVersion Minimum="0.1.0.0"
-                      Maximum="0.1.5.0"
-                      IncludeMinimum="yes"
-                      Property="OLDERVERSIONBEINGUPGRADED" />
-      <UpgradeVersion Minimum="0.1.2"
-                    OnlyDetect="yes"
-                    Property="NEWERVERSIONDETECTED" />
+    <!--Upgrade table-->
+    <Property Id='PROJECT_UPGRADE' Secure='yes'/>
+    <Property Id='PROJECT_DOWNGRADE' Secure='yes'/>
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion Minimum="0.0.0.0" IncludeMinimum="yes"
+                      Maximum="$(var.Version)" IncludeMaximum="no"
+                      OnlyDetect="no"
+                      Property="PROJECT_UPGRADE" />
+      <UpgradeVersion Minimum="$(var.Version)" IncludeMinimum="no"
+                      OnlyDetect="yes"
+                      Property="PROJECT_DOWNGRADE" />
     </Upgrade>
     <!--UI-->
     <UI>
@@ -125,6 +133,14 @@
     <!-- Include 'Start' custom action-->
     <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
     <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+    <!-- Prevent downgrade custom action -->
+    <CustomAction Id='NoDownGrade' Error='A later version of [ProductName] is already installed.' />
+    <!-- Install execute sequence -->
+    <InstallExecuteSequence>
+      <LaunchConditions After='AppSearch'></LaunchConditions>
+      <Custom Action='NoDownGrade' After='FindRelatedProducts'><![CDATA[PROJECT_DOWNGRADE]]></Custom>
+      <RemoveExistingProducts After='InstallFinalize'/>
+    </InstallExecuteSequence>
     <!---->
     <Icon Id="treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
     <Property Id="ARPPRODUCTICON" Value="treeDim.ico" />

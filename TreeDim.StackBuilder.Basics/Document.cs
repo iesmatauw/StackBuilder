@@ -268,6 +268,9 @@ namespace TreeDim.StackBuilder.Basics
                 Debug.Assert(false);
                 return;
             }
+            // dispose item first as it may remove dependancies itself
+            item.Dispose();
+
             // notify listeners / remove
             if (item.GetType() == typeof(BoxProperties)
                 || item.GetType() == typeof(BundleProperties)
@@ -290,7 +293,6 @@ namespace TreeDim.StackBuilder.Basics
             }
             else
                 Debug.Assert(false);
-            item.Dispose();
             Modify();
         }
         #endregion

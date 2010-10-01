@@ -269,7 +269,7 @@ namespace TreeDim.StackBuilder.Basics
                 return;
             }
             // notify listeners / remove
-            if (item.GetType() == typeof(BProperties)
+            if (item.GetType() == typeof(BoxProperties)
                 || item.GetType() == typeof(BundleProperties)
                 || item.GetType() == typeof(PalletProperties)
                 || item.GetType() == typeof(InterlayerProperties)
@@ -282,6 +282,11 @@ namespace TreeDim.StackBuilder.Basics
             {
                 NotifyOnAnalysisRemoved(item as Analysis);
                 _analyses.Remove(item as Analysis);
+            }
+            else if (item.GetType() == typeof(SelSolution))
+            {
+                SelSolution selSol = item as SelSolution;
+                NotifyOnSolutionRemoved(selSol.Analysis, selSol);
             }
             else
                 Debug.Assert(false);
@@ -648,6 +653,7 @@ namespace TreeDim.StackBuilder.Basics
             // load constraint set / solution list
             ConstraintSet constraintSet = null;
             List<Solution> solutions = new List<Solution>();
+            List<int> selectedIndices = new List<int>();
 
             foreach (XmlNode node in eltAnalysis.ChildNodes)
             {
@@ -659,8 +665,16 @@ namespace TreeDim.StackBuilder.Basics
                 // load solutions
                 else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
                 {
+                    int indexSol = 0;
                     foreach (XmlNode solutionNode in node.ChildNodes)
-                        solutions.Add(LoadSolution(solutionNode as XmlElement));
+                    {
+                        XmlElement eltSolution = solutionNode as XmlElement;
+                        solutions.Add(LoadSolution(eltSolution));
+                        // is solution selected ?
+                        if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
+                            selectedIndices.Add(indexSol);
+                        ++indexSol;
+                    }
                 }
                 if (null == constraintSet)
                     throw new Exception("Failed to load a valid ConstraintSet");
@@ -675,6 +689,9 @@ namespace TreeDim.StackBuilder.Basics
                 , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
                 , constraintSet
                 , solutions);
+            // save selected solutions
+            foreach (int indexSol in selectedIndices)
+                analysis.SelectSolutionByIndex(indexSol);
         }
         ConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
         {
@@ -753,9 +770,10 @@ namespace TreeDim.StackBuilder.Basics
 
         Solution LoadSolution(XmlElement eltSolution)
         {
+            // title -> instantiation
             string stitle = eltSolution.Attributes["Title"].Value;
             Solution sol = new Solution(stitle, true);
-
+            // homogeneous layers
             if (eltSolution.HasAttribute("HomogeneousLayers"))
             {
                 string sHomogeneousLayers = eltSolution.Attributes["HomogeneousLayers"].Value;
@@ -763,7 +781,7 @@ namespace TreeDim.StackBuilder.Basics
             }
             else
                 sol.HasHomogeneousLayers = false;
-
+            // layers
             XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
             foreach (XmlNode nodeLayer in eltLayers.ChildNodes)
                 sol.Add( LoadLayer(nodeLayer as XmlElement));
@@ -1184,8 +1202,8 @@ namespace TreeDim.StackBuilder.Basics
 
             xmlAnalysisElt.AppendChild(constraintSetElement);
             // ###
-
             // Solutions
+            int solIndex = 0;
             XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
             xmlAnalysisElt.AppendChild(solutionsElt);
             foreach (Solution sol in analysis.Solutions)
@@ -1247,6 +1265,14 @@ namespace TreeDim.StackBuilder.Basics
                         interlayerElt.Attributes.Append(zlowAttribute);
                     }
                 }
+                // Is selected ?
+                if (analysis.HasSolutionSelected(solIndex))
+                {
+                    XmlAttribute selAttribute = xmlDoc.CreateAttribute("Selected");
+                    selAttribute.Value = "true";
+                    solutionElt.Attributes.Append(selAttribute);
+                }
+                ++solIndex;
             }
         }
         #endregion
@@ -1254,6 +1280,12 @@ namespace TreeDim.StackBuilder.Basics
         #region Close
         public virtual void Close()
         {
+            // remove all analysis and items
+            // -> this should close any listening forms
+            while (_analyses.Count > 0)
+                RemoveItem(_analyses[0]);
+            while (_typeList.Count > 0)
+                RemoveItem(_typeList[0]);
             NotifyOnDocumentClosed();
         }
         #endregion

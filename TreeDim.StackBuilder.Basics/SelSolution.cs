@@ -38,6 +38,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _solution; }
         }
+        public Analysis Analysis
+        {
+            get { return _analysis; }
+        }
         #endregion
+
+        protected override void RemoveItselfFromDependancies()
+        {
+            _analysis.RemoveDependancie(this);
+            base.RemoveItselfFromDependancies();
+        }
     }
 }

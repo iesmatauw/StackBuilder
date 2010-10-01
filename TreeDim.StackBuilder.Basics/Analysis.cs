@@ -58,6 +58,11 @@ namespace TreeDim.StackBuilder.Basics
             set { _palletProperties = value; }
         }
 
+        public bool HasInterlayer
+        {
+            get { return (null != _interlayerProperties); }
+        }
+
         public InterlayerProperties InterlayerProperties
         {
             get { return _interlayerProperties; }
@@ -80,17 +85,22 @@ namespace TreeDim.StackBuilder.Basics
             SelSolution selSolution = new SelSolution(ParentDocument, this, _solutions[index]);
             // insert in list
             _selectedSolutions.Add(selSolution);
+            // set analysis modified
+            //Modify();
             // notify document listeners
             ParentDocument.NotifyOnNewSolutionAdded(this, selSolution);
         }
         public void UnselectSolutionByIndex(int index)
         {
-            SelSolution selSolution = GetSelSolutionBySolutionIndex(index);
+            UnSelectSolution( GetSelSolutionBySolutionIndex(index) );
+        }
+        public void UnSelectSolution(SelSolution selSolution)
+        {
             if (null == selSolution) return; // this solution not selected
             // remove from list
             _selectedSolutions.Remove(selSolution);
-            // notify document listeners
-            ParentDocument.NotifyOnSolutionRemoved(this, selSolution);
+            // dispose selected solution
+            selSolution.Dispose();
         }
         public bool HasSolutionSelected(int index)
         {
@@ -104,6 +114,13 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Dependancies
+        protected override void OnDispose()
+        {
+            while (_selectedSolutions.Count > 0)
+                UnSelectSolution(_selectedSolutions[0]);
+            base.OnDispose();
+        }
+
         protected override void RemoveItselfFromDependancies()
         {
             _boxProperties.RemoveDependancie(this);
@@ -114,10 +131,18 @@ namespace TreeDim.StackBuilder.Basics
         }
         public override void OnAttributeModified(ItemBase modifiedAttribute)
         {
+            // clear selected solutions
+            while (_selectedSolutions.Count > 0)
+                UnSelectSolution(_selectedSolutions[0]);
+            // clear solutions
             _solutions.Clear();
         }
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
+            // clear selected solutions
+            while (_selectedSolutions.Count > 0)
+                UnSelectSolution(_selectedSolutions[0]);
+            // clear solutions
             _solutions.Clear();
             Modify();
         }

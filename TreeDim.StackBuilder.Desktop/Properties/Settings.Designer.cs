@@ -267,8 +267,8 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder1\\TreeDim.StackBuilder.ReportingMSWord\\ReportTemplate\\Rep" +
-            "ort.xslt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\TreeDim.StackBuilder.ReportingMSWord\\ReportTemplate\\Repo" +
+            "rt.xslt")]
         public string ReportTemplatePath {
             get {
                 return ((string)(this["ReportTemplatePath"]));

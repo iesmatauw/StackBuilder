@@ -95,6 +95,7 @@ namespace TreeDim.StackBuilder.Basics
         public virtual void OnAttributeModified(ItemBase modifiedAttribute) {}
         public virtual void OnEndUpdate(ItemBase updatedAttribute) {}
         protected virtual void RemoveItselfFromDependancies() {}
+        protected virtual void OnDispose() {}
         #endregion
 
         #region IDisposable implementation
@@ -124,6 +125,7 @@ namespace TreeDim.StackBuilder.Basics
             // Check to see if Dispose has already been called.
             if (!this.disposed)
             {
+                OnDispose();
                 // If disposing equals true, dispose all managed
                 // and unmanaged resources.
                 if (disposing)

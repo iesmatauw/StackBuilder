@@ -14,7 +14,8 @@ namespace TreeDim.StackBuilder.Basics
 
         #region Constructor
         public TruckConstraintSet()
-        { 
+        {
+            _multilayerAllowed = true;
         }
         #endregion
 

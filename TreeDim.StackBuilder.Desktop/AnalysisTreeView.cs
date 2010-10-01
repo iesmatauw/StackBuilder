@@ -55,7 +55,6 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
-
         private void InitializeComponent()
         {
             this.SuspendLayout();
@@ -246,9 +245,23 @@ namespace TreeDim.StackBuilder.Desktop
                 // handle only left mouse button click
                 if (e.Button != MouseButtons.Left) return;
                 NodeTag tag = CurrentTag;
-                if ((tag.Type == NodeTag.NodeType.NT_ANALYSIS) && null != AnalysisNodeClicked)
+                NodeTag.NodeType tagType = tag.Type;
+                if (null != AnalysisNodeClicked &&
+                    (tag.Type == NodeTag.NodeType.NT_ANALYSIS)
+                    || (tag.Type == NodeTag.NodeType.NT_ANALYSISBOX)
+                    || (tag.Type == NodeTag.NodeType.NT_ANALYSISPALLET)
+                    || (tag.Type == NodeTag.NodeType.NT_ANALYSISINTERLAYER)
+                    || (tag.Type == NodeTag.NodeType.NT_BOX)
+                    || (tag.Type == NodeTag.NodeType.NT_PALLET)
+                    || (tag.Type == NodeTag.NodeType.NT_INTERLAYER)
+                    || (tag.Type == NodeTag.NodeType.NT_BUNDLE)
+                    || (tag.Type == NodeTag.NodeType.NT_TRUCK)
+                    )
+                {
                     AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
-                else if (tag.Type == NodeTag.NodeType.NT_ANALYSISSOLREPORT)
+                    e.Node.Expand();
+                }
+                else if (tag.Type == NodeTag.NodeType.NT_ANALYSISSOLREPORT && null != SolutionReportNodeClicked)
                     SolutionReportNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
             }
             catch (Exception ex)
@@ -416,6 +429,13 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 5, 5);
             subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis.PalletProperties, analysis);
             nodeAnalysis.Nodes.Add(subPalletNode);
+            // insert sub interlayer node if any
+            if (analysis.HasInterlayer)
+            {
+                TreeNode subInterlayer = new TreeNode(analysis.InterlayerProperties.Name, 6, 6);
+                subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis.InterlayerProperties, analysis);
+                nodeAnalysis.Nodes.Add(subInterlayer);
+            }
             nodeAnalysis.Expand();
         }
 
@@ -430,6 +450,9 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeReport = new TreeNode("Report", 11, 11);
             nodeReport.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOLREPORT, doc, analysis, selSolution);
             nodeSelSolution.Nodes.Add(nodeReport);
+            // expand tree nodes
+            nodeSelSolution.Expand();
+            parentNode.Expand();
         }
         public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
@@ -439,11 +462,13 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 11, 11);
             nodeTruckAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis);
             parentNode.Nodes.Add(nodeTruckAnalysis);
+            // expand parent tree node
+            parentNode.Expand();
         }
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
-            if (itemBase.GetType() == typeof(BProperties))
+            if (itemBase.GetType() == typeof(BoxProperties))
             {
                 nodeType = NodeTag.NodeType.NT_BOX;
             }
@@ -529,6 +554,7 @@ namespace TreeDim.StackBuilder.Desktop
             NT_ANALYSIS,
             NT_ANALYSISBOX,
             NT_ANALYSISPALLET,
+            NT_ANALYSISINTERLAYER,
             NT_ANALYSISSOL,
             NT_ANALYSISSOLREPORT,
             NT_TRUCKANALYSIS,

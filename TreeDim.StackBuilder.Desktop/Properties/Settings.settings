@@ -66,7 +66,7 @@
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">K:\Codeplex\StackBuilder1\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt</Value>
+      <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt</Value>
     </Setting>
   </Settings>
 </SettingsFile>

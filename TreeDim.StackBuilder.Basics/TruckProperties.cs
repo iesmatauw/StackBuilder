@@ -52,8 +52,8 @@ namespace TreeDim.StackBuilder.Basics
         }
         public Color Color
         {
-            set { _color = value; }
-            get { return _color; Modify(); }
+            get { return _color;  }
+            set { _color = value; Modify();}
         }
         #endregion
     }

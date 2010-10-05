@@ -9,9 +9,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.Reflection;
 
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
+using Utilities;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
@@ -22,7 +24,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormMain : Form, IDocumentFactory
+    public partial class FormMain : Form, IDocumentFactory, IMRUClient
     {
         #region Data members
         /// <summary>
@@ -40,28 +42,33 @@ namespace TreeDim.StackBuilder.Desktop
         private IDocument _activeDocument;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormMain));
         private static FormMain _instance;
+        private MruManager _mruManager;
         #endregion
 
         #region Constructor
         public FormMain()
         {
+            // set static instance
             _instance = this;
+            // set analysis solver
+            Analysis.Solver = new TreeDim.StackBuilder.Engine.Solver();
+            // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
+
             InitializeComponent();
 
+            // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length >= 2)
             {
                 OpenDocument(args[1]);
             }
+            // or show splash sceen 
             else
             {
                 // --- instantiate and start splach screen thread
                 Thread th = new Thread(new ThreadStart(DoSplash));
                 th.Start();
-                Thread.Sleep(1000);
-                th.Abort();
-                Thread.Sleep(100);
                 // ---
             }
         }
@@ -71,6 +78,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void DoSplash()
         {
             SplashScreen sp = new SplashScreen();
+            sp.TimerInterval = 500;
             sp.ShowDialog();
         }
         #endregion
@@ -81,7 +89,9 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_AnalysisNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
-            _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
+
+            if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
+                _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
         }
 
 
@@ -124,6 +134,14 @@ namespace TreeDim.StackBuilder.Desktop
 
             UpdateToolbarState();
 
+            // MRUManager
+            _mruManager = new MruManager();
+            _mruManager.Initialize(
+             this,                              // owner form
+             mnuFileMRU,                        // Recent Files menu item
+             "Software\\TreeDim\\StackBuilder"); // Registry path to keep MRU list
+
+
             // windows settings
             if (null != Settings.Default.FormMainPosition)
                 Settings.Default.FormMainPosition.Restore(this);
@@ -152,6 +170,15 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewBox form = new FormNewBox(eventArg.Document, eventArg.ItemBase as BoxProperties);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (box.HasDependingAnalyses)
+                        {
+                            if ( DialogResult.Cancel == MessageBox.Show(
+                                string.Format(Resources.ID_DEPENDINGANALYSES, box.Name)
+                                , Application.ProductName
+                                , MessageBoxButtons.OKCancel))
+                                return;
+                        }
+
                         box.Name = form.BoxName;
                         box.Description = form.Description;
                         box.Length = form.BoxLength;
@@ -169,6 +196,15 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewBundle form = new FormNewBundle(eventArg.Document, bundle);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (bundle.HasDependingAnalyses)
+                        {
+                            if (DialogResult.Cancel == MessageBox.Show(
+                                string.Format(Resources.ID_DEPENDINGANALYSES, bundle.Name)
+                                , Application.ProductName
+                                , MessageBoxButtons.OKCancel))
+                                return;
+                        }
+
                         bundle.Name = form.BundleName;
                         bundle.Description = form.Description;
                         bundle.Length = form.BundleLength;
@@ -185,6 +221,14 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewInterlayer form = new FormNewInterlayer(eventArg.Document, interlayer);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (interlayer.HasDependingAnalyses)
+                        {
+                            if (DialogResult.Cancel == MessageBox.Show(
+                                string.Format(Resources.ID_DEPENDINGANALYSES, interlayer.Name)
+                                , Application.ProductName
+                                , MessageBoxButtons.OKCancel))
+                                return;
+                        }
                         interlayer.Name = form.InterlayerName;
                         interlayer.Description = form.Description;
                         interlayer.Length = form.InterlayerLength;
@@ -201,6 +245,14 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewPallet form = new FormNewPallet(eventArg.Document, pallet);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (pallet.HasDependingAnalyses)
+                        {
+                            if (DialogResult.Cancel == MessageBox.Show(
+                                string.Format(Resources.ID_DEPENDINGANALYSES, pallet.Name)
+                                , Application.ProductName
+                                , MessageBoxButtons.OKCancel))
+                                return;
+                        }
                         pallet.Name = form.PalletName;
                         pallet.Description = form.Description;
                         pallet.Length = form.PalletLength;
@@ -330,8 +382,29 @@ namespace TreeDim.StackBuilder.Desktop
 
         public void OpenDocument(string filePath)
         {
-            AddDocument(new DocumentSB(filePath, _documentExplorer.DocumentTreeView));
-            _log.Debug(string.Format("File {0} loaded!", filePath));
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show(string.Format(Resources.ID_FILENOTFOUND, filePath));
+                    return;
+                }
+                AddDocument(new DocumentSB(filePath, _documentExplorer.DocumentTreeView));
+
+                // update mruFileManager as file was successfully loaded
+                if (null != _mruManager)
+                    _mruManager.Add(filePath);
+
+                _log.Debug(string.Format("File {0} loaded!", filePath));
+            }
+            catch (Exception ex)
+            {
+                // update mruFileManager as we failed to load file
+                if (null != _mruManager)
+                    _mruManager.Remove(filePath);
+
+                _log.Error(ex.ToString());
+            }
         }
 
         public void AddDocument(IDocument doc)
@@ -392,7 +465,7 @@ namespace TreeDim.StackBuilder.Desktop
                 return;
             if (doc.IsDirty)
             {
-                DialogResult res = MessageBox.Show(string.Format("Save file {0}?", doc.Name), Application.ProductName, MessageBoxButtons.YesNoCancel);
+                DialogResult res = MessageBox.Show(string.Format(Resources.ID_SAVEMODIFIEDFILE, doc.Name), Application.ProductName, MessageBoxButtons.YesNoCancel);
                 if (DialogResult.Yes == res)
                     SaveDocument(doc, e);
                 else if (DialogResult.Cancel == res)
@@ -404,6 +477,8 @@ namespace TreeDim.StackBuilder.Desktop
             doc.Close();
             // remove from document list
             _documents.Remove(doc);
+            // handle the case
+            _log.Debug(string.Format("Document {0} closed", doc.Name));
         }
 
         public void SaveDocumentAs(IDocument doc, CancelEventArgs e)
@@ -484,18 +559,8 @@ namespace TreeDim.StackBuilder.Desktop
         private void fileClose(object sender, EventArgs e)
         {
             IDocument doc = ActiveDocument;
-            if (null != doc)
-            {
-                if (doc.IsDirty)
-                {
-                    DialogResult res = MessageBox.Show("Save changes?", Application.ProductName, MessageBoxButtons.YesNoCancel);
-                    if (res == DialogResult.Cancel)
-                        return;
-                    else if (res == DialogResult.Yes)
-                        SaveDocument();
-                }
-                doc.Close();
-            }
+            CancelEventArgs cea = new CancelEventArgs();
+            CloseDocument(doc, cea);
         }
 
         private void fileNew(object sender, EventArgs e)
@@ -519,6 +584,11 @@ namespace TreeDim.StackBuilder.Desktop
             CloseAllDocuments(cea);
             Close();
             Application.Exit(); 
+        }
+        public void OpenMRUFile(string filePath)
+        {
+            // open file e.FileName
+            OpenDocument(filePath); // -> exception handled in OpenDocument
         }
         #endregion
 
@@ -604,6 +674,26 @@ namespace TreeDim.StackBuilder.Desktop
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
             DockContentAnalysis formAnalysis = parentDocument.CreateAnalysisView(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+        }
+        #endregion
+
+        #region Helpers
+        public string AssemblyConf
+        {
+            get
+            {
+                object[] attributes = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyConfigurationAttribute), false);
+                // If there is at least one Title attribute
+                if (attributes.Length > 0)
+                {
+                    // Select the first one
+                    AssemblyConfigurationAttribute confAttribute = (AssemblyConfigurationAttribute)attributes[0];
+                    // If it is not an empty string, return it
+                    if (!string.IsNullOrEmpty(confAttribute.Configuration))
+                        return confAttribute.Configuration.ToLower();
+                }
+                return "release";
+            }
         }
         #endregion
 

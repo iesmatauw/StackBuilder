@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.6" ?>
+<?define Version = "0.1.7" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 
@@ -24,6 +24,7 @@
 			<Directory Id="ProgramFilesFolder">
         <Directory Id="TreeDimDir" Name="TreeDim">
           <Directory Id="INSTALLLOCATION" Name="StackBuilder">
+            <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
             <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
           </Directory>
         </Directory>
@@ -75,6 +76,11 @@
         <!--update config file-->
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_FR">
+        <Component Id="resources_fr_FR">
+          <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
+        </Component>
+    </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplateFiles" Guid="{1F629F03-7A0C-4e2f-B5D1-C85188C75A57}">
         <File Id="Report.doc" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.doc" KeyPath="yes" Checksum="yes"/>
@@ -103,6 +109,7 @@
       <ComponentRef Id="Application"/>
       <ComponentRef Id="ReportTemplateFiles"/>
       <ComponentRef Id="ApplicationShortcut"/>
+      <ComponentRef Id="resources_fr_FR"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>

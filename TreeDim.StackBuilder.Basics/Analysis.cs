@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Basics
@@ -16,6 +17,8 @@ namespace TreeDim.StackBuilder.Basics
         private ConstraintSet _constraintSet;
         private List<Solution> _solutions;
         private List<SelSolution> _selectedSolutions = new List<SelSolution>();
+        private static IAnalysisSolver _solver;
+        static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
         #endregion
 
         #region Constructor
@@ -73,6 +76,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _constraintSet; }
             set { _constraintSet = value; }
+        }
+
+        public static IAnalysisSolver Solver
+        {
+            set { _solver = value; }
         }
         #endregion
 
@@ -137,6 +145,7 @@ namespace TreeDim.StackBuilder.Basics
                 UnSelectSolution(_selectedSolutions[0]);
             // clear solutions
             _solutions.Clear();
+
         }
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
@@ -145,6 +154,14 @@ namespace TreeDim.StackBuilder.Basics
                 UnSelectSolution(_selectedSolutions[0]);
             // clear solutions
             _solutions.Clear();
+            // get default analysis solver
+            if (null != _solver)
+                _solver.ProcessAnalysis(this);
+            else
+                _log.Error("_solver == null : solver was not set");
+            if (_solutions.Count == 0)
+                _log.Debug("Recomputed analysis has no solutions");
+            // set modified / propagate modifications
             Modify();
         }
         #endregion

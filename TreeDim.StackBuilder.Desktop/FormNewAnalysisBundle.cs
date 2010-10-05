@@ -316,6 +316,5 @@ namespace TreeDim.StackBuilder.Desktop
             UpdateSolutionsToKeep();
         }
         #endregion
-
     }
 }

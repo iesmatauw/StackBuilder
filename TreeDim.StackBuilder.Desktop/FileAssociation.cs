@@ -6,7 +6,7 @@ using Microsoft.Win32;
 #endregion
 
 // The Org.Mentalis.Utilities namespace implements several useful utilities that are missing from the standard .NET framework.
-namespace Org.Mentalis.Utilities
+namespace Utilities
 {
     /// <summary>List of commands.</summary>
     internal struct CommandList

@@ -116,6 +116,51 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to About {0}.
+        /// </summary>
+        internal static string ID_ABOUT {
+            get {
+                return ResourceManager.GetString("ID_ABOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} has some depending analyses.\nIf you proceed with the modifications, analyses will be recomputed and any selected solutions removed.\nContinue?.
+        /// </summary>
+        internal static string ID_DEPENDINGANALYSES {
+            get {
+                return ResourceManager.GetString("ID_DEPENDINGANALYSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File {0} could not be found.
+        /// </summary>
+        internal static string ID_FILENOTFOUND {
+            get {
+                return ResourceManager.GetString("ID_FILENOTFOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save file {0}?.
+        /// </summary>
+        internal static string ID_SAVEMODIFIEDFILE {
+            get {
+                return ResourceManager.GetString("ID_SAVEMODIFIEDFILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version : {0}.
+        /// </summary>
+        internal static string ID_VERSION {
+            get {
+                return ResourceManager.GetString("ID_VERSION", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Interlayer {
             get {
                 object obj = ResourceManager.GetObject("Interlayer", resourceCulture);

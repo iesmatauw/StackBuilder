@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Resources;
+using TreeDim.StackBuilder.Desktop.Properties;
+#endregion
 
 namespace TreeDim.StackBuilder.Desktop
 {
@@ -17,7 +21,11 @@ namespace TreeDim.StackBuilder.Desktop
             //  Change assembly information settings for your application through either:
             //  - Project->Properties->Application->Assembly Information
             //  - AssemblyInfo.cs
-            this.Text = String.Format("About {0}", AssemblyTitle);
+
+            ResourceManager resourceManager = new ResourceManager("TreeDim.StackBuilder.Desktop",
+                Assembly.GetExecutingAssembly());
+
+            this.Text = String.Format(TreeDim.StackBuilder.Desktop.Properties.Resources.ID_ABOUT, AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;

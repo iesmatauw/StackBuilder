@@ -274,5 +274,17 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 return ((string)(this["ReportTemplatePath"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowLogConsole {
+            get {
+                return ((bool)(this["ShowLogConsole"]));
+            }
+            set {
+                this["ShowLogConsole"] = value;
+            }
+        }
     }
 }

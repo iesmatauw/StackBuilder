@@ -447,6 +447,11 @@ namespace TreeDim.StackBuilder.Basics
                     LoadDocumentElement(xmlRootElement);
                 }
             }
+            catch (FileNotFoundException ex)
+            {
+                _log.Error("Caught FileNotFoundException in Document.Load() -> rethrowing...");
+                throw ex;
+            }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());

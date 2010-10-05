@@ -169,8 +169,13 @@
     <Compile Include="IDocument.cs" />
     <Compile Include="IDocumentFactory.cs" />
     <Compile Include="IView.cs" />
+    <Compile Include="MruManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox.fr-FR.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <Generator>"C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\x64\resgen.exe"</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -183,6 +188,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysis.fr-FR.resx">
+      <DependentUpon>DockContentAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysis.resx">
       <DependentUpon>DockContentAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,28 +200,52 @@
     <EmbeddedResource Include="DockContentLogConsole.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.fr-FR.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBundle.resx">
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.fr-FR.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.fr-FR.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.fr-FR.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.fr-FR.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.fr-FR.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.resx">
       <SubType>Designer</SubType>
@@ -222,6 +254,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +264,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.fr-FR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
@@ -242,12 +281,18 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.fr-FR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.fr-FR.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="RichTextBoxAppender.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,7 +436,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />

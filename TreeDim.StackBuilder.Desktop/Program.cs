@@ -9,7 +9,8 @@ using System.Diagnostics;
 #endregion
 
 #region File association
-using Org.Mentalis.Utilities;
+using Utilities;
+using System.Threading;
 using System.Reflection;
 #endregion
 
@@ -37,8 +38,10 @@ namespace TreeDim.StackBuilder.Desktop
             // using Environment.GetCommandLineArgs()
             try
             {
-                _log.Info("Starting " + Application.ProductName);
+                // get 
+                _log.Info(string.Format("Starting {0} with user culture {1}", Application.ProductName, Thread.CurrentThread.CurrentUICulture));
 
+                // file association
                 RegisterFileType();
 
                 Application.EnableVisualStyles();

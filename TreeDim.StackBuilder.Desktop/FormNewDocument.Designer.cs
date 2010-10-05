@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewDocument));
             this.lbName = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -42,113 +43,105 @@
             // 
             // lbName
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(13, 9);
+            this.lbName.AccessibleDescription = null;
+            this.lbName.AccessibleName = null;
+            resources.ApplyResources(this.lbName, "lbName");
+            this.lbName.Font = null;
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
-            this.lbName.TabIndex = 0;
-            this.lbName.Text = "&Name";
             // 
             // lbDescription
             // 
-            this.lbDescription.AutoSize = true;
-            this.lbDescription.Location = new System.Drawing.Point(13, 36);
+            this.lbDescription.AccessibleDescription = null;
+            this.lbDescription.AccessibleName = null;
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            this.lbDescription.Font = null;
             this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(60, 13);
-            this.lbDescription.TabIndex = 2;
-            this.lbDescription.Text = "&Description";
             // 
             // tbName
             // 
-            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbName.Location = new System.Drawing.Point(108, 9);
+            this.tbName.AccessibleDescription = null;
+            this.tbName.AccessibleName = null;
+            resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.BackgroundImage = null;
+            this.tbName.Font = null;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(279, 20);
-            this.tbName.TabIndex = 1;
             this.tbName.TextChanged += new System.EventHandler(this.onDocumentNameChanged);
             // 
             // tbDescription
             // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDescription.Location = new System.Drawing.Point(108, 36);
-            this.tbDescription.Multiline = true;
+            this.tbDescription.AccessibleDescription = null;
+            this.tbDescription.AccessibleName = null;
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.BackgroundImage = null;
+            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(279, 106);
-            this.tbDescription.TabIndex = 3;
             // 
             // bnAccept
             // 
-            this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnAccept.AccessibleDescription = null;
+            this.bnAccept.AccessibleName = null;
+            resources.ApplyResources(this.bnAccept, "bnAccept");
+            this.bnAccept.BackgroundImage = null;
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(397, 9);
+            this.bnAccept.Font = null;
             this.bnAccept.Name = "bnAccept";
-            this.bnAccept.Size = new System.Drawing.Size(75, 23);
-            this.bnAccept.TabIndex = 8;
-            this.bnAccept.Text = "&OK";
             this.bnAccept.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(397, 36);
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 9;
-            this.bnCancel.Text = "&Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // lbAuthor
             // 
-            this.lbAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbAuthor.AutoSize = true;
-            this.lbAuthor.Location = new System.Drawing.Point(13, 151);
+            this.lbAuthor.AccessibleDescription = null;
+            this.lbAuthor.AccessibleName = null;
+            resources.ApplyResources(this.lbAuthor, "lbAuthor");
+            this.lbAuthor.Font = null;
             this.lbAuthor.Name = "lbAuthor";
-            this.lbAuthor.Size = new System.Drawing.Size(38, 13);
-            this.lbAuthor.TabIndex = 4;
-            this.lbAuthor.Text = "&Author";
             // 
             // tbAuthor
             // 
-            this.tbAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbAuthor.Location = new System.Drawing.Point(108, 151);
+            this.tbAuthor.AccessibleDescription = null;
+            this.tbAuthor.AccessibleName = null;
+            resources.ApplyResources(this.tbAuthor, "tbAuthor");
+            this.tbAuthor.BackgroundImage = null;
+            this.tbAuthor.Font = null;
             this.tbAuthor.Name = "tbAuthor";
-            this.tbAuthor.Size = new System.Drawing.Size(279, 20);
-            this.tbAuthor.TabIndex = 5;
             // 
             // lbDateCreated
             // 
-            this.lbDateCreated.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDateCreated.AutoSize = true;
-            this.lbDateCreated.Location = new System.Drawing.Point(13, 182);
+            this.lbDateCreated.AccessibleDescription = null;
+            this.lbDateCreated.AccessibleName = null;
+            resources.ApplyResources(this.lbDateCreated, "lbDateCreated");
+            this.lbDateCreated.Font = null;
             this.lbDateCreated.Name = "lbDateCreated";
-            this.lbDateCreated.Size = new System.Drawing.Size(69, 13);
-            this.lbDateCreated.TabIndex = 6;
-            this.lbDateCreated.Text = "Date created";
             // 
             // tbDateCreated
             // 
-            this.tbDateCreated.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDateCreated.Location = new System.Drawing.Point(109, 182);
+            this.tbDateCreated.AccessibleDescription = null;
+            this.tbDateCreated.AccessibleName = null;
+            resources.ApplyResources(this.tbDateCreated, "tbDateCreated");
+            this.tbDateCreated.BackgroundImage = null;
+            this.tbDateCreated.Font = null;
             this.tbDateCreated.Name = "tbDateCreated";
             this.tbDateCreated.ReadOnly = true;
-            this.tbDateCreated.Size = new System.Drawing.Size(277, 20);
-            this.tbDateCreated.TabIndex = 7;
             // 
             // FormNewDocument
             // 
             this.AcceptButton = this.bnAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(484, 212);
             this.Controls.Add(this.tbDateCreated);
             this.Controls.Add(this.lbDateCreated);
             this.Controls.Add(this.tbAuthor);
@@ -159,13 +152,13 @@
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "FormNewDocument";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Create new document...";
             this.Load += new System.EventHandler(this.FormNewDocument_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewDocument_FormClosing);
             this.ResumeLayout(false);

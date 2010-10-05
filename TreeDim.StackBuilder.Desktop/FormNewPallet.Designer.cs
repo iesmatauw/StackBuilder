@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewPallet));
             this.bnAccept = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.radioButtonPallet1 = new System.Windows.Forms.RadioButton();
@@ -74,387 +75,357 @@
             // 
             // bnAccept
             // 
-            this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnAccept.AccessibleDescription = null;
+            this.bnAccept.AccessibleName = null;
+            resources.ApplyResources(this.bnAccept, "bnAccept");
+            this.bnAccept.BackgroundImage = null;
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(397, 13);
+            this.bnAccept.Font = null;
             this.bnAccept.Name = "bnAccept";
-            this.bnAccept.Size = new System.Drawing.Size(75, 23);
-            this.bnAccept.TabIndex = 0;
-            this.bnAccept.Text = "&Ok";
             this.bnAccept.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(397, 42);
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 1;
-            this.bnCancel.Text = "&Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // radioButtonPallet1
             // 
-            this.radioButtonPallet1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonPallet1.AutoSize = true;
-            this.radioButtonPallet1.Location = new System.Drawing.Point(11, 252);
+            this.radioButtonPallet1.AccessibleDescription = null;
+            this.radioButtonPallet1.AccessibleName = null;
+            resources.ApplyResources(this.radioButtonPallet1, "radioButtonPallet1");
+            this.radioButtonPallet1.BackgroundImage = null;
+            this.radioButtonPallet1.Font = null;
             this.radioButtonPallet1.Name = "radioButtonPallet1";
-            this.radioButtonPallet1.Size = new System.Drawing.Size(149, 17);
-            this.radioButtonPallet1.TabIndex = 3;
             this.radioButtonPallet1.TabStop = true;
-            this.radioButtonPallet1.Text = "Insert pallet from database";
             this.radioButtonPallet1.UseVisualStyleBackColor = true;
             this.radioButtonPallet1.CheckedChanged += new System.EventHandler(this.onPalletInsertionModeChanged);
             // 
             // radioButtonPallet2
             // 
-            this.radioButtonPallet2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonPallet2.AutoSize = true;
-            this.radioButtonPallet2.Location = new System.Drawing.Point(11, 364);
+            this.radioButtonPallet2.AccessibleDescription = null;
+            this.radioButtonPallet2.AccessibleName = null;
+            resources.ApplyResources(this.radioButtonPallet2, "radioButtonPallet2");
+            this.radioButtonPallet2.BackgroundImage = null;
+            this.radioButtonPallet2.Font = null;
             this.radioButtonPallet2.Name = "radioButtonPallet2";
-            this.radioButtonPallet2.Size = new System.Drawing.Size(107, 17);
-            this.radioButtonPallet2.TabIndex = 6;
             this.radioButtonPallet2.TabStop = true;
-            this.radioButtonPallet2.Text = "Create new pallet";
             this.radioButtonPallet2.UseVisualStyleBackColor = true;
             this.radioButtonPallet2.CheckedChanged += new System.EventHandler(this.onPalletInsertionModeChanged);
             // 
             // lbName
             // 
-            this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(11, 394);
+            this.lbName.AccessibleDescription = null;
+            this.lbName.AccessibleName = null;
+            resources.ApplyResources(this.lbName, "lbName");
+            this.lbName.Font = null;
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
-            this.lbName.TabIndex = 7;
-            this.lbName.Text = "Name";
             // 
             // lbDescription
             // 
-            this.lbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbDescription.AutoSize = true;
-            this.lbDescription.Location = new System.Drawing.Point(11, 425);
+            this.lbDescription.AccessibleDescription = null;
+            this.lbDescription.AccessibleName = null;
+            resources.ApplyResources(this.lbDescription, "lbDescription");
+            this.lbDescription.Font = null;
             this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(60, 13);
-            this.lbDescription.TabIndex = 9;
-            this.lbDescription.Text = "Description";
             // 
             // tbDescription
             // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDescription.Location = new System.Drawing.Point(129, 422);
+            this.tbDescription.AccessibleDescription = null;
+            this.tbDescription.AccessibleName = null;
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.BackgroundImage = null;
+            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(329, 20);
-            this.tbDescription.TabIndex = 10;
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbName
             // 
-            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbName.Location = new System.Drawing.Point(129, 394);
+            this.tbName.AccessibleDescription = null;
+            this.tbName.AccessibleName = null;
+            resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.BackgroundImage = null;
+            this.tbName.Font = null;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(146, 20);
-            this.tbName.TabIndex = 8;
             this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // lbLength
             // 
-            this.lbLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbLength.AutoSize = true;
-            this.lbLength.Location = new System.Drawing.Point(11, 495);
+            this.lbLength.AccessibleDescription = null;
+            this.lbLength.AccessibleName = null;
+            resources.ApplyResources(this.lbLength, "lbLength");
+            this.lbLength.Font = null;
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(40, 13);
-            this.lbLength.TabIndex = 15;
-            this.lbLength.Text = "Length";
             // 
             // lbWidth
             // 
-            this.lbWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbWidth.AutoSize = true;
-            this.lbWidth.Location = new System.Drawing.Point(11, 521);
+            this.lbWidth.AccessibleDescription = null;
+            this.lbWidth.AccessibleName = null;
+            resources.ApplyResources(this.lbWidth, "lbWidth");
+            this.lbWidth.Font = null;
             this.lbWidth.Name = "lbWidth";
-            this.lbWidth.Size = new System.Drawing.Size(35, 13);
-            this.lbWidth.TabIndex = 21;
-            this.lbWidth.Text = "Width";
             // 
             // lbHeight
             // 
-            this.lbHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbHeight.AutoSize = true;
-            this.lbHeight.Location = new System.Drawing.Point(11, 547);
+            this.lbHeight.AccessibleDescription = null;
+            this.lbHeight.AccessibleName = null;
+            resources.ApplyResources(this.lbHeight, "lbHeight");
+            this.lbHeight.Font = null;
             this.lbHeight.Name = "lbHeight";
-            this.lbHeight.Size = new System.Drawing.Size(38, 13);
-            this.lbHeight.TabIndex = 24;
-            this.lbHeight.Text = "Height";
             // 
             // nudLength
             // 
-            this.nudLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudLength.Location = new System.Drawing.Point(129, 495);
+            this.nudLength.AccessibleDescription = null;
+            this.nudLength.AccessibleName = null;
+            resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.Font = null;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudLength.Name = "nudLength";
-            this.nudLength.Size = new System.Drawing.Size(60, 20);
-            this.nudLength.TabIndex = 16;
             this.nudLength.ValueChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
             // nudWidth
             // 
-            this.nudWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudWidth.Location = new System.Drawing.Point(129, 521);
+            this.nudWidth.AccessibleDescription = null;
+            this.nudWidth.AccessibleName = null;
+            resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.Font = null;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudWidth.Name = "nudWidth";
-            this.nudWidth.Size = new System.Drawing.Size(60, 20);
-            this.nudWidth.TabIndex = 22;
             this.nudWidth.ValueChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
             // nudHeight
             // 
-            this.nudHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudHeight.Location = new System.Drawing.Point(129, 547);
+            this.nudHeight.AccessibleDescription = null;
+            this.nudHeight.AccessibleName = null;
+            resources.ApplyResources(this.nudHeight, "nudHeight");
+            this.nudHeight.Font = null;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudHeight.Name = "nudHeight";
-            this.nudHeight.Size = new System.Drawing.Size(60, 20);
-            this.nudHeight.TabIndex = 25;
             this.nudHeight.ValueChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
             // lbWeight
             // 
-            this.lbWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbWeight.AutoSize = true;
-            this.lbWeight.Location = new System.Drawing.Point(250, 496);
+            this.lbWeight.AccessibleDescription = null;
+            this.lbWeight.AccessibleName = null;
+            resources.ApplyResources(this.lbWeight, "lbWeight");
+            this.lbWeight.Font = null;
             this.lbWeight.Name = "lbWeight";
-            this.lbWeight.Size = new System.Drawing.Size(41, 13);
-            this.lbWeight.TabIndex = 18;
-            this.lbWeight.Text = "Weight";
             // 
             // nudWeight
             // 
-            this.nudWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudWeight.Location = new System.Drawing.Point(331, 496);
+            this.nudWeight.AccessibleDescription = null;
+            this.nudWeight.AccessibleName = null;
+            resources.ApplyResources(this.nudWeight, "nudWeight");
+            this.nudWeight.Font = null;
             this.nudWeight.Name = "nudWeight";
-            this.nudWeight.Size = new System.Drawing.Size(60, 20);
-            this.nudWeight.TabIndex = 19;
             // 
             // lbMm1
             // 
-            this.lbMm1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbMm1.AutoSize = true;
-            this.lbMm1.Location = new System.Drawing.Point(202, 495);
+            this.lbMm1.AccessibleDescription = null;
+            this.lbMm1.AccessibleName = null;
+            resources.ApplyResources(this.lbMm1, "lbMm1");
+            this.lbMm1.Font = null;
             this.lbMm1.Name = "lbMm1";
-            this.lbMm1.Size = new System.Drawing.Size(23, 13);
-            this.lbMm1.TabIndex = 17;
-            this.lbMm1.Text = "mm";
             // 
             // lbMm2
             // 
-            this.lbMm2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbMm2.AutoSize = true;
-            this.lbMm2.Location = new System.Drawing.Point(202, 521);
+            this.lbMm2.AccessibleDescription = null;
+            this.lbMm2.AccessibleName = null;
+            resources.ApplyResources(this.lbMm2, "lbMm2");
+            this.lbMm2.Font = null;
             this.lbMm2.Name = "lbMm2";
-            this.lbMm2.Size = new System.Drawing.Size(23, 13);
-            this.lbMm2.TabIndex = 23;
-            this.lbMm2.Text = "mm";
             // 
             // lbMm3
             // 
-            this.lbMm3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbMm3.AutoSize = true;
-            this.lbMm3.Location = new System.Drawing.Point(202, 547);
+            this.lbMm3.AccessibleDescription = null;
+            this.lbMm3.AccessibleName = null;
+            resources.ApplyResources(this.lbMm3, "lbMm3");
+            this.lbMm3.Font = null;
             this.lbMm3.Name = "lbMm3";
-            this.lbMm3.Size = new System.Drawing.Size(23, 13);
-            this.lbMm3.TabIndex = 26;
-            this.lbMm3.Text = "mm";
             // 
             // lbAdmissibleWeight
             // 
-            this.lbAdmissibleWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbAdmissibleWeight.AutoSize = true;
-            this.lbAdmissibleWeight.Location = new System.Drawing.Point(250, 579);
+            this.lbAdmissibleWeight.AccessibleDescription = null;
+            this.lbAdmissibleWeight.AccessibleName = null;
+            resources.ApplyResources(this.lbAdmissibleWeight, "lbAdmissibleWeight");
+            this.lbAdmissibleWeight.Font = null;
             this.lbAdmissibleWeight.Name = "lbAdmissibleWeight";
-            this.lbAdmissibleWeight.Size = new System.Drawing.Size(79, 13);
-            this.lbAdmissibleWeight.TabIndex = 30;
-            this.lbAdmissibleWeight.Text = "Admissible load";
             // 
             // nudAdmissibleLoadWeight
             // 
-            this.nudAdmissibleLoadWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudAdmissibleLoadWeight.Location = new System.Drawing.Point(331, 579);
+            this.nudAdmissibleLoadWeight.AccessibleDescription = null;
+            this.nudAdmissibleLoadWeight.AccessibleName = null;
+            resources.ApplyResources(this.nudAdmissibleLoadWeight, "nudAdmissibleLoadWeight");
+            this.nudAdmissibleLoadWeight.Font = null;
             this.nudAdmissibleLoadWeight.Name = "nudAdmissibleLoadWeight";
-            this.nudAdmissibleLoadWeight.Size = new System.Drawing.Size(60, 20);
-            this.nudAdmissibleLoadWeight.TabIndex = 31;
             // 
             // lbKg1
             // 
-            this.lbKg1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbKg1.AutoSize = true;
-            this.lbKg1.Location = new System.Drawing.Point(398, 495);
+            this.lbKg1.AccessibleDescription = null;
+            this.lbKg1.AccessibleName = null;
+            resources.ApplyResources(this.lbKg1, "lbKg1");
+            this.lbKg1.Font = null;
             this.lbKg1.Name = "lbKg1";
-            this.lbKg1.Size = new System.Drawing.Size(19, 13);
-            this.lbKg1.TabIndex = 20;
-            this.lbKg1.Text = "kg";
             // 
             // lbKg2
             // 
-            this.lbKg2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbKg2.AutoSize = true;
-            this.lbKg2.Location = new System.Drawing.Point(398, 579);
+            this.lbKg2.AccessibleDescription = null;
+            this.lbKg2.AccessibleName = null;
+            resources.ApplyResources(this.lbKg2, "lbKg2");
+            this.lbKg2.Font = null;
             this.lbKg2.Name = "lbKg2";
-            this.lbKg2.Size = new System.Drawing.Size(19, 13);
-            this.lbKg2.TabIndex = 32;
-            this.lbKg2.Text = "kg";
             // 
             // cbPallet
             // 
-            this.cbPallet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPallet.AccessibleDescription = null;
+            this.cbPallet.AccessibleName = null;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
+            this.cbPallet.BackgroundImage = null;
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPallet.Font = null;
             this.cbPallet.FormattingEnabled = true;
-            this.cbPallet.Location = new System.Drawing.Point(182, 253);
             this.cbPallet.Name = "cbPallet";
-            this.cbPallet.Size = new System.Drawing.Size(199, 21);
-            this.cbPallet.TabIndex = 4;
             // 
             // tbPalletProperties
             // 
-            this.tbPalletProperties.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPalletProperties.Location = new System.Drawing.Point(11, 280);
-            this.tbPalletProperties.Multiline = true;
+            this.tbPalletProperties.AccessibleDescription = null;
+            this.tbPalletProperties.AccessibleName = null;
+            resources.ApplyResources(this.tbPalletProperties, "tbPalletProperties");
+            this.tbPalletProperties.BackgroundImage = null;
+            this.tbPalletProperties.Font = null;
             this.tbPalletProperties.Name = "tbPalletProperties";
             this.tbPalletProperties.ReadOnly = true;
-            this.tbPalletProperties.Size = new System.Drawing.Size(460, 78);
-            this.tbPalletProperties.TabIndex = 5;
             // 
             // lbAdmissibleHeight
             // 
-            this.lbAdmissibleHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbAdmissibleHeight.AutoSize = true;
-            this.lbAdmissibleHeight.Location = new System.Drawing.Point(11, 579);
+            this.lbAdmissibleHeight.AccessibleDescription = null;
+            this.lbAdmissibleHeight.AccessibleName = null;
+            resources.ApplyResources(this.lbAdmissibleHeight, "lbAdmissibleHeight");
+            this.lbAdmissibleHeight.Font = null;
             this.lbAdmissibleHeight.Name = "lbAdmissibleHeight";
-            this.lbAdmissibleHeight.Size = new System.Drawing.Size(111, 13);
-            this.lbAdmissibleHeight.TabIndex = 27;
-            this.lbAdmissibleHeight.Text = "Admissible load height";
             // 
             // nudAmissibleLoadHeight
             // 
-            this.nudAmissibleLoadHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudAmissibleLoadHeight.Location = new System.Drawing.Point(129, 579);
+            this.nudAmissibleLoadHeight.AccessibleDescription = null;
+            this.nudAmissibleLoadHeight.AccessibleName = null;
+            resources.ApplyResources(this.nudAmissibleLoadHeight, "nudAmissibleLoadHeight");
+            this.nudAmissibleLoadHeight.Font = null;
             this.nudAmissibleLoadHeight.Name = "nudAmissibleLoadHeight";
-            this.nudAmissibleLoadHeight.Size = new System.Drawing.Size(60, 20);
-            this.nudAmissibleLoadHeight.TabIndex = 28;
             this.nudAmissibleLoadHeight.ValueChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
             // lbMm4
             // 
-            this.lbMm4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbMm4.AutoSize = true;
-            this.lbMm4.Location = new System.Drawing.Point(202, 579);
+            this.lbMm4.AccessibleDescription = null;
+            this.lbMm4.AccessibleName = null;
+            resources.ApplyResources(this.lbMm4, "lbMm4");
+            this.lbMm4.Font = null;
             this.lbMm4.Name = "lbMm4";
-            this.lbMm4.Size = new System.Drawing.Size(23, 13);
-            this.lbMm4.TabIndex = 29;
-            this.lbMm4.Text = "mm";
             // 
             // lbType
             // 
-            this.lbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbType.AutoSize = true;
-            this.lbType.Location = new System.Drawing.Point(11, 452);
+            this.lbType.AccessibleDescription = null;
+            this.lbType.AccessibleName = null;
+            resources.ApplyResources(this.lbType, "lbType");
+            this.lbType.Font = null;
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(31, 13);
-            this.lbType.TabIndex = 11;
-            this.lbType.Text = "Type";
             // 
             // cbType
             // 
-            this.cbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbType.AccessibleDescription = null;
+            this.cbType.AccessibleName = null;
+            resources.ApplyResources(this.cbType, "cbType");
+            this.cbType.BackgroundImage = null;
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.Font = null;
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(129, 452);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(146, 21);
-            this.cbType.TabIndex = 12;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarHorizAngle.Location = new System.Drawing.Point(11, 197);
+            this.trackBarHorizAngle.AccessibleDescription = null;
+            this.trackBarHorizAngle.AccessibleName = null;
+            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
+            this.trackBarHorizAngle.BackgroundImage = null;
+            this.trackBarHorizAngle.Font = null;
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(370, 45);
-            this.trackBarHorizAngle.TabIndex = 2;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.Value = 45;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // lbColor
             // 
-            this.lbColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(341, 452);
+            this.lbColor.AccessibleDescription = null;
+            this.lbColor.AccessibleName = null;
+            resources.ApplyResources(this.lbColor, "lbColor");
+            this.lbColor.Font = null;
             this.lbColor.Name = "lbColor";
-            this.lbColor.Size = new System.Drawing.Size(31, 13);
-            this.lbColor.TabIndex = 13;
-            this.lbColor.Text = "Color";
             // 
             // cbColor
             // 
-            this.cbColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbColor.AccessibleDescription = null;
+            this.cbColor.AccessibleName = null;
+            resources.ApplyResources(this.cbColor, "cbColor");
+            this.cbColor.BackgroundImage = null;
             this.cbColor.Color = System.Drawing.Color.Gold;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            this.cbColor.Font = null;
             this.cbColor.FormattingEnabled = true;
-            this.cbColor.IntegralHeight = false;
-            this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color"});
-            this.cbColor.Location = new System.Drawing.Point(378, 452);
+            resources.GetString("cbColor.Items"),
+            resources.GetString("cbColor.Items1"),
+            resources.GetString("cbColor.Items2"),
+            resources.GetString("cbColor.Items3"),
+            resources.GetString("cbColor.Items4"),
+            resources.GetString("cbColor.Items5"),
+            resources.GetString("cbColor.Items6"),
+            resources.GetString("cbColor.Items7"),
+            resources.GetString("cbColor.Items8")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.Size = new System.Drawing.Size(79, 22);
-            this.cbColor.TabIndex = 14;
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
             // pictureBox
             // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.Location = new System.Drawing.Point(11, 8);
+            this.pictureBox.AccessibleDescription = null;
+            this.pictureBox.AccessibleName = null;
+            resources.ApplyResources(this.pictureBox, "pictureBox");
+            this.pictureBox.BackgroundImage = null;
+            this.pictureBox.Font = null;
+            this.pictureBox.ImageLocation = null;
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(370, 183);
-            this.pictureBox.TabIndex = 4;
             this.pictureBox.TabStop = false;
             // 
             // FormNewPallet
             // 
             this.AcceptButton = this.bnAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(484, 612);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.trackBarHorizAngle);
@@ -489,13 +460,13 @@
             this.Controls.Add(this.radioButtonPallet1);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnAccept);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 650);
             this.Name = "FormNewPallet";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Create new Pallet...";
             this.Load += new System.EventHandler(this.FormNewPallet_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewPallet_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();

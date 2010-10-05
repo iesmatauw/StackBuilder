@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewInterlayer));
             this.bnAccept = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.tbDescription = new System.Windows.Forms.TextBox();
@@ -62,65 +63,68 @@
             // 
             // bnAccept
             // 
-            this.bnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnAccept.AccessibleDescription = null;
+            this.bnAccept.AccessibleName = null;
+            resources.ApplyResources(this.bnAccept, "bnAccept");
+            this.bnAccept.BackgroundImage = null;
             this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Location = new System.Drawing.Point(397, 8);
+            this.bnAccept.Font = null;
             this.bnAccept.Name = "bnAccept";
-            this.bnAccept.Size = new System.Drawing.Size(75, 23);
-            this.bnAccept.TabIndex = 0;
-            this.bnAccept.Text = "&Ok";
             this.bnAccept.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(397, 34);
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 1;
-            this.bnCancel.Text = "&Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // tbDescription
             // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDescription.Location = new System.Drawing.Point(96, 34);
+            this.tbDescription.AccessibleDescription = null;
+            this.tbDescription.AccessibleName = null;
+            resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.BackgroundImage = null;
+            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(280, 20);
-            this.tbDescription.TabIndex = 28;
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(96, 8);
+            this.tbName.AccessibleDescription = null;
+            this.tbName.AccessibleName = null;
+            resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.BackgroundImage = null;
+            this.tbName.Font = null;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(150, 20);
-            this.tbName.TabIndex = 27;
             this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // lblDescription
             // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(9, 34);
+            this.lblDescription.AccessibleDescription = null;
+            this.lblDescription.AccessibleName = null;
+            resources.ApplyResources(this.lblDescription, "lblDescription");
+            this.lblDescription.Font = null;
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(60, 13);
-            this.lblDescription.TabIndex = 26;
-            this.lblDescription.Text = "Description";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(10, 8);
+            this.lblName.AccessibleDescription = null;
+            this.lblName.AccessibleName = null;
+            resources.ApplyResources(this.lblName, "lblName");
+            this.lblName.Font = null;
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 25;
-            this.lblName.Text = "Name";
             // 
             // nudLength
             // 
-            this.nudLength.Location = new System.Drawing.Point(161, 23);
+            this.nudLength.AccessibleDescription = null;
+            this.nudLength.AccessibleName = null;
+            resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.Font = null;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -132,8 +136,6 @@
             0,
             0});
             this.nudLength.Name = "nudLength";
-            this.nudLength.Size = new System.Drawing.Size(75, 20);
-            this.nudLength.TabIndex = 8;
             this.nudLength.Value = new decimal(new int[] {
             1,
             0,
@@ -143,7 +145,10 @@
             // 
             // nudThickness
             // 
-            this.nudThickness.Location = new System.Drawing.Point(161, 76);
+            this.nudThickness.AccessibleDescription = null;
+            this.nudThickness.AccessibleName = null;
+            resources.ApplyResources(this.nudThickness, "nudThickness");
+            this.nudThickness.Font = null;
             this.nudThickness.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -155,8 +160,6 @@
             0,
             0});
             this.nudThickness.Name = "nudThickness";
-            this.nudThickness.Size = new System.Drawing.Size(75, 20);
-            this.nudThickness.TabIndex = 7;
             this.nudThickness.Value = new decimal(new int[] {
             1,
             0,
@@ -166,22 +169,26 @@
             // 
             // gbDimensions
             // 
+            this.gbDimensions.AccessibleDescription = null;
+            this.gbDimensions.AccessibleName = null;
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
+            this.gbDimensions.BackgroundImage = null;
             this.gbDimensions.Controls.Add(this.nudLength);
             this.gbDimensions.Controls.Add(this.nudThickness);
             this.gbDimensions.Controls.Add(this.nudWidth);
             this.gbDimensions.Controls.Add(this.lbThickness);
             this.gbDimensions.Controls.Add(this.lbWidth);
             this.gbDimensions.Controls.Add(this.lbLength);
-            this.gbDimensions.Location = new System.Drawing.Point(3, 60);
+            this.gbDimensions.Font = null;
             this.gbDimensions.Name = "gbDimensions";
-            this.gbDimensions.Size = new System.Drawing.Size(246, 112);
-            this.gbDimensions.TabIndex = 29;
             this.gbDimensions.TabStop = false;
-            this.gbDimensions.Text = "Dimentions";
             // 
             // nudWidth
             // 
-            this.nudWidth.Location = new System.Drawing.Point(161, 49);
+            this.nudWidth.AccessibleDescription = null;
+            this.nudWidth.AccessibleName = null;
+            resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.Font = null;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -193,8 +200,6 @@
             0,
             0});
             this.nudWidth.Name = "nudWidth";
-            this.nudWidth.Size = new System.Drawing.Size(75, 20);
-            this.nudWidth.TabIndex = 6;
             this.nudWidth.Value = new decimal(new int[] {
             1,
             0,
@@ -204,139 +209,142 @@
             // 
             // lbThickness
             // 
-            this.lbThickness.AutoSize = true;
-            this.lbThickness.Location = new System.Drawing.Point(10, 76);
+            this.lbThickness.AccessibleDescription = null;
+            this.lbThickness.AccessibleName = null;
+            resources.ApplyResources(this.lbThickness, "lbThickness");
+            this.lbThickness.Font = null;
             this.lbThickness.Name = "lbThickness";
-            this.lbThickness.Size = new System.Drawing.Size(56, 13);
-            this.lbThickness.TabIndex = 4;
-            this.lbThickness.Text = "Thickness";
             // 
             // lbWidth
             // 
-            this.lbWidth.AutoSize = true;
-            this.lbWidth.Location = new System.Drawing.Point(10, 49);
+            this.lbWidth.AccessibleDescription = null;
+            this.lbWidth.AccessibleName = null;
+            resources.ApplyResources(this.lbWidth, "lbWidth");
+            this.lbWidth.Font = null;
             this.lbWidth.Name = "lbWidth";
-            this.lbWidth.Size = new System.Drawing.Size(35, 13);
-            this.lbWidth.TabIndex = 3;
-            this.lbWidth.Text = "Width";
             // 
             // lbLength
             // 
-            this.lbLength.AutoSize = true;
-            this.lbLength.Location = new System.Drawing.Point(10, 22);
+            this.lbLength.AccessibleDescription = null;
+            this.lbLength.AccessibleName = null;
+            resources.ApplyResources(this.lbLength, "lbLength");
+            this.lbLength.Font = null;
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(40, 13);
-            this.lbLength.TabIndex = 2;
-            this.lbLength.Text = "Length";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 19);
+            this.label1.AccessibleDescription = null;
+            this.label1.AccessibleName = null;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Font = null;
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Color";
             // 
             // cbColor
             // 
+            this.cbColor.AccessibleDescription = null;
+            this.cbColor.AccessibleName = null;
+            resources.ApplyResources(this.cbColor, "cbColor");
+            this.cbColor.BackgroundImage = null;
             this.cbColor.Color = System.Drawing.Color.Beige;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            this.cbColor.IntegralHeight = false;
-            this.cbColor.ItemHeight = 16;
+            this.cbColor.Font = null;
             this.cbColor.Items.AddRange(new object[] {
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color"});
-            this.cbColor.Location = new System.Drawing.Point(161, 16);
+            resources.GetString("cbColor.Items"),
+            resources.GetString("cbColor.Items1"),
+            resources.GetString("cbColor.Items2"),
+            resources.GetString("cbColor.Items3"),
+            resources.GetString("cbColor.Items4"),
+            resources.GetString("cbColor.Items5"),
+            resources.GetString("cbColor.Items6"),
+            resources.GetString("cbColor.Items7"),
+            resources.GetString("cbColor.Items8"),
+            resources.GetString("cbColor.Items9"),
+            resources.GetString("cbColor.Items10")});
             this.cbColor.Name = "cbColor";
-            this.cbColor.Size = new System.Drawing.Size(75, 22);
-            this.cbColor.TabIndex = 32;
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
             // nudWeight
             // 
-            this.nudWeight.Location = new System.Drawing.Point(161, 17);
+            this.nudWeight.AccessibleDescription = null;
+            this.nudWeight.AccessibleName = null;
+            resources.ApplyResources(this.nudWeight, "nudWeight");
+            this.nudWeight.Font = null;
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudWeight.Name = "nudWeight";
-            this.nudWeight.Size = new System.Drawing.Size(75, 20);
-            this.nudWeight.TabIndex = 34;
             this.nudWeight.ValueChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
             // lbWeight
             // 
-            this.lbWeight.AutoSize = true;
-            this.lbWeight.Location = new System.Drawing.Point(3, 20);
+            this.lbWeight.AccessibleDescription = null;
+            this.lbWeight.AccessibleName = null;
+            resources.ApplyResources(this.lbWeight, "lbWeight");
+            this.lbWeight.Font = null;
             this.lbWeight.Name = "lbWeight";
-            this.lbWeight.Size = new System.Drawing.Size(41, 13);
-            this.lbWeight.TabIndex = 33;
-            this.lbWeight.Text = "Weight";
             // 
             // gbWeight
             // 
+            this.gbWeight.AccessibleDescription = null;
+            this.gbWeight.AccessibleName = null;
+            resources.ApplyResources(this.gbWeight, "gbWeight");
+            this.gbWeight.BackgroundImage = null;
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
-            this.gbWeight.Location = new System.Drawing.Point(3, 231);
+            this.gbWeight.Font = null;
             this.gbWeight.Name = "gbWeight";
-            this.gbWeight.Size = new System.Drawing.Size(246, 45);
-            this.gbWeight.TabIndex = 35;
             this.gbWeight.TabStop = false;
-            this.gbWeight.Text = "Weight";
             // 
             // gbColor
             // 
+            this.gbColor.AccessibleDescription = null;
+            this.gbColor.AccessibleName = null;
+            resources.ApplyResources(this.gbColor, "gbColor");
+            this.gbColor.BackgroundImage = null;
             this.gbColor.Controls.Add(this.cbColor);
             this.gbColor.Controls.Add(this.label1);
-            this.gbColor.Location = new System.Drawing.Point(3, 175);
+            this.gbColor.Font = null;
             this.gbColor.Name = "gbColor";
-            this.gbColor.Size = new System.Drawing.Size(246, 45);
-            this.gbColor.TabIndex = 36;
             this.gbColor.TabStop = false;
-            this.gbColor.Text = "Color";
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarHorizAngle.AccessibleDescription = null;
+            this.trackBarHorizAngle.AccessibleName = null;
+            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
+            this.trackBarHorizAngle.BackgroundImage = null;
+            this.trackBarHorizAngle.Font = null;
             this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Location = new System.Drawing.Point(254, 284);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(214, 45);
-            this.trackBarHorizAngle.TabIndex = 37;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // pictureBox
             // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.Location = new System.Drawing.Point(254, 67);
+            this.pictureBox.AccessibleDescription = null;
+            this.pictureBox.AccessibleName = null;
+            resources.ApplyResources(this.pictureBox, "pictureBox");
+            this.pictureBox.BackgroundImage = null;
+            this.pictureBox.Font = null;
+            this.pictureBox.ImageLocation = null;
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(217, 211);
-            this.pictureBox.TabIndex = 30;
             this.pictureBox.TabStop = false;
             // 
             // FormNewInterlayer
             // 
             this.AcceptButton = this.bnAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(484, 338);
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.gbWeight);
@@ -348,13 +356,13 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnAccept);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 376);
             this.Name = "FormNewInterlayer";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Create new Interlayer...";
             this.Load += new System.EventHandler(this.FormNewInterlayer_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewInterlayer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();

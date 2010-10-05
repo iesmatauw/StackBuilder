@@ -263,13 +263,14 @@ namespace TreeDim.StackBuilder.Desktop
         #region IItemListener implementation
         public void Update(ItemBase item)
         {
-            TreeDim.StackBuilder.Engine.Solver solver = new TreeDim.StackBuilder.Engine.Solver();
-            solver.ProcessAnalysis(_analysis);
+            // update grid
             FillGrid();
             // select first solution
-            gridSolutions.Selection.SelectRow(1, true);
+            if (gridSolutions.RowsCount > 0)
+                gridSolutions.Selection.SelectRow(1, true);
             if (_analysis.Solutions.Count > 0)
                 _sol = _analysis.Solutions[0];
+            // draw
             Draw();
         }
         public void Kill(ItemBase item)

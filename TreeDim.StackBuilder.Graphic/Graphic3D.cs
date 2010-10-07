@@ -235,7 +235,7 @@ namespace TreeDim.StackBuilder.Graphics
                     Draw(face);
 
                 // sort box list
-                BoxComparisonOld boxComparer = new BoxComparisonOld(GetWorldToEyeTransformation());
+                BoxComparer boxComparer = new BoxComparer(_vCameraPos, _vTarget/*GetWorldToEyeTransformation()*/);
                 //BoxComparison boxComparer = new BoxComparison(_vCameraPos, _vTarget);
                 _boxes.Sort(boxComparer);
                 // draw all boxes
@@ -414,7 +414,7 @@ namespace TreeDim.StackBuilder.Graphics
                 // face normal
                 Vector3D normal = faces[i].Normal;
                 // visible ?
-                if (Vector3D.DotProduct(_vCameraPos - _vTarget, normal) > 0.0)
+                if (! faces[i].IsVisible(_vTarget - _vCameraPos))
                     continue;
                 // color
                 faces[i].ColorFill = box.Colors[i];

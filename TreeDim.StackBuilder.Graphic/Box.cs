@@ -288,78 +288,114 @@ namespace TreeDim.StackBuilder.Graphics
         {
             _textureLists[(int)iFace] = textures;
         }
-        #endregion
-    }
-    #endregion
 
-    #region Box comparison
-    public class BoxComparison : IComparer<Box>
-    {
-        #region Constructor
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="viewingDirection">vCameraPos - vTarget</param>
-        public BoxComparison(Vector3D vCameraPos, Vector3D vTarget)
+        public bool PointInside(Vector3D pt)
         {
-            _vCameraPos = vCameraPos;
-            _vTarget = vTarget;
-        }
-        #endregion
-
-        #region Implementation IComparer
-        public int Compare(Box b1, Box b2)
-        {
-           if (b1.Center.Z > b2.Center.Z)
-                return 1;
-            else if (b1.Center.Z == b2.Center.Z)
+            foreach (Face face in Faces)
             {
-                if (b1 == b2)
-                    return 0;
-                bool b1BehindB2 = HasSomePointBehind(b1, b2);
-                if (b1BehindB2)
-                    return -1;
-                else
-                    return 1;
+                if (face.PointRelativePosition(pt) != -1)
+                    return false;
             }
-            else
-                return -1;
+            return true;            
+        }
+        public bool PointBehind(Vector3D pt, Vector3D viewDir)
+        {
+            const double eps = 1.0E-06;
+            foreach (Face f in Faces)
+            {
+                // is face visible ?
+                if (!f.IsVisible(viewDir))
+                    continue;
+                // if face is top/bottom face -> skip
+                if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
+                    continue;
+                if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
+                    continue;
+                // is behind face
+                if (!f.PointIsBehind(pt, viewDir))
+                    return false;
+            }
+            return true;
         }
 
-        private bool HasSomePointBehind(Box b1, Box b2)
-        {            
-            const double eps = 1.0e-04;
-
-            // check if b2 as some points behind b1
-            foreach (Vector3D ptb1 in b1.Points)
+        public bool PointInFront(Vector3D pt, Vector3D viewDir)
+        {
+            const double eps = 1.0E-06;
+            foreach (Face f in Faces)
             {
-                int iCount = 0;
-                foreach (Face faceb2 in b2.Faces)
+                // is face visible ?
+                if (!f.IsVisible(viewDir))
+                    continue;
+                // if face is top/bottom face -> skip
+                if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
+                    continue;
+                if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
+                    continue;
+                // is behind face
+                if (!f.PointIsInFront(pt, viewDir))
+                    return false;
+            }
+            return true;       
+        }
+
+        /// <summary>
+        /// Box b is behind this,
+        /// if and if only at least one point is behind both visible faces
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="viewDir"></param>
+        /// <returns></returns>
+        public bool BoxBehind(Box b, Vector3D viewDir)
+        {
+            const double eps = 0.00001;
+            foreach (Vector3D pt in b.Points)
+            {
+                int iVisibleFaces = 0;
+                int iCountBehind = 0;
+                foreach (Face f in Faces)
                 {
-                    // face normal
-                    Vector3D normal = faceb2.Normal;
-
-                    // if face not visible -> skip
-                    if (Vector3D.DotProduct(_vCameraPos - _vTarget, normal) > 0.0)
-                        continue;
+                    if (!f.IsVisible(viewDir)) continue;
                     // if face is top/bottom face -> skip
-                    if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, normal) - 1.0) < eps)
+                    if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
                         continue;
-                    if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, normal) - 1.0) < eps)
+                    if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
                         continue;
-
-                    if (Vector3D.DotProduct(ptb1 - faceb2.Center, normal) > eps)
-                        ++iCount;
+                    ++iVisibleFaces;
+                    if (f.PointIsBehind(pt, viewDir))
+                        ++iCountBehind;
                 }
-
-                return iCount > 1;
+                if (iVisibleFaces == iCountBehind)
+                    return true;
             }
             return false;
         }
-        #endregion
+        // --- Definition:
+        // Box b is in front of this,
+        // if and if only at all its points are in front of both visible faces
+        // ---
+        public bool BoxInFront(Box b, Vector3D viewDir)
+        {
+            foreach (Face f in Faces)
+            {
+                if (!f.IsVisible(viewDir)) continue;
+                const double eps = 0.00001;
+                // if face is top/bottom face -> skip
+                if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
+                    continue;
+                if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
+                    continue; 
 
-        #region Data members
-        private Vector3D _vCameraPos, _vTarget;
+                int iCountFront = 0;
+                foreach (Vector3D pt in b.Points)
+                {
+                    if (f.PointIsInFront(pt, viewDir))
+                        ++iCountFront;
+                }
+                if (iCountFront == 8)
+                    return true;
+            }
+            return false;
+        }
         #endregion
     }
     #endregion

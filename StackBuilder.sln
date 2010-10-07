@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Report
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.NUnit", "TreeDim.StackBuilder.Graphics.NUnit\TreeDim.StackBuilder.Graphics.NUnit.csproj", "{92AD5826-59DB-459E-9318-E4CE1137B412}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -164,6 +166,16 @@ Global
 		{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576}.Release|x86.ActiveCfg = Release|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

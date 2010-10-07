@@ -146,24 +146,7 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _points; }
         }
-        /// <summary>
-        /// PointsImage
-        /// </summary>
-        /// <param name="texture">Texture (bitmap + Vector2D + Vector2D)</param>
-        /// <returns>Vector3D</returns>
-        public Vector3D[] PointsImage(Texture texture)
-        {
-            Vector3D[] pts = new Vector3D[4];
-            Vector3D vecI = (_points[1] - _points[0]); vecI.Normalize();
-            Vector3D vecJ = (_points[3] - _points[0]); vecJ.Normalize();
 
-            pts[0] = _points[0] + texture.Position.X * vecI + texture.Position.Y * vecJ;
-            pts[1] = _points[0] + (texture.Position.X + texture.Size.X) * vecI + texture.Position.Y * vecJ;
-            pts[2] = _points[0] + (texture.Position.X + texture.Size.X) * vecI + (texture.Position.Y + texture.Size.Y) * vecJ;
-            pts[3] = _points[0] + texture.Position.X * vecI + (texture.Position.Y + texture.Size.Y) * vecJ;
-
-            return pts;
-        }
         /// <summary>
         /// The center point of the face
         /// </summary>
@@ -184,7 +167,7 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get
             {
-                Vector3D vecNormal = Vector3D.CrossProduct(_points[2] - _points[0], _points[1] - _points[0]);
+                Vector3D vecNormal = Vector3D.CrossProduct(_points[1] - _points[0], _points[2] - _points[0]);
                 if (vecNormal.GetLength() < MathFunctions.EpsilonD)
                     throw new GraphicsException("Face is degenerated");
                 vecNormal.Normalize();
@@ -216,6 +199,62 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public methods
+        /// <summary>
+        /// PointsImage
+        /// </summary>
+        /// <param name="texture">Texture (bitmap + Vector2D + Vector2D)</param>
+        /// <returns>Vector3D</returns>
+        public Vector3D[] PointsImage(Texture texture)
+        {
+            Vector3D[] pts = new Vector3D[4];
+            Vector3D vecI = (_points[1] - _points[0]); vecI.Normalize();
+            Vector3D vecJ = (_points[3] - _points[0]); vecJ.Normalize();
+
+            pts[0] = _points[0] + texture.Position.X * vecI + texture.Position.Y * vecJ;
+            pts[1] = _points[0] + (texture.Position.X + texture.Size.X) * vecI + texture.Position.Y * vecJ;
+            pts[2] = _points[0] + (texture.Position.X + texture.Size.X) * vecI + (texture.Position.Y + texture.Size.Y) * vecJ;
+            pts[3] = _points[0] + texture.Position.X * vecI + (texture.Position.Y + texture.Size.Y) * vecJ;
+
+            return pts;
+        }
+
+        /// <summary>
+        /// Gives point placement relative to face
+        /// </summary>
+        /// <param name="pt">Tested point</param>
+        /// <returns>
+        /// -> 1 : interior
+        /// -> 0 : on face
+        /// -> -1 : exterior
+        /// </returns>
+        public int PointRelativePosition(Vector3D pt)
+        {
+            const double eps = 1.0E-06;
+            double dotProd = Vector3D.DotProduct(pt - Center, Normal);
+            if (Math.Abs(dotProd) < eps)
+                return 0;
+            else if (dotProd > 0)
+                return 1; // ext
+            else
+                return -1; // int
+        }
+
+        public bool IsVisible(Vector3D viewDir)
+        {
+            return Vector3D.DotProduct(viewDir, Normal) < 0.0;
+        }
+
+        public bool PointIsBehind(Vector3D pt, Vector3D viewDir)
+        {
+            const double eps = 0.0001;
+            return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) > eps;
+        }
+
+        public bool PointIsInFront(Vector3D pt, Vector3D viewDir)
+        {
+            const double eps = 0.0001;
+            return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) <= 0; //-eps;
+        }
         #endregion
 
         #region Object override

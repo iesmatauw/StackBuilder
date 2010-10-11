@@ -131,6 +131,10 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
+        public uint PickId
+        {
+            get { return _pickId; }
+        }
         public Vector3D Position
         {
             get { return _position; }

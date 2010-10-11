@@ -1,8 +1,10 @@
-﻿#region Data members
+﻿#region Using directives
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.IO;
+
 using Sharp3D.Math.Core;
 using TreeDim.StackBuilder.Basics;
 #endregion
@@ -65,6 +67,11 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         private Transform3D _currentTransf;
         private PaintingAlgorithm _algo = PaintingAlgorithm.ALGO_PAINTER;
+        /// <summary>
+        /// Show box Ids (used of debugging purposes)
+        /// </summary>
+        private bool _showBoxIds = true;
+        private uint _boxDrawingCounter = 0;
 
         public static readonly Vector3D Front = new Vector3D(10000.0, 0.0, 0.0);
         public static readonly Vector3D Back = new Vector3D(-10000.0, 0.0, 0.0);
@@ -120,6 +127,12 @@ namespace TreeDim.StackBuilder.Graphics
                 _vLight.Normalize();
             }
         }
+
+        public bool ShowBoxIds
+        {
+            get { return _showBoxIds; }
+            set { _showBoxIds = value; }
+        }
         #endregion
         
         #region Helpers
@@ -134,6 +147,12 @@ namespace TreeDim.StackBuilder.Graphics
                 ++i;
             }
             return points;
+        }
+
+        private Point TransformPoint(Transform3D transform, Vector3D point3d)
+        {
+            Vector3D vt = transform.transform(point3d);
+            return new Point((int)vt.X, (int)vt.Y);
         }
 
         private Transform3D GetWorldToEyeTransformation()
@@ -221,6 +240,7 @@ namespace TreeDim.StackBuilder.Graphics
         public void Flush()
         {
             // initialize
+            _boxDrawingCounter = 0;
             _currentTransf = null;
             System.Drawing.Graphics g = Graphics;
             g.Clear(_backgroundColor);
@@ -236,8 +256,20 @@ namespace TreeDim.StackBuilder.Graphics
 
                 // sort box list
                 BoxComparer boxComparer = new BoxComparer(_vCameraPos, _vTarget/*GetWorldToEyeTransformation()*/);
+
                 //BoxComparison boxComparer = new BoxComparison(_vCameraPos, _vTarget);
                 _boxes.Sort(boxComparer);
+
+                if (_showBoxIds)
+                {
+                    // build temp file path
+                    string filePath = Path.ChangeExtension(Path.GetTempFileName(), "txt");
+                    // open stream writer
+                    StreamWriter sw = new StreamWriter(filePath);
+                    sw.Write(boxComparer.SortString);
+                    sw.Close();
+                }
+                
                 // draw all boxes
                 foreach (Box box_ in _boxes)
                     Draw(box_);
@@ -449,6 +481,25 @@ namespace TreeDim.StackBuilder.Graphics
                     }
                 }
             }  
+
+            if (_showBoxIds)
+            {
+                // draw box id
+                Point ptId = TransformPoint(GetCurrentTransformation(), box.TopFace.Center);
+                g.DrawString(
+                    box.PickId.ToString()
+                    , new Font("Arial", 8.0f)
+                    , Brushes.Black
+                    , new Rectangle(ptId.X - 15, ptId.Y - 10, 30, 20)
+                    , StringFormat.GenericDefault);
+                g.DrawString(
+                    _boxDrawingCounter.ToString()
+                    , new Font("Arial", 8.0f)
+                    , Brushes.Red
+                    , new Rectangle(ptId.X + 5, ptId.Y - 10, 30, 20)
+                    , StringFormat.GenericDefault);
+            }
+            ++_boxDrawingCounter;
         }
         #endregion
     }

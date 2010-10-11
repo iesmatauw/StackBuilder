@@ -253,7 +253,7 @@ namespace TreeDim.StackBuilder.Graphics
         public bool PointIsInFront(Vector3D pt, Vector3D viewDir)
         {
             const double eps = 0.0001;
-            return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) <= 0; //-eps;
+            return (Vector3D.DotProduct(pt - Center, Normal) * Vector3D.DotProduct(viewDir, Normal)) < eps;
         }
         #endregion
 

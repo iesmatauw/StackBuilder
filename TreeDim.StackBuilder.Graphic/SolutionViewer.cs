@@ -33,11 +33,14 @@ namespace TreeDim.StackBuilder.Graphics
         public void Draw(Graphics3D graphics)
         {
             if (null == _solution)
-                return;
+                throw new Exception("No solution defined!");
             // initialize Graphics3D object
-            // draw pallet
-            Pallet pallet = new Pallet(_analysis.PalletProperties);
-            pallet.Draw(graphics);
+            if (!graphics.ShowBoxIds)
+            {
+                // draw pallet
+                Pallet pallet = new Pallet(_analysis.PalletProperties);
+                pallet.Draw(graphics);
+            }
             // draw solution
             uint pickId = 0;
             foreach (ILayer layer in _solution)
@@ -136,6 +139,37 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
                 }
             }
+        }
+
+        public void DrawLayers(Graphics3D graphics, bool showPallet, int layerIndex)
+        {
+             if (null == _solution)
+                throw new Exception("No solution defined!");
+
+            // initialize Graphics3D object
+             if (!graphics.ShowBoxIds)
+             {
+                 // draw pallet
+                 Pallet pallet = new Pallet(_analysis.PalletProperties);
+                 pallet.Draw(graphics);
+             }
+            // draw solution
+            uint pickId = 0;
+            int iLayer = 0, iLayerCount = 0;
+            while (iLayerCount <= layerIndex && iLayer < _solution.Count)
+            {
+                ILayer layer = _solution[iLayer];
+                BoxLayer blayer = layer as BoxLayer;
+                if (null != blayer)
+                {
+                    foreach (BoxPosition bPosition in blayer)
+                        graphics.AddBox(new Box(pickId++, _analysis.BProperties, bPosition));
+                    ++iLayerCount;
+                }
+                ++iLayer;
+            }
+            // flush
+            graphics.Flush();
         }
         #endregion
 

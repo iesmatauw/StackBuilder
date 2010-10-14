@@ -35,10 +35,6 @@ namespace Utilities
     public class MruManager
     {
         #region Members
-
-        // Event raised when user selects file from MRU list
-        public event MruFileOpenEventHandler MruOpenEvent;
-
         private Form ownerForm;                 // owner form
 
         private ToolStripMenuItem menuItemMRU;           // Recent Files menu item

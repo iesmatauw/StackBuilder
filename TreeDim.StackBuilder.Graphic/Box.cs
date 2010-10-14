@@ -114,6 +114,46 @@ namespace TreeDim.StackBuilder.Graphics
                 _colors[i] = interlayerProperties.Color;
         }
 
+        public Box(uint pickId, InterlayerProperties interlayerProperties, BoxPosition bPosition)
+        {
+            _pickId = pickId;
+            _dim[0] = interlayerProperties.Length;
+            _dim[1] = interlayerProperties.Width;
+            _dim[2] = interlayerProperties.Thickness;
+            _colors = new Color[6];
+            for (int i = 0; i < 6; ++i)
+                _colors[i] = interlayerProperties.Color;
+
+            // set position
+            Position = bPosition.Position;
+            // set direction length
+            switch (bPosition.DirectionLength)
+            {
+                case HalfAxis.HAxis.AXIS_X_N: LengthAxis = -Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_X_P: LengthAxis = Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_N: LengthAxis = -Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_P: LengthAxis = Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_N: LengthAxis = -Vector3D.ZAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_P: LengthAxis = Vector3D.ZAxis; break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+            // set direction width
+            switch (bPosition.DirectionWidth)
+            {
+                case HalfAxis.HAxis.AXIS_X_N: WidthAxis = -Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_X_P: WidthAxis = Vector3D.XAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_N: WidthAxis = -Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Y_P: WidthAxis = Vector3D.YAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_N: WidthAxis = -Vector3D.ZAxis; break;
+                case HalfAxis.HAxis.AXIS_Z_P: WidthAxis = Vector3D.ZAxis; break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
         public Box(uint pickId, BundleProperties bundleProperties)
         {
             _pickId = pickId;
@@ -404,38 +444,5 @@ namespace TreeDim.StackBuilder.Graphics
     }
     #endregion
 
-    #region Box comparison
-    public class BoxComparisonOld : IComparer<Box>
-    {
-        #region Constructor
-        public BoxComparisonOld(Transform3D transform)
-        {
-            _transform = transform;
-        }
-        #endregion
 
-        #region Implementation IComparer
-        public int Compare(Box b1, Box b2)
-        {
-            if (b1.Center.Z > b2.Center.Z)
-                return 1;
-            else if (b1.Center.Z == b2.Center.Z)
-            {
-                if (_transform.transform(b1.Center).Z < _transform.transform(b2.Center).Z)
-                    return 1;
-                else if (_transform.transform(b1.Center).Z == _transform.transform(b2.Center).Z)
-                    return 0;
-                else
-                    return -1;
-            }
-            else
-                return -1;
-        }
-        #endregion
-
-        #region Data members
-        Transform3D _transform;
-        #endregion
-    }
-    #endregion
 }

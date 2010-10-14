@@ -9,15 +9,62 @@ namespace TreeDim.StackBuilder.Basics
     public class TruckSolution : IComparable
     {
         #region Data members
+        private string _title;
+        private BoxLayer _layer;
+        private TruckAnalysis _parentTruckAnalysis;
         #endregion
 
         #region Constructor
+        public TruckSolution(string title, TruckAnalysis truckAnalysis)
+        {
+            _title = title;
+            _parentTruckAnalysis = truckAnalysis;
+        }
+        #endregion
+
+        #region Layers
+        public BoxLayer Layer { get { return _layer; } }
+        public int NoLayers
+        {
+            get
+            {
+                if (!_parentTruckAnalysis.ConstraintSet.MultilayerAllowed)
+                    return 1;
+                else
+                    return (int)Math.Floor(_parentTruckAnalysis.TruckProperties.Height / _parentTruckAnalysis.ParentSolution.PalletHeight(_parentTruckAnalysis.ParentAnalysis));
+            }
+        }
         #endregion
 
         #region Public properties
-        int PalletCount
+
+        public int PalletCount
         {
-            get { return 0; }
+            get { return NoLayers * _layer.BoxCount; }
+        }
+        public int BoxCount
+        {
+            get { return PalletCount * _parentTruckAnalysis.ParentSolution.BoxCount; }
+        }
+        public double Efficiency
+        {
+            get
+            {
+                return 100.0 * BoxCount * _parentTruckAnalysis.ParentAnalysis.BProperties.Volume
+                    /_parentTruckAnalysis.TruckProperties.Volume;
+            }
+        }
+
+        public TruckAnalysis ParentTruckAnalysis
+        {
+            get { return _parentTruckAnalysis;  }
+        }
+        #endregion
+
+        #region Public methods
+        public void SetLayer(BoxLayer layer)
+        {
+            _layer = layer;
         }
         #endregion
 

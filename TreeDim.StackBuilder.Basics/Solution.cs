@@ -53,6 +53,10 @@ namespace TreeDim.StackBuilder.Basics
             else
                 return HAxis.AXIS_Z_P;
         }
+        public static HAxis Transform(HAxis axis, Transform3D transform)
+        {
+            return HalfAxis.ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(axis)));
+        }
         public static string ToString(HAxis axis)
         {
             switch (axis)
@@ -84,10 +88,10 @@ namespace TreeDim.StackBuilder.Basics
     /// <summary>
     /// Box position
     /// </summary>
-    public class BoxPosition
+    public struct BoxPosition
     {
         #region Data members
-        private Vector3D _vPosition = new Vector3D();
+        private Vector3D _vPosition;
         private HalfAxis.HAxis _axisLength, _axisWidth;
         #endregion
 
@@ -104,6 +108,7 @@ namespace TreeDim.StackBuilder.Basics
         public Vector3D Position
         {
             get { return _vPosition; }
+            set { _vPosition = value; }
         }
         public HalfAxis.HAxis DirectionLength
         {
@@ -112,6 +117,42 @@ namespace TreeDim.StackBuilder.Basics
         public HalfAxis.HAxis DirectionWidth
         {
             get { return _axisWidth; }
+        }
+        #endregion
+
+        #region Transformation
+        public Transform3D Transformation
+        {
+            get
+            {
+                // build 4D matrix
+                Vector3D vAxisLength = HalfAxis.ToVector3D(_axisLength);
+                Vector3D vAxisWidth = HalfAxis.ToVector3D(_axisWidth);
+                Vector3D vAxisHeight = Vector3D.CrossProduct(vAxisLength, vAxisWidth);
+                Matrix4D matRot = Matrix4D.Identity;
+                matRot.M11 = vAxisLength.X;
+                matRot.M12 = vAxisLength.Y;
+                matRot.M13 = vAxisLength.Z;
+                matRot.M21 = vAxisWidth.X;
+                matRot.M22 = vAxisWidth.Y;
+                matRot.M23 = vAxisWidth.Z;
+                matRot.M31 = vAxisHeight.X;
+                matRot.M32 = vAxisHeight.Y;
+                matRot.M33 = vAxisHeight.Z;
+                Matrix4D matTransl = Matrix4D.Identity;
+                matTransl.M14 = _vPosition.X;
+                matTransl.M24 = _vPosition.Y;
+                matTransl.M34 = _vPosition.Z;
+                return new Transform3D(matTransl * matRot);
+            }
+        }
+        public static BoxPosition Transform(BoxPosition boxPosition, Transform3D transform)
+        {
+            return new BoxPosition(
+                transform.transform(boxPosition.Position)
+                , HalfAxis.ToHalfAxis(transform.transform(HalfAxis.ToVector3D(boxPosition.DirectionLength)))
+                , HalfAxis.ToHalfAxis(transform.transform(HalfAxis.ToVector3D(boxPosition.DirectionWidth)))
+                );
         }
         #endregion
 
@@ -214,11 +255,13 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private string _title;
         private bool _homogeneousLayer = false;
+        private Analysis _parentAnalysis = null;
         #endregion
 
         #region Constructor
-        public Solution(string title, bool homogenousLayer)
+        public Solution(Analysis analysis, string title, bool homogenousLayer)
         {
+            _parentAnalysis = analysis;
             _title = title;
             _homogeneousLayer = homogenousLayer;
         }
@@ -228,6 +271,11 @@ namespace TreeDim.StackBuilder.Basics
         public string Title
         {
             get { return _title; }
+        }
+        public Analysis Analysis
+        {
+            get { return _parentAnalysis; }
+            set { _parentAnalysis = value; }
         }
         public int BoxCount
         {
@@ -274,7 +322,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
-        #region Public methods
+        #region Adding layer / interlayer
         public BoxLayer CreateNewLayer(double zLow)
         {
             BoxLayer layer = new BoxLayer(zLow);

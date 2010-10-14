@@ -50,6 +50,10 @@ namespace TreeDim.StackBuilder.Basics
             get { return _height; }
             set { _height = value; Modify(); }
         }
+        public double Volume
+        {
+            get { return _length * _width * _height; }
+        }
         public Color Color
         {
             get { return _color;  }

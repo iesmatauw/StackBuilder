@@ -3,14 +3,14 @@
   <Class Name="TreeDim.StackBuilder.Engine.Layer">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAgAAgAASAACAgAAgAAAEAlAAAFAAAAAAIAQAQ=</HashCode>
+      <HashCode>AAAAQAAgAAgAASAACAgAAgAAAEAlgAAFAAAAAAIAQAQ=</HashCode>
       <FileName>Layer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPattern">
     <Position X="5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AABAAAAABACAAAAAAAAAAAQAACAUAABAAAAAAEAGQAA=</HashCode>
+      <HashCode>AABAAAAABAKAAEAAAAAAAAQAACAUAABAAAAAAEAGQAA=</HashCode>
       <FileName>LayerPattern.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="TreeDim.StackBuilder.Engine.Solver">
     <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAgAACAEEAAAAAAAAACqACAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>BAAAAAAAAgAACEEAAAAAAAAAACqCCAAAAAAAAAAAAAE=</HashCode>
       <FileName>Solver.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -39,7 +39,7 @@
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternSpirale">
     <Position X="9.5" Y="5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAACAAEAEAAI=</HashCode>
       <FileName>LayerPatternSpirale.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,6 +49,23 @@
       <HashCode>AAAAAAAABAAAAAAAAAAAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
       <FileName>LayerPatternEnlargedSpirale.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.TruckAnalysis">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.TruckConstraintSet">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.TruckSolution">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.TruckProperties">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

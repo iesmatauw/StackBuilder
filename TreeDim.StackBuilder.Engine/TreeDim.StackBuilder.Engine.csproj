@@ -68,6 +68,7 @@
     <Compile Include="LayerPatternTrilock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solver.cs" />
+    <Compile Include="TruckSolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine.cd" />

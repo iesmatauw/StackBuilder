@@ -27,9 +27,13 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Truck analyses
-        void CreateNewTruckAnalysis(TruckProperties truckProperties, TruckConstraintSet constraintSet)
+        public void CreateNewTruckAnalysis(TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
         {
-            _truckAnalyses.Add(new TruckAnalysis(this.ParentDocument, _analysis, _solution, truckProperties, constraintSet));
+            TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, _solution, truckProperties, constraintSet);
+            _truckAnalyses.Add(truckAnalysis);
+            solver.ProcessAnalysis(truckAnalysis);
+            ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
+            ParentDocument.Modify();
         }
         #endregion
 
@@ -44,10 +48,12 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
+        #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
             _analysis.RemoveDependancie(this);
             base.RemoveItselfFromDependancies();
         }
+        #endregion
     }
 }

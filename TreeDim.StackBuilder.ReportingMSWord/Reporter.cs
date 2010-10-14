@@ -229,9 +229,9 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemPallet.AppendChild(elemType);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(256,256));
-            graphics.CameraPosition = Graphics3D.Iso;
+            graphics.CameraPosition = Graphics3D.Corner_0;
             Pallet pallet = new Pallet(palletProp);
-            pallet.Draw(graphics);
+            pallet.Draw(graphics, Transform3D.Identity);
             graphics.Flush();
             // ---
             // view_pallet_iso
@@ -283,7 +283,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemCase.AppendChild(elemAdmissibleLoad);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
-            graphics.CameraPosition = Graphics3D.Iso;
+            graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, boxProp);
             box.Draw(graphics);
             graphics.Flush();
@@ -329,7 +329,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemBundle.AppendChild(elemHeight);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
-            graphics.CameraPosition = Graphics3D.Iso;
+            graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, bundleProp);
             box.Draw(graphics);
             graphics.Flush();
@@ -439,7 +439,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemInterlayer.AppendChild(elemWeight);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
-            graphics.CameraPosition = Graphics3D.Iso;
+            graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, interlayerProp);
             box.Draw(graphics);
             graphics.Flush();
@@ -512,7 +512,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                     viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = 128;
                     break;
                 case 4:
-                    viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Iso; imageWidth = 256;
+                    viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 256;
                     break;
                 default:
                     break;

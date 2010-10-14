@@ -10,6 +10,10 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private bool _multilayerAllowed;
+        private bool _allowPalletOrientationX;
+        private bool _allowPalletOrientationY;
+        private double _minDistancePalletTruckWall;
+        private double _minDistancePalletTruckRoof;
         #endregion
 
         #region Constructor
@@ -23,7 +27,32 @@ namespace TreeDim.StackBuilder.Basics
         public bool MultilayerAllowed
         {
             get { return _multilayerAllowed; }
+            set { _multilayerAllowed = value; }
+        }
+        public bool AllowPalletOrientationX
+        {
+            get { return _allowPalletOrientationX; }
+            set { _allowPalletOrientationX = value; }
+        }
+        public bool AllowPalletOrientationY
+        {
+            get { return _allowPalletOrientationY; }
+            set { _allowPalletOrientationY = value; }
+        }
+        public double MinDistancePalletTruckWall
+        {
+            get { return _minDistancePalletTruckWall; }
+            set { _minDistancePalletTruckWall = value; }
+        }
+        public double MinDistancePalletTruckRoof
+        {
+            get { return _minDistancePalletTruckRoof; }
+            set { _minDistancePalletTruckRoof = value; }
         }
         #endregion
+
+        #region Validity
+        #endregion
+
     }
 }

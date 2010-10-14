@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 
 using TreeDim.StackBuilder.Basics;
+using TreeDim.StackBuilder.Engine;
 using log4net;
 #endregion
 
@@ -143,6 +144,11 @@ namespace TreeDim.StackBuilder.Desktop
                 if (nodeTag.Document.CanCreateBundleAnalysis)
                     contextMenu.MenuItems.Add(new MenuItem("Add new bundle analysis", new EventHandler(onCreateNewBundleAnalysis)));
             }
+            if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSISSOL)
+            {
+                if (nodeTag.Document.Trucks.Count > 0)
+                    contextMenu.MenuItems.Add(new MenuItem("Add new truck analysis...", new EventHandler(onCreateNewTruckAnalysis)));
+            }
         }
         #endregion
 
@@ -223,6 +229,27 @@ namespace TreeDim.StackBuilder.Desktop
                 ((DocumentSB)tag.Document).CreateNewAnalysisBundleUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewTruckAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                FormNewTruckAnalysis form = new FormNewTruckAnalysis(tag.Document);
+                form.TruckProperties = tag.Document.Trucks.ToArray();
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    TruckConstraintSet constraintSet = new TruckConstraintSet();
+                    constraintSet.MultilayerAllowed = form.AllowSeveralPalletLayers;
+                    constraintSet.AllowPalletOrientationX = form.AllowPalletOrientationX;
+                    constraintSet.AllowPalletOrientationY = form.AllowPalletOrientationY;
+                    constraintSet.MinDistancePalletTruckWall = form.MinDistancePalletTruckWall;
+                    constraintSet.MinDistancePalletTruckRoof = form.MinDistancePalletTruckRoof;
+
+                    ((SelSolution)tag.SelSolution).CreateNewTruckAnalysis(form.SelectedTruck, constraintSet, new TruckSolver());
+                }
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }       
         }
         private void onDocumentClose(object sender, EventArgs e)
         {
@@ -438,7 +465,6 @@ namespace TreeDim.StackBuilder.Desktop
             }
             nodeAnalysis.Expand();
         }
-
         public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selSolution)
         {
             // get parent node
@@ -459,7 +485,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
             // insert truckAnalysis node
-            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 11, 11);
+            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 7, 7);
             nodeTruckAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis);
             parentNode.Nodes.Add(nodeTruckAnalysis);
             // expand parent tree node
@@ -624,6 +650,7 @@ namespace TreeDim.StackBuilder.Desktop
         public ItemBase ItemProperties { get { return _itemProperties; } }
         public Analysis Analysis { get { return _analysis; } }
         public SelSolution SelSolution { get { return _selSolution; } }
+        public TruckAnalysis TruckAnalysis { get { return _truckAnalysis; } }
         #endregion
     }
     #endregion
@@ -647,6 +674,7 @@ namespace TreeDim.StackBuilder.Desktop
         public Analysis Analysis { get { return _nodeTag.Analysis; } }
         public ItemBase ItemBase { get { return _nodeTag.ItemProperties; } }
         public SelSolution SelSolution { get { return _nodeTag.SelSolution; } }
+        public TruckAnalysis TruckAnalysis { get { return _nodeTag.TruckAnalysis; } }
         #endregion
     }
     #endregion

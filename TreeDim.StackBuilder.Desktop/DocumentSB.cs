@@ -96,6 +96,12 @@ namespace TreeDim.StackBuilder.Desktop
             _views.Add(form);
             return form;
         }
+        public DockContentTruckAnalysis CreateTruckAnalysisView(TruckAnalysis analysis)
+        {
+            DockContentTruckAnalysis form = new DockContentTruckAnalysis(this, analysis);
+            _views.Add(form);
+            return form;
+        }
         #endregion
 
         #region UI item creation

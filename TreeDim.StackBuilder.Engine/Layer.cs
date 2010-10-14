@@ -49,6 +49,14 @@ namespace TreeDim.StackBuilder.Engine
             _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
             Initialize(boxProperties);
         }
+
+        public Layer(Solution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet)
+        {
+            _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
+            _palletLength = truckProperties.Length;
+            _palletWidth = truckProperties.Width;
+            Initialize(sol);
+        }
         #endregion
 
         #region Private methods
@@ -114,6 +122,9 @@ namespace TreeDim.StackBuilder.Engine
                     break;
             }
         }
+
+        private void Initialize(Solution sol)
+        { }
         #endregion
 
         #region Public methods

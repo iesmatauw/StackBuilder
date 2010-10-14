@@ -394,6 +394,21 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
+        public List<TruckProperties> Trucks
+        {
+            get
+            {
+                List<TruckProperties> truckPropertiesList = new List<TruckProperties>();
+                foreach (ItemBase item in _typeList)
+                {
+                    TruckProperties truckProperties = item as TruckProperties;
+                    if (null != truckProperties)
+                        truckPropertiesList.Add(truckProperties);
+                }
+                return truckPropertiesList;
+            }
+        }
+
         public List<Analysis> Analyses
         {
             get { return _analyses; }
@@ -779,7 +794,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             // title -> instantiation
             string stitle = eltSolution.Attributes["Title"].Value;
-            Solution sol = new Solution(stitle, true);
+            Solution sol = new Solution(null, stitle, true);
             // homogeneous layers
             if (eltSolution.HasAttribute("HomogeneousLayers"))
             {
@@ -1331,7 +1346,7 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewSolutionAdded(this, analysis, selSolution);
         }
-        private void NotifyOnNewTruckAnalysisCreated(Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        internal void NotifyOnNewTruckAnalysisCreated(Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTruckAnalysisCreated(this, analysis, selSolution, truckAnalysis);

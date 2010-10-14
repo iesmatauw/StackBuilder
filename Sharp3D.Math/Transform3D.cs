@@ -48,6 +48,16 @@ namespace Sharp3D.Math.Core
             Vector4D vecTransf = _mat * (new Vector4D(vec.X, vec.Y, vec.Z, 1.0));
             return new Vector3D(vecTransf.X, vecTransf.Y, vecTransf.Z);
         }
+        /// <summary>
+        /// Transform vector using rotation part only of matrix
+        /// </summary>
+        /// <param name="vec">input vector</param>
+        /// <returns></returns>
+        public Vector3D transformRot(Vector3D vec)
+        {
+            Vector4D vecTransf = MatrixRot * (new Vector4D(vec.X, vec.Y, vec.Z, 1.0));
+            return new Vector3D(vecTransf.X, vecTransf.Y, vecTransf.Z);
+        }
 
         public Transform3D Inverse()
         {
@@ -127,11 +137,22 @@ namespace Sharp3D.Math.Core
         }
         #endregion
 
-        #region Public properties
+        #region Matrix
         public Matrix4D Matrix
         {
             get { return _mat; }
             set { _mat = value; }
+        }
+        public Matrix4D MatrixRot
+        {
+            get
+            {
+                return new Matrix4D(
+                    _mat.M11, _mat.M12, _mat.M13, 0.0
+                    , _mat.M21, _mat.M22, _mat.M23, 0.0
+                    , _mat.M31, _mat.M32, _mat.M33, 0.0
+                    , _mat.M41, _mat.M42, _mat.M43, 1.0);
+            }
         }
         #endregion
 

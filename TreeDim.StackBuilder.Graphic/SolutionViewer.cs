@@ -39,7 +39,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 // draw pallet
                 Pallet pallet = new Pallet(_analysis.PalletProperties);
-                pallet.Draw(graphics);
+                pallet.Draw(graphics, Transform3D.Identity);
             }
             // draw solution
             uint pickId = 0;
@@ -151,7 +151,7 @@ namespace TreeDim.StackBuilder.Graphics
              {
                  // draw pallet
                  Pallet pallet = new Pallet(_analysis.PalletProperties);
-                 pallet.Draw(graphics);
+                 pallet.Draw(graphics, Transform3D.Identity);
              }
             // draw solution
             uint pickId = 0;

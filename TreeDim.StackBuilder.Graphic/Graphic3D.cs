@@ -70,17 +70,30 @@ namespace TreeDim.StackBuilder.Graphics
         /// <summary>
         /// Show box Ids (used of debugging purposes)
         /// </summary>
-        private bool _showBoxIds = true;
+        private bool _showBoxIds = false;
         private uint _boxDrawingCounter = 0;
 
         public static readonly Vector3D Front = new Vector3D(10000.0, 0.0, 0.0);
         public static readonly Vector3D Back = new Vector3D(-10000.0, 0.0, 0.0);
         public static readonly Vector3D Left = new Vector3D(0.0, -10000.0, 0.0);
         public static readonly Vector3D Right = new Vector3D(0.0, 10000.0, 0.0);
-        public static readonly Vector3D Iso = new Vector3D(
+        public static readonly Vector3D Top = new Vector3D(0.0, 0.0, 10000);
+        public static readonly Vector3D Corner_0 = new Vector3D(
                 Math.Cos(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
                 , Math.Sin(45.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
                 , 10000.0);
+        public static readonly Vector3D Corner_90 = new Vector3D(
+             Math.Cos(135.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+             , Math.Sin(135.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+             , 10000.0);
+        public static readonly Vector3D Corner_180 = new Vector3D(
+             Math.Cos(225.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+             , Math.Sin(225.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+             , 10000.0);
+        public static readonly Vector3D Corner_270 = new Vector3D(
+             Math.Cos(315.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+             , Math.Sin(315.0 * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
+             , 10000.0);
         #endregion
 
         #region Constructors
@@ -104,7 +117,7 @@ namespace TreeDim.StackBuilder.Graphics
         }
 
         /// <summary>
-        /// View point (position of the observer's eye
+        /// View point (position of the observer's eye)
         /// </summary>
         public Vector3D CameraPosition
         {
@@ -255,21 +268,8 @@ namespace TreeDim.StackBuilder.Graphics
                     Draw(face);
 
                 // sort box list
-                BoxComparer boxComparer = new BoxComparer(_vCameraPos, _vTarget/*GetWorldToEyeTransformation()*/);
-
-                //BoxComparison boxComparer = new BoxComparison(_vCameraPos, _vTarget);
-                _boxes.Sort(boxComparer);
-
-                if (_showBoxIds)
-                {
-                    // build temp file path
-                    string filePath = Path.ChangeExtension(Path.GetTempFileName(), "txt");
-                    // open stream writer
-                    StreamWriter sw = new StreamWriter(filePath);
-                    sw.Write(boxComparer.SortString);
-                    sw.Close();
-                }
-                
+                _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+               
                 // draw all boxes
                 foreach (Box box_ in _boxes)
                     Draw(box_);

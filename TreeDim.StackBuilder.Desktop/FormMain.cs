@@ -87,7 +87,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void CreateBasicLayout()
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
-            _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_AnalysisNodeClicked);
+            _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
 
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
@@ -157,7 +157,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region DocumentTreeView event handlers
-        void DocumentTreeView_AnalysisNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             if ((null == eventArg.ItemBase) && (null != eventArg.Analysis))
                 CreateOrActivateViewAnalysis(eventArg.Analysis);
@@ -305,6 +305,21 @@ namespace TreeDim.StackBuilder.Desktop
                     _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
                     // open resulting report in Word
                     Process.Start(new ProcessStartInfo(outputFilePath));
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
+        void DocumentTreeView_TruckAnalysisNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+            try
+            {
+                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null != eventArg.SelSolution) && (null != eventArg.TruckAnalysis))
+                { 
+
                 }
             }
             catch (Exception ex)
@@ -674,6 +689,27 @@ namespace TreeDim.StackBuilder.Desktop
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
             DockContentAnalysis formAnalysis = parentDocument.CreateAnalysisView(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+        }
+
+        public void CreateOrActivateViewTruckAnalysis(TruckAnalysis analysis)
+        {
+            // search among existing views
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentTruckAnalysis form = view as DockContentTruckAnalysis;
+                    if (analysis == form.TruckAnalysis)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            // get document
+            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
+            DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
+            formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
         #endregion
 

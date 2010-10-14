@@ -121,7 +121,7 @@ namespace TreeDim.StackBuilder.Engine
                                 }
                                 string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swaped" : "");
 
-                                Solution sol = new Solution(title, layer1T == layer2T);
+                                Solution sol = new Solution(null, title, layer1T == layer2T);
                                 int iLayerIndex = 0;
                                 bool innerLoopStop = false;
                                 double zLayer = _palletProperties.Height;

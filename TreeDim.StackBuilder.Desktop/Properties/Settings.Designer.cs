@@ -286,5 +286,76 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["ShowLogConsole"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewTruckAnalysisPosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewTruckAnalysisPosition"]));
+            }
+            set {
+                this["FormNewTruckAnalysisPosition"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowSeveralPalletLayers {
+            get {
+                return ((bool)(this["AllowSeveralPalletLayers"]));
+            }
+            set {
+                this["AllowSeveralPalletLayers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowPalletOrientationX {
+            get {
+                return ((bool)(this["AllowPalletOrientationX"]));
+            }
+            set {
+                this["AllowPalletOrientationX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowPalletOrientationY {
+            get {
+                return ((bool)(this["AllowPalletOrientationY"]));
+            }
+            set {
+                this["AllowPalletOrientationY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MinDistancePalletTruckWall {
+            get {
+                return ((double)(this["MinDistancePalletTruckWall"]));
+            }
+            set {
+                this["MinDistancePalletTruckWall"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MinDistancePalletTruckRoof {
+            get {
+                return ((double)(this["MinDistancePalletTruckRoof"]));
+            }
+            set {
+                this["MinDistancePalletTruckRoof"] = value;
+            }
+        }
     }
 }

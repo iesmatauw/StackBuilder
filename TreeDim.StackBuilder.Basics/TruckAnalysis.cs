@@ -25,11 +25,33 @@ namespace TreeDim.StackBuilder.Basics
             , TruckConstraintSet constraintSet)
             : base(document)
         {
+            Name = truckProperties.Name;
             _analysis = analysis;
             _solution = solution;
             _truckProperties = truckProperties;
             _constraintSet = constraintSet;
         }
         #endregion
+
+        #region Public properties
+        public Analysis ParentAnalysis   { get { return _analysis; } }
+        public TruckProperties TruckProperties { get { return _truckProperties; } }
+        public Solution ParentSolution { get { return _solution; } }
+        public List<TruckSolution> Solutions
+        {
+            get { return _truckSolutions; }
+            set { _truckSolutions = value; }
+        }
+        public TruckConstraintSet ConstraintSet
+        {
+            get { return _constraintSet; }
+            set { _constraintSet = value; }
+        }
+        #endregion
+    }
+
+    public interface ITruckSolver
+    {
+        void ProcessAnalysis(TruckAnalysis truckAnalysis);
     }
 }

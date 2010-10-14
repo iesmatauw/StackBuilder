@@ -407,73 +407,74 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
-
-        #region CellBackColorAlternate and CellBackColorAlternateCheck
-        private class CellBackColorAlternate : SourceGrid.Cells.Views.Cell
-        {
-            public CellBackColorAlternate(Color firstColor, Color secondColor)
-            {
-                FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
-                SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
-            }
-
-            private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
-            public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
-            {
-                get { return mFirstBackground; }
-                set { mFirstBackground = value; }
-            }
-
-            private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
-            public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
-            {
-                get { return mSecondBackground; }
-                set { mSecondBackground = value; }
-            }
-
-            protected override void PrepareView(SourceGrid.CellContext context)
-            {
-                base.PrepareView(context);
-
-                if (Math.IEEERemainder(context.Position.Row, 2) == 0)
-                    Background = FirstBackground;
-                else
-                    Background = SecondBackground;
-            }
-        }
-
-        private class CheckboxBackColorAlternate : SourceGrid.Cells.Views.CheckBox
-        {
-            public CheckboxBackColorAlternate(Color firstColor, Color secondColor)
-            {
-                FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
-                SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
-            }
-
-            private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
-            public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
-            {
-                get { return mFirstBackground; }
-                set { mFirstBackground = value; }
-            }
-
-            private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
-            public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
-            {
-                get { return mSecondBackground; }
-                set { mSecondBackground = value; }
-            }
-
-            protected override void PrepareView(SourceGrid.CellContext context)
-            {
-                base.PrepareView(context);
-
-                if (Math.IEEERemainder(context.Position.Row, 2) == 0)
-                    Background = FirstBackground;
-                else
-                    Background = SecondBackground;
-            }
-        }
-        #endregion
     }
+
+    #region CellBackColorAlternate and CellBackColorAlternateCheck
+    internal class CellBackColorAlternate : SourceGrid.Cells.Views.Cell
+    {
+        public CellBackColorAlternate(Color firstColor, Color secondColor)
+        {
+            FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
+            SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
+        {
+            get { return mFirstBackground; }
+            set { mFirstBackground = value; }
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
+        {
+            get { return mSecondBackground; }
+            set { mSecondBackground = value; }
+        }
+
+        protected override void PrepareView(SourceGrid.CellContext context)
+        {
+            base.PrepareView(context);
+
+            if (Math.IEEERemainder(context.Position.Row, 2) == 0)
+                Background = FirstBackground;
+            else
+                Background = SecondBackground;
+        }
+    }
+
+    internal class CheckboxBackColorAlternate : SourceGrid.Cells.Views.CheckBox
+    {
+        public CheckboxBackColorAlternate(Color firstColor, Color secondColor)
+        {
+            FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
+            SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
+        {
+            get { return mFirstBackground; }
+            set { mFirstBackground = value; }
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
+        {
+            get { return mSecondBackground; }
+            set { mSecondBackground = value; }
+        }
+
+        protected override void PrepareView(SourceGrid.CellContext context)
+        {
+            base.PrepareView(context);
+
+            if (Math.IEEERemainder(context.Position.Row, 2) == 0)
+                Background = FirstBackground;
+            else
+                Background = SecondBackground;
+        }
+    }
+    #endregion
+
 }

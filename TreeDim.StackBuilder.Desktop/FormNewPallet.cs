@@ -180,7 +180,7 @@ namespace TreeDim.StackBuilder.Desktop
                 PalletProperties palletProperties = new PalletProperties(null, PalletType, PalletLength, PalletWidth, PalletHeight);
                 palletProperties.Color = Color;
                 Pallet pallet = new Pallet(palletProperties);
-                pallet.Draw(graphics);
+                pallet.Draw(graphics, Transform3D.Identity);
                 graphics.Flush();
                 pictureBox.Image = graphics.Bitmap;
             }

@@ -30,14 +30,17 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Overrides
-        public void Draw(Graphics3D graphics)
+        public void Draw(Graphics3D graphics, Transform3D t)
         {
             switch (_type)
             {
                 case PalletProperties.PalletType.BLOCK:
                     {
-                        foreach (Face face in Faces)
-                            graphics.AddFace(face);
+                        Box box = new Box(0, _length, _width, _height);
+                        box.Position = t.transform(Vector3D.Zero);
+                        box.LengthAxis  = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, t));
+                        box.WidthAxis   = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
+                        graphics.AddBox(box);
                     }
                     break;
                 case PalletProperties.PalletType.UK_STANDARD:
@@ -49,7 +52,6 @@ namespace TreeDim.StackBuilder.Graphics
                         // planks
                         Box plank1 = new Box(0, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
                         Box plank2 = new Box(0, 138.0 * coefWidth, 98.0 * coefLength, 95.0 * coefHeight); plank2.SetAllFacesColor(_color);
-                        Box plank3 = new Box(0, 95.0 * coefWidth, 95.0* coefLength, 95.0 * coefHeight);      plank3.SetAllFacesColor(_color);
                         Box plank4 = new Box(0, 1200.0* coefLength, 95.0 * coefWidth, 18.0 * coefHeight);    plank4.SetAllFacesColor(_color);
                         Box plank5 = new Box(0, 1000.0 * coefWidth, 120.0* coefLength, 19.0 * coefHeight);   plank5.SetAllFacesColor(_color);
 
@@ -59,9 +61,9 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int i = 0; i < 3; ++i)
                         {
                             plank1 = new Box(0, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
-                            plank1.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
-                            plank1.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_N);
-                            plank1.Position = new Vector3D(plank1.Width + i * xStep, 0.0, z);
+                            plank1.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
+                            plank1.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, t));
+                            plank1.Position = t.transform(new Vector3D(plank1.Width + i * xStep, 0.0, z));
                             graphics.AddBox(plank1);
                         }
                         
@@ -72,9 +74,9 @@ namespace TreeDim.StackBuilder.Graphics
                             for (int j = 0; j < 3; ++j)
                             {
                                 plank2 = new Box(0, 138.0 * coefWidth, 98.0* coefLength, 95.0 * coefHeight);     plank2.SetAllFacesColor(_color);
-                                plank2.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
-                                plank2.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_N);
-                                plank2.Position = new Vector3D(plank2.Width + i * xStep, j*yStep, z);
+                                plank2.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
+                                plank2.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, t));
+                                plank2.Position = t.transform(new Vector3D(plank2.Width + i * xStep, j*yStep, z));
                                 graphics.AddBox(plank2);
                             }
 
@@ -84,9 +86,9 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int j = 0; j < 3; ++j)
                         {
                             plank4 = new Box(0, 1200.0* coefLength, 95.0 * coefWidth, 18.0 * coefHeight);    plank4.SetAllFacesColor(_color);
-                            plank4.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_P);
-                            plank4.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
-                            plank4.Position = new Vector3D(0.0, j * yStep, z);
+                            plank4.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, t));
+                            plank4.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
+                            plank4.Position = t.transform(new Vector3D(0.0, j * yStep, z));
                             graphics.AddBox(plank4);
                         }
 
@@ -96,9 +98,9 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int i = 0; i < 7; ++i)
                         {
                             plank5 = new Box(0, 1000.0 * coefWidth, 120.0 * coefLength, 19.0 * coefHeight); plank5.SetAllFacesColor(_color);
-                            plank5.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_Y_P);
-                            plank5.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.HAxis.AXIS_X_N);
-                            plank5.Position = new Vector3D(plank5.Width + i * xStep, 0.0, z);
+                            plank5.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P,t));
+                            plank5.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, t));
+                            plank5.Position = t.transform(new Vector3D(plank5.Width + i * xStep, 0.0, z));
                             graphics.AddBox(plank5);
                         }
                     }

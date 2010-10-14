@@ -45,7 +45,12 @@ namespace TreeDim.StackBuilder.Basics
         #region Public properties
         public List<Solution> Solutions
         {
-            set { _solutions = value; }
+            set
+            {
+                _solutions = value;
+                foreach (Solution sol in _solutions)
+                    sol.Analysis = this;
+            }
             get { return _solutions; }
         }
 

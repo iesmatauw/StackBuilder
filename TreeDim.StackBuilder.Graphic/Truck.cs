@@ -93,13 +93,6 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 Face[] faces = new Face[5];
                 Vector3D[] points = Points;
-                /*
-                faces[0] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[2], points[3] }, _colorFill, _colorPath);    // AXIS_Z_P
-                faces[1] = new Face(_pickId, new Vector3D[] { points[0], points[4], points[5], points[1] }, _colorFill, _colorPath);    // AXIS_Y_P
-                faces[2] = new Face(_pickId, new Vector3D[] { points[2], points[6], points[7], points[3] }, _colorFill, _colorPath);    // AXIS_Y_N
-                faces[3] = new Face(_pickId, new Vector3D[] { points[1], points[5], points[6], points[2] }, _colorFill, _colorPath);    // AXIS_X_N
-                faces[4] = new Face(_pickId, new Vector3D[] { points[0], points[3], points[7], points[4] }, _colorFill, _colorPath);    // AXIS_X_P
-                */
 
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _colorFill, _colorPath);    // AXIS_Z_P
                 faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, _colorFill, _colorPath);    // AXIS_Y_P

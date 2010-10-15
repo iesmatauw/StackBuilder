@@ -196,7 +196,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
                 , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
                 , 10000.0);
-            graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+            graphics.Target = Vector3D.Zero;
             graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
             // draw

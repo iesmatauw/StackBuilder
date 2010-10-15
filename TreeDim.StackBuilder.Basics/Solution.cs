@@ -118,6 +118,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _axisWidth; }
         }
+        public bool IsValid
+        {
+            get { return _axisLength != _axisWidth; }
+        }
         #endregion
 
         #region Transformation
@@ -148,10 +152,14 @@ namespace TreeDim.StackBuilder.Basics
         }
         public static BoxPosition Transform(BoxPosition boxPosition, Transform3D transform)
         {
+            if (!boxPosition.IsValid)
+                throw new Exception("Invalid box position : can not transform");
+
+
             return new BoxPosition(
                 transform.transform(boxPosition.Position)
-                , HalfAxis.ToHalfAxis(transform.transform(HalfAxis.ToVector3D(boxPosition.DirectionLength)))
-                , HalfAxis.ToHalfAxis(transform.transform(HalfAxis.ToVector3D(boxPosition.DirectionWidth)))
+                , HalfAxis.ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(boxPosition.DirectionLength)))
+                , HalfAxis.ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(boxPosition.DirectionWidth)))
                 );
         }
         #endregion

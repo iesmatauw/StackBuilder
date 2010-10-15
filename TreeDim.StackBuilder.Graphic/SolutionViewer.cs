@@ -146,7 +146,7 @@ namespace TreeDim.StackBuilder.Graphics
              if (null == _solution)
                 throw new Exception("No solution defined!");
 
-            // initialize Graphics3D object
+             // initialize Graphics3D object
              if (!graphics.ShowBoxIds)
              {
                  // draw pallet

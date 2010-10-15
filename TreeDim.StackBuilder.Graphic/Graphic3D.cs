@@ -183,9 +183,12 @@ namespace TreeDim.StackBuilder.Graphics
 		    Vector3D zaxis = _vCameraPos-_vTarget;
             zaxis.Normalize();
             Vector3D up = Vector3D.ZAxis;
-            if (Vector3D.CrossProduct(up, zaxis).GetLengthSquared() < 0.0001)
-                up = Vector3D.ZAxis;
 		    Vector3D xaxis = Vector3D.CrossProduct(up, zaxis);
+            if (Vector3D.CrossProduct(up, zaxis).GetLengthSquared() < 0.0001)
+            {
+                up = Vector3D.ZAxis;
+                xaxis = Vector3D.XAxis;
+            }
 		    xaxis.Normalize();
 		    Vector3D yaxis = Vector3D.CrossProduct(zaxis,xaxis);
             Matrix4D Mcam = new Matrix4D(
@@ -222,6 +225,8 @@ namespace TreeDim.StackBuilder.Graphics
 
         public void AddBox(Box box)
         {
+            if (!box.IsValid)
+                throw new GraphicsException("Box is invalid and cannot be drawn!");
             _boxes.Add(box);
         }
         #endregion

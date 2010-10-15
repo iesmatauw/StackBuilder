@@ -124,7 +124,11 @@ namespace TreeDim.StackBuilder.Engine
         }
 
         private void Initialize(Solution sol)
-        { }
+        {
+            _boxLength = sol.Analysis.PalletProperties.Length;
+            _boxWidth = sol.Analysis.PalletProperties.Width;
+            _boxHeight = sol.PalletHeight(sol.Analysis);
+        }
         #endregion
 
         #region Public methods

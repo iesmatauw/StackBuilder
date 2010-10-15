@@ -81,6 +81,12 @@ namespace TreeDim.StackBuilder.Graphics
             // fluch
             graphics.Flush();
         }
+
+        public void Draw(Graphics2D graphics)
+        {
+            if (null == _truckSolution)
+                return;
+        }
         #endregion
 
 

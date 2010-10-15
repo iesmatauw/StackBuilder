@@ -61,7 +61,9 @@ namespace TreeDim.StackBuilder.Graphics
             _isBundle = bProperties.IsBundle;
         }
         public Box(uint pickId, BProperties bProperties, BoxPosition bPosition)
-        { 
+        {
+            if (!bPosition.IsValid)
+                throw new GraphicsException("Invalid BoxPosition: can not create box");
             _pickId = pickId;
             _dim[0] = bProperties.Length;
             _dim[1] = bProperties.Width;
@@ -100,7 +102,6 @@ namespace TreeDim.StackBuilder.Graphics
             // IsBundle ?
             _noFlats = 3;
             _isBundle = bProperties.IsBundle;
-
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties)
@@ -306,6 +307,14 @@ namespace TreeDim.StackBuilder.Graphics
                 }
 
                 return faces;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return _dim[0] > 0.0 && _dim[1] > 0.0 && _dim[2] > 0.0 && (_lengthAxis != _widthAxis);
             }
         }
         #endregion

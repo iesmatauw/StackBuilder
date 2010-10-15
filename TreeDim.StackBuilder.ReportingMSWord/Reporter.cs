@@ -62,6 +62,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Reporter));
         #endregion
+
         #region Static helpers
         private static void AppendElementValue(XmlDocument xmlDoc, XmlElement parent, string eltName, double eltValue)
         {
@@ -228,7 +229,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemType.InnerText = palletProp.Type.ToString();
             elemPallet.AppendChild(elemType);
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256,256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Pallet pallet = new Pallet(palletProp);
             pallet.Draw(graphics, Transform3D.Identity);
@@ -239,7 +240,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
             elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
             XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width, graphics.Bitmap.Height);
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/4, graphics.Bitmap.Height/4);
             elemImage.Attributes.Append(styleAttribute);
             elemPallet.AppendChild(elemImage);
         }
@@ -284,8 +285,9 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
             graphics.CameraPosition = Graphics3D.Corner_0;
+            graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProp);
-            box.Draw(graphics);
+            graphics.AddBox(box);
             graphics.Flush();
             // ---
             // view_case_iso
@@ -293,7 +295,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
             elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
             XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width, graphics.Bitmap.Height);
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/4, graphics.Bitmap.Height/4);
             elemImage.Attributes.Append(styleAttribute);
             elemCase.AppendChild(elemImage);
         }
@@ -331,7 +333,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, bundleProp);
-            box.Draw(graphics);
+            graphics.AddBox(box);
             graphics.Flush();
             // ---
             // view_bundle_iso
@@ -339,7 +341,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
             elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
             XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width, graphics.Bitmap.Height);
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/4, graphics.Bitmap.Height/4);
             elemImage.Attributes.Append(styleAttribute);
             elemBundle.AppendChild(elemImage);      
         }
@@ -441,7 +443,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, interlayerProp);
-            box.Draw(graphics);
+            graphics.AddBox(box);
             graphics.Flush();
             // ---
             // view_interlayer_iso
@@ -449,7 +451,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
             elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
             XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width, graphics.Bitmap.Height);
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/4, graphics.Bitmap.Height/4);
             elemImage.Attributes.Append(styleAttribute);
             elemInterlayer.AppendChild(elemImage); 
         }
@@ -489,8 +491,43 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             if (analysis.ConstraintSet.HasInterlayer)
             { 
             }
-            // layers
-            // --- build images
+            // --- layer images
+            XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
+            for (int i = 0; i < (sol.HasHomogeneousLayers ? 1 : 2); ++i)
+            {
+                XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
+                // layerId
+                XmlElement xmlLayerId = xmlDoc.CreateElement("Id", ns);
+                xmlLayerId.InnerText = string.Format("{0}", i + 1);
+                elemLayer.AppendChild(xmlLayerId);
+
+                // --- build layer image
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+                // set camera position 
+                graphics.CameraPosition = Graphics3D.Top;
+                // instantiate solution viewer
+                SolutionViewer sv = new SolutionViewer(analysis, sol);
+                sv.DrawLayers(graphics, true, i /* layer index*/);
+                // ---
+                // layerImage
+                XmlElement elemLayerImage = xmlDoc.CreateElement("layerImage");
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+                elemLayerImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/2, graphics.Bitmap.Height/2);
+                elemLayerImage.Attributes.Append(styleAttribute);
+                elemLayer.AppendChild(elemLayerImage);
+                // layerBoxCount
+                XmlElement elemLayerBoxCount = xmlDoc.CreateElement("layerBoxCount");
+                elemLayerBoxCount.InnerText = "0";
+                elemLayer.AppendChild(elemLayerBoxCount);
+
+                elemLayers.AppendChild(elemLayer);
+            }
+            elemSolution.AppendChild(elemLayers);
+
+            // --- pallet images
             for (int i = 0; i < 5; ++i)
             {
                 // initialize drawing values
@@ -500,19 +537,19 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 switch (i)
                 {
                 case 0:
-                    viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = 128;
+                    viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256;
                     break;
                 case 1:
-                    viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = 128;
+                    viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = 256;
                     break;
                 case 2:
-                    viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = 128;
+                    viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = 256;
                     break;
                 case 3:
-                    viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = 128;
+                    viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = 256;
                     break;
                 case 4:
-                    viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 256;
+                    viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768;
                     break;
                 default:
                     break;
@@ -529,7 +566,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
                 elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
                 XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
-                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width, graphics.Bitmap.Height);
+                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/3, graphics.Bitmap.Height/3);
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
             }

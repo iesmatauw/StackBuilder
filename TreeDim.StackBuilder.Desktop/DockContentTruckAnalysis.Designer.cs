@@ -54,12 +54,12 @@
             this.pictureBoxTruckSolution.TabStop = false;
             this.pictureBoxTruckSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
             // 
-            // gridTruckSolutions
+            // gridSolutions
             // 
             this.gridSolutions.AcceptsInputChar = false;
+            resources.ApplyResources(this.gridSolutions, "gridSolutions");
             this.gridSolutions.EnableSort = false;
-            resources.ApplyResources(this.gridSolutions, "gridTruckSolutions");
-            this.gridSolutions.Name = "gridTruckSolutions";
+            this.gridSolutions.Name = "gridSolutions";
             this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
             this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;

@@ -27,13 +27,15 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Truck analyses
-        public void CreateNewTruckAnalysis(TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
+        public TruckAnalysis CreateNewTruckAnalysis(TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
         {
             TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, _solution, truckProperties, constraintSet);
             _truckAnalyses.Add(truckAnalysis);
             solver.ProcessAnalysis(truckAnalysis);
             ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();
+
+            return truckAnalysis;
         }
         #endregion
 

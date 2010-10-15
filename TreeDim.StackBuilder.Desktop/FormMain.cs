@@ -676,6 +676,7 @@ namespace TreeDim.StackBuilder.Desktop
                 foreach (IView view in doc.Views)
                 {
                     DockContentAnalysis form = view as DockContentAnalysis;
+                    if (null == form) continue;
                     if (analysis == form.Analysis)
                     {
                         form.Activate();
@@ -698,6 +699,7 @@ namespace TreeDim.StackBuilder.Desktop
                 foreach (IView view in doc.Views)
                 {
                     DockContentTruckAnalysis form = view as DockContentTruckAnalysis;
+                    if (null == form) continue;
                     if (analysis == form.TruckAnalysis)
                     {
                         form.Activate();

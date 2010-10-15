@@ -53,13 +53,6 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Public properties
-        public TruckAnalysis TruckAnalysis
-        {
-            get { return _truckAnalysis; }
-        }
-        #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -147,6 +140,54 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 7] = columnHeader;
 
+            // handling check box click
+            SourceGrid.Cells.Controllers.CustomEvents solCheckboxClickEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+            solCheckboxClickEvent.Click += new EventHandler(clickEvent_Click);
+
+            // data rows
+            int iIndex = 0;
+            foreach (TruckSolution sol in _truckAnalysis.Solutions)
+            {
+                ++iIndex;
+                gridSolutions.Rows.Insert(iIndex);
+                // index
+                gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
+                // Layout
+                {
+                    Graphics2DImage graphics = new Graphics2DImage(new Size(100, 50));
+                    TruckSolutionViewer sv = new TruckSolutionViewer(sol);
+                    sv.Draw(graphics);
+                    gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);
+                }
+                // Pallet count
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.PalletCount));
+                // Case count
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
+                // Efficiency
+                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency));
+                // Load (kg)
+                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.LoadWeight));
+                // Load height (mm)
+                gridSolutions[iIndex, 6] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.LoadHeight));
+                // Selected
+                gridSolutions[iIndex, 7] = new SourceGrid.Cells.CheckBox(null, false);
+
+                gridSolutions[iIndex, 0].View = viewNormal;
+                gridSolutions[iIndex, 1].View = viewNormal;
+                gridSolutions[iIndex, 2].View = viewNormal;
+                gridSolutions[iIndex, 3].View = viewNormal;
+                gridSolutions[iIndex, 4].View = viewNormal;
+                gridSolutions[iIndex, 5].View = viewNormal;
+                gridSolutions[iIndex, 6].View = viewNormal;
+                gridSolutions[iIndex, 7].View = viewNormalCheck;
+
+                gridSolutions[iIndex, 7].AddController(solCheckboxClickEvent);
+            }
+
+            gridSolutions.AutoStretchColumnsToFitWidth = true;
+            gridSolutions.AutoSizeCells();
+            gridSolutions.Columns.StretchToFit();
+
 
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
@@ -156,7 +197,21 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        #region Public properties
+        public TruckAnalysis TruckAnalysis
+        {
+            get { return _truckAnalysis; }
+        }
+        #endregion
+
         #region Event handlers
+        // checkbox event handler
+        void clickEvent_Click(object sender, EventArgs e)
+        {
+            SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
+            int iSel = context.Position.Row - 1;
+        }
+        // selection changed
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
@@ -230,6 +285,8 @@ namespace TreeDim.StackBuilder.Desktop
                 // set camera position
                 graphics.CameraPosition = _cameraPosition;
                 // instantiate solution viewer
+                if (null == _sol)
+                    return;
                 TruckSolutionViewer sv = new TruckSolutionViewer(_sol);
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control

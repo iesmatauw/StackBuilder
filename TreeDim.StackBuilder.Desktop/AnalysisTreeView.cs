@@ -246,7 +246,9 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.MinDistancePalletTruckWall = form.MinDistancePalletTruckWall;
                     constraintSet.MinDistancePalletTruckRoof = form.MinDistancePalletTruckRoof;
 
-                    ((SelSolution)tag.SelSolution).CreateNewTruckAnalysis(form.SelectedTruck, constraintSet, new TruckSolver());
+                    TruckAnalysis truckAnalysis = ((SelSolution)tag.SelSolution).CreateNewTruckAnalysis(form.SelectedTruck, constraintSet, new TruckSolver());
+                    if (null != truckAnalysis)
+                        FormMain.GetInstance().CreateOrActivateViewTruckAnalysis(truckAnalysis);
                 }
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }       

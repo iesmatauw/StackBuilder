@@ -42,12 +42,23 @@ namespace TreeDim.StackBuilder.Engine
             {
                 try
                 {
+                    Layer layer = new Layer(truckAnalysis.ParentSolution, truckAnalysis.TruckProperties, truckAnalysis.ConstraintSet);
+                    double actualLength = 0.0, actualWidth = 0.0;
+                    pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth);
+
+                    pattern.GenerateLayer(layer, actualLength, actualWidth);
+
                     TruckSolution sol = new TruckSolution("sol", truckAnalysis);
+
+                    BoxLayer boxLayer = new BoxLayer(0.0);
+                    foreach (LayerPosition layerPos in layer)
+                        boxLayer.Add( new BoxPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis) );
+
+                    sol.Layer = boxLayer;
+
                     // insert solution
                     if (sol.PalletCount > 0)
                         solutions.Add(sol);
-
-                    Layer layer = new Layer(truckAnalysis.ParentSolution, truckAnalysis.TruckProperties, truckAnalysis.ConstraintSet);
                 }
                 catch (Exception ex)
                 {

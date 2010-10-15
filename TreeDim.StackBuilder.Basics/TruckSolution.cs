@@ -23,7 +23,11 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Layers
-        public BoxLayer Layer { get { return _layer; } }
+        public BoxLayer Layer
+        {
+            get { return _layer; }
+            set { _layer = value; }
+        }
         public int NoLayers
         {
             get
@@ -54,7 +58,14 @@ namespace TreeDim.StackBuilder.Basics
                     /_parentTruckAnalysis.TruckProperties.Volume;
             }
         }
-
+        public double LoadWeight
+        {
+            get { return PalletCount * _parentTruckAnalysis.ParentSolution.PalletWeight(_parentTruckAnalysis.ParentAnalysis); }
+        }
+        public double LoadHeight
+        {
+            get { return NoLayers * _parentTruckAnalysis.ParentSolution.PalletHeight(_parentTruckAnalysis.ParentAnalysis); }
+        }
         public TruckAnalysis ParentTruckAnalysis
         {
             get { return _parentTruckAnalysis;  }

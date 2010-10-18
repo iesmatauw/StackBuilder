@@ -133,29 +133,17 @@ namespace TreeDim.StackBuilder.Basics
                 Vector3D vAxisLength = HalfAxis.ToVector3D(_axisLength);
                 Vector3D vAxisWidth = HalfAxis.ToVector3D(_axisWidth);
                 Vector3D vAxisHeight = Vector3D.CrossProduct(vAxisLength, vAxisWidth);
-                Matrix4D matRot = Matrix4D.Identity;
-                matRot.M11 = vAxisLength.X;
-                matRot.M12 = vAxisLength.Y;
-                matRot.M13 = vAxisLength.Z;
-                matRot.M21 = vAxisWidth.X;
-                matRot.M22 = vAxisWidth.Y;
-                matRot.M23 = vAxisWidth.Z;
-                matRot.M31 = vAxisHeight.X;
-                matRot.M32 = vAxisHeight.Y;
-                matRot.M33 = vAxisHeight.Z;
-                Matrix4D matTransl = Matrix4D.Identity;
-                matTransl.M14 = _vPosition.X;
-                matTransl.M24 = _vPosition.Y;
-                matTransl.M34 = _vPosition.Z;
-                return new Transform3D(matTransl * matRot);
+                Matrix4D mat = Matrix4D.Identity;
+                mat.M11 = vAxisLength.X; mat.M12 = vAxisWidth.X; mat.M13 = vAxisHeight.X;   mat.M14 = _vPosition.X;
+                mat.M21 = vAxisLength.Y; mat.M22 = vAxisWidth.Y; mat.M23 = vAxisHeight.Y;   mat.M24 = _vPosition.Y;
+                mat.M31 = vAxisLength.Z; mat.M32 = vAxisWidth.Z; mat.M33 = vAxisHeight.Z;   mat.M34 = _vPosition.Z;
+                return new Transform3D(mat);
             }
         }
         public static BoxPosition Transform(BoxPosition boxPosition, Transform3D transform)
         {
             if (!boxPosition.IsValid)
                 throw new Exception("Invalid box position : can not transform");
-
-
             return new BoxPosition(
                 transform.transform(boxPosition.Position)
                 , HalfAxis.ToHalfAxis(transform.transformRot(HalfAxis.ToVector3D(boxPosition.DirectionLength)))

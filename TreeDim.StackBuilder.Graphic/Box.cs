@@ -48,6 +48,28 @@ namespace TreeDim.StackBuilder.Graphics
             for (int i=0; i<6; ++i)
                 _textureLists[i] = null;
         }
+        public Box(uint pickId, double length, double width, double height, double x, double y, double z)
+        {
+            _pickId = pickId;
+            _dim[0] = length;
+            _dim[1] = width;
+            _dim[2] = height;
+
+            _colors = new Color[6];
+            _colors[0] = Color.Red;
+            _colors[1] = Color.Red;
+            _colors[2] = Color.Green;
+            _colors[3] = Color.Green;
+            _colors[4] = Color.Blue;
+            _colors[5] = Color.Blue;
+
+            for (int i = 0; i < 6; ++i)
+                _textureLists[i] = null;
+
+            _position.X = x;
+            _position.Y = y;
+            _position.Z = z;        
+        }
         public Box(uint pickId, BProperties bProperties)
         {
             _pickId = pickId;
@@ -233,7 +255,6 @@ namespace TreeDim.StackBuilder.Graphics
             }
         }
 
-
         public Vector3D[] Oriented(Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3, Vector3D pt)
         {
             Vector3D crossProduct = Vector3D.CrossProduct(pt1 - pt0, pt2 - pt0);
@@ -243,6 +264,77 @@ namespace TreeDim.StackBuilder.Graphics
                 return new Vector3D[] { pt3, pt2, pt1, pt0 };
         }
 
+
+
+        public Vector3D Center
+        {
+            get
+            {
+                return _position
+                    + 0.5 * _dim[0] * _lengthAxis
+                    + 0.5 * _dim[1] * _widthAxis
+                    + 0.5 * _dim[2] * Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+            }
+        }
+
+        #endregion
+
+        #region XMin / XMax / YMin / YMax
+        public double XMin
+        {
+            get
+            {
+                double xmin = double.MaxValue;
+                foreach (Vector3D v in this.Points)
+                {
+                    if (v.X < xmin)
+                        xmin = v.X;
+                }
+                return xmin;
+            }
+        }
+        public double XMax
+        {
+            get
+            {
+                double xmax = double.MinValue;
+                foreach (Vector3D v in this.Points)
+                {
+                    if (v.X > xmax)
+                        xmax = v.X;
+                }
+                return xmax;
+            }
+        }
+        public double YMin
+        {
+            get
+            {
+                double ymin = double.MaxValue;
+                foreach (Vector3D v in this.Points)
+                {
+                    if (v.Y < ymin)
+                        ymin = v.Y;
+                }
+                return ymin;
+            }
+        }
+        public double YMax
+        {
+            get
+            {
+                double ymax = double.MinValue;
+                foreach (Vector3D v in this.Points)
+                {
+                    if (v.Y > ymax)
+                        ymax = v.Y;
+                }
+                return ymax;
+            }
+        }
+        #endregion
+
+        #region Points / Faces
         public Vector3D[] Points
         {
             get
@@ -262,18 +354,6 @@ namespace TreeDim.StackBuilder.Graphics
                 return points;
             }
         }
-
-        public Vector3D Center
-        {
-            get
-            {
-                return _position
-                    + 0.5 * _dim[0] * _lengthAxis
-                    + 0.5 * _dim[1] * _widthAxis
-                    + 0.5 * _dim[2] * Vector3D.CrossProduct(_lengthAxis, _widthAxis);
-            }
-        }
-
         public Face[] Faces
         {
             get
@@ -309,7 +389,9 @@ namespace TreeDim.StackBuilder.Graphics
                 return faces;
             }
         }
+        #endregion
 
+        #region Validity
         public bool IsValid
         {
             get

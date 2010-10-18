@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{F2DEFE3C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.NUnit", "TreeDim.StackBuilder.Graphics.NUnit\TreeDim.StackBuilder.Graphics.NUnit.csproj", "{92AD5826-59DB-459E-9318-E4CE1137B412}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.BoxelOrderer.Test", "Test\TreeDim.Stackbuilder.Graphics.BoxelOrderer.Test\TreeDim.StackBuilder.Graphics.BoxelOrderer.Test.csproj", "{70C5EAF0-C268-4395-9CF6-115DFB502236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,6 +178,16 @@ Global
 		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{92AD5826-59DB-459E-9318-E4CE1137B412}.Release|x86.ActiveCfg = Release|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -186,6 +198,7 @@ Global
 		{B6A88209-B71C-4045-BF3D-371BC9D21784} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{92AD5826-59DB-459E-9318-E4CE1137B412} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{70C5EAF0-C268-4395-9CF6-115DFB502236} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B} = {F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}
 	EndGlobalSection
 EndGlobal

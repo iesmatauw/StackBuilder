@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 
 using TreeDim.StackBuilder.Basics;
 using Sharp3D.Math.Core;
@@ -26,7 +27,7 @@ namespace TreeDim.StackBuilder.Graphics
         public void Draw(Graphics3D graphics)
         {
             if (null == _truckSolution)
-                throw new Exception("No solution or trucksolution defined!");
+                throw new Exception("No trucksolution defined!");
             // draw truck
             Truck truck = new Truck(_truckSolution.ParentTruckAnalysis.TruckProperties);
             truck.Draw(graphics);
@@ -85,7 +86,32 @@ namespace TreeDim.StackBuilder.Graphics
         public void Draw(Graphics2D graphics)
         {
             if (null == _truckSolution)
-                return;
+                throw new Exception("No trucksolution defined!");
+
+            // get analysis
+            Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
+            double length = 0.0;
+            double width = 0.0;
+            double height = 0.0;
+
+            // initialize Graphics2D object
+            graphics.NumberOfViews = 1;
+            graphics.SetViewport(
+                0.0f, 0.0f
+                , (float)_truckSolution.ParentTruckAnalysis.TruckProperties.Length
+                , (float)_truckSolution.ParentTruckAnalysis.TruckProperties.Width);
+
+            graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_truckSolution.ParentTruckAnalysis.TruckProperties.Length, _truckSolution.ParentTruckAnalysis.TruckProperties.Width), Color.Black);
+
+            uint pickId = 0;
+            foreach (BoxPosition bPositionLayer in _truckSolution.Layer)
+            {
+                Box b = new Box(pickId++, length, width, height);
+                b.Position = bPositionLayer.Position;
+                b.LengthAxis = HalfAxis.ToVector3D(bPositionLayer.DirectionLength);
+                b.WidthAxis = HalfAxis.ToVector3D(bPositionLayer.DirectionWidth);
+                graphics.DrawBox(b);
+            }
         }
         #endregion
 

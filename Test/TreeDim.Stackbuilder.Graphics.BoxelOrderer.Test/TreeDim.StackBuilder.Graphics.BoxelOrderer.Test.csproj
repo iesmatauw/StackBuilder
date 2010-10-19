@@ -40,6 +40,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
+      <Name>Sharp3D.Math</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj">
       <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
       <Name>TreeDim.StackBuilder.Graphics</Name>

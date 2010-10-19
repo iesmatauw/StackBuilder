@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Text;
+using Sharp3D.Math.Core;
+#endregion
 
 namespace TreeDim.StackBuilder.Graphics
 {
+    #region Helper classes
     internal class BoxComparerZ : IComparer<Box>
     {
         #region IComparer<Box> implementation
@@ -32,23 +36,48 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
     }
+    internal class BoxComparerXMax : IComparer<Box>
+    {
+        #region IComparer<Box> implementation
+        public int Compare(Box b1, Box b2)
+        {
+            if (b1.XMax > b2.XMax)
+                return -1;
+            else if (b1.XMax == b2.XMax)
+                return 0;
+            else
+                return 1;
+        }
+        #endregion
+    }
+    #endregion
 
     public class BoxelOrderer
     {
         #region Data members
         private List<Box> _boxes = new List<Box>();
         private static readonly double _epsilon = 0.0001;
+        private Vector3D _direction;
         #endregion
 
+        #region Constructor
+        public BoxelOrderer()
+        {
+            _direction = new Vector3D(1000.0, 1000.0, -1000.0);
+        }
+        #endregion
+
+        #region Public methods
         public void Add(Box b)
-        { _boxes.Add(b); }
+        {
+            _boxes.Add(b);
+        }
 
         public List<Box> GetSortedList()
         {
             // first sort by Z
-            BoxComparerZ boxComparer = new BoxComparerZ();
-            _boxes.Sort(boxComparer);
-
+            BoxComparerZ boxComparerZ = new BoxComparerZ();
+            _boxes.Sort(boxComparerZ);
 
             List<Box> _sortedList = new List<Box>();
             if (_boxes.Count == 0)
@@ -81,7 +110,17 @@ namespace TreeDim.StackBuilder.Graphics
 
             return _sortedList;
         }
+        #endregion
 
+        #region Public properties
+        public Vector3D Direction
+        {
+            get { return _direction;    }
+            set { _direction = value;   }
+        }
+        #endregion
+
+        #region Private methods
         private void SortLayer(ref List<Box> layerList)
         { 
             // build y list
@@ -92,6 +131,8 @@ namespace TreeDim.StackBuilder.Graphics
                 if (!yList.Contains(b.YMax)) yList.Add(b.YMax);
             }
             yList.Sort();
+            if (_direction.Y < 0)
+                yList.Reverse();
 
             List<Box> treeList = new List<Box>();
             List<Box> resList = new List<Box>();
@@ -99,28 +140,64 @@ namespace TreeDim.StackBuilder.Graphics
             foreach (double y in yList)
             {
                 // clean treelist
-                CleanByYMax(treeList, y);
-
-                // add new 
-                List<Box> listYMin = GetByYMin(layerList, y);
-
-                foreach (Box by in listYMin)
+                if (_direction.Y > 0.0)
                 {
-                    treeList.Add(by);
-                    treeList.Sort(new BoxComparerXMin());
-                    // find successor of by
-                    int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
-                    Box successor = null;
-                    if (id < treeList.Count - 1)
-                        successor = treeList[id + 1];
+                    CleanByYMax(treeList, y);
+                    // add new 
+                    List<Box> listYMin = GetByYMin(layerList, y);
 
-                    // insert by
-                    if (null == successor)
-                        resList.Add(by);
-                    else
+                    foreach (Box by in listYMin)
                     {
-                        int idBefore = resList.FindIndex(delegate(Box b) { return b.PickId == successor.PickId; });
-                        resList.Insert(idBefore, by);
+                        treeList.Add(by);
+                        if (_direction.X > 0.0)
+                            treeList.Sort(new BoxComparerXMin());
+                        else
+                            treeList.Sort(new BoxComparerXMax());
+
+                        // find successor of by
+                        int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
+                        Box successor = null;
+                        if (id < treeList.Count - 1)
+                            successor = treeList[id + 1];
+
+                        // insert by
+                        if (null == successor)
+                            resList.Add(by);
+                        else
+                        {
+                            int idBefore = resList.FindIndex(delegate(Box b) { return b.PickId == successor.PickId; });
+                            resList.Insert(idBefore, by);
+                        }
+                    }
+                }
+                else
+                {
+                    CleanByYMin(treeList, y);
+                    // add new 
+                    List<Box> listYMax = GetByYMax(layerList, y);
+
+                    foreach (Box by in listYMax)
+                    {
+                        treeList.Add(by);
+                        if (_direction.X > 0.0)
+                            treeList.Sort(new BoxComparerXMin());
+                        else
+                            treeList.Sort(new BoxComparerXMax());
+
+                        // find successor of by
+                        int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
+                        Box successor = null;
+                        if (id < treeList.Count - 1)
+                            successor = treeList[id + 1];
+
+                        // insert by
+                        if (null == successor)
+                            resList.Add(by);
+                        else
+                        {
+                            int idBefore = resList.FindIndex(delegate(Box b) { return b.PickId == successor.PickId; });
+                            resList.Insert(idBefore, by);
+                        }
                     }
                 }
             }
@@ -139,6 +216,15 @@ namespace TreeDim.StackBuilder.Graphics
             return outList;
         }
 
+        private List<Box> GetByYMax(List<Box> inList, double y)
+        {
+            List<Box> outList = new List<Box>();
+            foreach (Box b in inList)
+                if (Math.Abs(y - b.YMax) < _epsilon)
+                    outList.Add(b);
+            return outList;
+        }
+
         private void CleanByYMax(List<Box> lb, double y)
         { 
             bool found = true;
@@ -148,7 +234,7 @@ namespace TreeDim.StackBuilder.Graphics
                 for (int i = 0; i < lb.Count; ++i)
                 {
                     Box b = lb[i];
-                    if (b.YMax == y)
+                    if (b.YMax < y)
                     {
                         lb.Remove(b);
                         found = true;
@@ -157,5 +243,24 @@ namespace TreeDim.StackBuilder.Graphics
                 }
             }
         }
+        private void CleanByYMin(List<Box> lb, double y)
+        {
+            bool found = true;
+            while (found)
+            {
+                found = false;
+                for (int i = 0; i < lb.Count; ++i)
+                {
+                    Box b = lb[i];
+                    if (b.YMin > y)
+                    {
+                        lb.Remove(b);
+                        found = true;
+                        break;
+                    }               
+                }
+            }
+        }
+        #endregion
     }
 }

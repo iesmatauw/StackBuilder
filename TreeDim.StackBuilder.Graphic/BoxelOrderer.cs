@@ -24,13 +24,43 @@ namespace TreeDim.StackBuilder.Graphics
     }
     internal class BoxComparerXMin : IComparer<Box>
     {
+        #region Data members
+        private Vector3D _direction; 
+        #endregion
+
+        #region Constructor
+        public BoxComparerXMin(Vector3D direction)
+        {
+            _direction = direction;
+        }
+        #endregion
+
         #region IComparer<Box> implementation
         public int Compare(Box b1, Box b2)
         {
             if (b1.XMin > b2.XMin)
                 return 1;
             else if (b1.XMin == b2.XMin)
-                return 0;
+            {
+                if (_direction.Y >= 0)
+                {
+                    if (b1.YMin > b2.YMin)
+                        return 1;
+                    else if (b1.YMin == b2.YMin)
+                        return 0;
+                    else
+                        return -1;
+                }
+                else
+                {
+                    if (b1.YMax > b2.YMax)
+                        return -1;
+                    else if (b1.YMax == b2.YMax)
+                        return 0;
+                    else
+                        return 1;                   
+                }
+            }
             else
                 return -1;
         }
@@ -38,13 +68,41 @@ namespace TreeDim.StackBuilder.Graphics
     }
     internal class BoxComparerXMax : IComparer<Box>
     {
+        #region Data members
+        private Vector3D _direction;
+        #endregion
+        #region Constructor
+        public BoxComparerXMax(Vector3D direction)
+        {
+            _direction = direction;
+        }
+        #endregion
         #region IComparer<Box> implementation
         public int Compare(Box b1, Box b2)
         {
             if (b1.XMax > b2.XMax)
                 return -1;
             else if (b1.XMax == b2.XMax)
-                return 0;
+            {
+                if (_direction.Y >= 0)
+                {
+                    if (b1.YMin > b2.YMin)
+                        return 1;
+                    else if (b1.YMin == b2.YMin)
+                        return 0;
+                    else
+                        return -1;
+                }
+                else
+                {
+                    if (b1.YMax > b2.YMax)
+                        return -1;
+                    else if (b1.YMax == b2.YMax)
+                        return 0;
+                    else
+                        return 1;                    
+                }
+            }
             else
                 return 1;
         }
@@ -64,6 +122,11 @@ namespace TreeDim.StackBuilder.Graphics
         public BoxelOrderer()
         {
             _direction = new Vector3D(1000.0, 1000.0, -1000.0);
+        }
+        public BoxelOrderer(List<Box> boxes)
+        {
+            _direction = new Vector3D(1000.0, 1000.0, -1000.0);
+            _boxes.AddRange(boxes);        
         }
         #endregion
 
@@ -150,9 +213,9 @@ namespace TreeDim.StackBuilder.Graphics
                     {
                         treeList.Add(by);
                         if (_direction.X > 0.0)
-                            treeList.Sort(new BoxComparerXMin());
+                            treeList.Sort(new BoxComparerXMin(_direction));
                         else
-                            treeList.Sort(new BoxComparerXMax());
+                            treeList.Sort(new BoxComparerXMax(_direction));
 
                         // find successor of by
                         int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
@@ -180,9 +243,9 @@ namespace TreeDim.StackBuilder.Graphics
                     {
                         treeList.Add(by);
                         if (_direction.X > 0.0)
-                            treeList.Sort(new BoxComparerXMin());
+                            treeList.Sort(new BoxComparerXMin(_direction));
                         else
-                            treeList.Sort(new BoxComparerXMax());
+                            treeList.Sort(new BoxComparerXMax(_direction));
 
                         // find successor of by
                         int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });

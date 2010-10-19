@@ -70,7 +70,8 @@ namespace TreeDim.StackBuilder.Graphics
         /// <summary>
         /// Show box Ids (used of debugging purposes)
         /// </summary>
-        private bool _showBoxIds = false;
+        private bool _showBoxIds = true;
+        private bool _useBoxelOrderer = true;
         private uint _boxDrawingCounter = 0;
 
         public static readonly Vector3D Front = new Vector3D(10000.0, 0.0, 0.0);
@@ -273,11 +274,20 @@ namespace TreeDim.StackBuilder.Graphics
                     Draw(face);
 
                 // sort box list
-                _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                List<Box> orderedList = new List<Box>();
+                if (_useBoxelOrderer)
+                {
+                    BoxelOrderer boxelOrderer = new BoxelOrderer(_boxes);
+                    Vector3D vDirection = _vTarget - _vCameraPos;
+                    boxelOrderer.Direction = vDirection;
+                    orderedList = boxelOrderer.GetSortedList();
+                }
+                else
+                    _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                
                 // draw all boxes
-                foreach (Box box_ in _boxes)
-                    Draw(box_);
+                foreach (Box box in orderedList)
+                    Draw(box);
 
                 // sort segment list
                 foreach (Segment seg in _segments)

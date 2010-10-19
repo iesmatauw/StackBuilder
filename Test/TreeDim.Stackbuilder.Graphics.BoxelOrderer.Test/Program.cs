@@ -1,7 +1,10 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Sharp3D.Math.Core;
+#endregion
+
 
 namespace TreeDim.StackBuilder.Graphics
 {
@@ -66,33 +69,7 @@ namespace TreeDim.StackBuilder.Graphics
             b9.WidthAxis = Vector3D.YAxis;
             orderer0.Add(b9);
 
-/*
-            orderer.Add(new Box(++pickId, 6.0, 2.0, 5.0, 4.0, 22.0, 0.0));
-            orderer.Add(new Box(++pickId, 14.0, 4.0, 5.0, 4.0, 16.0, 0.0));
-            orderer.Add(new Box(++pickId, 4.0, 6.0, 5.0, 6.0, 4.0, 0.0));
-            orderer.Add(new Box(++pickId, 4.0, 4.0, 5.0, 12.0, 21.0, 0.0));
-            orderer.Add(new Box(++pickId, 8.0, 2.0, 5.0, 14.0, 8.0, 0.0));
-            orderer.Add(new Box(++pickId, 4.0, 4.0, 5.0, 12.0, 2.0, 0.0));
-            orderer.Add(new Box(++pickId, 2.0, 2.0, 5.0, 18.0, 2.0, 0.0));
-            orderer.Add(new Box(++pickId, 4.0, 6.0, 5.0, 20.0, 18.0, 0.0));
-            orderer.Add(new Box(++pickId, 2.0, 2.0, 5.0, 24.0, 12.0, 0.0));
-            orderer.Add(new Box(++pickId, 2.0, 4.0, 5.0, 26.0, 18.0, 0.0));
-            orderer.Add(new Box(++pickId, 4.0, 4.0, 5.0, 30.0, 16.0, 0.0));
-            orderer.Add(new Box(++pickId, 4.0, 2.0, 5.0, 32.0, 4.0, 0.0));
 
-            orderer.Add(new Box(++pickId, 6.0, 2.0, 5.0, 4.0, 22.0, 5.0));
-            orderer.Add(new Box(++pickId, 14.0, 4.0, 5.0, 4.0, 16.0, 5.0));
-            orderer.Add(new Box(++pickId, 4.0, 6.0, 5.0, 6.0, 4.0, 5.0));
-            orderer.Add(new Box(++pickId, 4.0, 4.0, 5.0, 12.0, 21.0, 5.0));
-            orderer.Add(new Box(++pickId, 8.0, 2.0, 5.0, 14.0, 8.0, 5.0));
-            orderer.Add(new Box(++pickId, 4.0, 4.0, 5.0, 12.0, 2.0, 5.0));
-            orderer.Add(new Box(++pickId, 2.0, 2.0, 5.0, 18.0, 2.0, 5.0));
-            orderer.Add(new Box(++pickId, 4.0, 6.0, 5.0, 20.0, 18.0, 5.0));
-            orderer.Add(new Box(++pickId, 2.0, 2.0, 5.0, 24.0, 12.0, 5.0));
-            orderer.Add(new Box(++pickId, 2.0, 4.0, 5.0, 26.0, 18.0, 5.0));
-            orderer.Add(new Box(++pickId, 4.0, 4.0, 5.0, 30.0, 16.0, 5.0));
-            orderer.Add(new Box(++pickId, 4.0, 2.0, 5.0, 32.0, 4.0, 5.0));
-*/
             Vector3D target = Vector3D.Zero;
 
             // set direction 0
@@ -130,15 +107,13 @@ namespace TreeDim.StackBuilder.Graphics
             foreach (Box b in orderedList)
                 Console.Write("{0} ", b.PickId);
             Console.WriteLine();
+            Console.WriteLine("########################################################");
 
 
             // instantiate
             BoxelOrderer orderer1 = new BoxelOrderer();
-
-
             // fill BoxelOrderer class
- 
-            Box b16 = new Box(0, 400.0, 300.0, 200.0);
+             Box b16 = new Box(0, 400.0, 300.0, 200.0);
             b16.Position = new Vector3D(0.0, 0.0, 0.0);
             b16.LengthAxis = Vector3D.XAxis;
             b16.WidthAxis = Vector3D.YAxis;
@@ -226,7 +201,102 @@ namespace TreeDim.StackBuilder.Graphics
             foreach (Box b in orderedList)
                 Console.Write("{0} ", b.PickId);
             Console.WriteLine();
+            Console.WriteLine("########################################################");
 
+
+            // #####################################################################################
+            // instantiate
+            BoxelOrderer orderer3 = new BoxelOrderer();
+            // fill BoxelOrderer class
+            Box b_0 = new Box(0, 400.0, 300.0, 200.0);
+            b_0.Position = new Vector3D(1200.0, 0.0, 200.0);
+            b_0.LengthAxis = Vector3D.YAxis;
+            b_0.WidthAxis = -Vector3D.XAxis;
+            orderer3.Add(b_0);
+            Box b_1 = new Box(1, 400.0, 300.0, 200.0);
+            b_1.Position = new Vector3D(900.0, 0.0, 200.0);
+            b_1.LengthAxis = Vector3D.YAxis;
+            b_1.WidthAxis = -Vector3D.XAxis;
+            orderer3.Add(b_1);
+            Box b_2 = new Box(2, 400.0, 300.0, 200.0);
+            b_2.Position = new Vector3D(600.0, 0.0, 200.0);
+            b_2.LengthAxis = Vector3D.YAxis;
+            b_2.WidthAxis = -Vector3D.XAxis;
+            orderer3.Add(b_2);
+            Box b_3 = new Box(3, 400.0, 300.0, 200.0);
+            b_3.Position = new Vector3D(300.0, 0.0, 200.0);
+            b_3.LengthAxis = Vector3D.YAxis;
+            b_3.WidthAxis = -Vector3D.XAxis;
+            orderer3.Add(b_3);
+
+            Box b_4 = new Box(4, 400.0, 300.0, 200.0);
+            b_4.Position = new Vector3D(1200.0, 700.0, 200.0);
+            b_4.LengthAxis = -Vector3D.XAxis;
+            b_4.WidthAxis = -Vector3D.YAxis;
+            orderer3.Add(b_4);
+            Box b_5 = new Box(5, 400.0, 300.0, 200.0);
+            b_5.Position = new Vector3D(800.0, 700.0, 200.0);
+            b_5.LengthAxis = -Vector3D.XAxis;
+            b_5.WidthAxis = -Vector3D.YAxis;
+            orderer3.Add(b_5);
+            Box b_6 = new Box(6, 400.0, 300.0, 200.0);
+            b_6.Position = new Vector3D(400.0, 700.0, 200.0);
+            b_6.LengthAxis = -Vector3D.XAxis;
+            b_6.WidthAxis = -Vector3D.YAxis;
+            orderer3.Add(b_6);
+            Box b_7 = new Box(7, 400.0, 300.0, 200.0);
+            b_7.Position = new Vector3D(1200.0, 1000.0, 200.0);
+            b_7.LengthAxis = -Vector3D.XAxis;
+            b_7.WidthAxis = -Vector3D.YAxis;
+            orderer3.Add(b_7);
+            Box b_8 = new Box(8, 400.0, 300.0, 200.0);
+            b_8.Position = new Vector3D(800.0, 1000.0, 200.0);
+            b_8.LengthAxis = -Vector3D.XAxis;
+            b_8.WidthAxis = -Vector3D.YAxis;
+            orderer3.Add(b_8);
+            Box b_9 = new Box(9, 400.0, 300.0, 200.0);
+            b_9.Position = new Vector3D(400.0, 1000.0, 200.0);
+            b_9.LengthAxis = -Vector3D.XAxis;
+            b_9.WidthAxis = -Vector3D.YAxis;
+            orderer3.Add(b_9);
+
+
+            // set direction 0
+            camera = new Vector3D(-1000.0, -1000.0, 1000.0);
+            orderer3.Direction = target - camera;
+            orderedList = orderer3.GetSortedList();
+            Console.WriteLine("******************************");
+            foreach (Box b in orderedList)
+                Console.Write("{0} ", b.PickId);
+            Console.WriteLine();
+
+            // set direction 1
+            camera = new Vector3D(1000.0, -1000.0, 1000.0);
+            orderer3.Direction = target - camera;
+            orderedList = orderer3.GetSortedList();
+            Console.WriteLine("******************************");
+            foreach (Box b in orderedList)
+                Console.Write("{0} ", b.PickId);
+            Console.WriteLine();
+
+            // set direction 2
+            camera = new Vector3D(1000.0, 1000.0, 1000.0);
+            orderer3.Direction = target - camera;
+            orderedList = orderer3.GetSortedList();
+            Console.WriteLine("******************************");
+            foreach (Box b in orderedList)
+                Console.Write("{0} ", b.PickId);
+            Console.WriteLine();
+
+            // set direction 3
+            camera = new Vector3D(-1000.0, 1000.0, 1000.0);
+            orderer3.Direction = target - camera;
+            orderedList = orderer3.GetSortedList();
+            Console.WriteLine("******************************");
+            foreach (Box b in orderedList)
+                Console.Write("{0} ", b.PickId);
+            Console.WriteLine();
+            Console.WriteLine("########################################################");
         }
     }
 }

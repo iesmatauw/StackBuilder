@@ -297,7 +297,7 @@ namespace TreeDim.StackBuilder.Graphics
                 for (int i = 0; i < lb.Count; ++i)
                 {
                     Box b = lb[i];
-                    if (b.YMax < y)
+                    if (b.YMax <= y)
                     {
                         lb.Remove(b);
                         found = true;
@@ -315,7 +315,7 @@ namespace TreeDim.StackBuilder.Graphics
                 for (int i = 0; i < lb.Count; ++i)
                 {
                     Box b = lb[i];
-                    if (b.YMin > y)
+                    if (b.YMin >= y)
                     {
                         lb.Remove(b);
                         found = true;

@@ -80,6 +80,7 @@ namespace TreeDim.StackBuilder.Graphics
             }
 
             // fluch
+            graphics.UseBoxelOrderer = false; // can not use boxel orderer for full truck view -> too slow...
             graphics.Flush();
         }
 
@@ -90,9 +91,9 @@ namespace TreeDim.StackBuilder.Graphics
 
             // get analysis
             Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
-            double length = 0.0;
-            double width = 0.0;
-            double height = 0.0;
+            double length = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength(analysis);
+            double width = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth(analysis);
+            double height = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight(analysis);
 
             // initialize Graphics2D object
             graphics.NumberOfViews = 1;

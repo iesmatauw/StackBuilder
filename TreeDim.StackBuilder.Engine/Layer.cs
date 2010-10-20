@@ -125,8 +125,8 @@ namespace TreeDim.StackBuilder.Engine
 
         private void Initialize(Solution sol)
         {
-            _boxLength = sol.Analysis.PalletProperties.Length;
-            _boxWidth = sol.Analysis.PalletProperties.Width;
+            _boxLength = sol.PalletLength(sol.Analysis);
+            _boxWidth = sol.PalletWidth(sol.Analysis);
             _boxHeight = sol.PalletHeight(sol.Analysis);
         }
         #endregion
@@ -174,11 +174,6 @@ namespace TreeDim.StackBuilder.Engine
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_widthAxis)))
                 );
-
-            
-            
-            
-
             this.Add(layerPos);
         }
         #endregion

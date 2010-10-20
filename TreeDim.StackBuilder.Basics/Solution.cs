@@ -238,6 +238,34 @@ namespace TreeDim.StackBuilder.Basics
         {
             Add(new BoxPosition(vPosition, dirLength, dirWidth));
         }
+        public void BoundingBox(BProperties bProperties, out double xmin, out double ymin, out double xmax, out double ymax)
+        {
+            xmin = ymin = double.MaxValue;
+            xmax = ymax = double.MinValue;
+            foreach (BoxPosition bpos in this)
+            {
+                Vector3D[] pts = new Vector3D[8];
+                Vector3D vI = HalfAxis.ToVector3D(bpos.DirectionLength);
+                Vector3D vJ = HalfAxis.ToVector3D(bpos.DirectionWidth);
+                Vector3D vK = Vector3D.CrossProduct(vI, vJ);
+                pts[0] = bpos.Position;
+                pts[1] = bpos.Position + bProperties.Length * vI;
+                pts[2] = bpos.Position + bProperties.Width * vJ;
+                pts[3] = bpos.Position + bProperties.Length * vI + bProperties.Width * vJ;
+                pts[4] = bpos.Position + bProperties.Height * vK;
+                pts[5] = bpos.Position + bProperties.Width * vJ + bProperties.Height * vK; ;
+                pts[6] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionWidth) * bProperties.Width;
+                pts[7] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionLength) * bProperties.Length + HalfAxis.ToVector3D(bpos.DirectionWidth) * bProperties.Width;
+
+                foreach (Vector3D pt in pts)
+                {
+                    xmin = Math.Min(xmin, pt.X);
+                    xmax = Math.Max(xmax, pt.X);
+                    ymin = Math.Min(ymin, pt.Y);
+                    ymax = Math.Max(ymax, pt.Y);
+                }
+            }
+        }
         #endregion
     }
     #endregion
@@ -306,6 +334,62 @@ namespace TreeDim.StackBuilder.Basics
         public double PalletWeight(Analysis analysis)
         {
             return analysis.PalletProperties.Weight + BoxCount * analysis.BProperties.Weight;
+        }
+        public double PalletLength(Analysis analysis)
+        {
+            double xmin = double.MaxValue, ymin = double.MaxValue;
+            double xmax = double.MinValue, ymax = double.MinValue;
+
+            int iLayer = 0, iLayerCount = 0;
+            while (iLayer < Count && iLayerCount < 2)
+            {
+                ILayer layer = this[iLayer];
+                BoxLayer blayer = layer as BoxLayer;
+                if (null != blayer)
+                {
+                    double xminLayer = double.MaxValue, yminLayer = double.MaxValue;
+                    double xmaxLayer = double.MinValue, ymaxLayer = double.MinValue;
+
+                    blayer.BoundingBox(analysis.BProperties, out xminLayer, out yminLayer, out xmaxLayer, out ymaxLayer);
+
+                    xmin = Math.Min(xmin, xminLayer);
+                    ymin = Math.Min(ymin, yminLayer);
+                    xmax = Math.Max(xmax, xmaxLayer);
+                    ymax = Math.Max(ymax, ymaxLayer);
+
+                    ++iLayerCount;
+                }
+                ++iLayer;
+            }
+            return Math.Max(analysis.PalletProperties.Length, xmax - xmin);
+        }
+        public double PalletWidth(Analysis analysis)
+        {
+            double xmin = double.MaxValue, ymin = double.MaxValue;
+            double xmax = double.MinValue, ymax = double.MinValue;
+
+            int iLayer = 0, iLayerCount =0;
+            while (iLayer < Count && iLayerCount < 2)
+            {
+                ILayer layer = this[iLayer];
+                BoxLayer blayer = layer as BoxLayer;
+                if (null != blayer)
+                {
+                    double xminLayer = double.MinValue, yminLayer = double.MinValue;
+                    double xmaxLayer = double.MaxValue, ymaxLayer = double.MaxValue;
+
+                    blayer.BoundingBox(analysis.BProperties, out xminLayer, out yminLayer, out xmaxLayer, out ymaxLayer);
+
+                    xmin = Math.Min(xmin, xminLayer);
+                    ymin = Math.Min(ymin, yminLayer);
+                    xmax = Math.Max(xmax, xmaxLayer);
+                    ymax = Math.Max(ymax, ymaxLayer);
+
+                    ++iLayerCount;
+                }
+                ++iLayer;
+            } 
+            return Math.Max(analysis.BProperties.Width, ymax - ymin);
         }
         public double PalletHeight(Analysis analysis)
         {

@@ -70,7 +70,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// <summary>
         /// Show box Ids (used of debugging purposes)
         /// </summary>
-        private bool _showBoxIds = true;
+        private bool _showBoxIds = false;
         private bool _useBoxelOrderer = true;
         private uint _boxDrawingCounter = 0;
 
@@ -146,6 +146,12 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _showBoxIds; }
             set { _showBoxIds = value; }
+        }
+
+        public bool UseBoxelOrderer
+        {
+            get {  return _useBoxelOrderer; }
+            set { _useBoxelOrderer = value; }
         }
         #endregion
         
@@ -274,19 +280,17 @@ namespace TreeDim.StackBuilder.Graphics
                     Draw(face);
 
                 // sort box list
-                List<Box> orderedList = new List<Box>();
                 if (_useBoxelOrderer)
                 {
                     BoxelOrderer boxelOrderer = new BoxelOrderer(_boxes);
-                    Vector3D vDirection = _vTarget - _vCameraPos;
-                    boxelOrderer.Direction = vDirection;
-                    orderedList = boxelOrderer.GetSortedList();
+                    boxelOrderer.Direction = _vTarget - _vCameraPos;
+                    _boxes = boxelOrderer.GetSortedList();
                 }
                 else
                     _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                
                 // draw all boxes
-                foreach (Box box in orderedList)
+                foreach (Box box in _boxes)
                     Draw(box);
 
                 // sort segment list

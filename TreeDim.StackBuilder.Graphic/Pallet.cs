@@ -32,6 +32,9 @@ namespace TreeDim.StackBuilder.Graphics
         #region Overrides
         public void Draw(Graphics3D graphics, Transform3D t)
         {
+            if (_length == 0.0 || _width == 0.0 || _height == 0.0)
+                return;
+
             switch (_type)
             {
                 case PalletProperties.PalletType.BLOCK:

@@ -181,11 +181,13 @@ namespace TreeDim.StackBuilder.Desktop
                 palletProperties.Color = Color;
                 Pallet pallet = new Pallet(palletProperties);
                 pallet.Draw(graphics, Transform3D.Identity);
+                graphics.AddDimensions(new DimensionCube(PalletLength, PalletWidth, PalletHeight));
                 graphics.Flush();
                 pictureBox.Image = graphics.Bitmap;
             }
-            catch (Exception /*ex*/)
+            catch (Exception ex)
             {
+                _log.Error(ex.ToString());
             }
         }
         #endregion

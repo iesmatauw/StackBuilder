@@ -175,6 +175,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , BundleLength, BundleWidth, UnitThickness, UnitWeight, NoFlats, Color);
                 Box box = new Box(0, bundleProperties);
                 graphics.AddBox(box);
+                graphics.AddDimensions(new DimensionCube(BundleLength, BundleWidth, UnitThickness * NoFlats));
                 graphics.Flush();
                 pictureBox.Image = graphics.Bitmap;
             }
@@ -184,7 +185,5 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
-
-
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="Interlayer.cs" />
     <Compile Include="Pallet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DimensionCube.cs" />
     <Compile Include="SolutionViewer.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="TruckSolutionViewer.cs" />

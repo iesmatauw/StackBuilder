@@ -53,7 +53,7 @@ namespace TreeDim.StackBuilder.Graphics
                 _viewport[2] = (ymax - ymin + margin)*aspectRatio;
                 _viewport[3] = ymax - ymin + margin;
             }
-
+            
             _viewport[0] = xmin;
             _viewport[1] = ymin;
             _viewport[2] = xmax;

@@ -388,8 +388,8 @@ namespace TreeDim.StackBuilder.Basics
                     ++iLayerCount;
                 }
                 ++iLayer;
-            } 
-            return Math.Max(analysis.BProperties.Width, ymax - ymin);
+            }
+            return Math.Max(analysis.PalletProperties.Width, ymax - ymin);
         }
         public double PalletHeight(Analysis analysis)
         {

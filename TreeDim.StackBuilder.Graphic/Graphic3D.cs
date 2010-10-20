@@ -59,9 +59,13 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summay>
         private List<Box> _boxes = new List<Box>();
         /// <summary>
-        /// segment
+        /// segments
         /// </summary>
         private List<Segment> _segments = new List<Segment>();
+        /// <summary>
+        /// dimensions cube
+        /// </summary>
+        private List<DimensionCube> _dimensions = new List<DimensionCube>();
         /// <summary>
         /// Current transformation
         /// </summary>
@@ -130,6 +134,16 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _vTarget; }
             set { _vTarget = value; }
+        }
+
+        public Vector3D ViewDirection
+        {
+            get
+            {
+                Vector3D viewDir = _vTarget - _vCameraPos;
+                viewDir.Normalize();
+                return viewDir;
+            }
         }
 
         public Vector3D LightDirection
@@ -236,6 +250,11 @@ namespace TreeDim.StackBuilder.Graphics
                 throw new GraphicsException("Box is invalid and cannot be drawn!");
             _boxes.Add(box);
         }
+
+        public void AddDimensions(DimensionCube dimensionCube)
+        {
+            _dimensions.Add(dimensionCube);
+        }
         #endregion
 
         #region Abstract methods and properties
@@ -293,9 +312,13 @@ namespace TreeDim.StackBuilder.Graphics
                 foreach (Box box in _boxes)
                     Draw(box);
 
-                // sort segment list
+                // draw segment list
                 foreach (Segment seg in _segments)
                     Draw(seg);
+
+                // draw cotation cubes
+                foreach (DimensionCube qc in _dimensions)
+                    qc.Draw(this);
             }
             else
             {
@@ -324,6 +347,7 @@ namespace TreeDim.StackBuilder.Graphics
                     Vector3D vecMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
                     Vector3D vecMax = new Vector3D(double.MinValue, double.MinValue, double.MinValue);
 
+                    // boxes
                     foreach (Box box in _boxes)
                         foreach (Vector3D pt in box.Points)
                         {
@@ -336,6 +360,7 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
 
+                    // faces
                     foreach (Face face in _faces)
                         foreach (Vector3D pt in face.Points)
                         {
@@ -348,6 +373,7 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
 
+                    // segments
                     foreach (Segment seg in _segments)
                         foreach (Vector3D pt in seg.Points)
                         {
@@ -359,6 +385,20 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
+
+                    // cube dimensions
+                    foreach (DimensionCube dimCube in _dimensions)
+                        foreach (Vector3D pt in dimCube.DrawingPoints(this))
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);                           
+                        }
+
                     Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
                     // adjust width/height
                     if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
@@ -404,6 +444,25 @@ namespace TreeDim.StackBuilder.Graphics
             Pen pen = new Pen(brush);
             Point[] pt = TransformPoint(GetCurrentTransformation(), seg.Points);
             g.DrawLine(pen, pt[0], pt[1]);
+        }
+        /// <summary>
+        /// Draw a text string at a 3D location
+        /// </summary>
+        /// <param name="text">Text to draw</param>
+        /// <param name="position">3D point on which to center the text string</param>
+        /// <param name="color">Color of solid brush used to draw text</param>
+        /// <param name="fontSize">Size of font used to draw text</param>
+        internal void Draw(string text, Vector3D position, Color color, float fontSize)
+        {
+            System.Drawing.Graphics g = Graphics;
+            Point pt = TransformPoint(GetCurrentTransformation(), position);
+            Font font = new Font("Arial", fontSize);
+            SizeF sizeF = g.MeasureString(text, font);
+            g.DrawString(text
+                , font
+                , new SolidBrush(color)
+                , new Point(pt.X - (int)(0.5f*sizeF.Width), pt.Y - (int)(0.5f * sizeF.Height))
+                , StringFormat.GenericDefault);  
         }
 
         /// <summary>

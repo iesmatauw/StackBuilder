@@ -115,7 +115,5 @@ namespace TreeDim.StackBuilder.Graphics
             }
         }
         #endregion
-
-
     }
 }

@@ -279,7 +279,7 @@ namespace TreeDim.StackBuilder.Graphics
 
         #endregion
 
-        #region XMin / XMax / YMin / YMax
+        #region XMin / XMax / YMin / YMax / ZMin
         public double XMin
         {
             get
@@ -330,6 +330,17 @@ namespace TreeDim.StackBuilder.Graphics
                         ymax = v.Y;
                 }
                 return ymax;
+            }
+        }
+
+        public double ZMin
+        {
+            get
+            {
+                double zmin = double.MaxValue;
+                foreach (Vector3D v in this.Points)
+                    zmin = Math.Min(v.Z, zmin);
+                return zmin;
             }
         }
         #endregion

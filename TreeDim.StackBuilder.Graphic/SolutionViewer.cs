@@ -19,6 +19,7 @@ namespace TreeDim.StackBuilder.Graphics
         #region Data members
         private Solution _solution;
         private Analysis _analysis;
+        private bool _showDimensions = true;
         #endregion
 
         #region Constructor
@@ -69,6 +70,11 @@ namespace TreeDim.StackBuilder.Graphics
                 graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(2000.0, 0.0, 0.0), Color.Red));
                 graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 2000.0, 0.0), Color.Green));
                 graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 0.0, 2000.0), Color.Blue));
+            }
+
+            if (_showDimensions)
+            {
+                graphics.AddDimensions(new DimensionCube(_solution.PalletLength(_analysis), _solution.PalletWidth(_analysis), _solution.PalletHeight(_analysis)));
             }
 
             // flush
@@ -178,6 +184,11 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _solution; }
             set { _solution = value; }
+        }
+        public bool ShowDimensions
+        {
+            get { return _showDimensions; }
+            set { _showDimensions = value; }
         }
         #endregion
     }

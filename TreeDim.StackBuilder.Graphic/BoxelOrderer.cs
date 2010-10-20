@@ -13,9 +13,9 @@ namespace TreeDim.StackBuilder.Graphics
         #region IComparer<Box> implementation
         public int Compare(Box b1, Box b2)
         {
-            if (b1.Center.Z > b2.Center.Z)
+            if (b1.ZMin > b2.ZMin)
                 return 1;
-            else if (b1.Center.Z == b2.Center.Z)
+            else if (b1.ZMin == b2.ZMin)
                 return 0;
             else
                 return -1;
@@ -148,11 +148,11 @@ namespace TreeDim.StackBuilder.Graphics
 
             // build same Z layers
             int index = 0;
-            double zCurrent = _boxes[index].Center.Z;
+            double zCurrent = _boxes[index].ZMin;
             List<Box> tempList = new List<Box>();
             while (index < _boxes.Count)
             {
-                if (Math.Abs(zCurrent - _boxes[index].Center.Z) < _epsilon)
+                if (Math.Abs(zCurrent - _boxes[index].ZMin) < _epsilon)
                     tempList.Add(_boxes[index]);
                 else
                 {
@@ -161,7 +161,7 @@ namespace TreeDim.StackBuilder.Graphics
                     // add to sorted list
                     _sortedList.AddRange(tempList);
                     // start new layer
-                    zCurrent = _boxes[index].Center.Z;
+                    zCurrent = _boxes[index].ZMin;
                     tempList.Clear();
                     tempList.Add(_boxes[index]);
                 }

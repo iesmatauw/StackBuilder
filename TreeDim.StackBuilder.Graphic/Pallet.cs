@@ -48,19 +48,20 @@ namespace TreeDim.StackBuilder.Graphics
                         double coefLength = _length / 1200.0;
                         double coefWidth = _width / 1000.0;
                         double coefHeight = _height / 150.0;
+                        uint pickId = 0;
 
                         // planks
-                        Box plank1 = new Box(0, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
-                        Box plank2 = new Box(0, 138.0 * coefWidth, 98.0 * coefLength, 95.0 * coefHeight); plank2.SetAllFacesColor(_color);
-                        Box plank4 = new Box(0, 1200.0* coefLength, 95.0 * coefWidth, 18.0 * coefHeight);    plank4.SetAllFacesColor(_color);
-                        Box plank5 = new Box(0, 1000.0 * coefWidth, 120.0* coefLength, 19.0 * coefHeight);   plank5.SetAllFacesColor(_color);
+                        Box plank1 = new Box(++pickId, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
+                        Box plank2 = new Box(++pickId, 138.0 * coefWidth, 98.0 * coefLength, 95.0 * coefHeight); plank2.SetAllFacesColor(_color);
+                        Box plank4 = new Box(++pickId, 1200.0 * coefLength, 95.0 * coefWidth, 18.0 * coefHeight); plank4.SetAllFacesColor(_color);
+                        Box plank5 = new Box(++pickId, 1000.0 * coefWidth, 120.0 * coefLength, 19.0 * coefHeight); plank5.SetAllFacesColor(_color);
 
                         // first layer
                         double z = 0.0;
                         double xStep = (1200.0* coefLength - plank1.Width) / 2.0;
                         for (int i = 0; i < 3; ++i)
                         {
-                            plank1 = new Box(0, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
+                            plank1 = new Box(++pickId, 1000.0 * coefWidth, 98.0 * coefLength, 18.0 * coefHeight); plank1.SetAllFacesColor(_color);
                             plank1.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
                             plank1.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, t));
                             plank1.Position = t.transform(new Vector3D(plank1.Width + i * xStep, 0.0, z));
@@ -73,7 +74,7 @@ namespace TreeDim.StackBuilder.Graphics
                         for (int i = 0; i < 3; ++i)
                             for (int j = 0; j < 3; ++j)
                             {
-                                plank2 = new Box(0, 138.0 * coefWidth, 98.0* coefLength, 95.0 * coefHeight);     plank2.SetAllFacesColor(_color);
+                                plank2 = new Box(++pickId, 138.0 * coefWidth, 98.0 * coefLength, 95.0 * coefHeight); plank2.SetAllFacesColor(_color);
                                 plank2.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
                                 plank2.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, t));
                                 plank2.Position = t.transform(new Vector3D(plank2.Width + i * xStep, j*yStep, z));
@@ -85,7 +86,7 @@ namespace TreeDim.StackBuilder.Graphics
                         yStep = plank4.Width + (1000.0* coefWidth - 3.0 * plank4.Width) / 2.0;
                         for (int j = 0; j < 3; ++j)
                         {
-                            plank4 = new Box(0, 1200.0* coefLength, 95.0 * coefWidth, 18.0 * coefHeight);    plank4.SetAllFacesColor(_color);
+                            plank4 = new Box(++pickId, 1200.0 * coefLength, 95.0 * coefWidth, 18.0 * coefHeight); plank4.SetAllFacesColor(_color);
                             plank4.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, t));
                             plank4.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
                             plank4.Position = t.transform(new Vector3D(0.0, j * yStep, z));
@@ -97,7 +98,7 @@ namespace TreeDim.StackBuilder.Graphics
                         xStep = plank5.Width + (1200.0* coefLength-7.0*plank5.Width) / 6.0;
                         for (int i = 0; i < 7; ++i)
                         {
-                            plank5 = new Box(0, 1000.0 * coefWidth, 120.0 * coefLength, 19.0 * coefHeight); plank5.SetAllFacesColor(_color);
+                            plank5 = new Box(++pickId, 1000.0 * coefWidth, 120.0 * coefLength, 19.0 * coefHeight); plank5.SetAllFacesColor(_color);
                             plank5.LengthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P,t));
                             plank5.WidthAxis = HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, t));
                             plank5.Position = t.transform(new Vector3D(plank5.Width + i * xStep, 0.0, z));

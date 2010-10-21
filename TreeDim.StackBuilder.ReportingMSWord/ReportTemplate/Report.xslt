@@ -12,15 +12,15 @@
         <o:LastAuthor>François</o:LastAuthor>
         <o:Revision>2</o:Revision>
         <o:TotalTime>1</o:TotalTime>
-        <o:Created>2010-09-30T08:33:00Z</o:Created>
-        <o:LastSaved>2010-09-30T08:33:00Z</o:LastSaved>
-        <o:Pages>5</o:Pages>
-        <o:Words>272</o:Words>
-        <o:Characters>1497</o:Characters>
+        <o:Created>2010-10-21T14:57:00Z</o:Created>
+        <o:LastSaved>2010-10-21T14:57:00Z</o:LastSaved>
+        <o:Pages>6</o:Pages>
+        <o:Words>278</o:Words>
+        <o:Characters>1532</o:Characters>
         <o:Company>Microsoft</o:Company>
         <o:Lines>12</o:Lines>
         <o:Paragraphs>3</o:Paragraphs>
-        <o:CharactersWithSpaces>1766</o:CharactersWithSpaces>
+        <o:CharactersWithSpaces>1807</o:CharactersWithSpaces>
         <o:Version>12</o:Version>
       </o:DocumentProperties>
       <w:fonts>
@@ -295,6 +295,7 @@
         </w:compat>
         <wsp:rsids>
           <wsp:rsidRoot wsp:val="003F34EB" />
+          <wsp:rsid wsp:val="00002761" />
           <wsp:rsid wsp:val="00022A31" />
           <wsp:rsid wsp:val="00023EB7" />
           <wsp:rsid wsp:val="0003283F" />
@@ -302,6 +303,7 @@
           <wsp:rsid wsp:val="0005602A" />
           <wsp:rsid wsp:val="00066A15" />
           <wsp:rsid wsp:val="000731F3" />
+          <wsp:rsid wsp:val="000A55CE" />
           <wsp:rsid wsp:val="000B6C69" />
           <wsp:rsid wsp:val="000F1032" />
           <wsp:rsid wsp:val="001304C4" />
@@ -309,6 +311,7 @@
           <wsp:rsid wsp:val="00165A7B" />
           <wsp:rsid wsp:val="001A59F6" />
           <wsp:rsid wsp:val="001D50AE" />
+          <wsp:rsid wsp:val="001D5316" />
           <wsp:rsid wsp:val="001D6D2E" />
           <wsp:rsid wsp:val="00276AB3" />
           <wsp:rsid wsp:val="00277B28" />
@@ -323,6 +326,7 @@
           <wsp:rsid wsp:val="00345405" />
           <wsp:rsid wsp:val="00350F67" />
           <wsp:rsid wsp:val="0035512D" />
+          <wsp:rsid wsp:val="003802E4" />
           <wsp:rsid wsp:val="003F34EB" />
           <wsp:rsid wsp:val="003F4FA9" />
           <wsp:rsid wsp:val="004142CB" />
@@ -342,6 +346,7 @@
           <wsp:rsid wsp:val="00521682" />
           <wsp:rsid wsp:val="005356ED" />
           <wsp:rsid wsp:val="005555E6" />
+          <wsp:rsid wsp:val="00557208" />
           <wsp:rsid wsp:val="005A7F39" />
           <wsp:rsid wsp:val="005C428E" />
           <wsp:rsid wsp:val="00611F6F" />
@@ -361,8 +366,8 @@
           <wsp:rsid wsp:val="008260B8" />
           <wsp:rsid wsp:val="00843656" />
           <wsp:rsid wsp:val="0084458B" />
+          <wsp:rsid wsp:val="008D5846" />
           <wsp:rsid wsp:val="008F2CE4" />
-          <wsp:rsid wsp:val="00904DC7" />
           <wsp:rsid wsp:val="00914B4F" />
           <wsp:rsid wsp:val="0096378A" />
           <wsp:rsid wsp:val="0096462A" />
@@ -373,6 +378,7 @@
           <wsp:rsid wsp:val="00AF707E" />
           <wsp:rsid wsp:val="00B30C23" />
           <wsp:rsid wsp:val="00B31301" />
+          <wsp:rsid wsp:val="00B36E80" />
           <wsp:rsid wsp:val="00B6413D" />
           <wsp:rsid wsp:val="00BC78C4" />
           <wsp:rsid wsp:val="00BD1304" />
@@ -452,38 +458,64 @@
             <w:sz w:val="40" />
             <w:sz-cs w:val="40" />
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>TreeDim</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>TreeDim</xsl:text>
+          </w:t>
+        </w:r>
         <w:r wsp:rsidRPr="00735FE9">
           <w:rPr>
             <w:sz w:val="40" />
             <w:sz-cs w:val="40" />
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>
+            </xsl:text>
+          </w:t>
+        </w:r>
         <w:r wsp:rsidRPr="00735FE9">
           <w:rPr>
             <w:b />
             <w:sz w:val="40" />
             <w:sz-cs w:val="40" />
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Stackbuilder</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Stackbuilder</xsl:text>
+          </w:t>
+        </w:r>
         <w:r wsp:rsidRPr="00735FE9">
           <w:rPr>
             <w:sz w:val="40" />
             <w:sz-cs w:val="40" />
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>
+            </xsl:text>
+          </w:t>
+        </w:r>
         <w:r wsp:rsidRPr="00735FE9">
           <w:rPr>
             <w:sz w:val="40" />
             <w:sz-cs w:val="40" />
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>generated</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>generated</xsl:text>
+          </w:t>
+        </w:r>
         <w:r wsp:rsidRPr="00735FE9">
           <w:rPr>
             <w:sz w:val="40" />
             <w:sz-cs w:val="40" />
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> report</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text> report</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:p wsp:rsidR="003F34EB" wsp:rsidRDefault="003F34EB">
         <w:pPr>
@@ -520,7 +552,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Document</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Document</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -538,7 +574,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:name" />
             </w:p>
           </w:tc>
@@ -560,7 +600,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Description</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Description</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -578,7 +622,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:description" />
             </w:p>
           </w:tc>
@@ -600,7 +648,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Author</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Author</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -617,7 +669,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:author" />
             </w:p>
           </w:tc>
@@ -637,7 +693,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Date</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Date</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -654,7 +714,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:dateOfCreation" />
             </w:p>
           </w:tc>
@@ -687,7 +751,11 @@
       <w:r wsp:rsidR="00345405" wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:dateOfCreation>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis">
@@ -707,15 +775,28 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Pallet</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Pallet</xsl:text>
+          </w:t>
+        </w:r>
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>
+            </xsl:text>
+          </w:t>
+        </w:r>
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>analysis</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>analysis</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -743,7 +824,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Name</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Name</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -760,12 +845,21 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:name" />
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -786,7 +880,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Description</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Description</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -803,7 +901,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:description" />
             </w:p>
           </w:tc>
@@ -836,11 +938,19 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Selected</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Selected</xsl:text>
+          </w:t>
+        </w:r>
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> solution</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text> solution</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -887,7 +997,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Title</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Title</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -911,7 +1025,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:title" />
             </w:p>
           </w:tc>
@@ -940,12 +1058,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Number</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Number</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> of cases</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> of cases</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -969,7 +1095,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:boxCount" />
             </w:p>
           </w:tc>
@@ -998,17 +1128,29 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Number</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Number</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> of </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> of </xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>interlayers</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>interlayers</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1032,7 +1174,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:interlayerCount" />
             </w:p>
           </w:tc>
@@ -1061,17 +1207,30 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Pallet</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Pallet</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>weight</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1095,7 +1254,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:palletWeight" />
             </w:p>
           </w:tc>
@@ -1120,7 +1283,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>kg</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>kg</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -1148,17 +1315,30 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Pallet</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Pallet</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>height</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>height</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1182,7 +1362,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:palletHeight" />
             </w:p>
           </w:tc>
@@ -1207,7 +1391,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -1298,7 +1486,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Efficiency</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Efficiency</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1322,7 +1514,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:efficiency" />
             </w:p>
           </w:tc>
@@ -1347,7 +1543,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>%</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>%</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -1374,8 +1574,17 @@
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Front:</xsl:text></w:t></w:r>
-              <w:r> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Front:</xsl:text>
+                </w:t>
+              </w:r>
+              <w:r>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:view_palletsolution_front" />
             </w:p>
           </w:tc>
@@ -1402,13 +1611,26 @@
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Left</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Left</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
-              <w:r> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
+              <w:r>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:view_palletsolution_left" />
             </w:p>
           </w:tc>
@@ -1435,8 +1657,17 @@
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Right:</xsl:text></w:t></w:r>
-              <w:r> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Right:</xsl:text>
+                </w:t>
+              </w:r>
+              <w:r>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:view_palletsolution_right" />
             </w:p>
           </w:tc>
@@ -1462,8 +1693,17 @@
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Back:</xsl:text></w:t></w:r>
-              <w:r> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Back:</xsl:text>
+                </w:t>
+              </w:r>
+              <w:r>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:view_palletsolution_back" />
             </w:p>
           </w:tc>
@@ -1492,16 +1732,52 @@
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Iso</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Iso</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidR="009C375C">
                 <w:rPr>
                   <w:u w:val="single" />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> : </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> : </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:view_palletsolution_iso" />
             </w:p>
           </w:tc>
         </w:tr>
+      </w:tbl>
+      <w:p wsp:rsidR="00B36E80" wsp:rsidRPr="00B36E80" wsp:rsidRDefault="00B36E80" wsp:rsidP="0066207B">
+        <w:pPr>
+          <w:rPr>
+            <w:b />
+            <w:lang w:val="FR" />
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00B36E80">
+          <w:rPr>
+            <w:b />
+            <w:lang w:val="FR" />
+          </w:rPr>
+          <w:t>
+            <xsl:text>Layers</xsl:text>
+          </w:t>
+        </w:r>
+      </w:p>
+      <w:tbl>
+        <w:tblPr>
+          <w:tblW w:w="0" w:type="auto" />
+          <w:tblLook w:val="04A0" />
+        </w:tblPr>
+        <w:tblGrid>
+          <w:gridCol w:w="4606" />
+          <w:gridCol w:w="4606" />
+        </w:tblGrid>
+        <xsl:apply-templates select="ns0:layer" />
       </w:tbl>
       <w:p wsp:rsidR="0066207B" wsp:rsidRDefault="0035512D" wsp:rsidP="0066207B">
         <w:pPr>
@@ -1522,8 +1798,153 @@
       <w:r wsp:rsidR="00022A31">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:palletWeight>
+  </xsl:template>
+  <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:layer[1]">
+    <ns0:layer>
+      <xsl:for-each select="@ns0:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:tr wsp:rsidR="00B36E80" wsp:rsidRPr="00002761" wsp:rsidTr="00002761">
+        <xsl:apply-templates select="ns0:layerImage|ns0:layerId" />
+      </w:tr>
+    </ns0:layer>
+  </xsl:template>
+  <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:layer[1]/ns0:layerId">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="4606" w:type="dxa" />
+      </w:tcPr>
+      <ns0:layerId>
+        <xsl:for-each select="@ns0:*|@*[namespace-uri()='']">
+          <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+            <xsl:value-of select="." />
+          </xsl:attribute>
+        </xsl:for-each>
+        <w:p wsp:rsidR="00B36E80" wsp:rsidRPr="00002761" wsp:rsidRDefault="00B36E80" wsp:rsidP="001D5316">
+          <w:pPr>
+            <w:rPr>
+              <w:lang w:val="FR" />
+            </w:rPr>
+          </w:pPr>
+          <w:r wsp:rsidRPr="00002761">
+            <w:rPr>
+              <w:lang w:val="FR" />
+            </w:rPr>
+            <w:t>
+              <xsl:value-of select="." />
+            </w:t>
+          </w:r>
+        </w:p>
+      </ns0:layerId>
+    </w:tc>
+  </xsl:template>
+  <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:layer[1]/ns0:layerImage">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="4606" w:type="dxa" />
+      </w:tcPr>
+      <ns0:layerImage>
+        <xsl:for-each select="@ns0:*|@*[namespace-uri()='']">
+          <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+            <xsl:value-of select="." />
+          </xsl:attribute>
+        </xsl:for-each>
+        <w:p wsp:rsidR="00B36E80" wsp:rsidRPr="00002761" wsp:rsidRDefault="00B36E80" wsp:rsidP="0066207B">
+          <w:pPr>
+            <w:rPr>
+              <w:lang w:val="FR" />
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:pict>
+              <v:shape id="_x0000_i1027" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <imageData src="wordml://0100001.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
+              </v:shape>
+              <w:binData w:name="wordml://0100001.gif">
+                <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+              </w:binData>
+            </w:pict>
+          </w:r>
+        </w:p>
+      </ns0:layerImage>
+    </w:tc>
+  </xsl:template>
+  <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:layer[position() &gt;= 2]">
+    <ns0:layer>
+      <xsl:for-each select="@ns0:*|@*[namespace-uri()='']">
+        <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+          <xsl:value-of select="." />
+        </xsl:attribute>
+      </xsl:for-each>
+      <w:tr wsp:rsidR="008D5846" wsp:rsidRPr="00002761" wsp:rsidTr="008D5846">
+        <xsl:apply-templates select="ns0:layerImage|ns0:layerId" />
+      </w:tr>
+    </ns0:layer>
+  </xsl:template>
+  <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:layer[position() &gt;= 2]/ns0:layerImage">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="4606" w:type="dxa" />
+      </w:tcPr>
+      <ns0:layerImage>
+        <xsl:for-each select="@ns0:*|@*[namespace-uri()='']">
+          <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+            <xsl:value-of select="." />
+          </xsl:attribute>
+        </xsl:for-each>
+        <w:p wsp:rsidR="008D5846" wsp:rsidRPr="008D5846" wsp:rsidRDefault="008D5846" wsp:rsidP="008D5846">
+          <w:r>
+            <w:pict>
+              <v:shape id="_x0000_i1028" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <imageData src="wordml://0100002.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
+              </v:shape>
+              <w:binData w:name="wordml://0100002.gif">
+                <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+              </w:binData>
+            </w:pict>
+          </w:r>
+        </w:p>
+      </ns0:layerImage>
+    </w:tc>
+  </xsl:template>
+  <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:layer[position() &gt;= 2]/ns0:layerId">
+    <w:tc>
+      <w:tcPr>
+        <w:tcW w:w="4606" w:type="dxa" />
+      </w:tcPr>
+      <ns0:layerId>
+        <xsl:for-each select="@ns0:*|@*[namespace-uri()='']">
+          <xsl:attribute name="{name()}" namespace="{namespace-uri()}">
+            <xsl:value-of select="." />
+          </xsl:attribute>
+        </xsl:for-each>
+        <w:p wsp:rsidR="008D5846" wsp:rsidRPr="00002761" wsp:rsidRDefault="008D5846" wsp:rsidP="008D5846">
+          <w:pPr>
+            <w:rPr>
+              <w:lang w:val="FR" />
+            </w:rPr>
+          </w:pPr>
+          <w:r wsp:rsidRPr="00002761">
+            <w:rPr>
+              <w:lang w:val="FR" />
+            </w:rPr>
+            <w:t>
+              <xsl:value-of select="." />
+            </w:t>
+          </w:r>
+        </w:p>
+      </ns0:layerId>
+    </w:tc>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:interlayerCount">
     <ns0:interlayerCount>
@@ -1535,7 +1956,11 @@
       <w:r wsp:rsidR="00022A31">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:interlayerCount>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:view_palletsolution_front">
@@ -1547,15 +1972,13 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <w:binData w:name="wordml://01000009.gif">
-            <xsl:value-of select="." />
-          </w:binData>
-          <v:shape id="_x0000_i1033" type="#_x0000_t83">
-            <xsl:attribute name="style">
-              <xsl:value-of select="@style"/>
-            </xsl:attribute>
-            <v:imagedata src="wordml://01000009.gif" o:title="convert" />
+          <v:shape id="_x0000_i1034" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+            <imageData src="wordml://0100003.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
           </v:shape>
+          <w:binData w:name="wordml://0100003.gif">
+            <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+          </w:binData>
         </w:pict>
       </w:r>
     </ns0:view_palletsolution_front>
@@ -1570,7 +1993,11 @@
       <w:r wsp:rsidR="00022A31">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:efficiency>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:palletHeight">
@@ -1583,7 +2010,11 @@
       <w:r wsp:rsidR="0035512D">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:palletHeight>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:view_palletsolution_left">
@@ -1595,15 +2026,13 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <w:binData w:name="wordml://01000010.gif">
-            <xsl:value-of select="." />
-          </w:binData>
-          <v:shape id="_x0000_i1034" type="#_x0000_t84">
-            <xsl:attribute name="style">
-              <xsl:value-of select="@style"/>
-            </xsl:attribute>
-            <v:imagedata src="wordml://01000010.gif" o:title="convert" />
+          <v:shape id="_x0000_i1035" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+            <imageData src="wordml://0100004.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
           </v:shape>
+          <w:binData w:name="wordml://0100004.gif">
+            <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+          </w:binData>
         </w:pict>
       </w:r>
     </ns0:view_palletsolution_left>
@@ -1617,15 +2046,13 @@
       </xsl:for-each>
       <w:r wsp:rsidR="0003283F">
         <w:pict>
-          <w:binData w:name="wordml://01000011.gif">
-            <xsl:value-of select="." />
-          </w:binData>
-          <v:shape id="_x0000_i1035" type="#_x0000_t85">
-            <xsl:attribute name="style">
-              <xsl:value-of select="@style"/>
-            </xsl:attribute>
-            <v:imagedata src="wordml://01000011.gif" o:title="convert" />
+          <v:shape id="_x0000_i1025" type="#_x0000_t75" style="width:283.5pt;height:283.5pt;mso-position-horizontal:center;mso-position-horizontal-relative:margin;mso-position-vertical:top;mso-position-vertical-relative:margin" o:allowoverlap="f">
+            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+            <imageData src="wordml://0100005.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
           </v:shape>
+          <w:binData w:name="wordml://0100005.gif">
+            <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+          </w:binData>
         </w:pict>
       </w:r>
     </ns0:view_palletsolution_iso>
@@ -1640,7 +2067,11 @@
       <w:r wsp:rsidR="0035512D">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:boxCount>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:palletSolution/ns0:view_palletsolution_back">
@@ -1652,15 +2083,13 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <w:binData w:name="wordml://01000001.gif">
-            <xsl:value-of select="." />
-          </w:binData>
-          <v:shape id="_x0000_i1025" type="#_x0000_t75">
-            <xsl:attribute name="style">
-              <xsl:value-of select="@style"/>
-            </xsl:attribute>
-            <v:imagedata src="wordml://01000001.gif" o:title="convert" />
+          <v:shape id="_x0000_i1037" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+            <imageData src="wordml://0100006.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
           </v:shape>
+          <w:binData w:name="wordml://0100006.gif">
+            <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+          </w:binData>
         </w:pict>
       </w:r>
     </ns0:view_palletsolution_back>
@@ -1674,15 +2103,13 @@
       </xsl:for-each>
       <w:r>
         <w:pict>
-          <w:binData w:name="wordml://01000002.gif">
-            <xsl:value-of select="." />
-          </w:binData>
-          <v:shape id="_x0000_i1026" type="#_x0000_t76">
-            <xsl:attribute name="style">
-              <xsl:value-of select="@style"/>
-            </xsl:attribute>
-            <v:imagedata src="wordml://01000002.gif" o:title="convert" />
+          <v:shape id="_x0000_i1036" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+            <v:imagedata src="wordml://03000001.png" o:title="convert" />
+            <imageData src="wordml://0100007.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
           </v:shape>
+          <w:binData w:name="wordml://0100007.gif">
+            <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+          </w:binData>
         </w:pict>
       </w:r>
     </ns0:view_palletsolution_right>
@@ -1697,7 +2124,11 @@
       <w:r wsp:rsidR="00AF0096" wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:title>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:case">
@@ -1717,7 +2148,11 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Case</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Case</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -1746,7 +2181,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Name</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Name</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1764,7 +2203,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:name" />
             </w:p>
           </w:tc>
@@ -1786,7 +2229,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Description</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Description</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1804,7 +2251,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:description" />
             </w:p>
           </w:tc>
@@ -1826,12 +2277,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Length</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Length</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1848,7 +2307,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:length" />
             </w:p>
           </w:tc>
@@ -1871,12 +2334,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Width</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Width</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1893,7 +2364,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:width" />
             </w:p>
           </w:tc>
@@ -1929,12 +2404,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Height</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Height</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -1951,7 +2434,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:height" />
             </w:p>
           </w:tc>
@@ -1987,12 +2474,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Weight</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (kg)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (kg)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2009,7 +2504,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:weight" />
             </w:p>
           </w:tc>
@@ -2059,15 +2558,38 @@
           </w:pPr>
           <w:r>
             <w:pict>
-              <w:binData w:name="wordml://01000003.gif">
-                <xsl:value-of select="." />
-              </w:binData>
-              <v:shape id="_x0000_i1027" type="#_x0000_t77">
-                <xsl:attribute name="style">
-                  <xsl:value-of select="@style"/>
-                </xsl:attribute>
-                <v:imagedata src="wordml://01000003.gif" o:title="convert" />
+              <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+                <v:stroke joinstyle="miter" />
+                <v:formulas>
+                  <v:f eqn="if lineDrawn pixelLineWidth 0" />
+                  <v:f eqn="sum @0 1 0" />
+                  <v:f eqn="sum 0 0 @1" />
+                  <v:f eqn="prod @2 1 2" />
+                  <v:f eqn="prod @3 21600 pixelWidth" />
+                  <v:f eqn="prod @3 21600 pixelHeight" />
+                  <v:f eqn="sum @0 0 1" />
+                  <v:f eqn="prod @6 1 2" />
+                  <v:f eqn="prod @7 21600 pixelWidth" />
+                  <v:f eqn="sum @8 21600 0" />
+                  <v:f eqn="prod @7 21600 pixelHeight" />
+                  <v:f eqn="sum @10 21600 0" />
+                </v:formulas>
+                <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect" />
+                <o:lock v:ext="edit" aspectratio="t" />
+              </v:shapetype>
+              <w:binData w:name="wordml://03000001.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGFBMVEUAAAAAALAAsACwAACw/7D/
+sLD///////9XSiD5AAAACHRSTlP/////////AN6DvVkAAAABYktHRAZhZrh9AAAADGNtUFBKQ21w
+MDcxMgAAAAdPbbelAAAAVElEQVQY02MohwKG8nJ2KKMgoFxQHMRgDWYvSwQyCkKDDcoL08EibCA5
+kJr08sI0kC42oB6QFAgUlEMZLOwQRoGLAoTB4qLEDhNJh6phg+mCaQcCALN5MTERx2mgAAAAAElF
+TkSuQmCC
+</w:binData>
+              <v:shape id="_x0000_i1031" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <imageData src="wordml://0100008.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
               </v:shape>
+              <w:binData w:name="wordml://0100008.gif">
+                <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+              </w:binData>
             </w:pict>
           </w:r>
         </w:p>
@@ -2091,7 +2613,11 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Interlayer</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Interlayer</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -2120,7 +2646,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Name</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Name</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2138,7 +2668,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:name" />
             </w:p>
           </w:tc>
@@ -2160,7 +2694,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Description</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Description</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2178,7 +2716,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:description" />
             </w:p>
           </w:tc>
@@ -2200,12 +2742,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Length</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Length</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2222,7 +2772,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:length" />
             </w:p>
           </w:tc>
@@ -2245,12 +2799,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Width</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Width</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2267,7 +2829,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:width" />
             </w:p>
           </w:tc>
@@ -2303,12 +2869,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Thickness</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Thickness</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2325,7 +2899,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:thickness" />
             </w:p>
           </w:tc>
@@ -2361,12 +2939,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Weight</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (kg)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (kg)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2383,7 +2969,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:weight" />
             </w:p>
           </w:tc>
@@ -2422,7 +3012,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:thickness>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:interlayer/ns0:view_interlayer_iso">
@@ -2446,15 +3040,13 @@
           </w:pPr>
           <w:r>
             <w:pict>
-              <w:binData w:name="wordml://01000004.gif">
-                <xsl:value-of select="." />
-              </w:binData>
-              <v:shape id="_x0000_i1028" type="#_x0000_t78">
-                <xsl:attribute name="style">
-                  <xsl:value-of select="@style"/>
-                </xsl:attribute>
-                <v:imagedata src="wordml://01000004.gif" o:title="convert" />
+              <v:shape id="_x0000_i1033" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <imageData src="wordml://0100009.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
               </v:shape>
+              <w:binData w:name="wordml://0100009.gif">
+                <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+              </w:binData>
             </w:pict>
           </w:r>
         </w:p>
@@ -2478,11 +3070,19 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Constraint</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Constraint</xsl:text>
+          </w:t>
+        </w:r>
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> set</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text> set</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -2515,7 +3115,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Overhang</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Overhang</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2532,7 +3136,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>X</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>X</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2549,7 +3157,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:overhangX" />
             </w:p>
           </w:tc>
@@ -2567,7 +3179,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2584,7 +3200,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Y</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Y</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2601,7 +3221,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:overhangY" />
             </w:p>
           </w:tc>
@@ -2619,7 +3243,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -2640,12 +3268,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Allowed</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Allowed</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> case axis</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> case axis</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2663,7 +3299,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:allowedOrthoAxis" />
             </w:p>
           </w:tc>
@@ -2685,27 +3325,49 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Allow</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Allow</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>aligned</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>aligned</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>layers</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>layers</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2723,7 +3385,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:allowAlignedLayers" />
             </w:p>
           </w:tc>
@@ -2745,27 +3411,49 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Allow</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Allow</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>alternate</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>alternate</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>layers</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>layers</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2783,7 +3471,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:allowAlternateLayers" />
             </w:p>
           </w:tc>
@@ -2805,12 +3497,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Allowed</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Allowed</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> layer patterns</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> layer patterns</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2828,7 +3528,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:allowedPatterns" />
             </w:p>
           </w:tc>
@@ -2850,7 +3554,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Interlayer</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Interlayer</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2868,16 +3576,29 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Every</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Every</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:interlayerPeriod" />
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> layer</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> layer</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2912,37 +3633,66 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Stop </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Stop </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>stacking</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>stacking</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>criterion</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>criterion</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidR="0035512D">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>(</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>(</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>s</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>s</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidR="0035512D">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -2977,22 +3727,39 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Maximum </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Maximum </xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>pallet</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>pallet</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Weight</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3010,7 +3777,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:maximumPalletWeight" />
             </w:p>
           </w:tc>
@@ -3029,7 +3800,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>kg</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>kg</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -3050,22 +3825,39 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Maximum </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Maximum </xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>pallet</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>pallet</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Height</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Height</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3083,7 +3875,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:maximumHeight" />
             </w:p>
           </w:tc>
@@ -3102,7 +3898,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -3123,17 +3923,29 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Maximum </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Maximum </xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>number</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>number</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> of items</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> of items</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3151,7 +3963,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:maximumNumberOfItems" />
             </w:p>
           </w:tc>
@@ -3173,17 +3989,29 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Maximum </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Maximum </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00D06983">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>weight</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00D06983">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> on box</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> on box</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3201,7 +4029,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:admissibleLoadOnTop" />
             </w:p>
           </w:tc>
@@ -3220,7 +4052,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>kg</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>kg</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -3244,7 +4080,11 @@
       <w:r wsp:rsidR="00AF0096" wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:admissibleLoadOnTop>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:maximumPalletWeight">
@@ -3257,7 +4097,11 @@
       <w:r wsp:rsidR="0035512D">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:maximumPalletWeight>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:allowedPatterns">
@@ -3270,7 +4114,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:allowedPatterns>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:allowAlignedLayers">
@@ -3283,7 +4131,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:allowAlignedLayers>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:overhangX">
@@ -3296,7 +4148,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:overhangX>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:interlayerPeriod">
@@ -3309,7 +4165,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:interlayerPeriod>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:maximumNumberOfItems">
@@ -3322,7 +4182,11 @@
       <w:r wsp:rsidR="0035512D">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:maximumNumberOfItems>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:maximumHeight">
@@ -3335,7 +4199,11 @@
       <w:r wsp:rsidR="0035512D">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:maximumHeight>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:allowAlternateLayers">
@@ -3348,7 +4216,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:allowAlternateLayers>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:overhangY">
@@ -3361,7 +4233,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:overhangY>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:constraintSet/ns0:allowedOrthoAxis">
@@ -3374,7 +4250,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:allowedOrthoAxis>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:pallet">
@@ -3394,7 +4274,11 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Pallet</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Pallet</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -3423,7 +4307,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Name</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Name</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3441,7 +4329,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:name" />
             </w:p>
           </w:tc>
@@ -3463,7 +4355,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Description</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Description</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3481,7 +4377,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:description" />
             </w:p>
           </w:tc>
@@ -3503,7 +4403,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Type</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Type</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3520,7 +4424,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:type" />
             </w:p>
           </w:tc>
@@ -3543,12 +4451,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Length</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Length</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3565,7 +4481,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:length" />
             </w:p>
           </w:tc>
@@ -3601,12 +4521,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Width</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Width</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3623,7 +4551,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:width" />
             </w:p>
           </w:tc>
@@ -3659,12 +4591,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Height</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Height</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (mm)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (mm)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3681,11 +4621,20 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>:</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>:</xsl:text>
+                </w:t>
+              </w:r>
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:height" />
             </w:p>
           </w:tc>
@@ -3721,12 +4670,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Weight</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (kg)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (kg)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3743,7 +4700,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:weight" />
             </w:p>
           </w:tc>
@@ -3779,27 +4740,48 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Admissible </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Admissible </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>load</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>load</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>weight</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> (kg)</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> (kg)</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -3816,7 +4798,11 @@
               <w:r wsp:rsidRPr="00503A9E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:admissibleLoad" />
             </w:p>
           </w:tc>
@@ -3855,7 +4841,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:type>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:admissibleLoad">
@@ -3868,7 +4858,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:admissibleLoad>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:view_pallet_iso">
@@ -3892,15 +4886,13 @@
           </w:pPr>
           <w:r>
             <w:pict>
-              <w:binData w:name="wordml://01000005.gif">
-                <xsl:value-of select="." />
-              </w:binData>
-              <v:shape id="_x0000_i1029" type="#_x0000_t79">
-                <xsl:attribute name="style">
-                  <xsl:value-of select="@style"/>
-                </xsl:attribute>
-                <v:imagedata src="wordml://01000005.gif" o:title="convert" />
+              <v:shape id="_x0000_i1032" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+                <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                <imageData src="wordml://01000010.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
               </v:shape>
+              <w:binData w:name="wordml://01000010.gif">
+                <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+              </w:binData>
             </w:pict>
           </w:r>
         </w:p>
@@ -3917,7 +4909,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:author>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis">
@@ -3937,11 +4933,19 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Truck </xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Truck </xsl:text>
+          </w:t>
+        </w:r>
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>analysis</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>analysis</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:p wsp:rsidR="00F168E5" wsp:rsidRDefault="00F168E5" wsp:rsidP="00F168E5">
         <w:pPr>
@@ -3985,7 +4989,11 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Truck</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Truck</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -4030,7 +5038,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Name</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Name</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4053,7 +5065,11 @@
               <w:r wsp:rsidRPr="004E3F97">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:name" />
             </w:p>
           </w:tc>
@@ -4083,7 +5099,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Description</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Description</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4106,7 +5126,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:description" />
             </w:p>
           </w:tc>
@@ -4136,7 +5160,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Length</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Length</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4158,7 +5186,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:length" />
             </w:p>
           </w:tc>
@@ -4181,7 +5213,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4210,7 +5246,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Width</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Width</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4232,7 +5272,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:width" />
             </w:p>
           </w:tc>
@@ -4255,7 +5299,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4284,7 +5332,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Height</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Height</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4306,7 +5358,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:height" />
             </w:p>
           </w:tc>
@@ -4329,7 +5385,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>mm</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>mm</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4358,12 +5418,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Admissible </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Admissible </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="0079777A">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>load</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>load</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4385,7 +5453,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:admissibleLoad" />
             </w:p>
           </w:tc>
@@ -4408,7 +5480,11 @@
               <w:r>
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>kg</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>kg</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4433,7 +5509,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:height>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truck/ns0:view_truck_iso">
@@ -4482,15 +5562,13 @@
             </w:pPr>
             <w:r>
               <w:pict>
-                <w:binData w:name="wordml://01000006.gif">
-                  <xsl:value-of select="." />
-                </w:binData>
-                <v:shape id="_x0000_i1030" type="#_x0000_t80">
-                  <xsl:attribute name="style">
-                    <xsl:value-of select="@style"/>
-                  </xsl:attribute>
-                  <v:imagedata src="wordml://01000006.gif" o:title="convert" />
+                <v:shape id="_x0000_i1029" type="#_x0000_t75" style="width:84.75pt;height:84.75pt">
+                  <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                  <imageData src="wordml://01000011.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
                 </v:shape>
+                <w:binData w:name="wordml://01000011.gif">
+                  <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+                </w:binData>
               </w:pict>
             </w:r>
           </w:p>
@@ -4508,7 +5586,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:admissibleLoad>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truck/ns0:name">
@@ -4521,7 +5603,11 @@
       <w:r wsp:rsidRPr="004E3F97">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:name>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truck/ns0:description">
@@ -4534,7 +5620,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:description>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truck/ns0:width">
@@ -4547,7 +5637,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:width>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truck/ns0:length">
@@ -4560,7 +5654,11 @@
       <w:r>
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:length>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution">
@@ -4580,11 +5678,19 @@
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text>Selected</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text>Selected</xsl:text>
+          </w:t>
+        </w:r>
         <w:r>
           <w:rPr>
             <w:lang w:val="FR" />
-          </w:rPr> <w:t><xsl:text> solution</xsl:text></w:t></w:r>
+          </w:rPr>
+          <w:t>
+            <xsl:text> solution</xsl:text>
+          </w:t>
+        </w:r>
       </w:p>
       <w:tbl>
         <w:tblPr>
@@ -4612,7 +5718,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Title</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Title</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4629,7 +5739,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:title" />
             </w:p>
           </w:tc>
@@ -4650,12 +5764,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Pallet</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Pallet</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="004A08D3">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> count</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text> count</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4672,7 +5794,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:palletcount" />
             </w:p>
           </w:tc>
@@ -4693,7 +5819,11 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Case count</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Case count</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4710,7 +5840,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:boxCount" />
             </w:p>
           </w:tc>
@@ -4731,17 +5865,30 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Load</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Load</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="004A08D3">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="004A08D3">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>weight</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>weight</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4757,7 +5904,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:loadWeight" />
             </w:p>
           </w:tc>
@@ -4774,7 +5925,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>kg</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>kg</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4794,17 +5949,30 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Load</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Load</xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="004A08D3">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text> </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>
+                  </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="004A08D3">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>efficiency</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>efficiency</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4820,7 +5988,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:loadEfficiency" />
             </w:p>
           </w:tc>
@@ -4837,7 +6009,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>%</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>%</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4857,12 +6033,20 @@
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>Volume </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Volume </xsl:text>
+                </w:t>
+              </w:r>
               <w:r wsp:rsidRPr="004A08D3">
                 <w:rPr>
                   <w:b />
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>efficiency</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>efficiency</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
           <w:tc>
@@ -4878,7 +6062,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>: </xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>: </xsl:text>
+                </w:t>
+              </w:r>
               <xsl:apply-templates select="ns0:volumeEfficiency" />
             </w:p>
           </w:tc>
@@ -4895,7 +6083,11 @@
               <w:r wsp:rsidRPr="005C428E">
                 <w:rPr>
                   <w:lang w:val="FR" />
-                </w:rPr> <w:t><xsl:text>%</xsl:text></w:t></w:r>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>%</xsl:text>
+                </w:t>
+              </w:r>
             </w:p>
           </w:tc>
         </w:tr>
@@ -4920,7 +6112,11 @@
       <w:r wsp:rsidRPr="005C428E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:loadEfficiency>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution/ns0:title">
@@ -4933,7 +6129,11 @@
       <w:r wsp:rsidRPr="005C428E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:title>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution/ns0:loadWeight">
@@ -4946,7 +6146,11 @@
       <w:r wsp:rsidRPr="005C428E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:loadWeight>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution/ns0:boxCount">
@@ -4959,7 +6163,11 @@
       <w:r wsp:rsidRPr="005C428E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:boxCount>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution/ns0:palletcount">
@@ -4972,7 +6180,11 @@
       <w:r wsp:rsidRPr="005C428E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:palletcount>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution/ns0:volumeEfficiency">
@@ -4985,7 +6197,11 @@
       <w:r wsp:rsidRPr="005C428E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:volumeEfficiency>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:truckAnalysis/ns0:truckSolution/ns0:view_trucksolution_top">
@@ -5009,15 +6225,13 @@
             </w:pPr>
             <w:r>
               <w:pict>
-                <w:binData w:name="wordml://01000007.gif">
-                  <xsl:value-of select="." />
-                </w:binData>
-                <v:shape id="_x0000_i1031" type="#_x0000_t81">
-                  <xsl:attribute name="style">
-                    <xsl:value-of select="@style"/>
-                  </xsl:attribute>
-                  <v:imagedata src="wordml://01000007.gif" o:title="convert" />
+                <v:shape id="_x0000_i1026" type="#_x0000_t75" style="width:283.5pt;height:283.5pt">
+                  <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                  <imageData src="wordml://01000012.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
                 </v:shape>
+                <w:binData w:name="wordml://01000012.gif">
+                  <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+                </w:binData>
               </w:pict>
             </w:r>
           </w:p>
@@ -5046,15 +6260,13 @@
             </w:pPr>
             <w:r>
               <w:pict>
-                <w:binData w:name="wordml://01000008.gif">
-                  <xsl:value-of select="." />
-                </w:binData>
-                <v:shape id="_x0000_i1032" type="#_x0000_t82">
-                  <xsl:attribute name="style">
-                    <xsl:value-of select="@style"/>
-                  </xsl:attribute>
-                  <v:imagedata src="wordml://01000008.gif" o:title="convert" />
+                <v:shape id="_x0000_i1030" type="#_x0000_t75" style="width:283.5pt;height:283.5pt">
+                  <v:imagedata src="wordml://03000001.png" o:title="convert" />
+                  <imageData src="wordml://01000013.gif" o:title="convert" xmlns="urn:schemas-microsoft-com:vml" />
                 </v:shape>
+                <w:binData w:name="wordml://01000013.gif">
+                  <value-of select="." xmlns="http://www.w3.org/1999/XSL/Transform" />
+                </w:binData>
               </w:pict>
             </w:r>
           </w:p>
@@ -5072,7 +6284,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:width>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:weight|/ns0:report/ns0:palletAnalysis/ns0:case/ns0:weight|/ns0:report/ns0:palletAnalysis/ns0:interlayer/ns0:weight">
@@ -5085,7 +6301,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:weight>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:name|/ns0:report/ns0:palletAnalysis/ns0:interlayer/ns0:name|/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:name|/ns0:report/ns0:palletAnalysis/ns0:name|/ns0:report/ns0:palletAnalysis/ns0:case/ns0:name">
@@ -5098,7 +6318,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:name>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:description|/ns0:report/ns0:description|/ns0:report/ns0:palletAnalysis/ns0:interlayer/ns0:description|/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:description|/ns0:report/ns0:palletAnalysis/ns0:case/ns0:description">
@@ -5111,7 +6335,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:description>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:height|/ns0:report/ns0:palletAnalysis/ns0:case/ns0:height">
@@ -5124,7 +6352,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:height>
   </xsl:template>
   <xsl:template match="/ns0:report/ns0:palletAnalysis/ns0:case/ns0:length|/ns0:report/ns0:palletAnalysis/ns0:interlayer/ns0:length|/ns0:report/ns0:palletAnalysis/ns0:pallet/ns0:length">
@@ -5137,7 +6369,11 @@
       <w:r wsp:rsidRPr="00503A9E">
         <w:rPr>
           <w:lang w:val="FR" />
-        </w:rPr> <w:t><xsl:value-of select="." /></w:t></w:r>
+        </w:rPr>
+        <w:t>
+          <xsl:value-of select="." />
+        </w:t>
+      </w:r>
     </ns0:length>
   </xsl:template>
 </xsl:stylesheet>

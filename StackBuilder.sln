@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.BoxelOrderer.Test", "Test\TreeDim.Stackbuilder.Graphics.BoxelOrderer.Test\TreeDim.StackBuilder.Graphics.BoxelOrderer.Test.csproj", "{70C5EAF0-C268-4395-9CF6-115DFB502236}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Reporting.XsltGenerator", "TreeDim.StackBuilder.Reporting.XsltGenerator\TreeDim.StackBuilder.Reporting.XsltGenerator.csproj", "{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -188,6 +190,16 @@ Global
 		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{70C5EAF0-C268-4395-9CF6-115DFB502236}.Release|x86.ActiveCfg = Release|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

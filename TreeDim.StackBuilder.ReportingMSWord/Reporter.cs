@@ -233,6 +233,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             graphics.CameraPosition = Graphics3D.Corner_0;
             Pallet pallet = new Pallet(palletProp);
             pallet.Draw(graphics, Transform3D.Identity);
+            graphics.AddDimensions(new DimensionCube(palletProp.Length, palletProp.Width, palletProp.Height));
             graphics.Flush();
             // ---
             // view_pallet_iso
@@ -288,6 +289,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProp);
             graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
             graphics.Flush();
             // ---
             // view_case_iso
@@ -334,6 +336,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, bundleProp);
             graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube(bundleProp.Length, bundleProp.Width, bundleProp.Height));
             graphics.Flush();
             // ---
             // view_bundle_iso
@@ -492,12 +495,12 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             { 
             }
             // --- layer images
-            XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
+            //XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
             for (int i = 0; i < (sol.HasHomogeneousLayers ? 1 : 2); ++i)
             {
                 XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
                 // layerId
-                XmlElement xmlLayerId = xmlDoc.CreateElement("Id", ns);
+                XmlElement xmlLayerId = xmlDoc.CreateElement("layerId", ns);
                 xmlLayerId.InnerText = string.Format("{0}", i + 1);
                 elemLayer.AppendChild(xmlLayerId);
 
@@ -511,7 +514,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 sv.DrawLayers(graphics, true, i /* layer index*/);
                 // ---
                 // layerImage
-                XmlElement elemLayerImage = xmlDoc.CreateElement("layerImage");
+                XmlElement elemLayerImage = xmlDoc.CreateElement("layerImage", ns);
                 TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
                 elemLayerImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
                 XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
@@ -519,13 +522,13 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 elemLayerImage.Attributes.Append(styleAttribute);
                 elemLayer.AppendChild(elemLayerImage);
                 // layerBoxCount
-                XmlElement elemLayerBoxCount = xmlDoc.CreateElement("layerBoxCount");
+                XmlElement elemLayerBoxCount = xmlDoc.CreateElement("layerBoxCount", ns);
                 elemLayerBoxCount.InnerText = "0";
                 elemLayer.AppendChild(elemLayerBoxCount);
 
-                elemLayers.AppendChild(elemLayer);
+                elemSolution.AppendChild(elemLayer);
             }
-            elemSolution.AppendChild(elemLayers);
+            //elemSolution.AppendChild(elemLayers);
 
             // --- pallet images
             for (int i = 0; i < 5; ++i)
@@ -534,10 +537,11 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
                 int imageWidth = 128;
+                bool showDimensions = false;
                 switch (i)
                 {
                 case 0:
-                    viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256;
+                    viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256; 
                     break;
                 case 1:
                     viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = 256;
@@ -549,7 +553,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                     viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = 256;
                     break;
                 case 4:
-                    viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768;
+                    viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; showDimensions = true;
                     break;
                 default:
                     break;
@@ -560,6 +564,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 graphics.CameraPosition = cameraPos;
                 // instantiate solution viewer
                 SolutionViewer sv = new SolutionViewer(analysis, sol);
+                sv.ShowDimensions = showDimensions;
                 sv.Draw(graphics);
                 // ---
                 XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);

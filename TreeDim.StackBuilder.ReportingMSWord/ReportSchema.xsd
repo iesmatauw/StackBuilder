@@ -103,7 +103,7 @@
                     <xs:element name="view_palletsolution_right" type="xs:string"/>
                     <xs:element name="view_palletsolution_back" type="xs:string"/>
                     <xs:element name="view_palletsolution_iso" type="xs:string"/>
-                    <xs:element name="layers" minOccurs="1" maxOccurs="1">
+                    <xs:element name="layer" minOccurs="1" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="layerId" type="xs:string"/>

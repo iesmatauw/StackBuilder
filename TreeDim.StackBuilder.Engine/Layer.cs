@@ -50,10 +50,15 @@ namespace TreeDim.StackBuilder.Engine
             Initialize(boxProperties);
         }
 
-        public Layer(Solution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet)
+        public Layer(Solution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet, int orientation)
         {
-            _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
-            _palletLength = truckProperties.Length;
+            switch (orientation)
+            {
+                case 0: _axisOrtho = HalfAxis.HAxis.AXIS_Z_P; break;
+                case 1: _axisOrtho = HalfAxis.HAxis.AXIS_Z_N; break;
+                default: _axisOrtho = HalfAxis.HAxis.AXIS_Z_P; break;
+            }
+			_palletLength = truckProperties.Length;
             _palletWidth = truckProperties.Width;
             Initialize(sol);
         }
@@ -125,9 +130,21 @@ namespace TreeDim.StackBuilder.Engine
 
         private void Initialize(Solution sol)
         {
-            _boxLength = sol.PalletLength(sol.Analysis);
-            _boxWidth = sol.PalletWidth(sol.Analysis);
-            _boxHeight = sol.PalletHeight(sol.Analysis);
+            switch (_axisOrtho)
+            {
+                case HalfAxis.HAxis.AXIS_Z_N:
+                    _boxLength = sol.PalletWidth(sol.Analysis);
+                    _boxWidth = sol.PalletLength(sol.Analysis);
+                    _boxHeight = sol.PalletHeight(sol.Analysis);
+                    break;
+                case HalfAxis.HAxis.AXIS_Z_P:
+                    _boxLength = sol.PalletLength(sol.Analysis);
+                    _boxWidth = sol.PalletWidth(sol.Analysis);
+                    _boxHeight = sol.PalletHeight(sol.Analysis);
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
 

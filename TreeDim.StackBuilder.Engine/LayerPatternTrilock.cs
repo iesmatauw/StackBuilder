@@ -32,6 +32,9 @@ namespace TreeDim.StackBuilder.Engine
 
             actualLength = Math.Max(sizeX_area2 * boxLength, sizeX_area1 * boxWidth + sizeX_area3 * boxLength);
             actualWidth = Math.Max(sizeY_area1 * boxLength, sizeY_area3 * boxWidth) + sizeY_area2 * boxWidth;
+
+            Debug.Assert(actualLength <= palletLength);
+            Debug.Assert(actualWidth <= palletWidth);
         }
 
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
@@ -84,7 +87,7 @@ namespace TreeDim.StackBuilder.Engine
                     AddPosition(layer
                         , new Vector2D(
                             offsetX + i * (boxLength + spaceX_area2)
-                            , actualWidth - offsetY + (j - sizeY_area2) * (boxWidth + spaceY_area2) )
+                            , actualWidth + offsetY + (j - sizeY_area2) * (boxWidth + spaceY_area2) )
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // area3
             for (int i = 0; i < sizeX_area3; ++i)

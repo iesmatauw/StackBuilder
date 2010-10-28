@@ -1,7 +1,9 @@
 ﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Sharp3D.Math.Core;
+using log4net;
 
 using TreeDim.StackBuilder.Basics;
 #endregion
@@ -16,6 +18,38 @@ namespace TreeDim.StackBuilder.Engine
             _position = position;
             _lengthAxis = lengthAxis;
             _widthAxis = widthAxis;
+        }
+        #endregion
+
+        #region Static methods
+        public static bool Intersect(LayerPosition p1, LayerPosition p2, double boxLength, double boxWidth)
+        {
+            Vector2D v1Min, v1Max, v2Min, v2Max;
+            p1.MinMax(boxLength, boxWidth, out v1Min, out v1Max);
+            p2.MinMax(boxLength, boxWidth, out v2Min, out v2Max);
+
+            if (v1Max.X <= v2Min.X || v2Max.X <= v1Min.X || v1Max.Y <= v2Min.Y || v2Max.Y <= v1Min.Y)
+                return false;
+            return true;
+        }
+        public void MinMax(double boxLength, double boxWidth, out Vector2D vMin, out Vector2D vMax)
+        {
+            Vector3D[] pts = new Vector3D[4];
+            pts[0] = new Vector3D(_position.X, _position.Y, 0.0);
+            pts[1] = new Vector3D(_position.X, _position.Y, 0.0) + HalfAxis.ToVector3D(_lengthAxis) * boxLength;
+            pts[2] = new Vector3D(_position.X, _position.Y, 0.0) + HalfAxis.ToVector3D(_widthAxis) * boxWidth;
+            pts[3] = new Vector3D(_position.X, _position.Y, 0.0) + HalfAxis.ToVector3D(_lengthAxis) * boxLength + HalfAxis.ToVector3D(_widthAxis) * boxWidth;
+
+            vMin = new Vector2D(double.MaxValue, double.MaxValue);
+            vMax = new Vector2D(double.MinValue, double.MinValue);
+            foreach (Vector3D v in pts)
+            {
+                vMin.X = Math.Min(v.X, vMin.X);
+                vMin.Y = Math.Min(v.Y, vMin.Y);
+                vMax.X = Math.Max(v.X, vMax.X);
+                vMax.Y = Math.Max(v.Y, vMax.Y);
+            }
+ 
         }
         #endregion
 
@@ -38,7 +72,8 @@ namespace TreeDim.StackBuilder.Engine
         private HalfAxis.HAxis _lengthAxis = HalfAxis.HAxis.AXIS_X_P, _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight = 0.0;
         private double _palletLength = 0.0, _palletWidth = 0.0;
-        private Vector3D _vecTransf = Vector3D.Zero; 
+        private Vector3D _vecTransf = Vector3D.Zero;
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
         #endregion
 
         #region Constructor
@@ -166,6 +201,17 @@ namespace TreeDim.StackBuilder.Engine
             return true;
         }
 
+        public bool IntersectWithContent(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
+        {
+            LayerPosition posNew = new LayerPosition(new Vector3D(vPosition.X, vPosition.Y, 0.0), lengthAxis, widthAxis);
+            foreach (LayerPosition pos in this)
+            {
+                if (LayerPosition.Intersect(pos, posNew, _boxLength, _boxWidth))
+                    return true;
+            }
+            return false;
+        }
+
         public void AddPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             // build 4D matrix
@@ -186,6 +232,18 @@ namespace TreeDim.StackBuilder.Engine
             Transform3D localTransfInv = localTransf.Inverse();
             Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(_vecTransf));
 
+            Vector3D vPos = originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
+/*
+            if (IntersectWithContent(
+                new Vector2D(vPos.X, vPos.Y)
+                , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))
+                , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_widthAxis)))
+                ))
+            {
+                _log.Warn("Attempt to add a position that intersect with previouly inserted positions");
+                return;
+            }
+*/ 
             LayerPosition layerPos = new LayerPosition(
                 originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))

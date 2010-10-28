@@ -218,7 +218,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // allowed patterns
                 foreach (string s in form.AllowedPatterns)
                     constraintSet.SetAllowedPattern(s);
-                // allow alternate layer
+                // allow aligned / alternate layer
                 constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
                 constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
                 // stop criterion
@@ -239,6 +239,106 @@ namespace TreeDim.StackBuilder.Desktop
                     , new Solver());
             }                
             return null;
+        }
+        #endregion
+
+        #region UI item edition
+        public void EditAnalysis(Analysis analysis)
+        {
+            if (analysis.IsBoxAnalysis)
+            {
+                FormNewAnalysis form = new FormNewAnalysis(this, analysis);
+                form.Boxes = Boxes.ToArray();
+                form.Pallets = Pallets.ToArray();
+                form.Interlayers = Interlayers.ToArray();
+
+                // build constraint set
+                ConstraintSetBox constraintSet = analysis.ConstraintSet as ConstraintSetBox;
+
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    // analysis name / description
+                    analysis.Name = form.AnalysisName;
+                    analysis.Description = form.AnalysisDescription;
+                    // box / applet / interlayer
+                    analysis.BProperties = form.SelectedBox;
+                    analysis.PalletProperties = form.SelectedPallet;
+                    analysis.InterlayerProperties = form.SelectedInterlayer;
+                    // overhang / underhang
+                    constraintSet.OverhangX = form.OverhangX;
+                    constraintSet.OverhangY = form.OverhangY;
+                    // allowed axes
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
+                    // allowed patterns
+                    constraintSet.ClearAllowedPatterns();
+                    foreach (string s in form.AllowedPatterns)
+                        constraintSet.SetAllowedPattern(s);
+                    // allow alternate layer
+                    constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                    constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                    // interlayers
+                    constraintSet.HasInterlayer = form.HasInterlayers;
+                    constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                    // stop criterion
+                    constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
+                    constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                    constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                    constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
+                    constraintSet.MaximumHeight = form.MaximumPalletHeight;
+                    constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
+                    constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                    constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
+                    // number of solution kept
+                    constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
+                    if (form.UseNumberOfSolutionsKept)
+                        constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+                }
+            }
+            else if (analysis.IsBundleAnalysis)
+            {
+                FormNewAnalysisBundle form = new FormNewAnalysisBundle(this, analysis);
+                form.Boxes = Bundles.ToArray();
+                form.Pallets = Pallets.ToArray();
+
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    // analysis name / description
+                    analysis.Name = form.AnalysisName;
+                    analysis.Description = form.AnalysisDescription;
+                    // analysis bundle / pallet
+                    analysis.BProperties = form.SelectedBundle;
+                    analysis.PalletProperties = form.SelectedPallet;
+                    // build constraintSet
+                    ConstraintSetBundle constraintSet = analysis.ConstraintSet as ConstraintSetBundle;
+                    // overhang / underhang
+                    constraintSet.OverhangX = form.OverhangX;
+                    constraintSet.OverhangY = form.OverhangY;
+                    // allowed patterns
+                    foreach (string s in form.AllowedPatterns)
+                        constraintSet.SetAllowedPattern(s);
+                    // allow aligned / alternate layer
+                    constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                    constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                    // stop criterion
+                    constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
+                    constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                    constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                    constraintSet.MaximumHeight = form.MaximumPalletHeight;
+                    constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
+                    constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                    // number of solution kept
+                    constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
+                    if (form.UseNumberOfSolutionsKept)
+                        constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+                }
+            }
+
+            analysis.OnEndUpdate(null);
         }
         #endregion
     }

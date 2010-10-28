@@ -91,28 +91,74 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                // name / description
+                if (null != _analysis)
+                {
+                    tbName.Text = _analysis.Name;
+                    tbDescription.Text = _analysis.Description;
+                }
                 // fill boxes combo
                 foreach (BProperties bundle in _bundles)
                     cbBox.Items.Add(new BoxItem(bundle));
                 if (cbBox.Items.Count > 0)
-                    cbBox.SelectedIndex = 0;
+                {
+                    if (null == _analysis)
+                        cbBox.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 0; i < cbBox.Items.Count; ++i)
+                        {
+                            BoxItem boxItem = cbBox.Items[i] as BoxItem;
+                            if (boxItem.Item == _analysis.BProperties)
+                            {
+                                cbBox.SelectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
                 // fill pallet combo
                 foreach (PalletProperties pallet in _palletProperties)
                     cbPallet.Items.Add(new PalletItem(pallet));
                 if (cbPallet.Items.Count > 0)
-                    cbPallet.SelectedIndex = 0;
+                {
+                    if (null == _analysis)
+                        cbPallet.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 0; i < cbPallet.Items.Count; ++i)
+                        {
+                            PalletItem palletItem = cbPallet.Items[i] as PalletItem;
+                            if (palletItem.Item == _analysis.PalletProperties)
+                            {
+                                cbPallet.SelectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
 
                 // alternate / aligned layers
-                AllowAlignedLayers = Settings.Default.AllowAlignedLayer;
-                AllowAlternateLayers = Settings.Default.AllowAlternateLayer;
-
-                // stop stacking criterion
-                UseMaximumNumberOfBoxes = false;
-                UseMaximumPalletHeight = true;
-                UseMaximumPalletWeight = true;
-                MaximumNumberOfBoxes = 500;
-                MaximumPalletHeight = 1500.0;
-                MaximumPalletWeight = 1000.0;
+                if (null == _analysis)
+                {
+                    AllowAlignedLayers = Settings.Default.AllowAlignedLayer;
+                    AllowAlternateLayers = Settings.Default.AllowAlternateLayer;
+                    UseMaximumNumberOfBoxes = false;
+                    UseMaximumPalletHeight = true;
+                    UseMaximumPalletWeight = true;
+                }
+                else
+                {
+                    AllowAlignedLayers = _analysis.ConstraintSet.AllowAlignedLayers; ;
+                    AllowAlternateLayers = _analysis.ConstraintSet.AllowAlternateLayers;
+                    UseMaximumNumberOfBoxes = _analysis.ConstraintSet.UseMaximumNumberOfItems;
+                    UseMaximumPalletHeight = _analysis.ConstraintSet.UseMaximumHeight;
+                    UseMaximumPalletWeight = _analysis.ConstraintSet.UseMaximumPalletWeight;
+                    // stop stacking criterion
+                    MaximumNumberOfBoxes = _analysis.ConstraintSet.MaximumNumberOfItems;
+                    MaximumPalletHeight = _analysis.ConstraintSet.MaximumHeight;
+                    MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
+                }
 
                 // check all patterns
                 string allowedPatterns = Settings.Default.AllowedPatterns;
@@ -130,8 +176,16 @@ namespace TreeDim.StackBuilder.Desktop
                         checkedListBoxPatterns.SetItemChecked(i, true);
 
                 // keep best solutions
-                UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
-                NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;                
+                if (null == _analysis)
+                {
+                    UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
+                    NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;
+                }
+                else
+                {
+                    UseNumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept;
+                    NumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept ? _analysis.ConstraintSet.NumberOfSolutionsKept : Settings.Default.NoSolutionsToKeep;
+                }
 
                 UpdateSolutionsToKeep();
                 UpdateCriterionFields();

@@ -12,11 +12,14 @@ namespace TreeDim.StackBuilder.Graphics
     public class DimensionCube
     {
         #region Data members
-        Vector3D _position;
-        double[] _dim = new double[3];
-        bool[] _showArrow = new bool[3];
-        double offsetPerc = 0.1;
-        Vector3D[] _pts = new Vector3D[8];
+        private Vector3D _position;
+        private double[] _dim = new double[3];
+        private bool[] _showArrow = new bool[3];
+        private double offsetPerc = 0.2;
+        private Vector3D[] _pts = new Vector3D[8];
+        private Color _color = Color.Black;
+        private float _fontSize = 10.0F;
+
         #endregion
 
         #region Constructor
@@ -33,6 +36,17 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _showArrow; }
             set { _showArrow = value; }
+        }
+        public Color Color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
+
+        public float FontSize
+        {
+            get { return _fontSize; }
+            set { _fontSize = value; }
         }
         #endregion
 
@@ -56,13 +70,15 @@ namespace TreeDim.StackBuilder.Graphics
             int[] arrow2 = null;
             ArrowPoints(graphics, out arrow0, out arrow1, out arrow2);
 
+            const double exageration = 1.2;
+
             Vector3D[] pts = new Vector3D[6];
-            pts[0] = _pts[arrow0[0]] + (_pts[arrow0[0]] - _pts[arrow0[2]]) * offsetPerc * 1.1;
-            pts[1] = _pts[arrow0[1]] + (_pts[arrow0[1]] - _pts[arrow0[3]]) * offsetPerc * 1.1;
-            pts[2] = _pts[arrow1[0]] + (_pts[arrow1[0]] - _pts[arrow1[2]]) * offsetPerc * 1.1;
-            pts[3] = _pts[arrow1[1]] + (_pts[arrow1[1]] - _pts[arrow1[3]]) * offsetPerc * 1.1;
-            pts[4] = _pts[arrow2[0]] + (_pts[arrow2[0]] - _pts[arrow2[2]]) * offsetPerc * 1.1;
-            pts[5] = _pts[arrow2[1]] + (_pts[arrow2[1]] - _pts[arrow2[3]]) * offsetPerc * 1.1;
+            pts[0] = _pts[arrow0[0]] + (_pts[arrow0[0]] - _pts[arrow0[2]]) * offsetPerc * exageration;
+            pts[1] = _pts[arrow0[1]] + (_pts[arrow0[1]] - _pts[arrow0[3]]) * offsetPerc * exageration;
+            pts[2] = _pts[arrow1[0]] + (_pts[arrow1[0]] - _pts[arrow1[2]]) * offsetPerc * exageration;
+            pts[3] = _pts[arrow1[1]] + (_pts[arrow1[1]] - _pts[arrow1[3]]) * offsetPerc * exageration;
+            pts[4] = _pts[arrow2[0]] + (_pts[arrow2[0]] - _pts[arrow2[2]]) * offsetPerc * exageration;
+            pts[5] = _pts[arrow2[1]] + (_pts[arrow2[1]] - _pts[arrow2[3]]) * offsetPerc * exageration;
             return pts;
         }
         #endregion
@@ -124,11 +140,11 @@ namespace TreeDim.StackBuilder.Graphics
             Vector3D pt11_ = pt1 + (pt1 - _pts[arrow[3]]) * offsetPerc * 1.1;
 
             string text = string.Format("{0}", (pt1-pt0).GetLength());
-            graphics.Draw(text, 0.5 * (pt1_ + pt0_), Color.Red, 8.0F);
-            graphics.Draw(new Segment(pt0_, pt0_+ (pt1-pt0) * (2.0/5.0), Color.Red));
-            graphics.Draw(new Segment(pt0_ + (pt1 - pt0) * (3.0 / 5.0), pt1_, Color.Red));
-            graphics.Draw(new Segment(pt0, pt00_, Color.Red));
-            graphics.Draw(new Segment(pt1, pt11_, Color.Red));
+            graphics.Draw(text, 0.5 * (pt1_ + pt0_), _color, _fontSize);
+            graphics.Draw(new Segment(pt0_, pt0_ + (pt1 - pt0) * (2.0 / 5.0), _color));
+            graphics.Draw(new Segment(pt0_ + (pt1 - pt0) * (3.0 / 5.0), pt1_, _color));
+            graphics.Draw(new Segment(pt0, pt00_, _color));
+            graphics.Draw(new Segment(pt1, pt11_, _color));
         }
         #endregion
     }

@@ -1157,7 +1157,7 @@ namespace TreeDim.StackBuilder.Basics
             }
             // ###
             // ConstraintSet
-            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(ConstraintSetBox));
+            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(ConstraintSetBundle));
             XmlElement constraintSetElement = xmlDoc.CreateElement(bundleAnalysis ? "ConstraintSetBundle":"ConstraintSetBox");
             XmlAttribute alignedLayersAttribute = xmlDoc.CreateAttribute("AlignedLayersAllowed");
             alignedLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlignedLayers);
@@ -1218,9 +1218,12 @@ namespace TreeDim.StackBuilder.Basics
             overhangY.Value = string.Format("{0}", analysis.ConstraintSet.OverhangY);
             constraintSetElement.Attributes.Append(overhangY);
             // number of solutions to keep
-            XmlAttribute numberOfSolutionsKept = xmlDoc.CreateAttribute("NumberOfSolutions");
-            numberOfSolutionsKept.Value = string.Format("{0}", analysis.ConstraintSet.NumberOfSolutionsKept);
-            constraintSetElement.Attributes.Append(numberOfSolutionsKept);
+            if (analysis.ConstraintSet.UseNumberOfSolutionsKept)
+            {
+                XmlAttribute numberOfSolutionsKept = xmlDoc.CreateAttribute("NumberOfSolutions");
+                numberOfSolutionsKept.Value = string.Format("{0}", analysis.ConstraintSet.NumberOfSolutionsKept);
+                constraintSetElement.Attributes.Append(numberOfSolutionsKept);
+            }
 
             xmlAnalysisElt.AppendChild(constraintSetElement);
             // ###

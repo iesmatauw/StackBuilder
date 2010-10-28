@@ -29,8 +29,9 @@ namespace TreeDim.StackBuilder.Engine.Test
                 // instantiate document
                 Document doc = new Document("Test", "Test", "fga", DateTime.Now, null);
                 // define box properties
-                BoxProperties boxProperties = new BoxProperties(doc, 400, 300, 200);
-                boxProperties.Weight = 1.0;
+                BoxProperties boxProperties = new BoxProperties(doc, 162, 210, 125);
+                boxProperties.Name = "Box1";
+                boxProperties.Weight = 3.0;
                 if (!useSingleColor)
                 {
                     boxProperties.SetColor(HalfAxis.HAxis.AXIS_X_N, Color.Red);
@@ -46,7 +47,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(doc, PalletProperties.PalletType.BLOCK, 1200, 1000, 150);
+                PalletProperties palletProperties = new PalletProperties(doc, PalletProperties.PalletType.BLOCK, 1000, 800, 150);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
@@ -55,21 +56,20 @@ namespace TreeDim.StackBuilder.Engine.Test
                 // define constraints
                 ConstraintSetBox constraintSet = new ConstraintSetBox();
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, false);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, false);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, false);
 
-                //constraintSet.SetAllowedPattern("Column");
-                //constraintSet.SetAllowedPattern("Interlocked");
-                constraintSet.SetAllowedPattern("Spirale");
-                constraintSet.AllowAlignedLayers = false;
-                constraintSet.AllowAlternateLayers = true;
+                constraintSet.SetAllowedPattern("Trilock");
+
+                constraintSet.AllowAlignedLayers = true;
+                constraintSet.AllowAlternateLayers = false;
                 
                 constraintSet.MaximumPalletWeight = 2000;
                 constraintSet.MaximumNumberOfItems = 2000;
-                constraintSet.MaximumHeight = 2000.0;
+                constraintSet.MaximumHeight = 400.0;
                 constraintSet.UseMaximumHeight = true;
                 constraintSet.UseMaximumPalletWeight = true;
                 constraintSet.UseMaximumWeightOnBox = false;

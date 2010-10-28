@@ -114,69 +114,147 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                // name / description
+                if (null != _analysis)
+                {
+                    tbName.Text = _analysis.Name;
+                    tbDescription.Text = _analysis.Description;
+                }
                 // fill boxes combo
                 foreach (BProperties box in _boxes)
                     cbBox.Items.Add(new BoxItem(box));
                 if (cbBox.Items.Count > 0)
-                    cbBox.SelectedIndex = 0;
+                {
+                    if (null == _analysis)
+                        cbBox.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 0; i < cbBox.Items.Count; ++i)
+                        {
+                            BoxItem boxItem = cbBox.Items[i] as BoxItem;
+                            if (boxItem.Item == _analysis.BProperties)
+                            {
+                                cbBox.SelectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
                 // fill pallet combo
                 foreach (PalletProperties pallet in _palletProperties)
                     cbPallet.Items.Add(new PalletItem(pallet));
                 if (cbPallet.Items.Count > 0)
-                    cbPallet.SelectedIndex = 0;
+                {
+                    if (null == _analysis)
+                        cbPallet.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 0; i < cbPallet.Items.Count; ++i)
+                        {
+                            PalletItem palletItem = cbPallet.Items[i] as PalletItem;
+                            if (palletItem.Item == _analysis.PalletProperties)
+                            {
+                                cbPallet.SelectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
                 // fill interlayer combo
                 foreach (InterlayerProperties interlayer in _interlayerProperties)
                     cbInterlayer.Items.Add(new InterlayerItem(interlayer));
                 if (cbInterlayer.Items.Count > 0)
-                    cbInterlayer.SelectedIndex = 0;
+                {
+                    if (null == _analysis)
+                        cbInterlayer.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 0; i < cbInterlayer.Items.Count; ++i)
+                        {
+                            InterlayerItem interlayerItem = cbInterlayer.Items[i] as InterlayerItem;
+                            if (interlayerItem.Item == _analysis.InterlayerProperties)
+                            {
+                                cbInterlayer.SelectedIndex = i;
+                                break;
+                            }
+                        }
+
+                        checkBoxInterlayer.Checked = _analysis.ConstraintSet.HasInterlayer;
+                        checkBoxInterlayer.Enabled = true;
+                    }
+                }
                 else
                 {
                     checkBoxInterlayer.Checked = false;
                     checkBoxInterlayer.Enabled = false;
                 }
 
-                // allowed position box
-                AllowVerticalX = Settings.Default.AllowVerticalX;
-                AllowVerticalY = Settings.Default.AllowVerticalY;
-                AllowVerticalZ = Settings.Default.AllowVerticalZ;
-
-                // alternate / aligned layers
-                AllowAlignedLayers = Settings.Default.AllowAlignedLayer;
-                AllowAlternateLayers = Settings.Default.AllowAlternateLayer;
-
-                // stop stacking criterion
-                UseMaximumNumberOfBoxes = false;
-                UseMaximumPalletHeight = true;
-                UseMaximumPalletWeight = true;
-                UseMaximumLoadOnBox = false;
-                MaximumNumberOfBoxes = 500;
-                MaximumPalletHeight = 1500.0;
-                MaximumPalletWeight = 1000.0;
-                MaximumLoadOnBox = 100.0;
-
-                // check all patterns
-                string allowedPatterns = Settings.Default.AllowedPatterns;
-                int iCountAllowedPatterns = 0;
-                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                // allowed position box + allowed patterns
+                if (null == _analysis)
                 {
-                    string patternName = checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]);
-                    bool patternAllowed = allowedPatterns.Contains(patternName);
-                    checkedListBoxPatterns.SetItemChecked(i, patternAllowed);
-                    if (patternAllowed)
-                        ++iCountAllowedPatterns;
+                    AllowVerticalX = Settings.Default.AllowVerticalX;
+                    AllowVerticalY = Settings.Default.AllowVerticalY;
+                    AllowVerticalZ = Settings.Default.AllowVerticalZ;
+
+                    AllowedPatternsString = Settings.Default.AllowedPatterns;
                 }
-                if (iCountAllowedPatterns == 0)
-                    for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
-                        checkedListBoxPatterns.SetItemChecked(i, true);
+                else
+                {
+                    ConstraintSet constraintSet = _analysis.ConstraintSet;
+                    AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
+                    AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
+                    AllowVerticalZ = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P);
+                    
+                    AllowedPatternsString = constraintSet.AllowedPatternString;
+                }
+
+
+                // alternate / aligned layers + stop stacking criterion
+                if (null == _analysis)
+                {
+                    AllowAlignedLayers = Settings.Default.AllowAlignedLayer;
+                    AllowAlternateLayers = Settings.Default.AllowAlternateLayer;
+
+                    UseMaximumNumberOfBoxes = false;
+                    UseMaximumPalletHeight = true;
+                    UseMaximumPalletWeight = true;
+                    UseMaximumLoadOnBox = false;
+
+                    MaximumNumberOfBoxes = 500;
+                    MaximumPalletHeight = 1500.0;
+                    MaximumPalletWeight = 1000.0;
+                    MaximumLoadOnBox = 100.0;
+                }
+                else
+                { 
+                    AllowAlignedLayers = _analysis.ConstraintSet.AllowAlignedLayers;
+                    AllowAlternateLayers = _analysis.ConstraintSet.AllowAlternateLayers;
+                    UseMaximumNumberOfBoxes = _analysis.ConstraintSet.UseMaximumNumberOfItems;
+                    UseMaximumPalletHeight = _analysis.ConstraintSet.UseMaximumHeight;
+                    UseMaximumPalletWeight = _analysis.ConstraintSet.UseMaximumPalletWeight;
+                    UseMaximumLoadOnBox = _analysis.ConstraintSet.UseMaximumWeightOnBox;
+
+                    MaximumNumberOfBoxes = _analysis.ConstraintSet.MaximumNumberOfItems;
+                    MaximumPalletHeight = _analysis.ConstraintSet.MaximumHeight;
+                    MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
+                    MaximumLoadOnBox = _analysis.ConstraintSet.MaximumWeightOnBox;
+                }
 
                 // keep best solutions
-                UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
-                NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;                
+                if (null == _analysis)
+                {
+                    UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
+                    NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;                
+                }
+                else
+                {
+                    UseNumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept;
+                    NumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept ? _analysis.ConstraintSet.NumberOfSolutionsKept : Settings.Default.NoSolutionsToKeep;
+                }
 
                 UpdateSolutionsToKeep();
                 UpdateCriterionFields();
                 UpdateButtonOkStatus();
-
 
                 // windows settings
                 if (null != Settings.Default.FormNewAnalysisPosition)
@@ -200,11 +278,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.AllowAlignedLayer = AllowAlignedLayers;
                 Settings.Default.AllowAlternateLayer = AllowAlternateLayers;
                 // allowed patterns
-                string allowedPatterns = string.Empty;
-                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
-                    if (checkedListBoxPatterns.GetItemChecked(i))
-                        allowedPatterns += checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]) + ";";
-                Settings.Default.AllowedPatterns = allowedPatterns;
+                Settings.Default.AllowedPatterns = AllowedPatternsString;
                 // keep best solutions
                 Settings.Default.KeepBestSolutions = UseNumberOfSolutionsKept;
                 Settings.Default.NoSolutionsToKeep = NumberOfSolutionsKept;                
@@ -334,6 +408,41 @@ namespace TreeDim.StackBuilder.Desktop
                 return listAllowedPatterns;
             }
         }
+        public string AllowedPatternsString
+        {
+            set
+            {
+                string allowedPatterns = value;
+                int iCountAllowedPatterns = 0;
+                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                {
+                    string patternName = checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]);
+                    bool patternAllowed = allowedPatterns.Contains(patternName);
+                    checkedListBoxPatterns.SetItemChecked(i, patternAllowed);
+                    if (patternAllowed)
+                        ++iCountAllowedPatterns;
+                }
+                if (iCountAllowedPatterns == 0)
+                    for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                        checkedListBoxPatterns.SetItemChecked(i, true);
+/*
+                string s = value.ToLower();
+                for (int index = 0; index < checkedListBoxPatterns.Items.Count; ++index)
+                {
+                    string sItem = checkedListBoxPatterns.Items[index].ToString();
+                    checkedListBoxPatterns.SetItemChecked(index++, s.Contains(sItem.ToLower()));
+                }
+*/ 
+            }
+            get
+            {
+                string allowedPatterns = string.Empty;
+                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                    if (checkedListBoxPatterns.GetItemChecked(i))
+                        allowedPatterns += checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]) + ";";
+                return allowedPatterns;
+            }
+        }
         public bool HasInterlayers
         {
             get { return checkBoxInterlayer.Checked; }
@@ -354,14 +463,15 @@ namespace TreeDim.StackBuilder.Desktop
             get { return checkBoxAllowAlignedLayer.Checked; }
             set { checkBoxAllowAlignedLayer.Checked = value; }
         }
-
         public double OverhangX
         {
             get { return (double)nudPalletOverhangX.Value; }
+            set { nudPalletOverhangX.Value = (decimal)value; }
         }
         public double OverhangY
         {
             get { return (double)nudPalletOverhangY.Value; }
+            set { nudPalletOverhangY.Value = (decimal)value; }
         }
         public bool UseNumberOfSolutionsKept
         {

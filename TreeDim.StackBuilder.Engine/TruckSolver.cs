@@ -54,7 +54,7 @@ namespace TreeDim.StackBuilder.Engine
 
                         BoxLayer boxLayer = new BoxLayer(0.0);
                         foreach (LayerPosition layerPos in layer)
-                            boxLayer.Add(new BoxPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis));
+                            boxLayer.AddPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis);
 
                         sol.Layer = boxLayer;
 

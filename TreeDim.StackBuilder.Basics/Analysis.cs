@@ -11,7 +11,7 @@ namespace TreeDim.StackBuilder.Basics
     public class Analysis : ItemBase
     {
         #region Data members
-        private BProperties _boxProperties;
+        private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
         private ConstraintSet _constraintSet;
@@ -30,7 +30,7 @@ namespace TreeDim.StackBuilder.Basics
                 || (interlayerProperties != null && interlayerProperties.ParentDocument != ParentDocument))
                 throw new Exception();
 
-            _boxProperties = boxProperties;
+            _bProperties = boxProperties;
             _palletProperties = palletProperties;
             _interlayerProperties = interlayerProperties;
             _constraintSet = constraintSet;
@@ -56,8 +56,8 @@ namespace TreeDim.StackBuilder.Basics
 
         public BProperties BProperties
         {
-            get { return _boxProperties; }
-            set { _boxProperties = value; }
+            get { return _bProperties; }
+            set { _bProperties = value; }
         }
 
         public PalletProperties PalletProperties
@@ -125,6 +125,8 @@ namespace TreeDim.StackBuilder.Basics
             if (index < 0 || index > _solutions.Count) return null;  // no solution with this index
             return _selectedSolutions.Find(delegate(SelSolution selSol) { return selSol.Solution == _solutions[index]; });
         }
+        public bool IsBundleAnalysis { get { return _bProperties is BundleProperties; } }
+        public bool IsBoxAnalysis { get { return _bProperties is BoxProperties; } }
         #endregion
 
         #region Dependancies
@@ -137,7 +139,7 @@ namespace TreeDim.StackBuilder.Basics
 
         protected override void RemoveItselfFromDependancies()
         {
-            _boxProperties.RemoveDependancie(this);
+            _bProperties.RemoveDependancie(this);
             _palletProperties.RemoveDependancie(this);
             if (null != _interlayerProperties)
                 _interlayerProperties.RemoveDependancie(this);

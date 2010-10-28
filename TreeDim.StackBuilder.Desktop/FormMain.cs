@@ -94,7 +94,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
         }
 
-
         private IDockContent ReloadContent(string persistString)
         {
             switch (persistString)
@@ -284,7 +283,6 @@ namespace TreeDim.StackBuilder.Desktop
                 else
                     Debug.Assert(false);
             }
-
         }
 
         void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
@@ -321,6 +319,21 @@ namespace TreeDim.StackBuilder.Desktop
                 { 
 
                 }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
+        void DocumentTreeView_MenuEditAnalysis(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+            try
+            {
+                DocumentSB doc = eventArg.Document as DocumentSB;
+                if ((null != doc) && (null != eventArg.Analysis))
+                    doc.EditAnalysis(eventArg.Analysis);
+                CreateOrActivateViewAnalysis(eventArg.Analysis);
             }
             catch (Exception ex)
             {

@@ -118,6 +118,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _axisWidth; }
         }
+        public HalfAxis.HAxis DirectionHeight
+        {
+            get
+            {
+                if (!IsValid)
+                    throw new Exception("Invalid position -> Can not compute DirectionHeight.");
+                return HalfAxis.ToHalfAxis(Vector3D.CrossProduct(HalfAxis.ToVector3D(_axisLength), HalfAxis.ToVector3D(_axisWidth)));
+            }
+        }
+
         public bool IsValid
         {
             get { return _axisLength != _axisWidth; }
@@ -266,6 +276,15 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
         }
+        public double Thickness(BProperties bProperties)
+        {
+            if (Count == 0) return 0.0;
+            BoxPosition bPos = this[0];
+            Vector3D diagonale = bProperties.Length * HalfAxis.ToVector3D(bPos.DirectionLength)
+                                + bProperties.Width * HalfAxis.ToVector3D(bPos.DirectionWidth)
+                                + bProperties.Height * Vector3D.CrossProduct(HalfAxis.ToVector3D(bPos.DirectionLength), HalfAxis.ToVector3D(bPos.DirectionWidth));
+            return Math.Abs(diagonale.Z);            
+        }
         #endregion
     }
     #endregion
@@ -393,7 +412,8 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double PalletHeight(Analysis analysis)
         {
-            return this[Count - 1].ZLow + analysis.BProperties.Height;
+            BoxLayer bLayer = this[Count - 1] as BoxLayer;
+            return this[Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(analysis.BProperties) : 0.0);
         }
         public bool HasHomogeneousLayers
         {

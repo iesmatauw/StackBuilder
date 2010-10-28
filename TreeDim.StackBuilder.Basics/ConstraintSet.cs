@@ -126,6 +126,10 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Allowed patterns
+        public void ClearAllowedPatterns()
+        {
+            _allowedPatterns.Clear();
+        }
         public void SetAllowedPattern(string patternName)
         {
             if (patternName == string.Empty)  return;

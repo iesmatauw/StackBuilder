@@ -87,7 +87,7 @@ namespace TreeDim.StackBuilder.Engine
                     AddPosition(layer
                         , new Vector2D(
                             offsetX + i * (boxLength + spaceX_area2)
-                            , actualWidth + offsetY + (j - sizeY_area2) * (boxWidth + spaceY_area2) )
+                            , actualWidth + offsetY - (j+1) * boxWidth - j * spaceY_area2)
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // area3
             for (int i = 0; i < sizeX_area3; ++i)

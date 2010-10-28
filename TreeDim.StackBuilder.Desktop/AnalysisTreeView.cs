@@ -38,7 +38,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Interlayer);  // 6
                 ImageList.Images.Add(AnalysisTreeView.Truck);       // 7
                 ImageList.Images.Add(AnalysisTreeView.Analysis);    // 8
-                ImageList.Images.Add(AnalysisTreeView.AnalysisBundle);    // 8
+                ImageList.Images.Add(AnalysisTreeView.AnalysisBundle);    // 9
                 ImageList.Images.Add(AnalysisTreeView.Solution);    // 10
                 ImageList.Images.Add(AnalysisTreeView.Word);        // 11
                 // instantiate context menu
@@ -124,7 +124,9 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
             {
-                string message = string.Format("Delete {0}...", nodeTag.Analysis.Name);
+                string message = string.Format("Edit {0}...", nodeTag.Analysis.Name);
+                contextMenu.MenuItems.Add(new MenuItem(message, new EventHandler(onAnalysisEdit)));
+                message = string.Format("Delete {0}...", nodeTag.Analysis.Name);
                 contextMenu.MenuItems.Add(new MenuItem(message, new EventHandler(onAnalysisDelete)));
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
@@ -159,6 +161,15 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;                
                 tag.Document.RemoveItem(tag.ItemProperties);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisEdit(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).EditAnalysis(tag.Analysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }

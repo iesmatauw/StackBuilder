@@ -671,6 +671,16 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void toolAddNewCaseAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                CaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI();
+                if (null != analysis)
+                    CreateOrActivateViewCaseAnalysis(analysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
         #endregion
 
         #region Document / View status change handlers
@@ -726,6 +736,10 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
             formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
+
+        public void CreateOrActivateViewCaseAnalysis(CaseAnalysis analysis)
+        {
+        }
         #endregion
 
         #region Helpers
@@ -762,5 +776,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

@@ -240,6 +240,15 @@ namespace TreeDim.StackBuilder.Desktop
             }                
             return null;
         }
+
+        public CaseAnalysis CreateNewCaseAnalysisUI()
+        {
+            FormNewCaseAnalysis form = new FormNewCaseAnalysis();
+            if (DialogResult.OK == form.ShowDialog())
+            { 
+            }
+            return null;
+        }
         #endregion
 
         #region UI item edition

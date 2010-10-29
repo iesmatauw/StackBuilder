@@ -88,6 +88,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap CaseAnalysis {
+            get {
+                object obj = ResourceManager.GetObject("CaseAnalysis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FileNew {
             get {
                 object obj = ResourceManager.GetObject("FileNew", resourceCulture);

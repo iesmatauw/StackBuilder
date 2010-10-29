@@ -127,6 +127,15 @@
   <data name="lblName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="nudThickness.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 76</value>
+  </data>
+  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 49</value>
+  </data>
   <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 13</value>
   </data>
@@ -150,6 +159,15 @@
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 16</value>
+  </data>
+  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 17</value>
   </data>
   <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 13</value>

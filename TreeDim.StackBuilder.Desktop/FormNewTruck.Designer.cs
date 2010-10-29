@@ -293,7 +293,8 @@
             resources.GetString("cbColor.Items9"),
             resources.GetString("cbColor.Items10"),
             resources.GetString("cbColor.Items11"),
-            resources.GetString("cbColor.Items12")});
+            resources.GetString("cbColor.Items12"),
+            resources.GetString("cbColor.Items13")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -330,6 +331,11 @@
             this.nudAdmissibleLoadWeight.AccessibleName = null;
             resources.ApplyResources(this.nudAdmissibleLoadWeight, "nudAdmissibleLoadWeight");
             this.nudAdmissibleLoadWeight.Font = null;
+            this.nudAdmissibleLoadWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.nudAdmissibleLoadWeight.Name = "nudAdmissibleLoadWeight";
             this.nudAdmissibleLoadWeight.ValueChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 

@@ -155,6 +155,15 @@
   <data name="lbHeight.Text" xml:space="preserve">
     <value>Hauteur</value>
   </data>
+  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 23</value>
+  </data>
+  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 49</value>
+  </data>
+  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 76</value>
+  </data>
   <data name="lbFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -176,9 +185,6 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Haut</value>
   </data>
-  <data name="cbColor.Items9" xml:space="preserve">
-    <value>Color</value>
-  </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleur des faces</value>
   </data>
@@ -191,14 +197,24 @@
   <data name="lbWeight.Text" xml:space="preserve">
     <value>Masse</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbWeightOnTop.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="lbWeightOnTop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 13</value>
+    <value>95, 27</value>
   </data>
   <data name="lbWeightOnTop.Text" xml:space="preserve">
     <value>Poid admissible sur le dessus</value>
+  </data>
+  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 21</value>
+  </data>
+  <data name="nudWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 51</value>
   </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Masse</value>

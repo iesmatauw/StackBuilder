@@ -142,6 +142,24 @@
   <data name="radioButtonTruck1.Text" xml:space="preserve">
     <value>Insérer un camion à partir de la base de données</value>
   </data>
+  <data name="lbMm3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 517</value>
+  </data>
+  <data name="lbMm2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 491</value>
+  </data>
+  <data name="lbMm1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 465</value>
+  </data>
+  <data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
   <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
   </data>
@@ -160,7 +178,7 @@
   <data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
-  <data name="cbColor.Items12" xml:space="preserve">
+  <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
@@ -174,6 +192,12 @@
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Charge admissible</value>
+  </data>
+  <data name="nudAdmissibleLoadWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="lbKg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 544</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Créer un nouveau &amp;Camion</value>

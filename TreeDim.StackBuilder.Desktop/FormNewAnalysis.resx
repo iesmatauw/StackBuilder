@@ -126,9 +126,6 @@
   <data name="&gt;&gt;cbBox.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;nudMaximumPalletWeight.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnAccept.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -152,14 +149,8 @@
   <data name="&gt;&gt;nudMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;nudNumberOfBoxes.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
   <data name="&gt;&gt;lbSolutions.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;nudPalletOverhangX.Parent" xml:space="preserve">
-    <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangWidth.Parent" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
@@ -266,9 +257,6 @@
   <data name="gbAllowedLayerPatterns.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;checkBoxMaximumLoadOnBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
@@ -299,6 +287,9 @@
   <data name="&gt;&gt;nudMaximumPalletHeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;gbAdditionalData.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="nudNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 20</value>
   </data>
@@ -308,9 +299,6 @@
   <data name="checkedListBoxPatterns.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 109</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
   <data name="&gt;&gt;checkBoxAllowAlternateLayer.Parent" xml:space="preserve">
     <value>gbLayerAlignment</value>
   </data>
@@ -319,9 +307,6 @@
   </data>
   <data name="lbMm1.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
-  </data>
-  <data name="&gt;&gt;nudPalletOverhangX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudMaximumLoadOnBox.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -347,8 +332,8 @@
   <data name="&gt;&gt;gbAllowedBoxPositions.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;checkBoxMaximumPalletWeight.Parent" xml:space="preserve">
-    <value>gbStopStackingCondition</value>
+  <data name="nudPalletOverhangX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 20</value>
   </data>
   <data name="lbPalletOverhangWidth.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -371,11 +356,14 @@
   <data name="&gt;&gt;nudMaximumPalletWeight.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
   </data>
+  <data name="&gt;&gt;nudSolutions.Name" xml:space="preserve">
+    <value>nudSolutions</value>
+  </data>
+  <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 119</value>
+  </data>
   <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 17</value>
-  </data>
-  <data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 67</value>
   </data>
   <data name="&gt;&gt;lbStopStacking.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -389,8 +377,8 @@
   <data name="cbBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Name" xml:space="preserve">
-    <value>checkBoxKeepSolutions</value>
+  <data name="&gt;&gt;cbBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBoxMaximumPalletHeight.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
@@ -404,8 +392,8 @@
   <data name="&gt;&gt;lbInterlayerFreq2.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="nudPalletOverhangX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 20</value>
+  <data name="pictureBoxPositionX.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -454,6 +442,9 @@
   </data>
   <data name="checkBoxAllowAlignedLayer.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 20</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -509,17 +500,17 @@
   <data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 17</value>
   </data>
-  <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="checkBoxNumberOfPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 16</value>
   </data>
   <data name="lbInterlayerFreq2.Text" xml:space="preserve">
     <value>layers</value>
   </data>
-  <data name="pictureBoxPositionX.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;checkBoxKeepSolutions.Name" xml:space="preserve">
+    <value>checkBoxKeepSolutions</value>
+  </data>
+  <data name="&gt;&gt;checkBoxPositionX.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lbSolutions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -547,6 +538,9 @@
   </data>
   <data name="checkBoxPositionX.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 17</value>
+  </data>
+  <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 78</value>
   </data>
   <data name="cbPallet.Location" type="System.Drawing.Point, System.Drawing">
     <value>362, 63</value>
@@ -605,17 +599,11 @@
   <data name="&gt;&gt;lbBoxes.Name" xml:space="preserve">
     <value>lbBoxes</value>
   </data>
-  <data name="&gt;&gt;lbPalletOverhangWidth.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="nudMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
   <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
     <value>when total pallet weight reaches</value>
-  </data>
-  <data name="lbStopStacking.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;checkedListBoxPatterns.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -635,6 +623,9 @@
   <data name="checkBoxPositionZ.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 17</value>
   </data>
+  <data name="gbLayerAlignment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 78</value>
+  </data>
   <data name="&gt;&gt;checkedListBoxPatterns.Parent" xml:space="preserve">
     <value>gbAllowedLayerPatterns</value>
   </data>
@@ -650,14 +641,17 @@
   <data name="&gt;&gt;gbLayerAlignment.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbKg2.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>18</value>
   </data>
   <data name="gbAllowedBoxPositions.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangLength.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq2.Name" xml:space="preserve">
+    <value>lbInterlayerFreq2</value>
   </data>
   <data name="&gt;&gt;lbMm2.Parent" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
@@ -683,6 +677,9 @@
   <data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 40</value>
   </data>
+  <data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="&gt;&gt;gbAllowedLayerPatterns.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -691,9 +688,6 @@
   </data>
   <data name="&gt;&gt;bnAccept.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbStopStacking.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbAdditionalData.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -761,9 +755,6 @@
   <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
     <value>Interlocked</value>
   </data>
-  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
-  </data>
   <data name="nudPalletOverhangY.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 47</value>
   </data>
@@ -800,11 +791,20 @@
   <data name="&gt;&gt;nudInterlayerFreq.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 144</value>
+  </data>
   <data name="lbKg2.Text" xml:space="preserve">
     <value>kg</value>
   </data>
+  <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
     <value>11</value>
+  </data>
+  <data name="lbMm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;lbSolutions.Parent" xml:space="preserve">
     <value>gbAdditionalData</value>
@@ -815,14 +815,11 @@
   <data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 63</value>
   </data>
-  <data name="&gt;&gt;lbMm2.Name" xml:space="preserve">
-    <value>lbMm2</value>
+  <data name="&gt;&gt;nudInterlayerFreq.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;nudPalletOverhangY.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbKg1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 99</value>
   </data>
   <data name="&gt;&gt;lbMm1.Parent" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
@@ -866,8 +863,8 @@
   <data name="checkBoxMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 100</value>
   </data>
-  <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 144</value>
+  <data name="gbAdditionalData.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
   </data>
   <data name="&gt;&gt;nudPalletOverhangY.Parent" xml:space="preserve">
     <value>gbOverhangUnderhang</value>
@@ -883,6 +880,9 @@
   </data>
   <data name="&gt;&gt;checkBoxKeepSolutions.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nudInterlayerFreq.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowAlignedLayer.Parent" xml:space="preserve">
     <value>gbLayerAlignment</value>
@@ -907,6 +907,9 @@
   </data>
   <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbMm1.Text" xml:space="preserve">
+    <value>mm</value>
   </data>
   <data name="&gt;&gt;bnAccept.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -941,8 +944,8 @@
   <data name="nudNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 16</value>
   </data>
-  <data name="&gt;&gt;lbInterlayerFreq2.Name" xml:space="preserve">
-    <value>lbInterlayerFreq2</value>
+  <data name="&gt;&gt;nudPalletOverhangX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudMaximumLoadOnBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -958,9 +961,6 @@
   </data>
   <data name="&gt;&gt;lbBoxes.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="checkBoxMaximumPalletWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
   </data>
   <data name="&gt;&gt;checkBoxMaximumPalletWeight.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1020,6 +1020,9 @@
   <data name="checkBoxPositionX.Text" xml:space="preserve">
     <value>X</value>
   </data>
+  <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 144</value>
+  </data>
   <data name="lbPalletOverhangWidth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1032,6 +1035,9 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewAnalysis</value>
   </data>
+  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 356</value>
+  </data>
   <data name="&gt;&gt;checkBoxInterlayer.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -1040,6 +1046,9 @@
   </data>
   <data name="&gt;&gt;lbKg1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="checkBoxPositionZ.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1056,20 +1065,17 @@
   <data name="lbPalletOverhangLength.Text" xml:space="preserve">
     <value>Length</value>
   </data>
-  <data name="&gt;&gt;checkBoxPositionX.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="&gt;&gt;gbLayerAlignment.Name" xml:space="preserve">
     <value>gbLayerAlignment</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="nudSolutions.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
   <data name="&gt;&gt;nudMaximumPalletHeight.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
-  </data>
-  <data name="&gt;&gt;cbBox.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -1125,11 +1131,14 @@
   <data name="&gt;&gt;checkBoxMaximumPalletHeight.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="lbMm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 71</value>
+  </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
-  <data name="&gt;&gt;nudSolutions.Name" xml:space="preserve">
-    <value>nudSolutions</value>
+  <data name="&gt;&gt;nudNumberOfBoxes.Parent" xml:space="preserve">
+    <value>gbAdditionalData</value>
   </data>
   <data name="lbKg1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1149,11 +1158,8 @@
   <data name="nudPalletOverhangX.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 20</value>
   </data>
-  <data name="gbAdditionalData.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="lbPalletOverhangLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 22</value>
+  <data name="&gt;&gt;lbMm2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
@@ -1176,20 +1182,11 @@
   <data name="lbKg2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="pictureBoxPositionZ.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 92</value>
-  </data>
-  <data name="checkBoxInterlayer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="checkBoxKeepSolutions.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
-  </data>
-  <data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxKeepSolutions.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1233,8 +1230,11 @@
   <data name="lbMm2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 119</value>
+  <data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 67</value>
+  </data>
+  <data name="checkBoxKeepSolutions.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
     <value>Width</value>
@@ -1281,26 +1281,26 @@
   <data name="lbStopStacking.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 20</value>
   </data>
-  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 144</value>
+  <data name="&gt;&gt;nudMaximumPalletWeight.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkBoxKeepSolutions.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;lbStopStacking.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionZ.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
   </data>
-  <data name="&gt;&gt;lbInterlayerFreq1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cbBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 63</value>
   </data>
-  <data name="&gt;&gt;gbAdditionalData.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 13</value>
   </data>
   <data name="pictureBoxPositionX.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 92</value>
@@ -1320,14 +1320,11 @@
   <data name="lbInterlayerFreq1.Location" type="System.Drawing.Point, System.Drawing">
     <value>262, 97</value>
   </data>
-  <data name="nudInterlayerFreq.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
+  <data name="pictureBoxPositionZ.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 92</value>
   </data>
   <data name="nudPalletOverhangX.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
-  </data>
-  <data name="&gt;&gt;lbStopStacking.Name" xml:space="preserve">
-    <value>lbStopStacking</value>
   </data>
   <data name="&gt;&gt;lbKg1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1353,8 +1350,8 @@
   <data name="&gt;&gt;gbOverhangUnderhang.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>18</value>
+  <data name="lbStopStacking.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 17</value>
@@ -1362,7 +1359,7 @@
   <data name="lbBoxes.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 16</value>
   </data>
-  <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbAllowedBoxPositions.Name" xml:space="preserve">
@@ -1386,8 +1383,8 @@
   <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.Name" xml:space="preserve">
     <value>checkBoxMaximumNumberOfBoxes</value>
   </data>
-  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 356</value>
+  <data name="&gt;&gt;lbStopStacking.Name" xml:space="preserve">
+    <value>lbStopStacking</value>
   </data>
   <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1398,8 +1395,8 @@
   <data name="&gt;&gt;gbAdditionalData.Name" xml:space="preserve">
     <value>gbAdditionalData</value>
   </data>
-  <data name="lbMm1.Text" xml:space="preserve">
-    <value>mm</value>
+  <data name="&gt;&gt;checkBoxMaximumPalletWeight.Parent" xml:space="preserve">
+    <value>gbStopStackingCondition</value>
   </data>
   <data name="&gt;&gt;checkBoxInterlayer.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1410,8 +1407,11 @@
   <data name="checkBoxMaximumPalletHeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lbMm2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbBoxes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lbKg2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1422,11 +1422,11 @@
   <data name="lbKg2.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 129</value>
   </data>
-  <data name="lbBoxes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="checkBoxAllowAlignedLayer.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
   </data>
-  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbMm2.Name" xml:space="preserve">
+    <value>lbMm2</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -1437,8 +1437,8 @@
   <data name="nudSolutions.Location" type="System.Drawing.Point, System.Drawing">
     <value>103, 37</value>
   </data>
-  <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 78</value>
+  <data name="lbKg1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 99</value>
   </data>
   <data name="&gt;&gt;gbOverhangUnderhang.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1446,8 +1446,8 @@
   <data name="gbOverhangUnderhang.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
-  <data name="lbMm.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;lbPalletOverhangWidth.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="checkBoxInterlayer.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -1458,26 +1458,26 @@
   <data name="checkBoxMaximumNumberOfBoxes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;nudPalletOverhangX.Parent" xml:space="preserve">
+    <value>gbOverhangUnderhang</value>
   </data>
   <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 36</value>
   </data>
-  <data name="&gt;&gt;nudInterlayerFreq.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="checkBoxMaximumPalletWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
-  <data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="lbPalletOverhangLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 22</value>
   </data>
-  <data name="lbMm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 71</value>
+  <data name="checkBoxInterlayer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="bnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="gbLayerAlignment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 78</value>
+  <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbBox.Name" xml:space="preserve">
     <value>cbBox</value>

@@ -302,14 +302,14 @@
   <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
     <value>Largeur</value>
   </data>
-  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
-    <value>Surplomb pallette</value>
-  </data>
   <data name="lbMm2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbMm1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
+    <value>Surplomb pallette</value>
   </data>
   <data name="checkBoxAllowAlignedLayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -342,16 +342,19 @@
     <value>NoControl</value>
   </data>
   <data name="checkBoxNumberOfPallets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 17</value>
+    <value>223, 17</value>
   </data>
   <data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
-    <value>Afficher le nombre de pallettes requis</value>
+    <value>Afficher le nombre de pallettes requis pour</value>
   </data>
   <data name="lbBoxes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="gbAdditionalData.Text" xml:space="preserve">
-    <value>Données additionnelles</value>
+  <data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="lbBoxes.Text" xml:space="preserve">
+    <value>caisses</value>
   </data>
   <data name="lbSolutions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -376,6 +379,9 @@
   </data>
   <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
     <value>Garder seulement les</value>
+  </data>
+  <data name="gbAdditionalData.Text" xml:space="preserve">
+    <value>Données additionnelles</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse (caisse)...</value>

@@ -40,31 +40,36 @@ namespace TreeDim.StackBuilder.Engine
             // build layer using truck length / width
             foreach (LayerPattern pattern in _patterns)
             {
-                for (int orientation = 0; orientation < 2; ++orientation)
+                for (int swapPos = 0; swapPos < (pattern.CanBeSwaped ? 2 : 1); ++swapPos)
                 {
-                    try
+                    pattern.Swaped = swapPos == 1;
+
+                    for (int orientation = 0; orientation < 2; ++orientation)
                     {
-                        Layer layer = new Layer(truckAnalysis.ParentSolution, truckAnalysis.TruckProperties, truckAnalysis.ConstraintSet, orientation);
-                        double actualLength = 0.0, actualWidth = 0.0;
-                        pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth);
+                        try
+                        {
+                            Layer layer = new Layer(truckAnalysis.ParentSolution, truckAnalysis.TruckProperties, truckAnalysis.ConstraintSet, orientation);
+                            double actualLength = 0.0, actualWidth = 0.0;
+                            pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth);
 
-                        pattern.GenerateLayer(layer, actualLength, actualWidth);
+                            pattern.GenerateLayer(layer, actualLength, actualWidth);
 
-                        TruckSolution sol = new TruckSolution("sol", truckAnalysis);
+                            TruckSolution sol = new TruckSolution("sol", truckAnalysis);
 
-                        BoxLayer boxLayer = new BoxLayer(0.0);
-                        foreach (LayerPosition layerPos in layer)
-                            boxLayer.AddPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis);
+                            BoxLayer boxLayer = new BoxLayer(0.0);
+                            foreach (LayerPosition layerPos in layer)
+                                boxLayer.AddPosition(layerPos.Position, layerPos.LengthAxis, layerPos.WidthAxis);
 
-                        sol.Layer = boxLayer;
+                            sol.Layer = boxLayer;
 
-                        // insert solution
-                        if (sol.PalletCount > 0)
-                            solutions.Add(sol);
-                    }
-                    catch (Exception ex)
-                    {
-                        _log.Error(string.Format("Exception caught: {0}", ex.Message));
+                            // insert solution
+                            if (sol.PalletCount > 0)
+                                solutions.Add(sol);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(string.Format("Exception caught: {0}", ex.ToString()));
+                        }
                     }
                 }
             }

@@ -449,7 +449,7 @@
             this.nudMaximumPalletWeight.AccessibleDescription = null;
             this.nudMaximumPalletWeight.AccessibleName = null;
             resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
-            this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            this.nudMaximumPalletWeight.DecimalPlaces = 3;
             this.nudMaximumPalletWeight.Font = null;
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,

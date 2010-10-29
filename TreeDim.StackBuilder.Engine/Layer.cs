@@ -93,7 +93,7 @@ namespace TreeDim.StackBuilder.Engine
                 case 1: _axisOrtho = HalfAxis.HAxis.AXIS_Z_N; break;
                 default: _axisOrtho = HalfAxis.HAxis.AXIS_Z_P; break;
             }
-			_palletLength = truckProperties.Length;
+            _palletLength = truckProperties.Length;
             _palletWidth = truckProperties.Width;
             Initialize(sol);
         }
@@ -171,11 +171,17 @@ namespace TreeDim.StackBuilder.Engine
                     _boxLength = sol.PalletWidth(sol.Analysis);
                     _boxWidth = sol.PalletLength(sol.Analysis);
                     _boxHeight = sol.PalletHeight(sol.Analysis);
+                    _lengthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_X_N;
+                    _vecTransf = new Vector3D(_boxLength, 0.0, 0.0);
                     break;
                 case HalfAxis.HAxis.AXIS_Z_P:
                     _boxLength = sol.PalletLength(sol.Analysis);
                     _boxWidth = sol.PalletWidth(sol.Analysis);
                     _boxHeight = sol.PalletHeight(sol.Analysis);
+                    _lengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                    _vecTransf = new Vector3D(0.0, 0.0, 0.0);
                     break;
                 default:
                     break;

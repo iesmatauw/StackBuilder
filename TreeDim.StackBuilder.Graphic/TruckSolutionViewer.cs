@@ -14,12 +14,21 @@ namespace TreeDim.StackBuilder.Graphics
     {
         #region Data members
         private TruckSolution _truckSolution;
+        private bool _showDetails = true;
         #endregion
 
         #region Constructor
         public TruckSolutionViewer(TruckSolution truckSolution)
         {
             _truckSolution = truckSolution;
+        }
+        #endregion
+
+        #region Public properties
+        public bool ShowDetails
+        {
+            get { return _showDetails; }
+            set { _showDetails = value; }
         }
         #endregion
 
@@ -34,12 +43,15 @@ namespace TreeDim.StackBuilder.Graphics
 
             // get pallet height
             Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
+            double palletLength = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength(analysis);
+            double palletWidth = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth(analysis);
             double palletHeight = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight(analysis);
 
             // get parent pallet solution
             Solution sol = _truckSolution.ParentTruckAnalysis.ParentSolution;
 
             // draw solution
+            uint pickIdGlobal = 0;
             for (int i = 0; i < _truckSolution.NoLayers; ++i)
             {
                 foreach (BoxPosition bPositionLayer in _truckSolution.Layer)
@@ -50,31 +62,40 @@ namespace TreeDim.StackBuilder.Graphics
                             , bPositionLayer.Position.Y
                             , bPositionLayer.Position.Z + palletHeight * i)
                         , bPositionLayer.DirectionLength
-                        , bPositionLayer.DirectionWidth); 
-                    // build transformation
-                    Transform3D transformPallet = bPalletPosition.Transformation;
-                    
-                    // draw pallet
-                    Pallet pallet = new Pallet(analysis.PalletProperties);
-                    pallet.Draw(graphics, transformPallet);
-
-                    // draw solution
-                    uint pickId = 0;
-                    foreach (ILayer layer in sol)
+                        , bPositionLayer.DirectionWidth);
+                    if (_showDetails)
                     {
-                        BoxLayer bLayer = layer as BoxLayer;
-                        if (null != bLayer)
-                        {
-                            foreach (BoxPosition bPosition in bLayer)
-                                graphics.AddBox(new Box(pickId++, analysis.BProperties,  BoxPosition.Transform(bPosition, transformPallet)));
-                        }
+                        // build transformation
+                        Transform3D transformPallet = bPalletPosition.Transformation;
 
-                        InterlayerPos interlayerPos = layer as InterlayerPos;
-                        if (null != interlayerPos)
+                        // draw pallet
+                        Pallet pallet = new Pallet(analysis.PalletProperties);
+                        pallet.Draw(graphics, transformPallet);
+
+                        // draw solution
+                        uint pickId = 0;
+                        foreach (ILayer layer in sol)
                         {
-                            BoxPosition iPos = new BoxPosition(new Vector3D(0.0, 0.0, interlayerPos.ZLow), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                            graphics.AddBox( new Box(pickId++, analysis.InterlayerProperties, BoxPosition.Transform(iPos, transformPallet)));
+                            BoxLayer bLayer = layer as BoxLayer;
+                            if (null != bLayer)
+                            {
+                                foreach (BoxPosition bPosition in bLayer)
+                                    graphics.AddBox(new Box(pickId++, analysis.BProperties, BoxPosition.Transform(bPosition, transformPallet)));
+                            }
+
+                            InterlayerPos interlayerPos = layer as InterlayerPos;
+                            if (null != interlayerPos)
+                            {
+                                BoxPosition iPos = new BoxPosition(new Vector3D(0.0, 0.0, interlayerPos.ZLow), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                                graphics.AddBox(new Box(pickId++, analysis.InterlayerProperties, BoxPosition.Transform(iPos, transformPallet)));
+                            }
                         }
+                    }
+                    else
+                    {
+                        Box b = new Box(pickIdGlobal++, new BoxProperties(null, palletLength, palletWidth, palletHeight), bPalletPosition);
+                        b.SetAllFacesColor(Color.Chocolate);
+                        graphics.AddBox(b);
                     }
                 }
             }

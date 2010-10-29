@@ -149,6 +149,12 @@
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 21</value>
+  </data>
+  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 23</value>
+  </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Masses</value>
   </data>
@@ -175,6 +181,15 @@
   </data>
   <data name="lbNoFlats.Text" xml:space="preserve">
     <value>Nombre de plats</value>
+  </data>
+  <data name="nudNoFlats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 103</value>
+  </data>
+  <data name="nudThickness.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 76</value>
+  </data>
+  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 49</value>
   </data>
   <data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -204,9 +219,6 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
 </root>

@@ -243,9 +243,6 @@
     <EmbeddedResource Include="FormNewBox.fr-FR.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewBox.fr.resx">
-      <DependentUpon>FormNewBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBox.cs</DependentUpon>

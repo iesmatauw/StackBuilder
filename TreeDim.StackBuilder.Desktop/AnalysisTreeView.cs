@@ -148,7 +148,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSISSOL)
             {
-                if (nodeTag.Document.Trucks.Count > 0)
+                if (nodeTag.Document.Trucks.Count > 0 && !nodeTag.SelSolution.HasDependingAnalyses)
                     contextMenu.MenuItems.Add(new MenuItem("Add new truck analysis...", new EventHandler(onCreateNewTruckAnalysis)));
             }
         }
@@ -246,6 +246,10 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
+
+                if (tag.SelSolution.HasDependingAnalyses)
+                    return;
+
                 FormNewTruckAnalysis form = new FormNewTruckAnalysis(tag.Document);
                 form.TruckProperties = tag.Document.Trucks.ToArray();
                 if (DialogResult.OK == form.ShowDialog())
@@ -257,7 +261,7 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.MinDistancePalletTruckWall = form.MinDistancePalletTruckWall;
                     constraintSet.MinDistancePalletTruckRoof = form.MinDistancePalletTruckRoof;
 
-                    TruckAnalysis truckAnalysis = ((SelSolution)tag.SelSolution).CreateNewTruckAnalysis(form.SelectedTruck, constraintSet, new TruckSolver());
+                    TruckAnalysis truckAnalysis = tag.SelSolution.CreateNewTruckAnalysis(form.SelectedTruck, constraintSet, new TruckSolver());
                     if (null != truckAnalysis)
                         FormMain.GetInstance().CreateOrActivateViewTruckAnalysis(truckAnalysis);
                 }

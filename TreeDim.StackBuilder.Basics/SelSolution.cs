@@ -29,8 +29,9 @@ namespace TreeDim.StackBuilder.Basics
         #region Truck analyses
         public TruckAnalysis CreateNewTruckAnalysis(TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
         {
-            TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, _solution, truckProperties, constraintSet);
+            TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, this, truckProperties, constraintSet);
             _truckAnalyses.Add(truckAnalysis);
+            AddDependancie(truckAnalysis);
             solver.ProcessAnalysis(truckAnalysis);
             ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();

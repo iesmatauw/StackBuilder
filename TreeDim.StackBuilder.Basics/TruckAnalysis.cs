@@ -10,7 +10,7 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         Analysis _analysis;
-        Solution _solution;
+        SelSolution _selSolution;
         TruckProperties _truckProperties;
         TruckConstraintSet _constraintSet;
         List<TruckSolution> _truckSolutions = new List<TruckSolution>();
@@ -20,14 +20,14 @@ namespace TreeDim.StackBuilder.Basics
         public TruckAnalysis(
             Document document
             , Analysis analysis
-            , Solution solution
+            , SelSolution selSolution
             , TruckProperties truckProperties
             , TruckConstraintSet constraintSet)
             : base(document)
         {
             Name = truckProperties.Name;
             _analysis = analysis;
-            _solution = solution;
+            _selSolution = selSolution;
             _truckProperties = truckProperties;
             _constraintSet = constraintSet;
         }
@@ -36,7 +36,8 @@ namespace TreeDim.StackBuilder.Basics
         #region Public properties
         public Analysis ParentAnalysis   { get { return _analysis; } }
         public TruckProperties TruckProperties { get { return _truckProperties; } }
-        public Solution ParentSolution { get { return _solution; } }
+        public Solution ParentSolution { get { return _selSolution.Solution; } }
+        public SelSolution ParentSelSolution { get { return _selSolution; } }
         public List<TruckSolution> Solutions
         {
             get { return _truckSolutions; }
@@ -46,6 +47,14 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _constraintSet; }
             set { _constraintSet = value; }
+        }
+        #endregion
+
+        #region Override
+        protected override void RemoveItselfFromDependancies()
+        {
+            _selSolution.RemoveDependancie(this);
+            base.RemoveItselfFromDependancies();
         }
         #endregion
     }

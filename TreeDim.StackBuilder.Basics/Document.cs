@@ -291,6 +291,11 @@ namespace TreeDim.StackBuilder.Basics
                 SelSolution selSol = item as SelSolution;
                 NotifyOnSolutionRemoved(selSol.Analysis, selSol);
             }
+            else if (item.GetType() == typeof(TruckAnalysis))
+            {
+                TruckAnalysis truckAnalysis = item as TruckAnalysis;
+                NotifyOnTruckAnalysisRemoved(truckAnalysis.ParentSelSolution, truckAnalysis);
+            }
             else
                 Debug.Assert(false);
             Modify();
@@ -1373,6 +1378,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnSolutionRemoved(this, analysis, selSolution);
+        }
+        internal void NotifyOnTruckAnalysisRemoved(SelSolution selSolution, TruckAnalysis truckAnalysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnTruckAnalysisRemoved(this, selSolution.Analysis, selSolution, truckAnalysis);
         }
         #endregion
     }

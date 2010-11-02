@@ -307,6 +307,10 @@ namespace TreeDim.StackBuilder.Desktop
                 }
                 else if (tag.Type == NodeTag.NodeType.NT_ANALYSISSOLREPORT && null != SolutionReportNodeClicked)
                     SolutionReportNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+                else if (tag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS && null != AnalysisNodeClicked)
+                {
+                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+                }
             }
             catch (Exception ex)
             {

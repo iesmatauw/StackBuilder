@@ -158,7 +158,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region DocumentTreeView event handlers
         void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
-            if ((null == eventArg.ItemBase) && (null != eventArg.Analysis))
+            if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null == eventArg.TruckAnalysis) )
                 CreateOrActivateViewAnalysis(eventArg.Analysis);
             else if (null != eventArg.ItemBase)
             {
@@ -282,6 +282,13 @@ namespace TreeDim.StackBuilder.Desktop
                 }
                 else
                     Debug.Assert(false);
+            }
+
+            else if (null != eventArg.TruckAnalysis)
+            {
+                TruckAnalysis truckAnalysis = eventArg.TruckAnalysis;
+                if (null != truckAnalysis)
+                    CreateOrActivateViewTruckAnalysis(truckAnalysis);
             }
         }
 

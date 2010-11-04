@@ -12,7 +12,7 @@ namespace TreeDim.StackBuilder.Graphics
     public class DimensionCube
     {
         #region Data members
-        private Vector3D _position;
+        private Vector3D _position = Vector3D.Zero;
         private double[] _dim = new double[3];
         private bool[] _showArrow = new bool[3];
         private double offsetPerc = 0.2;
@@ -47,6 +47,12 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _fontSize; }
             set { _fontSize = value; }
+        }
+
+        public Vector3D Position
+        {
+            get { return _position; }
+            set { _position = value; }
         }
         #endregion
 

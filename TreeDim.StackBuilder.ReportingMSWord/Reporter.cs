@@ -106,7 +106,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 return swResult.ToArray();
             }
         }
-        public static void BuidAnalysisReport(Analysis analysis, Solution sol, string xsltTemplateFilePath, string outputFilePath)
+        public static void BuidAnalysisReport(Analysis analysis, SelSolution sol, string xsltTemplateFilePath, string outputFilePath)
         {
             // create xml data file + XmlTextReader
             string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
@@ -121,7 +121,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             using (FileStream fs = new FileStream(outputFilePath, FileMode.Create))
                 fs.Write(wordDoc, 0, wordDoc.Length);
         }
-        private static void CreateAnalysisDataFile(Analysis analysis, Solution sol, string xmlDataFilePath)
+        private static void CreateAnalysisDataFile(Analysis analysis, SelSolution sol, string xmlDataFilePath)
         {
             // instantiate XmlDocument
             XmlDocument xmlDoc = new XmlDocument();
@@ -152,13 +152,15 @@ namespace TreeDim.StackBuilder.ReportingMSWord
 
             // palletAnalysis
             AppendPalletAnalysisElement(analysis, sol, elemDocument, xmlDoc);
+            // truckAnalysis
+            AppendTruckAnalysisElement(analysis, sol, elemDocument, xmlDoc);
 
             // finally save xml document
             _log.Debug(string.Format("Generating xml data file {0}", xmlDataFilePath));
             xmlDoc.Save(xmlDataFilePath);
         }
 
-        private static void AppendPalletAnalysisElement(Analysis analysis, Solution sol, XmlElement elemDocument, XmlDocument xmlDoc)
+        private static void AppendPalletAnalysisElement(Analysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // palletAnalysis
@@ -173,18 +175,18 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemDescription.InnerText = analysis.Description;
             elemPalletAnalysis.AppendChild(elemDescription);
             // pallet
-            AppendPalletElement(analysis, sol, elemPalletAnalysis, xmlDoc);
+            AppendPalletElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // case
             if (analysis.BProperties is BoxProperties)
-                AppendCaseElement(analysis, sol, elemPalletAnalysis, xmlDoc);
+                AppendCaseElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             else if (analysis.BProperties is BundleProperties)
-                AppendBundleElement(analysis, sol, elemPalletAnalysis, xmlDoc);
+                AppendBundleElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // interlayer
-            AppendInterlayerElement(analysis, sol, elemPalletAnalysis, xmlDoc);
+            AppendInterlayerElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // constraintSet
-            AppendConstraintSet(analysis, sol, elemPalletAnalysis, xmlDoc);
+            AppendConstraintSet(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // solution
-            AppendSolutionElement(analysis, sol, elemPalletAnalysis, xmlDoc);
+            AppendSolutionElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
         }
 
         private static void AppendPalletElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -528,15 +530,13 @@ namespace TreeDim.StackBuilder.ReportingMSWord
 
                 elemSolution.AppendChild(elemLayer);
             }
-            //elemSolution.AppendChild(elemLayers);
-
             // --- pallet images
             for (int i = 0; i < 5; ++i)
             {
                 // initialize drawing values
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = 128;
+                int imageWidth = 256;
                 bool showDimensions = false;
                 switch (i)
                 {
@@ -574,6 +574,154 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width/3, graphics.Bitmap.Height/3);
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
+            }
+        }
+        private static void AppendTruckAnalysisElement(Analysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            // retrieve truck analysis if any
+            if (!selSolution.HasTruckAnalyses) return;  // no truck analysis available -> exit
+
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // truckAnalysis
+            XmlElement elemTruckAnalysis = xmlDoc.CreateElement("truckAnalysis", ns);
+            elemDocument.AppendChild(elemTruckAnalysis);
+
+
+            TruckAnalysis truckAnalysis = selSolution.TruckAnalyses[0];
+
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = analysis.Name;
+            elemTruckAnalysis.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = analysis.Description;
+            elemTruckAnalysis.AppendChild(elemDescription);
+            // truck
+            AppendTruckElement(truckAnalysis, elemTruckAnalysis, xmlDoc);
+            // solution
+            AppendTruckSolutionElement(truckAnalysis, elemTruckAnalysis, xmlDoc);
+        }
+
+        private static void AppendTruckElement(TruckAnalysis truckAnalysis, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // get PalletProperties
+            TruckProperties truckProp = truckAnalysis.TruckProperties;
+            if (null == truckProp) return;
+            // create "truck" element
+            XmlElement elemTruck = xmlDoc.CreateElement("truck", ns);
+            elemTruckAnalysis.AppendChild(elemTruck);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = truckProp.Name;
+            elemTruck.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = truckProp.Description;
+            elemTruck.AppendChild(elemDescription);
+            // length
+            XmlElement elemLength = xmlDoc.CreateElement("length", ns);
+            elemLength.InnerText = string.Format("{0:F}", truckProp.Length);
+            elemTruck.AppendChild(elemLength);
+            // width
+            XmlElement elemWidth = xmlDoc.CreateElement("width", ns);
+            elemWidth.InnerText = string.Format("{0:F}", truckProp.Width);
+            elemTruck.AppendChild(elemWidth);
+            // height
+            XmlElement elemHeight = xmlDoc.CreateElement("height", ns);
+            elemHeight.InnerText = string.Format("{0:F}", truckProp.Height);
+            elemTruck.AppendChild(elemHeight);
+            // admissibleLoad
+            XmlElement elemWeight = xmlDoc.CreateElement("admissibleLoad", ns);
+            elemWeight.InnerText = string.Format("{0:F}", truckProp.AdmissibleLoadWeight);
+            elemTruck.AppendChild(elemWeight);
+
+            // --- build image
+            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            graphics.CameraPosition = Graphics3D.Corner_0;
+            Truck truck = new Truck(truckProp);
+            truck.Draw(graphics);
+            graphics.AddDimensions(new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height));
+            graphics.Flush();
+            // ---
+            // view_truck_iso
+            XmlElement elemImage = xmlDoc.CreateElement("view_truck_iso", ns);
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
+            elemImage.Attributes.Append(styleAttribute);
+            elemTruck.AppendChild(elemImage); 
+        }
+        private static void AppendTruckSolutionElement(TruckAnalysis truckAnalysis, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // retrieve selected truckSolution
+            TruckSolution truckSolution = truckAnalysis.SelectedSolution;
+            if (null == truckSolution) return;
+            // create "truckSolution" element
+            XmlElement elemTruckSolution = xmlDoc.CreateElement("truckSolution", ns);
+            elemTruckAnalysis.AppendChild(elemTruckSolution);
+            // title
+            XmlElement elemTitle = xmlDoc.CreateElement("title", ns);
+            elemTitle.InnerText = truckSolution.Title;
+            elemTruckSolution.AppendChild(elemTitle);
+            // palletCount
+            XmlElement elemPalletCount = xmlDoc.CreateElement("palletCount", ns);
+            elemPalletCount.InnerText = string.Format("{0}", truckSolution.PalletCount);
+            elemTruckSolution.AppendChild(elemPalletCount);
+            // boxCount
+            XmlElement elemBoxCount = xmlDoc.CreateElement("boxCount", ns);
+            elemBoxCount.InnerText = string.Format("{0}", truckSolution.BoxCount);
+            elemTruckSolution.AppendChild(elemBoxCount);
+            // loadWeight
+            XmlElement elemLoadWeight = xmlDoc.CreateElement("loadWeight", ns);
+            elemLoadWeight.InnerText = string.Format("{0:F}", truckSolution.LoadWeight);
+            elemTruckSolution.AppendChild(elemLoadWeight);
+            // loadEfficiency
+            XmlElement elemLoadEfficiency = xmlDoc.CreateElement("loadEfficiency", ns);
+            elemLoadEfficiency.InnerText = string.Format("{0:F}", 100.0 * truckSolution.LoadWeight / truckAnalysis.TruckProperties.AdmissibleLoadWeight);
+            elemTruckSolution.AppendChild(elemLoadEfficiency);
+            // volumeEfficiency
+            XmlElement elemVolumeEfficiency = xmlDoc.CreateElement("volumeEfficiency", ns);
+            elemVolumeEfficiency.InnerText = string.Format("{0:F}", truckSolution.Efficiency);
+            elemTruckSolution.AppendChild(elemVolumeEfficiency);
+
+            // --- truck images
+            for (int i = 0; i < 2; ++i)
+            {
+                // initialize drawing values
+                string viewName = string.Empty;
+                Vector3D cameraPos = Vector3D.Zero;
+                int imageWidth = 768;
+                bool showDimensions = false;
+                switch (i)
+                {
+                    case 0:
+                        viewName = "view_trucksolution_top"; cameraPos = Graphics3D.Top; imageWidth = 768;
+                        break;
+                    case 1:
+                        viewName = "view_trucksolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768;
+                        break;
+                    default:
+                        break;
+                }
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
+                // set camera position 
+                graphics.CameraPosition = cameraPos;
+                // instantiate solution viewer
+                TruckSolutionViewer sv = new TruckSolutionViewer(truckSolution);
+                sv.Draw(graphics);
+                // ---
+                XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+                elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
+                elemImage.Attributes.Append(styleAttribute);
+                elemTruckSolution.AppendChild(elemImage);
             }
         }
         #endregion

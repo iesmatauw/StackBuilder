@@ -53,6 +53,11 @@ namespace TreeDim.StackBuilder.Basics
 
             return truckAnalysis;
         }
+
+        public bool HasTruckAnalyses
+        {
+            get { return _truckAnalyses.Count > 0; }
+        }
         #endregion
 
         #region Public properties

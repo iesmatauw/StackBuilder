@@ -303,7 +303,7 @@ namespace TreeDim.StackBuilder.Desktop
                     // build report
                     Reporter.BuidAnalysisReport(
                         eventArg.Analysis
-                        , eventArg.SelSolution.Solution
+                        , eventArg.SelSolution
                         , Settings.Default.ReportTemplatePath
                         , outputFilePath);
                     // logging

@@ -18,7 +18,6 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewTruckAnalysis : Form
     {
         #region Data members
-        private Document _document;
         private TruckProperties[] _truckProperties;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion

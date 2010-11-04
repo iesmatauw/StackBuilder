@@ -27,12 +27,27 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Truck analyses
-        public TruckAnalysis CreateNewTruckAnalysis(TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
+        public TruckAnalysis CreateNewTruckAnalysis(string name, string description, TruckProperties truckProperties, TruckConstraintSet constraintSet, ITruckSolver solver)
         {
             TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, this, truckProperties, constraintSet);
+            truckAnalysis.Name = name;
+            truckAnalysis.Description = description;
             _truckAnalyses.Add(truckAnalysis);
             AddDependancie(truckAnalysis);
             solver.ProcessAnalysis(truckAnalysis);
+            ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
+            ParentDocument.Modify();
+
+            return truckAnalysis;
+        }
+        public TruckAnalysis CreateNewTruckAnalysis(string name, string description, TruckProperties truckProperties, TruckConstraintSet constraintSet, List<TruckSolution> solutions)
+        {
+            TruckAnalysis truckAnalysis = new TruckAnalysis(this.ParentDocument, _analysis, this, truckProperties, constraintSet);
+            truckAnalysis.Name = name;
+            truckAnalysis.Description = description;
+            truckAnalysis.Solutions = solutions;
+            _truckAnalyses.Add(truckAnalysis);
+            AddDependancie(truckAnalysis);
             ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();
 
@@ -48,6 +63,10 @@ namespace TreeDim.StackBuilder.Basics
         public Analysis Analysis
         {
             get { return _analysis; }
+        }
+        public List<TruckAnalysis> TruckAnalyses
+        {
+            get { return _truckAnalyses; }
         }
         #endregion
 

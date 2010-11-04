@@ -41,7 +41,6 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-
         public int PalletCount
         {
             get { return NoLayers * _layer.BoxCount; }
@@ -69,6 +68,11 @@ namespace TreeDim.StackBuilder.Basics
         public TruckAnalysis ParentTruckAnalysis
         {
             get { return _parentTruckAnalysis;  }
+            set { _parentTruckAnalysis = value; }
+        }
+        public string Title
+        {
+            get { return _title; }
         }
         #endregion
 

@@ -527,7 +527,6 @@ namespace TreeDim.StackBuilder.Basics
                         }
                         catch (Exception ex)
                         {
-                            Debug.Assert(false);
                             _log.Error(ex.ToString());
                         }
                     }
@@ -719,11 +718,42 @@ namespace TreeDim.StackBuilder.Basics
             // save selected solutions
             foreach (int indexSol in selectedIndices)
                 analysis.SelectSolutionByIndex(indexSol);
+
+
+            // reprocess for truck analyses
+            // Note : this is quite complicated, see later if it could be simplified 
+            foreach (XmlNode node in eltAnalysis.ChildNodes)
+            {
+                if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    int indexSol = 0;
+                    foreach (XmlNode solutionNode in node.ChildNodes)
+                    {
+                        foreach (XmlNode solutionInnerNode in solutionNode.ChildNodes)
+                        {
+                            if (string.Equals("TruckAnalyses", solutionInnerNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                XmlElement truckAnalysesElt = solutionInnerNode as XmlElement;
+                                foreach (XmlNode truckAnalysisNode in truckAnalysesElt.ChildNodes)
+                                {
+                                    if (string.Equals("TruckAnalysis", truckAnalysisNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                    {
+                                        XmlElement truckAnalysisElt = truckAnalysisNode as XmlElement;
+                                        SelSolution selSolution = analysis.GetSelSolutionBySolutionIndex(indexSol);
+                                        LoadTruckAnalysis(truckAnalysisElt, selSolution);
+                                    }
+                                }
+                            }
+                        }
+                        ++indexSol;
+                    }
+                }
+            }
         }
         ConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
         {
             ConstraintSetBox constraints = new ConstraintSetBox();
-            // align layers alowed
+            // align layers allowed
             if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
                 constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
             // alternate layers allowed
@@ -837,6 +867,82 @@ namespace TreeDim.StackBuilder.Basics
                 layer = new InterlayerPos(zLow);
 
             return layer;
+        }
+
+        TruckAnalysis LoadTruckAnalysis(XmlElement eltTruckAnalysis, SelSolution selSolution)
+        {
+            string sName = eltTruckAnalysis.Attributes["Name"].Value;
+            string sDescription = eltTruckAnalysis.Attributes["Description"].Value;
+            string sTruckId = eltTruckAnalysis.Attributes["TruckId"].Value;
+
+            TruckConstraintSet constraintSet = new TruckConstraintSet();
+            List<TruckSolution> solutions = new List<TruckSolution>();
+            List<int> selectedIndices = new List<int>();
+
+            foreach (XmlNode node in eltTruckAnalysis.ChildNodes)
+            { 
+                // load constraint set
+                if (string.Equals(node.Name, "ConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                    constraintSet = LoadTruckConstraintSet(node as XmlElement);
+                // load solutions
+                else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    int indexSol = 0;
+                    foreach (XmlNode solutionNode in node.ChildNodes)
+                    {
+                        XmlElement eltSolution = solutionNode as XmlElement;
+                        solutions.Add(LoadTruckSolution(eltSolution));
+                        // is solution selected ?
+                        if (null != eltSolution.Attributes["Selected"]
+                            && string.Equals("true", eltSolution.Attributes["Selected"].Value, StringComparison.CurrentCultureIgnoreCase))
+                            selectedIndices.Add(indexSol);
+                        ++indexSol;
+                    }
+                }
+            }
+
+            TruckAnalysis truckAnalysis = selSolution.CreateNewTruckAnalysis(
+                sName
+                , sDescription
+                , GetTypeByGuid(new Guid(sTruckId)) as TruckProperties
+                , constraintSet
+                , solutions);
+            foreach (int index in selectedIndices)
+                truckAnalysis.SelectedSolutionIndex = index;
+            return truckAnalysis;
+        }
+        TruckConstraintSet LoadTruckConstraintSet(XmlElement eltTruckConstraintSet)
+        {
+            TruckConstraintSet constraintSet = new TruckConstraintSet();
+            // multi layer allowed
+            if (eltTruckConstraintSet.HasAttribute("MultilayerAllowed"))
+                constraintSet.MultilayerAllowed = string.Equals(eltTruckConstraintSet.Attributes["MultilayerAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
+            if (eltTruckConstraintSet.HasAttribute("MinDistancePalletWall"))
+            constraintSet.MinDistancePalletTruckWall = double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletWall"].Value);
+            if (eltTruckConstraintSet.HasAttribute("MinDistancePalletRoof"))
+                constraintSet.MinDistancePalletTruckRoof = double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletRoof"].Value);
+            if (eltTruckConstraintSet.HasAttribute("AllowedPalletOrientations"))
+            {
+                string sAllowedPalletOrientations = eltTruckConstraintSet.Attributes["AllowedPalletOrientations"].Value;
+                constraintSet.AllowPalletOrientationX = sAllowedPalletOrientations.Contains("X");
+                constraintSet.AllowPalletOrientationY = sAllowedPalletOrientations.Contains("Y");
+
+            }
+
+            return constraintSet;
+        }
+        TruckSolution LoadTruckSolution(XmlElement eltTruckSolution)
+        {
+            // title -> instantiation
+            string stitle = string.Empty;
+            if (eltTruckSolution.HasAttribute("Title"))
+                stitle = eltTruckSolution.Attributes["Title"].Value;
+            TruckSolution sol = new TruckSolution(stitle, null);
+            // load only one BoxLayer (actually Pallet layer)
+            XmlElement eltLayers = eltTruckSolution.ChildNodes[0] as XmlElement;
+            XmlElement eltLayer = eltLayers.ChildNodes[0] as XmlElement;
+            sol.Layer = LoadLayer(eltLayer) as BoxLayer;
+            return sol;
         }
         #endregion
 
@@ -1252,37 +1358,13 @@ namespace TreeDim.StackBuilder.Basics
                 // layers
                 XmlElement layersElt = xmlDoc.CreateElement("Layers");
                 solutionElt.AppendChild(layersElt);
+
                 foreach (ILayer layer in sol)
                 {
                     BoxLayer boxLayer = layer as BoxLayer;
                     if (null != boxLayer)
-                    {
-                        // BoxLayer
-                        XmlElement boxlayerElt = xmlDoc.CreateElement("BoxLayer");
-                        layersElt.AppendChild(boxlayerElt);
-                        // ZLow
-                        XmlAttribute zlowAttribute = xmlDoc.CreateAttribute("ZLow");
-                        zlowAttribute.Value = string.Format("{0}", boxLayer.ZLow);
-                        boxlayerElt.Attributes.Append(zlowAttribute);
-                        foreach (BoxPosition boxPosition in boxLayer)
-                        {
-                            // BoxPosition
-                            XmlElement boxPositionElt = xmlDoc.CreateElement("BoxPosition");
-                            boxlayerElt.AppendChild(boxPositionElt);
-                            // Position
-                            XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
-                            positionAttribute.Value = boxPosition.Position.ToString();
-                            boxPositionElt.Attributes.Append(positionAttribute);
-                            // AxisLength
-                            XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
-                            axisLengthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionLength);
-                            boxPositionElt.Attributes.Append(axisLengthAttribute);
-                            // AxisWidth
-                            XmlAttribute axisWidthAttribute = xmlDoc.CreateAttribute("AxisWidth");
-                            axisWidthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionWidth);
-                            boxPositionElt.Attributes.Append(axisWidthAttribute);
-                        }
-                    }
+                        Save(boxLayer, layersElt, xmlDoc);
+                    
                     InterlayerPos interlayerPos = layer as InterlayerPos;
                     if (null != interlayerPos)
                     {
@@ -1298,11 +1380,110 @@ namespace TreeDim.StackBuilder.Basics
                 // Is selected ?
                 if (analysis.HasSolutionSelected(solIndex))
                 {
+                    // selected attribute
                     XmlAttribute selAttribute = xmlDoc.CreateAttribute("Selected");
                     selAttribute.Value = "true";
                     solutionElt.Attributes.Append(selAttribute);
+
+                    // truck analyses
+                    XmlElement truckAnalysesElt = xmlDoc.CreateElement("TruckAnalyses");
+                    solutionElt.AppendChild(truckAnalysesElt);
+                    SelSolution selSolution = analysis.GetSelSolutionBySolutionIndex(solIndex);
+                    foreach (TruckAnalysis truckAnalysis in selSolution.TruckAnalyses)
+                        Save(truckAnalysis, truckAnalysesElt, xmlDoc);
                 }
                 ++solIndex;
+            }
+        }
+
+        public void Save(TruckAnalysis truckAnalysis, XmlElement truckAnalysesElt, XmlDocument xmlDoc)
+        {
+            XmlElement truckAnalysisElt = xmlDoc.CreateElement("TruckAnalysis");
+            truckAnalysesElt.AppendChild(truckAnalysisElt);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = truckAnalysis.Name;
+            truckAnalysisElt.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descriptionAttribute = xmlDoc.CreateAttribute("Description");
+            descriptionAttribute.Value = truckAnalysis.Description;
+            truckAnalysisElt.Attributes.Append(descriptionAttribute);
+            // truckId
+            XmlAttribute truckIdAttribute = xmlDoc.CreateAttribute("TruckId");
+            truckIdAttribute.Value = string.Format("{0}", truckAnalysis.TruckProperties.Guid);
+            truckAnalysisElt.Attributes.Append(truckIdAttribute);
+            // constraint set
+            XmlElement contraintSetElt = xmlDoc.CreateElement("ConstraintSet");
+            truckAnalysesElt.AppendChild(contraintSetElt);            
+            // multilayer allowed
+            XmlAttribute multilayerAllowedAttribute = xmlDoc.CreateAttribute("MultilayerAllowed");
+            multilayerAllowedAttribute.Value = truckAnalysis.ConstraintSet.MultilayerAllowed ? "True" : "False";
+            contraintSetElt.Attributes.Append(multilayerAllowedAttribute);
+            // allowed pallet orientation
+            XmlAttribute palletOrientationsAttribute = xmlDoc.CreateAttribute("AllowedPalletOrientations");
+            string sAllowedPalletOrientations = string.Empty;
+            if (truckAnalysis.ConstraintSet.AllowPalletOrientationX)
+                sAllowedPalletOrientations += "X";
+            if (truckAnalysis.ConstraintSet.AllowPalletOrientationY)
+            {
+                if (!string.IsNullOrEmpty(sAllowedPalletOrientations))
+                    sAllowedPalletOrientations += ",";
+                sAllowedPalletOrientations += "Y";
+            }
+            palletOrientationsAttribute.Value = sAllowedPalletOrientations;
+            contraintSetElt.Attributes.Append(palletOrientationsAttribute);
+            // min distance pallet / truck wall
+            XmlAttribute minDistancePalletWallAttribute = xmlDoc.CreateAttribute("MinDistancePalletWall");
+            minDistancePalletWallAttribute.Value = string.Format("{0}", truckAnalysis.ConstraintSet.MinDistancePalletTruckWall);
+            contraintSetElt.Attributes.Append(minDistancePalletWallAttribute);
+            // min distance pallet / truck roof
+            XmlAttribute minDistancePalletRoofAttribute = xmlDoc.CreateAttribute("MinDistancePalletRoof");
+            minDistancePalletRoofAttribute.Value = string.Format("{0}", truckAnalysis.ConstraintSet.MinDistancePalletTruckWall);
+            contraintSetElt.Attributes.Append(minDistancePalletRoofAttribute);
+            // solutions
+            XmlElement truckSolutionsElt = xmlDoc.CreateElement("Solutions");
+            truckAnalysisElt.AppendChild(truckSolutionsElt);
+            foreach (TruckSolution truckSolution in truckAnalysis.Solutions)
+            {
+                XmlElement truckSolutionElt = xmlDoc.CreateElement("Solution");
+                truckSolutionsElt.AppendChild(truckSolutionElt);
+                // title
+                XmlAttribute titleAttribute = xmlDoc.CreateAttribute("Title");
+                titleAttribute.Value = truckSolution.Title;
+                truckSolutionsElt.Attributes.Append(titleAttribute);
+                // layer
+                XmlElement layersElt = xmlDoc.CreateElement("Layers");
+                truckSolutionElt.AppendChild(layersElt);
+                Save(truckSolution.Layer, layersElt, xmlDoc);
+            }
+        }
+
+        public void Save(BoxLayer boxLayer, XmlElement layersElt, XmlDocument xmlDoc)
+        {
+            // BoxLayer
+            XmlElement boxlayerElt = xmlDoc.CreateElement("BoxLayer");
+            layersElt.AppendChild(boxlayerElt);
+            // ZLow
+            XmlAttribute zlowAttribute = xmlDoc.CreateAttribute("ZLow");
+            zlowAttribute.Value = string.Format("{0}", boxLayer.ZLow);
+            boxlayerElt.Attributes.Append(zlowAttribute);
+            foreach (BoxPosition boxPosition in boxLayer)
+            {
+                // BoxPosition
+                XmlElement boxPositionElt = xmlDoc.CreateElement("BoxPosition");
+                boxlayerElt.AppendChild(boxPositionElt);
+                // Position
+                XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
+                positionAttribute.Value = boxPosition.Position.ToString();
+                boxPositionElt.Attributes.Append(positionAttribute);
+                // AxisLength
+                XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
+                axisLengthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionLength);
+                boxPositionElt.Attributes.Append(axisLengthAttribute);
+                // AxisWidth
+                XmlAttribute axisWidthAttribute = xmlDoc.CreateAttribute("AxisWidth");
+                axisWidthAttribute.Value = HalfAxis.ToString(boxPosition.DirectionWidth);
+                boxPositionElt.Attributes.Append(axisWidthAttribute);
             }
         }
         #endregion

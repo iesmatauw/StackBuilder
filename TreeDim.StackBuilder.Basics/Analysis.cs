@@ -120,7 +120,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             return (null != GetSelSolutionBySolutionIndex(index));
         }
-        private SelSolution GetSelSolutionBySolutionIndex(int index)
+        public SelSolution GetSelSolutionBySolutionIndex(int index)
         {
             if (index < 0 || index > _solutions.Count) return null;  // no solution with this index
             return _selectedSolutions.Find(delegate(SelSolution selSol) { return selSol.Solution == _solutions[index]; });

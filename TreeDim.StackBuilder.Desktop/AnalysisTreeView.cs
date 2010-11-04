@@ -261,7 +261,7 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.MinDistancePalletTruckWall = form.MinDistancePalletTruckWall;
                     constraintSet.MinDistancePalletTruckRoof = form.MinDistancePalletTruckRoof;
 
-                    TruckAnalysis truckAnalysis = tag.SelSolution.CreateNewTruckAnalysis(form.SelectedTruck, constraintSet, new TruckSolver());
+                    TruckAnalysis truckAnalysis = tag.SelSolution.CreateNewTruckAnalysis(form.SelectedTruck.Name, string.Empty, form.SelectedTruck, constraintSet, new TruckSolver());
                     if (null != truckAnalysis)
                         FormMain.GetInstance().CreateOrActivateViewTruckAnalysis(truckAnalysis);
                 }
@@ -654,14 +654,18 @@ namespace TreeDim.StackBuilder.Desktop
             return _type == nodeTag._type
                 && _document == nodeTag._document
                 && _itemProperties == nodeTag._itemProperties
-                && _analysis == nodeTag._analysis;
+                && _analysis == nodeTag._analysis
+                && _selSolution == nodeTag._selSolution
+                && _truckAnalysis == nodeTag._truckAnalysis;
         }
         public override int GetHashCode()
         {
             return _type.GetHashCode()
                 ^ _document.GetHashCode()
                 ^ _itemProperties.GetHashCode()
-                ^ _analysis.GetHashCode();
+                ^ _analysis.GetHashCode()
+                ^ _selSolution.GetHashCode()
+                ^ _truckAnalysis.GetHashCode();
         }
         #endregion
 

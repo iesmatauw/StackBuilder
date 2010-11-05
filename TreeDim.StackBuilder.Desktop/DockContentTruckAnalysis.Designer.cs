@@ -71,6 +71,7 @@
             resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
             this.btSelectSolution.Name = "btSelectSolution";
             this.btSelectSolution.UseVisualStyleBackColor = true;
+            this.btSelectSolution.Click += new System.EventHandler(this.btSelectSolution_Click);
             // 
             // toolStrip2
             // 

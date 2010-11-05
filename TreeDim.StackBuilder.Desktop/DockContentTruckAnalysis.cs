@@ -170,7 +170,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // Load height (mm)
                 gridSolutions[iIndex, 6] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.LoadHeight));
                 // Selected
-                gridSolutions[iIndex, 7] = new SourceGrid.Cells.CheckBox(null, false);
+                gridSolutions[iIndex, 7] = new SourceGrid.Cells.CheckBox(null, _truckAnalysis.HasSolutionSelected(iIndex-1));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
@@ -210,6 +210,9 @@ namespace TreeDim.StackBuilder.Desktop
         {
             SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
             int iSel = context.Position.Row - 1;
+            _truckAnalysis.SelectedSolutionIndex = iSel;
+            UpdateGridCheckBoxes();
+            UpdateSelectButtonText();
         }
         // selection changed
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
@@ -230,18 +233,53 @@ namespace TreeDim.StackBuilder.Desktop
             // redraw
             Draw();
         }
+        private void btSelectSolution_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int iSel = GetCurrentSolutionIndex();
+                if (-1 == iSel) return;
+                _truckAnalysis.SelectedSolutionIndex = iSel;
+                UpdateSelectButtonText();
+                UpdateGridCheckBoxes();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         #endregion
 
         #region Solution selection
         private void UpdateGridCheckBoxes()
-        { 
+        {
+            int iRow = 0;
+            foreach (TruckSolution solution in _truckAnalysis.Solutions)
+            {
+                ++iRow;
+                SourceGrid.Cells.CheckBox checkBox = gridSolutions[iRow, 7] as SourceGrid.Cells.CheckBox;
+                checkBox.Checked = _truckAnalysis.HasSolutionSelected(iRow-1);
+            }
         }
         private void UpdateSelectButtonText()
-        { 
+        {
+            int iSel = GetCurrentSolutionIndex();
+            if (-1 == iSel)
+            {
+                btSelectSolution.Enabled = false;
+                return; // no valid selection
+            }
+            btSelectSolution.Enabled = !_truckAnalysis.HasSolutionSelected(iSel);
+
         }
         private int GetCurrentSolutionIndex()
         {
-            return 0;
+            SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
+            int[] indexes = region.GetRowsIndex();
+            // no selection -> exit
+            if (indexes.Length == 0) return -1;
+            // return index
+            return indexes[0] - 1;
         }
         #endregion
 

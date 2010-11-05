@@ -138,11 +138,27 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        internal static System.Drawing.Bitmap Word
+        internal static System.Drawing.Bitmap WORD
         {
             get
             {
-                object obj = ResourceManager.GetObject("Word", resourceCulture);
+                object obj = ResourceManager.GetObject("WORD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap TruckAnalysis
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("TruckAnalysis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap DELETE
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("DELETE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

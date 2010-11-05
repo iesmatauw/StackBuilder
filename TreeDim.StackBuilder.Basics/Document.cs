@@ -1443,6 +1443,7 @@ namespace TreeDim.StackBuilder.Basics
             // solutions
             XmlElement truckSolutionsElt = xmlDoc.CreateElement("Solutions");
             truckAnalysisElt.AppendChild(truckSolutionsElt);
+            int solutionIndex = 0;
             foreach (TruckSolution truckSolution in truckAnalysis.Solutions)
             {
                 XmlElement truckSolutionElt = xmlDoc.CreateElement("Solution");
@@ -1451,10 +1452,16 @@ namespace TreeDim.StackBuilder.Basics
                 XmlAttribute titleAttribute = xmlDoc.CreateAttribute("Title");
                 titleAttribute.Value = truckSolution.Title;
                 truckSolutionsElt.Attributes.Append(titleAttribute);
+                // selected
+                XmlAttribute selectedAttribute = xmlDoc.CreateAttribute("Selected");
+                selectedAttribute.Value = truckAnalysis.HasSolutionSelected(solutionIndex) ? "True" : "False";
+                truckSolutionElt.Attributes.Append(selectedAttribute);
                 // layer
                 XmlElement layersElt = xmlDoc.CreateElement("Layers");
                 truckSolutionElt.AppendChild(layersElt);
                 Save(truckSolution.Layer, layersElt, xmlDoc);
+                // increment index
+                ++solutionIndex;
             }
         }
 

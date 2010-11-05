@@ -202,4 +202,61 @@
   <data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+    <value>Add new analysis...</value>
+  </data>
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
+    <value>Add new box...</value>
+  </data>
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+    <value>Add new bundle...</value>
+  </data>
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+    <value>Add new bundle analysis...</value>
+  </data>
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+    <value>Add new interlayer...</value>
+  </data>
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
+    <value>Add new pallet...</value>
+  </data>
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
+    <value>Add new truck...</value>
+  </data>
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+    <value>Add new truck analysis...</value>
+  </data>
+  <data name="ID_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ID_DELETE" xml:space="preserve">
+    <value>Delete {0}</value>
+  </data>
+  <data name="ID_EDIT" xml:space="preserve">
+    <value>Edit {0}...</value>
+  </data>
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
+    <value>Generate report for {0}</value>
+  </data>
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+    <value>Analyses</value>
+  </data>
+  <data name="ID_NODE_BOXES" xml:space="preserve">
+    <value>Boxes</value>
+  </data>
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
+    <value>Bundles</value>
+  </data>
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+    <value>Interlayers</value>
+  </data>
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
+    <value>Trucks</value>
+  </data>
+  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

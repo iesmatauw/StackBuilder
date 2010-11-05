@@ -133,6 +133,96 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new analysis....
+        /// </summary>
+        internal static string ID_ADDNEWANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new box....
+        /// </summary>
+        internal static string ID_ADDNEWBOX {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWBOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new bundle....
+        /// </summary>
+        internal static string ID_ADDNEWBUNDLE {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWBUNDLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new bundle analysis....
+        /// </summary>
+        internal static string ID_ADDNEWBUNDLEANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWBUNDLEANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new interlayer....
+        /// </summary>
+        internal static string ID_ADDNEWINTERLAYER {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWINTERLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new pallet....
+        /// </summary>
+        internal static string ID_ADDNEWPALLET {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWPALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new truck....
+        /// </summary>
+        internal static string ID_ADDNEWTRUCK {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWTRUCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new truck analysis....
+        /// </summary>
+        internal static string ID_ADDNEWTRUCKANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWTRUCKANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string ID_CLOSE {
+            get {
+                return ResourceManager.GetString("ID_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete {0}.
+        /// </summary>
+        internal static string ID_DELETE {
+            get {
+                return ResourceManager.GetString("ID_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} has some depending analyses.\nIf you proceed with the modifications, analyses will be recomputed and any selected solutions removed.\nContinue?.
         /// </summary>
         internal static string ID_DEPENDINGANALYSES {
@@ -142,11 +232,83 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit {0}....
+        /// </summary>
+        internal static string ID_EDIT {
+            get {
+                return ResourceManager.GetString("ID_EDIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File {0} could not be found.
         /// </summary>
         internal static string ID_FILENOTFOUND {
             get {
                 return ResourceManager.GetString("ID_FILENOTFOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate report for {0}.
+        /// </summary>
+        internal static string ID_GENERATEREPORT {
+            get {
+                return ResourceManager.GetString("ID_GENERATEREPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analyses.
+        /// </summary>
+        internal static string ID_NODE_ANALYSES {
+            get {
+                return ResourceManager.GetString("ID_NODE_ANALYSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boxes.
+        /// </summary>
+        internal static string ID_NODE_BOXES {
+            get {
+                return ResourceManager.GetString("ID_NODE_BOXES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bundles.
+        /// </summary>
+        internal static string ID_NODE_BUNDLES {
+            get {
+                return ResourceManager.GetString("ID_NODE_BUNDLES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interlayers.
+        /// </summary>
+        internal static string ID_NODE_INTERLAYERS {
+            get {
+                return ResourceManager.GetString("ID_NODE_INTERLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallets.
+        /// </summary>
+        internal static string ID_NODE_PALLETS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trucks.
+        /// </summary>
+        internal static string ID_NODE_TRUCKS {
+            get {
+                return ResourceManager.GetString("ID_NODE_TRUCKS", resourceCulture);
             }
         }
         
@@ -193,6 +355,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             get {
                 object obj = ResourceManager.GetObject("PatternInterlocked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon treeDim {
+            get {
+                object obj = ResourceManager.GetObject("treeDim", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

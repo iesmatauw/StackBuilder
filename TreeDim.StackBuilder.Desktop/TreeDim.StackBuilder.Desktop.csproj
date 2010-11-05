@@ -227,6 +227,9 @@
     <EmbeddedResource Include="FormMain.fr-FR.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.fr.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,10 +478,13 @@
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <Content Include="Resources\CaseAnalysis.bmp" />
+    <None Include="Resources\Delete.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
     <Content Include="Resources\Word.bmp" />
     <Content Include="treeDim.ico" />
+    <None Include="treeDim2.ico" />
+    <None Include="treeDim1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

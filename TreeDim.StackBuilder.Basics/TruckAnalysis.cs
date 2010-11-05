@@ -61,7 +61,8 @@ namespace TreeDim.StackBuilder.Basics
             {
                 if (_selectedSolutionIndex < 0 || _selectedSolutionIndex >= Solutions.Count)
                     throw new Exception("Can not select such truck solution");
-                _selectedSolutionIndex = value; 
+                _selectedSolutionIndex = value;
+                ParentDocument.Modify();
             }
         }
         public TruckSolution SelectedSolution
@@ -73,6 +74,10 @@ namespace TreeDim.StackBuilder.Basics
                 else
                     return _truckSolutions[_selectedSolutionIndex]; 
             }
+        }
+        public bool HasSolutionSelected(int index)
+        {
+            return index == _selectedSolutionIndex;
         }
         #endregion
 

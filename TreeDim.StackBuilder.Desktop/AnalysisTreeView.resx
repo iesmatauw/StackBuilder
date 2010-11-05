@@ -133,6 +133,9 @@
   <data name="CLSDFOLD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\CLSDFOLD.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DELETE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DOC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\DOC.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,7 +154,10 @@
   <data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Word" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="TruckAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TruckAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WORD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Word.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

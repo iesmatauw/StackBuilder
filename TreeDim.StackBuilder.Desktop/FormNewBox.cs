@@ -50,6 +50,9 @@ namespace TreeDim.StackBuilder.Desktop
             trackBarHorizAngle.Value = 45;
             // disable Ok button
             UpdateButtonOkStatus();
+            // inside dimensions
+            checkBoxInside.Checked = false;
+            EnableDisableInsideDimensionsControls();
         }
         /// <summary>
         /// FormNewBox constructor used to edit existing boxes
@@ -68,8 +71,11 @@ namespace TreeDim.StackBuilder.Desktop
             tbName.Text = _boxProperties.Name;
             tbDescription.Text = _boxProperties.Description;
             nudLength.Value = (decimal)_boxProperties.Length;
+            nudInsideLength.Value = (decimal)_boxProperties.InsideLength;
             nudWidth.Value = (decimal)_boxProperties.Width;
+            nudInsideWidth.Value = (decimal)_boxProperties.InsideWidth;
             nudHeight.Value = (decimal)_boxProperties.Height;
+            nudInsideHeight.Value = (decimal)_boxProperties.InsideHeight;
             nudWeight.Value = (decimal)_boxProperties.Weight;
             nudWeightOnTop.Value = (decimal)0.0;
             // set colors
@@ -80,7 +86,10 @@ namespace TreeDim.StackBuilder.Desktop
             // set horizontal angle
             trackBarHorizAngle.Value = 45;
             // disable Ok button
-            UpdateButtonOkStatus();            
+            UpdateButtonOkStatus();
+            // inside dimensions
+            checkBoxInside.Checked = _boxProperties.HasInsideDimensions;
+            EnableDisableInsideDimensionsControls();
         }
         #endregion
 
@@ -109,6 +118,26 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return (double)nudHeight.Value; }
             set { nudHeight.Value = (decimal)value; }
+        }
+        public bool HasInsideDimensions
+        {
+            get { return checkBoxInside.Checked; }
+            set { checkBoxInside.Checked = value; }
+        }
+        public double InsideLength
+        {
+            get { return (double)nudInsideLength.Value; }
+            set { nudInsideLength.Value = (decimal)value; }
+        }
+        public double InsideWidth
+        {
+            get { return (double)nudInsideWidth.Value; }
+            set { nudInsideWidth.Value = (decimal)value; }
+        }
+        public double InsideHeight
+        {
+            get { return (double)nudInsideHeight.Value; }
+            set { nudInsideHeight.Value = (decimal)value; }
         }
         public double Weight
         {
@@ -153,7 +182,6 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-
         private void onBoxPropertyChanged(object sender, EventArgs e)
         {
             DrawBox();
@@ -185,6 +213,17 @@ namespace TreeDim.StackBuilder.Desktop
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
+        }
+        private void checkBoxInside_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableDisableInsideDimensionsControls();
+        }
+
+        private void EnableDisableInsideDimensionsControls()
+        {
+            nudInsideLength.Enabled = checkBoxInside.Checked;
+            nudInsideWidth.Enabled = checkBoxInside.Checked;
+            nudInsideHeight.Enabled = checkBoxInside.Checked;
         }
         #endregion
 
@@ -220,5 +259,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
+
+
     }
 }

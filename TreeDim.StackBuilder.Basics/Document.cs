@@ -25,6 +25,7 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, Analysis analysis);
+        void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis);
         void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution);
         void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
         // remove
@@ -50,6 +51,7 @@ namespace TreeDim.StackBuilder.Basics
         private DateTime _dateCreated;
         private List<ItemBase> _typeList = new List<ItemBase>();
         private List<Analysis> _analyses = new List<Analysis>();
+        private List<CaseAnalysis> _caseAnalyses = new List<CaseAnalysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
         #endregion
@@ -88,7 +90,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
-        #region Public ItemProperties instantiation methods
+        #region Public instantiation methods
         public BoxProperties CreateNewBox(
             string name
             , string description
@@ -259,6 +261,21 @@ namespace TreeDim.StackBuilder.Basics
             NotifyOnNewAnalysisCreated(analysis);
             return analysis;
         }
+
+        public CaseAnalysis CreateNewCaseAnalysis(
+            string name, string description
+            , BoxProperties bProperties
+            )
+        {
+            CaseAnalysis caseAnalysis = new CaseAnalysis(this);
+            caseAnalysis.Name = name;
+            caseAnalysis.Description = description;
+            _caseAnalyses.Add(caseAnalysis);
+            NotifyOnNewCaseAnalysisCreated(caseAnalysis);
+            return caseAnalysis;
+        }
+
+ 
 
         public void RemoveItem(ItemBase item)
         {
@@ -450,6 +467,19 @@ namespace TreeDim.StackBuilder.Basics
                 return iNoBundles > 0 && iNoPallets > 0;
             }
         }
+        public bool CanCreateCaseAnalysis
+        {
+            get
+            {
+                int iNoBox = 0;
+                foreach (ItemBase item in _typeList)
+                { 
+                    if (item.GetType() == typeof(BoxProperties))
+                        ++iNoBox;
+                }
+                return iNoBox > 0;
+            }
+        }
         #endregion
 
         #region Load methods
@@ -541,7 +571,18 @@ namespace TreeDim.StackBuilder.Basics
             string slength = eltBoxProperties.Attributes["Length"].Value;
             string swidth = eltBoxProperties.Attributes["Width"].Value;
             string sheight = eltBoxProperties.Attributes["Height"].Value;
+            string sInsideLength = string.Empty, sInsideWidth = string.Empty, sInsideHeight = string.Empty;
+            if (eltBoxProperties.HasAttribute("InsideLength"))
+            {
+                sInsideLength = eltBoxProperties.Attributes["InsideLength"].Value;
+                sInsideWidth = eltBoxProperties.Attributes["InsideWidth"].Value;
+                sInsideHeight = eltBoxProperties.Attributes["InsideHeight"].Value;
+            }
             string sweight = eltBoxProperties.Attributes["Weight"].Value;
+
+            bool hasInsideDimensions = eltBoxProperties.HasAttribute("InsideLength");
+            if (hasInsideDimensions)
+            { }
 
             Color[] colors = new Color[6];
             foreach (XmlNode node in eltBoxProperties.ChildNodes)
@@ -569,7 +610,19 @@ namespace TreeDim.StackBuilder.Basics
                 , System.Convert.ToDouble(sheight)
                 , System.Convert.ToDouble(sweight)
                 , colors);
+            boxProperties.HasInsideDimensions = !string.IsNullOrEmpty(sInsideLength);
+            if (boxProperties.HasInsideDimensions)
+            {
+                sInsideLength = eltBoxProperties.Attributes["InsideLength"].Value;
+                sInsideWidth = eltBoxProperties.Attributes["InsideWidth"].Value;
+                sInsideHeight = eltBoxProperties.Attributes["InsideHeight"].Value;
+
+                boxProperties.InsideLength = System.Convert.ToDouble(sInsideLength);
+                boxProperties.InsideWidth = System.Convert.ToDouble(sInsideWidth);
+                boxProperties.InsideHeight = System.Convert.ToDouble(sInsideHeight);
+            }
             boxProperties.Guid = new Guid(sid);
+            boxProperties.HasInsideDimensions = hasInsideDimensions;
         }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
@@ -750,6 +803,7 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
         }
+
         ConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
         {
             ConstraintSetBox constraints = new ConstraintSetBox();
@@ -1042,6 +1096,22 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
             heightAttribute.Value = string.Format("{0}", boxProperties.Height);
             xmlBoxProperties.Attributes.Append(heightAttribute);
+            // inside dimensions
+            if (boxProperties.HasInsideDimensions)
+            {
+                // length
+                XmlAttribute insideLengthAttribute = xmlDoc.CreateAttribute("InsideLength");
+                insideLengthAttribute.Value = string.Format("{0}", boxProperties.InsideLength);
+                xmlBoxProperties.Attributes.Append(insideLengthAttribute);
+                // width
+                XmlAttribute insideWidthAttribute = xmlDoc.CreateAttribute("InsideWidth");
+                insideWidthAttribute.Value = string.Format("{0}", boxProperties.InsideWidth);
+                xmlBoxProperties.Attributes.Append(insideWidthAttribute);
+                // height
+                XmlAttribute insideHeightAttribute = xmlDoc.CreateAttribute("InsideHeight");
+                insideHeightAttribute.Value = string.Format("{0}", boxProperties.InsideHeight);
+                xmlBoxProperties.Attributes.Append(insideHeightAttribute);
+            }
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
             weightAttribute.Value = string.Format("{0}", boxProperties.Weight);
@@ -1536,6 +1606,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
+        }
+        private void NotifyOnNewCaseAnalysisCreated(CaseAnalysis caseAnalysis)
+        { 
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewCaseAnalysisCreated(this, caseAnalysis);
         }
         internal void NotifyOnNewSolutionAdded(Analysis analysis, SelSolution selSolution)
         {

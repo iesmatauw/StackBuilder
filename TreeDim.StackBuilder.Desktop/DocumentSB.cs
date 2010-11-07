@@ -109,7 +109,13 @@ namespace TreeDim.StackBuilder.Desktop
         {
             FormNewBox form = new FormNewBox(this);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
+            {
+                BoxProperties bProperties = CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
+                bProperties.HasInsideDimensions = form.HasInsideDimensions;
+                bProperties.InsideLength = form.InsideLength;
+                bProperties.InsideWidth = form.InsideWidth;
+                bProperties.InsideHeight = form.InsideHeight;
+            }
         }
         public void CreateNewBundleUI()
         { 
@@ -245,7 +251,8 @@ namespace TreeDim.StackBuilder.Desktop
         {
             FormNewCaseAnalysis form = new FormNewCaseAnalysis();
             if (DialogResult.OK == form.ShowDialog())
-            { 
+            {
+                return CreateNewCaseAnalysis(form.CaseAnalysisName, form.CaseAnalysisDescription, null);
             }
             return null;
         }

@@ -169,6 +169,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new case analysis....
+        /// </summary>
+        internal static string ID_ADDNEWCASEANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWCASEANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new interlayer....
         /// </summary>
         internal static string ID_ADDNEWINTERLAYER {
@@ -318,6 +327,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_SAVEMODIFIEDFILE {
             get {
                 return ResourceManager.GetString("ID_SAVEMODIFIEDFILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unselect solution {0}.
+        /// </summary>
+        internal static string ID_UNSELECTSOLUTION {
+            get {
+                return ResourceManager.GetString("ID_UNSELECTSOLUTION", resourceCulture);
             }
         }
         

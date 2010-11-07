@@ -259,4 +259,10 @@
   <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+    <value>Add new case analysis...</value>
+  </data>
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+    <value>Unselect solution {0}</value>
+  </data>
 </root>

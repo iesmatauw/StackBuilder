@@ -127,27 +127,66 @@
   <data name="bnCancel.Text" xml:space="preserve">
     <value>&amp;Annuler</value>
   </data>
-  <data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lbFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+  <data name="lbUnitHeightInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 89</value>
   </data>
-  <data name="lbLength.Text" xml:space="preserve">
-    <value>Longueur</value>
+  <data name="lbUnitWidthInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 62</value>
   </data>
-  <data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lbUnitLengthInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 35</value>
   </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+  <data name="nudInsideLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 35</value>
   </data>
-  <data name="lbWidth.Text" xml:space="preserve">
-    <value>Largeur</value>
+  <data name="nudInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
   </data>
-  <data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="nudInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 89</value>
+  </data>
+  <data name="nudInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="nudInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 62</value>
+  </data>
+  <data name="nudInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="lbUnitHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 89</value>
+  </data>
+  <data name="lbUnitWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 62</value>
+  </data>
+  <data name="lbUnitLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 35</value>
+  </data>
+  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 35</value>
+  </data>
+  <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 89</value>
+  </data>
+  <data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 62</value>
+  </data>
+  <data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 89</value>
   </data>
   <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
@@ -155,17 +194,35 @@
   <data name="lbHeight.Text" xml:space="preserve">
     <value>Hauteur</value>
   </data>
-  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 23</value>
+  <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 62</value>
   </data>
-  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 49</value>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
   </data>
-  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 76</value>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Largeur</value>
   </data>
-  <data name="lbFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 35</value>
+  </data>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Longueur</value>
+  </data>
+  <data name="checkBoxInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 13</value>
+  </data>
+  <data name="checkBoxInside.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="checkBoxInside.Text" xml:space="preserve">
+    <value>Intérieur</value>
+  </data>
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 118</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Arrière</value>
@@ -197,24 +254,20 @@
   <data name="lbWeight.Text" xml:space="preserve">
     <value>Masse</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbWeightOnTop.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="lbWeightOnTop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 27</value>
+    <value>143, 13</value>
   </data>
   <data name="lbWeightOnTop.Text" xml:space="preserve">
     <value>Poid admissible sur le dessus</value>
   </data>
   <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 21</value>
+    <value>224, 21</value>
   </data>
   <data name="nudWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>111, 51</value>
+    <value>224, 51</value>
   </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Masse</value>

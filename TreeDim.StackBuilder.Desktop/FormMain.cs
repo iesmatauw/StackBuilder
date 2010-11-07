@@ -184,6 +184,13 @@ namespace TreeDim.StackBuilder.Desktop
                         box.Width = form.BoxWidth;
                         box.Height = form.BoxHeight;
                         box.Weight = form.Weight;
+                        box.HasInsideDimensions = form.HasInsideDimensions;
+                        if (form.HasInsideDimensions)
+                        {
+                            box.InsideLength = form.InsideLength;
+                            box.InsideWidth = form.InsideWidth;
+                            box.InsideHeight = form.InsideHeight;
+                        }
                         box.SetAllColors( form.Colors );
                         box.SetAllColors(form.Colors);
                         box.EndUpdate();

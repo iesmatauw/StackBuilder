@@ -83,6 +83,10 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             {
                 _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
             }
+            public void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis)
+            {
+                _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
+            }
             public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution)
             {
                 _log.Info(string.Format("Selected solution added {0}", selectedSolution.Name));

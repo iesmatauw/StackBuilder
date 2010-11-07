@@ -16,6 +16,8 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private double _height;
+        private bool _hasInsideDimensions;
+        private double _insideLength, _insideWidth, _insideHeight;
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
         #endregion
@@ -35,6 +37,29 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _height; }
             set { _height = value; Modify(); }
+        }
+        #endregion
+
+        #region InsideDimensions
+        public bool HasInsideDimensions
+        {
+            get { return _hasInsideDimensions; }
+            set { _hasInsideDimensions = value; Modify(); }
+        }
+        public double InsideLength
+        {
+            get { return _hasInsideDimensions ? _insideLength : _length; }
+            set { _insideLength = value; Modify(); }
+        }
+        public double InsideWidth
+        {
+            get { return _hasInsideDimensions ? _insideWidth : _width; }
+            set { _insideWidth = value; Modify(); }
+        }
+        public double InsideHeight
+        {
+            get { return _hasInsideDimensions ? _insideHeight : _height; }
+            set { _insideHeight = value; Modify(); }
         }
         #endregion
 

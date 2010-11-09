@@ -250,6 +250,24 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description field is empty.
+        /// </summary>
+        internal static string ID_FIELDDESCRIPTIONEMPTY {
+            get {
+                return ResourceManager.GetString("ID_FIELDDESCRIPTIONEMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name field is empty.
+        /// </summary>
+        internal static string ID_FIELDNAMEEMPTY {
+            get {
+                return ResourceManager.GetString("ID_FIELDNAMEEMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File {0} could not be found.
         /// </summary>
         internal static string ID_FILENOTFOUND {
@@ -264,6 +282,42 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_GENERATEREPORT {
             get {
                 return ResourceManager.GetString("ID_GENERATEREPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inside height ({0}) ought to be lower than height ({1}).
+        /// </summary>
+        internal static string ID_INVALIDINSIDEHEIGHT {
+            get {
+                return ResourceManager.GetString("ID_INVALIDINSIDEHEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inside length ({0}) ought to be lower than length ({1}).
+        /// </summary>
+        internal static string ID_INVALIDINSIDELENGTH {
+            get {
+                return ResourceManager.GetString("ID_INVALIDINSIDELENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inside width ({0}) ought to be lower than width ({1}).
+        /// </summary>
+        internal static string ID_INVALIDINSIDEWIDTH {
+            get {
+                return ResourceManager.GetString("ID_INVALIDINSIDEWIDTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Given name ({0}) is invalid.
+        /// </summary>
+        internal static string ID_INVALIDNAME {
+            get {
+                return ResourceManager.GetString("ID_INVALIDNAME", resourceCulture);
             }
         }
         
@@ -318,6 +372,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_NODE_TRUCKS {
             get {
                 return ResourceManager.GetString("ID_NODE_TRUCKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        internal static string ID_READY {
+            get {
+                return ResourceManager.GetString("ID_READY", resourceCulture);
             }
         }
         

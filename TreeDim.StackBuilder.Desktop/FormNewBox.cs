@@ -184,6 +184,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void onBoxPropertyChanged(object sender, EventArgs e)
         {
+            UpdateButtonOkStatus();
             DrawBox();
         }
         private void onSelectedFaceChanged(object sender, EventArgs e)
@@ -205,10 +206,27 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled =
-                tbName.Text.Length > 0
-                && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text, _boxProperties);
+            // status + message
+            bool statusOk = true;
+            string message = string.Empty;
+            if (string.IsNullOrEmpty(tbName.Text))
+            { statusOk = false; message = Resources.ID_FIELDNAMEEMPTY; }
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+            { statusOk = false; message = Resources.ID_FIELDDESCRIPTIONEMPTY; }
+            else if (!_document.IsValidNewTypeName(tbName.Text, _boxProperties))
+            { statusOk = false; message = string.Format(Resources.ID_INVALIDNAME, tbName.Text); }
+            else if (HasInsideDimensions && InsideLength > BoxLength)
+            { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength); }
+            else if (HasInsideDimensions && InsideWidth > BoxWidth)
+            { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth); }
+            else if (HasInsideDimensions && InsideHeight > BoxHeight)
+            { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight); }
+            else
+            { statusOk = true; message = Resources.ID_READY; }
+            // accept
+            bnAccept.Enabled = statusOk;
+            if (statusOk) toolStripStatusLabelDef.ForeColor = Color.Black; else toolStripStatusLabelDef.ForeColor = Color.Red;
+            toolStripStatusLabelDef.Text = message;
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
@@ -259,7 +277,5 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
-
-
     }
 }

@@ -242,6 +242,9 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Haut</value>
   </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleur des faces</value>
   </data>

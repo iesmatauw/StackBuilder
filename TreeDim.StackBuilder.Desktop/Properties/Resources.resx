@@ -265,4 +265,25 @@
   <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
     <value>Unselect solution {0}</value>
   </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>Description field is empty</value>
+  </data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>Name field is empty</value>
+  </data>
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+    <value>Inside height ({0}) ought to be lower than height ({1})</value>
+  </data>
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+    <value>Inside length ({0}) ought to be lower than length ({1})</value>
+  </data>
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+    <value>Inside width ({0}) ought to be lower than width ({1})</value>
+  </data>
+  <data name="ID_INVALIDNAME" xml:space="preserve">
+    <value>Given name ({0}) is invalid</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Ready</value>
+  </data>
 </root>

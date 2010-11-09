@@ -357,5 +357,14 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["MinDistancePalletTruckRoof"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\PalletSolutions\\")]
+        public string PalletSolutionsPath {
+            get {
+                return ((string)(this["PalletSolutionsPath"]));
+            }
+        }
     }
 }

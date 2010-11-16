@@ -71,6 +71,7 @@
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
     <Compile Include="PalletProperties.cs" />
+    <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="SelSolution.cs" />
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

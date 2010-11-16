@@ -178,6 +178,7 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectAnalysisSolution)));
                 if (nodeTag.Document.Trucks.Count > 0 && !nodeTag.SelSolution.HasDependingAnalyses)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.TruckAnalysis, new EventHandler(onCreateNewTruckAnalysis)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_SENDTODATABASE, AnalysisTreeView.Database, new EventHandler(onSendSolutionToDatabase)));
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_CASEANALYSIS)
             {
@@ -315,13 +316,62 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }       
         }
+        private void onSendSolutionToDatabase(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                // get PalletSolutionDatabase instance
+                PalletSolutionDatabase db = PalletSolutionDatabase.Instance;
+                // check that a comparable solution is not already in database
+                BoxProperties boxProperties = tag.Analysis.BProperties as BoxProperties;
+                PalletProperties palletProperties = tag.Analysis.PalletProperties;
+                ConstraintSet constraintSet = tag.Analysis.ConstraintSet;
+
+                // show form and get friendly name
+                FormAppendSolutionToDB form = new FormAppendSolutionToDB();
+                if (DialogResult.Cancel == form.ShowDialog())
+                    return;
+
+                double palletHeight = 0.0;
+                if (db.QueryPalletSolutions(palletProperties.Length, palletProperties.Width, constraintSet.MaximumHeight, constraintSet.OverhangX, constraintSet.OverhangY).Count > 0)
+                {
+
+                }
+
+                // warn user : overwrite / cancel / keep both solutions
+                // save solution
+                Guid guid = Guid.NewGuid();
+                tag.Document.WriteSolution(
+                    tag.SelSolution.Solution
+                    , tag.SelSolution
+                    , System.IO.Path.Combine(PalletSolutionDatabase.Directory, guid.ToString().Replace("-", "_") + ".stb"));
+                // save in database index
+                db.Append(new PalletSolutionDesc(palletProperties.Length, palletProperties.Width, palletHeight
+                    , constraintSet.OverhangX, constraintSet.OverhangY
+                    , boxProperties.Length, boxProperties.Width, boxProperties.Height
+                    , boxProperties.InsideLength, boxProperties.InsideWidth, boxProperties.InsideHeight
+                    , tag.SelSolution.Solution.BoxCount
+                    , guid
+                    , form.FriendlyName)); 
+                db.Save();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+
         private void onCreateNewCaseAnalysis(object sender, EventArgs e)
         {
             NodeTag tag = SelectedNode.Tag as NodeTag;
             ((DocumentSB)tag.Document).CreateNewCaseAnalysisUI(); 
         }
         private void onUnselectAnalysisSolution(object sender, EventArgs e)
-        { 
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.Analysis.UnSelectSolution(tag.SelSolution);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onDocumentClose(object sender, EventArgs e)
         {

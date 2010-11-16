@@ -67,6 +67,8 @@
             this.newAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAnalysisBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -83,7 +85,9 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
             this.newBundleAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.newCaseAnalysisToolStrip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.editPaletSolutionsDBToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
@@ -291,7 +295,9 @@
             this.toolStripSeparator5,
             this.newAnalysisToolStripMenuItem,
             this.newAnalysisBundleToolStripMenuItem,
-            this.newCaseAnalysisToolStripMenuItem});
+            this.newCaseAnalysisToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.editPaletSolutionsDB});
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             this.toolStripMenuItemTools.ShortcutKeyDisplayString = null;
             // 
@@ -387,6 +393,23 @@
             this.newCaseAnalysisToolStripMenuItem.Name = "newCaseAnalysisToolStripMenuItem";
             this.newCaseAnalysisToolStripMenuItem.ShortcutKeyDisplayString = null;
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.AccessibleDescription = null;
+            this.toolStripSeparator7.AccessibleName = null;
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            // 
+            // editPaletSolutionsDB
+            // 
+            this.editPaletSolutionsDB.AccessibleDescription = null;
+            this.editPaletSolutionsDB.AccessibleName = null;
+            resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
+            this.editPaletSolutionsDB.BackgroundImage = null;
+            this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
+            this.editPaletSolutionsDB.ShortcutKeyDisplayString = null;
+            this.editPaletSolutionsDB.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.AccessibleDescription = null;
@@ -429,7 +452,9 @@
             this.toolStripSeparator4,
             this.toolStripButtonCreateNewAnalysis,
             this.newBundleAnalysisToolStripMenuItem,
-            this.toolStripButton1});
+            this.newCaseAnalysisToolStrip,
+            this.toolStripSeparator6,
+            this.editPaletSolutionsDBToolStripMenuItem});
             this.toolStrip1.Name = "toolStrip1";
             // 
             // toolStripButtonNewFile
@@ -567,16 +592,34 @@
             this.newBundleAnalysisToolStripMenuItem.Name = "newBundleAnalysisToolStripMenuItem";
             this.newBundleAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
             // 
-            // toolStripButton1
+            // newCaseAnalysisToolStrip
             // 
-            this.toolStripButton1.AccessibleDescription = null;
-            this.toolStripButton1.AccessibleName = null;
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-            this.toolStripButton1.BackgroundImage = null;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
+            this.newCaseAnalysisToolStrip.AccessibleDescription = null;
+            this.newCaseAnalysisToolStrip.AccessibleName = null;
+            resources.ApplyResources(this.newCaseAnalysisToolStrip, "newCaseAnalysisToolStrip");
+            this.newCaseAnalysisToolStrip.BackgroundImage = null;
+            this.newCaseAnalysisToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newCaseAnalysisToolStrip.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
+            this.newCaseAnalysisToolStrip.Name = "newCaseAnalysisToolStrip";
+            this.newCaseAnalysisToolStrip.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.AccessibleDescription = null;
+            this.toolStripSeparator6.AccessibleName = null;
+            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            // 
+            // editPaletSolutionsDBToolStripMenuItem
+            // 
+            this.editPaletSolutionsDBToolStripMenuItem.AccessibleDescription = null;
+            this.editPaletSolutionsDBToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.editPaletSolutionsDBToolStripMenuItem, "editPaletSolutionsDBToolStripMenuItem");
+            this.editPaletSolutionsDBToolStripMenuItem.BackgroundImage = null;
+            this.editPaletSolutionsDBToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editPaletSolutionsDBToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Database;
+            this.editPaletSolutionsDBToolStripMenuItem.Name = "editPaletSolutionsDBToolStripMenuItem";
+            this.editPaletSolutionsDBToolStripMenuItem.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
             // 
             // openFileDialogSB
             // 
@@ -650,8 +693,12 @@
         private System.Windows.Forms.ToolStripMenuItem newTruckToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileMRU;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton newCaseAnalysisToolStrip;
         private System.Windows.Forms.ToolStripMenuItem newAnalysisBundleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newCaseAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton editPaletSolutionsDBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem editPaletSolutionsDB;
     }
 }

@@ -286,4 +286,10 @@
   <data name="ID_READY" xml:space="preserve">
     <value>Ready</value>
   </data>
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
+    <value>Send to database</value>
+  </data>
+  <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

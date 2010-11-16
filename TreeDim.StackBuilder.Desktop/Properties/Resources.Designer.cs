@@ -95,6 +95,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Database {
+            get {
+                object obj = ResourceManager.GetObject("Database", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FileNew {
             get {
                 object obj = ResourceManager.GetObject("FileNew", resourceCulture);
@@ -390,6 +397,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_SAVEMODIFIEDFILE {
             get {
                 return ResourceManager.GetString("ID_SAVEMODIFIEDFILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send to database.
+        /// </summary>
+        internal static string ID_SENDTODATABASE {
+            get {
+                return ResourceManager.GetString("ID_SENDTODATABASE", resourceCulture);
             }
         }
         

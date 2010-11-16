@@ -118,69 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Fichier</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvelle &amp;Caisse</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvel &amp;Intercalaire</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouveau &amp;Bundle</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvelle &amp;Palette</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouveau &amp;Camion</value>
-  </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 6</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvelle &amp;Analyse</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvelle analyse de Bundle</value>
-  </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Ou&amp;tils</value>
-  </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Aide</value>
-  </data>
   <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 22</value>
   </data>
@@ -235,11 +172,86 @@
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quitter</value>
   </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Fichier</value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvelle &amp;Caisse</value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvel &amp;Intercalaire</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouveau &amp;Bundle</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvelle &amp;Palette</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouveau &amp;Camion</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 6</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvelle &amp;Analyse</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvelle analyse de Bundle</value>
+  </data>
+  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 6</value>
+  </data>
+  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Ou&amp;tils</value>
+  </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 22</value>
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>A propos de...</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Aide</value>
   </data>
   <data name="toolStripButtonNewFile.Text" xml:space="preserve">
     <value>&amp;Nouveau fichier</value>
@@ -274,14 +286,84 @@
   <data name="newBundleAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse de Bundle</value>
   </data>
-  <data name="toolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
+  <data name="newCaseAnalysisToolStrip.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
   </data>
-  <data name="toolStripButton1.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
+  <data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>treeDim2.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
+        AICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAAICAAAAAAAAAAAAAAICAAICAAAAAAAAA
+        AAAAAAAAAAAAAICAAICAAAAAAAAAAAAAAICAAICAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICA
+        AICAAICAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AICAAAAAAICAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AP//AAD/AICAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/
+        AAD/AAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAD/AICAAAAAAICAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AP//AAD/AAD/AAD/AP//AICAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAP//AP//AP//AP//AP//
+        AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AP//AAD/AICA
+        AAAAAICAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AP//AAD/AAD/AICAAAAAAICAAAAAAAAAAAAAAAAAAAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AP//
+        AAD/AP//AAD/AAD/AAD/AICAAAAAAICAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AAD/AP//AICAAAAA
+        AICAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AICAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAD/AP//AP//AAD/
+        AAD/AP//AAD/AAD/AICAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//
+        AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AP//AAD/AP//AAD/AP//AAD/AAD/AAD/AAAAAAAAAAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AP//AAD/
+        AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AAD/AAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AP//AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
+        AAD/AAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
+        AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AAD/AP//AP//AAD/AAD/AAAAAAAAAAD/AAD/AAD/AP//AAD/
+        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
+        AAD/AP//AAD/AP//AAD/AAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//
+        AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AP//AP//AAD/AAD/AP//AAD/AAD/AP//AAAAAAAAAAAA
+        AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/
+        AAD/AP//AAD/AP//AAD/AP//AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/
+        AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/AP//AAD/AAD/AP//AP//AAD/AAD/
+        AAD/AAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
+        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAP//
+        AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/
+        AAD/AP//AP//AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//
+        AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/AAD/AP//AAD/AP//AAD/AAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/
+        AP//AAD/AAD/AAD/AAD/AP//AAD/AAD/AP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/
+        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
+        AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//
+        AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//
+        AAD/AAD/AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/
+        AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/AAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
+        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAAA/////4AAD/+c+cf/gAAL/4AABf+AAAL/gAABf4AA
+        AL+AAABfgAAAL4AAABeAAAALgAAABYAAAAOAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAeAA
+        AAHwAAAB+AAAAfwAAAH+AAAB/wAAAf+AAAH/wAAB/+AAAf/wAAEoAAAAEAAAACAAAAABABgAAAAAAAAD
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
+        AICAAICAAICAAICAAICAAICAAICAAICAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/
+        AP//AAD/AAD/AP//AAD/AICAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//
+        AAD/AAD/AICAAAAAAAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AICA
+        AAAAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AP//AAD/AICAAAAAAAAAAAD/
+        AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AP//AP//AAD/AAD/AAAAAAAAAAD/AAD/AP//AAD/AAD/
+        AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//
+        AAD/AAD/AP//AP//AAD/AAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AP//AAD/
+        AP//AAAAAAAAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/AAAAAAAAAAAA
+        AAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAD/
+        AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
+        AAD//wAA//8AAA==
+</value>
   </data>
 </root>

@@ -102,6 +102,12 @@ namespace TreeDim.StackBuilder.Desktop
             _views.Add(form);
             return form;
         }
+        public DockContentCaseAnalysis CreateCaseAnalysisView(CaseAnalysis analysis)
+        {
+            DockContentCaseAnalysis form = new DockContentCaseAnalysis(this, analysis);
+            _views.Add(form);
+            return form;
+        }
         #endregion
 
         #region UI item creation
@@ -261,6 +267,9 @@ namespace TreeDim.StackBuilder.Desktop
         #region UI item edition
         public void EditAnalysis(Analysis analysis)
         {
+            // do we need to recompute analysis
+            bool recomputeRequired = false;
+
             if (analysis.IsBoxAnalysis)
             {
                 FormNewAnalysis form = new FormNewAnalysis(this, analysis);
@@ -271,7 +280,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // build constraint set
                 ConstraintSetBox constraintSet = analysis.ConstraintSet as ConstraintSetBox;
 
-                if (DialogResult.OK == form.ShowDialog())
+                if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
                     analysis.Name = form.AnalysisName;
@@ -321,7 +330,7 @@ namespace TreeDim.StackBuilder.Desktop
                 form.Boxes = Bundles.ToArray();
                 form.Pallets = Pallets.ToArray();
 
-                if (DialogResult.OK == form.ShowDialog())
+                if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
                     analysis.Name = form.AnalysisName;
@@ -354,7 +363,8 @@ namespace TreeDim.StackBuilder.Desktop
                 }
             }
 
-            analysis.OnEndUpdate(null);
+            if (recomputeRequired)
+                analysis.OnEndUpdate(null);
         }
         #endregion
     }

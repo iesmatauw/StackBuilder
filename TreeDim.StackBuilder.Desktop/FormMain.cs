@@ -90,8 +90,11 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
 
+            // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
+            // initialize database path
+            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
         }
 
         private IDockContent ReloadContent(string persistString)
@@ -695,6 +698,16 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void toolEditPalletSolutionsDB(object sender, EventArgs e)
+        {
+            try
+            {
+                FormEditPalletSolutionDB form = new FormEditPalletSolutionDB();
+                form.ShowDialog();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); } 
+
+        }
         #endregion
 
         #region Document / View status change handlers
@@ -747,12 +760,31 @@ namespace TreeDim.StackBuilder.Desktop
             // ---> create new form
             // get document
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
+            // instantiate form
             DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
+            // show docked
             formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
 
-        public void CreateOrActivateViewCaseAnalysis(CaseAnalysis analysis)
+        public void CreateOrActivateViewCaseAnalysis(CaseAnalysis caseAnalysis)
         {
+            // search ammong existing views
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentCaseAnalysis form = view as DockContentCaseAnalysis;
+                    if (null == form) continue;
+                    if (caseAnalysis == form.CaseAnalysis)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            DocumentSB parentDocument = (DocumentSB)caseAnalysis.ParentDocument;
+            DockContentCaseAnalysis formCaseAnalysis = parentDocument.CreateCaseAnalysisView(caseAnalysis);
+            formCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
         #endregion
 
@@ -790,6 +822,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
 
 
     }

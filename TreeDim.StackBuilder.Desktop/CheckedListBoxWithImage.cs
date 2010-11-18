@@ -10,6 +10,9 @@ using System.Drawing;
 
 namespace TreeDim.StackBuilder.Desktop
 {
+    /// <summary>
+    /// Custom draw list box inherits ListBox and shows images
+    /// </summary>
     public partial class CheckedListBoxWithImage : ListBox
     {
         #region Data members
@@ -19,6 +22,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public CheckedListBoxWithImage()
         {
             InitializeComponent();
@@ -29,7 +35,13 @@ namespace TreeDim.StackBuilder.Desktop
             _fmt.LineAlignment = StringAlignment.Near;
             _titleFont = new Font(this.Font, FontStyle.Regular);
         }
-
+        /// <summary>
+        /// Constructor with defining parameters
+        /// </summary>
+        /// <param name="titleFont"></param>
+        /// <param name="imageSize"></param>
+        /// <param name="aligment"></param>
+        /// <param name="lineAligment"></param>
         public CheckedListBoxWithImage(Font titleFont, Size imageSize,
                          StringAlignment aligment, StringAlignment lineAligment)
         {

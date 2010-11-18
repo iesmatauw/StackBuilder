@@ -19,7 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private TruckProperties[] _truckProperties;
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
+        private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion
  
         #region Combo box item private classes

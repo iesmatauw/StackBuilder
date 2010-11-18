@@ -14,6 +14,9 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class SplashScreen : Form
     {
         #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SplashScreen()
         {
             InitializeComponent();
@@ -29,6 +32,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// retrieves assembly version
+        /// </summary>
         public string AssemblyVersion
         {
             get
@@ -36,6 +42,9 @@ namespace TreeDim.StackBuilder.Desktop
                 return Assembly.GetExecutingAssembly().GetName().Version.ToString();
             }
         }
+        /// <summary>
+        ///  set / get time interval after which the splash screen will close
+        /// </summary>
         public int TimerInterval
         {
             set { timerClose.Interval = value;  }
@@ -43,6 +52,11 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        /// <summary>
+        /// handles timer click and closes splashscreen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerClose_Tick(object sender, EventArgs e)
         {
             Close();

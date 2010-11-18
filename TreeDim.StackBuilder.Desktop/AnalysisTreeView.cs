@@ -25,6 +25,9 @@ namespace TreeDim.StackBuilder.Desktop
         : System.Windows.Forms.TreeView, IDocumentListener
     {
         #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AnalysisTreeView()
         {
             try
@@ -332,13 +335,6 @@ namespace TreeDim.StackBuilder.Desktop
                 FormAppendSolutionToDB form = new FormAppendSolutionToDB();
                 if (DialogResult.Cancel == form.ShowDialog())
                     return;
-
-                double palletHeight = 0.0;
-                if (db.QueryPalletSolutions(palletProperties.Length, palletProperties.Width, constraintSet.MaximumHeight, constraintSet.OverhangX, constraintSet.OverhangY).Count > 0)
-                {
-
-                }
-
                 // warn user : overwrite / cancel / keep both solutions
                 // save solution
                 Guid guid = Guid.NewGuid();
@@ -347,7 +343,9 @@ namespace TreeDim.StackBuilder.Desktop
                     , tag.SelSolution
                     , System.IO.Path.Combine(PalletSolutionDatabase.Directory, guid.ToString().Replace("-", "_") + ".stb"));
                 // save in database index
-                db.Append(new PalletSolutionDesc(palletProperties.Length, palletProperties.Width, palletHeight
+                db.Append(new PalletSolutionDesc(
+                    db
+                    , palletProperties.Length, palletProperties.Width, constraintSet.MaximumHeight
                     , constraintSet.OverhangX, constraintSet.OverhangY
                     , boxProperties.Length, boxProperties.Width, boxProperties.Height
                     , boxProperties.InsideLength, boxProperties.InsideWidth, boxProperties.InsideHeight
@@ -468,15 +466,30 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Delegates
+        /// <summary>
+        /// is a prototype for event handlers of AnalysisNodeClicked / SolutionReportNodeClicked
+        /// </summary>
+        /// <param name="sender">sending object (tree)</param>
+        /// <param name="eventArg">contains NodeTag to identify clicked TreeNode</param>
         public delegate void AnalysisNodeClickHandler(object sender, AnalysisTreeViewEventArgs eventArg);
         #endregion
 
         #region Events
+        /// <summary>
+        /// event raised when an analysis node is clicked
+        /// </summary>
         public event AnalysisNodeClickHandler AnalysisNodeClicked;
+        /// <summary>
+        /// event raised when a selected solution node is clicked
+        /// </summary>
         public event AnalysisNodeClickHandler SolutionReportNodeClicked;
         #endregion
 
         #region IDocumentListener implementation
+        /// <summary>
+        /// handles new document creation
+        /// </summary>
+        /// <param name="doc"></param>
         public void OnNewDocument(Document doc)
         {
             // add document node
@@ -509,6 +522,11 @@ namespace TreeDim.StackBuilder.Desktop
             nodeDoc.Nodes.Add(nodeAnalyses);
             nodeDoc.Expand();
         }
+        /// <summary>
+        /// handles new type creation
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="itemProperties"></param>
         public void OnNewTypeCreated(Document doc, ItemBase itemProperties)
         {
             int iconIndex = 0;
@@ -562,7 +580,11 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Nodes.Add(nodeItem);
             parentNode.Expand();
         }
-
+        /// <summary>
+        /// handles new analysis created
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="analysis"></param>
         public void OnNewAnalysisCreated(Document doc, Analysis analysis)
         {
             // get parent node
@@ -589,6 +611,11 @@ namespace TreeDim.StackBuilder.Desktop
             }
             nodeAnalysis.Expand();
         }
+        /// <summary>
+        /// handles new analysis created
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="caseAnalysis"></param>
         public void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis)
         { 
             // get parent node
@@ -601,6 +628,12 @@ namespace TreeDim.StackBuilder.Desktop
             // insert sub box node
             nodeAnalysis.Expand();
         }
+        /// <summary>
+        /// handles new solution added
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="analysis"></param>
+        /// <param name="selSolution"></param>
         public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selSolution)
         {
             // get parent node
@@ -612,6 +645,13 @@ namespace TreeDim.StackBuilder.Desktop
             // expand tree nodes
             parentNode.Expand();
         }
+        /// <summary>
+        /// handles new truck created
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="analysis"></param>
+        /// <param name="selSolution"></param>
+        /// <param name="truckAnalysis"></param>
         public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get parent node
@@ -623,6 +663,11 @@ namespace TreeDim.StackBuilder.Desktop
             // expand parent tree node
             parentNode.Expand();
         }
+        /// <summary>
+        /// handles new type removed
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="itemBase"></param>
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
@@ -654,6 +699,11 @@ namespace TreeDim.StackBuilder.Desktop
             // remove node
             Nodes.Remove(typeNode);
         }
+        /// <summary>
+        /// handles analysis removed from document : actually removed analysis node from parent document node
+        /// </summary>
+        /// <param name="doc">parent document</param>
+        /// <param name="analysis">analysis</param>
         public void OnAnalysisRemoved(Document doc, Analysis analysis)
         {
             // get node
@@ -661,6 +711,12 @@ namespace TreeDim.StackBuilder.Desktop
             // remove node
             Nodes.Remove(analysisNode);
         }
+        /// <summary>
+        /// handles solution unselected  : actually removed selected solution node from analysis node
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="analysis"></param>
+        /// <param name="selSolution"></param>
         public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selSolution)
         {
             // get node
@@ -668,6 +724,13 @@ namespace TreeDim.StackBuilder.Desktop
             // remove node
             Nodes.Remove(selSolutionNode);
         }
+        /// <summary>
+        /// handles truck analysis removal : removed truck analysis node from 
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="analysis"></param>
+        /// <param name="selSolution"></param>
+        /// <param name="truckAnalysis"></param>
         public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get node
@@ -675,6 +738,10 @@ namespace TreeDim.StackBuilder.Desktop
             // remove node
             Nodes.Remove(truckAnalysisNode);  
         }
+        /// <summary>
+        /// handles document closing event by removing the corresponding document node in TreeView
+        /// </summary>
+        /// <param name="doc"></param>
         public void OnDocumentClosed(Document doc)
         {
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_DOCUMENT;
@@ -692,33 +759,108 @@ namespace TreeDim.StackBuilder.Desktop
     #endregion
 
     #region NodeTag class
+    /// <summary>
+    /// NodeTag will be used for each TreeNode.Tag
+    /// </summary>
     public class NodeTag
     {
         #region Enums
+        /// <summary>
+        /// AnalysisTreeView node types
+        /// </summary>
         public enum NodeType
         {
+            /// <summary>
+            /// document
+            /// </summary>
             NT_DOCUMENT,
+            /// <summary>
+            /// list of boxes
+            /// </summary>
             NT_LISTBOX,
+            /// <summary>
+            /// list of bundles
+            /// </summary>
             NT_LISTBUNDLE,
+            /// <summary>
+            /// list of palets
+            /// </summary>
             NT_LISTPALLET,
+            /// <summary>
+            /// list of interlayers
+            /// </summary>
             NT_LISTINTERLAYER,
+            /// <summary>
+            /// list of trucks
+            /// </summary>
             NT_LISTTRUCK,
+            /// <summary>
+            /// list of analyses
+            /// </summary>
             NT_LISTANALYSIS,
+            /// <summary>
+            /// box
+            /// </summary>
             NT_BOX,
+            /// <summary>
+            /// bundle
+            /// </summary>
             NT_BUNDLE,
+            /// <summary>
+            /// palet
+            /// </summary>
             NT_PALLET,
+            /// <summary>
+            /// interlayer
+            /// </summary>
             NT_INTERLAYER,
+            /// <summary>
+            /// truck
+            /// </summary>
             NT_TRUCK,
+            /// <summary>
+            /// analysis
+            /// </summary>
             NT_ANALYSIS,
+            /// <summary>
+            /// analysis box
+            /// </summary>
             NT_ANALYSISBOX,
+            /// <summary>
+            /// analysis pallet
+            /// </summary>
             NT_ANALYSISPALLET,
+            /// <summary>
+            /// analysis interlayer
+            /// </summary>
             NT_ANALYSISINTERLAYER,
+            /// <summary>
+            /// analysis solution
+            /// </summary>
             NT_ANALYSISSOL,
+            /// <summary>
+            /// analysis report
+            /// </summary>
             NT_ANALYSISSOLREPORT,
+            /// <summary>
+            /// truck analysis
+            /// </summary>
             NT_TRUCKANALYSIS,
+            /// <summary>
+            /// truck analysis
+            /// </summary>
             NT_TRUCKANALYSISSOL,
+            /// <summary>
+            /// case analysis
+            /// </summary>
             NT_CASEANALYSIS,
+            /// <summary>
+            /// case analysis solution
+            /// </summary>
             NT_CASESOLUTION,
+            /// <summary>
+            /// unknown
+            /// </summary>
             NT_UNKNOWN
         }
         #endregion
@@ -797,18 +939,42 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// returns node type
+        /// </summary>
         public NodeType Type { get { return _type; } }
+        /// <summary>
+        /// returns document adressed 
+        /// </summary>
         public Document Document { get { return _document; } }
+        /// <summary>
+        /// returns itempProperties (box/palet/interlayer)
+        /// </summary>
         public ItemBase ItemProperties { get { return _itemProperties; } }
+        /// <summary>
+        /// returns analysis if any
+        /// </summary>
         public Analysis Analysis { get { return _analysis; } }
+        /// <summary>
+        ///  returns selected solution if any
+        /// </summary>
         public SelSolution SelSolution { get { return _selSolution; } }
+        /// <summary>
+        /// returns truck analysis of selected solution
+        /// </summary>
         public TruckAnalysis TruckAnalysis { get { return _truckAnalysis; } }
+        /// <summary>
+        /// returns case analysis
+        /// </summary>
         public CaseAnalysis CaseAnalysis { get { return _caseAnalysis; } }
         #endregion
     }
     #endregion
 
     #region AnalysisTreeViewEventArgs class
+    /// <summary>
+    /// AnalysisTreeView specific event arg
+    /// </summary>
     public class AnalysisTreeViewEventArgs : EventArgs
     {
         #region Data members
@@ -816,6 +982,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor takes the clicked node tag
+        /// </summary>
+        /// <param name="nodeTag"></param>
         public AnalysisTreeViewEventArgs(NodeTag nodeTag)
         {
             _nodeTag = nodeTag;
@@ -823,10 +993,25 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Document
+        /// </summary>
         public Document Document { get { return _nodeTag.Document; } }
+        /// <summary>
+        /// Analysis
+        /// </summary>
         public Analysis Analysis { get { return _nodeTag.Analysis; } }
+        /// <summary>
+        /// ItemBase (BoxProperties \ PaletProperties \ Interlayer properties)
+        /// </summary>
         public ItemBase ItemBase { get { return _nodeTag.ItemProperties; } }
+        /// <summary>
+        /// Selected solution
+        /// </summary>
         public SelSolution SelSolution { get { return _nodeTag.SelSolution; } }
+        /// <summary>
+        /// Truck analysis
+        /// </summary>
         public TruckAnalysis TruckAnalysis { get { return _nodeTag.TruckAnalysis; } }
         #endregion
     }

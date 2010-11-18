@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TreeDim.StackBuilder.Basics.Analysis">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="5.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAgAAAAEMgAAAAAABACAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>gAAAABAgAjAAAEEIgAKIFAAJACACgAAUAACAAAAAiAE=</HashCode>
       <FileName>Analysis.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.BoxProperties">
     <Position X="2.75" Y="1.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAABAAAABQCAAAAEAAAAAEBAADAAQAAABA4AgAAAAAA=</HashCode>
+      <HashCode>ABABAAAABSCAABAAAAAAAAAAAQQQQACEAAwAoAAQAAA=</HashCode>
       <FileName>BoxProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,21 +31,14 @@
   <Class Name="TreeDim.StackBuilder.Basics.ConstraintSet" Collapsed="true">
     <Position X="20" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABmOAAAAggMACYhEAA4ACACAIACEAgIAAAAABIAAVEA=</HashCode>
+      <HashCode>AhmLAAAAggEACYjEAA4ACACAIgCEIAIAAIAABIAAQEA=</HashCode>
       <FileName>ConstraintSet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.HalfAxis" Collapsed="true">
     <Position X="16.5" Y="1.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="TreeDim.StackBuilder.Basics.HalfAxis.HAxis" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Solution.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAUAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAUAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Solution.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,7 +52,7 @@
   <Class Name="TreeDim.StackBuilder.Basics.Solution" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="16.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAADCAAAIAAAEQEAEIAAAAAAAAgAAAAAAAEAAAAAQA=</HashCode>
+      <HashCode>AgAADCAAAIAAQEQEAEIAAAAAAAAkAAAEAAAEBAAAAQA=</HashCode>
       <FileName>Solution.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -74,7 +67,7 @@
   <Class Name="TreeDim.StackBuilder.Basics.BundleProperties">
     <Position X="11.25" Y="1.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIADAAAAAAAEBAABAhAAgEBAAAgAAACAA=</HashCode>
+      <HashCode>AAAAAAAABAAIADAAAAAAAAAAAAAhAAiEAAgAgAAACAA=</HashCode>
       <FileName>BundleProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -95,7 +88,7 @@
   <Class Name="TreeDim.StackBuilder.Basics.BoxLayer" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="16.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAQQA=</HashCode>
+      <HashCode>AgAAAAAAAAABAAAAAAgAAAAAAiAAAAAAAAAAAAAAQQA=</HashCode>
       <FileName>Solution.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -111,23 +104,51 @@
   <Class Name="TreeDim.StackBuilder.Basics.TruckProperties">
     <Position X="14" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABACIAAAAAAEAAEBAABAAAAAABAAAgEAAAAA=</HashCode>
+      <HashCode>AAAAAAAABACIAAAAAAEAAEBAABAAAAAABAIAgEAAAAA=</HashCode>
       <FileName>TruckProperties.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Basics.ItemBase" Collapsed="true">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAogAAACggAAAEAICEAAQAAAAABAAEQAAAACAAAAA=</HashCode>
+      <HashCode>AAIAoAIAACggEBAEAICEFAQAAAAAJAAEwAAAACIAAAA=</HashCode>
       <FileName>ItemBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.TruckAnalysis">
+    <Position X="7.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABEiCgAAAAAAESAAEAAAAAAAAAAAAAAAAEBQCAE=</HashCode>
+      <FileName>TruckAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Basics.CaseAnalysis">
+    <Position X="9" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CaseAnalysis.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="TreeDim.StackBuilder.Basics.ILayer" Collapsed="true">
     <Position X="16.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Solution.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TreeDim.StackBuilder.Basics.ITruckSolver" Collapsed="true">
+    <Position X="14" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TruckAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TreeDim.StackBuilder.Basics.IAnalysisSolver">
+    <Position X="12.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Analysis.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

@@ -57,6 +57,9 @@ namespace TreeDim.StackBuilder.Desktop
 
             InitializeComponent();
 
+            // initialize database
+            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+
             // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length >= 2)
@@ -93,8 +96,6 @@ namespace TreeDim.StackBuilder.Desktop
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
-            // initialize database path
-            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
         }
 
         private IDockContent ReloadContent(string persistString)
@@ -411,6 +412,8 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysis;
             // new analysis bundle
             newBundleAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
+            // edit pallet solutions database
+            editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
         }
         #endregion
 
@@ -702,8 +705,11 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                // show database edit form
                 FormEditPalletSolutionDB form = new FormEditPalletSolutionDB();
                 form.ShowDialog();
+                // update toolbar state as database may now be empty
+                UpdateToolbarState();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); } 
 

@@ -32,64 +32,76 @@
             this.btClose = new System.Windows.Forms.Button();
             this.lbPalletDimensions = new System.Windows.Forms.Label();
             this.cbPalletDimensions = new System.Windows.Forms.ComboBox();
+            this.gridSolutions = new SourceGrid.Grid();
+            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             this.SuspendLayout();
             // 
             // btClose
             // 
-            this.btClose.AccessibleDescription = null;
-            this.btClose.AccessibleName = null;
             resources.ApplyResources(this.btClose, "btClose");
-            this.btClose.BackgroundImage = null;
             this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btClose.Font = null;
             this.btClose.Name = "btClose";
             this.btClose.UseVisualStyleBackColor = true;
             // 
             // lbPalletDimensions
             // 
-            this.lbPalletDimensions.AccessibleDescription = null;
-            this.lbPalletDimensions.AccessibleName = null;
             resources.ApplyResources(this.lbPalletDimensions, "lbPalletDimensions");
-            this.lbPalletDimensions.Font = null;
             this.lbPalletDimensions.Name = "lbPalletDimensions";
             // 
             // cbPalletDimensions
             // 
-            this.cbPalletDimensions.AccessibleDescription = null;
-            this.cbPalletDimensions.AccessibleName = null;
             resources.ApplyResources(this.cbPalletDimensions, "cbPalletDimensions");
-            this.cbPalletDimensions.BackgroundImage = null;
             this.cbPalletDimensions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPalletDimensions.Font = null;
             this.cbPalletDimensions.FormattingEnabled = true;
             this.cbPalletDimensions.Name = "cbPalletDimensions";
+            this.cbPalletDimensions.SelectedIndexChanged += new System.EventHandler(this.cbPalletDimensions_SelectedIndexChanged);
+            // 
+            // gridSolutions
+            // 
+            this.gridSolutions.AcceptsInputChar = false;
+            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            this.gridSolutions.EnableSort = false;
+            this.gridSolutions.Name = "gridSolutions";
+            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
+            this.gridSolutions.TabStop = true;
+            this.gridSolutions.ToolTipText = "";
+            // 
+            // pictureBoxSolution
+            // 
+            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.TabStop = false;
+            this.pictureBoxSolution.SizeChanged += new System.EventHandler(pictureBoxSolution_SizeChanged);
             // 
             // FormEditPalletSolutionDB
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
+            this.Controls.Add(this.pictureBoxSolution);
             this.Controls.Add(this.cbPalletDimensions);
             this.Controls.Add(this.lbPalletDimensions);
             this.Controls.Add(this.btClose);
-            this.Font = null;
-            this.Icon = null;
+            this.Controls.Add(this.gridSolutions);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEditPalletSolutionDB";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Load += new System.EventHandler(this.FormEditPalletSolutionDB_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.Label lbPalletDimensions;
         private System.Windows.Forms.ComboBox cbPalletDimensions;
+        private SourceGrid.Grid gridSolutions;
+        private System.Windows.Forms.PictureBox pictureBoxSolution;
     }
 }

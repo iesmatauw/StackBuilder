@@ -295,37 +295,61 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Analysis name
+        /// </summary>
         public string AnalysisName
         {
             get { return tbName.Text; }
         }
+        /// <summary>
+        /// Analysis description
+        /// </summary>
         public string AnalysisDescription
         {
             get { return tbDescription.Text; }
         }
+        /// <summary>
+        /// List of boxes
+        /// </summary>
         public BProperties[] Boxes
         {
             get { return _boxes;}
             set { _boxes = value; }
         }
+        /// <summary>
+        /// List of pallets
+        /// </summary>
         public PalletProperties[] Pallets
         {
             get { return _palletProperties; }
             set { _palletProperties = value; }
         }
+        /// <summary>
+        /// List of interlayers
+        /// </summary>
         public InterlayerProperties[] Interlayers
         {
             get { return _interlayerProperties; }
             set { _interlayerProperties = value; }
         }
+        /// <summary>
+        /// Selected box
+        /// </summary>
         public BProperties SelectedBox
         {
             get { return _boxes[cbBox.SelectedIndex]; }
         }
+        /// <summary>
+        /// Selected pallet
+        /// </summary>
         public PalletProperties SelectedPallet
         {
             get { return _palletProperties[cbPallet.SelectedIndex]; }
         }
+        /// <summary>
+        /// Selected interlayer
+        /// </summary>
         public InterlayerProperties SelectedInterlayer
         {
             get
@@ -339,61 +363,97 @@ namespace TreeDim.StackBuilder.Desktop
                     return _interlayerProperties[cbInterlayer.SelectedIndex]; 
             }
         }
+        /// <summary>
+        /// Use maximum number of boxes criterion?
+        /// </summary>
         public bool UseMaximumNumberOfBoxes
         {
             get { return checkBoxMaximumNumberOfBoxes.Checked; }
             set { checkBoxMaximumNumberOfBoxes.Checked = value; }
         }
+        /// <summary>
+        /// Maximum number of boxes
+        /// </summary>
         public int MaximumNumberOfBoxes
         {
             get { return (int)nudMaximumNumberOfBoxes.Value; }
             set { nudMaximumNumberOfBoxes.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Use maximum pallet height criterion ?
+        /// </summary>
         public bool UseMaximumPalletHeight
         {
             get { return checkBoxMaximumPalletHeight.Checked; }
             set { checkBoxMaximumPalletHeight.Checked = value; }
         }
+        /// <summary>
+        /// Maximum pallet height
+        /// </summary>
         public double MaximumPalletHeight
         {
             get { return (double)nudMaximumPalletHeight.Value; }
             set { nudMaximumPalletHeight.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Use maximum pallet weight ?
+        /// </summary>
         public bool UseMaximumPalletWeight
         {
             get { return checkBoxMaximumPalletWeight.Checked; }
             set { checkBoxMaximumPalletWeight.Checked = value; }
         }
+        /// <summary>
+        /// Maximum pallet height
+        /// </summary>
         public double MaximumPalletWeight
         {
             get { return (double)nudMaximumPalletWeight.Value; }
             set { nudMaximumPalletWeight.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Use maximum load on box
+        /// </summary>
         public bool UseMaximumLoadOnBox
         {
             get { return checkBoxMaximumLoadOnBox.Checked; }
             set { checkBoxMaximumLoadOnBox.Checked = value; }
         }
+        /// <summary>
+        /// Maximum load on box
+        /// </summary>
         public double MaximumLoadOnBox
         {
             get { return (double)nudMaximumLoadOnBox.Value; }
             set { nudMaximumLoadOnBox.Value = (decimal) value; }
         }
+        /// <summary>
+        /// Allow X vertical orientation
+        /// </summary>
         public bool AllowVerticalX
         {
             get { return checkBoxPositionX.Checked; }
             set { checkBoxPositionX.Checked = value; }
         }
+        /// <summary>
+        /// Allow Y vertical orientation
+        /// </summary>
         public bool AllowVerticalY
         {
             get { return checkBoxPositionY.Checked; }
             set { checkBoxPositionY.Checked = value; }
         }
+        /// <summary>
+        ///  Allow Z vertical orientation
+        /// </summary>
         public bool AllowVerticalZ
         {
             get { return checkBoxPositionZ.Checked; }
             set { checkBoxPositionZ.Checked = value; }
         }
+        /// <summary>
+        /// Allowed patterns
+        /// </summary>
         public List<string> AllowedPatterns
         {
             get
@@ -408,6 +468,9 @@ namespace TreeDim.StackBuilder.Desktop
                 return listAllowedPatterns;
             }
         }
+        /// <summary>
+        /// Allowed patterns as a string
+        /// </summary>
         public string AllowedPatternsString
         {
             set
@@ -425,14 +488,6 @@ namespace TreeDim.StackBuilder.Desktop
                 if (iCountAllowedPatterns == 0)
                     for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
                         checkedListBoxPatterns.SetItemChecked(i, true);
-/*
-                string s = value.ToLower();
-                for (int index = 0; index < checkedListBoxPatterns.Items.Count; ++index)
-                {
-                    string sItem = checkedListBoxPatterns.Items[index].ToString();
-                    checkedListBoxPatterns.SetItemChecked(index++, s.Contains(sItem.ToLower()));
-                }
-*/ 
             }
             get
             {
@@ -443,41 +498,65 @@ namespace TreeDim.StackBuilder.Desktop
                 return allowedPatterns;
             }
         }
+        /// <summary>
+        /// Has interlayer ?
+        /// </summary>
         public bool HasInterlayers
         {
             get { return checkBoxInterlayer.Checked; }
             set { checkBoxInterlayer.Checked = value; }
         }
+        /// <summary>
+        /// Interlayer period
+        /// </summary>
         public int InterlayerPeriod
         {
             get { return (int)nudInterlayerFreq.Value; }
             set { nudInterlayerFreq.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Allow alternate layers ?
+        /// </summary>
         public bool AllowAlternateLayers
         {
             get { return checkBoxAllowAlternateLayer.Checked; }
             set { checkBoxAllowAlternateLayer.Checked = value; }
         }
+        /// <summary>
+        /// Allow aligned layers
+        /// </summary>
         public bool AllowAlignedLayers
         {
             get { return checkBoxAllowAlignedLayer.Checked; }
             set { checkBoxAllowAlignedLayer.Checked = value; }
         }
+        /// <summary>
+        /// Length overhang
+        /// </summary>
         public double OverhangX
         {
             get { return (double)nudPalletOverhangX.Value; }
             set { nudPalletOverhangX.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Width overhang
+        /// </summary>
         public double OverhangY
         {
             get { return (double)nudPalletOverhangY.Value; }
             set { nudPalletOverhangY.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Keep on the best solutions ?
+        /// </summary>
         public bool UseNumberOfSolutionsKept
         {
             get { return checkBoxKeepSolutions.Checked; }
             set { checkBoxKeepSolutions.Checked = value; }
         }
+        /// <summary>
+        ///  Number of solutions to keep
+        /// </summary>
         public int NumberOfSolutionsKept
         {
             get { return (int)nudSolutions.Value; }

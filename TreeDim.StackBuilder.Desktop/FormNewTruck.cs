@@ -76,37 +76,57 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// truck name
+        /// </summary>
         public string TruckName
         {
             get { return tbName.Text; }
             set { tbName.Text = value; }
         }
-
+        /// <summary>
+        /// truck description
+        /// </summary>
         public string Description
         {
             get { return tbDescription.Text; }
             set { tbDescription.Text = value; }
         }
+        /// <summary>
+        /// truck length
+        /// </summary>
         public double TruckLength
         {
             get { return System.Convert.ToDouble(nudLength.Text); }
             set { nudLength.Text = string.Format("{0}", value); }
         }
+        /// <summary>
+        /// truck width
+        /// </summary>
         public double TruckWidth
         {
             get { return System.Convert.ToDouble(nudWidth.Text); }
             set { nudWidth.Text = string.Format("{0}", value); }
         }
+        /// <summary>
+        /// truck height
+        /// </summary>
         public double TruckHeight
         {
             get { return System.Convert.ToDouble(nudHeight.Text); }
             set { nudHeight.Text = string.Format("{0}", value); }
         }
+        /// <summary>
+        /// truck admissible load weight
+        /// </summary>
         public double TruckAdmissibleLoadWeight
         {
             get { return System.Convert.ToDouble(nudAdmissibleLoadWeight.Text); }
             set { nudAdmissibleLoadWeight.Text = string.Format("{0}", value); }
         }
+        /// <summary>
+        /// truck color
+        /// </summary>
         public Color TruckColor
         {
             get { return cbColor.Color; }

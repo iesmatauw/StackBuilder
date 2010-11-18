@@ -102,6 +102,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Delete {
+            get {
+                object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FileNew {
             get {
                 object obj = ResourceManager.GetObject("FileNew", resourceCulture);
@@ -226,6 +233,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_CLOSE {
             get {
                 return ResourceManager.GetString("ID_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet solution database is empty.\nClosing form....
+        /// </summary>
+        internal static string ID_DATABASEEMPTY {
+            get {
+                return ResourceManager.GetString("ID_DATABASEEMPTY", resourceCulture);
             }
         }
         

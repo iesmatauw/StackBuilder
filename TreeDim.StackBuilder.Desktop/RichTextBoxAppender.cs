@@ -181,7 +181,7 @@ namespace log4net.Appender
         /// <summary>
         /// This method is called by the <see cref="AppenderSkeleton.DoAppend(log4net.Core.LoggingEvent)"/> method.
         /// </summary>
-        /// <param name="loggingEvent">The event to log.</param>
+        /// <param name="LoggingEvent">The event to log.</param>
         /// <remarks>
         /// <para>
         /// Writes the event to the RichTextBox control, if set. 

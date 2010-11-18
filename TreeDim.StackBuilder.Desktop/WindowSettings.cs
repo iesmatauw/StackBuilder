@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Diagnostics;
 #endregion
 
+#pragma warning disable 1591
+
 namespace TreeDim.StackBuilder.Desktop
 {
     /* Author: Don Kirkby http://donkirkby.googlecode.com/

@@ -287,6 +287,9 @@
   <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
     <value>Add New Bundle</value>
   </data>
+  <data name="saveAllToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
   <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Box</value>
   </data>
@@ -400,9 +403,6 @@
   </data>
   <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
-  </data>
-  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
-    <value>Add New Truck</value>
   </data>
   <data name="newCaseAnalysisToolStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -830,8 +830,8 @@
   <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Save &amp;as...</value>
   </data>
-  <data name="saveAllToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
+  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+    <value>Add New Truck</value>
   </data>
   <data name="&gt;&gt;newInterlayerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -12,10 +12,11 @@ using System.Security;
 #endregion
 
 
-/// Written by:
-/// Alex Farber
-/// alexf2062@yahoo.com
+// Written by:
+// Alex Farber
+// alexf2062@yahoo.com
 
+#pragma warning disable 1591
 
 namespace Utilities
 {
@@ -66,7 +67,9 @@ namespace Utilities
         #endregion
 
         #region Constructor
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MruManager()
         {
             mruList = new ArrayList();
@@ -75,7 +78,6 @@ namespace Utilities
         #endregion
 
         #region Public Properties
-
         /// <summary>
         /// Maximum length of displayed file name in menu (default is 40).
         /// 
@@ -452,11 +454,17 @@ namespace Utilities
     {
         private string fileName;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="fileName"></param>
         public MruFileOpenEventArgs(string fileName)
         {
             this.fileName = fileName;
         }
-
+        /// <summary>
+        /// return inner file name
+        /// </summary>
         public string FileName
         {
             get

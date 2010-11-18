@@ -42,6 +42,11 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="document">object implementing the IDocument interface</param>
+        /// <param name="analysis">viewed analysis</param>
         public DockContentAnalysis(IDocument document, Analysis analysis)
         {
             _document = document;
@@ -261,6 +266,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region IItemListener implementation
+        /// <summary>
+        /// overrides IItemListener.Kill
+        /// </summary>
+        /// <param name="item"></param>
         public void Update(ItemBase item)
         {
             // update grid
@@ -273,6 +282,11 @@ namespace TreeDim.StackBuilder.Desktop
             // draw
             Draw();
         }
+        /// <summary>
+        /// overrides IItemListener.Kill
+        /// handles analysis removal for any reason (deletion/document closing)
+        /// </summary>
+        /// <param name="item"></param>
         public void Kill(ItemBase item)
         {
             Close();

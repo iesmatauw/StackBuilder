@@ -90,18 +90,33 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region View creation methods
+        /// <summary>
+        /// Creates new DockContentAnalysis view
+        /// </summary>
+        /// <param name="analysis"></param>
+        /// <returns></returns>
         public DockContentAnalysis CreateAnalysisView(Analysis analysis)
         {
             DockContentAnalysis form = new DockContentAnalysis(this, analysis);
             _views.Add(form);
             return form;
         }
+        /// <summary>
+        /// Creates a new DockContentTruckAnalysis view
+        /// </summary>
+        /// <param name="analysis"></param>
+        /// <returns></returns>
         public DockContentTruckAnalysis CreateTruckAnalysisView(TruckAnalysis analysis)
         {
             DockContentTruckAnalysis form = new DockContentTruckAnalysis(this, analysis);
             _views.Add(form);
             return form;
         }
+        /// <summary>
+        /// Creates new case analysis view
+        /// </summary>
+        /// <param name="analysis"></param>
+        /// <returns></returns>
         public DockContentCaseAnalysis CreateCaseAnalysisView(CaseAnalysis analysis)
         {
             DockContentCaseAnalysis form = new DockContentCaseAnalysis(this, analysis);
@@ -111,6 +126,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region UI item creation
+        /// <summary>
+        /// Creates a new BoxProperties object
+        /// </summary>
         public void CreateNewBoxUI()
         {
             FormNewBox form = new FormNewBox(this);
@@ -123,6 +141,9 @@ namespace TreeDim.StackBuilder.Desktop
                 bProperties.InsideHeight = form.InsideHeight;
             }
         }
+        /// <summary>
+        /// Creates a new BundleProperties object
+        /// </summary>
         public void CreateNewBundleUI()
         { 
             FormNewBundle form = new FormNewBundle(this);
@@ -134,6 +155,9 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.Color
                     , form.NoFlats);
         }
+        /// <summary>
+        /// Creates a new InterlayerProperties object
+        /// </summary>
         public void CreateNewInterlayerUI()
         { 
             FormNewInterlayer form = new FormNewInterlayer(this);
@@ -144,6 +168,9 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.Weight
                     , form.Color);
         }
+        /// <summary>
+        /// creates a new PalletProperties object
+        /// </summary>
         public void CreateNewPalletUI()
         {        
             FormNewPallet form = new FormNewPallet(this);
@@ -153,6 +180,9 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.Weight
                     , form.AdmissibleLoadWeight, form.AdmissibleLoadHeight);
         }
+        /// <summary>
+        /// Creates a new TruckProperties
+        /// </summary>
         public void CreateNewTruckUI()
         {
             FormNewTruck form = new FormNewTruck(this);
@@ -162,6 +192,10 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.TruckAdmissibleLoadWeight
                     , form.TruckColor);
         }
+        /// <summary>
+        /// Creates a new palet analysis
+        /// </summary>
+        /// <returns>created palet analysis</returns>
         public Analysis CreateNewAnalysisUI()
         {
             if (!CanCreateAnalysis) return null;
@@ -215,6 +249,10 @@ namespace TreeDim.StackBuilder.Desktop
             }
             return null;
         }
+        /// <summary>
+        /// Creates a new bundle analysis
+        /// </summary>
+        /// <returns>created bundle analysis</returns>
         public Analysis CreateNewAnalysisBundleUI()
         {
             FormNewAnalysisBundle form = new FormNewAnalysisBundle(this);
@@ -253,6 +291,10 @@ namespace TreeDim.StackBuilder.Desktop
             return null;
         }
 
+        /// <summary>
+        /// Creates a new case analysis
+        /// </summary>
+        /// <returns>created case analysis</returns>
         public CaseAnalysis CreateNewCaseAnalysisUI()
         {
             FormNewCaseAnalysis form = new FormNewCaseAnalysis();

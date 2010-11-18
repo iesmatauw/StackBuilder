@@ -186,7 +186,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             // constraintSet
             AppendConstraintSet(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // solution
-            AppendSolutionElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
+            AppendSolutionElement(selSolution.Solution, elemPalletAnalysis, xmlDoc);
         }
 
         private static void AppendPalletElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -461,7 +461,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemInterlayer.AppendChild(elemImage); 
         }
 
-        private static void AppendSolutionElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendSolutionElement(Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
 
@@ -478,22 +478,22 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemSolution.AppendChild(elemHomogeneousLayer);
             // efficiency
             XmlElement elemEfficiency = xmlDoc.CreateElement("efficiency", ns);
-            elemEfficiency.InnerText = string.Format("{0:F}", sol.Efficiency(analysis));
+            elemEfficiency.InnerText = string.Format("{0:F}", sol.Efficiency);
             elemSolution.AppendChild(elemEfficiency);
             // palletWeight
             XmlElement elemPalletWeight = xmlDoc.CreateElement("palletWeight", ns);
-            elemPalletWeight.InnerText = string.Format("{0:F}", sol.PalletWeight(analysis));
+            elemPalletWeight.InnerText = string.Format("{0:F}", sol.PalletWeight);
             elemSolution.AppendChild(elemPalletWeight);
             // palletHeight
             XmlElement elemPalletHeight = xmlDoc.CreateElement("palletHeight", ns);
-            elemPalletHeight.InnerText = string.Format("{0:F}", sol.PalletHeight(analysis));
+            elemPalletHeight.InnerText = string.Format("{0:F}", sol.PalletHeight);
             elemSolution.AppendChild(elemPalletHeight);
             // boxCount
             XmlElement elemBoxCount = xmlDoc.CreateElement("boxCount", ns);
             elemBoxCount.InnerText = string.Format("{0}", sol.Count);
             elemSolution.AppendChild(elemBoxCount);
             // interlayer count
-            if (analysis.ConstraintSet.HasInterlayer)
+            if (sol.Analysis.ConstraintSet.HasInterlayer)
             { 
             }
             // --- layer images
@@ -512,7 +512,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 // set camera position 
                 graphics.CameraPosition = Graphics3D.Top;
                 // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(analysis, sol);
+                SolutionViewer sv = new SolutionViewer(sol);
                 sv.DrawLayers(graphics, true, i /* layer index*/);
                 // ---
                 // layerImage
@@ -563,7 +563,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 // set camera position 
                 graphics.CameraPosition = cameraPos;
                 // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(analysis, sol);
+                SolutionViewer sv = new SolutionViewer(sol);
                 sv.ShowDimensions = showDimensions;
                 sv.Draw(graphics);
                 // ---

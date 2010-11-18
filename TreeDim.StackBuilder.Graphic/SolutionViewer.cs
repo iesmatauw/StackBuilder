@@ -23,9 +23,9 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public SolutionViewer(Analysis analysis, Solution solution)
+        public SolutionViewer(Solution solution)
         {
-            _analysis = analysis;
+            _analysis = solution.Analysis;
             _solution = solution;
         }
         #endregion
@@ -74,7 +74,7 @@ namespace TreeDim.StackBuilder.Graphics
 
             if (_showDimensions)
             {
-                graphics.AddDimensions(new DimensionCube(_solution.PalletLength(_analysis), _solution.PalletWidth(_analysis), _solution.PalletHeight(_analysis)));
+                graphics.AddDimensions(new DimensionCube(_solution.PalletLength, _solution.PalletWidth, _solution.PalletHeight));
             }
 
             // flush

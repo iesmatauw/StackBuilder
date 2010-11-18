@@ -94,7 +94,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                     graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                     // instantiate solution viewer
-                    SolutionViewer sv = new SolutionViewer(analysis, sol);
+                    SolutionViewer sv = new SolutionViewer(sol);
                     sv.Draw(graphics);
                     // save
                     string fileName = string.Format("Pallet_{0}.bmp", solIndex++);

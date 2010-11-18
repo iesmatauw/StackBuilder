@@ -168,17 +168,17 @@ namespace TreeDim.StackBuilder.Engine
             switch (_axisOrtho)
             {
                 case HalfAxis.HAxis.AXIS_Z_N:
-                    _boxLength = sol.PalletWidth(sol.Analysis);
-                    _boxWidth = sol.PalletLength(sol.Analysis);
-                    _boxHeight = sol.PalletHeight(sol.Analysis);
+                    _boxLength = sol.PalletWidth;
+                    _boxWidth = sol.PalletLength;
+                    _boxHeight = sol.PalletHeight;
                     _lengthAxis = HalfAxis.HAxis.AXIS_Y_P;
                     _widthAxis = HalfAxis.HAxis.AXIS_X_N;
                     _vecTransf = new Vector3D(_boxLength, 0.0, 0.0);
                     break;
                 case HalfAxis.HAxis.AXIS_Z_P:
-                    _boxLength = sol.PalletLength(sol.Analysis);
-                    _boxWidth = sol.PalletWidth(sol.Analysis);
-                    _boxHeight = sol.PalletHeight(sol.Analysis);
+                    _boxLength = sol.PalletLength;
+                    _boxWidth = sol.PalletWidth;
+                    _boxHeight = sol.PalletHeight;
                     _lengthAxis = HalfAxis.HAxis.AXIS_X_P;
                     _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
                     _vecTransf = new Vector3D(0.0, 0.0, 0.0);

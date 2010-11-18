@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis.cs" />
+    <Compile Include="BoxPosition.cs" />
     <Compile Include="BoxProperties.cs" />
     <Compile Include="BProperties.cs" />
     <Compile Include="BundleProperties.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="ConstraintSetBox.cs" />
     <Compile Include="ConstraintSetBundle.cs" />
     <Compile Include="Document.cs" />
+    <Compile Include="HalfAxis.cs" />
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
     <Compile Include="PalletProperties.cs" />

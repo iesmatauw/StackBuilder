@@ -191,9 +191,9 @@ namespace TreeDim.StackBuilder.Engine
             if (_constraintSet.UseNumberOfSolutionsKept && solutions.Count > _constraintSet.NumberOfSolutionsKept)
             { 
                 // get minimum box count
-                int minBoxCount = solutions[_constraintSet.NumberOfSolutionsKept].BoxCount;
+                int minBoxCount = solutions[_constraintSet.NumberOfSolutionsKept].CaseCount;
                 // remove any solution with less boxes than minBoxCount
-                while (solutions[solutions.Count - 1].BoxCount < minBoxCount)
+                while (solutions[solutions.Count - 1].CaseCount < minBoxCount)
                     solutions.RemoveAt(solutions.Count - 1);
             }
 

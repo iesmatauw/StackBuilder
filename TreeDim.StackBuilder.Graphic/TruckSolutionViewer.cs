@@ -43,9 +43,9 @@ namespace TreeDim.StackBuilder.Graphics
 
             // get pallet height
             Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
-            double palletLength = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength(analysis);
-            double palletWidth = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth(analysis);
-            double palletHeight = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight(analysis);
+            double palletLength = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength;
+            double palletWidth = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth;
+            double palletHeight = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight;
 
             // get parent pallet solution
             Solution sol = _truckSolution.ParentTruckAnalysis.ParentSolution;
@@ -112,9 +112,9 @@ namespace TreeDim.StackBuilder.Graphics
 
             // get analysis
             Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
-            double length = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength(analysis);
-            double width = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth(analysis);
-            double height = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight(analysis);
+            double length = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength;
+            double width = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth;
+            double height = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight;
 
             // initialize Graphics2D object
             graphics.NumberOfViews = 1;

@@ -1067,10 +1067,12 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        public void WriteSolution(Solution sol, SelSolution selSolution, string filePath)
+        public void WriteSolution(SelSolution selSolution, string filePath)
         {
             try
             {
+                // retrieve solution
+                Solution sol = selSolution.Solution;
                 // retrieve analysis
                 Analysis analysis = sol.Analysis;
                 // instantiate XmlDocument

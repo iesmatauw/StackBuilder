@@ -35,7 +35,7 @@ namespace TreeDim.StackBuilder.Basics
                 if (!_parentTruckAnalysis.ConstraintSet.MultilayerAllowed)
                     return 1;
                 else
-                    return (int)Math.Floor(_parentTruckAnalysis.TruckProperties.Height / _parentTruckAnalysis.ParentSolution.PalletHeight(_parentTruckAnalysis.ParentAnalysis));
+                    return (int)Math.Floor(_parentTruckAnalysis.TruckProperties.Height / _parentTruckAnalysis.ParentSolution.PalletHeight);
             }
         }
         #endregion
@@ -47,7 +47,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         public int BoxCount
         {
-            get { return PalletCount * _parentTruckAnalysis.ParentSolution.BoxCount; }
+            get { return PalletCount * _parentTruckAnalysis.ParentSolution.CaseCount; }
         }
         public double Efficiency
         {
@@ -59,11 +59,11 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double LoadWeight
         {
-            get { return PalletCount * _parentTruckAnalysis.ParentSolution.PalletWeight(_parentTruckAnalysis.ParentAnalysis); }
+            get { return PalletCount * _parentTruckAnalysis.ParentSolution.PalletWeight; }
         }
         public double LoadHeight
         {
-            get { return NoLayers * _parentTruckAnalysis.ParentSolution.PalletHeight(_parentTruckAnalysis.ParentAnalysis); }
+            get { return NoLayers * _parentTruckAnalysis.ParentSolution.PalletHeight; }
         }
         public TruckAnalysis ParentTruckAnalysis
         {

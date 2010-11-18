@@ -153,14 +153,14 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
                 {
                     Graphics2DImage graphics = new Graphics2DImage(new Size(100, 50));
-                    SolutionViewer sv = new SolutionViewer(_analysis, sol);
+                    SolutionViewer sv = new SolutionViewer(sol);
                     sv.Draw(graphics);
                     gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);
                 }
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
-                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency(_analysis)));
-                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight(_analysis)));
-                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight(_analysis)));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.CaseCount));
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency));
+                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight));
+                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight));
                 gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, _analysis.HasSolutionSelected(iIndex-1));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
@@ -333,7 +333,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
                 // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(_analysis, _sol);
+                SolutionViewer sv = new SolutionViewer(_sol);
                 sv.Draw(graphics);
 
                 // show generated bitmap on picture box control

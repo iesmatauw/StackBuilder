@@ -330,29 +330,18 @@ namespace TreeDim.StackBuilder.Desktop
                 BoxProperties boxProperties = tag.Analysis.BProperties as BoxProperties;
                 PalletProperties palletProperties = tag.Analysis.PalletProperties;
                 ConstraintSet constraintSet = tag.Analysis.ConstraintSet;
+                // instantiate new solution descriptor
+
 
                 // show form and get friendly name
                 FormAppendSolutionToDB form = new FormAppendSolutionToDB();
+                // warn user : keep or replace similar solutions
+                form.ShowSimilarSolutionQuestion =db.AlreadyHasSimilarSolution(tag.SelSolution);
+                // show dialog
                 if (DialogResult.Cancel == form.ShowDialog())
                     return;
-                // warn user : overwrite / cancel / keep both solutions
-                // save solution
-                Guid guid = Guid.NewGuid();
-                tag.Document.WriteSolution(
-                    tag.SelSolution.Solution
-                    , tag.SelSolution
-                    , System.IO.Path.Combine(PalletSolutionDatabase.Directory, guid.ToString().Replace("-", "_") + ".stb"));
                 // save in database index
-                db.Append(new PalletSolutionDesc(
-                    db
-                    , palletProperties.Length, palletProperties.Width, constraintSet.MaximumHeight
-                    , constraintSet.OverhangX, constraintSet.OverhangY
-                    , boxProperties.Length, boxProperties.Width, boxProperties.Height
-                    , boxProperties.InsideLength, boxProperties.InsideWidth, boxProperties.InsideHeight
-                    , tag.SelSolution.Solution.BoxCount
-                    , guid
-                    , form.FriendlyName)); 
-                db.Save();
+                db.Append(tag.SelSolution, form.FriendlyName, form.KeepSimilarSolutions); 
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }

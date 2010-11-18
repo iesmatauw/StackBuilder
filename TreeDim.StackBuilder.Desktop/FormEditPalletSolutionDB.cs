@@ -263,7 +263,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // set viewport (not actually needed)
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);                
                 // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(analysis, analysis.Solutions[0]);
+                SolutionViewer sv = new SolutionViewer(analysis.Solutions[0]);
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;

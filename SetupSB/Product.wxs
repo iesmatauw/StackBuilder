@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.10" ?>
+<?define Version = "0.1.11" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 
@@ -26,6 +26,7 @@
           <Directory Id="INSTALLLOCATION" Name="StackBuilder">
             <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
             <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
+            <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
           </Directory>
         </Directory>
 			</Directory>
@@ -72,8 +73,13 @@
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
-                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting/value"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value"
                       Value="[REPORTTEMPLATES]Report.xslt"/>
+        <util:XmlFile Id="SetPalletSolutionsDBPath"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value"
+                      Value="[PALLETSOLUTIONSDB]"/>
         <!--update config file-->
       </Component>
     </DirectoryRef>

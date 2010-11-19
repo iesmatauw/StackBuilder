@@ -54,11 +54,7 @@ namespace TreeDim.StackBuilder.Basics
         public override double MaximumWeightOnBox
         {
             get { return _maximumWeightOnBox; }
-            set
-            {
-                _useMaximumWeightOnBox = true;
-                _maximumWeightOnBox = value;
-            }
+            set { _maximumWeightOnBox = value; }
         }
         #endregion
     }

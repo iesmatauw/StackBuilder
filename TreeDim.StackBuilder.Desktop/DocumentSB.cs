@@ -319,9 +319,6 @@ namespace TreeDim.StackBuilder.Desktop
                 form.Pallets = Pallets.ToArray();
                 form.Interlayers = Interlayers.ToArray();
 
-                // build constraint set
-                ConstraintSetBox constraintSet = analysis.ConstraintSet as ConstraintSetBox;
-
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
@@ -331,6 +328,8 @@ namespace TreeDim.StackBuilder.Desktop
                     analysis.BProperties = form.SelectedBox;
                     analysis.PalletProperties = form.SelectedPallet;
                     analysis.InterlayerProperties = form.SelectedInterlayer;
+                    // build constraint set
+                    ConstraintSetBox constraintSet = analysis.ConstraintSet as ConstraintSetBox;
                     // overhang / underhang
                     constraintSet.OverhangX = form.OverhangX;
                     constraintSet.OverhangY = form.OverhangY;
@@ -407,6 +406,25 @@ namespace TreeDim.StackBuilder.Desktop
 
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);
+        }
+
+        public void EditTruckAnalysis(TruckAnalysis truckAnalysis)
+        {
+            // instantiate form
+            FormNewTruckAnalysis form = new FormNewTruckAnalysis(truckAnalysis.ParentDocument, truckAnalysis);
+            form.Trucks = Trucks.ToArray();
+
+            // show form
+            bool recomputeRequired = false;
+            if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
+            {
+                truckAnalysis.TruckProperties = form.SelectedTruck;
+
+
+
+            }
+            if (recomputeRequired)
+                truckAnalysis.OnEndUpdate(null);
         }
         #endregion
     }

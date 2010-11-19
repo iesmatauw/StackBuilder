@@ -19,6 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private TruckProperties[] _truckProperties;
+        private TruckAnalysis _truckAnalysis;
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion
  
@@ -42,8 +43,22 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="document">Parent document</param>
         public FormNewTruckAnalysis(Document document)
         {
+            InitializeComponent();
+        }
+        /// <summary>
+        /// Constructor used when editing an existing analysis
+        /// </summary>
+        /// <param name="document">Parent document</param>
+        /// <param name="truckAnalysis">Truck analysis</param>
+        public FormNewTruckAnalysis(Document document, TruckAnalysis truckAnalysis)
+        {
+            _truckAnalysis = truckAnalysis;
             InitializeComponent();
         }
         #endregion
@@ -57,18 +72,41 @@ namespace TreeDim.StackBuilder.Desktop
                 foreach (TruckProperties truck in _truckProperties)
                     cbTruck.Items.Add(new TruckItem(truck));
 
-                if (cbTruck.Items.Count > 0)
-                    cbTruck.SelectedIndex = 0;
+                if (null == _truckAnalysis)
+                {
+                    if (cbTruck.Items.Count > 0)
+                        cbTruck.SelectedIndex = 0;
 
-                // allow several pallet layers
-                AllowSeveralPalletLayers = Settings.Default.AllowSeveralPalletLayers;
-                // allowed pallet orientations
-                AllowPalletOrientationX = Settings.Default.AllowPalletOrientationX;
-                AllowPalletOrientationY = Settings.Default.AllowPalletOrientationY;
-                // min distances
-                MinDistancePalletTruckWall = Settings.Default.MinDistancePalletTruckWall;
-                MinDistancePalletTruckRoof = Settings.Default.MinDistancePalletTruckRoof;
-
+                    // allow several pallet layers
+                    AllowSeveralPalletLayers = Settings.Default.AllowSeveralPalletLayers;
+                    // allowed pallet orientations
+                    AllowPalletOrientationX = Settings.Default.AllowPalletOrientationX;
+                    AllowPalletOrientationY = Settings.Default.AllowPalletOrientationY;
+                    // min distances
+                    MinDistancePalletTruckWall = Settings.Default.MinDistancePalletTruckWall;
+                    MinDistancePalletTruckRoof = Settings.Default.MinDistancePalletTruckRoof;
+                }
+                else
+                {
+                    for (int i = 0; i < cbTruck.Items.Count; ++i)
+                    {
+                        // selected index
+                        TruckItem truckItem = cbTruck.Items[i] as TruckItem;
+                        if (truckItem.Item == _truckAnalysis.TruckProperties)
+                        {
+                            cbTruck.SelectedIndex = i;
+                            break;
+                        }
+                        // allow several pallet layers
+                        AllowSeveralPalletLayers = _truckAnalysis.ConstraintSet.MultilayerAllowed;
+                        // allowed pallet orientations
+                        AllowPalletOrientationX = _truckAnalysis.ConstraintSet.AllowPalletOrientationX;
+                        AllowPalletOrientationY = _truckAnalysis.ConstraintSet.AllowPalletOrientationY;
+                        // min distance
+                        MinDistancePalletTruckRoof = _truckAnalysis.ConstraintSet.MinDistancePalletTruckRoof;
+                        MinDistancePalletTruckWall = _truckAnalysis.ConstraintSet.MinDistancePalletTruckWall;
+                    }
+                }
                 // windows settings
                 if (null != Settings.Default.FormNewTruckAnalysisPosition)
                     Settings.Default.FormNewTruckAnalysisPosition.Restore(this);
@@ -104,7 +142,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public TruckProperties[] TruckProperties
+        public TruckProperties[] Trucks
         {
             get { return _truckProperties; }
             set { _truckProperties = value; }
@@ -112,6 +150,7 @@ namespace TreeDim.StackBuilder.Desktop
         public TruckProperties SelectedTruck
         {
             get { return _truckProperties[cbTruck.SelectedIndex]; }
+            set { }
         }
         public bool AllowSeveralPalletLayers
         {

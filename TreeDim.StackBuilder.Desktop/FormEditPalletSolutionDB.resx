@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btClose.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lbPalletDimensions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbPalletDimensions.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="cbPalletDimensions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -196,7 +196,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPalletDimensions.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="gridSolutions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -205,10 +205,10 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 106</value>
+    <value>1, 40</value>
   </data>
   <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 264</value>
+    <value>582, 365</value>
   </data>
   <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -223,19 +223,43 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pictureBoxCase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <data name="pictureBoxCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 411</value>
+  </data>
+  <data name="pictureBoxCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 241</value>
+  </data>
+  <data name="pictureBoxCase.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCase.Name" xml:space="preserve">
+    <value>pictureBoxCase</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCase.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCase.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureBoxSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="pictureBoxSolution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 411</value>
+    <value>294, 411</value>
   </data>
   <data name="pictureBoxSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 241</value>
+    <value>288, 241</value>
   </data>
   <data name="pictureBoxSolution.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;pictureBoxSolution.Name" xml:space="preserve">
     <value>pictureBoxSolution</value>

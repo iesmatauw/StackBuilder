@@ -274,9 +274,7 @@ namespace TreeDim.StackBuilder.Basics
             NotifyOnNewCaseAnalysisCreated(caseAnalysis);
             return caseAnalysis;
         }
-
- 
-
+        
         public void RemoveItem(ItemBase item)
         {
             // sanity check
@@ -286,6 +284,7 @@ namespace TreeDim.StackBuilder.Basics
                 return;
             }
             // dispose item first as it may remove dependancies itself
+            _log.Debug(string.Format("Disposing {0}...", item.Name));
             item.Dispose();
 
             // notify listeners / remove
@@ -296,12 +295,14 @@ namespace TreeDim.StackBuilder.Basics
                 || item.GetType() == typeof(TruckProperties))
             {
                 NotifyOnTypeRemoved(item);
-                _typeList.Remove(item);
+                if (!_typeList.Remove(item))
+                    _log.Warn(string.Format("Failed to properly remove item {0}", item.Name));
             }
             else if (item.GetType() == typeof(Analysis))
             {
                 NotifyOnAnalysisRemoved(item as Analysis);
-                _analyses.Remove(item as Analysis);
+                if (!_analyses.Remove(item as Analysis))
+                    _log.Warn(string.Format("Failed to properly remove item {0}", item.Name));
             }
             else if (item.GetType() == typeof(SelSolution))
             {
@@ -1115,7 +1116,7 @@ namespace TreeDim.StackBuilder.Basics
                 InterlayerProperties interlayerProperties = sol.Analysis.InterlayerProperties as InterlayerProperties;
                 if (null != interlayerProperties)
                     Save(interlayerProperties, xmlItemPropertiesElt, xmlDoc);
-                if (null != selSolution)
+                if (null != selSolution && selSolution.TruckAnalyses.Count > 0)
                 {
                     TruckProperties truckProperties = selSolution.TruckAnalyses[0].TruckProperties;
                     if (null != truckProperties)

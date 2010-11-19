@@ -238,6 +238,7 @@ namespace TreeDim.StackBuilder.Desktop
                 PalletSolutionDesc desc = CurrentSolutionDesc;
                 // sanity check
                 if (null == desc
+                    || pictureBoxCase.Size.Width < 1 || pictureBoxCase.Size.Height < 1
                     || pictureBoxSolution.Size.Width < 1 || pictureBoxSolution.Size.Height < 1)
                     return;
 
@@ -246,27 +247,29 @@ namespace TreeDim.StackBuilder.Desktop
                 if (document.Analyses.Count == 0) return;
                 // get analysis and solution
                 Analysis analysis = document.Analyses[0];
+                {
+                    Graphics3DImage graphics = new Graphics3DImage(pictureBoxCase.Size);
+                    graphics.CameraPosition = Graphics3D.Corner_0;
+                    graphics.Target = Vector3D.Zero;
+                    Box box = new Box(0, analysis.BProperties);
+                    graphics.AddBox(box);
+                    graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+                    graphics.Flush();
+                    pictureBoxCase.Image = graphics.Bitmap;
+                }
+
+                {
                 // instantiate graphics
                 Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
                 // set camera position 
-                const double cameraDistance = 10000;
-                double angleHorizRad = 45.0 * Math.PI / 180.0;
-                double angleVertRad = 45.0 * Math.PI / 180.0;
-                graphics.CameraPosition = new Vector3D(
-                    cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
-                    , cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
-                    , cameraDistance * Math.Sin(angleVertRad));
-                // set camera target
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                // set light direction
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                // set viewport (not actually needed)
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);                
+                graphics.CameraPosition = Graphics3D.Corner_0;
+                graphics.Target = Vector3D.Zero;
                 // instantiate solution viewer
                 SolutionViewer sv = new SolutionViewer(analysis.Solutions[0]);
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;
+                }
             }
             catch (Exception ex)
             {

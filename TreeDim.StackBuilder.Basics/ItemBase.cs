@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Basics
@@ -31,6 +33,8 @@ namespace TreeDim.StackBuilder.Basics
         private bool disposed = false;
         // listeners
         List<IItemListener> _listeners = new List<IItemListener>();
+        // logger
+        static readonly ILog _log = LogManager.GetLogger(typeof(ItemBase));
         #endregion
 
         #region Constructors
@@ -70,7 +74,14 @@ namespace TreeDim.StackBuilder.Basics
 
         #region Dependancies
         public void AddDependancie(ItemBase dependancie)
-        {   _dependancies.Add(dependancie);    }
+        {
+            if (_dependancies.Contains(dependancie))
+            {
+                _log.Warn(string.Format("Tried to add {0} as a dependancy of {1} a second time!", dependancie.Name, this.Name));
+                return;
+            }
+            _dependancies.Add(dependancie);    
+        }
         public bool HasDependingAnalyses
         { get { return _dependancies.Count > 0; } }
         public void RemoveDependancie(ItemBase dependancie)
@@ -131,10 +142,16 @@ namespace TreeDim.StackBuilder.Basics
                 if (disposing)
                 {
                     // Dispose managed resources
+                    int iCount = _dependancies.Count;
                     while (_dependancies.Count > 0)
                     {
                         _parentDocument.RemoveItem(_dependancies[0]);
-                        //item.Dispose();
+                        if (_dependancies.Count == iCount)
+                        {
+                            _log.Warn(string.Format("Failed to remove correcly dependancy {0} ", _dependancies[0].Name));
+                            _dependancies.Remove(_dependancies[0]);
+                            break;
+                        }
                     }
                 }
                 RemoveItselfFromDependancies();

@@ -95,29 +95,17 @@ namespace TreeDim.StackBuilder.Basics
  
         public int MaximumNumberOfItems
         {
-            set
-            {
-                _useMaximumNumberOfItems = true;
-                _maxNumberOfItems = value;
-            }
+            set { _maxNumberOfItems = value; }
             get { return _maxNumberOfItems; }
         }
         public double MaximumPalletWeight
         {
-            set
-            {
-                _useMaximumPalletWeight = true;
-                _maximumPalletWeight = value;
-            }
+            set { _maximumPalletWeight = value;  }
             get { return _maximumPalletWeight; }
         }
         public double MaximumHeight
         {
-            set
-            {
-                _useMaximumHeight = true;
-                _maximumHeight = value;
-            }
+            set { _maximumHeight = value; }
             get { return _maximumHeight; }
         }
 

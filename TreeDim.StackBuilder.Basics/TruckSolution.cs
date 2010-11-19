@@ -41,14 +41,21 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Pallet count
+        /// </summary>
         public int PalletCount
-        {
-            get { return NoLayers * _layer.BoxCount; }
-        }
+        { get { return NoLayers * _layer.BoxCount; } }
+        /// <summary>
+        /// Total case count in truck
+        /// </summary>
         public int BoxCount
         {
             get { return PalletCount * _parentTruckAnalysis.ParentSolution.CaseCount; }
         }
+        /// <summary>
+        /// Volume efficiency of pallet layout
+        /// </summary>
         public double Efficiency
         {
             get
@@ -57,19 +64,31 @@ namespace TreeDim.StackBuilder.Basics
                     /_parentTruckAnalysis.TruckProperties.Volume;
             }
         }
+        /// <summary>
+        /// Total load weight of truck
+        /// </summary>
         public double LoadWeight
         {
             get { return PalletCount * _parentTruckAnalysis.ParentSolution.PalletWeight; }
         }
+        /// <summary>
+        /// Load height (pallet height * number of layers
+        /// </summary>
         public double LoadHeight
         {
             get { return NoLayers * _parentTruckAnalysis.ParentSolution.PalletHeight; }
         }
+        /// <summary>
+        /// Parent truck analysis
+        /// </summary>
         public TruckAnalysis ParentTruckAnalysis
         {
             get { return _parentTruckAnalysis;  }
             set { _parentTruckAnalysis = value; }
         }
+        /// <summary>
+        /// Title given to solution as it was generated
+        /// </summary>
         public string Title
         {
             get { return _title; }

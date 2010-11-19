@@ -33,7 +33,9 @@
             this.lbPalletDimensions = new System.Windows.Forms.Label();
             this.cbPalletDimensions = new System.Windows.Forms.ComboBox();
             this.gridSolutions = new SourceGrid.Grid();
+            this.pictureBoxCase = new System.Windows.Forms.PictureBox();
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,18 +71,25 @@
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
             // 
+            // pictureBoxCase
+            // 
+            resources.ApplyResources(this.pictureBoxCase, "pictureBoxCase");
+            this.pictureBoxCase.Name = "pictureBoxCase";
+            this.pictureBoxCase.TabStop = false;
+            this.pictureBoxCase.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
+            // 
             // pictureBoxSolution
             // 
             resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
             this.pictureBoxSolution.Name = "pictureBoxSolution";
             this.pictureBoxSolution.TabStop = false;
-            this.pictureBoxSolution.SizeChanged += new System.EventHandler(pictureBoxSolution_SizeChanged);
             // 
             // FormEditPalletSolutionDB
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pictureBoxSolution);
+            this.Controls.Add(this.pictureBoxCase);
             this.Controls.Add(this.cbPalletDimensions);
             this.Controls.Add(this.lbPalletDimensions);
             this.Controls.Add(this.btClose);
@@ -91,6 +100,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.FormEditPalletSolutionDB_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -102,6 +112,7 @@
         private System.Windows.Forms.Label lbPalletDimensions;
         private System.Windows.Forms.ComboBox cbPalletDimensions;
         private SourceGrid.Grid gridSolutions;
+        private System.Windows.Forms.PictureBox pictureBoxCase;
         private System.Windows.Forms.PictureBox pictureBoxSolution;
     }
 }

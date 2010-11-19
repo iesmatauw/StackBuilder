@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaseSolver.cs" />
     <Compile Include="EngineException.cs" />
     <Compile Include="Layer.cs" />
     <Compile Include="LayerPattern.cs" />

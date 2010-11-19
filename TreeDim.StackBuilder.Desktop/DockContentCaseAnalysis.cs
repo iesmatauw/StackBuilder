@@ -16,6 +16,9 @@ using TreeDim.StackBuilder.Graphics;
 
 namespace TreeDim.StackBuilder.Desktop
 {
+    /// <summary>
+    /// Form used to browse/select case analysis solutions
+    /// </summary>
     public partial class DockContentCaseAnalysis : DockContent, IView, IItemListener
     {
         #region Data members
@@ -66,8 +69,23 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-
         #region Event handlers
+        private void DockContentCaseAnalysis_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void toolStripShowPallet_Click(object sender, EventArgs e)
+        {
+            toolStripShowPallet.Checked = !toolStripShowPallet.Checked;
+            ShowHidePalletView();
+        }
+        #endregion
+
+        #region Helpers
+        private void ShowHidePalletView()
+        {
+ 
+        }
         #endregion
 
         #region ITemListener implementation
@@ -89,5 +107,9 @@ namespace TreeDim.StackBuilder.Desktop
             get { return _document; }
         }
         #endregion
+
+
+
+
     }
 }

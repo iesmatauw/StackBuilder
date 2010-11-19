@@ -30,15 +30,10 @@ namespace TreeDim.StackBuilder.Basics
                 || (interlayerProperties != null && interlayerProperties.ParentDocument != ParentDocument))
                 throw new Exception();
 
-            _bProperties = boxProperties;
-            _palletProperties = palletProperties;
-            _interlayerProperties = interlayerProperties;
-            _constraintSet = constraintSet;
-
-            boxProperties.AddDependancie(this);
-            palletProperties.AddDependancie(this);
-            if (null != interlayerProperties)
-                interlayerProperties.AddDependancie(this);
+            this.BProperties = boxProperties;
+            this.PalletProperties = palletProperties;
+            this.InterlayerProperties = interlayerProperties;
+            this.ConstraintSet = constraintSet;
         }
         #endregion
 
@@ -57,13 +52,25 @@ namespace TreeDim.StackBuilder.Basics
         public BProperties BProperties
         {
             get { return _bProperties; }
-            set { _bProperties = value; }
+            set
+            {
+                if (value == _bProperties)  return;
+                if (null != _bProperties) _bProperties.RemoveDependancie(this);
+                _bProperties = value;
+                _bProperties.AddDependancie(this);
+            }
         }
 
         public PalletProperties PalletProperties
         {
             get { return _palletProperties; }
-            set { _palletProperties = value; }
+            set
+            {
+                if (_palletProperties == value) return;
+                if (null != _palletProperties)  _palletProperties.RemoveDependancie(this);
+                _palletProperties = value;
+                _palletProperties.AddDependancie(this);
+            }
         }
 
         public bool HasInterlayer
@@ -74,7 +81,14 @@ namespace TreeDim.StackBuilder.Basics
         public InterlayerProperties InterlayerProperties
         {
             get { return _interlayerProperties; }
-            set { _interlayerProperties = value; }
+            set
+            {
+                if (_interlayerProperties == value) return;
+                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancie(this);
+                _interlayerProperties = value;
+                if (null != _interlayerProperties)
+                    _interlayerProperties.AddDependancie(this);
+            }
         }
 
         public ConstraintSet ConstraintSet

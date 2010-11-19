@@ -211,22 +211,44 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void onDeleteAnalysis(object sender, EventArgs e)
         {
-            NodeTag tag = SelectedNode.Tag as NodeTag;
-            tag.Document.RemoveItem(tag.Analysis);
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.Document.RemoveItem(tag.Analysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onAnalysisReport(object sender, EventArgs e)
         {
-            NodeTag tag = SelectedNode.Tag as NodeTag;
-            SolutionReportNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionReportNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onTruckAnalysisEdit(object sender, EventArgs e)
-        { 
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).EditTruckAnalysis(tag.TruckAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onDeleteTruckAnalysis(object sender, EventArgs e)
-        { 
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.SelSolution.RemoveTruckAnalysis(tag.TruckAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void onDeleteCaseAnalysis(object sender, EventArgs e)
-        { 
+        {
+            NodeTag tag = SelectedNode.Tag as NodeTag;
+ 
         }
         private void onCreateNewBox(object sender, EventArgs e)
         {
@@ -302,7 +324,7 @@ namespace TreeDim.StackBuilder.Desktop
                     return;
 
                 FormNewTruckAnalysis form = new FormNewTruckAnalysis(tag.Document);
-                form.TruckProperties = tag.Document.Trucks.ToArray();
+                form.Trucks = tag.Document.Trucks.ToArray();
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     TruckConstraintSet constraintSet = new TruckConstraintSet();
@@ -461,6 +483,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="sender">sending object (tree)</param>
         /// <param name="eventArg">contains NodeTag to identify clicked TreeNode</param>
         public delegate void AnalysisNodeClickHandler(object sender, AnalysisTreeViewEventArgs eventArg);
+        public delegate void NewAnalysisCreatedHandler(object sender, NewAnalysisEventArgs eventArg);
         #endregion
 
         #region Events
@@ -472,6 +495,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// event raised when a selected solution node is clicked
         /// </summary>
         public event AnalysisNodeClickHandler SolutionReportNodeClicked;
+        public event NewAnalysisCreatedHandler NewAnalysisCreated;
         #endregion
 
         #region IDocumentListener implementation
@@ -697,6 +721,12 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // get node
             TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis));
+            // test
+            if (null == analysisNode)
+            {
+                _log.Warn(string.Format("Failed to find a valid tree node for analysis {0}", analysis.Name));
+                return;
+            }
             // remove node
             Nodes.Remove(analysisNode);
         }
@@ -710,6 +740,12 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // get node
             TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            // test
+            if (null == selSolutionNode)
+            {
+                _log.Warn(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
+                return;
+            }
             // remove node
             Nodes.Remove(selSolutionNode);
         }
@@ -962,7 +998,8 @@ namespace TreeDim.StackBuilder.Desktop
 
     #region AnalysisTreeViewEventArgs class
     /// <summary>
-    /// AnalysisTreeView specific event arg
+    /// EventArg inherited class used as AnalysisNodeClickHandler delegate argument
+    /// Encapsulates a reference to a NodeTag
     /// </summary>
     public class AnalysisTreeViewEventArgs : EventArgs
     {
@@ -972,7 +1009,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         #region Constructor
         /// <summary>
-        /// Constructor takes the clicked node tag
+        /// Constructor takes the clicked node tag as argument
         /// </summary>
         /// <param name="nodeTag"></param>
         public AnalysisTreeViewEventArgs(NodeTag nodeTag)
@@ -1002,6 +1039,34 @@ namespace TreeDim.StackBuilder.Desktop
         /// Truck analysis
         /// </summary>
         public TruckAnalysis TruckAnalysis { get { return _nodeTag.TruckAnalysis; } }
+        #endregion
+    }
+    #endregion
+
+    #region NewAnalysisCreatedEventArgs class
+    /// <summary>
+    /// EventArg inherited class used as AnalysisNodeClickHandler delegate argument
+    /// Encapsulates a reference to an analysis
+    /// </summary>
+    public class NewAnalysisEventArgs : EventArgs
+    {
+        #region Data members
+        private ItemBase _analysis;
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Contructor takes the newly created analysis as argument
+        /// </summary>
+        /// <param name="analysis"></param>
+        public NewAnalysisEventArgs(ItemBase analysis)
+        {
+            _analysis = analysis;
+        }
+        #endregion
+
+        #region Public properties
+
         #endregion
     }
     #endregion

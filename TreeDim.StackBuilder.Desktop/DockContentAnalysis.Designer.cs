@@ -33,16 +33,16 @@
             this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
             this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCornerView0 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCornerView90 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCornerView180 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCornerView270 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripFrontView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBackView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLeftView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripRightView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonTopView = new System.Windows.Forms.ToolStripButton();
             this.btSelectSolution = new System.Windows.Forms.Button();
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
@@ -87,95 +87,95 @@
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
+            this.toolStripCornerView0,
+            this.toolStripCornerView90,
+            this.toolStripCornerView180,
+            this.toolStripCornerView270,
             this.toolStripSeparator1,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.toolStripButton9});
+            this.toolStripFrontView,
+            this.toolStripBackView,
+            this.toolStripLeftView,
+            this.toolStripRightView,
+            this.toolStripButtonTopView});
             resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Name = "toolStrip2";
             // 
-            // toolStripButton1
+            // toolStripCornerView0
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View0;
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.onViewCorner_0);
+            this.toolStripCornerView0.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCornerView0.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View0;
+            resources.ApplyResources(this.toolStripCornerView0, "toolStripCornerView0");
+            this.toolStripCornerView0.Name = "toolStripCornerView0";
+            this.toolStripCornerView0.Click += new System.EventHandler(this.onViewCorner_0);
             // 
-            // toolStripButton2
+            // toolStripCornerView90
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View90;
-            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.onViewCorner_90);
+            this.toolStripCornerView90.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCornerView90.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View90;
+            resources.ApplyResources(this.toolStripCornerView90, "toolStripCornerView90");
+            this.toolStripCornerView90.Name = "toolStripCornerView90";
+            this.toolStripCornerView90.Click += new System.EventHandler(this.onViewCorner_90);
             // 
-            // toolStripButton3
+            // toolStripCornerView180
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View180;
-            resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.onViewCorner_180);
+            this.toolStripCornerView180.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCornerView180.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View180;
+            resources.ApplyResources(this.toolStripCornerView180, "toolStripCornerView180");
+            this.toolStripCornerView180.Name = "toolStripCornerView180";
+            this.toolStripCornerView180.Click += new System.EventHandler(this.onViewCorner_180);
             // 
-            // toolStripButton4
+            // toolStripCornerView270
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View270;
-            resources.ApplyResources(this.toolStripButton4, "toolStripButton4");
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.onViewCorner_270);
+            this.toolStripCornerView270.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCornerView270.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View270;
+            resources.ApplyResources(this.toolStripCornerView270, "toolStripCornerView270");
+            this.toolStripCornerView270.Name = "toolStripCornerView270";
+            this.toolStripCornerView270.Click += new System.EventHandler(this.onViewCorner_270);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // toolStripButton5
+            // toolStripFrontView
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_1;
-            resources.ApplyResources(this.toolStripButton5, "toolStripButton5");
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Click += new System.EventHandler(this.onViewSideFront);
+            this.toolStripFrontView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripFrontView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_1;
+            resources.ApplyResources(this.toolStripFrontView, "toolStripFrontView");
+            this.toolStripFrontView.Name = "toolStripFrontView";
+            this.toolStripFrontView.Click += new System.EventHandler(this.onViewSideFront);
             // 
-            // toolStripButton6
+            // toolStripBackView
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_2;
-            resources.ApplyResources(this.toolStripButton6, "toolStripButton6");
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Click += new System.EventHandler(this.onViewSideLeft);
+            this.toolStripBackView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBackView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_2;
+            resources.ApplyResources(this.toolStripBackView, "toolStripBackView");
+            this.toolStripBackView.Name = "toolStripBackView";
+            this.toolStripBackView.Click += new System.EventHandler(this.onViewSideLeft);
             // 
-            // toolStripButton7
+            // toolStripLeftView
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_3;
-            resources.ApplyResources(this.toolStripButton7, "toolStripButton7");
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Click += new System.EventHandler(this.onViewSideRear);
+            this.toolStripLeftView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLeftView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_3;
+            resources.ApplyResources(this.toolStripLeftView, "toolStripLeftView");
+            this.toolStripLeftView.Name = "toolStripLeftView";
+            this.toolStripLeftView.Click += new System.EventHandler(this.onViewSideRear);
             // 
-            // toolStripButton8
+            // toolStripRightView
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_4;
-            resources.ApplyResources(this.toolStripButton8, "toolStripButton8");
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Click += new System.EventHandler(this.onViewSideRight);
+            this.toolStripRightView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripRightView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_4;
+            resources.ApplyResources(this.toolStripRightView, "toolStripRightView");
+            this.toolStripRightView.Name = "toolStripRightView";
+            this.toolStripRightView.Click += new System.EventHandler(this.onViewSideRight);
             // 
-            // toolStripButton9
+            // toolStripButtonTopView
             // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
-            resources.ApplyResources(this.toolStripButton9, "toolStripButton9");
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Click += new System.EventHandler(this.onViewTop);
+            this.toolStripButtonTopView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonTopView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
+            resources.ApplyResources(this.toolStripButtonTopView, "toolStripButtonTopView");
+            this.toolStripButtonTopView.Name = "toolStripButtonTopView";
+            this.toolStripButtonTopView.Click += new System.EventHandler(this.onViewTop);
             // 
             // btSelectSolution
             // 
@@ -223,16 +223,16 @@
         private System.Windows.Forms.TrackBar trackBarAngleVert;
         private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripCornerView0;
+        private System.Windows.Forms.ToolStripButton toolStripCornerView90;
+        private System.Windows.Forms.ToolStripButton toolStripCornerView180;
+        private System.Windows.Forms.ToolStripButton toolStripCornerView270;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripFrontView;
+        private System.Windows.Forms.ToolStripButton toolStripBackView;
+        private System.Windows.Forms.ToolStripButton toolStripLeftView;
+        private System.Windows.Forms.ToolStripButton toolStripRightView;
+        private System.Windows.Forms.ToolStripButton toolStripButtonTopView;
         private System.Windows.Forms.Button btSelectSolution;
     }
 }

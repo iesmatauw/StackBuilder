@@ -24,7 +24,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormMain : Form, IDocumentFactory, IMRUClient
+    public partial class FormMain : Form, IDocumentFactory, IMRUClient, IDocumentListener
     {
         #region Data members
         /// <summary>
@@ -59,6 +59,8 @@ namespace TreeDim.StackBuilder.Desktop
 
             // initialize database
             PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+            PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
+            PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
 
             // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
@@ -74,6 +76,11 @@ namespace TreeDim.StackBuilder.Desktop
                 th.Start();
                 // ---
             }
+        }
+
+        void PalletSolutionDBModified(object sender, PalletSolutionEventArgs eventArg)
+        {
+            UpdateToolbarState();
         }
         #endregion
 
@@ -457,6 +464,11 @@ namespace TreeDim.StackBuilder.Desktop
 
         public void AddDocument(IDocument doc)
         {
+            // add this form as document listener
+            DocumentSB docSB = doc as DocumentSB;
+            if (null != docSB)
+                docSB.AddListener(this);
+            // add document 
             _documents.Add(doc);
             doc.Modified += new EventHandler(documentModified);
             UpdateToolbarState();
@@ -595,7 +607,25 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Form override 
+        #region IDocumentListener implementation
+        // new
+        public void OnNewDocument(Document doc) {}
+        public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
+        public void OnNewAnalysisCreated(Document doc, Analysis analysis) { CreateOrActivateViewAnalysis(analysis); }
+        public void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis) { CreateOrActivateViewCaseAnalysis(caseAnalysis); }
+        public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
+        public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution) { }
+        // remove
+        public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
+        public void OnAnalysisRemoved(Document doc, Analysis analysis) { }
+        public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution) { }
+        public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
+
+        // close
+        public void OnDocumentClosed(Document doc) { }
+        #endregion
+
+        #region Form override
         protected override void OnClosing(CancelEventArgs e)
         {
             CloseAllDocuments(e);
@@ -676,8 +706,6 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI();
-                if (null != analysis)
-                    CreateOrActivateViewAnalysis(analysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -686,8 +714,6 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI();
-                if (null != analysis)
-                    CreateOrActivateViewAnalysis(analysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -696,8 +722,6 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 CaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI();
-                if (null != analysis)
-                    CreateOrActivateViewCaseAnalysis(analysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }

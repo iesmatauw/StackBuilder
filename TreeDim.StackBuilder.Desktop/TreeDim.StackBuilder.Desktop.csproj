@@ -261,9 +261,6 @@
     <EmbeddedResource Include="FormMain.fr-FR.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.fr.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -518,8 +515,11 @@
     <Content Include="Resources\CaseAnalysis.bmp" />
     <None Include="Resources\Delete.bmp" />
     <None Include="Resources\Database.bmp" />
+    <Content Include="Resources\CaseAnalysis.ico" />
+    <Content Include="Resources\PalletAnalysis.ico" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
+    <Content Include="Resources\TruckAnalysis.ico" />
     <Content Include="Resources\Word.bmp" />
     <Content Include="treeDim.ico" />
     <None Include="treeDim2.ico" />

@@ -675,6 +675,8 @@ namespace TreeDim.StackBuilder.Basics
             document.WriteSolution(selSolution, desc.FullFilePath);
             _palletSolutionList.Add(desc);
             _palletSolutionList.Sort();
+            if (null != SolutionAppended)
+                SolutionAppended(this, new PalletSolutionEventArgs(desc));
             Save();
         }
         /// <summary>
@@ -683,9 +685,14 @@ namespace TreeDim.StackBuilder.Basics
         /// <param name="guid"></param>
         public void RemoveByGuid(Guid guid)
         {
-            _palletSolutionList.RemoveAll(delegate(PalletSolutionDesc solutionDesc) { return solutionDesc.Guid == guid; });
-            try { File.Delete(Path.Combine(_directoryPath, guid.ToString().Replace("-", "_") + ".stb")); }
+            // find item
+            PalletSolutionDesc desc = _palletSolutionList.Find(delegate(PalletSolutionDesc solutionDesc) { return solutionDesc.Guid == guid; });
+            try { File.Delete(desc.FullFilePath); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
+            _palletSolutionList.Remove(desc);
+            // trigger event
+            if (null != SolutionDeleted)
+                SolutionDeleted(this, new PalletSolutionEventArgs(desc));
             Save();
         }
         private void RemoveByKeyAndCaseDimensions(PalletSolutionDesc descNew)
@@ -695,13 +702,46 @@ namespace TreeDim.StackBuilder.Basics
             {
                 if (desc.MatchesKeyAndCaseDimensions(descNew))
                 {
-                    try { File.Delete(desc.FullFilePath); }
+                    try
+                    { File.Delete(desc.FullFilePath); }
                     catch (Exception ex) { _log.Error(ex.ToString()); }
+                    // trigger event
+                    if (null != SolutionDeleted)
+                        SolutionDeleted(this, new PalletSolutionEventArgs(desc));
                 }
             }
             // remove descriptors from list
             _palletSolutionList.RemoveAll(delegate(PalletSolutionDesc desc) { return desc.MatchesKeyAndCaseDimensions(descNew); });
+            Save();
         }
+        #endregion
+
+        #region Event
+        public delegate void SolutionMoveHandler(object sender, PalletSolutionEventArgs eventArg);
+        public event SolutionMoveHandler SolutionAppended;
+        public event SolutionMoveHandler SolutionDeleted;
+        #endregion
+    }
+
+    public class PalletSolutionEventArgs : EventArgs
+    {
+        #region Data members
+        private PalletSolutionDesc _desc;
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="desc">Pallet solution descriptor of solution saved/removed</param>
+        /// <param name="added"></param>
+        public PalletSolutionEventArgs(PalletSolutionDesc desc)
+        {
+            _desc = desc;
+        }
+        #endregion
+
+        #region Public properties
         #endregion
     }
     #endregion

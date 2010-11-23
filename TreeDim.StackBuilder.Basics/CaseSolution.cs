@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class CaseSolution : IComparable
+    public class CaseSolution : List<ILayer>, IComparable
     {
         #region Data members
         private string _title;

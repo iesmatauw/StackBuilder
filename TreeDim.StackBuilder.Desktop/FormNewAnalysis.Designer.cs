@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysis));
-            this.bnAccept = new System.Windows.Forms.Button();
+            this.bnOk = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -84,6 +84,7 @@
             this.nudSolutions = new System.Windows.Forms.NumericUpDown();
             this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -102,14 +103,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).BeginInit();
             this.gbAdditionalData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).BeginInit();
+            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnAccept
             // 
-            resources.ApplyResources(this.bnAccept, "bnAccept");
-            this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Name = "bnAccept";
-            this.bnAccept.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.bnOk, "bnAccept");
+            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOk.Name = "bnAccept";
+            this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
@@ -215,6 +217,7 @@
             // 
             // checkedListBoxPatterns
             // 
+            this.checkedListBoxPatterns.CheckOnClick = true;
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
             resources.GetString("checkedListBoxPatterns.Items"),
@@ -529,13 +532,21 @@
             // 
             // statusStripDef
             // 
+            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelDef});
             resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
+            // toolStripStatusLabelDef
+            // 
+            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
             // FormNewAnalysis
             // 
-            this.AcceptButton = this.bnAccept;
+            this.AcceptButton = this.bnOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
@@ -560,7 +571,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnAccept);
+            this.Controls.Add(this.bnOk);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewAnalysis";
@@ -591,6 +602,8 @@
             this.gbAdditionalData.ResumeLayout(false);
             this.gbAdditionalData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).EndInit();
+            this.statusStripDef.ResumeLayout(false);
+            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -598,7 +611,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnAccept;
+        private System.Windows.Forms.Button bnOk;
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -653,5 +666,6 @@
         private System.Windows.Forms.Label lbSolutions;
         private System.Windows.Forms.NumericUpDown nudSolutions;
         private System.Windows.Forms.StatusStrip statusStripDef;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

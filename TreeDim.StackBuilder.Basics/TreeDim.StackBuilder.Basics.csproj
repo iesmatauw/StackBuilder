@@ -64,6 +64,7 @@
     <Compile Include="BProperties.cs" />
     <Compile Include="BundleProperties.cs" />
     <Compile Include="CaseAnalysis.cs" />
+    <Compile Include="CaseConstraintSet.cs" />
     <Compile Include="CaseSolution.cs" />
     <Compile Include="ConstraintSet.cs" />
     <Compile Include="ConstraintSetBox.cs" />

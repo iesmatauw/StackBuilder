@@ -1110,54 +1110,6 @@
   <data name="&gt;&gt;nudPalletOverhangY.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;lbMm2.Name" xml:space="preserve">
-    <value>lbMm2</value>
-  </data>
-  <data name="&gt;&gt;lbMm2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbMm2.Parent" xml:space="preserve">
-    <value>gbOverhangUnderhang</value>
-  </data>
-  <data name="&gt;&gt;lbMm2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbMm1.Name" xml:space="preserve">
-    <value>lbMm1</value>
-  </data>
-  <data name="&gt;&gt;lbMm1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbMm1.Parent" xml:space="preserve">
-    <value>gbOverhangUnderhang</value>
-  </data>
-  <data name="&gt;&gt;lbMm1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 119</value>
-  </data>
-  <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 78</value>
-  </data>
-  <data name="gbOverhangUnderhang.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
-    <value>Pallet overhang / underhang</value>
-  </data>
-  <data name="&gt;&gt;gbOverhangUnderhang.Name" xml:space="preserve">
-    <value>gbOverhangUnderhang</value>
-  </data>
-  <data name="&gt;&gt;gbOverhangUnderhang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbOverhangUnderhang.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbOverhangUnderhang.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="lbMm2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1211,6 +1163,30 @@
   </data>
   <data name="&gt;&gt;lbMm1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 119</value>
+  </data>
+  <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 78</value>
+  </data>
+  <data name="gbOverhangUnderhang.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
+    <value>Pallet overhang / underhang</value>
+  </data>
+  <data name="&gt;&gt;gbOverhangUnderhang.Name" xml:space="preserve">
+    <value>gbOverhangUnderhang</value>
+  </data>
+  <data name="&gt;&gt;gbOverhangUnderhang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbOverhangUnderhang.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbOverhangUnderhang.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="checkBoxAllowAlignedLayer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1389,66 +1365,6 @@
   <data name="&gt;&gt;lbBoxes.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;lbSolutions.Name" xml:space="preserve">
-    <value>lbSolutions</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.Name" xml:space="preserve">
-    <value>nudSolutions</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Name" xml:space="preserve">
-    <value>checkBoxKeepSolutions</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="gbAdditionalData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 516</value>
-  </data>
-  <data name="gbAdditionalData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>568, 62</value>
-  </data>
-  <data name="gbAdditionalData.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="gbAdditionalData.Text" xml:space="preserve">
-    <value>Additional data</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.Name" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lbSolutions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1524,9 +1440,39 @@
   <data name="&gt;&gt;checkBoxKeepSolutions.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="gbAdditionalData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 516</value>
+  </data>
+  <data name="gbAdditionalData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>568, 62</value>
+  </data>
+  <data name="gbAdditionalData.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="gbAdditionalData.Text" xml:space="preserve">
+    <value>Additional data</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalData.Name" xml:space="preserve">
+    <value>gbAdditionalData</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalData.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbAdditionalData.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>0, 581</value>
   </metadata>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
   <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 581</value>
   </data>
@@ -1565,6 +1511,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Create new Analysis...</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewAnalysis</value>

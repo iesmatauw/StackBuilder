@@ -49,7 +49,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         private PalletSolutionKey CurrentKey
-        {
+        { 
             get
             {
                 // sanity check

@@ -298,4 +298,16 @@
   <data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>Pallet solution database is empty.\nClosing form...</value>
   </data>
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+    <value>Allow aligned and/or alternate layers</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+    <value>Define at least one stacking pattern</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+    <value>Define at least one vertical axis</value>
+  </data>
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+    <value>Define at least one stop stacking criterion</value>
+  </data>
 </root>

@@ -89,6 +89,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="document"></param>
         public FormNewAnalysis(Document document)
         {
             InitializeComponent();
@@ -96,6 +100,11 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             onInterlayerChecked(this, null);
         }
+        /// <summary>
+        /// Constructor used while browsing/editing existing analysis
+        /// </summary>
+        /// <param name="document">Parent document</param>
+        /// <param name="analysis">Analysis</param>
         public FormNewAnalysis(Document document, Analysis analysis)
         {
             InitializeComponent();
@@ -288,9 +297,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.FormNewAnalysisPosition.Record(this);
             }
             catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            { _log.Error(ex.ToString()); }
         }
         #endregion
 
@@ -572,10 +579,33 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled =
-                tbName.Text.Length > 0
-                && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text, _analysis);
+            string message = string.Empty;
+            // name
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+            // description
+            if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            // name validity
+            if (!_document.IsValidNewTypeName(tbName.Text, _analysis))
+                message = Resources.ID_INVALIDNAME;
+            // orientation
+            if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
+                message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;
+            // patterns
+            if (AllowedPatterns.Count < 1)
+                message = Resources.ID_DEFINEATLEASTONEPATTERN;
+            // AllowAlignedLayers / AllowAlternateLayers
+            if (!AllowAlignedLayers && !AllowAlternateLayers)
+                message = Resources.ID_ALLOWALIGNEDORALTERNATELAYERS;
+            if (!UseMaximumLoadOnBox && !UseMaximumNumberOfBoxes && !UseMaximumPalletHeight && !UseMaximumPalletWeight)
+                message = Resources.ID_USEATLEASTONESTOPSTACKINGCRITERION;
+            //---
+            // button OK
+            bnOk.Enabled = string.IsNullOrEmpty(message);
+            // status bar
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
@@ -611,11 +641,13 @@ namespace TreeDim.StackBuilder.Desktop
         {
             if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
                 checkBoxAllowAlternateLayer.Checked = true;
+            UpdateButtonOkStatus();
         }
         private void onCheckedChangedAlternateLayer(object sender, EventArgs e)
         {
             if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
                 checkBoxAllowAlignedLayer.Checked = true;
+            UpdateButtonOkStatus();
         }
         #endregion
 

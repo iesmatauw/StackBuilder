@@ -52,21 +52,22 @@
             this.nudMaximumPalletWeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
-            this.checkBoxMaximumPalletWeight = new System.Windows.Forms.CheckBox();
+            this.checkBoxMaximumCaseWeight = new System.Windows.Forms.CheckBox();
             this.lbStopStacking = new System.Windows.Forms.Label();
             this.checkBoxMaximumNumberOfBoxes = new System.Windows.Forms.CheckBox();
             this.gbSolutionFiltering = new System.Windows.Forms.GroupBox();
-            this.lbFilterSolutions = new System.Windows.Forms.Label();
-            this.checkBoxCaseContainsMin = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.lbBoxes = new System.Windows.Forms.Label();
             this.lbSolutions = new System.Windows.Forms.Label();
+            this.lbBoxes = new System.Windows.Forms.Label();
+            this.nudSolutions = new System.Windows.Forms.NumericUpDown();
+            this.nudMinBoxPerCase = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
+            this.checkBoxCaseContainsMin = new System.Windows.Forms.CheckBox();
+            this.lbFilterSolutions = new System.Windows.Forms.Label();
             this.gridSolutions = new SourceGrid.Grid();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbPallet = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbPalletDimensions = new System.Windows.Forms.ComboBox();
             this.gbAllowedLayerPatterns.SuspendLayout();
             this.gbAllowedBoxPositions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -76,9 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).BeginInit();
             this.gbStopStackingCondition.SuspendLayout();
             this.gbSolutionFiltering.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinBoxPerCase)).BeginInit();
             this.gridSolutions.SuspendLayout();
+            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOK
@@ -109,11 +111,13 @@
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
+            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
+            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // lbBox
             // 
@@ -126,18 +130,21 @@
             this.cbBoxes.FormattingEnabled = true;
             resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
+            this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // checkBoxAllowAlternateLayer
             // 
             resources.ApplyResources(this.checkBoxAllowAlternateLayer, "checkBoxAllowAlternateLayer");
             this.checkBoxAllowAlternateLayer.Name = "checkBoxAllowAlternateLayer";
             this.checkBoxAllowAlternateLayer.UseVisualStyleBackColor = true;
+            this.checkBoxAllowAlternateLayer.CheckedChanged += new System.EventHandler(this.onCheckedChangedAlternateLayer);
             // 
             // checkBoxAllowAlignedLayer
             // 
             resources.ApplyResources(this.checkBoxAllowAlignedLayer, "checkBoxAllowAlignedLayer");
             this.checkBoxAllowAlignedLayer.Name = "checkBoxAllowAlignedLayer";
             this.checkBoxAllowAlignedLayer.UseVisualStyleBackColor = true;
+            this.checkBoxAllowAlignedLayer.CheckedChanged += new System.EventHandler(this.onCheckedChangedAlignedLayer);
             // 
             // gbAllowedLayerPatterns
             // 
@@ -150,6 +157,7 @@
             // 
             // checkedListBoxPatterns
             // 
+            this.checkedListBoxPatterns.CheckOnClick = true;
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
             resources.GetString("checkedListBoxPatterns.Items"),
@@ -158,6 +166,7 @@
             resources.GetString("checkedListBoxPatterns.Items3")});
             resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
+            this.checkedListBoxPatterns.Click += new System.EventHandler(this.onAllowedPatternsChanged);
             // 
             // gbAllowedBoxPositions
             // 
@@ -231,25 +240,35 @@
             0,
             0,
             0});
+            this.nudMaximumNumberOfBoxes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudMaximumNumberOfBoxes.Name = "nudMaximumNumberOfBoxes";
+            this.nudMaximumNumberOfBoxes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // gbStopStackingCondition
             // 
             this.gbStopStackingCondition.Controls.Add(this.lbKg1);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumNumberOfBoxes);
-            this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletWeight);
+            this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
             resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
-            // checkBoxMaximumPalletWeight
+            // checkBoxMaximumCaseWeight
             // 
-            resources.ApplyResources(this.checkBoxMaximumPalletWeight, "checkBoxMaximumPalletWeight");
-            this.checkBoxMaximumPalletWeight.Name = "checkBoxMaximumPalletWeight";
-            this.checkBoxMaximumPalletWeight.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.checkBoxMaximumCaseWeight, "checkBoxMaximumCaseWeight");
+            this.checkBoxMaximumCaseWeight.Name = "checkBoxMaximumCaseWeight";
+            this.checkBoxMaximumCaseWeight.UseVisualStyleBackColor = true;
             // 
             // lbStopStacking
             // 
@@ -266,19 +285,65 @@
             // 
             this.gbSolutionFiltering.Controls.Add(this.lbSolutions);
             this.gbSolutionFiltering.Controls.Add(this.lbBoxes);
-            this.gbSolutionFiltering.Controls.Add(this.numericUpDown2);
-            this.gbSolutionFiltering.Controls.Add(this.numericUpDown1);
-            this.gbSolutionFiltering.Controls.Add(this.checkBox2);
+            this.gbSolutionFiltering.Controls.Add(this.nudSolutions);
+            this.gbSolutionFiltering.Controls.Add(this.nudMinBoxPerCase);
+            this.gbSolutionFiltering.Controls.Add(this.checkBoxKeepSolutions);
             this.gbSolutionFiltering.Controls.Add(this.checkBoxCaseContainsMin);
             this.gbSolutionFiltering.Controls.Add(this.lbFilterSolutions);
             resources.ApplyResources(this.gbSolutionFiltering, "gbSolutionFiltering");
             this.gbSolutionFiltering.Name = "gbSolutionFiltering";
             this.gbSolutionFiltering.TabStop = false;
             // 
-            // lbFilterSolutions
+            // lbSolutions
             // 
-            resources.ApplyResources(this.lbFilterSolutions, "lbFilterSolutions");
-            this.lbFilterSolutions.Name = "lbFilterSolutions";
+            resources.ApplyResources(this.lbSolutions, "lbSolutions");
+            this.lbSolutions.Name = "lbSolutions";
+            // 
+            // lbBoxes
+            // 
+            resources.ApplyResources(this.lbBoxes, "lbBoxes");
+            this.lbBoxes.Name = "lbBoxes";
+            // 
+            // nudSolutions
+            // 
+            resources.ApplyResources(this.nudSolutions, "nudSolutions");
+            this.nudSolutions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSolutions.Name = "nudSolutions";
+            this.nudSolutions.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudMinBoxPerCase
+            // 
+            resources.ApplyResources(this.nudMinBoxPerCase, "nudMinBoxPerCase");
+            this.nudMinBoxPerCase.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudMinBoxPerCase.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMinBoxPerCase.Name = "nudMinBoxPerCase";
+            this.nudMinBoxPerCase.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // checkBoxKeepSolutions
+            // 
+            resources.ApplyResources(this.checkBoxKeepSolutions, "checkBoxKeepSolutions");
+            this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
+            this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
             // 
             // checkBoxCaseContainsMin
             // 
@@ -286,31 +351,10 @@
             this.checkBoxCaseContainsMin.Name = "checkBoxCaseContainsMin";
             this.checkBoxCaseContainsMin.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // lbFilterSolutions
             // 
-            resources.ApplyResources(this.checkBox2, "checkBox2");
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            resources.ApplyResources(this.numericUpDown1, "numericUpDown1");
-            this.numericUpDown1.Name = "numericUpDown1";
-            // 
-            // numericUpDown2
-            // 
-            resources.ApplyResources(this.numericUpDown2, "numericUpDown2");
-            this.numericUpDown2.Name = "numericUpDown2";
-            // 
-            // lbBoxes
-            // 
-            resources.ApplyResources(this.lbBoxes, "lbBoxes");
-            this.lbBoxes.Name = "lbBoxes";
-            // 
-            // lbSolutions
-            // 
-            resources.ApplyResources(this.lbSolutions, "lbSolutions");
-            this.lbSolutions.Name = "lbSolutions";
+            resources.ApplyResources(this.lbFilterSolutions, "lbFilterSolutions");
+            this.lbFilterSolutions.Name = "lbFilterSolutions";
             // 
             // gridSolutions
             // 
@@ -327,21 +371,29 @@
             // 
             // statusStripDef
             // 
+            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelDef});
             resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
+            // 
+            // toolStripStatusLabelDef
+            // 
+            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // lbPallet
             // 
             resources.ApplyResources(this.lbPallet, "lbPallet");
             this.lbPallet.Name = "lbPallet";
             // 
-            // comboBox1
+            // cbPalletDimensions
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Name = "comboBox1";
+            resources.ApplyResources(this.cbPalletDimensions, "cbPalletDimensions");
+            this.cbPalletDimensions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletDimensions.FormattingEnabled = true;
+            this.cbPalletDimensions.Name = "cbPalletDimensions";
             // 
             // FormNewCaseAnalysis
             // 
@@ -349,7 +401,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbPalletDimensions);
             this.Controls.Add(this.lbPallet);
             this.Controls.Add(this.gridSolutions);
             this.Controls.Add(this.gbSolutionFiltering);
@@ -384,10 +436,12 @@
             this.gbStopStackingCondition.PerformLayout();
             this.gbSolutionFiltering.ResumeLayout(false);
             this.gbSolutionFiltering.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinBoxPerCase)).EndInit();
             this.gridSolutions.ResumeLayout(false);
             this.gridSolutions.PerformLayout();
+            this.statusStripDef.ResumeLayout(false);
+            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,20 +472,21 @@
         private System.Windows.Forms.NumericUpDown nudMaximumPalletWeight;
         private System.Windows.Forms.NumericUpDown nudMaximumNumberOfBoxes;
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
-        private System.Windows.Forms.CheckBox checkBoxMaximumPalletWeight;
+        private System.Windows.Forms.CheckBox checkBoxMaximumCaseWeight;
         private System.Windows.Forms.Label lbStopStacking;
         private System.Windows.Forms.CheckBox checkBoxMaximumNumberOfBoxes;
         private System.Windows.Forms.GroupBox gbSolutionFiltering;
         private System.Windows.Forms.Label lbFilterSolutions;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBoxKeepSolutions;
         private System.Windows.Forms.CheckBox checkBoxCaseContainsMin;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudMinBoxPerCase;
         private System.Windows.Forms.Label lbSolutions;
         private System.Windows.Forms.Label lbBoxes;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nudSolutions;
         private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.Label lbPallet;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbPalletDimensions;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

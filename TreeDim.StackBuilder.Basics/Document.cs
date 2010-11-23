@@ -265,9 +265,10 @@ namespace TreeDim.StackBuilder.Basics
         public CaseAnalysis CreateNewCaseAnalysis(
             string name, string description
             , BoxProperties bProperties
-            )
+            , CaseConstraintSet constraintSet
+            , List<PalletSolutionDesc> palletSolutionList)
         {
-            CaseAnalysis caseAnalysis = new CaseAnalysis(this);
+            CaseAnalysis caseAnalysis = new CaseAnalysis(bProperties, palletSolutionList, constraintSet);
             caseAnalysis.Name = name;
             caseAnalysis.Description = description;
             _caseAnalyses.Add(caseAnalysis);

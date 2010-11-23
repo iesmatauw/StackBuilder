@@ -11,6 +11,9 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Graphics
 {
+    /// <summary>
+    /// Drawable truck (used to draw a truck with a Graphics3D object)
+    /// </summary>
     public class Truck : Drawable
     {
         #region Data members
@@ -32,10 +35,16 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Overrides
-        public override void Draw(Graphics3D graphics)
-        {
+        public override void DrawBegin(Graphics3D graphics)
+        { 
             foreach (Face face in Faces)
                 graphics.AddFace(face);
+        }
+        public override void Draw(Graphics3D graphics)
+        {
+        }
+        public override void DrawEnd(Graphics3D graphics)
+        {
         }
         #endregion
 

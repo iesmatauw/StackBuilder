@@ -297,10 +297,17 @@ namespace TreeDim.StackBuilder.Desktop
         /// <returns>created case analysis</returns>
         public CaseAnalysis CreateNewCaseAnalysisUI()
         {
-            FormNewCaseAnalysis form = new FormNewCaseAnalysis();
+            FormNewCaseAnalysis form = new FormNewCaseAnalysis(this);
+            form.Boxes = Boxes.ToArray();
             if (DialogResult.OK == form.ShowDialog())
             {
-                return CreateNewCaseAnalysis(form.CaseAnalysisName, form.CaseAnalysisDescription, null);
+                CaseConstraintSet constraintSet = new CaseConstraintSet();
+                return CreateNewCaseAnalysis(
+                    form.CaseAnalysisName
+                    , form.CaseAnalysisDescription
+                    , form.SelectedBox
+                    , constraintSet
+                    , form.PalletSolutionList);
             }
             return null;
         }

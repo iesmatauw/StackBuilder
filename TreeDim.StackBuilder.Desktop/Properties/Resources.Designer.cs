@@ -228,6 +228,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow aligned and/or alternate layers.
+        /// </summary>
+        internal static string ID_ALLOWALIGNEDORALTERNATELAYERS {
+            get {
+                return ResourceManager.GetString("ID_ALLOWALIGNEDORALTERNATELAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string ID_CLOSE {
@@ -242,6 +251,24 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_DATABASEEMPTY {
             get {
                 return ResourceManager.GetString("ID_DATABASEEMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define at least one stacking pattern.
+        /// </summary>
+        internal static string ID_DEFINEATLEASTONEPATTERN {
+            get {
+                return ResourceManager.GetString("ID_DEFINEATLEASTONEPATTERN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define at least one vertical axis.
+        /// </summary>
+        internal static string ID_DEFINEATLEASTONEVERTICALAXIS {
+            get {
+                return ResourceManager.GetString("ID_DEFINEATLEASTONEVERTICALAXIS", resourceCulture);
             }
         }
         
@@ -431,6 +458,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_UNSELECTSOLUTION {
             get {
                 return ResourceManager.GetString("ID_UNSELECTSOLUTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define at least one stop stacking criterion.
+        /// </summary>
+        internal static string ID_USEATLEASTONESTOPSTACKINGCRITERION {
+            get {
+                return ResourceManager.GetString("ID_USEATLEASTONESTOPSTACKINGCRITERION", resourceCulture);
             }
         }
         

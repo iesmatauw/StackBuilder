@@ -39,7 +39,7 @@ namespace TreeDim.StackBuilder.Graphics
                 throw new Exception("No trucksolution defined!");
             // draw truck
             Truck truck = new Truck(_truckSolution.ParentTruckAnalysis.TruckProperties);
-            truck.Draw(graphics);
+            truck.DrawBegin(graphics);
 
             // get pallet height
             Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;

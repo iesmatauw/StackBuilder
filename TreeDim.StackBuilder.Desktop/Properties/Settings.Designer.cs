@@ -366,5 +366,16 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 return ((string)(this["PalletSolutionsPath"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewCaseAnalysisPosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewCaseAnalysisPosition"]));
+            }
+            set {
+                this["FormNewCaseAnalysisPosition"] = value;
+            }
+        }
     }
 }

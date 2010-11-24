@@ -194,7 +194,7 @@ namespace TreeDim.StackBuilder.Desktop
             get
             {
                 List<PalletSolutionDesc> list = new List<PalletSolutionDesc>();
-                return list; 
+                return PalletSolutionDatabase.Instance.QueryPalletSolutions(CurrentKey);
             }
             set
             {
@@ -202,6 +202,70 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                 }
             }
+        }
+        /// <summary>
+        /// Use maximum case weight criterion?
+        /// </summary>
+        public bool UseMaximumCaseWeight
+        {
+            get { return checkBoxMaximumCaseWeight.Checked; }
+            set { checkBoxMaximumCaseWeight.Checked = value; }
+        }
+        /// <summary>
+        /// Maximum case weight
+        /// </summary>
+        public double MaximumCaseWeight
+        {
+            get { return (double)nudMaximumCaseWeight.Value; }
+            set { nudMaximumCaseWeight.Value = (decimal)value; }
+        }
+        /// <summary>
+        /// Use maximum number of boxes criterion?
+        /// </summary>
+        public bool UseMaximumNumberOfItems
+        {
+            get { return checkBoxMaximumNumberOfBoxes.Checked; }
+            set { checkBoxMaximumNumberOfBoxes.Checked = value; }
+        }
+        /// <summary>
+        /// Maximum number of boxes
+        /// </summary>
+        public int MaximumNumberOfItems
+        {
+            get { return (int)nudMaximumNumberOfBoxes.Value; }
+            set { nudMaximumNumberOfBoxes.Value = (decimal)value; }
+        }
+        /// <summary>
+        /// Use minimum number of items
+        /// </summary>
+        public bool UseMinimumNumberOfItems
+        {
+            get { return checkBoxMinNumberOfItems.Checked; }
+            set { checkBoxMinNumberOfItems.Checked = value;}
+        }
+        /// <summary>
+        /// Minimum number of items
+        /// </summary>
+        public int MinimumNumberOfItems
+        {
+            get { return (int)nudMinBoxPerCase.Value; }
+            set { nudMinBoxPerCase.Value = value; }
+        }
+        /// <summary>
+        /// Use number of solutions kept?
+        /// </summary>
+        public bool UseNumberOfSolutionsKept
+        {
+            get { return checkBoxKeepSolutions.Checked; }
+            set { checkBoxKeepSolutions.Checked = value; }
+        }
+        /// <summary>
+        /// Number of solutions kept
+        /// </summary>
+        public int NumberOfSolutionsKept
+        {
+            get { return (int)nudSolutions.Value; }
+            set { nudSolutions.Value = value; }
         }
         #endregion
 
@@ -219,6 +283,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // fill boxes combo
                 foreach (BProperties box in _boxes)
                     cbBoxes.Items.Add(new BoxItem(box));
+                // select box item
                 if (cbBoxes.Items.Count > 0)
                 {
                     if (null == _caseAnalysis)
@@ -236,22 +301,26 @@ namespace TreeDim.StackBuilder.Desktop
                         }
                     }
                 }
-                // update controls
-                UpdateButtonOkStatus();
                 // Fill key combo
                 FillKeyCombo();
 
                 // allowed position box + allowed patterns
                 if (null == _caseAnalysis)
                 {
-                    AllowVerticalX = Settings.Default.AllowVerticalX;
-                    AllowVerticalY = Settings.Default.AllowVerticalY;
-                    AllowVerticalZ = Settings.Default.AllowVerticalZ;
+                    AllowAlignedLayers = Settings.Default.AllowAlignedLayer_CaseAnalysis;
+                    AllowAlternateLayers = Settings.Default.AllowAlternateLayer_CaseAnalysis;
 
-                    AllowedPatternsString = Settings.Default.AllowedPatterns;
+                    AllowVerticalX = Settings.Default.AllowVerticalX_CaseAnalysis;
+                    AllowVerticalY = Settings.Default.AllowVerticalY_CaseAnalysis;
+                    AllowVerticalZ = Settings.Default.AllowVerticalZ_CaseAnalysis;
+
+                    AllowedPatternsString = Settings.Default.AllowedPatterns_CaseAnalysis;
                 }
                 else
                 {
+                    AllowAlignedLayers = _caseAnalysis.ConstraintSet.AllowAlignedLayers;
+                    AllowAlternateLayers = _caseAnalysis.ConstraintSet.AllowAlternateLayers;
+
                     CaseConstraintSet constraintSet = _caseAnalysis.ConstraintSet;
                     AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
                     AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
@@ -259,6 +328,10 @@ namespace TreeDim.StackBuilder.Desktop
 
                     AllowedPatternsString = constraintSet.AllowedPatternString;
                 }
+
+                // update controls
+                UpdateConditionStatus(this, null);
+                UpdateButtonOkStatus();
 
                 // windows settings
                 if (null != Settings.Default.FormNewCaseAnalysisPosition)
@@ -293,19 +366,19 @@ namespace TreeDim.StackBuilder.Desktop
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
             // description
-            if (string.IsNullOrEmpty(tbDescription.Text))
+            else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             // name validity
-            if (!_document.IsValidNewTypeName(tbName.Text, _caseAnalysis))
-                message = Resources.ID_INVALIDNAME;
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, _caseAnalysis))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // orientation
-            if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
+            else if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
                 message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;
             // patterns
-            if (AllowedPatterns.Count < 1)
+            else if (AllowedPatterns.Count < 1)
                 message = Resources.ID_DEFINEATLEASTONEPATTERN;
             // AllowAlignedLayers / AllowAlternateLayers
-            if (!AllowAlignedLayers && !AllowAlternateLayers)
+            else if (!AllowAlignedLayers && !AllowAlternateLayers)
                 message = Resources.ID_ALLOWALIGNEDORALTERNATELAYERS;
             //---
             // button OK
@@ -314,6 +387,15 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
+
+        private void UpdateConditionStatus(object sender, EventArgs e)
+        {
+            nudMaximumCaseWeight.Enabled    = checkBoxMaximumCaseWeight.Checked;
+            nudMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;
+            nudMinBoxPerCase.Enabled        = checkBoxMinNumberOfItems.Checked;
+            nudSolutions.Enabled            = checkBoxKeepSolutions.Checked;
+        }
+
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
@@ -348,7 +430,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void UpdateCriterionFields()
         {
             nudMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;
-            nudMaximumPalletWeight.Enabled = checkBoxMaximumCaseWeight.Checked;
+            nudMaximumCaseWeight.Enabled = checkBoxMaximumCaseWeight.Checked;
         }
         #endregion
 
@@ -455,8 +537,8 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions.Rows.Insert(++iIndex);
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Image(GetBoxBitmapFromDesc(desc));
                 gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(desc.FriendlyName);
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseDimensions));
-                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseInsideDimensions));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseDimensionsString));
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseInsideDimensionsString));
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseOrientation));
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseCount));
                 gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, true);

@@ -95,5 +95,23 @@
     <Setting Name="FormNewCaseAnalysisPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="AllowVerticalX_CaseAnalysis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowVerticalY_CaseAnalysis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowVerticalZ_CaseAnalysis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowedPatterns_CaseAnalysis" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AllowAlignedLayer_CaseAnalysis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowAlternateLayer_CaseAnalysis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

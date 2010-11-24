@@ -15,13 +15,17 @@ namespace TreeDim.StackBuilder.Basics
         private List<PalletSolutionDesc> _palletSolutionsList = new List<PalletSolutionDesc>();
         private List<CaseSolution> _caseSolutions = new List<CaseSolution>();
         private CaseConstraintSet _constraintSet;
+        private static ICaseAnalysisSolver _solver;
         static readonly ILog _log = LogManager.GetLogger(typeof(CaseAnalysis));
         #endregion
 
         #region Constructor
-        public CaseAnalysis(BProperties boxProperties, List<PalletSolutionDesc> palletSolutionList, CaseConstraintSet constraintSet)
+        public CaseAnalysis(BoxProperties boxProperties, List<PalletSolutionDesc> palletSolutionList, CaseConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
-        { 
+        {
+            _boxProperties = boxProperties;
+            _palletSolutionsList = palletSolutionList;
+            _constraintSet = constraintSet;
         }
         #endregion
 
@@ -33,6 +37,13 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _boxProperties; }
             set { _boxProperties = value; }
+        }
+        /// <summary>
+        /// Interlayer properties
+        /// </summary>
+        public InterlayerProperties InterlayerProperties
+        {
+            get { return null; }
         }
         /// <summary>
         /// List of pallet solutions evaluated in this analysis
@@ -63,6 +74,57 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
+        #region Solution selection
+        public void SelectSolutionByIndex(int index)
+        {
+            ParentDocument.Modify();
+        }
+        public void UnselectSolutionByIndex(int index)
+        {
+            UnSelectSolution();
+        }
+        public void UnSelectSolution()
+        {
+            ParentDocument.Modify();
+        }
+        public bool HasSolutionSelected(int index)
+        {
+            return false;
+        }
+        #endregion
+
+        #region Dependancies
+        protected override void OnDispose()
+        {
+            base.OnDispose();
+        }
+
+        protected override void RemoveItselfFromDependancies()
+        {
+            _boxProperties.RemoveDependancie(this);
+            base.RemoveItselfFromDependancies();
+        }
+        public override void OnAttributeModified(ItemBase modifiedAttribute)
+        {
+            // clear solutions
+            _caseSolutions.Clear();
+
+        }
+        public override void OnEndUpdate(ItemBase updatedAttribute)
+        {
+            // clear solutions
+            _caseSolutions.Clear();
+            // get default analysis solver
+            if (null != _solver)
+                _solver.ProcessAnalysis(this);
+            else
+                _log.Error("_solver == null : solver was not set");
+            if (_caseSolutions.Count == 0)
+                _log.Debug("Recomputed analysis has no solutions");
+            // set modified / propagate modifications
+            Modify();
+        }
+        #endregion
 
     }
     #endregion

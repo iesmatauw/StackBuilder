@@ -25,8 +25,7 @@ namespace TreeDim.StackBuilder.Engine
 
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
-            double boxLength = layer.BoxLength;
-            double boxWidth = layer.BoxWidth;
+            throw new NotImplementedException();
         }
         public override int GetNumberOfVariants(Layer layer)
         {

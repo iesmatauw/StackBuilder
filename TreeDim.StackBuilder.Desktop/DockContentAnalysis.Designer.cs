@@ -32,7 +32,7 @@
             this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
             this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
             this.gridSolutions = new SourceGrid.Grid();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip_view = new System.Windows.Forms.ToolStrip();
             this.toolStripCornerView0 = new System.Windows.Forms.ToolStripButton();
             this.toolStripCornerView90 = new System.Windows.Forms.ToolStripButton();
             this.toolStripCornerView180 = new System.Windows.Forms.ToolStripButton();
@@ -47,7 +47,7 @@
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
-            this.toolStrip2.SuspendLayout();
+            this.toolStrip_view.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,9 +84,9 @@
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
             // 
-            // toolStrip2
+            // toolStrip_view
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_view.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripCornerView0,
             this.toolStripCornerView90,
             this.toolStripCornerView180,
@@ -97,8 +97,8 @@
             this.toolStripLeftView,
             this.toolStripRightView,
             this.toolStripButtonTopView});
-            resources.ApplyResources(this.toolStrip2, "toolStrip2");
-            this.toolStrip2.Name = "toolStrip2";
+            resources.ApplyResources(this.toolStrip_view, "toolStrip_view");
+            this.toolStrip_view.Name = "toolStrip_view";
             // 
             // toolStripCornerView0
             // 
@@ -196,7 +196,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btSelectSolution);
-            this.Controls.Add(this.toolStrip2);
+            this.Controls.Add(this.toolStrip_view);
             this.Controls.Add(this.gridSolutions);
             this.Controls.Add(this.trackBarAngleVert);
             this.Controls.Add(this.trackBarAngleHoriz);
@@ -208,8 +208,8 @@
             this.ShowInTaskbar = false;
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.toolStrip_view.ResumeLayout(false);
+            this.toolStrip_view.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,7 +222,7 @@
         private System.Windows.Forms.TrackBar trackBarAngleHoriz;
         private System.Windows.Forms.TrackBar trackBarAngleVert;
         private SourceGrid.Grid gridSolutions;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip toolStrip_view;
         private System.Windows.Forms.ToolStripButton toolStripCornerView0;
         private System.Windows.Forms.ToolStripButton toolStripCornerView90;
         private System.Windows.Forms.ToolStripButton toolStripCornerView180;

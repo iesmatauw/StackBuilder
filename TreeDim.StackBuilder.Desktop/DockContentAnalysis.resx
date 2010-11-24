@@ -201,31 +201,31 @@
   <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="toolStrip_view.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
-  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="toolStrip_view.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStrip_view.Size" type="System.Drawing.Size, System.Drawing">
     <value>604, 25</value>
   </data>
-  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
+  <data name="toolStrip_view.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="toolStrip2.Text" xml:space="preserve">
-    <value>toolStrip2</value>
+  <data name="toolStrip_view.Text" xml:space="preserve">
+    <value>Views</value>
   </data>
-  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
-    <value>toolStrip2</value>
+  <data name="&gt;&gt;toolStrip_view.Name" xml:space="preserve">
+    <value>toolStrip_view</value>
   </data>
-  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStrip_view.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;toolStrip_view.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;toolStrip_view.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="toolStripCornerView0.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -346,7 +346,7 @@
     <value>0, 28</value>
   </data>
   <data name="pictureBoxSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 295</value>
+    <value>600, 295</value>
   </data>
   <data name="pictureBoxSolution.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

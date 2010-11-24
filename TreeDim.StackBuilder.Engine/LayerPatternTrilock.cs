@@ -134,8 +134,10 @@ namespace TreeDim.StackBuilder.Engine
                     }
                 }
 
-            Debug.Assert(sizeX_area1Opt > 0);
-            Debug.Assert(sizeY_area1Opt > 0);
+            if (0 == sizeX_area1Opt)
+                _log.Debug("sizeX_area1Opt == 0");
+            if (0 == sizeY_area1Opt)
+                _log.Debug("sizeY_area1Opt == 0");
             return iMax;            
         }
         private int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth

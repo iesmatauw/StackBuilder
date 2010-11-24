@@ -10,9 +10,9 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private string _title;
-        List<BoxPosition> _boxPositions = new List<BoxPosition>();
-        CaseAnalysis _parentCaseAnalysis;
-        PalletSolutionDesc _palletSolutionDesc;
+        private CaseAnalysis _parentCaseAnalysis;
+        private PalletSolutionDesc _palletSolutionDesc;
+        private bool _hasHomogeneousLayers;
         #endregion
 
         #region Constructor
@@ -21,10 +21,12 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         /// <param name="title"></param>
         /// <param name="caseAnalysis">Parent case analysis reference</param>
-        public CaseSolution(string title, CaseAnalysis caseAnalysis)
+        public CaseSolution(CaseAnalysis caseAnalysis, string title, PalletSolutionDesc palletSolutionDesc, bool hasHomogeneousLayers)
         {
             _title = title;
             _parentCaseAnalysis = caseAnalysis;
+            _palletSolutionDesc = palletSolutionDesc;
+            _hasHomogeneousLayers = hasHomogeneousLayers;
         }
         #endregion
 
@@ -38,38 +40,90 @@ namespace TreeDim.StackBuilder.Basics
             get { return _parentCaseAnalysis; }
         }
         /// <summary>
+        /// Pallet solution descriptor
+        /// </summary>
+        public PalletSolutionDesc PalletSolutionDesc { get { return _palletSolutionDesc; } }
+        /// <summary>
         /// Number of boxes in case
         /// </summary>
-        public int BoxInCaseCount
+        public int BoxPerCaseCount
         {
-            get { return _boxPositions.Count; }
+            get
+            {
+                int iCount = 0;
+                foreach (ILayer layer in this)
+                    iCount += layer.BoxCount;
+                return iCount;
+            }
         }
+        /// <summary>
+        /// Case per pallet count
+        /// </summary>
+        public int CasePerPalletCount { get { return _palletSolutionDesc.CaseCount; } }
         /// <summary>
         /// Number of boxes on pallet
         /// </summary>
-        public int BoxOnPalletCount
-        {
-            get { return _boxPositions.Count * _palletSolutionDesc.CaseCount; }
-        }
+        public int BoxPerPalletCount { get { return BoxPerCaseCount * CasePerPalletCount; } }
         /// <summary>
         /// Case efficiency
         /// </summary>
-        public double CaseEfficiency
-        {
-            get { return 100.0; }
+        public double CaseEfficiency { get { return 100.0 * _parentCaseAnalysis.BoxProperties.Volume * BoxPerCaseCount / _palletSolutionDesc.InsideVolume; } }
+        /// <summary>
+        /// Pallet efficiency
+        /// </summary>
+        public double PalletEfficiency {
+            get
+            {
+                Solution sol = _palletSolutionDesc.LoadPalletSolution();
+                return (100.0 * _parentCaseAnalysis.BoxProperties.Volume * BoxPerPalletCount) / (sol.PalletLength * sol.PalletWidth * sol.PalletHeight); 
+            } 
         }
-        public double PalletEfficiency
-        {
-            get { return 100.0; }
-        }
-
-
         /// <summary>
         /// Title
         /// </summary>
-        public string Title
+        public string Title { get { return _title; } }
+        /// <summary>
+        /// Parent case analysis
+        /// </summary>
+        public CaseAnalysis ParentAnalysis  { get { return _parentCaseAnalysis; } }
+        /// <summary>
+        /// Does solution have homogeneous layers?
+        /// </summary>
+        public bool HasHomogeneousLayers { get { return _hasHomogeneousLayers; } }
+        /// <summary>
+        /// Case length
+        /// </summary>
+        public double CaseLength { get { return _palletSolutionDesc.CaseDimensions[0]; } }
+        /// <summary>
+        /// Case width
+        /// </summary>
+        public double CaseWidth { get { return _palletSolutionDesc.CaseDimensions[1]; } }
+        /// <summary>
+        /// Case height
+        /// </summary>
+        public double CaseHeight { get { return _palletSolutionDesc.CaseDimensions[2]; } }
+        /// <summary>
+        /// Case weight
+        /// </summary>
+        public double CaseWeight { get { return _parentCaseAnalysis.BoxProperties.Weight * BoxPerCaseCount; } }
+        /// <summary>
+        /// Pallet weight
+        /// </summary>
+        public double PalletWeight { get { return _palletSolutionDesc.CaseCount * CaseWeight; } }
+        #endregion
+
+        #region Adding layer / interlayer
+        public BoxLayer CreateNewLayer(double zLow)
         {
-            get { return _title; }
+            BoxLayer layer = new BoxLayer(zLow);
+            Add(layer);
+            return layer;
+        }
+        public InterlayerPos CreateNewInterlayer(double zLow)
+        {
+            InterlayerPos layer = new InterlayerPos(zLow);
+            Add(layer);
+            return layer;
         }
         #endregion
 
@@ -77,9 +131,9 @@ namespace TreeDim.StackBuilder.Basics
         public int CompareTo(object obj)
         {
             CaseSolution sol = (CaseSolution)obj;
-            if (this.BoxOnPalletCount > sol.BoxOnPalletCount)
+            if (this.BoxPerPalletCount > sol.BoxPerPalletCount)
                 return -1;
-            else if (this.BoxOnPalletCount == sol.BoxOnPalletCount)
+            else if (this.BoxPerPalletCount == sol.BoxPerPalletCount)
                 return 0;
             else
                 return 1; 

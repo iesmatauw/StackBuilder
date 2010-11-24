@@ -62,7 +62,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
-        #region Allowed layer alignments
+        #region Allow layers aligned / alternate
         public bool AllowAlignedLayers
         {
             set { _allowAlignedLayers = value;  }

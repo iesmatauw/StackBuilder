@@ -266,13 +266,24 @@ namespace TreeDim.StackBuilder.Basics
             string name, string description
             , BoxProperties bProperties
             , CaseConstraintSet constraintSet
-            , List<PalletSolutionDesc> palletSolutionList)
+            , List<PalletSolutionDesc> palletSolutionList
+            , ICaseAnalysisSolver solver)
         {
             CaseAnalysis caseAnalysis = new CaseAnalysis(bProperties, palletSolutionList, constraintSet);
             caseAnalysis.Name = name;
             caseAnalysis.Description = description;
+            // insert in list
             _caseAnalyses.Add(caseAnalysis);
+            // compute analysis
+            solver.ProcessAnalysis(caseAnalysis);
+            if (caseAnalysis.Solutions.Count < 1)
+            {	// remove analysis from list if it has no valid solution
+                _caseAnalyses.Remove(caseAnalysis);
+                return null;
+            } 
+            // notify listeners
             NotifyOnNewCaseAnalysisCreated(caseAnalysis);
+            Modify();
             return caseAnalysis;
         }
         
@@ -331,6 +342,29 @@ namespace TreeDim.StackBuilder.Basics
             foreach (ItemBase item in _typeList)
             {
                 if (item == itemToName)
+                    continue;
+                if (item.Name.Trim().ToLower() == name.Trim().ToLower())
+                    return false;
+            }
+            // success
+            return true;
+        }
+        public bool IsValidNewAnalysisName(string name, ItemBase analysisToRename)
+        {
+            // make sure is not empty
+            if (name.Trim() == string.Empty)
+                return false;
+            // make sure that name is not already used
+            foreach (ItemBase item in _analyses)
+            {
+                if (item == analysisToRename)
+                    continue;
+                if (item.Name.Trim().ToLower() == name.Trim().ToLower())
+                    return false;
+            }
+            foreach (ItemBase item in _caseAnalyses)
+            {
+                if (item == analysisToRename)
                     continue;
                 if (item.Name.Trim().ToLower() == name.Trim().ToLower())
                     return false;

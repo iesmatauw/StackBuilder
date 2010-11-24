@@ -377,5 +377,77 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["FormNewCaseAnalysisPosition"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowVerticalX_CaseAnalysis {
+            get {
+                return ((bool)(this["AllowVerticalX_CaseAnalysis"]));
+            }
+            set {
+                this["AllowVerticalX_CaseAnalysis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowVerticalY_CaseAnalysis {
+            get {
+                return ((bool)(this["AllowVerticalY_CaseAnalysis"]));
+            }
+            set {
+                this["AllowVerticalY_CaseAnalysis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowVerticalZ_CaseAnalysis {
+            get {
+                return ((bool)(this["AllowVerticalZ_CaseAnalysis"]));
+            }
+            set {
+                this["AllowVerticalZ_CaseAnalysis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AllowedPatterns_CaseAnalysis {
+            get {
+                return ((string)(this["AllowedPatterns_CaseAnalysis"]));
+            }
+            set {
+                this["AllowedPatterns_CaseAnalysis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowAlignedLayer_CaseAnalysis {
+            get {
+                return ((bool)(this["AllowAlignedLayer_CaseAnalysis"]));
+            }
+            set {
+                this["AllowAlignedLayer_CaseAnalysis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllowAlternateLayer_CaseAnalysis {
+            get {
+                return ((bool)(this["AllowAlternateLayer_CaseAnalysis"]));
+            }
+            set {
+                this["AllowAlternateLayer_CaseAnalysis"] = value;
+            }
+        }
     }
 }

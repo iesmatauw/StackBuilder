@@ -49,7 +49,7 @@
             this.pictureBoxPositionY = new System.Windows.Forms.PictureBox();
             this.pictureBoxPositionX = new System.Windows.Forms.PictureBox();
             this.lbKg1 = new System.Windows.Forms.Label();
-            this.nudMaximumPalletWeight = new System.Windows.Forms.NumericUpDown();
+            this.nudMaximumCaseWeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
             this.checkBoxMaximumCaseWeight = new System.Windows.Forms.CheckBox();
@@ -61,7 +61,7 @@
             this.nudSolutions = new System.Windows.Forms.NumericUpDown();
             this.nudMinBoxPerCase = new System.Windows.Forms.NumericUpDown();
             this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
-            this.checkBoxCaseContainsMin = new System.Windows.Forms.CheckBox();
+            this.checkBoxMinNumberOfItems = new System.Windows.Forms.CheckBox();
             this.lbFilterSolutions = new System.Windows.Forms.Label();
             this.gridSolutions = new SourceGrid.Grid();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
@@ -73,7 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumCaseWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).BeginInit();
             this.gbStopStackingCondition.SuspendLayout();
             this.gbSolutionFiltering.SuspendLayout();
@@ -221,16 +221,16 @@
             resources.ApplyResources(this.lbKg1, "lbKg1");
             this.lbKg1.Name = "lbKg1";
             // 
-            // nudMaximumPalletWeight
+            // nudMaximumCaseWeight
             // 
-            this.nudMaximumPalletWeight.DecimalPlaces = 1;
-            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
-            this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
+            this.nudMaximumCaseWeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumCaseWeight, "nudMaximumCaseWeight");
+            this.nudMaximumCaseWeight.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nudMaximumPalletWeight.Name = "nudMaximumPalletWeight";
+            this.nudMaximumCaseWeight.Name = "nudMaximumCaseWeight";
             // 
             // nudMaximumNumberOfBoxes
             // 
@@ -255,7 +255,7 @@
             // gbStopStackingCondition
             // 
             this.gbStopStackingCondition.Controls.Add(this.lbKg1);
-            this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletWeight);
+            this.gbStopStackingCondition.Controls.Add(this.nudMaximumCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumNumberOfBoxes);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
@@ -269,6 +269,7 @@
             resources.ApplyResources(this.checkBoxMaximumCaseWeight, "checkBoxMaximumCaseWeight");
             this.checkBoxMaximumCaseWeight.Name = "checkBoxMaximumCaseWeight";
             this.checkBoxMaximumCaseWeight.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumCaseWeight.CheckedChanged += new System.EventHandler(this.UpdateConditionStatus);
             // 
             // lbStopStacking
             // 
@@ -280,6 +281,7 @@
             resources.ApplyResources(this.checkBoxMaximumNumberOfBoxes, "checkBoxMaximumNumberOfBoxes");
             this.checkBoxMaximumNumberOfBoxes.Name = "checkBoxMaximumNumberOfBoxes";
             this.checkBoxMaximumNumberOfBoxes.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumNumberOfBoxes.CheckedChanged += new System.EventHandler(this.UpdateConditionStatus);
             // 
             // gbSolutionFiltering
             // 
@@ -288,7 +290,7 @@
             this.gbSolutionFiltering.Controls.Add(this.nudSolutions);
             this.gbSolutionFiltering.Controls.Add(this.nudMinBoxPerCase);
             this.gbSolutionFiltering.Controls.Add(this.checkBoxKeepSolutions);
-            this.gbSolutionFiltering.Controls.Add(this.checkBoxCaseContainsMin);
+            this.gbSolutionFiltering.Controls.Add(this.checkBoxMinNumberOfItems);
             this.gbSolutionFiltering.Controls.Add(this.lbFilterSolutions);
             resources.ApplyResources(this.gbSolutionFiltering, "gbSolutionFiltering");
             this.gbSolutionFiltering.Name = "gbSolutionFiltering";
@@ -344,12 +346,14 @@
             resources.ApplyResources(this.checkBoxKeepSolutions, "checkBoxKeepSolutions");
             this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
             this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
+            this.checkBoxKeepSolutions.CheckedChanged += new System.EventHandler(this.UpdateConditionStatus);
             // 
-            // checkBoxCaseContainsMin
+            // checkBoxMinNumberOfItems
             // 
-            resources.ApplyResources(this.checkBoxCaseContainsMin, "checkBoxCaseContainsMin");
-            this.checkBoxCaseContainsMin.Name = "checkBoxCaseContainsMin";
-            this.checkBoxCaseContainsMin.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.checkBoxMinNumberOfItems, "checkBoxMinNumberOfItems");
+            this.checkBoxMinNumberOfItems.Name = "checkBoxMinNumberOfItems";
+            this.checkBoxMinNumberOfItems.UseVisualStyleBackColor = true;
+            this.checkBoxMinNumberOfItems.CheckedChanged += new System.EventHandler(this.UpdateConditionStatus);
             // 
             // lbFilterSolutions
             // 
@@ -430,7 +434,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumCaseWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).EndInit();
             this.gbStopStackingCondition.ResumeLayout(false);
             this.gbStopStackingCondition.PerformLayout();
@@ -469,7 +473,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPositionY;
         private System.Windows.Forms.PictureBox pictureBoxPositionX;
         private System.Windows.Forms.Label lbKg1;
-        private System.Windows.Forms.NumericUpDown nudMaximumPalletWeight;
+        private System.Windows.Forms.NumericUpDown nudMaximumCaseWeight;
         private System.Windows.Forms.NumericUpDown nudMaximumNumberOfBoxes;
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
         private System.Windows.Forms.CheckBox checkBoxMaximumCaseWeight;
@@ -478,7 +482,7 @@
         private System.Windows.Forms.GroupBox gbSolutionFiltering;
         private System.Windows.Forms.Label lbFilterSolutions;
         private System.Windows.Forms.CheckBox checkBoxKeepSolutions;
-        private System.Windows.Forms.CheckBox checkBoxCaseContainsMin;
+        private System.Windows.Forms.CheckBox checkBoxMinNumberOfItems;
         private System.Windows.Forms.NumericUpDown nudMinBoxPerCase;
         private System.Windows.Forms.Label lbSolutions;
         private System.Windows.Forms.Label lbBoxes;

@@ -35,7 +35,8 @@ namespace TreeDim.StackBuilder.Engine
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-
+            throw new NotImplementedException();
+/*
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
@@ -85,6 +86,7 @@ namespace TreeDim.StackBuilder.Engine
                             , palletWidth - offsetY - maxSizeYLength * (boxWidth + spaceY) - j * (boxLength + spaceY))
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
                 }
+*/ 
         }
 
         public override int GetNumberOfVariants(Layer layer)

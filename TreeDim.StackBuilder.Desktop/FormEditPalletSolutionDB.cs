@@ -160,8 +160,8 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 gridSolutions.Rows.Insert(++iIndex);
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(desc.FriendlyName);
-                gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseDimensions));
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseInsideDimensions));
+                gridSolutions[iIndex, 1] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseDimensionsString));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseInsideDimensionsString));
                 gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseOrientation));
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseCount));
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Button("");

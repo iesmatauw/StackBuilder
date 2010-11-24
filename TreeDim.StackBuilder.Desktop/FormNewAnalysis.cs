@@ -584,21 +584,21 @@ namespace TreeDim.StackBuilder.Desktop
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
             // description
-            if (string.IsNullOrEmpty(tbDescription.Text))
+            else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             // name validity
-            if (!_document.IsValidNewTypeName(tbName.Text, _analysis))
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
                 message = Resources.ID_INVALIDNAME;
             // orientation
-            if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
+            else if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
                 message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;
             // patterns
-            if (AllowedPatterns.Count < 1)
+            else if (AllowedPatterns.Count < 1)
                 message = Resources.ID_DEFINEATLEASTONEPATTERN;
             // AllowAlignedLayers / AllowAlternateLayers
-            if (!AllowAlignedLayers && !AllowAlternateLayers)
+            else if (!AllowAlignedLayers && !AllowAlternateLayers)
                 message = Resources.ID_ALLOWALIGNEDORALTERNATELAYERS;
-            if (!UseMaximumLoadOnBox && !UseMaximumNumberOfBoxes && !UseMaximumPalletHeight && !UseMaximumPalletWeight)
+            else if (!UseMaximumLoadOnBox && !UseMaximumNumberOfBoxes && !UseMaximumPalletHeight && !UseMaximumPalletWeight)
                 message = Resources.ID_USEATLEASTONESTOPSTACKINGCRITERION;
             //---
             // button OK

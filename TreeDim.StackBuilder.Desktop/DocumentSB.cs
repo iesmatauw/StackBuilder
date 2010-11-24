@@ -302,12 +302,37 @@ namespace TreeDim.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
             {
                 CaseConstraintSet constraintSet = new CaseConstraintSet();
+                // aligned / alternate layers
+                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                // patterns
+                constraintSet.AllowedPatternString = form.AllowedPatternsString;
+                // allowed axes
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
+                // use maximum case weight
+                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
+                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
+                // use maximum number of boxes
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+                // minimum number of items
+                constraintSet.MinimumNumberOfItems = form.MinimumNumberOfItems;
+                constraintSet.UseMinimumNumberOfItems = form.UseMinimumNumberOfItems;
+                // number of solutions kept
+                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+
                 return CreateNewCaseAnalysis(
                     form.CaseAnalysisName
                     , form.CaseAnalysisDescription
                     , form.SelectedBox
                     , constraintSet
-                    , form.PalletSolutionList);
+                    , form.PalletSolutionList
+                    , new CaseSolver());
             }
             return null;
         }

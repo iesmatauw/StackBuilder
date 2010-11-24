@@ -201,6 +201,8 @@ namespace TreeDim.StackBuilder.Basics
         private string _caseOrientation;
         // parent database
         private PalletSolutionDatabase _parentDB;
+        // cached pallet solution
+        private Solution _palletSolution;
         #endregion
 
         #region Constructors
@@ -213,8 +215,8 @@ namespace TreeDim.StackBuilder.Basics
             , string caseCount, string sGuid, string friendlyName)
         {
             _key = new PalletSolutionKey(palletDimensions, overhang);
-            this.CaseDimensions = caseDimensions;
-            this.CaseInsideDimensions = caseInsideDimensions;
+            this.CaseDimensionsString = caseDimensions;
+            this.CaseInsideDimensionsString = caseInsideDimensions;
             this.CaseCount = int.Parse(caseCount);
             _guid = new Guid(sGuid);
             _friendlyName = friendlyName;
@@ -274,12 +276,18 @@ namespace TreeDim.StackBuilder.Basics
         #endregion 
 
         #region Public properties
+        /// <summary>
+        /// Solution key
+        /// </summary>
         public PalletSolutionKey Key
         {
             get { return _key; }
             set { _key = value; }
         }
-        public string CaseDimensions
+        /// <summary>
+        /// dimensions string
+        /// </summary>
+        public string CaseDimensionsString
         {
             get
             {
@@ -301,7 +309,10 @@ namespace TreeDim.StackBuilder.Basics
                     throw new Exception("Failed to parse CaseDimensions");
             }
         }
-        public string CaseInsideDimensions
+        /// <summary>
+        /// inside dimensions string
+        /// </summary>
+        public string CaseInsideDimensionsString
         {
             get
             {
@@ -323,37 +334,83 @@ namespace TreeDim.StackBuilder.Basics
                     throw new Exception("Failed to parse CaseInsideDimensions");
             }
         }
-
+        /// <summary>
+        /// Case dimensions
+        /// </summary>
+        public double[] CaseDimensions { get { return _caseDimensions; } }
+        /// <summary>
+        /// Inside case dimensions
+        /// </summary>
+        public double[] InsideCaseDimensions { get { return _insideCaseDimensions; } }
+        /// <summary>
+        /// Inside volume
+        /// </summary>
+        public double InsideVolume
+        {
+            get { return _insideCaseDimensions[0] * _insideCaseDimensions[1] * _insideCaseDimensions[2]; }
+        }
+        /// <summary>
+        /// Case count
+        /// </summary>
         public int CaseCount
         {
             get { return _caseCount; }
             set { _caseCount = value; }
         }
-
+        /// <summary>
+        /// Friendly name
+        /// </summary>
         public string FriendlyName
         {
             get { return _friendlyName; }
             set { _friendlyName = value; }
         }
-
+        /// <summary>
+        /// Unique identifier
+        /// </summary>
         public Guid Guid
         {
             get { return _guid; }
             set { _guid = value; }
         }
-
-        public string FileName
+        private string FileName
         {
             get { return _guid.ToString().Replace("-", "_") + ".stb"; }
         }
-
+        /// <summary>
+        /// get file path 
+        /// </summary>
         public string FullFilePath
         {
             get { return Path.Combine(PalletSolutionDatabase.Directory, FileName); }        
         }
-
+        /// <summary>
+        /// Case orientation
+        /// </summary>
         public string CaseOrientation
         {   get { return _caseOrientation; } }
+
+        /// <summary>
+        /// Loads pallet solution from database file
+        /// </summary>
+        public Solution LoadPalletSolution()
+        {
+            if (null == _palletSolution)
+            {
+                if (!File.Exists(FullFilePath))
+                    return null;    // database file not available -> existing
+                else
+                {
+                    Document doc = new Document(FullFilePath, null);
+                    if (doc.Analyses.Count < 1)
+                        return null;    // no analysis -> exiting
+                    if (doc.Analyses[0].Solutions.Count < 1)
+                        return null;    // no solution -> exiting
+                    _palletSolution = doc.Analyses[0].Solutions[0];
+                }
+            }
+            return _palletSolution;
+        }
         #endregion
 
         #region IComparable<PalletSolutionDesc> implementation
@@ -556,11 +613,11 @@ namespace TreeDim.StackBuilder.Basics
                 solutionElt.Attributes.Append(overhang);
                 // case dimensions
                 XmlAttribute caseDimensions = xmlDoc.CreateAttribute("CaseDimensions");
-                caseDimensions.Value = desc.CaseDimensions;
+                caseDimensions.Value = desc.CaseDimensionsString;
                 solutionElt.Attributes.Append(caseDimensions);
                 // inside dimensions
                 XmlAttribute caseInsideDimensions = xmlDoc.CreateAttribute("CaseInsideDimensions");
-                caseInsideDimensions.Value = desc.CaseInsideDimensions;
+                caseInsideDimensions.Value = desc.CaseInsideDimensionsString;
                 solutionElt.Attributes.Append(caseInsideDimensions);
                 // case count
                 XmlAttribute caseCount = xmlDoc.CreateAttribute("CaseCount");

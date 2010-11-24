@@ -80,7 +80,10 @@ namespace TreeDim.StackBuilder.Graphics
             // flush
             graphics.Flush();
         }
-
+        /// <summary>
+        /// Draw a 2D representation of first (and second, if solution does not have homogeneous layers) layer(s)
+        /// The images produced are used in 
+        /// </summary>
         public void Draw(Graphics2D graphics)
         {
             if (null == _solution || _solution.Count == 0)
@@ -90,7 +93,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 // initialize Graphics2D object
                 graphics.NumberOfViews = 1;
-                graphics.SetViewport(0.0f, 0.0f, (float)_analysis.PalletProperties.Length, (float)_analysis.PalletProperties.Width);
+                graphics.SetViewport(0.0f, 0.0f, (float)_solution.PalletLength, (float)_solution.PalletWidth);
 
                 BoxLayer blayer = _solution[0] as BoxLayer;
                 if (blayer != null)
@@ -146,14 +149,16 @@ namespace TreeDim.StackBuilder.Graphics
                 }
             }
         }
-
+        /// <summary>
+        /// Draw layers
+        /// Images are used during report generation
+        /// </summary>
         public void DrawLayers(Graphics3D graphics, bool showPallet, int layerIndex)
         {
              if (null == _solution)
                 throw new Exception("No solution defined!");
 
-             // initialize Graphics3D object
-             if (!graphics.ShowBoxIds)
+             if (!graphics.ShowBoxIds) // -> if box ids are drawn, we do not draw pallet
              {
                  // draw pallet
                  Pallet pallet = new Pallet(_analysis.PalletProperties);

@@ -26,7 +26,7 @@ namespace TreeDim.StackBuilder.Engine
         static readonly ILog _log = LogManager.GetLogger(typeof(Solver));
         #endregion
 
-        #region Solver
+        #region Constructor
         public Solver()
         {
             LoadPatterns();
@@ -52,15 +52,17 @@ namespace TreeDim.StackBuilder.Engine
         {
             List<Solution> solutions = new List<Solution>();
 
-            // build 2 layers (pallet length/width)
+            // loop through all patterns
             foreach (LayerPattern pattern in _patterns)
             {
                 if (!_constraintSet.AllowPattern(pattern.Name))
                     continue;
+                // loop through all swap positions (if layer can be swaped)
                 for (int swapPos = 0; swapPos < (pattern.CanBeSwaped ? 2 : 1); ++swapPos)
                 {
                     pattern.Swaped = swapPos == 1;
 
+                    // loop through all vertical axes
                     for (int i = 0; i < 3; ++i)
                     {
                         HalfAxis.HAxis axisOrtho1 = (HalfAxis.HAxis)(2 * i);
@@ -70,6 +72,7 @@ namespace TreeDim.StackBuilder.Engine
                             continue;
                         try
                         {
+                            // build 2 layers (pallet length/width)
                             Layer layer1 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho1);
                             Layer layer2 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho2);
                             double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
@@ -177,13 +180,17 @@ namespace TreeDim.StackBuilder.Engine
                                     solutions.Add(sol);
                             }
                         }
+                        catch (NotImplementedException)
+                        {
+                            _log.Info(string.Format("Pattern {0} is not implemented", pattern.Name));
+                        }
                         catch (Exception ex)
                         {
                             _log.Error(string.Format("Exception caught: {0}", ex.Message));
                         }
-                    }
-                }
-            }
+                    }// loop through all vertical axes
+                }// loop through all swap positions (if layer can be swaped)
+            } // loop through all patterns
             // sort solutions
             solutions.Sort();
 
@@ -206,8 +213,8 @@ namespace TreeDim.StackBuilder.Engine
             _patterns.Add(new LayerPatternInterlocked());
             _patterns.Add(new LayerPatternDiagonale());
             _patterns.Add(new LayerPatternTrilock());
-            //_patterns.Add(new LayerPatternSpirale());
-            //_patterns.Add(new LayerPatternEnlargedSpirale());
+            _patterns.Add(new LayerPatternSpirale());
+            _patterns.Add(new LayerPatternEnlargedSpirale());
         }
         #endregion
 

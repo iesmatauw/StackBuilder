@@ -12,15 +12,27 @@ namespace TreeDim.StackBuilder.Basics
         private bool _allowAlternateLayers = true;
         private bool _allowAlignedLayers = false;
         private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
-        private bool _useNoSolutionsKept;
-        private int _noSolutionsKept;
         private bool[] _allowedOrthoAxis = new bool[6];
+        private bool _useNoSolutionsKept, _useMinimumBoxPerCase, _useMaxNumberOfItems, _useCaseMaximumWeight;
+        private int _noSolutionsKept, _minimumBoxPerCase, _maxNumberOfItems;
+        private double _maximumCaseWeight;
         #endregion
 
         #region Constructor
+        public CaseConstraintSet()
+        { 
+        }
         #endregion
 
         #region Validity
+        public bool IsValid
+        {
+            get
+            {
+                bool hasValidStopCriterion = true;
+                return hasValidStopCriterion;
+            }
+        }
         #endregion
 
         #region Allowed layer alignments
@@ -54,7 +66,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             set
             {
-                string[] patternNames = value.Split(',');
+                string[] patternNames = value.Split(';');
                 foreach (string patternName in patternNames)
                     SetAllowedPattern(patternName);
             }
@@ -64,7 +76,7 @@ namespace TreeDim.StackBuilder.Basics
                 foreach (string patternName in _allowedPatterns)
                 {
                     if (!string.IsNullOrEmpty(sGlobal))
-                        sGlobal += ",";
+                        sGlobal += ";";
                     sGlobal += patternName;
                 }
                 return sGlobal;
@@ -96,6 +108,93 @@ namespace TreeDim.StackBuilder.Basics
                 }
                 return sGlobal;
             }
+        }
+        #endregion
+
+        #region Stop criterions
+        #endregion
+
+        #region Interlayer
+        public bool HasInterlayer
+        { get { return false; } }
+        public int InterlayerPeriod
+        { get { throw new NotImplementedException(); } }
+        #endregion
+
+        #region Minimum number of box
+        /// <summary>
+        /// Use minimum number of box per case
+        /// </summary>
+        public bool UseMinimumNumberOfItems
+        {
+            set { _useMinimumBoxPerCase = value; }
+            get { return _useMinimumBoxPerCase; }
+        }
+        /// <summary>
+        /// Minimum number of box per case
+        /// </summary>
+        public int MinimumNumberOfItems
+        {
+            set { _minimumBoxPerCase = value; }
+            get { return _minimumBoxPerCase; }
+        }
+        #endregion
+
+        #region Maximum number of items
+        /// <summary>
+        /// Use maximum number of items
+        /// </summary>
+        public bool UseMaximumNumberOfItems
+        {
+            set { _useMaxNumberOfItems = value; }
+            get { return _useMaxNumberOfItems; }
+        }
+        /// <summary>
+        /// Maximum number of items
+        /// </summary>
+        public int MaximumNumberOfItems
+        {
+            set { _maxNumberOfItems = value; }
+            get { return _maxNumberOfItems; }
+        }
+        #endregion
+
+        #region Maximum case weight
+        /// <summary>
+        /// Use maximum case weight
+        /// </summary>
+        public bool UseMaximumCaseWeight
+        {
+            set { _useCaseMaximumWeight = value; }
+            get { return _useCaseMaximumWeight; }
+        }
+        /// <summary>
+        /// Maximum case weight
+        /// </summary>
+        public double MaximumCaseWeight
+        {
+            set { _maximumCaseWeight = value;  }
+            get { return _maximumCaseWeight; }
+        }
+        #endregion
+
+        #region Number of solutions kept
+        /// <summary>
+        /// Use 
+        /// </summary>
+        public bool UseNumberOfSolutionsKept
+        {
+            set { _useNoSolutionsKept = value; }
+            get { return _useNoSolutionsKept; }
+        }
+        public int NumberOfSolutionsKept
+        {
+            set
+            {
+                _useNoSolutionsKept = true;
+                _noSolutionsKept = value;
+            }
+            get { return _noSolutionsKept; }
         }
         #endregion
     }

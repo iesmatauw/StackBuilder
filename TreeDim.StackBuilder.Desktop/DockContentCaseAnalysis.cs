@@ -237,6 +237,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void ShowHidePalletView()
         {
             pictureBoxPalletSolution.Visible = toolStripShowPallet.Checked;
+            Draw();
         }
         #endregion
 
@@ -285,6 +286,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void Kill(ItemBase item)
         {
             Close();
+            _caseAnalysis.RemoveListener(this);
         }
         #endregion
 
@@ -337,7 +339,7 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 Solution sol = GetCurrentSolution().PalletSolutionDesc.LoadPalletSolution();
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
+                Graphics3DImage graphics = new Graphics3DImage(pictureBoxPalletSolution.Size);
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);

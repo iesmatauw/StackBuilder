@@ -25,15 +25,20 @@ namespace TreeDim.StackBuilder.Basics
         public Analysis(BProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, ConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
-            // sanity check
+            // sanity checks
             if (palletProperties.ParentDocument != ParentDocument
                 || (interlayerProperties != null && interlayerProperties.ParentDocument != ParentDocument))
-                throw new Exception();
+                throw new Exception("box, pallet, interlayer do not belong to the same document");
+            if ((boxProperties is BoxProperties && constraintSet is ConstraintSetBundle)
+                || (boxProperties is BundleProperties && constraintSet is ConstraintSetBox))
+                throw new Exception("Invalid analysis: either BoxProperties with ConstraintSetBundle or BundleProperties with ConstraintSetBox");
 
             this.BProperties = boxProperties;
             this.PalletProperties = palletProperties;
             this.InterlayerProperties = interlayerProperties;
             this.ConstraintSet = constraintSet;
+
+
         }
         #endregion
 

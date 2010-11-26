@@ -31,6 +31,7 @@ namespace TreeDim.StackBuilder.Basics
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, Analysis analysis);
+        void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis);
         void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution);
         void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
 
@@ -314,7 +315,7 @@ namespace TreeDim.StackBuilder.Basics
             {
                 NotifyOnAnalysisRemoved(item as Analysis);
                 if (!_analyses.Remove(item as Analysis))
-                    _log.Warn(string.Format("Failed to properly remove item {0}", item.Name));
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
             else if (item.GetType() == typeof(SelSolution))
             {
@@ -325,6 +326,13 @@ namespace TreeDim.StackBuilder.Basics
             {
                 TruckAnalysis truckAnalysis = item as TruckAnalysis;
                 NotifyOnTruckAnalysisRemoved(truckAnalysis.ParentSelSolution, truckAnalysis);
+            }
+            else if (item.GetType() == typeof(CaseAnalysis))
+            {
+                CaseAnalysis caseAnalysis = item as CaseAnalysis;
+                NotifyOnCaseAnalysisRemoved(caseAnalysis);
+                if (!_caseAnalyses.Remove(caseAnalysis))
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
             else
                 Debug.Assert(false);
@@ -1795,6 +1803,8 @@ namespace TreeDim.StackBuilder.Basics
         {
             // remove all analysis and items
             // -> this should close any listening forms
+            while (_caseAnalyses.Count > 0)
+                RemoveItem(_caseAnalyses[0]);
             while (_analyses.Count > 0)
                 RemoveItem(_analyses[0]);
             while (_typeList.Count > 0)
@@ -1861,6 +1871,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
+        }
+        private void NotifyOnCaseAnalysisRemoved(CaseAnalysis caseAnalysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnCaseAnalysisRemoved(this, caseAnalysis);
         }
         internal void NotifyOnSolutionRemoved(Analysis analysis, SelSolution selSolution)
         {

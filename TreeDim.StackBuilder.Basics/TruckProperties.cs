@@ -60,5 +60,15 @@ namespace TreeDim.StackBuilder.Basics
             set { _color = value; Modify();}
         }
         #endregion
+
+        #region Object override
+        public override string ToString()
+        {
+            StringBuilder sBuilder = new StringBuilder();
+            sBuilder.Append(base.ToString());
+            sBuilder.Append(string.Format("TruckProperties => Length {0} Width {0} Height {0}", _length, _width, _height));
+            return sBuilder.ToString();
+        }
+        #endregion
     }
 }

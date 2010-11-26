@@ -26,6 +26,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor (new truck properties)
+        /// </summary>
+        /// <param name="document">Document to which the new item will belong</param>
         public FormNewTruck(Document document)
         {
             InitializeComponent();
@@ -40,9 +44,15 @@ namespace TreeDim.StackBuilder.Desktop
             TruckHeight = 2350;
             TruckAdmissibleLoadWeight = 38000;
             TruckColor = Color.LightBlue;
-            
-            DrawTruck();
+
+            // disable Ok button
+            UpdateButtonOkStatus();
         }
+        /// <summary>
+        /// Constructor (edit existing properties)
+        /// </summary>
+        /// <param name="document">Document to which the edited item belongs</param>
+        /// <param name="truckProperties">Edited item</param>
         public FormNewTruck(Document document, TruckProperties truckProperties)
         {
             InitializeComponent();
@@ -63,7 +73,9 @@ namespace TreeDim.StackBuilder.Desktop
             TruckAdmissibleLoadWeight = _truckProperties.AdmissibleLoadWeight;
             TruckColor = _truckProperties.Color;
 
-            DrawTruck();
+            // disable Ok button
+            UpdateButtonOkStatus();
+
         }
         #endregion
 
@@ -156,7 +168,7 @@ namespace TreeDim.StackBuilder.Desktop
                 TruckProperties truckProperties = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight);
                 truckProperties.Color = TruckColor;
                 Truck truck = new Truck(truckProperties);
-                truck.Draw(graphics);
+                truck.DrawBegin(graphics);
                 graphics.AddDimensions(new DimensionCube(TruckLength, TruckWidth, TruckHeight));
                 graphics.Flush();
                 // set to picture box
@@ -172,10 +184,19 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled =
-                tbName.Text.Length > 0
-                && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text, _truckProperties);
+            // message ?
+            string message = string.Empty;
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            else if (!_document.IsValidNewTypeName(tbName.Text, _truckProperties))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            // button OK
+            bnOK.Enabled = string.IsNullOrEmpty(message);
+            // status bar
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
 
         private void onTruckPropertyChanged(object sender, EventArgs e)

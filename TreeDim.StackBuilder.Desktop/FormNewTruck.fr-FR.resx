@@ -178,7 +178,7 @@
   <data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
-  <data name="cbColor.Items13" xml:space="preserve">
+  <data name="cbColor.Items14" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">

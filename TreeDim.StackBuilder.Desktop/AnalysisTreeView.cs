@@ -590,6 +590,11 @@ namespace TreeDim.StackBuilder.Desktop
 
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(parentNodeType, doc));
+            if (null == parentNode)
+            { 
+                _log.Error(string.Format("Failed to load parentNode for {0}", itemProperties.Name));
+                return;
+            }
             // instantiate node
             TreeNode nodeItem = new TreeNode(itemProperties.Name, iconIndex, iconIndex);
             // set node tag
@@ -734,6 +739,24 @@ namespace TreeDim.StackBuilder.Desktop
             }
             // remove node
             Nodes.Remove(analysisNode);
+        }
+        /// <summary>
+        /// handles analysis removed from document : actually removed analysis node from parent document node
+        /// </summary>
+        /// <param name="doc">parent document</param>
+        /// <param name="analysis">analysis</param>
+        public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
+        {
+            // get node
+            TreeNode caseAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEANALYSIS, doc,  caseAnalysis, null));
+            // test
+            if (null == caseAnalysisNode)
+            {
+                _log.Warn(string.Format("Failed to find a valid tree node for caseAnalysis {0}", caseAnalysis.Name));
+                return;
+            }
+            // remove node
+            Nodes.Remove(caseAnalysisNode);
         }
         /// <summary>
         /// handles solution unselected  : actually removed selected solution node from analysis node

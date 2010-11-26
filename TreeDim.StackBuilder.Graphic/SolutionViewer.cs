@@ -25,7 +25,7 @@ namespace TreeDim.StackBuilder.Graphics
         #region Constructor
         public SolutionViewer(Solution solution)
         {
-            _analysis = solution.Analysis;
+            _analysis = null != solution ? solution.Analysis : null;
             _solution = solution;
         }
         #endregion

@@ -8,7 +8,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-	<Product Id="*" Name="StackBuilder"
+	<Product Id="*" Name="PLMPack StackBuilder"
            Language="1033"
            Version="$(var.Version)"
            Manufacturer="TreeDim"
@@ -37,7 +37,7 @@
       </Directory>
     </Directory>
     <!--Properties-->
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch StackBuilder"/>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PLMPack StackBuilder"/>
     <!--Property references-->
     <PropertyRef Id="NETFRAMEWORK20"/>
     <!-- Conditions-->
@@ -103,11 +103,11 @@
     </DirectoryRef>
     <DirectoryRef Id="ApplicationProgramsFolder">
         <Component Id="ApplicationShortcut" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">
-          <Shortcut Id="ApplicationStartMenuShortcut" Name="StackBuilder"
-                    Description="StackBuilder palettization application" Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
+          <Shortcut Id="ApplicationStartMenuShortcut" Name="PLMPack StackBuilder"
+                    Description="PLMPack StackBuilder palettization application" Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
                     WorkingDirectory="INSTALLLOCATION"
                     Icon="treeDim.ico"/>
-          <Shortcut Id="UninstallProduct"  Name="Uninstall StackBuilder"
+          <Shortcut Id="UninstallProduct"  Name="Uninstall PLMPack StackBuilder"
                     Description="Uninstalls StackBuilder"
                     Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]"/>
           <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>

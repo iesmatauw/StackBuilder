@@ -431,6 +431,7 @@ namespace TreeDim.StackBuilder.Desktop
                 AddDocument(new DocumentSB(form.DocName, form.DocDescription, form.Author, _documentExplorer.DocumentTreeView));
                 _log.Debug("New document added!");
             }
+            UpdateFormUI();
         }
 
         public void OpenDocument(string filePath)
@@ -458,6 +459,7 @@ namespace TreeDim.StackBuilder.Desktop
 
                 _log.Error(ex.ToString());
             }
+            UpdateFormUI();
         }
 
         public void AddDocument(IDocument doc)

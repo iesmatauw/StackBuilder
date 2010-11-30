@@ -12,6 +12,7 @@ using log4net;
 using Sharp3D.Math.Core;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -69,6 +70,11 @@ namespace TreeDim.StackBuilder.Desktop
 
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
+
+        private void DockContentAnalysis_Load(object sender, EventArgs e)
+        { 
+        }
+
         private void FillGrid()
         {
             // fill grid solution
@@ -104,37 +110,37 @@ namespace TreeDim.StackBuilder.Desktop
             // header
             SourceGrid.Cells.ColumnHeader columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_INDEX);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Layer pattern(s)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LAYERPATTERN);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Box count");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASECOUNT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_EFFICIENCY);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet weight (kg)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETWEIGHT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet height (mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETHEIGHT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Selected");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_SELECTED);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 6] = columnHeader;
@@ -179,8 +185,6 @@ namespace TreeDim.StackBuilder.Desktop
 
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
-            if (_analysis.Solutions.Count > 0)
-                _sol = _analysis.Solutions[0];
             Draw();
         }
         #endregion
@@ -263,6 +267,12 @@ namespace TreeDim.StackBuilder.Desktop
             // return index
             return indexes[0]-1;            
         }
+        private Solution GetCurrentSolution()
+        {
+            int iIndexSol = GetCurrentSolutionIndex();
+            if (-1 == iIndexSol) return null;
+            else return _analysis.Solutions[iIndexSol];
+        }
         #endregion
 
         #region IItemListener implementation
@@ -333,7 +343,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
                 // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(_sol);
+                SolutionViewer sv = new SolutionViewer(GetCurrentSolution());
                 sv.Draw(graphics);
 
                 // show generated bitmap on picture box control

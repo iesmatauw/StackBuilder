@@ -147,6 +147,9 @@
   <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse camion...</value>
   </data>
+  <data name="ID_CASECOUNT" xml:space="preserve">
+    <value>Nombre de caisses</value>
+  </data>
   <data name="ID_CLOSE" xml:space="preserve">
     <value>Fermer</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="ID_EDIT" xml:space="preserve">
     <value>Editer {0}</value>
   </data>
+  <data name="ID_EFFICIENCY" xml:space="preserve">
+    <value>Efficacité (%)</value>
+  </data>
   <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
     <value>Le champ "Description" est vide</value>
   </data>
@@ -174,6 +180,9 @@
   <data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>Générer un rapport pour {0}</value>
   </data>
+  <data name="ID_INDEX" xml:space="preserve">
+    <value>Index</value>
+  </data>
   <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
     <value>La hauteur intérieure ({0}) doit être inférieure à la hauteur ({1})</value>
   </data>
@@ -185,6 +194,18 @@
   </data>
   <data name="ID_INVALIDNAME" xml:space="preserve">
     <value>Le nom saisi ({0}) est invalide</value>
+  </data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Couches</value>
+  </data>
+  <data name="ID_LAYOUT" xml:space="preserve">
+    <value>Disposition</value>
+  </data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
+    <value>Hauteur de chargement (mm)</value>
+  </data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+    <value>Masse du chargement (kg)</value>
   </data>
   <data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
@@ -203,6 +224,12 @@
   </data>
   <data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Camions</value>
+  </data>
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
+    <value>Nombre de pallettes</value>
+  </data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Poid de la palette (kg)</value>
   </data>
   <data name="ID_READY" xml:space="preserve">
     <value>Prêt</value>

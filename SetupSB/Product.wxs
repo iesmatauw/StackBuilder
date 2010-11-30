@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.13" ?>
+<?define Version = "0.1.14" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 
@@ -22,11 +22,13 @@
     <!-- define the directory structure-->
     <Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-        <Directory Id="TreeDimDir" Name="TreeDim">
-          <Directory Id="INSTALLLOCATION" Name="StackBuilder">
-            <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
-            <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
-            <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
+        <Directory Id="TreeDimDir" Name="treeDim">
+          <Directory Id="PLMPackDir" Name="PLMPack">
+            <Directory Id="INSTALLLOCATION" Name="StackBuilder">
+              <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
+              <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
+              <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
+             </Directory>
           </Directory>
         </Directory>
 			</Directory>
@@ -96,6 +98,8 @@
         <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\WML2XSLT.EXE" Checksum="yes"/>
         <File Id="xml2xslt.bat" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\xml2xslt.bat" Checksum="yes"/>
       </Component>        
+    </DirectoryRef>
+    <DirectoryRef Id="PALLETSOLUTIONSDB">      
     </DirectoryRef>
     <DirectoryRef Id="ApplicationProgramsFolder">
         <Component Id="ApplicationShortcut" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">

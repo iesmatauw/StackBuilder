@@ -12,6 +12,7 @@ using log4net;
 using Sharp3D.Math.Core;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -100,42 +101,42 @@ namespace TreeDim.StackBuilder.Desktop
 
             // header
             SourceGrid.Cells.ColumnHeader columnHeader;
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_INDEX);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Layout");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LAYOUT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Pallet count");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETCOUNT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Case count");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASECOUNT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader; 
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_EFFICIENCY);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Load (kg)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LOADWEIGHT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Load height (mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_LOADHEIGHT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 6] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Selected");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_SELECTED);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 7] = columnHeader;

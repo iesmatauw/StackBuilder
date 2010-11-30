@@ -788,6 +788,12 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // get node
             TreeNode truckAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis));
+            // test
+            if (null == truckAnalysisNode)
+            {
+                _log.Warn(string.Format("Failed to find a valid tree node for truck analysis {0}", truckAnalysis.Name));
+                return;
+            }
             // remove node
             Nodes.Remove(truckAnalysisNode);  
         }

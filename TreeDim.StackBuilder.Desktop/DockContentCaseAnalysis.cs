@@ -70,6 +70,11 @@ namespace TreeDim.StackBuilder.Desktop
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
 
         }
+
+        private void DockContentAnalysis_Load()
+        {
+        }
+
         private void FillGrid()
         {
             // fill grid solutions

@@ -309,7 +309,7 @@
     <value>NoControl</value>
   </data>
   <data name="gbOverhangUnderhang.Text" xml:space="preserve">
-    <value>Surplomb pallette</value>
+    <value>Débord pallette</value>
   </data>
   <data name="checkBoxAllowAlignedLayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

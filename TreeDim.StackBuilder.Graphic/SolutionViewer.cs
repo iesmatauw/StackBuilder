@@ -34,7 +34,7 @@ namespace TreeDim.StackBuilder.Graphics
         public void Draw(Graphics3D graphics)
         {
             if (null == _solution)
-                throw new Exception("No solution defined!");
+                return;
             // initialize Graphics3D object
             if (!graphics.ShowBoxIds)
             {

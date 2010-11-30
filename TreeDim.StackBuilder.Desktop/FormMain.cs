@@ -527,7 +527,12 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 DialogResult res = MessageBox.Show(string.Format(Resources.ID_SAVEMODIFIEDFILE, doc.Name), Application.ProductName, MessageBoxButtons.YesNoCancel);
                 if (DialogResult.Yes == res)
+                {
                     SaveDocument(doc, e);
+                    e.Cancel = false;
+                }
+                else if (DialogResult.No == res)
+                    e.Cancel = false;
                 else if (DialogResult.Cancel == res)
                     e.Cancel = true;
             }
@@ -618,6 +623,8 @@ namespace TreeDim.StackBuilder.Desktop
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, Analysis analysis) { }
+        public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis) { }
+        public void OnCaseAnalysisRemoved(Document doc, Analysis caseAnalysis) { }
         public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution) { }
         public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
 

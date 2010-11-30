@@ -310,4 +310,37 @@
   <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>Define at least one stop stacking criterion</value>
   </data>
+  <data name="ID_CASECOUNT" xml:space="preserve">
+    <value>Case count</value>
+  </data>
+  <data name="ID_EFFICIENCY" xml:space="preserve">
+    <value>Efficiency (%)</value>
+  </data>
+  <data name="ID_INDEX" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Layer pattern</value>
+  </data>
+  <data name="ID_LAYOUT" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
+    <value>Load height (mm)</value>
+  </data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+    <value>Load (kg)</value>
+  </data>
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
+    <value>Pallet count</value>
+  </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Pallet height (mm)</value>
+  </data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Pallet weight (kg)</value>
+  </data>
+  <data name="ID_SELECTED" xml:space="preserve">
+    <value>Selected</value>
+  </data>
 </root>

@@ -222,10 +222,7 @@ namespace TreeDim.StackBuilder.Desktop
             nudHeight.Enabled = radioButtonPallet2.Checked;
             lbWeight.Enabled = radioButtonPallet2.Checked;
             nudWeight.Enabled = radioButtonPallet2.Checked;
-            lbAdmissibleHeight.Enabled = radioButtonPallet2.Checked;
             nudAmissibleLoadHeight.Enabled = radioButtonPallet2.Checked;
-            lbAdmissibleWeight.Enabled = radioButtonPallet2.Checked;
-            nudAdmissibleLoadWeight.Enabled = radioButtonPallet2.Checked;
             lbMm1.Enabled = radioButtonPallet2.Checked;
             lbMm2.Enabled = radioButtonPallet2.Checked;
             lbMm3.Enabled = radioButtonPallet2.Checked;

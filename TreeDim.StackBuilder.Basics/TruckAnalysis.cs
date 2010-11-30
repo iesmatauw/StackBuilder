@@ -128,6 +128,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Override
         protected override void RemoveItselfFromDependancies()
         {
+            _truckProperties.RemoveDependancie(this);
             _selSolution.RemoveDependancie(this);
             base.RemoveItselfFromDependancies();
         }

@@ -48,13 +48,11 @@
             this.lbMm1 = new System.Windows.Forms.Label();
             this.lbMm2 = new System.Windows.Forms.Label();
             this.lbMm3 = new System.Windows.Forms.Label();
-            this.lbAdmissibleWeight = new System.Windows.Forms.Label();
             this.nudAdmissibleLoadWeight = new System.Windows.Forms.NumericUpDown();
             this.lbKg1 = new System.Windows.Forms.Label();
             this.lbKg2 = new System.Windows.Forms.Label();
             this.cbPallet = new System.Windows.Forms.ComboBox();
             this.tbPalletProperties = new System.Windows.Forms.TextBox();
-            this.lbAdmissibleHeight = new System.Windows.Forms.Label();
             this.nudAmissibleLoadHeight = new System.Windows.Forms.NumericUpDown();
             this.lbMm4 = new System.Windows.Forms.Label();
             this.lbType = new System.Windows.Forms.Label();
@@ -199,11 +197,6 @@
             resources.ApplyResources(this.lbMm3, "lbMm3");
             this.lbMm3.Name = "lbMm3";
             // 
-            // lbAdmissibleWeight
-            // 
-            resources.ApplyResources(this.lbAdmissibleWeight, "lbAdmissibleWeight");
-            this.lbAdmissibleWeight.Name = "lbAdmissibleWeight";
-            // 
             // nudAdmissibleLoadWeight
             // 
             resources.ApplyResources(this.nudAdmissibleLoadWeight, "nudAdmissibleLoadWeight");
@@ -237,11 +230,6 @@
             resources.ApplyResources(this.tbPalletProperties, "tbPalletProperties");
             this.tbPalletProperties.Name = "tbPalletProperties";
             this.tbPalletProperties.ReadOnly = true;
-            // 
-            // lbAdmissibleHeight
-            // 
-            resources.ApplyResources(this.lbAdmissibleHeight, "lbAdmissibleHeight");
-            this.lbAdmissibleHeight.Name = "lbAdmissibleHeight";
             // 
             // nudAmissibleLoadHeight
             // 
@@ -301,7 +289,8 @@
             resources.GetString("cbColor.Items7"),
             resources.GetString("cbColor.Items8"),
             resources.GetString("cbColor.Items9"),
-            resources.GetString("cbColor.Items10")});
+            resources.GetString("cbColor.Items10"),
+            resources.GetString("cbColor.Items11")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
@@ -324,13 +313,11 @@
             this.Controls.Add(this.lbType);
             this.Controls.Add(this.lbMm4);
             this.Controls.Add(this.nudAmissibleLoadHeight);
-            this.Controls.Add(this.lbAdmissibleHeight);
             this.Controls.Add(this.tbPalletProperties);
             this.Controls.Add(this.cbPallet);
             this.Controls.Add(this.lbKg2);
             this.Controls.Add(this.lbKg1);
             this.Controls.Add(this.nudAdmissibleLoadWeight);
-            this.Controls.Add(this.lbAdmissibleWeight);
             this.Controls.Add(this.lbMm3);
             this.Controls.Add(this.lbMm2);
             this.Controls.Add(this.lbMm1);
@@ -395,12 +382,10 @@
         private System.Windows.Forms.Label lbMm1;
         private System.Windows.Forms.Label lbMm2;
         private System.Windows.Forms.Label lbMm3;
-        private System.Windows.Forms.Label lbAdmissibleWeight;
         private System.Windows.Forms.Label lbKg1;
         private System.Windows.Forms.Label lbKg2;
         private System.Windows.Forms.ComboBox cbPallet;
         private System.Windows.Forms.TextBox tbPalletProperties;
-        private System.Windows.Forms.Label lbAdmissibleHeight;
         private System.Windows.Forms.Label lbMm4;
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.ComboBox cbType;

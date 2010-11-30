@@ -123,58 +123,28 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="trackBarAngleHoriz.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 321</value>
+    <value>1, 454</value>
   </data>
   <data name="trackBarAngleHoriz.Size" type="System.Drawing.Size, System.Drawing">
-    <value>287, 45</value>
+    <value>267, 45</value>
   </data>
   <data name="trackBarAngleVert.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="trackBarAngleVert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 321</value>
-  </data>
-  <data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 355</value>
+    <value>270, 454</value>
   </data>
   <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 287</value>
+    <value>584, 113</value>
   </data>
-  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStrip_view.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 25</value>
-  </data>
-  <data name="toolStripButton1.Text" xml:space="preserve">
-    <value>Vue de coin 0°</value>
-  </data>
-  <data name="toolStripButton2.Text" xml:space="preserve">
-    <value>Vue de coin 90°</value>
-  </data>
-  <data name="toolStripButton3.Text" xml:space="preserve">
-    <value>Vue de coin 180°</value>
-  </data>
-  <data name="toolStripButton4.Text" xml:space="preserve">
-    <value>Vue de coin 270°</value>
-  </data>
-  <data name="toolStripButton5.Text" xml:space="preserve">
-    <value>Vue de face</value>
-  </data>
-  <data name="toolStripButton6.Text" xml:space="preserve">
-    <value>Vue arrière</value>
-  </data>
-  <data name="toolStripButton7.Text" xml:space="preserve">
-    <value>Vue de gauche</value>
-  </data>
-  <data name="toolStripButton8.Text" xml:space="preserve">
-    <value>Vue de droite</value>
-  </data>
-  <data name="toolStripButton9.Text" xml:space="preserve">
-    <value>Vue du dessus</value>
   </data>
   <data name="btSelectSolution.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btSelectSolution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 321</value>
+    <value>481, 454</value>
   </data>
   <data name="btSelectSolution.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
@@ -185,10 +155,39 @@
   <data name="pictureBoxSolution.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBoxSolution.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 0</value>
+  </data>
   <data name="pictureBoxSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 289</value>
+    <value>583, 445</value>
+  </data>
+  <data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 617</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
+    <value>500</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>584, 642</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAgIAAgIAAgIAAgIAAgIAA
+        gIAAgIAAgIAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AAP8A
+        gIAAAAAAAAAAAAAAAAAAAAAAAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AAP8AAP8AgIAAAAAAAAAA
+        AAAAAAAAAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AgIAAAAAAAAAAAAAA//8A//8A
+        //8A//8A//8A//8A//8A//8A//8A//8AAP8A//8AAP8AgIAAAAAAAAAAAP8AAP8A//8AAP8AAP8A//8A
+        AP8AAP8A//8AAP8A//8A//8AAP8AAP8AAAAAAAAAAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AAP8A
+        AP8A//8AAP8AAP8AAAAAAAAAAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8A//8AAP8A
+        AAAAAAAAAAAAAP8AAP8A//8AAP8AAP8A//8AAP8AAP8A//8AAP8A//8AAP8A//8AAAAAAAAAAAAAAAAA
+        //8A//8A//8A//8A//8A//8A//8A//8A//8A//8AAP8AAP8AAAAAAAAAAAAAAAAAAAAAAP8AAP8A//8A
+        AP8AAP8A//8AAP8AAP8A//8AAP8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAP8AAP8A//8AAP8AAP8A//8A
+        AP8AAP8A//8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAgB8AAIAP
+        AACABwAAgAMAAIABAACAAQAAgAEAAIABAACAAQAAwAEAAOABAADwAQAA+AEAAP//AAD//wAA
+</value>
   </data>
 </root>

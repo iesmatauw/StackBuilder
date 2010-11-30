@@ -100,6 +100,9 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             public void OnAnalysisRemoved(Document doc, Analysis analysis)
             { 
             }
+            public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
+            {
+            }
             public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution)
             {
                 _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));

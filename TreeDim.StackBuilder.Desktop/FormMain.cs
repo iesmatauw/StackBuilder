@@ -39,7 +39,6 @@ namespace TreeDim.StackBuilder.Desktop
         /// The document class holds data (boxes/pallets/interlayers/anslyses)
         /// </summary>
         private List<IDocument> _documents = new List<IDocument>();
-        private IDocument _activeDocument;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormMain));
         private static FormMain _instance;
         private MruManager _mruManager;
@@ -415,8 +414,11 @@ namespace TreeDim.StackBuilder.Desktop
             // new analysis
             newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysis;
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysis;
+            // new case analysis
+            newCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
+            toolStripButtonCreateNewCaseAnalysis.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
             // new analysis bundle
-            newBundleAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
+            toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
             // edit pallet solutions database
             editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
         }
@@ -544,6 +546,8 @@ namespace TreeDim.StackBuilder.Desktop
             _documents.Remove(doc);
             // handle the case
             _log.Debug(string.Format("Document {0} closed", doc.Name));
+            // update toolbar
+            UpdateToolbarState();
         }
 
         public void SaveDocumentAs(IDocument doc, CancelEventArgs e)
@@ -571,34 +575,46 @@ namespace TreeDim.StackBuilder.Desktop
             CancelEventArgs e = new CancelEventArgs();
             CloseDocument(doc, e);
         }
-
+        /// <summary>
+        /// Access list of documents
+        /// </summary>
         public List<IDocument> Documents { get { return _documents; } }
+
+        /// <summary>
+        /// Get active view based on ActiveMdiChild
+        /// </summary>
         public IView ActiveView
         {
             get
             {
-                if (null == ActiveDocument)
-                    return null;
-                return ActiveDocument.ActiveView;
-            }
+                // search ammong existing views
+                foreach (IDocument doc in Documents)
+                    foreach (IView view in doc.Views)
+                    {
+                        Form form = view as Form;
+                        if (this.ActiveMdiChild == form)
+                            return view;
+                    }
+                return null;
+            }            
         }
 
         public IDocument ActiveDocument
         {
             get
             {
-                ResetActiveDocument();
-                return _activeDocument;
+                IView view = ActiveView;
+                if (view != null)
+                    return view.Document;
+                else if (_documents.Count == 1)
+                    return _documents[0];
+                else
+                    return null;
             }
         }
 
-        public void ResetActiveDocument()
-        {
-            if (null == _activeDocument && _documents.Count > 0)
-                _activeDocument = _documents[0];
-        }
         /// <summary>
-        /// 
+        /// Returns true if at least one document is dirty
         /// </summary>
         public bool OneDocDirty
         {
@@ -710,26 +726,17 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void toolAddNewAnalysis(object sender, EventArgs e)
         {
-            try
-            {
-                Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI();
-            }
+            try { Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void toolAddNewAnalysisBundle(object sender, EventArgs e)
         {
-            try
-            {
-                Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI();
-            }
+            try { Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void toolAddNewCaseAnalysis(object sender, EventArgs e)
         {
-            try
-            {
-                CaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI();
-            }
+            try { CaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void toolEditPalletSolutionsDB(object sender, EventArgs e)
@@ -742,8 +749,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
             }
-            catch (Exception ex) { _log.Error(ex.ToString()); } 
-
+            catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         #endregion
 
@@ -823,6 +829,7 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentCaseAnalysis formCaseAnalysis = parentDocument.CreateCaseAnalysisView(caseAnalysis);
             formCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
+
         #endregion
 
         #region Helpers

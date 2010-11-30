@@ -84,8 +84,8 @@
             this.toolStripButtonAddNewTruck = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
-            this.newBundleAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
-            this.newCaseAnalysisToolStrip = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCreateNewBundleAnalysis = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCreateNewCaseAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.editPaletSolutionsDBToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
@@ -347,8 +347,8 @@
             this.toolStripButtonAddNewTruck,
             this.toolStripSeparator4,
             this.toolStripButtonCreateNewAnalysis,
-            this.newBundleAnalysisToolStripMenuItem,
-            this.newCaseAnalysisToolStrip,
+            this.toolStripButtonCreateNewBundleAnalysis,
+            this.toolStripButtonCreateNewCaseAnalysis,
             this.toolStripSeparator6,
             this.editPaletSolutionsDBToolStripMenuItem});
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
@@ -444,21 +444,21 @@
             this.toolStripButtonCreateNewAnalysis.Name = "toolStripButtonCreateNewAnalysis";
             this.toolStripButtonCreateNewAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysis);
             // 
-            // newBundleAnalysisToolStripMenuItem
+            // toolStripButtonCreateNewBundleAnalysis
             // 
-            this.newBundleAnalysisToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newBundleAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisBundle;
-            resources.ApplyResources(this.newBundleAnalysisToolStripMenuItem, "newBundleAnalysisToolStripMenuItem");
-            this.newBundleAnalysisToolStripMenuItem.Name = "newBundleAnalysisToolStripMenuItem";
-            this.newBundleAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
+            this.toolStripButtonCreateNewBundleAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCreateNewBundleAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisBundle;
+            resources.ApplyResources(this.toolStripButtonCreateNewBundleAnalysis, "toolStripButtonCreateNewBundleAnalysis");
+            this.toolStripButtonCreateNewBundleAnalysis.Name = "toolStripButtonCreateNewBundleAnalysis";
+            this.toolStripButtonCreateNewBundleAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
             // 
-            // newCaseAnalysisToolStrip
+            // toolStripButtonCreateNewCaseAnalysis
             // 
-            this.newCaseAnalysisToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newCaseAnalysisToolStrip.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
-            this.newCaseAnalysisToolStrip.Name = "newCaseAnalysisToolStrip";
-            resources.ApplyResources(this.newCaseAnalysisToolStrip, "newCaseAnalysisToolStrip");
-            this.newCaseAnalysisToolStrip.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
+            this.toolStripButtonCreateNewCaseAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCreateNewCaseAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
+            resources.ApplyResources(this.toolStripButtonCreateNewCaseAnalysis, "toolStripButtonCreateNewCaseAnalysis");
+            this.toolStripButtonCreateNewCaseAnalysis.Name = "toolStripButtonCreateNewCaseAnalysis";
+            this.toolStripButtonCreateNewCaseAnalysis.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
             // 
             // toolStripSeparator6
             // 
@@ -518,7 +518,7 @@
         private System.Windows.Forms.ToolStripMenuItem newPalletToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem newAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton newBundleAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewBundleAnalysis;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -541,7 +541,7 @@
         private System.Windows.Forms.ToolStripMenuItem newTruckToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileMRU;
-        private System.Windows.Forms.ToolStripButton newCaseAnalysisToolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewCaseAnalysis;
         private System.Windows.Forms.ToolStripMenuItem newAnalysisBundleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newCaseAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;

@@ -48,27 +48,24 @@
             this.lbMm1 = new System.Windows.Forms.Label();
             this.lbMm2 = new System.Windows.Forms.Label();
             this.lbMm3 = new System.Windows.Forms.Label();
-            this.nudAdmissibleLoadWeight = new System.Windows.Forms.NumericUpDown();
             this.lbKg1 = new System.Windows.Forms.Label();
-            this.lbKg2 = new System.Windows.Forms.Label();
             this.cbPallet = new System.Windows.Forms.ComboBox();
             this.tbPalletProperties = new System.Windows.Forms.TextBox();
-            this.nudAmissibleLoadHeight = new System.Windows.Forms.NumericUpDown();
-            this.lbMm4 = new System.Windows.Forms.Label();
             this.lbType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.lbColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.statusStripDef = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAmissibleLoadHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnAccept
@@ -197,26 +194,10 @@
             resources.ApplyResources(this.lbMm3, "lbMm3");
             this.lbMm3.Name = "lbMm3";
             // 
-            // nudAdmissibleLoadWeight
-            // 
-            resources.ApplyResources(this.nudAdmissibleLoadWeight, "nudAdmissibleLoadWeight");
-            this.nudAdmissibleLoadWeight.DecimalPlaces = 3;
-            this.nudAdmissibleLoadWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudAdmissibleLoadWeight.Name = "nudAdmissibleLoadWeight";
-            // 
             // lbKg1
             // 
             resources.ApplyResources(this.lbKg1, "lbKg1");
             this.lbKg1.Name = "lbKg1";
-            // 
-            // lbKg2
-            // 
-            resources.ApplyResources(this.lbKg2, "lbKg2");
-            this.lbKg2.Name = "lbKg2";
             // 
             // cbPallet
             // 
@@ -230,17 +211,6 @@
             resources.ApplyResources(this.tbPalletProperties, "tbPalletProperties");
             this.tbPalletProperties.Name = "tbPalletProperties";
             this.tbPalletProperties.ReadOnly = true;
-            // 
-            // nudAmissibleLoadHeight
-            // 
-            resources.ApplyResources(this.nudAmissibleLoadHeight, "nudAmissibleLoadHeight");
-            this.nudAmissibleLoadHeight.Name = "nudAmissibleLoadHeight";
-            this.nudAmissibleLoadHeight.ValueChanged += new System.EventHandler(this.onPalletPropertyChanged);
-            // 
-            // lbMm4
-            // 
-            resources.ApplyResources(this.lbMm4, "lbMm4");
-            this.lbMm4.Name = "lbMm4";
             // 
             // lbType
             // 
@@ -290,7 +260,8 @@
             resources.GetString("cbColor.Items8"),
             resources.GetString("cbColor.Items9"),
             resources.GetString("cbColor.Items10"),
-            resources.GetString("cbColor.Items11")});
+            resources.GetString("cbColor.Items11"),
+            resources.GetString("cbColor.Items12")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
@@ -300,24 +271,34 @@
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.TabStop = false;
             // 
+            // statusStripDef
+            // 
+            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
+            this.statusStripDef.Name = "statusStripDef";
+            // 
+            // toolStripStatusLabelDef
+            // 
+            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
             // FormNewPallet
             // 
             this.AcceptButton = this.bnAccept;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.lbType);
-            this.Controls.Add(this.lbMm4);
-            this.Controls.Add(this.nudAmissibleLoadHeight);
             this.Controls.Add(this.tbPalletProperties);
             this.Controls.Add(this.cbPallet);
-            this.Controls.Add(this.lbKg2);
             this.Controls.Add(this.lbKg1);
-            this.Controls.Add(this.nudAdmissibleLoadWeight);
             this.Controls.Add(this.lbMm3);
             this.Controls.Add(this.lbMm2);
             this.Controls.Add(this.lbMm1);
@@ -349,10 +330,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAmissibleLoadHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.statusStripDef.ResumeLayout(false);
+            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,21 +357,19 @@
         private System.Windows.Forms.NumericUpDown nudWidth;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.NumericUpDown nudWeight;
-        private System.Windows.Forms.NumericUpDown nudAdmissibleLoadWeight;
-        private System.Windows.Forms.NumericUpDown nudAmissibleLoadHeight;
         private System.Windows.Forms.Label lbWeight;
         private System.Windows.Forms.Label lbMm1;
         private System.Windows.Forms.Label lbMm2;
         private System.Windows.Forms.Label lbMm3;
         private System.Windows.Forms.Label lbKg1;
-        private System.Windows.Forms.Label lbKg2;
         private System.Windows.Forms.ComboBox cbPallet;
         private System.Windows.Forms.TextBox tbPalletProperties;
-        private System.Windows.Forms.Label lbMm4;
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
+        private System.Windows.Forms.StatusStrip statusStripDef;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

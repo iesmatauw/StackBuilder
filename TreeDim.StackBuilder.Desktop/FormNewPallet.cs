@@ -48,8 +48,6 @@ namespace TreeDim.StackBuilder.Desktop
             PalletWidth = 1000;
             PalletHeight = 150;
             Weight = 20;
-            AdmissibleLoadWeight = 1000;
-            AdmissibleLoadHeight = 3000;
 
             // select radio button
             radioButtonPallet1.Checked = false;
@@ -83,8 +81,6 @@ namespace TreeDim.StackBuilder.Desktop
             PalletWidth = _palletProperties.Width;
             PalletHeight = _palletProperties.Height;
             Weight = _palletProperties.Weight;
-            AdmissibleLoadWeight = _palletProperties.AdmissibleLoadWeight;
-            AdmissibleLoadHeight = _palletProperties.AdmissibleLoadHeight;
 
             // select radio button
             radioButtonPallet1.Checked = false;
@@ -137,18 +133,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return System.Convert.ToDouble(nudWeight.Text); }
             set { nudWeight.Text = string.Format("{0}", value); }
-        }
-
-        public double AdmissibleLoadHeight
-        {
-            get { return System.Convert.ToDouble(nudAmissibleLoadHeight.Text); }
-            set { nudAmissibleLoadHeight.Text = string.Format("{0}", value); }
-        }
-
-        public double AdmissibleLoadWeight
-        {
-            get { return System.Convert.ToDouble(nudAdmissibleLoadWeight.Text); }
-            set { nudAdmissibleLoadWeight.Text = string.Format("{0}", value); }
         }
 
         public Color Color
@@ -222,20 +206,30 @@ namespace TreeDim.StackBuilder.Desktop
             nudHeight.Enabled = radioButtonPallet2.Checked;
             lbWeight.Enabled = radioButtonPallet2.Checked;
             nudWeight.Enabled = radioButtonPallet2.Checked;
-            nudAmissibleLoadHeight.Enabled = radioButtonPallet2.Checked;
             lbMm1.Enabled = radioButtonPallet2.Checked;
             lbMm2.Enabled = radioButtonPallet2.Checked;
             lbMm3.Enabled = radioButtonPallet2.Checked;
-            lbMm4.Enabled = radioButtonPallet2.Checked;
             lbKg1.Enabled = radioButtonPallet2.Checked;
-            lbKg2.Enabled = radioButtonPallet2.Checked;
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled =
-                tbName.Text.Length > 0
-                && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text, _palletProperties);
+            string message = string.Empty;
+            // name
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+            // description
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            // name validity
+            else if (!_document.IsValidNewTypeName(tbName.Text, _palletProperties))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            //---
+            // button OK
+            bnAccept.Enabled = string.IsNullOrEmpty(message);
+            // status bar
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

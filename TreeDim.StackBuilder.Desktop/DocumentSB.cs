@@ -177,8 +177,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewPallet(form.PalletName, form.Description, form.PalletType
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
-                    , form.Weight
-                    , form.AdmissibleLoadWeight, form.AdmissibleLoadHeight);
+                    , form.Weight);
         }
         /// <summary>
         /// Creates a new TruckProperties

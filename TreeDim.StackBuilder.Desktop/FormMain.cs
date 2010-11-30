@@ -276,8 +276,6 @@ namespace TreeDim.StackBuilder.Desktop
                         pallet.Width = form.PalletWidth;
                         pallet.Height = form.PalletHeight;
                         pallet.Type = form.PalletType;
-                        pallet.AdmissibleLoadHeight = form.AdmissibleLoadHeight;
-                        pallet.AdmissibleLoadWeight = form.AdmissibleLoadWeight;
                         pallet.Color = form.Color;
                         pallet.EndUpdate();
                     }

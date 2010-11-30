@@ -153,15 +153,12 @@ namespace TreeDim.StackBuilder.Basics
             string name, string description
             , PalletProperties.PalletType type
             , double length, double width, double height
-            , double weight, double admissibleLoadWeight
-            , double admissibleLoadHeight)
+            , double weight)
         {
             PalletProperties palletProperties = new PalletProperties(this, type, length, width, height);
             palletProperties.Name = name;
             palletProperties.Description = description;
             palletProperties.Weight = weight;
-            palletProperties.AdmissibleLoadWeight = admissibleLoadWeight;
-            palletProperties.AdmissibleLoadHeight = admissibleLoadHeight;
             // insert in list
             _typeList.Add(palletProperties);
             // notify listeners
@@ -677,8 +674,6 @@ namespace TreeDim.StackBuilder.Basics
             string swidth = eltPalletProperties.Attributes["Width"].Value;
             string sheight = eltPalletProperties.Attributes["Height"].Value;
             string sweight = eltPalletProperties.Attributes["Weight"].Value;
-            string sadmissibleloadweight = eltPalletProperties.Attributes["AdmissibleLoadWeight"].Value;
-            string sadmissibleloadheight = eltPalletProperties.Attributes["AdmissibleLoadHeight"].Value;
             string stype = eltPalletProperties.Attributes["Type"].Value;
             string sColor = eltPalletProperties.Attributes["Color"].Value;
 
@@ -690,9 +685,7 @@ namespace TreeDim.StackBuilder.Basics
                 , System.Convert.ToDouble(slength)
                 , System.Convert.ToDouble(swidth)
                 , System.Convert.ToDouble(sheight)
-                , System.Convert.ToDouble(sweight)
-                , System.Convert.ToDouble(sadmissibleloadweight)
-                , System.Convert.ToDouble(sadmissibleloadheight));
+                , System.Convert.ToDouble(sweight));
             palletProperties.Color = Color.FromArgb(System.Convert.ToInt32(sColor));
             palletProperties.Guid = new Guid(sid);
         }

@@ -88,6 +88,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Case {
+            get {
+                object obj = ResourceManager.GetObject("Case", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap CaseAnalysis {
             get {
                 object obj = ResourceManager.GetObject("CaseAnalysis", resourceCulture);
@@ -179,6 +186,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_ADDNEWBUNDLEANALYSIS {
             get {
                 return ResourceManager.GetString("ID_ADDNEWBUNDLEANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new case....
+        /// </summary>
+        internal static string ID_ADDNEWCASE {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWCASE", resourceCulture);
             }
         }
         
@@ -458,6 +474,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_NODE_BUNDLES {
             get {
                 return ResourceManager.GetString("ID_NODE_BUNDLES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cases.
+        /// </summary>
+        internal static string ID_NODE_CASES {
+            get {
+                return ResourceManager.GetString("ID_NODE_CASES", resourceCulture);
             }
         }
         

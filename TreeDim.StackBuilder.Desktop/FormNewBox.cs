@@ -20,10 +20,19 @@ namespace TreeDim.StackBuilder.Desktop
 {
     public partial class FormNewBox : Form
     {
+        #region Mode enum
+        public enum Mode
+        { 
+            MODE_BOX
+            , MODE_CASE
+        }
+        #endregion
+
         #region Data members
         private Document _document;
         public Color[] _faceColors = new Color[6];
         public BoxProperties _boxProperties;
+        public Mode _mode;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBundle));
         #endregion
 
@@ -32,15 +41,20 @@ namespace TreeDim.StackBuilder.Desktop
         /// FormNewBox constructor used when defining a new BoxProperties item
         /// </summary>
         /// <param name="document">Document in which the BoxProperties item is to be created</param>
-        public FormNewBox(Document document)
+        public FormNewBox(Document document, Mode mode)
         {
             InitializeComponent();
             // save document reference
             _document = document;
+            // mode
+            _mode = mode;
             // initialize value
             nudLength.Value = 400.0M;
             nudWidth.Value = 300.0M;
             nudHeight.Value = 200.0M;
+            nudInsideLength.Value = nudLength.Value - 1.0M;
+            nudInsideWidth.Value = nudWidth.Value - 1.0M;
+            nudInsideHeight.Value = nudHeight.Value - 1.0M;
             // set colors
             for (int i=0; i<6; ++i)
                 _faceColors[i] = Color.Chocolate;
@@ -50,9 +64,6 @@ namespace TreeDim.StackBuilder.Desktop
             trackBarHorizAngle.Value = 45;
             // disable Ok button
             UpdateButtonOkStatus();
-            // inside dimensions
-            checkBoxInside.Checked = false;
-            EnableDisableInsideDimensionsControls();
         }
         /// <summary>
         /// FormNewBox constructor used to edit existing boxes
@@ -65,6 +76,7 @@ namespace TreeDim.StackBuilder.Desktop
             // save document reference
             _document = document;
             _boxProperties = boxProperties;
+            _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
             // set caption text
             Text = string.Format("Edit {0}...", _boxProperties.Name);
             // initialize value
@@ -87,9 +99,6 @@ namespace TreeDim.StackBuilder.Desktop
             trackBarHorizAngle.Value = 45;
             // disable Ok button
             UpdateButtonOkStatus();
-            // inside dimensions
-            checkBoxInside.Checked = _boxProperties.HasInsideDimensions;
-            EnableDisableInsideDimensionsControls();
         }
         #endregion
 
@@ -118,11 +127,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return (double)nudHeight.Value; }
             set { nudHeight.Value = (decimal)value; }
-        }
-        public bool HasInsideDimensions
-        {
-            get { return checkBoxInside.Checked; }
-            set { checkBoxInside.Checked = value; }
         }
         public double InsideLength
         {
@@ -159,6 +163,17 @@ namespace TreeDim.StackBuilder.Desktop
         #region Load / FormClosing event
         private void FormNewBox_Load(object sender, EventArgs e)
         {
+            // show hide inside dimensions controls
+            nudInsideLength.Visible = _mode == Mode.MODE_CASE;
+            nudInsideWidth.Visible = _mode == Mode.MODE_CASE;
+            nudInsideHeight.Visible = _mode == Mode.MODE_CASE;
+            lbInsideLength.Visible = _mode == Mode.MODE_CASE;
+            lbInsideWidth.Visible = _mode == Mode.MODE_CASE;
+            lbInsideHeight.Visible = _mode == Mode.MODE_CASE;
+            lbUnitLengthInside.Visible = _mode == Mode.MODE_CASE;
+            lbUnitWidthInside.Visible = _mode == Mode.MODE_CASE;
+            lbUnitHeightInside.Visible = _mode == Mode.MODE_CASE;
+
             // windows settings
             if (null != Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition.Restore(this);
@@ -215,11 +230,11 @@ namespace TreeDim.StackBuilder.Desktop
             { statusOk = false; message = Resources.ID_FIELDDESCRIPTIONEMPTY; }
             else if (!_document.IsValidNewTypeName(tbName.Text, _boxProperties))
             { statusOk = false; message = string.Format(Resources.ID_INVALIDNAME, tbName.Text); }
-            else if (HasInsideDimensions && InsideLength > BoxLength)
+            else if (_mode == Mode.MODE_CASE && InsideLength > BoxLength)
             { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength); }
-            else if (HasInsideDimensions && InsideWidth > BoxWidth)
+            else if (_mode == Mode.MODE_CASE && InsideWidth > BoxWidth)
             { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth); }
-            else if (HasInsideDimensions && InsideHeight > BoxHeight)
+            else if (_mode == Mode.MODE_CASE && InsideHeight > BoxHeight)
             { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight); }
             else
             { statusOk = true; message = Resources.ID_READY; }
@@ -231,17 +246,6 @@ namespace TreeDim.StackBuilder.Desktop
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
-        }
-        private void checkBoxInside_CheckedChanged(object sender, EventArgs e)
-        {
-            EnableDisableInsideDimensionsControls();
-        }
-
-        private void EnableDisableInsideDimensionsControls()
-        {
-            nudInsideLength.Enabled = checkBoxInside.Checked;
-            nudInsideWidth.Enabled = checkBoxInside.Checked;
-            nudInsideHeight.Enabled = checkBoxInside.Checked;
         }
         #endregion
 

@@ -63,19 +63,15 @@ namespace TreeDim.StackBuilder.Desktop {
             }
         }
 
-        internal static System.Drawing.Bitmap AnalysisBundle
-        {
-            get
-            {
+        internal static System.Drawing.Bitmap AnalysisBundle {
+            get {
                 object obj = ResourceManager.GetObject("AnalysisBundle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
 
-        internal static System.Drawing.Bitmap Solution
-        {
-            get
-            {
+        internal static System.Drawing.Bitmap Solution {
+            get {
                 object obj = ResourceManager.GetObject("Solution", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
@@ -84,6 +80,12 @@ namespace TreeDim.StackBuilder.Desktop {
         internal static System.Drawing.Bitmap Box {
             get {
                 object obj = ResourceManager.GetObject("Box", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap Case {
+            get {
+                object obj = ResourceManager.GetObject("Case", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

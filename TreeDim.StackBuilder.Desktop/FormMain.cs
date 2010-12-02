@@ -194,13 +194,9 @@ namespace TreeDim.StackBuilder.Desktop
                         box.Width = form.BoxWidth;
                         box.Height = form.BoxHeight;
                         box.Weight = form.Weight;
-                        box.HasInsideDimensions = form.HasInsideDimensions;
-                        if (form.HasInsideDimensions)
-                        {
-                            box.InsideLength = form.InsideLength;
-                            box.InsideWidth = form.InsideWidth;
-                            box.InsideHeight = form.InsideHeight;
-                        }
+                        box.InsideLength = form.InsideLength;
+                        box.InsideWidth = form.InsideWidth;
+                        box.InsideHeight = form.InsideHeight;
                         box.SetAllColors( form.Colors );
                         box.SetAllColors(form.Colors);
                         box.EndUpdate();
@@ -354,7 +350,7 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 DocumentSB doc = eventArg.Document as DocumentSB;
                 if ((null != doc) && (null != eventArg.Analysis))
-                    doc.EditAnalysis(eventArg.Analysis);
+                    doc.EditPalletAnalysis(eventArg.Analysis);
                 CreateOrActivateViewAnalysis(eventArg.Analysis);
             }
             catch (Exception ex)
@@ -699,7 +695,11 @@ namespace TreeDim.StackBuilder.Desktop
             try { ((DocumentSB)ActiveDocument).CreateNewBoxUI();    }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-
+        private void toolAddNewCase(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewCaseUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
         private void toolAddNewBundle(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewBundleUI(); }

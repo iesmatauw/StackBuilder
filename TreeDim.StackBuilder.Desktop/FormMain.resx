@@ -250,16 +250,25 @@
     <value>White</value>
   </data>
   <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Box</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 22</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>New &amp;Case</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Interlayer</value>
@@ -268,7 +277,7 @@
     <value>White</value>
   </data>
   <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>New B&amp;undle</value>
@@ -277,46 +286,58 @@
     <value>White</value>
   </data>
   <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Pallet</value>
   </data>
   <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Truck</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
+    <value>233, 6</value>
   </data>
   <data name="newAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
   <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Analysis</value>
   </data>
+  <data name="newAnalysisBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
   <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Bundle Analysis</value>
   </data>
+  <data name="newCaseAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
   <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
   </data>
   <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Case Analysis</value>
   </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
+    <value>233, 6</value>
+  </data>
+  <data name="editPaletSolutionsDB.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
   </data>
   <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>236, 22</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>&amp;Edit pallet solutions database...</value>
   </data>
   <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -416,6 +437,15 @@
   </data>
   <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
     <value>Add New Box</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+    <value>Add new case...</value>
   </data>
   <data name="toolStripButtonCreateNewBundle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
@@ -695,6 +725,12 @@
   <data name="&gt;&gt;newBoxToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;newCaseToolStripMenuItem.Name" xml:space="preserve">
+    <value>newCaseToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;newCaseToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;newInterlayerToolStripMenuItem.Name" xml:space="preserve">
     <value>newInterlayerToolStripMenuItem</value>
   </data>
@@ -801,6 +837,12 @@
     <value>toolStripButtonAddNewBox</value>
   </data>
   <data name="&gt;&gt;toolStripButtonAddNewBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonAddNewCase.Name" xml:space="preserve">
+    <value>toolStripButtonAddNewCase</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonAddNewCase.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripButtonCreateNewBundle.Name" xml:space="preserve">

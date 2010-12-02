@@ -38,15 +38,16 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.OPENFOLD);        // 1
                 ImageList.Images.Add(AnalysisTreeView.DOC);             // 2
                 ImageList.Images.Add(AnalysisTreeView.Box);             // 3
-                ImageList.Images.Add(AnalysisTreeView.Bundle);          // 4
-                ImageList.Images.Add(AnalysisTreeView.Pallet);          // 5
-                ImageList.Images.Add(AnalysisTreeView.Interlayer);      // 6
-                ImageList.Images.Add(AnalysisTreeView.Truck);           // 7
-                ImageList.Images.Add(AnalysisTreeView.Analysis);        // 8
-                ImageList.Images.Add(AnalysisTreeView.AnalysisBundle);  // 9
-                ImageList.Images.Add(AnalysisTreeView.Solution);        // 10
-                ImageList.Images.Add(AnalysisTreeView.TruckAnalysis);   // 11
-                ImageList.Images.Add(AnalysisTreeView.CaseAnalysis);
+                ImageList.Images.Add(AnalysisTreeView.Case);            // 4
+                ImageList.Images.Add(AnalysisTreeView.Bundle);          // 5
+                ImageList.Images.Add(AnalysisTreeView.Pallet);          // 6
+                ImageList.Images.Add(AnalysisTreeView.Interlayer);      // 7
+                ImageList.Images.Add(AnalysisTreeView.Truck);           // 8
+                ImageList.Images.Add(AnalysisTreeView.Analysis);        // 9
+                ImageList.Images.Add(AnalysisTreeView.AnalysisBundle);  // 10
+                ImageList.Images.Add(AnalysisTreeView.Solution);        // 11
+                ImageList.Images.Add(AnalysisTreeView.TruckAnalysis);   // 12
+                ImageList.Images.Add(AnalysisTreeView.CaseAnalysis);    // 13
 
                 // instantiate context menu
                 this.ContextMenuStrip = new ContextMenuStrip();
@@ -111,6 +112,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (nodeTag.Type == NodeTag.NodeType.NT_DOCUMENT)
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box         , new EventHandler(onCreateNewBox)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet      , new EventHandler(onCreateNewPallet)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, AnalysisTreeView.Interlayer, new EventHandler(onCreateNewInterlayer)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, AnalysisTreeView.Bundle      , new EventHandler(onCreateNewBundle)));
@@ -140,9 +142,9 @@ namespace TreeDim.StackBuilder.Desktop
             if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSIS)
             {
                 string message = string.Format(Resources.ID_EDIT, nodeTag.Analysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onAnalysisEdit)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditPalletAnalysis)));
                 message = string.Format(Resources.ID_DELETE, nodeTag.Analysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteAnalysis)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeletePalletAnalysis)));
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSISSOL)
             {
@@ -153,12 +155,14 @@ namespace TreeDim.StackBuilder.Desktop
             if (nodeTag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
             {
                 string message = string.Format(Resources.ID_EDIT, nodeTag.TruckAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onTruckAnalysisEdit)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditTruckAnalysis)));
                 message = string.Format(Resources.ID_DELETE, nodeTag.TruckAnalysis.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteTruckAnalysis)));
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(onCreateNewBox)));
+            if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(onCreateNewPallet)));
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
@@ -190,6 +194,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_CASEANALYSIS)
             {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_EDIT, nodeTag.CaseAnalysis.Name), null, new EventHandler(onEditCaseAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_DELETE, nodeTag.CaseAnalysis.Name), AnalysisTreeView.DELETE, new EventHandler(onDeleteCaseAnalysis)));
             }
         }
@@ -205,16 +210,25 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onAnalysisEdit(object sender, EventArgs e)
+        private void onEditPalletAnalysis(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditAnalysis(tag.Analysis);
+                ((DocumentSB)tag.Document).EditPalletAnalysis(tag.Analysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onDeleteAnalysis(object sender, EventArgs e)
+        private void onEditCaseAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).EditCaseAnalysis(tag.CaseAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onDeletePalletAnalysis(object sender, EventArgs e)
         {
             try
             {
@@ -232,7 +246,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onTruckAnalysisEdit(object sender, EventArgs e)
+        private void onEditTruckAnalysis(object sender, EventArgs e)
         {
             try
             {
@@ -252,8 +266,12 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void onDeleteCaseAnalysis(object sender, EventArgs e)
         {
-            NodeTag tag = SelectedNode.Tag as NodeTag;
- 
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.Document.RemoveItem(tag.CaseAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); } 
         }
         private void onCreateNewBox(object sender, EventArgs e)
         {
@@ -261,6 +279,15 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 ((DocumentSB)tag.Document).CreateNewBoxUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onCreateNewCase(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewCaseUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -518,6 +545,10 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeBoxes = new TreeNode(Resources.ID_NODE_BOXES, 0, 1);
             nodeBoxes.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc);
             nodeDoc.Nodes.Add(nodeBoxes);
+            // add case list node
+            TreeNode nodeCases = new TreeNode(Resources.ID_NODE_CASES, 0, 1);
+            nodeCases.Tag = new NodeTag(NodeTag.NodeType.NT_LISTCASE, doc);
+            nodeDoc.Nodes.Add(nodeCases);
             // add bundle list node
             TreeNode nodeBundles = new TreeNode(Resources.ID_NODE_BUNDLES, 0, 1);
             nodeBundles.Tag = new NodeTag(NodeTag.NodeType.NT_LISTBUNDLE, doc);
@@ -553,31 +584,41 @@ namespace TreeDim.StackBuilder.Desktop
 
             if (itemProperties.GetType() == typeof(BoxProperties))
             {
-                iconIndex = 3;
-                nodeType = NodeTag.NodeType.NT_BOX;
-                parentNodeType = NodeTag.NodeType.NT_LISTBOX;
+                BoxProperties boxProperties = itemProperties as BoxProperties;
+                if (boxProperties.HasInsideDimensions)
+                {
+                    iconIndex = 4;
+                    nodeType = NodeTag.NodeType.NT_CASE;
+                    parentNodeType = NodeTag.NodeType.NT_LISTCASE;
+                }
+                else 
+                {
+                    iconIndex = 3;
+                    nodeType = NodeTag.NodeType.NT_BOX;
+                    parentNodeType = NodeTag.NodeType.NT_LISTBOX;
+                }                
             }
             else if (itemProperties.GetType() == typeof(BundleProperties))
             {
-                iconIndex = 4;
+                iconIndex = 5;
                 nodeType = NodeTag.NodeType.NT_BUNDLE;
                 parentNodeType = NodeTag.NodeType.NT_LISTBUNDLE;
             }
             else if (itemProperties.GetType() == typeof(PalletProperties))
             {
-                iconIndex = 5;
+                iconIndex = 6;
                 nodeType = NodeTag.NodeType.NT_PALLET;
                 parentNodeType = NodeTag.NodeType.NT_LISTPALLET;
             }
             else if (itemProperties.GetType() == typeof(InterlayerProperties))
             {
-                iconIndex = 6;
+                iconIndex = 7;
                 nodeType = NodeTag.NodeType.NT_INTERLAYER;
                 parentNodeType = NodeTag.NodeType.NT_LISTINTERLAYER;
             }
             else if (itemProperties.GetType() == typeof(TruckProperties))
             {
-                iconIndex = 7;
+                iconIndex = 8;
                 nodeType = NodeTag.NodeType.NT_TRUCK;
                 parentNodeType = NodeTag.NodeType.NT_LISTTRUCK;
             }
@@ -613,22 +654,22 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // insert analysis node
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 8, 8);
+            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 9, 9);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
             // insert sub box node
-            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, 3, 3);
+            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, 4, 4);
             subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis.BProperties, analysis);
             nodeAnalysis.Nodes.Add(subBoxNode);
             // insert sub pallet node
-            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 5, 5);
+            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, 6, 6);
             subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis.PalletProperties, analysis);
             nodeAnalysis.Nodes.Add(subPalletNode);
             // insert sub interlayer node if any
             if (analysis.HasInterlayer)
             {
-                TreeNode subInterlayer = new TreeNode(analysis.InterlayerProperties.Name, 6, 6);
+                TreeNode subInterlayer = new TreeNode(analysis.InterlayerProperties.Name, 7, 7);
                 subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis.InterlayerProperties, analysis);
                 nodeAnalysis.Nodes.Add(subInterlayer);
             }
@@ -644,7 +685,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // insert case analysis node
-            TreeNode nodeAnalysis = new TreeNode(caseAnalysis.Name, 12, 12);
+            TreeNode nodeAnalysis = new TreeNode(caseAnalysis.Name, 13, 13);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CASEANALYSIS, doc, caseAnalysis, null);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
@@ -662,7 +703,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, null, analysis));
             // insert selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 10, 10);
+            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 11, 11);
             nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution);
             parentNode.Nodes.Add(nodeSelSolution);
             // expand tree nodes
@@ -680,7 +721,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
             // insert truckAnalysis node
-            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 11, 11);
+            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 12, 12);
             nodeTruckAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis);
             parentNode.Nodes.Add(nodeTruckAnalysis);
             // expand parent tree node
@@ -696,7 +737,11 @@ namespace TreeDim.StackBuilder.Desktop
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_UNKNOWN;
             if (itemBase.GetType() == typeof(BoxProperties))
             {
-                nodeType = NodeTag.NodeType.NT_BOX;
+                BoxProperties box = itemBase as BoxProperties;
+                if (box.HasInsideDimensions)
+                    nodeType = NodeTag.NodeType.NT_CASE;
+                else
+                    nodeType = NodeTag.NodeType.NT_BOX;
             }
             else if (itemBase.GetType() == typeof(BundleProperties))
             {
@@ -838,6 +883,10 @@ namespace TreeDim.StackBuilder.Desktop
             /// </summary>
             NT_LISTBOX,
             /// <summary>
+            /// list of cases
+            /// </summary>
+            NT_LISTCASE,
+            /// <summary>
             /// list of bundles
             /// </summary>
             NT_LISTBUNDLE,
@@ -861,6 +910,10 @@ namespace TreeDim.StackBuilder.Desktop
             /// box
             /// </summary>
             NT_BOX,
+            /// <summary>
+            /// case
+            /// </summary>
+            NT_CASE,
             /// <summary>
             /// bundle
             /// </summary>

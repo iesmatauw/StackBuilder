@@ -59,6 +59,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newInterlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPalletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +79,7 @@
             this.toolStripButtonFileSaveAll = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAddNewBox = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAddNewCase = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCreateNewBundle = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCreateNewInterlayer = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAddNewPallet = new System.Windows.Forms.ToolStripButton();
@@ -236,6 +238,7 @@
             // 
             this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newBoxToolStripMenuItem,
+            this.newCaseToolStripMenuItem,
             this.newInterlayerToolStripMenuItem,
             this.newBundleToolStripMenuItem,
             this.newPalletToolStripMenuItem,
@@ -255,6 +258,13 @@
             resources.ApplyResources(this.newBoxToolStripMenuItem, "newBoxToolStripMenuItem");
             this.newBoxToolStripMenuItem.Name = "newBoxToolStripMenuItem";
             this.newBoxToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBox);
+            // 
+            // newCaseToolStripMenuItem
+            // 
+            this.newCaseToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Case;
+            resources.ApplyResources(this.newCaseToolStripMenuItem, "newCaseToolStripMenuItem");
+            this.newCaseToolStripMenuItem.Name = "newCaseToolStripMenuItem";
+            this.newCaseToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCase);
             // 
             // newInterlayerToolStripMenuItem
             // 
@@ -298,14 +308,14 @@
             // newAnalysisBundleToolStripMenuItem
             // 
             this.newAnalysisBundleToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisBundle;
-            this.newAnalysisBundleToolStripMenuItem.Name = "newAnalysisBundleToolStripMenuItem";
             resources.ApplyResources(this.newAnalysisBundleToolStripMenuItem, "newAnalysisBundleToolStripMenuItem");
+            this.newAnalysisBundleToolStripMenuItem.Name = "newAnalysisBundleToolStripMenuItem";
             // 
             // newCaseAnalysisToolStripMenuItem
             // 
             this.newCaseAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
-            this.newCaseAnalysisToolStripMenuItem.Name = "newCaseAnalysisToolStripMenuItem";
             resources.ApplyResources(this.newCaseAnalysisToolStripMenuItem, "newCaseAnalysisToolStripMenuItem");
+            this.newCaseAnalysisToolStripMenuItem.Name = "newCaseAnalysisToolStripMenuItem";
             // 
             // toolStripSeparator7
             // 
@@ -315,8 +325,8 @@
             // editPaletSolutionsDB
             // 
             this.editPaletSolutionsDB.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Database;
-            this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
             resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
+            this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
             this.editPaletSolutionsDB.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
             // 
             // helpToolStripMenuItem
@@ -341,6 +351,7 @@
             this.toolStripButtonFileSaveAll,
             this.toolStripSeparator3,
             this.toolStripButtonAddNewBox,
+            this.toolStripButtonAddNewCase,
             this.toolStripButtonCreateNewBundle,
             this.toolStripButtonCreateNewInterlayer,
             this.toolStripButtonAddNewPallet,
@@ -398,6 +409,14 @@
             resources.ApplyResources(this.toolStripButtonAddNewBox, "toolStripButtonAddNewBox");
             this.toolStripButtonAddNewBox.Name = "toolStripButtonAddNewBox";
             this.toolStripButtonAddNewBox.Click += new System.EventHandler(this.toolAddNewBox);
+            // 
+            // toolStripButtonAddNewCase
+            // 
+            this.toolStripButtonAddNewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAddNewCase.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Case;
+            resources.ApplyResources(this.toolStripButtonAddNewCase, "toolStripButtonAddNewCase");
+            this.toolStripButtonAddNewCase.Name = "toolStripButtonAddNewCase";
+            this.toolStripButtonAddNewCase.Click += new System.EventHandler(this.toolAddNewCase);
             // 
             // toolStripButtonCreateNewBundle
             // 
@@ -513,6 +532,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTools;
         private System.Windows.Forms.ToolStripMenuItem newBoxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newCaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newInterlayerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newBundleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPalletToolStripMenuItem;
@@ -548,5 +568,6 @@
         private System.Windows.Forms.ToolStripButton editPaletSolutionsDBToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem editPaletSolutionsDB;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddNewCase;
     }
 }

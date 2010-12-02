@@ -29,6 +29,18 @@ namespace TreeDim.StackBuilder.Basics
             _length     = length;
             _width      = width;
             _height     = height;
+            _hasInsideDimensions = false;
+        }
+        public BoxProperties(Document document, double length, double width, double height, double insideLength, double insideWidth, double insideHeight)
+            : base(document)
+        {
+            _length     = length;
+            _width      = width;
+            _height     = height;
+            _insideLength = insideLength;
+            _insideWidth = insideWidth;
+            _insideHeight = insideHeight;
+            _hasInsideDimensions = true;
         }
         #endregion
 
@@ -44,7 +56,6 @@ namespace TreeDim.StackBuilder.Basics
         public bool HasInsideDimensions
         {
             get { return _hasInsideDimensions; }
-            set { _hasInsideDimensions = value; Modify(); }
         }
         public double InsideLength
         {

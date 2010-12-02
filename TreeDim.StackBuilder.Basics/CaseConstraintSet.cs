@@ -103,15 +103,12 @@ namespace TreeDim.StackBuilder.Basics
                     if (!string.IsNullOrEmpty(sGlobal))
                         sGlobal += ",";
                     HalfAxis.HAxis axis = (HalfAxis.HAxis)i;
-                    if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N))
+                    if (AllowOrthoAxis(axis))
                         sGlobal += HalfAxis.ToString(axis);
                 }
                 return sGlobal;
             }
         }
-        #endregion
-
-        #region Stop criterions
         #endregion
 
         #region Interlayer

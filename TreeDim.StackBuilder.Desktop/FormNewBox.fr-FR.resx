@@ -131,56 +131,83 @@
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 89</value>
+  </data>
+  <data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="lbInsideHeight.Text" xml:space="preserve">
+    <value>Hauteur int.</value>
+  </data>
+  <data name="lbInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 62</value>
+  </data>
+  <data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="lbInsideWidth.Text" xml:space="preserve">
+    <value>Largeur int.</value>
+  </data>
+  <data name="lbInsideLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 35</value>
+  </data>
+  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="lbInsideLength.Text" xml:space="preserve">
+    <value>Longueur int.</value>
+  </data>
   <data name="lbUnitHeightInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 89</value>
+    <value>326, 89</value>
   </data>
   <data name="lbUnitWidthInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 62</value>
+    <value>326, 62</value>
   </data>
   <data name="lbUnitLengthInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 35</value>
+    <value>326, 35</value>
   </data>
   <data name="nudInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 35</value>
+    <value>251, 35</value>
   </data>
   <data name="nudInsideLength.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
   </data>
   <data name="nudInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 89</value>
+    <value>251, 89</value>
   </data>
   <data name="nudInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
   </data>
   <data name="nudInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 62</value>
+    <value>251, 62</value>
   </data>
   <data name="nudInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
   </data>
   <data name="lbUnitHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 89</value>
+    <value>148, 89</value>
   </data>
   <data name="lbUnitWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 62</value>
+    <value>148, 62</value>
   </data>
   <data name="lbUnitLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 35</value>
+    <value>148, 35</value>
   </data>
   <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 35</value>
+    <value>70, 35</value>
   </data>
   <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
   </data>
   <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 89</value>
+    <value>70, 89</value>
   </data>
   <data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
   </data>
   <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 62</value>
+    <value>70, 62</value>
   </data>
   <data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
@@ -212,15 +239,6 @@
   <data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
-  <data name="checkBoxInside.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 13</value>
-  </data>
-  <data name="checkBoxInside.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
-  </data>
-  <data name="checkBoxInside.Text" xml:space="preserve">
-    <value>Intérieur</value>
-  </data>
   <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
     <value>354, 118</value>
   </data>
@@ -241,9 +259,6 @@
   </data>
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Haut</value>
-  </data>
-  <data name="cbColor.Items23" xml:space="preserve">
-    <value>Color</value>
   </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleur des faces</value>

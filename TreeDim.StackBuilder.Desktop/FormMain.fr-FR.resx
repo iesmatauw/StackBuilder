@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Fichier</value>
+  </data>
   <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 22</value>
   </data>
@@ -172,16 +178,22 @@
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quitter</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
   </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Fichier</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Ou&amp;tils</value>
   </data>
   <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>334, 22</value>
   </data>
   <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvel &amp;Etui</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>334, 22</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle &amp;Caisse</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -241,23 +253,17 @@
   <data name="editPaletSolutionsDB.Text" xml:space="preserve">
     <value>Editer la base de données des solution de palettes</value>
   </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Ou&amp;tils</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Aide</value>
   </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 22</value>
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>A propos de...</value>
-  </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Aide</value>
   </data>
   <data name="toolStripButtonNewFile.Text" xml:space="preserve">
     <value>&amp;Nouveau fichier</value>
@@ -272,7 +278,10 @@
     <value>Enregistrer &amp;Tout</value>
   </data>
   <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
-    <value>Ajouter une nouvelle caisse</value>
+    <value>Ajouter un nouvel étui...</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+    <value>Ajouter une nouvelle caisse...</value>
   </data>
   <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
     <value>Ajouter un nouveau &amp;Bundle</value>
@@ -288,12 +297,6 @@
   </data>
   <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse</value>
-  </data>
-  <data name="newBundleAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Créer une nouvelle analyse de Bundle</value>
-  </data>
-  <data name="newCaseAnalysisToolStrip.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
   </data>
   <data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>

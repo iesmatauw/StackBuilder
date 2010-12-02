@@ -124,13 +124,16 @@
     <value>Créer une nouvelle analyse...</value>
   </data>
   <data name="ID_ADDNEWBOX" xml:space="preserve">
-    <value>Créer une nouvelle boîte...</value>
+    <value>Créer un nouvel étui...</value>
   </data>
   <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Créer un nouveau bundle...</value>
   </data>
   <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse de bundle...</value>
+  </data>
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
+    <value>Créer une nouvelle caisse...</value>
   </data>
   <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse étui/caisse...</value>
@@ -211,10 +214,13 @@
     <value>Analyses</value>
   </data>
   <data name="ID_NODE_BOXES" xml:space="preserve">
-    <value>Caisses</value>
+    <value>Etuis</value>
   </data>
   <data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>Bundles</value>
+  </data>
+  <data name="ID_NODE_CASES" xml:space="preserve">
+    <value>Caisses</value>
   </data>
   <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>Intercallaires</value>

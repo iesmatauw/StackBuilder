@@ -131,15 +131,23 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public void CreateNewBoxUI()
         {
-            FormNewBox form = new FormNewBox(this);
+            FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_BOX);
             if (DialogResult.OK == form.ShowDialog())
-            {
-                BoxProperties bProperties = CreateNewBox(form.BoxName, form.Description, form.BoxLength, form.BoxWidth, form.BoxHeight, form.Weight, form.Colors);
-                bProperties.HasInsideDimensions = form.HasInsideDimensions;
-                bProperties.InsideLength = form.InsideLength;
-                bProperties.InsideWidth = form.InsideWidth;
-                bProperties.InsideHeight = form.InsideHeight;
-            }
+                CreateNewBox(form.BoxName, form.Description
+                    , form.BoxLength, form.BoxWidth, form.BoxHeight
+                    , form.Weight, form.Colors);
+        }
+        /// <summary>
+        /// Creates a new 
+        /// </summary>
+        public void CreateNewCaseUI()
+        {
+            FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_CASE);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewCase(form.BoxName, form.Description
+                    , form.BoxLength, form.BoxWidth, form.BoxHeight
+                    , form.InsideLength, form.InsideWidth, form.InsideHeight
+                    , form.Weight, form.Colors);
         }
         /// <summary>
         /// Creates a new BundleProperties object
@@ -338,7 +346,11 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region UI item edition
-        public void EditAnalysis(Analysis analysis)
+        /// <summary>
+        /// Edit specified pallet analysis
+        /// </summary>
+        /// <param name="analysis"></param>
+        public void EditPalletAnalysis(Analysis analysis)
         {
             // do we need to recompute analysis
             bool recomputeRequired = false;
@@ -437,6 +449,19 @@ namespace TreeDim.StackBuilder.Desktop
 
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);
+        }
+
+        public void EditCaseAnalysis(CaseAnalysis caseAnalysis)
+        {
+            // do we need to recompute analysis
+            bool recomputeRequired = false;
+
+            FormNewCaseAnalysis form = new FormNewCaseAnalysis(caseAnalysis.ParentDocument, caseAnalysis);
+            if (DialogResult.OK == form.ShowDialog())
+            { 
+            }
+            if (recomputeRequired)
+                caseAnalysis.OnEndUpdate(null);
         }
 
         public void EditTruckAnalysis(TruckAnalysis truckAnalysis)

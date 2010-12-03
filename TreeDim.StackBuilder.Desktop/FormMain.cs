@@ -401,6 +401,9 @@ namespace TreeDim.StackBuilder.Desktop
             // new box
             newBoxToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewBox.Enabled = (null != doc);
+            // new case
+            newCaseToolStripMenuItem.Enabled = (null != doc);
+            toolStripButtonAddNewCase.Enabled = (null != doc);
             // new pallet
             newPalletToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewPallet.Enabled = (null != doc);
@@ -420,6 +423,7 @@ namespace TreeDim.StackBuilder.Desktop
             newCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
             toolStripButtonCreateNewCaseAnalysis.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
             // new analysis bundle
+            newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
             toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
             // edit pallet solutions database
             editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;

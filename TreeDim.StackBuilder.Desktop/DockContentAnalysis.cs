@@ -277,7 +277,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         #region IItemListener implementation
         /// <summary>
-        /// overrides IItemListener.Kill
+        /// overrides IItemListener.Update
         /// </summary>
         /// <param name="item"></param>
         public void Update(ItemBase item)

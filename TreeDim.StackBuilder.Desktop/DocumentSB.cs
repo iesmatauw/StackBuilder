@@ -205,10 +205,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// <returns>created palet analysis</returns>
         public Analysis CreateNewAnalysisUI()
         {
-            if (!CanCreateAnalysis) return null;
+            if (!CanCreatePalletAnalysis) return null;
 
             FormNewAnalysis form = new FormNewAnalysis(this);
-            form.Boxes = Boxes.ToArray();
+            form.Cases = Cases.ToArray();
             form.Pallets = Pallets.ToArray();
             form.Interlayers = Interlayers.ToArray();
             if (DialogResult.OK == form.ShowDialog())
@@ -358,7 +358,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (analysis.IsBoxAnalysis)
             {
                 FormNewAnalysis form = new FormNewAnalysis(this, analysis);
-                form.Boxes = Boxes.ToArray();
+                form.Cases = Cases.ToArray();
                 form.Pallets = Pallets.ToArray();
                 form.Interlayers = Interlayers.ToArray();
 

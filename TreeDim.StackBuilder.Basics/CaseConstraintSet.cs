@@ -108,6 +108,12 @@ namespace TreeDim.StackBuilder.Basics
                 }
                 return sGlobal;
             }
+            set
+            {
+                string[] sAxes = value.Split(',');
+                foreach (string sAxis in sAxes)
+                    SetAllowedOrthoAxis(HalfAxis.Parse(sAxis), true);            
+            }
         }
         #endregion
 

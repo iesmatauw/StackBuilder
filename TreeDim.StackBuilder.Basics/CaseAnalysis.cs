@@ -24,6 +24,7 @@ namespace TreeDim.StackBuilder.Basics
             : base(boxProperties.ParentDocument)
         {
             _boxProperties = boxProperties;
+            boxProperties.AddDependancie(this);
             _palletSolutionsList = palletSolutionList;
             _constraintSet = constraintSet;
         }
@@ -51,6 +52,10 @@ namespace TreeDim.StackBuilder.Basics
         public List<PalletSolutionDesc> PalletSolutionsList
         {
             get { return _palletSolutionsList; }
+        }
+        public PalletSolutionDesc GetPalletSolutionDescByGuid(Guid guid)
+        {
+            return _palletSolutionsList.Find(delegate(PalletSolutionDesc desc) { return desc.Guid == guid; });
         }
         /// <summary>
         /// List of solutions

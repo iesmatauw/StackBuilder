@@ -161,8 +161,11 @@
   <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
-  <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 22</value>
+  </data>
+  <data name="&gt;&gt;lbInsideHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbUnitWidthInside.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -462,8 +465,8 @@
   <data name="lbUnitHeightInside.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
   </data>
-  <data name="cbFace.Items1" xml:space="preserve">
-    <value>Front</value>
+  <data name="bnAccept.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="&gt;&gt;lbInsideLength.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -578,9 +581,6 @@
   </data>
   <data name="&gt;&gt;nudWidth.Parent" xml:space="preserve">
     <value>gbDimensions</value>
-  </data>
-  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 32</value>
   </data>
   <data name="&gt;&gt;nudInsideWidth.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -759,9 +759,6 @@
   <data name="lbHeight.Text" xml:space="preserve">
     <value>Height</value>
   </data>
-  <data name="&gt;&gt;lbInsideHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
@@ -885,8 +882,8 @@
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;nudInsideLength.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -993,6 +990,9 @@
   <data name="cbColor.Items21" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="lbUnitLengthInside.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 13</value>
+  </data>
   <data name="&gt;&gt;nudWidth.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1074,9 +1074,6 @@
   <data name="nudWeightOnTop.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="bnAccept.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
   <data name="bnAccept.Text" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
@@ -1121,6 +1118,9 @@
   </data>
   <data name="lbUnitWeight.Text" xml:space="preserve">
     <value>kg</value>
+  </data>
+  <data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbWeightOnTop.Text" xml:space="preserve">
     <value>Admissible weight on top</value>
@@ -1188,6 +1188,9 @@
   <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
+  <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lbUnitWidthInside.Text" xml:space="preserve">
     <value>mm</value>
   </data>
@@ -1224,8 +1227,8 @@
   <data name="cbFace.Items2" xml:space="preserve">
     <value>Right</value>
   </data>
-  <data name="lbUnitLengthInside.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>Front</value>
   </data>
   <data name="cbColor.Items2" xml:space="preserve">
     <value>Color</value>
@@ -1242,8 +1245,8 @@
   <data name="&gt;&gt;lbUnitHeightInside.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 22</value>
+  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 32</value>
   </data>
   <data name="lbUnitHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -1262,8 +1265,5 @@
   </metadata>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 340</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>French (France)</value>
   </metadata>
 </root>

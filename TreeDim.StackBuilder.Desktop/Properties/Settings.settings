@@ -113,5 +113,8 @@
     <Setting Name="AllowAlternateLayer_CaseAnalysis" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ShowPalletSolution_CaseAnalysis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

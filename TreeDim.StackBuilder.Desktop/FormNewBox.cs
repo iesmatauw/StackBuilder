@@ -173,7 +173,11 @@ namespace TreeDim.StackBuilder.Desktop
             lbUnitLengthInside.Visible = _mode == Mode.MODE_CASE;
             lbUnitWidthInside.Visible = _mode == Mode.MODE_CASE;
             lbUnitHeightInside.Visible = _mode == Mode.MODE_CASE;
-
+            lbWeightOnTop.Visible = _mode == Mode.MODE_CASE;
+            nudWeightOnTop.Visible = _mode == Mode.MODE_CASE;
+            lbUnitWeightOnTop.Visible = _mode == Mode.MODE_CASE;
+            // caption
+            this.Text = Mode.MODE_CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
             // windows settings
             if (null != Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition.Restore(this);
@@ -281,5 +285,6 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
+
     }
 }

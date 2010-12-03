@@ -12,6 +12,7 @@ using log4net;
 using Sharp3D.Math.Core;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -65,14 +66,10 @@ namespace TreeDim.StackBuilder.Desktop
             // fill grid
             FillGrid();
             // show or hide pallet solution view
+            toolStripShowPallet.Checked = Settings.Default.ShowPalletSolution_CaseAnalysis;
             ShowHidePalletView();
-
+            // attach grid selection event handler
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
-
-        }
-
-        private void DockContentAnalysis_Load()
-        {
         }
 
         private void FillGrid()
@@ -82,13 +79,11 @@ namespace TreeDim.StackBuilder.Desktop
             // border
             DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
-
             // views
             CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
             viewNormal.Border = cellBorder;
             CheckboxBackColorAlternate viewNormalCheck = new CheckboxBackColorAlternate(Color.LightBlue, Color.White);
             viewNormalCheck.Border = cellBorder;
-
             // column header view
             SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader();
             DevAge.Drawing.VisualElements.ColumnHeader backHeader = new DevAge.Drawing.VisualElements.ColumnHeader();
@@ -98,17 +93,14 @@ namespace TreeDim.StackBuilder.Desktop
             viewColumnHeader.ForeColor = Color.White;
             viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Bold);
             viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
-
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
             gridSolutions.ColumnsCount = 7;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
-
             // header
             SourceGrid.Cells.ColumnHeader columnHeader;
-
             // index
             columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
             columnHeader.AutomaticSortEnabled = false;
@@ -236,13 +228,18 @@ namespace TreeDim.StackBuilder.Desktop
             UpdateGridCheckBoxes();
             UpdateSelectButtonText();
         }
+
+        private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
+        {
+            // redraw
+            Draw();
+        }
         #endregion
 
         #region Helpers
         private void ShowHidePalletView()
         {
-            pictureBoxPalletSolution.Visible = toolStripShowPallet.Checked;
-            Draw();
+            splitContainerVert.Panel2Collapsed = !toolStripShowPallet.Checked;
         }
         #endregion
 
@@ -282,12 +279,25 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region ITemListener implementation
+        /// <summary>
+        /// overrides IItemListener.Update
+        /// </summary>
+        /// <param name="item"></param>
         public void Update(ItemBase item)
-        { 
+        {
             // update grid
+            FillGrid();
             // select first solution
+            if (gridSolutions.RowsCount > 0)
+                gridSolutions.Selection.SelectRow(1, true);
             // draw
+            Draw();
         }
+        /// <summary>
+        /// overrides IItemListener.Kill
+        /// handles analysis removal for any reason (deletion/document closing)
+        /// </summary>
+        /// <param name="item"></param>
         public void Kill(ItemBase item)
         {
             Close();
@@ -432,10 +442,6 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
-        {
-            // redraw
-            Draw();
-        }
+
     }
 }

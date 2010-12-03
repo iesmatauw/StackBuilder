@@ -20,7 +20,7 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewAnalysis : Form
     {
         #region Data members
-        private BProperties[] _boxes;
+        private BProperties[] _cases;
         private PalletProperties[] _palletProperties;
         private InterlayerProperties[] _interlayerProperties;
         private Document _document;
@@ -130,7 +130,7 @@ namespace TreeDim.StackBuilder.Desktop
                     tbDescription.Text = _analysis.Description;
                 }
                 // fill boxes combo
-                foreach (BProperties box in _boxes)
+                foreach (BProperties box in _cases)
                     cbBox.Items.Add(new BoxItem(box));
                 if (cbBox.Items.Count > 0)
                 {
@@ -319,10 +319,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// List of boxes
         /// </summary>
-        public BProperties[] Boxes
+        public BProperties[] Cases
         {
-            get { return _boxes;}
-            set { _boxes = value; }
+            get { return _cases;}
+            set { _cases = value; }
         }
         /// <summary>
         /// List of pallets
@@ -345,7 +345,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public BProperties SelectedBox
         {
-            get { return _boxes[cbBox.SelectedIndex]; }
+            get { return _cases[cbBox.SelectedIndex]; }
         }
         /// <summary>
         /// Selected pallet

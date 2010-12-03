@@ -131,6 +131,9 @@
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 118</value>
+  </data>
   <data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>180, 89</value>
   </data>
@@ -238,9 +241,6 @@
   </data>
   <data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
-  </data>
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 118</value>
   </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Arrière</value>

@@ -449,5 +449,17 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["AllowAlternateLayer_CaseAnalysis"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowPalletSolution_CaseAnalysis {
+            get {
+                return ((bool)(this["ShowPalletSolution_CaseAnalysis"]));
+            }
+            set {
+                this["ShowPalletSolution_CaseAnalysis"] = value;
+            }
+        }
     }
 }

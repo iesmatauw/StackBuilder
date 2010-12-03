@@ -291,10 +291,16 @@ namespace TreeDim.StackBuilder.Desktop
                         truck.EndUpdate();
                     }
                 }
-                else
+               else
                     Debug.Assert(false);
             }
+            else if ((null == eventArg.ItemBase) && (null != eventArg.CaseAnalysis))
+            {
+                CaseAnalysis caseAnalysis = eventArg.CaseAnalysis;
+                if (null != caseAnalysis)
+                    CreateOrActivateViewCaseAnalysis(caseAnalysis);
 
+            }
             else if (null != eventArg.TruckAnalysis)
             {
                 TruckAnalysis truckAnalysis = eventArg.TruckAnalysis;
@@ -408,8 +414,8 @@ namespace TreeDim.StackBuilder.Desktop
             newTruckToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewTruck.Enabled = (null != doc);
             // new analysis
-            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateAnalysis;
-            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysis;
+            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreatePalletAnalysis;
+            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreatePalletAnalysis;
             // new case analysis
             newCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
             toolStripButtonCreateNewCaseAnalysis.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;

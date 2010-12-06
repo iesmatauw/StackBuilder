@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewBox));
-            this.bnAccept = new System.Windows.Forms.Button();
+            this.bnOk = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.lbFace = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
@@ -87,14 +87,14 @@
             // 
             // bnAccept
             // 
-            this.bnAccept.AccessibleDescription = null;
-            this.bnAccept.AccessibleName = null;
-            resources.ApplyResources(this.bnAccept, "bnAccept");
-            this.bnAccept.BackgroundImage = null;
-            this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Font = null;
-            this.bnAccept.Name = "bnAccept";
-            this.bnAccept.UseVisualStyleBackColor = true;
+            this.bnOk.AccessibleDescription = null;
+            this.bnOk.AccessibleName = null;
+            resources.ApplyResources(this.bnOk, "bnAccept");
+            this.bnOk.BackgroundImage = null;
+            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOk.Font = null;
+            this.bnOk.Name = "bnAccept";
+            this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
@@ -606,7 +606,7 @@
             // 
             // FormNewBox
             // 
-            this.AcceptButton = this.bnAccept;
+            this.AcceptButton = this.bnOk;
             this.AccessibleDescription = null;
             this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
@@ -624,7 +624,7 @@
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.gbDimensions);
             this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnAccept);
+            this.Controls.Add(this.bnOk);
             this.Font = null;
             this.Icon = null;
             this.MaximizeBox = false;
@@ -659,7 +659,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnAccept;
+        private System.Windows.Forms.Button bnOk;
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Label lbFace;
         private System.Windows.Forms.GroupBox gbDimensions;

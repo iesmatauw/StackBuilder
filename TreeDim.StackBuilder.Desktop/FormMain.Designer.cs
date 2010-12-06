@@ -488,8 +488,8 @@
             // 
             this.editPaletSolutionsDBToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.editPaletSolutionsDBToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Database;
-            this.editPaletSolutionsDBToolStripMenuItem.Name = "editPaletSolutionsDBToolStripMenuItem";
             resources.ApplyResources(this.editPaletSolutionsDBToolStripMenuItem, "editPaletSolutionsDBToolStripMenuItem");
+            this.editPaletSolutionsDBToolStripMenuItem.Name = "editPaletSolutionsDBToolStripMenuItem";
             this.editPaletSolutionsDBToolStripMenuItem.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
             // 
             // openFileDialogSB

@@ -163,6 +163,9 @@
   <data name="cbColor.Items12" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 20</value>
@@ -177,7 +180,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3939.15241, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3989.23811, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -237,7 +240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lbWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -288,7 +291,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 21</value>
@@ -381,7 +384,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -406,7 +409,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 7</value>
@@ -427,7 +430,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lbThickness.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -481,7 +484,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -505,7 +508,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lbUnitThickness.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -754,7 +757,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -781,7 +784,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="bnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -808,7 +811,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnAccept.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -832,7 +835,40 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 316</value>
+  </data>
+  <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>484, 22</value>
+  </data>
+  <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -848,6 +884,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Create new Bundle...</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewBundle</value>

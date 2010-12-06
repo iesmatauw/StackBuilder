@@ -37,12 +37,16 @@
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
             this.nudLength = new System.Windows.Forms.NumericUpDown();
             this.gbWeight = new System.Windows.Forms.GroupBox();
+            this.lbUnitWeight = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lbThickness = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
+            this.lbUnitThickness = new System.Windows.Forms.Label();
+            this.lbUnitWidth = new System.Windows.Forms.Label();
+            this.lbUnitLength = new System.Windows.Forms.Label();
             this.lbNoFlats = new System.Windows.Forms.Label();
             this.nudNoFlats = new System.Windows.Forms.NumericUpDown();
             this.nudThickness = new System.Windows.Forms.NumericUpDown();
@@ -50,12 +54,10 @@
             this.lbWidth = new System.Windows.Forms.Label();
             this.lbLength = new System.Windows.Forms.Label();
             this.bnCancel = new System.Windows.Forms.Button();
-            this.bnAccept = new System.Windows.Forms.Button();
+            this.bnOk = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.lbUnitLength = new System.Windows.Forms.Label();
-            this.lbUnitWidth = new System.Windows.Forms.Label();
-            this.lbUnitThickness = new System.Windows.Forms.Label();
-            this.lbUnitWeight = new System.Windows.Forms.Label();
+            this.statusStripDef = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbFaceColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
@@ -66,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbColor
@@ -89,7 +92,8 @@
             resources.GetString("cbColor.Items9"),
             resources.GetString("cbColor.Items10"),
             resources.GetString("cbColor.Items11"),
-            resources.GetString("cbColor.Items12")});
+            resources.GetString("cbColor.Items12"),
+            resources.GetString("cbColor.Items13")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
@@ -163,6 +167,11 @@
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
+            // lbUnitWeight
+            // 
+            resources.ApplyResources(this.lbUnitWeight, "lbUnitWeight");
+            this.lbUnitWeight.Name = "lbUnitWeight";
+            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
@@ -210,6 +219,21 @@
             resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
+            // 
+            // lbUnitThickness
+            // 
+            resources.ApplyResources(this.lbUnitThickness, "lbUnitThickness");
+            this.lbUnitThickness.Name = "lbUnitThickness";
+            // 
+            // lbUnitWidth
+            // 
+            resources.ApplyResources(this.lbUnitWidth, "lbUnitWidth");
+            this.lbUnitWidth.Name = "lbUnitWidth";
+            // 
+            // lbUnitLength
+            // 
+            resources.ApplyResources(this.lbUnitLength, "lbUnitLength");
+            this.lbUnitLength.Name = "lbUnitLength";
             // 
             // lbNoFlats
             // 
@@ -299,10 +323,10 @@
             // 
             // bnAccept
             // 
-            resources.ApplyResources(this.bnAccept, "bnAccept");
-            this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Name = "bnAccept";
-            this.bnAccept.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.bnOk, "bnAccept");
+            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOk.Name = "bnAccept";
+            this.bnOk.UseVisualStyleBackColor = true;
             // 
             // pictureBox
             // 
@@ -310,30 +334,25 @@
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.TabStop = false;
             // 
-            // lbUnitLength
+            // statusStripDef
             // 
-            resources.ApplyResources(this.lbUnitLength, "lbUnitLength");
-            this.lbUnitLength.Name = "lbUnitLength";
+            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
+            this.statusStripDef.Name = "statusStripDef";
+            this.statusStripDef.SizingGrip = false;
             // 
-            // lbUnitWidth
+            // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.lbUnitWidth, "lbUnitWidth");
-            this.lbUnitWidth.Name = "lbUnitWidth";
-            // 
-            // lbUnitThickness
-            // 
-            resources.ApplyResources(this.lbUnitThickness, "lbUnitThickness");
-            this.lbUnitThickness.Name = "lbUnitThickness";
-            // 
-            // lbUnitWeight
-            // 
-            resources.ApplyResources(this.lbUnitWeight, "lbUnitWeight");
-            this.lbUnitWeight.Name = "lbUnitWeight";
+            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewBundle
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.pictureBox);
@@ -344,7 +363,7 @@
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.gbDimensions);
             this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnAccept);
+            this.Controls.Add(this.bnOk);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewBundle";
@@ -365,6 +384,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.statusStripDef.ResumeLayout(false);
+            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,12 +413,14 @@
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.Label lbLength;
         private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.Button bnAccept;
+        private System.Windows.Forms.Button bnOk;
         private System.Windows.Forms.NumericUpDown nudNoFlats;
         private System.Windows.Forms.Label lbNoFlats;
         private System.Windows.Forms.Label lbUnitWeight;
         private System.Windows.Forms.Label lbUnitThickness;
         private System.Windows.Forms.Label lbUnitWidth;
         private System.Windows.Forms.Label lbUnitLength;
+        private System.Windows.Forms.StatusStrip statusStripDef;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

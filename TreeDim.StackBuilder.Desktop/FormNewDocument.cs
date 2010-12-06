@@ -50,7 +50,16 @@ namespace TreeDim.StackBuilder.Desktop
         #region Event handlers
         private void onDocumentNameChanged(object sender, EventArgs e)
         {
-            bnAccept.Enabled = (DocName.Length > 0);
+            string message = string.Empty;
+            // check name
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+
+            // update button OK
+            bnOk.Enabled = string.IsNullOrEmpty(message);
+            // update status bar
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
         #endregion
 

@@ -142,10 +142,21 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled =
-                tbName.Text.Length > 0 
-                && tbDescription.Text.Length > 0 
-                && _document.IsValidNewTypeName(tbName.Text, _bundleProperties);
+            string message = string.Empty;
+            // name
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+            // description
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            // name validity
+            else if (!_document.IsValidNewTypeName(tbName.Text, _bundleProperties))
+                message = Resources.ID_INVALIDNAME;
+            // button OK
+            bnOk.Enabled = string.IsNullOrEmpty(message);
+            // status bar
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

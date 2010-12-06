@@ -226,26 +226,23 @@ namespace TreeDim.StackBuilder.Desktop
         private void UpdateButtonOkStatus()
         {
             // status + message
-            bool statusOk = true;
             string message = string.Empty;
             if (string.IsNullOrEmpty(tbName.Text))
-            { statusOk = false; message = Resources.ID_FIELDNAMEEMPTY; }
+                message = Resources.ID_FIELDNAMEEMPTY;
             else if (string.IsNullOrEmpty(tbDescription.Text))
-            { statusOk = false; message = Resources.ID_FIELDDESCRIPTIONEMPTY; }
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             else if (!_document.IsValidNewTypeName(tbName.Text, _boxProperties))
-            { statusOk = false; message = string.Format(Resources.ID_INVALIDNAME, tbName.Text); }
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             else if (_mode == Mode.MODE_CASE && InsideLength > BoxLength)
-            { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength); }
+                message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength);
             else if (_mode == Mode.MODE_CASE && InsideWidth > BoxWidth)
-            { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth); }
+                message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth);
             else if (_mode == Mode.MODE_CASE && InsideHeight > BoxHeight)
-            { statusOk = false; message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight); }
-            else
-            { statusOk = true; message = Resources.ID_READY; }
+                message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight);
             // accept
-            bnAccept.Enabled = statusOk;
-            if (statusOk) toolStripStatusLabelDef.ForeColor = Color.Black; else toolStripStatusLabelDef.ForeColor = Color.Red;
-            toolStripStatusLabelDef.Text = message;
+            bnOk.Enabled = string.IsNullOrEmpty(message);
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

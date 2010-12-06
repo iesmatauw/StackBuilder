@@ -516,6 +516,9 @@
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
+  <data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
   <data name="editPaletSolutionsDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>

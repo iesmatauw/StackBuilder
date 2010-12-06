@@ -130,6 +130,7 @@ namespace TreeDim.StackBuilder.Desktop
 
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_BOX
+                || nodeTag.Type == NodeTag.NodeType.NT_CASE
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLET
                 || nodeTag.Type == NodeTag.NodeType.NT_BUNDLE
                 || nodeTag.Type == NodeTag.NodeType.NT_INTERLAYER
@@ -1003,10 +1004,10 @@ namespace TreeDim.StackBuilder.Desktop
             _type = type;
             _document = document;       
         }
-        public NodeTag(NodeType type, Document doc, ItemBase itemProperties)
+        public NodeTag(NodeType type, Document document, ItemBase itemProperties)
         {
             _type = type;
-            _document = Document;
+            _document = document;
             _itemProperties = itemProperties;
         }
         public NodeTag(NodeType type, Document document, Analysis analysis, ItemBase itemProperties)

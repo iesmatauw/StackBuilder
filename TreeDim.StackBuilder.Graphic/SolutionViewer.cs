@@ -58,7 +58,10 @@ namespace TreeDim.StackBuilder.Graphics
                 {
                     Box box = new Box(pickId++, _analysis.InterlayerProperties);
                     // set position
-                    box.Position = new Vector3D(0.0, 0.0, interlayerPos.ZLow);
+                    box.Position = new Vector3D(
+                        0.5 * (_analysis.PalletProperties.Length-_analysis.InterlayerProperties.Length)
+                        , 0.5 * (_analysis.PalletProperties.Width - _analysis.InterlayerProperties.Width)
+                        , interlayerPos.ZLow);
                     // draw
                     graphics.AddBox(box);
                 }

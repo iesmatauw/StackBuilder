@@ -641,7 +641,8 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Truck truck = new Truck(truckProp);
-            truck.Draw(graphics);
+            truck.DrawBegin(graphics);
+            truck.DrawEnd(graphics);
             graphics.AddDimensions(new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height));
             graphics.Flush();
             // ---
@@ -698,14 +699,9 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 bool showDimensions = false;
                 switch (i)
                 {
-                    case 0:
-                        viewName = "view_trucksolution_top"; cameraPos = Graphics3D.Top; imageWidth = 768;
-                        break;
-                    case 1:
-                        viewName = "view_trucksolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768;
-                        break;
-                    default:
-                        break;
+                    case 0: viewName = "view_trucksolution_top"; cameraPos = Graphics3D.Top; imageWidth = 768; break;
+                    case 1: viewName = "view_trucksolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; break;
+                    default: break;
                 }
                 // instantiate graphics
                 Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));

@@ -54,6 +54,7 @@
             this.cbFace = new System.Windows.Forms.ComboBox();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
+            this.chkAllFaces = new System.Windows.Forms.CheckBox();
             this.lbWeight = new System.Windows.Forms.Label();
             this.lbWeightOnTop = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
@@ -85,15 +86,15 @@
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnAccept
+            // bnOk
             // 
             this.bnOk.AccessibleDescription = null;
             this.bnOk.AccessibleName = null;
-            resources.ApplyResources(this.bnOk, "bnAccept");
+            resources.ApplyResources(this.bnOk, "bnOk");
             this.bnOk.BackgroundImage = null;
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnOk.Font = null;
-            this.bnOk.Name = "bnAccept";
+            this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
@@ -430,7 +431,11 @@
             resources.GetString("cbColor.Items27"),
             resources.GetString("cbColor.Items28"),
             resources.GetString("cbColor.Items29"),
-            resources.GetString("cbColor.Items30")});
+            resources.GetString("cbColor.Items30"),
+            resources.GetString("cbColor.Items31"),
+            resources.GetString("cbColor.Items32"),
+            resources.GetString("cbColor.Items33"),
+            resources.GetString("cbColor.Items34")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -440,12 +445,24 @@
             this.gbFaceColor.AccessibleName = null;
             resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.BackgroundImage = null;
+            this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
             this.gbFaceColor.Font = null;
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
+            // 
+            // chkAllFaces
+            // 
+            this.chkAllFaces.AccessibleDescription = null;
+            this.chkAllFaces.AccessibleName = null;
+            resources.ApplyResources(this.chkAllFaces, "chkAllFaces");
+            this.chkAllFaces.BackgroundImage = null;
+            this.chkAllFaces.Font = null;
+            this.chkAllFaces.Name = "chkAllFaces";
+            this.chkAllFaces.UseVisualStyleBackColor = true;
+            this.chkAllFaces.CheckedChanged += new System.EventHandler(this.chkAllFaces_CheckedChanged);
             // 
             // lbWeight
             // 
@@ -699,5 +716,6 @@
         private System.Windows.Forms.Label lbInsideWidth;
         private System.Windows.Forms.Label lbInsideLength;
         private System.Windows.Forms.Label lbInsideHeight;
+        private System.Windows.Forms.CheckBox chkAllFaces;
     }
 }

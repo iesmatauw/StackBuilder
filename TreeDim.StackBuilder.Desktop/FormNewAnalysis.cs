@@ -198,6 +198,18 @@ namespace TreeDim.StackBuilder.Desktop
                     checkBoxInterlayer.Enabled = false;
                 }
 
+                // overhang
+                if (null == _analysis)
+                {
+                    OverhangX = Settings.Default.OverhangX;
+                    OverhangY = Settings.Default.OverhangY;
+                }
+                else
+                {
+                    OverhangX = _analysis.ConstraintSet.OverhangX;
+                    OverhangY = _analysis.ConstraintSet.OverhangY;
+                }
+
                 // allowed position box + allowed patterns
                 if (null == _analysis)
                 {
@@ -230,7 +242,7 @@ namespace TreeDim.StackBuilder.Desktop
                     UseMaximumLoadOnBox = false;
 
                     MaximumNumberOfBoxes = 500;
-                    MaximumPalletHeight = 1500.0;
+                    MaximumPalletHeight = 1200.0;
                     MaximumPalletWeight = 1000.0;
                     MaximumLoadOnBox = 100.0;
                 }
@@ -279,6 +291,9 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                // overhang
+                Settings.Default.OverhangX = OverhangX;
+                Settings.Default.OverhangY = OverhangY;
                 // allowed position box
                 Settings.Default.AllowVerticalX = AllowVerticalX;
                 Settings.Default.AllowVerticalY = AllowVerticalY;

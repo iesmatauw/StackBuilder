@@ -101,6 +101,17 @@ namespace TreeDim.StackBuilder.Basics
                 _colors[i] = color[i];
             Modify();
         }
+        public bool UniqueColor
+        {
+            get
+            {
+                for (int i = 1; i < 6; ++i)
+                    if (_colors[0] != _colors[i])
+                        return false;
+                return true;
+            }
+        }
+
         public void AddTexture(HalfAxis.HAxis axis, Vector2D position, Vector2D size, Bitmap bmp)
         {
             _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size)));

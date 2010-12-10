@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnAccept.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -131,9 +128,6 @@
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 118</value>
-  </data>
   <data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>180, 89</value>
   </data>
@@ -242,6 +236,9 @@
   <data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 118</value>
+  </data>
   <data name="cbFace.Items" xml:space="preserve">
     <value>Arrière</value>
   </data>
@@ -259,6 +256,15 @@
   </data>
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Haut</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 17</value>
+  </data>
+  <data name="chkAllFaces.Text" xml:space="preserve">
+    <value>Toutes les faces sont de la même couleur</value>
   </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Couleur des faces</value>

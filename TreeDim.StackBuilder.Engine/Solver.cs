@@ -160,11 +160,13 @@ namespace TreeDim.StackBuilder.Engine
                                         if (!innerLoopStop)
                                         {
                                             BoxPosition boxPos = new BoxPosition(
-                                                layerPos.Position + zLayer * Vector3D.ZAxis
+                                                layerPos.Position
+                                                    - _constraintSet.OverhangX * Vector3D.XAxis
+                                                    - _constraintSet.OverhangY * Vector3D.YAxis
+                                                    + zLayer * Vector3D.ZAxis
                                                 , layerPos.LengthAxis
                                                 , layerPos.WidthAxis
                                                 );
-
                                             layer.Add(boxPos);
                                         }
                                         else

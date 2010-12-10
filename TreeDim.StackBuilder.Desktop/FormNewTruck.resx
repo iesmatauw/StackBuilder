@@ -147,31 +147,31 @@
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>25</value>
   </data>
-  <data name="bnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="bnAccept.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>397, 12</value>
   </data>
-  <data name="bnAccept.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="bnAccept.TabIndex" type="System.Int32, mscorlib">
+  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="bnAccept.Text" xml:space="preserve">
+  <data name="bnOK.Text" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Name" xml:space="preserve">
-    <value>bnAccept</value>
+  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
+    <value>bnOK</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Type" xml:space="preserve">
+  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnAccept.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
     <value>26</value>
   </data>
   <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -227,6 +227,9 @@
   </data>
   <data name="cbTruck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="cbTruck.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="cbTruck.Location" type="System.Drawing.Point, System.Drawing">
     <value>183, 230</value>
@@ -726,6 +729,9 @@
   <data name="cbColor.Items15" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 428</value>
   </data>
@@ -739,7 +745,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3972.28185, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3995.39373, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -886,7 +892,7 @@
     <value>1</value>
   </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>0, 590</value>
   </metadata>
   <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 17</value>

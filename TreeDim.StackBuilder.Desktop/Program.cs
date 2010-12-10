@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Utilities;
 using System.Threading;
 using System.Reflection;
+using System.IO;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -96,39 +97,24 @@ namespace TreeDim.StackBuilder.Desktop
         // for the context specified by ctrContext.
         public static void ShowContextHelp(Control ctrContext)
         {
-            /*
+
+            int i=0;
             Control ctr = ctrContext;
-
-            string sHTMLFileName = null;
-            while (ctr != null)
+            Form form = null;
+            while (i < 100 && null == form)
             {
-                // Get the first control in the parent chain
-
-                // with the IContextHelp interface.
-
-                IContextHelp help = GetIContextHelpControl(ctr);
-                // If there isn't one, display the default help for the application.
-
-                if (help == null)
-                    break;
-                // Check to see if it has a ContextHelpID value.
-
-                if (help.ContextHelpID != null)
-                {
-                    // Check to see if the ID has a mapped HTML file name.
-
-                    sHTMLFileName = LookupHTMLHelpPathFromID(help.ContextHelpID);
-                    if (sHTMLFileName != null && ShowHelp(ctrContext, sHTMLFileName))
-                        return;
-                }
-                // Get the parent control and repeat.
-
-                ctr = ((Control)help).Parent;
+                ctr = ctr.Parent;
+                form = ctr as Form;
+                ++i;
             }
-            // Show the default topic.
-
-            ShowHelp(ctrContext, "");
-             */ 
+            if (null != form)
+            {
+                string sHTMLHelp = form.GetType().Name + ".html";
+                Help.ShowHelp(ctrContext
+                    , Path.ChangeExtension(Application.ExecutablePath, "chm")
+                    , HelpNavigator.Topic
+                    , sHTMLHelp);
+            }
         }
 
         #region File association

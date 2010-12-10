@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.15.0" ?>
+<?define Version = "0.1.16.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
+<!-- Manufacturer -->
+<?define Manufacturer="treeDim"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
@@ -11,18 +13,18 @@
 	<Product Id="*" Name="PLMPack StackBuilder"
            Language="1033"
            Version="$(var.Version)"
-           Manufacturer="TreeDim"
+           Manufacturer="$(var.Manufacturer)"
            UpgradeCode="$(var.UpgradeCode)">
 		<Package Id="*"
              Description="A palletization simulation software"
              Comments="$(var.Version)"
-             Manufacturer="TreeDim"
-             InstallerVersion="200" Compressed="yes" />
+             Manufacturer="$(var.Manufacturer)"
+             InstallerVersion="300" Compressed="yes" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
     <!-- define the directory structure-->
     <Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-        <Directory Id="TreeDimDir" Name="treeDim">
+        <Directory Id="CompanyDir" Name="$(var.Manufacturer)">
           <Directory Id="PLMPackDir" Name="PLMPack">
             <Directory Id="INSTALLLOCATION" Name="StackBuilder">
               <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
@@ -33,7 +35,7 @@
         </Directory>
 			</Directory>
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="ApplicationProgramsFolder" Name="TreeDim"/>
+        <Directory Id="ApplicationShortcutFolder" Name="$(var.Manufacturer)"/>
       </Directory>
       <Directory Id="DesktopFolder">
       </Directory>
@@ -60,7 +62,18 @@
         <File Id ="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
-        <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes">
+          <Shortcut Id="ApplicationStartMenuShortcut" Name="PLMPack StackBuilder"
+           Description="PLMPack StackBuilder palettization application"
+           Directory="ApplicationShortcutFolder"
+           WorkingDirectory="INSTALLLOCATION"
+           Icon="treeDim.ico" Advertise="yes"/>
+          <Shortcut Id="ApplicationDesktopShortcut" Name="PLMPack StackBuilder"
+           Description="PLMPack StackBuilder palettization application"
+           Directory="DesktopFolder"
+           WorkingDirectory="INSTALLLOCATION"
+           Icon="treeDim.ico" Advertise="yes"/>
+        </File>
         <!--File type association : begin-->
         <ProgId Id="TreeDim.StackBuilder" Description="TreeDim StachBuilder Data File" Icon="TreeDim.StackBuilder.Desktop.exe" IconIndex="0">
           <Extension Id="stb" ContentType="application/xml">
@@ -74,6 +87,7 @@
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
+        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\Help\Decompile\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
@@ -102,31 +116,22 @@
         <File Id="xml2xslt.bat" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\xml2xslt.bat" Checksum="yes"/>
       </Component>        
     </DirectoryRef>
-    <DirectoryRef Id="PALLETSOLUTIONSDB">      
-    </DirectoryRef>
-    <DirectoryRef Id="ApplicationProgramsFolder">
-      <Component Id="ApplicationShortcut1" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">
-        <Shortcut Id="ApplicationStartMenuShortcut" Name="PLMPack StackBuilder"
-                  Description="PLMPack StackBuilder palettization application" Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
-                  WorkingDirectory="INSTALLLOCATION"
-                  Icon="treeDim.ico"/>
-        <Shortcut Id="UninstallProduct"  Name="Uninstall PLMPack StackBuilder"
-                  Description="Uninstalls StackBuilder"
-                  Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]"/>
-        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\TreeDim\StackBuilder" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+    <DirectoryRef Id="PALLETSOLUTIONSDB">
+      <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
+        <File Id="Index.xml" Source="Index.xml"/>
       </Component>
     </DirectoryRef>
-    <DirectoryRef Id="DesktopFolder">
-      <Component Id="ApplicationShortcut2" Guid="{3948AE9B-944B-4eec-8033-259D214D6BB2}">
-        <Condition>INSTALLDESKTOPSHORTCUT</Condition>
-        <RegistryKey Root="HKCU" Key="Software\TreeDim\StackBuilder \Install" Action="createAndRemoveOnUninstall">
-          <RegistryValue Name="DTSC" Value="1" Type="integer" KeyPath="yes"/>
+    <DirectoryRef Id="ApplicationShortcutFolder">
+      <!--Uninstall shortcut-->
+      <Component Id="UninstallProduct" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">
+        <Shortcut Id="UninstallProduct"  Name="Uninstall PLMPack StackBuilder"
+                  Description="Uninstalls PLMPack StackBuilder"
+                  Target="[System64Folder]msiexec.exe"
+                  Arguments="/x [ProductCode]"/>
+        <RegistryKey Root="HKCU" Key="Software\$(var.Manufacturer)\PLMPack StackBuilder\UninstallShortcut">
+          <RegistryValue Name="installed" Type="integer" Value="1" KeyPath="yes"/>
         </RegistryKey>
-        <Shortcut Id="ApplicationDesktopShortcut" Name="PLMPack Stackbuilder"
-                Description="PLMPack StackBuilder palettization application" Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
-                WorkingDirectory="INSTALLLOCATION"
-                Icon="treeDim.ico"/>
+        <RemoveFolder Id="ApplicationShortcutFolder" On="uninstall"/>
       </Component>
     </DirectoryRef>
     <!-- Tell WiX to install the files -->
@@ -134,9 +139,9 @@
       <ComponentRef Id="References" />
       <ComponentRef Id="Application"/>
       <ComponentRef Id="ReportTemplateFiles"/>
-      <ComponentRef Id="ApplicationShortcut1"/>
-      <ComponentRef Id="ApplicationShortcut2"/>
+      <ComponentRef Id="PalletSolutionsDB"/>
       <ComponentRef Id="resources_fr_FR"/>
+      <ComponentRef Id="UninstallProduct"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>

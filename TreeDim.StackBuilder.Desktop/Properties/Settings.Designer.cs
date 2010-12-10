@@ -461,5 +461,29 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["ShowPalletSolution_CaseAnalysis"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double OverhangX {
+            get {
+                return ((double)(this["OverhangX"]));
+            }
+            set {
+                this["OverhangX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double OverhangY {
+            get {
+                return ((double)(this["OverhangY"]));
+            }
+            set {
+                this["OverhangY"] = value;
+            }
+        }
     }
 }

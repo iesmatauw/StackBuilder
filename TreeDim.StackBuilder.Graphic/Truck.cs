@@ -45,6 +45,36 @@ namespace TreeDim.StackBuilder.Graphics
         }
         public override void DrawEnd(Graphics3D graphics)
         {
+            Vector3D viewDir = graphics.ViewDirection;
+            int[] seg0=null, seg1= null, seg2=null;
+
+            if (viewDir.X < 0.0 && viewDir.Y >= 0.0)
+            {
+                seg0 = new int[2] { 4, 5 };
+                seg1 = new int[2] { 5, 6 };
+                seg2 = new int[2] { 1, 5 };
+            }
+            else if (viewDir.X < 0.0 && viewDir.Y < 0.0)
+            {
+                seg0 = new int[2] { 5, 6 };
+                seg1 = new int[2] { 6, 7 };
+                seg2 = new int[2] { 2, 6 };
+            }
+            else if (viewDir.X >= 0.0 && viewDir.Y < 0.0)
+            {
+                seg0 = new int[2] { 6, 7 };
+                seg1 = new int[2] { 7, 4 };
+                seg2 = new int[2] { 3, 7 };
+            }
+            else if (viewDir.X >= 0.0 && viewDir.Y >= 0.0)
+            {
+                seg0 = new int[2] { 7, 4 };
+                seg1 = new int[2] { 4, 5 };
+                seg2 = new int[2] { 0, 4 };
+            }
+            graphics.AddSegment(new Segment(Points[seg0[0]], Points[seg0[1]], _colorPath) );
+            graphics.AddSegment(new Segment(Points[seg1[0]], Points[seg1[1]], _colorPath));
+            graphics.AddSegment(new Segment(Points[seg2[0]], Points[seg2[1]], _colorPath));
         }
         #endregion
 

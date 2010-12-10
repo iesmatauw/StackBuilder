@@ -169,6 +169,7 @@ namespace TreeDim.StackBuilder.Desktop
                 truckProperties.Color = TruckColor;
                 Truck truck = new Truck(truckProperties);
                 truck.DrawBegin(graphics);
+                truck.DrawEnd(graphics);
                 graphics.AddDimensions(new DimensionCube(TruckLength, TruckWidth, TruckHeight));
                 graphics.Flush();
                 // set to picture box

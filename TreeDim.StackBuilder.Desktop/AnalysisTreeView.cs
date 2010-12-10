@@ -443,6 +443,7 @@ namespace TreeDim.StackBuilder.Desktop
                     || (tag.Type == NodeTag.NodeType.NT_ANALYSISPALLET)
                     || (tag.Type == NodeTag.NodeType.NT_ANALYSISINTERLAYER)
                     || (tag.Type == NodeTag.NodeType.NT_BOX)
+                    || (tag.Type == NodeTag.NodeType.NT_CASE)
                     || (tag.Type == NodeTag.NodeType.NT_PALLET)
                     || (tag.Type == NodeTag.NodeType.NT_INTERLAYER)
                     || (tag.Type == NodeTag.NodeType.NT_BUNDLE)
@@ -1008,7 +1009,16 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _type = type;
             _document = document;
-            _itemProperties = itemProperties;
+            if (_type == NodeType.NT_ANALYSIS && itemProperties is Analysis)
+            {
+                _analysis = itemProperties as Analysis;
+                _itemProperties = null;
+            }
+            else
+            {
+                _analysis = null;
+                _itemProperties = itemProperties;
+            }
         }
         public NodeTag(NodeType type, Document document, Analysis analysis, ItemBase itemProperties)
         {

@@ -51,10 +51,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Reporting.XsltGenerator", "TreeDim.StackBuilder.Reporting.XsltGenerator\TreeDim.StackBuilder.Reporting.XsltGenerator.csproj", "{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML Help", "HTML Help", "{59115AF3-A2B9-4FBB-9525-B5BD9C2AE34D}"
-	ProjectSection(SolutionItems) = preProject
-		Help\FormNewDocument.html = Help\FormNewDocument.html
-		Help\HelpTopics.html = Help\HelpTopics.html
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

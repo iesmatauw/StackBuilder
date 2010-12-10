@@ -73,11 +73,11 @@
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
-            // bnAccept
+            // bnOK
             // 
-            resources.ApplyResources(this.bnOK, "bnAccept");
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Name = "bnAccept";
+            this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // trackBarHorizAngle
@@ -226,7 +226,8 @@
             resources.GetString("cbColor.Items12"),
             resources.GetString("cbColor.Items13"),
             resources.GetString("cbColor.Items14"),
-            resources.GetString("cbColor.Items15")});
+            resources.GetString("cbColor.Items15"),
+            resources.GetString("cbColor.Items16")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 

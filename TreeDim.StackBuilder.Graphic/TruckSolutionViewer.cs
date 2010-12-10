@@ -40,6 +40,7 @@ namespace TreeDim.StackBuilder.Graphics
             // draw truck
             Truck truck = new Truck(_truckSolution.ParentTruckAnalysis.TruckProperties);
             truck.DrawBegin(graphics);
+            truck.DrawEnd(graphics);
 
             // get pallet height
             Analysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;

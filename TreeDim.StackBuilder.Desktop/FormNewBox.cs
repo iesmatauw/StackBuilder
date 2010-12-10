@@ -48,16 +48,33 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             // mode
             _mode = mode;
-            // initialize value
-            nudLength.Value = 400.0M;
-            nudWidth.Value = 300.0M;
-            nudHeight.Value = 200.0M;
-            nudInsideLength.Value = nudLength.Value - 1.0M;
-            nudInsideWidth.Value = nudWidth.Value - 1.0M;
-            nudInsideHeight.Value = nudHeight.Value - 1.0M;
+            switch (_mode)
+            {
+                case Mode.MODE_CASE:
+                    nudLength.Value = 400.0M;
+                    nudWidth.Value = 300.0M;
+                    nudHeight.Value = 200.0M;
+                    nudInsideLength.Value = nudLength.Value - 6.0M;
+                    nudInsideWidth.Value = nudWidth.Value - 6.0M;
+                    nudInsideHeight.Value = nudHeight.Value - 6.0M;
+                    break;
+                case Mode.MODE_BOX:
+                    nudLength.Value = 120.0M;
+                    nudWidth.Value = 60.0M;
+                    nudHeight.Value = 30.0M;
+                    nudInsideLength.Value = nudLength.Value - 6.0M;
+                    nudInsideWidth.Value = nudWidth.Value - 6.0M;
+                    nudInsideHeight.Value = nudHeight.Value - 6.0M;
+                    break;
+                default:
+                    break;
+            }
+            // color : all faces set together / face by face
+            chkAllFaces.Checked = false;
+            chkAllFaces_CheckedChanged(this, null);
             // set colors
             for (int i=0; i<6; ++i)
-                _faceColors[i] = Color.Chocolate;
+                _faceColors[i] = _mode == Mode.MODE_BOX ? Color.Turquoise : Color.Chocolate;
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
@@ -90,6 +107,9 @@ namespace TreeDim.StackBuilder.Desktop
             nudInsideHeight.Value = (decimal)_boxProperties.InsideHeight;
             nudWeight.Value = (decimal)_boxProperties.Weight;
             nudWeightOnTop.Value = (decimal)0.0;
+            // color : all faces set together / face by face
+            chkAllFaces.Checked = _boxProperties.UniqueColor;
+            chkAllFaces_CheckedChanged(this, null);
             // set colors
             for (int i=0; i<6; ++i)
                 _faceColors[i] = _boxProperties.Colors[i];
@@ -215,8 +235,16 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void onFaceColorChanged(object sender, EventArgs e)
         {
-            int iSel = cbFace.SelectedIndex;
-            _faceColors[iSel] = cbColor.Color;
+            if (!chkAllFaces.Checked)
+            {
+                int iSel = cbFace.SelectedIndex;
+                _faceColors[iSel] = cbColor.Color;
+            }
+            else
+            {
+                for (int i = 0; i < 6; ++i)
+                    _faceColors[i] = cbColor.Color;
+            }
             DrawBox();
         }
         private void onHorizAngleChanged(object sender, EventArgs e)
@@ -247,6 +275,13 @@ namespace TreeDim.StackBuilder.Desktop
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
+        }
+        private void chkAllFaces_CheckedChanged(object sender, EventArgs e)
+        {
+            lbFace.Enabled = !chkAllFaces.Checked;
+            cbFace.Enabled = !chkAllFaces.Checked;
+            if (chkAllFaces.Checked)
+                cbColor.Color = _faceColors[0];
         }
         #endregion
 
@@ -282,6 +317,8 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
+
+
 
     }
 }

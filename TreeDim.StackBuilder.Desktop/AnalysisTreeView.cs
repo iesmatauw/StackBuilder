@@ -48,7 +48,6 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Solution);        // 11
                 ImageList.Images.Add(AnalysisTreeView.TruckAnalysis);   // 12
                 ImageList.Images.Add(AnalysisTreeView.CaseAnalysis);    // 13
-
                 // instantiate context menu
                 this.ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -99,7 +98,6 @@ namespace TreeDim.StackBuilder.Desktop
                 // set Cancel to false. 
                 // it is optimized to true based on empty entry.
                 e.Cancel = !(this.ContextMenuStrip.Items.Count > 0);
-
             }
             catch (Exception ex)
             {
@@ -660,12 +658,14 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // insert analysis node
-            TreeNode nodeAnalysis = new TreeNode(analysis.Name, 9, 9);
+            int indexIconAnalysis = analysis.IsBoxAnalysis ? 9 : 10;
+            TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
             // insert sub box node
-            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, 4, 4);
+            int indexIconBoxAnalysis = analysis.IsBoxAnalysis ? 4 : 5;
+            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
             subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.BProperties);
             nodeAnalysis.Nodes.Add(subBoxNode);
             // insert sub pallet node

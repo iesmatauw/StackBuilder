@@ -166,6 +166,9 @@
   <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 20</value>
@@ -180,7 +183,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3989.23811, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4000.20669, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -342,13 +345,13 @@
     <value>201, 24</value>
   </data>
   <data name="lbUnitWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
+    <value>19, 13</value>
   </data>
   <data name="lbUnitWeight.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
   <data name="lbUnitWeight.Text" xml:space="preserve">
-    <value>mm</value>
+    <value>kg</value>
   </data>
   <data name="&gt;&gt;lbUnitWeight.Name" xml:space="preserve">
     <value>lbUnitWeight</value>
@@ -786,31 +789,31 @@
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="bnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="bnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="bnAccept.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>399, 7</value>
   </data>
-  <data name="bnAccept.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="bnAccept.TabIndex" type="System.Int32, mscorlib">
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <data name="bnAccept.Text" xml:space="preserve">
+  <data name="bnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Name" xml:space="preserve">
-    <value>bnAccept</value>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Type" xml:space="preserve">
+  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnAccept.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -838,7 +841,7 @@
     <value>3</value>
   </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>0, 316</value>
   </metadata>
   <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 17</value>
@@ -872,6 +875,9 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>French (France)</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

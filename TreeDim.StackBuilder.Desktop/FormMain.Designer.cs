@@ -71,8 +71,10 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.helpToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStandard = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNewFile = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileSave = new System.Windows.Forms.ToolStripButton();
@@ -90,10 +92,12 @@
             this.toolStripButtonCreateNewCaseAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.editPaletSolutionsDBToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockPanel
@@ -175,21 +179,18 @@
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileNew;
             resources.ApplyResources(this.newToolStripMenuItem, "newToolStripMenuItem");
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.fileNew);
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileOpen;
             resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.fileOpen);
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileSave;
             resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.fileSave);
@@ -202,7 +203,6 @@
             // 
             // saveAllToolStripMenuItem
             // 
-            this.saveAllToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileSaveAll;
             resources.ApplyResources(this.saveAllToolStripMenuItem, "saveAllToolStripMenuItem");
             this.saveAllToolStripMenuItem.Name = "saveAllToolStripMenuItem";
             this.saveAllToolStripMenuItem.Click += new System.EventHandler(this.fileSaveAll);
@@ -254,44 +254,38 @@
             // 
             // newBoxToolStripMenuItem
             // 
-            this.newBoxToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Box;
             resources.ApplyResources(this.newBoxToolStripMenuItem, "newBoxToolStripMenuItem");
             this.newBoxToolStripMenuItem.Name = "newBoxToolStripMenuItem";
             this.newBoxToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBox);
             // 
             // newCaseToolStripMenuItem
             // 
-            this.newCaseToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Case;
             resources.ApplyResources(this.newCaseToolStripMenuItem, "newCaseToolStripMenuItem");
             this.newCaseToolStripMenuItem.Name = "newCaseToolStripMenuItem";
             this.newCaseToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCase);
             // 
             // newInterlayerToolStripMenuItem
             // 
-            this.newInterlayerToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Interlayer;
             resources.ApplyResources(this.newInterlayerToolStripMenuItem, "newInterlayerToolStripMenuItem");
             this.newInterlayerToolStripMenuItem.Name = "newInterlayerToolStripMenuItem";
             this.newInterlayerToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewInterlayer);
             // 
             // newBundleToolStripMenuItem
             // 
-            this.newBundleToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Bundle;
             resources.ApplyResources(this.newBundleToolStripMenuItem, "newBundleToolStripMenuItem");
             this.newBundleToolStripMenuItem.Name = "newBundleToolStripMenuItem";
             this.newBundleToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundle);
             // 
             // newPalletToolStripMenuItem
             // 
-            this.newPalletToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Pallet;
             resources.ApplyResources(this.newPalletToolStripMenuItem, "newPalletToolStripMenuItem");
             this.newPalletToolStripMenuItem.Name = "newPalletToolStripMenuItem";
             this.newPalletToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewPallet);
             // 
             // newTruckToolStripMenuItem
             // 
-            this.newTruckToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Truck;
-            this.newTruckToolStripMenuItem.Name = "newTruckToolStripMenuItem";
             resources.ApplyResources(this.newTruckToolStripMenuItem, "newTruckToolStripMenuItem");
+            this.newTruckToolStripMenuItem.Name = "newTruckToolStripMenuItem";
             this.newTruckToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewTruck);
             // 
             // toolStripSeparator5
@@ -301,19 +295,16 @@
             // 
             // newAnalysisToolStripMenuItem
             // 
-            this.newAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Analysis;
             resources.ApplyResources(this.newAnalysisToolStripMenuItem, "newAnalysisToolStripMenuItem");
             this.newAnalysisToolStripMenuItem.Name = "newAnalysisToolStripMenuItem";
             // 
             // newAnalysisBundleToolStripMenuItem
             // 
-            this.newAnalysisBundleToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisBundle;
             resources.ApplyResources(this.newAnalysisBundleToolStripMenuItem, "newAnalysisBundleToolStripMenuItem");
             this.newAnalysisBundleToolStripMenuItem.Name = "newAnalysisBundleToolStripMenuItem";
             // 
             // newCaseAnalysisToolStripMenuItem
             // 
-            this.newCaseAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
             resources.ApplyResources(this.newCaseAnalysisToolStripMenuItem, "newCaseAnalysisToolStripMenuItem");
             this.newCaseAnalysisToolStripMenuItem.Name = "newCaseAnalysisToolStripMenuItem";
             // 
@@ -324,7 +315,6 @@
             // 
             // editPaletSolutionsDB
             // 
-            this.editPaletSolutionsDB.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Database;
             resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
             this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
             this.editPaletSolutionsDB.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
@@ -332,19 +322,32 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItemHelp,
+            this.toolStripSeparator9,
+            this.helpToolStripMenuItemAbout});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             // 
-            // aboutToolStripMenuItem
+            // helpToolStripMenuItemHelp
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            resources.ApplyResources(this.helpToolStripMenuItemHelp, "helpToolStripMenuItemHelp");
+            this.helpToolStripMenuItemHelp.Name = "helpToolStripMenuItemHelp";
+            this.helpToolStripMenuItemHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
             // 
-            // toolStrip1
+            // toolStripSeparator9
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
+            // 
+            // helpToolStripMenuItemAbout
+            // 
+            this.helpToolStripMenuItemAbout.Name = "helpToolStripMenuItemAbout";
+            resources.ApplyResources(this.helpToolStripMenuItemAbout, "helpToolStripMenuItemAbout");
+            this.helpToolStripMenuItemAbout.Click += new System.EventHandler(this.helpToolStripMenuItemAbout_Click);
+            // 
+            // toolStripStandard
+            // 
+            this.toolStripStandard.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNewFile,
             this.toolStripButtonFileOpen,
             this.toolStripButtonFileSave,
@@ -361,14 +364,15 @@
             this.toolStripButtonCreateNewBundleAnalysis,
             this.toolStripButtonCreateNewCaseAnalysis,
             this.toolStripSeparator6,
-            this.editPaletSolutionsDBToolStripMenuItem});
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.Name = "toolStrip1";
+            this.editPaletSolutionsDBToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.toolStripButtonHelp});
+            resources.ApplyResources(this.toolStripStandard, "toolStripStandard");
+            this.toolStripStandard.Name = "toolStripStandard";
             // 
             // toolStripButtonNewFile
             // 
             this.toolStripButtonNewFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonNewFile.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileNew;
             resources.ApplyResources(this.toolStripButtonNewFile, "toolStripButtonNewFile");
             this.toolStripButtonNewFile.Name = "toolStripButtonNewFile";
             this.toolStripButtonNewFile.Click += new System.EventHandler(this.fileNew);
@@ -376,7 +380,6 @@
             // toolStripButtonFileOpen
             // 
             this.toolStripButtonFileOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFileOpen.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileOpen;
             resources.ApplyResources(this.toolStripButtonFileOpen, "toolStripButtonFileOpen");
             this.toolStripButtonFileOpen.Name = "toolStripButtonFileOpen";
             this.toolStripButtonFileOpen.Click += new System.EventHandler(this.fileOpen);
@@ -384,7 +387,6 @@
             // toolStripButtonFileSave
             // 
             this.toolStripButtonFileSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFileSave.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileSave;
             resources.ApplyResources(this.toolStripButtonFileSave, "toolStripButtonFileSave");
             this.toolStripButtonFileSave.Name = "toolStripButtonFileSave";
             this.toolStripButtonFileSave.Click += new System.EventHandler(this.fileSave);
@@ -392,7 +394,6 @@
             // toolStripButtonFileSaveAll
             // 
             this.toolStripButtonFileSaveAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFileSaveAll.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.FileSaveAll;
             resources.ApplyResources(this.toolStripButtonFileSaveAll, "toolStripButtonFileSaveAll");
             this.toolStripButtonFileSaveAll.Name = "toolStripButtonFileSaveAll";
             this.toolStripButtonFileSaveAll.Click += new System.EventHandler(this.fileSaveAll);
@@ -405,7 +406,6 @@
             // toolStripButtonAddNewBox
             // 
             this.toolStripButtonAddNewBox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddNewBox.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Box;
             resources.ApplyResources(this.toolStripButtonAddNewBox, "toolStripButtonAddNewBox");
             this.toolStripButtonAddNewBox.Name = "toolStripButtonAddNewBox";
             this.toolStripButtonAddNewBox.Click += new System.EventHandler(this.toolAddNewBox);
@@ -413,7 +413,6 @@
             // toolStripButtonAddNewCase
             // 
             this.toolStripButtonAddNewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddNewCase.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Case;
             resources.ApplyResources(this.toolStripButtonAddNewCase, "toolStripButtonAddNewCase");
             this.toolStripButtonAddNewCase.Name = "toolStripButtonAddNewCase";
             this.toolStripButtonAddNewCase.Click += new System.EventHandler(this.toolAddNewCase);
@@ -421,7 +420,6 @@
             // toolStripButtonCreateNewBundle
             // 
             this.toolStripButtonCreateNewBundle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewBundle.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Bundle;
             resources.ApplyResources(this.toolStripButtonCreateNewBundle, "toolStripButtonCreateNewBundle");
             this.toolStripButtonCreateNewBundle.Name = "toolStripButtonCreateNewBundle";
             this.toolStripButtonCreateNewBundle.Click += new System.EventHandler(this.toolAddNewBundle);
@@ -429,7 +427,6 @@
             // toolStripButtonCreateNewInterlayer
             // 
             this.toolStripButtonCreateNewInterlayer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewInterlayer.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Interlayer;
             resources.ApplyResources(this.toolStripButtonCreateNewInterlayer, "toolStripButtonCreateNewInterlayer");
             this.toolStripButtonCreateNewInterlayer.Name = "toolStripButtonCreateNewInterlayer";
             this.toolStripButtonCreateNewInterlayer.Click += new System.EventHandler(this.toolAddNewInterlayer);
@@ -437,7 +434,6 @@
             // toolStripButtonAddNewPallet
             // 
             this.toolStripButtonAddNewPallet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddNewPallet.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Pallet;
             resources.ApplyResources(this.toolStripButtonAddNewPallet, "toolStripButtonAddNewPallet");
             this.toolStripButtonAddNewPallet.Name = "toolStripButtonAddNewPallet";
             this.toolStripButtonAddNewPallet.Click += new System.EventHandler(this.toolAddNewPallet);
@@ -445,7 +441,6 @@
             // toolStripButtonAddNewTruck
             // 
             this.toolStripButtonAddNewTruck.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddNewTruck.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Truck;
             resources.ApplyResources(this.toolStripButtonAddNewTruck, "toolStripButtonAddNewTruck");
             this.toolStripButtonAddNewTruck.Name = "toolStripButtonAddNewTruck";
             this.toolStripButtonAddNewTruck.Click += new System.EventHandler(this.toolAddNewTruck);
@@ -458,7 +453,6 @@
             // toolStripButtonCreateNewAnalysis
             // 
             this.toolStripButtonCreateNewAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Analysis;
             resources.ApplyResources(this.toolStripButtonCreateNewAnalysis, "toolStripButtonCreateNewAnalysis");
             this.toolStripButtonCreateNewAnalysis.Name = "toolStripButtonCreateNewAnalysis";
             this.toolStripButtonCreateNewAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysis);
@@ -466,7 +460,6 @@
             // toolStripButtonCreateNewBundleAnalysis
             // 
             this.toolStripButtonCreateNewBundleAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewBundleAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisBundle;
             resources.ApplyResources(this.toolStripButtonCreateNewBundleAnalysis, "toolStripButtonCreateNewBundleAnalysis");
             this.toolStripButtonCreateNewBundleAnalysis.Name = "toolStripButtonCreateNewBundleAnalysis";
             this.toolStripButtonCreateNewBundleAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
@@ -474,7 +467,6 @@
             // toolStripButtonCreateNewCaseAnalysis
             // 
             this.toolStripButtonCreateNewCaseAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewCaseAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.CaseAnalysis;
             resources.ApplyResources(this.toolStripButtonCreateNewCaseAnalysis, "toolStripButtonCreateNewCaseAnalysis");
             this.toolStripButtonCreateNewCaseAnalysis.Name = "toolStripButtonCreateNewCaseAnalysis";
             this.toolStripButtonCreateNewCaseAnalysis.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
@@ -487,10 +479,22 @@
             // editPaletSolutionsDBToolStripMenuItem
             // 
             this.editPaletSolutionsDBToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.editPaletSolutionsDBToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Database;
             resources.ApplyResources(this.editPaletSolutionsDBToolStripMenuItem, "editPaletSolutionsDBToolStripMenuItem");
             this.editPaletSolutionsDBToolStripMenuItem.Name = "editPaletSolutionsDBToolStripMenuItem";
             this.editPaletSolutionsDBToolStripMenuItem.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
+            // 
+            // toolStripButtonHelp
+            // 
+            this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonHelp.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Help;
+            resources.ApplyResources(this.toolStripButtonHelp, "toolStripButtonHelp");
+            this.toolStripButtonHelp.Name = "toolStripButtonHelp";
+            this.toolStripButtonHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
             // 
             // openFileDialogSB
             // 
@@ -504,7 +508,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStripStandard);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dockPanel);
             this.IsMdiContainer = true;
@@ -513,8 +517,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripStandard.ResumeLayout(false);
+            this.toolStripStandard.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,8 +544,8 @@
         private System.Windows.Forms.ToolStripMenuItem newAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewBundleAnalysis;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItemAbout;
+        private System.Windows.Forms.ToolStrip toolStripStandard;
         private System.Windows.Forms.ToolStripButton toolStripButtonNewFile;
         private System.Windows.Forms.ToolStripButton toolStripButtonFileOpen;
         private System.Windows.Forms.ToolStripButton toolStripButtonFileSave;
@@ -569,5 +573,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem editPaletSolutionsDB;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddNewCase;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItemHelp;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton toolStripButtonHelp;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }

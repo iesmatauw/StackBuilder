@@ -862,11 +862,18 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region About dialog box
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Help menu event handlers
+        private void helpToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
             AboutBox dlg = new AboutBox();
             dlg.ShowDialog();
+        }
+        private void helpToolStripMenuItemHelp_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this
+                , Path.ChangeExtension(Application.ExecutablePath, "chm")
+                , HelpNavigator.Topic
+                , "FormMain.html");
         }
         #endregion
 
@@ -876,8 +883,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
-
     }
 }

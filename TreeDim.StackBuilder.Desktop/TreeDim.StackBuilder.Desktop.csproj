@@ -514,6 +514,7 @@
     <None Include="Resources\Delete.bmp" />
     <None Include="Resources\Database.bmp" />
     <Content Include="Resources\CaseAnalysis.ico" />
+    <None Include="Resources\Help.bmp" />
     <Content Include="Resources\PalletAnalysis.ico" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />

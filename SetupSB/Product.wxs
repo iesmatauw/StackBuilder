@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.17.0" ?>
+<?define Version = "0.1.18.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -9,7 +9,7 @@
 <!-- Opensource-->
 <?define opensource="false"?>
 <!--Serial number-->
-<?define serial="1234-1234-1234-1234"?>
+<?define serial="FX11-VR50-ZH01-PICA"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
@@ -47,9 +47,9 @@
     <!--Properties-->
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PLMPack StackBuilder"/>
     <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
-    <Property Id="PIDTemplate" Value="####-####-####-####" />
+    <Property Id="PIDTemplate" Value="????-????-????-????" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
-    <Property Id="SERIALNUMBER" Value="####-####-####-####"/>
+    <Property Id="SERIALNUMBER" Value="    -    -    -    "/>
     <!--Property references-->
     <PropertyRef Id="NETFRAMEWORK20"/>
     <!-- Conditions-->
@@ -202,17 +202,19 @@
       <Dialog Id="UserRegistrationDlg" Width="370" Height="270" Title="[ProductName] Setup" NoMinimize="yes">
         <Control Id="NameLabel" Type="Text" X="45" Y="73" Width="100" Height="15" TabSkip="no" Text="&amp;User Name:" />
         <Control Id="NameEdit" Type="Edit" X="45" Y="85" Width="220" Height="18" Property="USERNAME" Text="{80}" />
-        <Control Id="OrganizationLabel" Type="Text" X="45" Y="110" Width="100" Height="15" TabSkip="no" Text="&amp;Organization:" />
-        <Control Id="OrganizationEdit" Type="Edit" X="45" Y="122" Width="220" Height="18" Property="COMPANYNAME" Text="{80}" />
         <?if $(var.opensource) = "false"?>
-          <Control Id="CDKeyLabel" Type="Text" X="45" Y="147" Width="50" Height="10" TabSkip="no" Text="CD &amp;Key:"/>
-          <Control Id="CDKeyEdit" Type="MaskedEdit" X="45" Y="159" Width="250" Height="16" Property="SERIALNUMBER" Text="[PIDTemplate]" />
+          <Control Id="CDKeyLabel" Type="Text" X="45" Y="110" Width="50" Height="10" TabSkip="no" Text="CD &amp;Key:"/>
+          <Control Id="CDKeyEdit" Type="MaskedEdit" X="45" Y="122" Width="250" Height="16" Property="SERIALNUMBER" Text="[PIDTemplate]" />
         <?endif?>
+        <Control Id="OrganizationLabel" Type="Text" X="45" Y="147" Width="100" Height="15" TabSkip="no" Text="&amp;Organization:" />
+        <Control Id="OrganizationEdit" Type="Edit" X="45" Y="159" Width="220" Height="18" Property="COMPANYNAME" Text="{80}" />
         <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="&amp;Back">
         </Control>
         <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="&amp;Next" Disabled="no">
-          <Condition Action="disable"><![CDATA[SERIALNUMBER<>"$(var.serial)"]]></Condition>
-          <Condition Action="enable">SERIALNUMBER="$(var.serial)"</Condition>
+          <?if $(var.opensource) = "false"?>
+            <Condition Action="disable"><![CDATA[SERIALNUMBER<>"$(var.serial)"]]></Condition>
+            <Condition Action="enable">SERIALNUMBER="$(var.serial)"</Condition>
+          <?endif?>
         </Control>
         <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="Cancel">
           <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>

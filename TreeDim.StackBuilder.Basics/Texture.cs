@@ -39,14 +39,19 @@ namespace TreeDim.StackBuilder.Basics
         /// Image size
         /// </summary>
         private Vector2D _size = new Vector2D();
+        /// <summary>
+        /// Angle
+        /// </summary>
+        private double _angle;
         #endregion
 
         #region Constructor
-        public Texture(Bitmap bitmap, Vector2D position, Vector2D size)
+        public Texture(Bitmap bitmap, Vector2D position, Vector2D size, double angle)
         {
             _bitmap = bitmap;
             _position = position;
             _size = size;
+            _angle = angle;
         }
         #endregion
 
@@ -75,12 +80,20 @@ namespace TreeDim.StackBuilder.Basics
             get { return _size; }
             set { _size = value; }
         }
+        /// <summary>
+        /// Angle
+        /// </summary>
+        public double Angle
+        {
+            get { return _angle; }
+            set { _angle = value; }
+        }
         #endregion
 
         #region Object method overrides
         public override string ToString()
         {
-            return string.Format("Texture : Position {0} Size {1}", _position, _size);
+            return string.Format("Texture : Position {0} Size {1} Angle {2}", _position, _size, _angle);
         }
         #endregion
     }

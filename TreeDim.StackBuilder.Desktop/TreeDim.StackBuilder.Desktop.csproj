@@ -131,6 +131,12 @@
     <Compile Include="FormAppendSolutionToDB.Designer.cs">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditBitmaps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditBitmaps.Designer.cs">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditPalletSolutionDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.resx">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditPalletSolutionDB.fr-FR.resx">
       <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>

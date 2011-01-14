@@ -33,7 +33,7 @@ namespace TreeDim.StackBuilder.Desktop
         public Color[] _faceColors = new Color[6];
         public BoxProperties _boxProperties;
         public Mode _mode;
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBundle));
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
         #endregion
 
         #region Constructor
@@ -283,6 +283,14 @@ namespace TreeDim.StackBuilder.Desktop
             if (chkAllFaces.Checked)
                 cbColor.Color = _faceColors[0];
         }
+        private void btBitmaps_Click(object sender, EventArgs e)
+        {
+            FormEditBitmaps form = new FormEditBitmaps();
+            form._boxProperties = _boxProperties;
+            if (DialogResult.OK == form.ShowDialog())
+            {
+            }
+        }
         #endregion
 
         #region Draw box
@@ -317,8 +325,5 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
-
-
-
     }
 }

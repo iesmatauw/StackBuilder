@@ -112,9 +112,9 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        public void AddTexture(HalfAxis.HAxis axis, Vector2D position, Vector2D size, Bitmap bmp)
+        public void AddTexture(HalfAxis.HAxis axis, Vector2D position, Vector2D size, double angle, Bitmap bmp)
         {
-            _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size)));
+            _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size, angle)));
             Modify();
         }
         #endregion

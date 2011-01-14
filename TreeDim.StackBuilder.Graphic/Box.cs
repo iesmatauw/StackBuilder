@@ -400,6 +400,49 @@ namespace TreeDim.StackBuilder.Graphics
                 return faces;
             }
         }
+        /// <summary>
+        /// PointsImage
+        /// </summary>
+        /// <param name="texture">Texture (bitmap + Vector2D (position) + Vector2D(size) + double(angle))</param>
+        /// <returns>array of Vector3D points</returns>
+         public Vector3D[] PointsImage(int faceId, Texture texture)
+        {
+            Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+            Vector3D[] points = new Vector3D[8];
+            points[0] = _position;
+            points[1] = _position + _dim[0] * _lengthAxis;
+            points[2] = _position + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
+            points[3] = _position + _dim[1] * _widthAxis;
+
+            points[4] = _position + _dim[2] * heightAxis;
+            points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis ;
+            points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis ;
+            points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis ;
+            
+            Vector3D vecI = Vector3D.XAxis, vecJ = Vector3D.YAxis, vecO = Vector3D.Zero;
+            switch (faceId)
+            {
+                case 0: vecI = points[0] - points[3]; vecJ = points[7] - points[3]; vecO = points[3];    break;
+                case 1: vecI = points[2] - points[1]; vecJ = points[5] - points[1]; vecO = points[1];    break;
+                case 2: vecI = points[1] - points[0]; vecJ = points[4] - points[0]; vecO = points[0];    break;
+                case 3: vecI = points[3] - points[2]; vecJ = points[6] - points[2]; vecO = points[2];    break;
+                case 4: vecI = points[0] - points[1]; vecJ = points[2] - points[1]; vecO = points[1];    break;
+                case 5: vecI = points[5] - points[4]; vecJ = points[7] - points[4]; vecO = points[4];    break;
+                default: break;
+            }
+            vecI.Normalize();
+            vecJ.Normalize();
+
+            Vector3D[] pts = new Vector3D[4];
+            double cosAngle = Math.Cos(texture.Angle * Math.PI / 180.0);
+            double sinAngle = Math.Sin(texture.Angle * Math.PI / 180.0);
+
+            pts[0] = vecO + texture.Position.X * vecI + texture.Position.Y * vecJ;
+            pts[1] = vecO + (texture.Position.X + texture.Size.X * cosAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle) * vecJ;
+            pts[2] = vecO + (texture.Position.X + texture.Size.X * cosAngle - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle + texture.Size.Y * cosAngle) * vecJ;
+            pts[3] = vecO + (texture.Position.X - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.Y * cosAngle) * vecJ;
+            return pts;
+        }
         #endregion
 
         #region Validity

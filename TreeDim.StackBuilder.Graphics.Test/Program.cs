@@ -24,15 +24,15 @@ namespace TreeDim.StackBuilder.Graphics.Test
             try
             {
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));
-                graphics.CameraPosition = new Vector3D(10000.0, 10000.0, 10000.0);
+                Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));
+                graphics.CameraPosition = new Vector3D(-10000.0, -10000.0, 10000.0);
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // load Bitmap
-                string imageFilePath = @".\treeDim.bmp";
+                string imageFilePath = @"..\..\Image16.bmp";
                 Bitmap bmp = new Bitmap(imageFilePath);
-                Texture texture = new Texture(bmp, new Vector2D(10.0, 10.0), new Vector2D(80.0 * bmp.Size.Width / bmp.Size.Height, 80.0));
+                Texture texture = new Texture(bmp, new Vector2D(100.0, 20.0), new Vector2D(40.0 * bmp.Size.Width / bmp.Size.Height, 40.0), 10.0);
                 List<Texture> listTexture= new List<Texture>();
                 listTexture.Add(texture);
                 // instantiate box and draw
@@ -40,9 +40,13 @@ namespace TreeDim.StackBuilder.Graphics.Test
                 Box box0 = new Box(0, 200.0, 160.0, 100.0);
                 box0.Position = new Vector3D(0.0, 0.0, 0.0);
                 box0.SetAllFacesColor(Color.Chocolate);
+                box0.SetFaceTextures(HalfAxis.HAxis.AXIS_X_P, listTexture);
                 box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_P, listTexture);
+                box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Z_P, listTexture);
+                box0.SetFaceTextures(HalfAxis.HAxis.AXIS_X_N, listTexture);
+                box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_N, listTexture);
+                box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Z_N, listTexture);
                 boxList.Add(box0);
-
                 Box box1 = new Box(1, 200.0, 160.0, 100.0);
                 box1.Position = new Vector3D(210.0, 0.0, 0.0);
                 box1.SetAllFacesColor(Color.Chocolate);
@@ -61,8 +65,7 @@ namespace TreeDim.StackBuilder.Graphics.Test
 
                 // draw
                 foreach (Box box in boxList)
-                    foreach (Face face in box.Faces)
-                        graphics.AddFace(face);
+                    graphics.AddBox(box);
                 graphics.Flush();
                 // Save as %TEMP%\Pallet.jpg
                 string filePath = Path.Combine(Path.GetTempPath(), "Pallet.bmp");

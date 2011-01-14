@@ -497,19 +497,6 @@ namespace TreeDim.StackBuilder.Graphics
             }
             if (!(face._isIntersection[ptCount - 1] && face._isIntersection[0]))
                 g.DrawLine(new Pen(brush0, 1.5f), pt[ptCount - 1], pt[0]);
-
-            if (face.HasBitmap)
-            {
-                foreach (Texture texture in face.Textures)
-                {
-                    Point[] ptsImage = TransformPoint(GetCurrentTransformation(), face.PointsImage(texture));
-                    Point[] pts = new Point[3];
-                    pts[0] = ptsImage[1];
-                    pts[1] = ptsImage[0];
-                    pts[2] = ptsImage[2];
-                    g.DrawImage(texture.Bitmap, pts);
-                }
-            }
         }
 
         internal void Draw(Box box)
@@ -521,8 +508,10 @@ namespace TreeDim.StackBuilder.Graphics
             Face[] faces = box.Faces;
             for (int i=0; i<6; ++i)
             {
+                // Face
+                Face face =  faces[i];
                 // face normal
-                Vector3D normal = faces[i].Normal;
+                Vector3D normal =face.Normal;
                 // visible ?
                 if (! faces[i].IsVisible(_vTarget - _vCameraPos))
                     continue;
@@ -536,6 +525,17 @@ namespace TreeDim.StackBuilder.Graphics
                 //  draw solid face
                 Brush brush = new SolidBrush(color);
                 g.FillPolygon(brush, pt);
+                // draw textures
+                if (null != face.Textures)
+                    foreach (Texture texture in face.Textures)
+                    {
+                        Point[] ptsImage = TransformPoint(GetCurrentTransformation(), box.PointsImage(i, texture));
+                        Point[] pts = new Point[3];
+                        pts[0] = ptsImage[3];
+                        pts[1] = ptsImage[2];
+                        pts[2] = ptsImage[0];
+                        g.DrawImage(texture.Bitmap, pts);
+                    }
                 // draw path
                 Brush brushPath = new SolidBrush(faces[i].ColorPath);
                 Pen penPathThick = new Pen(brushPath, box.IsBundle ? 2.0f : 1.5f);

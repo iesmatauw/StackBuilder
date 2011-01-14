@@ -200,25 +200,6 @@ namespace TreeDim.StackBuilder.Graphics
 
         #region Public methods
         /// <summary>
-        /// PointsImage
-        /// </summary>
-        /// <param name="texture">Texture (bitmap + Vector2D + Vector2D)</param>
-        /// <returns>Vector3D</returns>
-        public Vector3D[] PointsImage(Texture texture)
-        {
-            Vector3D[] pts = new Vector3D[4];
-            Vector3D vecI = (_points[1] - _points[0]); vecI.Normalize();
-            Vector3D vecJ = (_points[3] - _points[0]); vecJ.Normalize();
-
-            pts[0] = _points[0] + texture.Position.X * vecI + texture.Position.Y * vecJ;
-            pts[1] = _points[0] + (texture.Position.X + texture.Size.X) * vecI + texture.Position.Y * vecJ;
-            pts[2] = _points[0] + (texture.Position.X + texture.Size.X) * vecI + (texture.Position.Y + texture.Size.Y) * vecJ;
-            pts[3] = _points[0] + texture.Position.X * vecI + (texture.Position.Y + texture.Size.Y) * vecJ;
-
-            return pts;
-        }
-
-        /// <summary>
         /// Gives point placement relative to face
         /// </summary>
         /// <param name="pt">Tested point</param>

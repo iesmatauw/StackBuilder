@@ -485,5 +485,16 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["OverhangY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormEditBitmapsPosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormEditBitmapsPosition"]));
+            }
+            set {
+                this["FormEditBitmapsPosition"] = value;
+            }
+        }
     }
 }

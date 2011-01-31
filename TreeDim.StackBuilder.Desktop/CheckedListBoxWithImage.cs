@@ -112,6 +112,14 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Drawing
+        /// <summary>
+        /// item drawing method
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="margin"></param>
+        /// <param name="titleFont"></param>
+        /// <param name="alignment"></param>
+        /// <param name="imageSize"></param>
         public void drawItem(DrawItemEventArgs e, Padding margin
             , Font titleFont, StringFormat alignment
             , Size imageSize)

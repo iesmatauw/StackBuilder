@@ -212,6 +212,12 @@
     <Compile Include="IDocument.cs" />
     <Compile Include="IDocumentFactory.cs" />
     <Compile Include="IView.cs" />
+    <Compile Include="ListBoxImages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBoxImages.Designer.cs">
+      <DependentUpon>ListBoxImages.cs</DependentUpon>
+    </Compile>
     <Compile Include="MruManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.resx">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.fr-FR.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>

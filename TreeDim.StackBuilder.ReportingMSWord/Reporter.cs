@@ -696,7 +696,6 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
                 int imageWidth = 768;
-                bool showDimensions = false;
                 switch (i)
                 {
                     case 0: viewName = "view_trucksolution_top"; cameraPos = Graphics3D.Top; imageWidth = 768; break;

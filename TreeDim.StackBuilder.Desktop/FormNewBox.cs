@@ -286,7 +286,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void btBitmaps_Click(object sender, EventArgs e)
         {
             FormEditBitmaps form = new FormEditBitmaps();
-            form._boxProperties = _boxProperties;
+            form.BoxProperties = _boxProperties;
             if (DialogResult.OK == form.ShowDialog())
             {
             }

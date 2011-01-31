@@ -122,5 +122,8 @@
     <Setting Name="OverhangY" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="FormEditBitmapsPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

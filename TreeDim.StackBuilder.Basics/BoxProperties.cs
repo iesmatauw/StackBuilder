@@ -111,11 +111,37 @@ namespace TreeDim.StackBuilder.Basics
                 return true;
             }
         }
+        #endregion
 
+        #region Texture pairs
+        /// <summary>
+        /// Texture pair
+        /// </summary>
+        /// <param name="axis">Face normal axis</param>
+        /// <param name="position">Position</param>
+        /// <param name="size">Size</param>
+        /// <param name="angle">Angle</param>
+        /// <param name="bmp">Image used as texture</param>
         public void AddTexture(HalfAxis.HAxis axis, Vector2D position, Vector2D size, double angle, Bitmap bmp)
         {
             _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size, angle)));
             Modify();
+        }
+        /// <summary>
+        /// Get / set face/texture pairs
+        /// </summary>
+        public List<Pair<HalfAxis.HAxis, Texture>> TextureList
+        {
+            get
+            {
+                List<Pair<HalfAxis.HAxis, Texture>> list = new List<Pair<HalfAxis.HAxis,Texture>>();
+                return list;
+            }
+            set
+            {
+                _textures.Clear();
+                _textures.AddRange(value);
+            }
         }
         #endregion
 

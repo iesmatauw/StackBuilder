@@ -24,15 +24,20 @@ namespace TreeDim.StackBuilder.Desktop
         private  BoxProperties _boxProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormEditBitmaps));
         private List<Pair<HalfAxis.HAxis, Texture>> _textures;
+        private bool _preventHandling = false;
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
-        public FormEditBitmaps()
+        public FormEditBitmaps(BoxProperties boxProperties)
         {
             InitializeComponent();
+            // set internal box properties
+            _boxProperties = boxProperties;
+            // get textures
+            _textures = _boxProperties.TextureListCopy;
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
@@ -48,6 +53,15 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return _boxProperties; }
             set { _boxProperties = value; }
+        }
+        public List<Pair<HalfAxis.HAxis, Texture>> Textures
+        {
+            get { return _textures; }
+            set
+            {
+                _textures.Clear();
+                _textures.AddRange(value); 
+            }
         }
         #endregion
 
@@ -104,7 +118,17 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void onSelectedFaceChanged(object sender, EventArgs e)
         {
-            FillBitmapControl(SelectedFace);
+            try
+            {
+                FillBitmapControl(SelectedFace);
+                if (listBoxTextures.Items.Count > 0)
+                    listBoxTextures.SelectedIndex = 0;
+                onSelectedTextureChanged(listBoxTextures, null);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         private void FillBitmapControl(HalfAxis.HAxis iFace)
         {
@@ -120,37 +144,149 @@ namespace TreeDim.StackBuilder.Desktop
             DrawBox();
         }
 
-        private void bnMoveUp_Click(object sender, EventArgs e)
+        private void bnMoveUpDown_Click(object sender, EventArgs e)
         {
-            DrawBox();
-        }
-
-        private void bnMoveDown_Click(object sender, EventArgs e)
-        {
+            // try and find selected texture
+            Pair<HalfAxis.HAxis, Texture> texturePair = _textures.Find(
+                delegate(Pair<HalfAxis.HAxis, Texture> tex) { return tex.second == SelectedTexture; });
+            // get index
+            int index = _textures.IndexOf(texturePair);
+            if (sender == bnMoveUp)
+            {
+                // remove and insert at index - 1
+                if (index > 0 && _textures.Remove(texturePair))
+                    _textures.Insert(index - 1, texturePair);
+            }
+            else if (sender == bnMoveDown)
+            { 
+                // remove and insert at index + 1
+                if (index < _textures.Count - 1 && _textures.Remove(texturePair))
+                    _textures.Insert(index + 1, texturePair);
+            }
+            // rebuild list
+            FillBitmapControl(SelectedFace);
+            // select current item
+            SelectedTexture = texturePair.second;
+            // refresh
             DrawBox();
         }
 
         private void bnAdd_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == openImageFileDialog.ShowDialog())
+            try
             {
-                double faceLength = 0.0, faceWidth = 0.0; 
-                foreach (string filePath in openImageFileDialog.FileNames)
+                if (DialogResult.OK == openImageFileDialog.ShowDialog())
                 {
-                    Bitmap bmp = new Bitmap(filePath);
-                    Pair<HalfAxis.HAxis, Texture> faceTexturePair = new Pair<HalfAxis.HAxis, Texture>(SelectedFace, new Texture(bmp, Vector2D.Zero, new Vector2D(faceLength, faceWidth), 0.0));
-                    _textures.Add(faceTexturePair);
+                    double faceLength = 0.0, faceHeight = 0.0;
+                    SelectedFaceLengthHeight(out faceLength, out faceHeight);
+                    Pair<HalfAxis.HAxis, Texture> faceTexturePair = null;
+                    foreach (string filePath in openImageFileDialog.FileNames)
+                    {
+                        Bitmap bmp = new Bitmap(filePath);
+                        faceTexturePair = new Pair<HalfAxis.HAxis, Texture>(SelectedFace, new Texture(bmp, Vector2D.Zero, new Vector2D(faceLength, faceHeight), 0.0));
+                        _textures.Add(faceTexturePair);
+                    }
+                    FillBitmapControl(SelectedFace);
+                    SelectedTexture = faceTexturePair.second;
+                    // refresh drawing
+                    DrawBox();
                 }
-                FillBitmapControl(SelectedFace);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         private void bnRemove_Click(object sender, EventArgs e)
         {
-            HalfAxis.HAxis currentAxis = SelectedFace;
-            Texture currentTexture = SelectedTexture;
-            _textures.RemoveAll(delegate(Pair<HalfAxis.HAxis, Texture> p) { return p.first == currentAxis && p.second == currentTexture; });
-            // update bitmap control
-            FillBitmapControl(SelectedFace);
+            try
+            {
+                HalfAxis.HAxis currentAxis = SelectedFace;
+                Texture currentTexture = SelectedTexture;
+                _textures.RemoveAll(delegate(Pair<HalfAxis.HAxis, Texture> p) { return p.first == currentAxis && p.second == currentTexture; });
+                // update bitmap control
+                FillBitmapControl(SelectedFace);
+                // select first texture available in list
+                if (listBoxTextures.Items.Count > 0)
+                {
+                    ListBoxImagesItem item = listBoxTextures.Items[0] as ListBoxImagesItem;
+                    SelectedTexture = item.Texture;
+                }
+                else
+                    onSelectedTextureChanged(this, null);
+                // draw box
+                DrawBox();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+        /// <summary>
+        /// Handling changes in texture position
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void texturePosition_ValueChanged(object sender, EventArgs e)
+        {
+            if (_preventHandling)
+                return;
+            try
+            {
+                // get selected texture
+                Texture texture = SelectedTexture;
+                if (null == texture) return;
+                // set position / size / angle
+                texture.Position = new Vector2D((double)nudPositionX.Value, (double)nudPositionY.Value);
+                texture.Size = new Vector2D((double)nudSizeX.Value, (double)nudSizeY.Value);
+                texture.Angle = (double)nudAngle.Value;
+                // redraw box
+                DrawBox();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
+        private void onSelectedTextureChanged(object sender, EventArgs e)
+        {
+            int index = listBoxTextures.SelectedIndex;
+
+            Texture texture = SelectedTexture;
+
+            nudPositionX.Enabled = null != texture;
+            nudPositionY.Enabled = null != texture;
+            nudSizeX.Enabled = null != texture;
+            nudSizeY.Enabled = null != texture;
+            nudAngle.Enabled = null != texture;
+
+            lbOrigin.Enabled = null != texture;
+            lbSize.Enabled = null != texture;
+            lbAngle.Enabled = null != texture;
+            lbUnitOriginX.Enabled = null != texture;
+            lbUnitOriginY.Enabled = null != texture;
+            lbUnitSizeX.Enabled = null != texture;
+            lbUnitSizeY.Enabled = null != texture;
+            lbUnitAngle.Enabled = null != texture;
+
+            if (null != texture)
+            {
+                _preventHandling = true;
+                nudPositionX.Value = (decimal)texture.Position.X;
+                nudPositionY.Value = (decimal)texture.Position.Y;
+                nudSizeX.Value = (decimal)texture.Size.X;
+                nudSizeY.Value = (decimal)texture.Size.Y;
+                nudAngle.Value = (decimal)texture.Angle;
+                _preventHandling = false;
+            }
+
+            // enable/disable up and down button
+        }
+        private void FormEditBitmaps_Resize(object sender, EventArgs e)
+        {
+            // refresh drawing
+            DrawBox();
         }
         #endregion
 
@@ -162,6 +298,10 @@ namespace TreeDim.StackBuilder.Desktop
                 if (-1 == cbFace.SelectedIndex)
                     throw new Exception("No face selected");
                 return (HalfAxis.HAxis)cbFace.SelectedIndex; 
+            }
+            set
+            {
+                cbFace.SelectedIndex = (int)value;
             }
         }
 
@@ -176,7 +316,49 @@ namespace TreeDim.StackBuilder.Desktop
                 // return texture
                 return item.Texture;
             }
+            set
+            {
+                foreach (object item in listBoxTextures.Items)
+                {
+                    ListBoxImagesItem imageItem = item as ListBoxImagesItem;
+                    if (imageItem.Texture == value)
+                    {
+                        listBoxTextures.SelectedItem = item;
+                        break;
+                    }
+                }
+            }
         }
         #endregion
+
+        #region Private helpers
+        private void SelectedFaceLengthHeight(out double length, out double height)
+        {
+            switch (SelectedFace)
+            { 
+                case HalfAxis.HAxis.AXIS_X_N:
+                case HalfAxis.HAxis.AXIS_X_P:
+                    length = _boxProperties.Width;
+                    height = _boxProperties.Height;
+                    break;
+                case HalfAxis.HAxis.AXIS_Y_N:
+                case HalfAxis.HAxis.AXIS_Y_P:
+                    length = _boxProperties.Length;
+                    height = _boxProperties.Height;
+                    break;
+                case HalfAxis.HAxis.AXIS_Z_N:
+                case HalfAxis.HAxis.AXIS_Z_P:
+                    length = _boxProperties.Length;
+                    height = _boxProperties.Width;
+                    break;
+                default:
+                    length = 0.0;
+                    height = 0.0;
+                    break;
+            }
+        }
+        #endregion
+
+
     }
 }

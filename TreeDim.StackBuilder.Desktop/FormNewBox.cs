@@ -33,6 +33,7 @@ namespace TreeDim.StackBuilder.Desktop
         public Color[] _faceColors = new Color[6];
         public BoxProperties _boxProperties;
         public Mode _mode;
+        public List<Pair<HalfAxis.HAxis, Texture>> _textures;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
         #endregion
 
@@ -75,6 +76,8 @@ namespace TreeDim.StackBuilder.Desktop
             // set colors
             for (int i=0; i<6; ++i)
                 _faceColors[i] = _mode == Mode.MODE_BOX ? Color.Turquoise : Color.Chocolate;
+            // set textures
+            _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
@@ -113,6 +116,8 @@ namespace TreeDim.StackBuilder.Desktop
             // set colors
             for (int i=0; i<6; ++i)
                 _faceColors[i] = _boxProperties.Colors[i];
+            // set textures
+            _textures = _boxProperties.TextureList;
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
@@ -178,6 +183,14 @@ namespace TreeDim.StackBuilder.Desktop
             get { return _faceColors; }
             set { }
         }
+        public List<Pair<HalfAxis.HAxis, Texture>> TextureList
+        {
+            get {   return _textures;   }
+            set
+            {
+                _textures.Clear();
+                _textures.AddRange(value);}
+        }
         #endregion
 
         #region Load / FormClosing event
@@ -213,7 +226,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form override
-        protected override void  OnResize(EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
             DrawBox();
  	         base.OnResize(e);
@@ -285,10 +298,17 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void btBitmaps_Click(object sender, EventArgs e)
         {
-            FormEditBitmaps form = new FormEditBitmaps();
-            form.BoxProperties = _boxProperties;
-            if (DialogResult.OK == form.ShowDialog())
+            try
             {
+                FormEditBitmaps form = new FormEditBitmaps(_boxProperties);
+                form.Textures = _textures;
+                if (DialogResult.OK == form.ShowDialog())
+                    _textures = form.Textures;
+                DrawBox();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         #endregion
@@ -312,6 +332,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // draw
                 BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
                 boxProperties.SetAllColors(_faceColors);
+                boxProperties.TextureList = _textures;
                 Box box = new Box(0, boxProperties);
                 graphics.AddBox(box);
                 graphics.AddDimensions(new DimensionCube((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value));

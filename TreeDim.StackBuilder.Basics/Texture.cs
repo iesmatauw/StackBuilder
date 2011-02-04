@@ -96,6 +96,13 @@ namespace TreeDim.StackBuilder.Basics
             return string.Format("Texture : Position {0} Size {1} Angle {2}", _position, _size, _angle);
         }
         #endregion
+
+        #region Clone method
+        public Texture Clone()
+        {
+            return new Texture(_bitmap, _position, _size, _angle);
+        }
+        #endregion
     }
     #endregion
 }

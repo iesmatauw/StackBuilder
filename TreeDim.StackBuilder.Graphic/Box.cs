@@ -81,6 +81,20 @@ namespace TreeDim.StackBuilder.Graphics
 
             // IsBundle ?
             _isBundle = bProperties.IsBundle;
+
+            // textures
+            BoxProperties boxProperties = bProperties as BoxProperties;
+            if (null != boxProperties)
+            {
+                List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
+                foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                {
+                    int iIndex = (int)tex.first;
+                    if (null == _textureLists[iIndex])
+                        _textureLists[iIndex] = new List<Texture>();
+                    _textureLists[iIndex].Add(tex.second);
+                }
+            }
         }
         public Box(uint pickId, BProperties bProperties, BoxPosition bPosition)
         {
@@ -92,6 +106,19 @@ namespace TreeDim.StackBuilder.Graphics
             _dim[2] = bProperties.Height;
 
             _colors = bProperties.Colors;
+
+            BoxProperties boxProperties = bProperties as BoxProperties;
+            if (null != boxProperties)
+            {
+                List<Pair<HalfAxis.HAxis, Texture>> textures = boxProperties.TextureList;
+                foreach (Pair<HalfAxis.HAxis, Texture> tex in textures)
+                {
+                    int iIndex = (int)tex.first;
+                    if (null == _textureLists[iIndex])
+                        _textureLists[iIndex] = new List<Texture>();
+                    _textureLists[iIndex].Add(tex.second);
+                }
+            }
 
             // set position
             Position = bPosition.Position;

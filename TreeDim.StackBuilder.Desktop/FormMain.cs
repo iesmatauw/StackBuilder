@@ -199,6 +199,7 @@ namespace TreeDim.StackBuilder.Desktop
                         box.InsideHeight = form.InsideHeight;
                         box.SetAllColors( form.Colors );
                         box.SetAllColors(form.Colors);
+                        box.TextureList = form.TextureList;
                         box.EndUpdate();
                     }
                 }

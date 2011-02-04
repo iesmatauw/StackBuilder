@@ -35,26 +35,26 @@
             this.cbFace = new System.Windows.Forms.ComboBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
-            this.listBoxTextures = new TreeDim.StackBuilder.Desktop.ListBoxImages();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbOrigin = new System.Windows.Forms.Label();
+            this.lbSize = new System.Windows.Forms.Label();
+            this.lbAngle = new System.Windows.Forms.Label();
             this.nudPositionX = new System.Windows.Forms.NumericUpDown();
             this.nudPositionY = new System.Windows.Forms.NumericUpDown();
             this.nudSizeX = new System.Windows.Forms.NumericUpDown();
             this.nudSizeY = new System.Windows.Forms.NumericUpDown();
             this.nudAngle = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbUnitOriginX = new System.Windows.Forms.Label();
+            this.lbUnitSizeX = new System.Windows.Forms.Label();
+            this.lbUnitAngle = new System.Windows.Forms.Label();
+            this.lbUnitOriginY = new System.Windows.Forms.Label();
+            this.lbUnitSizeY = new System.Windows.Forms.Label();
             this.bnMoveUp = new System.Windows.Forms.Button();
             this.bnMoveDown = new System.Windows.Forms.Button();
             this.bnAdd = new System.Windows.Forms.Button();
             this.bnRemove = new System.Windows.Forms.Button();
             this.openImageFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.listBoxTextures = new TreeDim.StackBuilder.Desktop.ListBoxImages();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPositionX)).BeginInit();
@@ -67,6 +67,7 @@
             // bnOK
             // 
             resources.ApplyResources(this.bnOK, "bnOK");
+            this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
@@ -95,7 +96,7 @@
             resources.GetString("cbFace.Items5")});
             resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
-            this.cbFace.Click += new System.EventHandler(this.onSelectedFaceChanged);
+            this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
             // pictureBox
             // 
@@ -105,39 +106,32 @@
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.LargeChange = 90;
             resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
+            this.trackBarHorizAngle.LargeChange = 90;
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
-            // 
-            // listBoxTextures
-            // 
-            this.listBoxTextures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.listBoxTextures.FormattingEnabled = true;
-            resources.ApplyResources(this.listBoxTextures, "listBoxTextures");
-            this.listBoxTextures.Name = "listBoxTextures";
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // label2
+            // lbOrigin
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lbOrigin, "lbOrigin");
+            this.lbOrigin.Name = "lbOrigin";
             // 
-            // label3
+            // lbSize
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.lbSize, "lbSize");
+            this.lbSize.Name = "lbSize";
             // 
-            // label4
+            // lbAngle
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.lbAngle, "lbAngle");
+            this.lbAngle.Name = "lbAngle";
             // 
             // nudPositionX
             // 
@@ -147,7 +141,13 @@
             0,
             0,
             0});
+            this.nudPositionX.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.nudPositionX.Name = "nudPositionX";
+            this.nudPositionX.ValueChanged += new System.EventHandler(this.texturePosition_ValueChanged);
             // 
             // nudPositionY
             // 
@@ -157,7 +157,13 @@
             0,
             0,
             0});
+            this.nudPositionY.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.nudPositionY.Name = "nudPositionY";
+            this.nudPositionY.ValueChanged += new System.EventHandler(this.texturePosition_ValueChanged);
             // 
             // nudSizeX
             // 
@@ -168,6 +174,7 @@
             0,
             0});
             this.nudSizeX.Name = "nudSizeX";
+            this.nudSizeX.ValueChanged += new System.EventHandler(this.texturePosition_ValueChanged);
             // 
             // nudSizeY
             // 
@@ -178,6 +185,7 @@
             0,
             0});
             this.nudSizeY.Name = "nudSizeY";
+            this.nudSizeY.ValueChanged += new System.EventHandler(this.texturePosition_ValueChanged);
             // 
             // nudAngle
             // 
@@ -188,45 +196,46 @@
             0,
             0});
             this.nudAngle.Name = "nudAngle";
+            this.nudAngle.ValueChanged += new System.EventHandler(this.texturePosition_ValueChanged);
             // 
-            // label5
+            // lbUnitOriginX
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.lbUnitOriginX, "lbUnitOriginX");
+            this.lbUnitOriginX.Name = "lbUnitOriginX";
             // 
-            // label6
+            // lbUnitSizeX
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.lbUnitSizeX, "lbUnitSizeX");
+            this.lbUnitSizeX.Name = "lbUnitSizeX";
             // 
-            // label7
+            // lbUnitAngle
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.lbUnitAngle, "lbUnitAngle");
+            this.lbUnitAngle.Name = "lbUnitAngle";
             // 
-            // label8
+            // lbUnitOriginY
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.lbUnitOriginY, "lbUnitOriginY");
+            this.lbUnitOriginY.Name = "lbUnitOriginY";
             // 
-            // label9
+            // lbUnitSizeY
             // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
+            resources.ApplyResources(this.lbUnitSizeY, "lbUnitSizeY");
+            this.lbUnitSizeY.Name = "lbUnitSizeY";
             // 
             // bnMoveUp
             // 
             resources.ApplyResources(this.bnMoveUp, "bnMoveUp");
             this.bnMoveUp.Name = "bnMoveUp";
             this.bnMoveUp.UseVisualStyleBackColor = true;
-            this.bnMoveUp.Click += new System.EventHandler(this.bnMoveUp_Click);
+            this.bnMoveUp.Click += new System.EventHandler(this.bnMoveUpDown_Click);
             // 
             // bnMoveDown
             // 
             resources.ApplyResources(this.bnMoveDown, "bnMoveDown");
             this.bnMoveDown.Name = "bnMoveDown";
             this.bnMoveDown.UseVisualStyleBackColor = true;
-            this.bnMoveDown.Click += new System.EventHandler(this.bnMoveDown_Click);
+            this.bnMoveDown.Click += new System.EventHandler(this.bnMoveUpDown_Click);
             // 
             // bnAdd
             // 
@@ -248,6 +257,13 @@
             this.openImageFileDialog.DefaultExt = "jpg";
             resources.ApplyResources(this.openImageFileDialog, "openImageFileDialog");
             // 
+            // listBoxTextures
+            // 
+            this.listBoxTextures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            resources.ApplyResources(this.listBoxTextures, "listBoxTextures");
+            this.listBoxTextures.Name = "listBoxTextures";
+            this.listBoxTextures.SelectedIndexChanged += new System.EventHandler(this.onSelectedTextureChanged);
+            // 
             // FormEditBitmaps
             // 
             this.AcceptButton = this.bnOK;
@@ -258,19 +274,19 @@
             this.Controls.Add(this.bnAdd);
             this.Controls.Add(this.bnMoveDown);
             this.Controls.Add(this.bnMoveUp);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbUnitSizeY);
+            this.Controls.Add(this.lbUnitOriginY);
+            this.Controls.Add(this.lbUnitAngle);
+            this.Controls.Add(this.lbUnitSizeX);
+            this.Controls.Add(this.lbUnitOriginX);
             this.Controls.Add(this.nudAngle);
             this.Controls.Add(this.nudSizeY);
             this.Controls.Add(this.nudSizeX);
             this.Controls.Add(this.nudPositionY);
             this.Controls.Add(this.nudPositionX);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbAngle);
+            this.Controls.Add(this.lbSize);
+            this.Controls.Add(this.lbOrigin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxTextures);
             this.Controls.Add(this.trackBarHorizAngle);
@@ -285,6 +301,7 @@
             this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FormEditBitmaps_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditBitmaps_FormClosing);
+            this.Resize += new System.EventHandler(this.FormEditBitmaps_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPositionX)).EndInit();
@@ -307,19 +324,19 @@
         private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private TreeDim.StackBuilder.Desktop.ListBoxImages listBoxTextures;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbOrigin;
+        private System.Windows.Forms.Label lbSize;
+        private System.Windows.Forms.Label lbAngle;
         private System.Windows.Forms.NumericUpDown nudPositionX;
         private System.Windows.Forms.NumericUpDown nudPositionY;
         private System.Windows.Forms.NumericUpDown nudSizeX;
         private System.Windows.Forms.NumericUpDown nudSizeY;
         private System.Windows.Forms.NumericUpDown nudAngle;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbUnitOriginX;
+        private System.Windows.Forms.Label lbUnitSizeX;
+        private System.Windows.Forms.Label lbUnitAngle;
+        private System.Windows.Forms.Label lbUnitOriginY;
+        private System.Windows.Forms.Label lbUnitSizeY;
         private System.Windows.Forms.Button bnMoveUp;
         private System.Windows.Forms.Button bnMoveDown;
         private System.Windows.Forms.Button bnAdd;

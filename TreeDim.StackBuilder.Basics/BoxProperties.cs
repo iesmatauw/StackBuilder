@@ -134,13 +134,23 @@ namespace TreeDim.StackBuilder.Basics
         {
             get
             {
-                List<Pair<HalfAxis.HAxis, Texture>> list = new List<Pair<HalfAxis.HAxis,Texture>>();
-                return list;
+                return _textures;
             }
             set
             {
                 _textures.Clear();
-                _textures.AddRange(value);
+                if (null != value)
+                    _textures.AddRange(value);
+            }
+        }
+        public List<Pair<HalfAxis.HAxis, Texture>> TextureListCopy
+        {
+            get
+            {
+                List<Pair<HalfAxis.HAxis, Texture>> list = new List<Pair<HalfAxis.HAxis, Texture>>();
+                foreach (Pair<HalfAxis.HAxis, Texture> tex in _textures)
+                    list.Add(new Pair< HalfAxis.HAxis, Texture >(tex.first, tex.second.Clone()));
+                return list;
             }
         }
         #endregion

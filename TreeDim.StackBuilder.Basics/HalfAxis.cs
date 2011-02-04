@@ -7,7 +7,7 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Basics
 {
-        public class HalfAxis
+    public class HalfAxis
     {
         #region Values
         public enum HAxis

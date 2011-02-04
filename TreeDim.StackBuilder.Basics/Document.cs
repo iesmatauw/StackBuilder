@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Xml;
 using System.Diagnostics;
+using System.ComponentModel;
 
 using TreeDim.StackBuilder.Basics;
 
@@ -667,6 +668,7 @@ namespace TreeDim.StackBuilder.Basics
             { }
 
             Color[] colors = new Color[6];
+            List<Pair<HalfAxis.HAxis, Texture>> listTexture = new List<Pair<HalfAxis.HAxis,Texture>>();
             foreach (XmlNode node in eltBoxProperties.ChildNodes)
             {
                 if (string.Equals(node.Name, "FaceColors", StringComparison.CurrentCultureIgnoreCase))
@@ -680,6 +682,33 @@ namespace TreeDim.StackBuilder.Basics
                         int iFaceIndex = System.Convert.ToInt32(sFaceIndex);
                         Color faceColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
                         colors[iFaceIndex] = faceColor;
+                    }
+                }
+                else if (string.Equals(node.Name, "Textures", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement textureList = node as XmlElement;
+                    foreach (XmlNode faceTextureNode in textureList.ChildNodes)
+                    {
+                        try
+                        {
+                            XmlElement xmlFaceTexture = faceTextureNode as XmlElement;
+                            // face normal
+                            HalfAxis.HAxis faceNormal = HalfAxis.Parse(xmlFaceTexture.Attributes["FaceNormal"].Value);
+                            // position
+                            Vector2D position = Vector2D.Parse(xmlFaceTexture.Attributes["Position"].Value);
+                            // size
+                            Vector2D size = Vector2D.Parse(xmlFaceTexture.Attributes["Size"].Value);
+                            // angle
+                            double angle = Convert.ToDouble(xmlFaceTexture.Attributes["Angle"].Value);
+                            // bitmap
+                            Bitmap bmp = Document.StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
+                            // add texture pair
+                            listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal, new Texture(bmp, position, size, angle)));
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.Error(ex.ToString());
+                        }
                     }
                 }
             }
@@ -707,6 +736,7 @@ namespace TreeDim.StackBuilder.Basics
                 , System.Convert.ToDouble(sweight)
                 , colors);
             boxProperties.Guid = new Guid(sid);
+            boxProperties.TextureList = listTexture;
         }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
@@ -1399,6 +1429,31 @@ namespace TreeDim.StackBuilder.Basics
             // textures
             XmlElement xmlTexturesElement = xmlDoc.CreateElement("Textures");
             xmlBoxProperties.AppendChild(xmlTexturesElement);
+            foreach (Pair<HalfAxis.HAxis, Texture> texPair in boxProperties.TextureList)
+            {
+                XmlElement xmlFaceTexture = xmlDoc.CreateElement("FaceTexture");
+                xmlTexturesElement.AppendChild(xmlFaceTexture);
+                // face index
+                XmlAttribute xmlFaceNormal = xmlDoc.CreateAttribute("FaceNormal");
+                xmlFaceNormal.Value = HalfAxis.ToString(texPair.first);
+                xmlFaceTexture.Attributes.Append(xmlFaceNormal);
+                // texture position
+                XmlAttribute xmlPosition = xmlDoc.CreateAttribute("Position");
+                xmlPosition.Value = texPair.second.Position.ToString();
+                xmlFaceTexture.Attributes.Append(xmlPosition);
+                // texture size
+                XmlAttribute xmlSize = xmlDoc.CreateAttribute("Size");
+                xmlSize.Value = texPair.second.Size.ToString();
+                xmlFaceTexture.Attributes.Append(xmlSize);
+                // angle
+                XmlAttribute xmlAngle = xmlDoc.CreateAttribute("Angle");
+                xmlAngle.Value = string.Format("{0}", texPair.second.Angle);
+                xmlFaceTexture.Attributes.Append(xmlAngle);
+                // bitmap
+                XmlAttribute xmlBitmap = xmlDoc.CreateAttribute("Bitmap");
+                xmlBitmap.Value = Document.BitmapToString(texPair.second.Bitmap);
+                xmlFaceTexture.Attributes.Append(xmlBitmap);
+            }
         }
         public void Save(PalletProperties palletProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
@@ -2134,9 +2189,27 @@ namespace TreeDim.StackBuilder.Basics
                     return type;
             throw new Exception(string.Format("No type with Guid = {0}", guid.ToString()));
         }
+        private static string BitmapToString(Bitmap bmp)
+        {
+            byte[] bmpBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                bmpBytes = ms.GetBuffer();
+                ms.Close();
+            }
+            return System.Convert.ToBase64String(bmpBytes);
+        }
+        private static Bitmap StringToBitmap(string bmpData)
+        {
+            byte[] bytes = System.Convert.FromBase64String(bmpData);
+            return new Bitmap(new System.IO.MemoryStream(bytes));
+        }
+        #endregion
 
+        #region Methods to be overriden
         public virtual void Modify()
-        { 
+        {
         }
         #endregion
 

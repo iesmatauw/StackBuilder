@@ -446,24 +446,60 @@ namespace TreeDim.StackBuilder.Desktop
                         constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
                 }
             }
-
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);
         }
-
+        /// <summary>
+        /// Edit given case analysis
+        /// </summary>
+        /// <param name="caseAnalysis"></param>
         public void EditCaseAnalysis(CaseAnalysis caseAnalysis)
         {
             // do we need to recompute analysis
             bool recomputeRequired = false;
 
             FormNewCaseAnalysis form = new FormNewCaseAnalysis(caseAnalysis.ParentDocument, caseAnalysis);
-            if (DialogResult.OK == form.ShowDialog())
-            { 
+            form.Boxes = Boxes.ToArray();
+            if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
+            {
+                // analysis name / description
+                caseAnalysis.Name = form.CaseAnalysisName;
+                caseAnalysis.Description = form.CaseAnalysisDescription;
+                // selected box
+                caseAnalysis.BoxProperties = form.SelectedBox;
+                // constraint set
+                CaseConstraintSet constraintSet = caseAnalysis.ConstraintSet;
+                // aligned / alternate layers
+                constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
+                constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
+                // patterns
+                constraintSet.AllowedPatternString = form.AllowedPatternsString;
+                // allowed axes
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
+                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
+                // use maximum case weight
+                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
+                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
+                // use maximum number of boxes
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+                // minimum number of items
+                constraintSet.MinimumNumberOfItems = form.MinimumNumberOfItems;
+                constraintSet.UseMinimumNumberOfItems = form.UseMinimumNumberOfItems;
+                // number of solutions kept
+                constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
             }
             if (recomputeRequired)
                 caseAnalysis.OnEndUpdate(null);
         }
-
+        /// <summary>
+        /// Edit given truck analysis
+        /// </summary>
+        /// <param name="truckAnalysis"></param>
         public void EditTruckAnalysis(TruckAnalysis truckAnalysis)
         {
             // instantiate form
@@ -475,9 +511,6 @@ namespace TreeDim.StackBuilder.Desktop
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
             {
                 truckAnalysis.TruckProperties = form.SelectedTruck;
-
-
-
             }
             if (recomputeRequired)
                 truckAnalysis.OnEndUpdate(null);

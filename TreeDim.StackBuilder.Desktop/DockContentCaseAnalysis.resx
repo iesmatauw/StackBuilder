@@ -160,6 +160,15 @@
   <data name="toolStripFrontView.Text" xml:space="preserve">
     <value>Front view</value>
   </data>
+  <data name="toolStripRightView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripRightView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripRightView.Text" xml:space="preserve">
+    <value>Back view</value>
+  </data>
   <data name="toolStripBackView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
@@ -167,7 +176,7 @@
     <value>23, 22</value>
   </data>
   <data name="toolStripBackView.Text" xml:space="preserve">
-    <value>Back view</value>
+    <value>Rear view</value>
   </data>
   <data name="toolStripLeftView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
@@ -176,15 +185,6 @@
     <value>23, 22</value>
   </data>
   <data name="toolStripLeftView.Text" xml:space="preserve">
-    <value>Left view</value>
-  </data>
-  <data name="toolStripRightView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripRightView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripRightView.Text" xml:space="preserve">
     <value>Right view</value>
   </data>
   <data name="toolStripButtonTopView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -195,6 +195,18 @@
   </data>
   <data name="toolStripButtonTopView.Text" xml:space="preserve">
     <value>Top view</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="toolStripShowImages.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="toolStripShowImages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="toolStripShowImages.Text" xml:space="preserve">
+    <value>Show images</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
@@ -577,6 +589,12 @@
   <data name="&gt;&gt;toolStripFrontView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripRightView.Name" xml:space="preserve">
+    <value>toolStripRightView</value>
+  </data>
+  <data name="&gt;&gt;toolStripRightView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripBackView.Name" xml:space="preserve">
     <value>toolStripBackView</value>
   </data>
@@ -589,16 +607,22 @@
   <data name="&gt;&gt;toolStripLeftView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripRightView.Name" xml:space="preserve">
-    <value>toolStripRightView</value>
-  </data>
-  <data name="&gt;&gt;toolStripRightView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripButtonTopView.Name" xml:space="preserve">
     <value>toolStripButtonTopView</value>
   </data>
   <data name="&gt;&gt;toolStripButtonTopView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+    <value>toolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripShowImages.Name" xml:space="preserve">
+    <value>toolStripShowImages</value>
+  </data>
+  <data name="&gt;&gt;toolStripShowImages.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">

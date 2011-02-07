@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysis));
+            this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
             this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
+            this.btSelectSolution = new System.Windows.Forms.Button();
             this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip_view = new System.Windows.Forms.ToolStrip();
             this.toolStripCornerView0 = new System.Windows.Forms.ToolStripButton();
@@ -39,21 +42,62 @@
             this.toolStripCornerView270 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripFrontView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripRightView = new System.Windows.Forms.ToolStripButton();
             this.toolStripBackView = new System.Windows.Forms.ToolStripButton();
             this.toolStripLeftView = new System.Windows.Forms.ToolStripButton();
-            this.toolStripRightView = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonTopView = new System.Windows.Forms.ToolStripButton();
-            this.btSelectSolution = new System.Windows.Forms.Button();
-            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
-            this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
-            this.toolStrip_view.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
+            this.toolStripTopView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripShowImages = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
+            this.toolStrip_view.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainerHoriz
+            // 
+            this.splitContainerHoriz.AccessibleDescription = null;
+            this.splitContainerHoriz.AccessibleName = null;
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
+            this.splitContainerHoriz.BackgroundImage = null;
+            this.splitContainerHoriz.Font = null;
+            this.splitContainerHoriz.Name = "splitContainerHoriz";
+            // 
+            // splitContainerHoriz.Panel1
+            // 
+            this.splitContainerHoriz.Panel1.AccessibleDescription = null;
+            this.splitContainerHoriz.Panel1.AccessibleName = null;
+            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
+            this.splitContainerHoriz.Panel1.BackgroundImage = null;
+            this.splitContainerHoriz.Panel1.Controls.Add(this.pictureBoxSolution);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleHoriz);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleVert);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.btSelectSolution);
+            this.splitContainerHoriz.Panel1.Font = null;
+            // 
+            // splitContainerHoriz.Panel2
+            // 
+            this.splitContainerHoriz.Panel2.AccessibleDescription = null;
+            this.splitContainerHoriz.Panel2.AccessibleName = null;
+            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
+            this.splitContainerHoriz.Panel2.BackgroundImage = null;
+            this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
+            this.splitContainerHoriz.Panel2.Font = null;
+            // 
+            // pictureBoxSolution
+            // 
+            this.pictureBoxSolution.AccessibleDescription = null;
+            this.pictureBoxSolution.AccessibleName = null;
+            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
+            this.pictureBoxSolution.BackgroundImage = null;
+            this.pictureBoxSolution.Font = null;
+            this.pictureBoxSolution.ImageLocation = null;
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.TabStop = false;
+            this.pictureBoxSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
             // 
             // trackBarAngleHoriz
             // 
@@ -83,6 +127,17 @@
             this.trackBarAngleVert.TickFrequency = 15;
             this.trackBarAngleVert.Value = 45;
             this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
+            // 
+            // btSelectSolution
+            // 
+            this.btSelectSolution.AccessibleDescription = null;
+            this.btSelectSolution.AccessibleName = null;
+            resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
+            this.btSelectSolution.BackgroundImage = null;
+            this.btSelectSolution.Font = null;
+            this.btSelectSolution.Name = "btSelectSolution";
+            this.btSelectSolution.UseVisualStyleBackColor = true;
+            this.btSelectSolution.Click += new System.EventHandler(this.btSelectSolution_Click);
             // 
             // gridSolutions
             // 
@@ -114,10 +169,12 @@
             this.toolStripCornerView270,
             this.toolStripSeparator1,
             this.toolStripFrontView,
+            this.toolStripRightView,
             this.toolStripBackView,
             this.toolStripLeftView,
-            this.toolStripRightView,
-            this.toolStripButtonTopView});
+            this.toolStripTopView,
+            this.toolStripSeparator2,
+            this.toolStripShowImages});
             this.toolStrip_view.Name = "toolStrip_view";
             // 
             // toolStripCornerView0
@@ -182,6 +239,17 @@
             this.toolStripFrontView.Name = "toolStripFrontView";
             this.toolStripFrontView.Click += new System.EventHandler(this.onViewSideFront);
             // 
+            // toolStripRightView
+            // 
+            this.toolStripRightView.AccessibleDescription = null;
+            this.toolStripRightView.AccessibleName = null;
+            resources.ApplyResources(this.toolStripRightView, "toolStripRightView");
+            this.toolStripRightView.BackgroundImage = null;
+            this.toolStripRightView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripRightView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_2;
+            this.toolStripRightView.Name = "toolStripRightView";
+            this.toolStripRightView.Click += new System.EventHandler(this.onViewSideRight);
+            // 
             // toolStripBackView
             // 
             this.toolStripBackView.AccessibleDescription = null;
@@ -189,9 +257,9 @@
             resources.ApplyResources(this.toolStripBackView, "toolStripBackView");
             this.toolStripBackView.BackgroundImage = null;
             this.toolStripBackView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBackView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_2;
+            this.toolStripBackView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_3;
             this.toolStripBackView.Name = "toolStripBackView";
-            this.toolStripBackView.Click += new System.EventHandler(this.onViewSideLeft);
+            this.toolStripBackView.Click += new System.EventHandler(this.onViewSideRear);
             // 
             // toolStripLeftView
             // 
@@ -200,84 +268,38 @@
             resources.ApplyResources(this.toolStripLeftView, "toolStripLeftView");
             this.toolStripLeftView.BackgroundImage = null;
             this.toolStripLeftView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripLeftView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_3;
+            this.toolStripLeftView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_4;
             this.toolStripLeftView.Name = "toolStripLeftView";
-            this.toolStripLeftView.Click += new System.EventHandler(this.onViewSideRear);
+            this.toolStripLeftView.Click += new System.EventHandler(this.onViewSideLeft);
             // 
-            // toolStripRightView
+            // toolStripTopView
             // 
-            this.toolStripRightView.AccessibleDescription = null;
-            this.toolStripRightView.AccessibleName = null;
-            resources.ApplyResources(this.toolStripRightView, "toolStripRightView");
-            this.toolStripRightView.BackgroundImage = null;
-            this.toolStripRightView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripRightView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_4;
-            this.toolStripRightView.Name = "toolStripRightView";
-            this.toolStripRightView.Click += new System.EventHandler(this.onViewSideRight);
+            this.toolStripTopView.AccessibleDescription = null;
+            this.toolStripTopView.AccessibleName = null;
+            resources.ApplyResources(this.toolStripTopView, "toolStripTopView");
+            this.toolStripTopView.BackgroundImage = null;
+            this.toolStripTopView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripTopView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
+            this.toolStripTopView.Name = "toolStripTopView";
+            this.toolStripTopView.Click += new System.EventHandler(this.onViewTop);
             // 
-            // toolStripButtonTopView
+            // toolStripSeparator2
             // 
-            this.toolStripButtonTopView.AccessibleDescription = null;
-            this.toolStripButtonTopView.AccessibleName = null;
-            resources.ApplyResources(this.toolStripButtonTopView, "toolStripButtonTopView");
-            this.toolStripButtonTopView.BackgroundImage = null;
-            this.toolStripButtonTopView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTopView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
-            this.toolStripButtonTopView.Name = "toolStripButtonTopView";
-            this.toolStripButtonTopView.Click += new System.EventHandler(this.onViewTop);
+            this.toolStripSeparator2.AccessibleDescription = null;
+            this.toolStripSeparator2.AccessibleName = null;
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
             // 
-            // btSelectSolution
+            // toolStripShowImages
             // 
-            this.btSelectSolution.AccessibleDescription = null;
-            this.btSelectSolution.AccessibleName = null;
-            resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
-            this.btSelectSolution.BackgroundImage = null;
-            this.btSelectSolution.Font = null;
-            this.btSelectSolution.Name = "btSelectSolution";
-            this.btSelectSolution.UseVisualStyleBackColor = true;
-            this.btSelectSolution.Click += new System.EventHandler(this.btSelectSolution_Click);
-            // 
-            // pictureBoxSolution
-            // 
-            this.pictureBoxSolution.AccessibleDescription = null;
-            this.pictureBoxSolution.AccessibleName = null;
-            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
-            this.pictureBoxSolution.BackgroundImage = null;
-            this.pictureBoxSolution.Font = null;
-            this.pictureBoxSolution.ImageLocation = null;
-            this.pictureBoxSolution.Name = "pictureBoxSolution";
-            this.pictureBoxSolution.TabStop = false;
-            this.pictureBoxSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
-            // 
-            // splitContainerHoriz
-            // 
-            this.splitContainerHoriz.AccessibleDescription = null;
-            this.splitContainerHoriz.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
-            this.splitContainerHoriz.BackgroundImage = null;
-            this.splitContainerHoriz.Font = null;
-            this.splitContainerHoriz.Name = "splitContainerHoriz";
-            // 
-            // splitContainerHoriz.Panel1
-            // 
-            this.splitContainerHoriz.Panel1.AccessibleDescription = null;
-            this.splitContainerHoriz.Panel1.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
-            this.splitContainerHoriz.Panel1.BackgroundImage = null;
-            this.splitContainerHoriz.Panel1.Controls.Add(this.pictureBoxSolution);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleHoriz);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleVert);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.btSelectSolution);
-            this.splitContainerHoriz.Panel1.Font = null;
-            // 
-            // splitContainerHoriz.Panel2
-            // 
-            this.splitContainerHoriz.Panel2.AccessibleDescription = null;
-            this.splitContainerHoriz.Panel2.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
-            this.splitContainerHoriz.Panel2.BackgroundImage = null;
-            this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
-            this.splitContainerHoriz.Panel2.Font = null;
+            this.toolStripShowImages.AccessibleDescription = null;
+            this.toolStripShowImages.AccessibleName = null;
+            resources.ApplyResources(this.toolStripShowImages, "toolStripShowImages");
+            this.toolStripShowImages.BackgroundImage = null;
+            this.toolStripShowImages.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripShowImages.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Image;
+            this.toolStripShowImages.Name = "toolStripShowImages";
+            this.toolStripShowImages.Click += new System.EventHandler(this.toolStripShowImages_Click);
             // 
             // DockContentAnalysis
             // 
@@ -295,15 +317,15 @@
             this.ShowInTaskbar = false;
             this.ToolTipText = null;
             this.Load += new System.EventHandler(this.DockContentAnalysis_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
-            this.toolStrip_view.ResumeLayout(false);
-            this.toolStrip_view.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel1.PerformLayout();
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
             this.splitContainerHoriz.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
+            this.toolStrip_view.ResumeLayout(false);
+            this.toolStrip_view.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,11 +344,13 @@
         private System.Windows.Forms.ToolStripButton toolStripCornerView270;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripFrontView;
+        private System.Windows.Forms.ToolStripButton toolStripRightView;
         private System.Windows.Forms.ToolStripButton toolStripBackView;
         private System.Windows.Forms.ToolStripButton toolStripLeftView;
-        private System.Windows.Forms.ToolStripButton toolStripRightView;
-        private System.Windows.Forms.ToolStripButton toolStripButtonTopView;
+        private System.Windows.Forms.ToolStripButton toolStripTopView;
         private System.Windows.Forms.Button btSelectSolution;
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripShowImages;
     }
 }

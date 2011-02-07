@@ -73,6 +73,7 @@
     <Compile Include="HalfAxis.cs" />
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
+    <Compile Include="PalletOptimizer.cs" />
     <Compile Include="PalletProperties.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="SelSolution.cs" />

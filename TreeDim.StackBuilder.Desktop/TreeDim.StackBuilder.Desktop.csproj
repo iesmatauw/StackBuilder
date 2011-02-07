@@ -533,6 +533,7 @@
     <None Include="Resources\Database.bmp" />
     <Content Include="Resources\CaseAnalysis.ico" />
     <None Include="Resources\Help.bmp" />
+    <Content Include="Resources\Image.bmp" />
     <Content Include="Resources\PalletAnalysis.ico" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />

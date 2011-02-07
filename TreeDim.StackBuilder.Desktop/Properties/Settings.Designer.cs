@@ -496,5 +496,41 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["FormEditBitmapsPosition"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowImagesPallet {
+            get {
+                return ((bool)(this["ShowImagesPallet"]));
+            }
+            set {
+                this["ShowImagesPallet"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowImagesTrue {
+            get {
+                return ((bool)(this["ShowImagesTrue"]));
+            }
+            set {
+                this["ShowImagesTrue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowImagesCase {
+            get {
+                return ((bool)(this["ShowImagesCase"]));
+            }
+            set {
+                this["ShowImagesCase"] = value;
+            }
+        }
     }
 }

@@ -323,9 +323,10 @@ namespace TreeDim.StackBuilder.Desktop
                 Graphics3DImage graphics = new Graphics3DImage(pictureBoxTruckSolution.Size);
                 // set camera position
                 graphics.CameraPosition = _cameraPosition;
+                // show images
+                graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
-                if (null == _sol)
-                    return;
+                if (null == _sol)   return;
                 TruckSolutionViewer sv = new TruckSolutionViewer(_sol);
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control
@@ -348,6 +349,9 @@ namespace TreeDim.StackBuilder.Desktop
         private void onViewSideRear(object sender, EventArgs e)        {  _cameraPosition = Graphics3D.Back;        Draw();     }
         private void onViewSideRight(object sender, EventArgs e)       {  _cameraPosition = Graphics3D.Right;       Draw();     }
         private void onViewTop(object sender, EventArgs e)             {  _cameraPosition = Graphics3D.Top;         Draw();     }
+        private void toolStripButtonShowImages_Click(object sender, EventArgs e)    { toolStripShowImages.Checked = !toolStripShowImages.Checked; Draw(); }
         #endregion
+
+
     }
 }

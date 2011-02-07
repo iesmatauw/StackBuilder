@@ -75,6 +75,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// Show box Ids (used of debugging purposes)
         /// </summary>
         private bool _showBoxIds = false;
+        private bool _showTextures = true;
         private bool _useBoxelOrderer = true;
         private uint _boxDrawingCounter = 0;
 
@@ -145,7 +146,9 @@ namespace TreeDim.StackBuilder.Graphics
                 return viewDir;
             }
         }
-
+        /// <summary>
+        /// gets or sets light direction
+        /// </summary>
         public Vector3D LightDirection
         {
             get { return _vLight; }
@@ -156,16 +159,29 @@ namespace TreeDim.StackBuilder.Graphics
             }
         }
 
+        /// <summary>
+        /// gets or sets boolean to show box ids
+        /// To be used when debugging
+        /// </summary>
         public bool ShowBoxIds
         {
             get { return _showBoxIds; }
             set { _showBoxIds = value; }
         }
-
+        /// <summary>
+        /// gets or sets boxel order status
+        /// If set to true the boxel order will be used when drawing box layers
+        /// </summary>
         public bool UseBoxelOrderer
         {
             get {  return _useBoxelOrderer; }
             set { _useBoxelOrderer = value; }
+        }
+
+        public bool ShowTextures
+        {
+            get { return _showTextures; }
+            set { _showTextures = value; }
         }
         #endregion
         
@@ -526,7 +542,7 @@ namespace TreeDim.StackBuilder.Graphics
                 Brush brush = new SolidBrush(color);
                 g.FillPolygon(brush, pt);
                 // draw textures
-                if (null != face.Textures)
+                if (null != face.Textures && ShowTextures)
                     foreach (Texture texture in face.Textures)
                     {
                         Point[] ptsImage = TransformPoint(GetCurrentTransformation(), box.PointsImage(i, texture));

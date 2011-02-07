@@ -77,6 +77,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _constraintSet; }
         }
+
+        public static ICaseAnalysisSolver Solver
+        {
+            set { _solver = value; }
+        }
         #endregion
 
         #region Solution selection

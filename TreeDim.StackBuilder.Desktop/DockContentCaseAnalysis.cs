@@ -63,6 +63,8 @@ namespace TreeDim.StackBuilder.Desktop
             base.OnLoad(e);
             // text
             this.Text = _caseAnalysis.Name + " - " + _caseAnalysis.ParentDocument.Name;
+            // show images
+            toolStripShowImages.Checked = Settings.Default.ShowImagesCase;
             // fill grid
             FillGrid();
             // show or hide pallet solution view
@@ -197,9 +199,6 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-		private void DockContentCaseAnalysis_Load(object sender, EventArgs e)
-        {
-        }
         private void toolStripShowPallet_Click(object sender, EventArgs e)
         {
             toolStripShowPallet.Checked = !toolStripShowPallet.Checked;
@@ -338,11 +337,11 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 // set viewport (not actually needed)
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-
+                // show images
+                graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
                 CaseSolutionViewer sv = new CaseSolutionViewer(GetCurrentSolution());
                 sv.Draw(graphics);
-
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;
             }
@@ -440,8 +439,12 @@ namespace TreeDim.StackBuilder.Desktop
             trackBarAngleVert.Value = 90;
             Draw();
         }
+
+        private void toolStripShowImages_Click(object sender, EventArgs e)
+        {
+            toolStripShowImages.Checked = !toolStripShowImages.Checked;
+            Draw();
+        }
         #endregion
-
-
     }
 }

@@ -51,6 +51,7 @@ namespace TreeDim.StackBuilder.Desktop
             _instance = this;
             // set analysis solver
             Analysis.Solver = new TreeDim.StackBuilder.Engine.Solver();
+            CaseAnalysis.Solver = new TreeDim.StackBuilder.Engine.CaseSolver();
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
 

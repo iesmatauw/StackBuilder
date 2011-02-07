@@ -62,7 +62,8 @@ namespace TreeDim.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
+            // initialize toolStripShowImages
+            toolStripShowImages.Checked = Settings.Default.ShowImagesPallet;
             // Text
             this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
             // fill grid
@@ -238,6 +239,14 @@ namespace TreeDim.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
+
+        private void toolStripShowImages_Click(object sender, EventArgs e)
+        {
+            // change state
+            toolStripShowImages.Checked = !toolStripShowImages.Checked;
+            // redraw
+            Draw();
+        }
         #endregion
 
         #region Solution selection
@@ -341,7 +350,8 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 // set viewport (not actually needed)
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-
+                // show images
+                graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
                 SolutionViewer sv = new SolutionViewer(GetCurrentSolution());
                 sv.Draw(graphics);
@@ -431,6 +441,8 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
+
+
     }
 
     #region CellBackColorAlternate and CellBackColorAlternateCheck

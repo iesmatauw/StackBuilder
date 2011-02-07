@@ -137,6 +137,9 @@
   <data name="trackBarAngleVert.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 1, 1, 1</value>
   </data>
+  <data name="&gt;&gt;toolStripBackView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripLeftView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -154,6 +157,9 @@
   </data>
   <data name="&gt;&gt;trackBarAngleHoriz.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;btSelectSolution.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="toolStripFrontView.Text" xml:space="preserve">
     <value>Front view</value>
@@ -188,6 +194,9 @@
   <data name="&gt;&gt;pictureBoxSolution.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="toolStripCornerView0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
   <data name="&gt;&gt;toolStripCornerView270.Name" xml:space="preserve">
     <value>toolStripCornerView270</value>
   </data>
@@ -200,6 +209,9 @@
   </data>
   <data name="toolStripCornerView180.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
+  </data>
+  <data name="toolStripButtonTopView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
   </data>
   <data name="toolStripRightView.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -231,11 +243,11 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
+  <data name="&gt;&gt;toolStripShowImages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="btSelectSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
-  </data>
-  <data name="toolStripLeftView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
   </data>
   <data name="&gt;&gt;btSelectSolution.Name" xml:space="preserve">
     <value>btSelectSolution</value>
@@ -243,17 +255,11 @@
   <data name="&gt;&gt;trackBarAngleHoriz.Name" xml:space="preserve">
     <value>trackBarAngleHoriz</value>
   </data>
-  <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="toolStripRightView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
+  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.3918.24227, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
   </data>
   <data name="toolStripBackView.Text" xml:space="preserve">
     <value>Back view</value>
-  </data>
-  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
-    <value>SourceGrid.Grid, SourceGrid, Version=4.30.3918.24227, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
   </data>
   <data name="&gt;&gt;toolStripRightView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -267,11 +273,17 @@
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
   </data>
+  <data name="&gt;&gt;toolStripTopView.Name" xml:space="preserve">
+    <value>toolStripTopView</value>
+  </data>
   <data name="&gt;&gt;pictureBoxSolution.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
   </data>
   <data name="trackBarAngleHoriz.Location" type="System.Drawing.Point, System.Drawing">
     <value>1, 463</value>
+  </data>
+  <data name="&gt;&gt;toolStripRightView.Name" xml:space="preserve">
+    <value>toolStripRightView</value>
   </data>
   <data name="trackBarAngleVert.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 463</value>
@@ -282,8 +294,17 @@
   <data name="toolStripLeftView.Text" xml:space="preserve">
     <value>Left view</value>
   </data>
+  <data name="toolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 114</value>
+  </data>
   <data name="toolStripBackView.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
+  </data>
+  <data name="&gt;&gt;toolStripShowImages.Name" xml:space="preserve">
+    <value>toolStripShowImages</value>
   </data>
   <data name="&gt;&gt;toolStripCornerView90.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -297,17 +318,20 @@
   <data name="toolStripCornerView90.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
+  <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
   <data name="splitContainerHoriz.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 25</value>
-  </data>
-  <data name="&gt;&gt;trackBarAngleVert.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="toolStripCornerView90.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
-    <value>splitContainerHoriz</value>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
   </data>
   <data name="toolStrip_view.Text" xml:space="preserve">
     <value>Views</value>
@@ -318,8 +342,8 @@
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
     <value>splitContainerHoriz</value>
   </data>
-  <data name="&gt;&gt;toolStripRightView.Name" xml:space="preserve">
-    <value>toolStripRightView</value>
+  <data name="toolStripRightView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
   </data>
   <data name="toolStripCornerView270.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
@@ -333,6 +357,9 @@
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripBackView.Name" xml:space="preserve">
+    <value>toolStripBackView</value>
+  </data>
   <data name="toolStripBackView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
@@ -341,6 +368,9 @@
   </data>
   <data name="toolStripFrontView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
+  </data>
+  <data name="toolStripBackView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
   </data>
   <data name="&gt;&gt;toolStripCornerView90.Name" xml:space="preserve">
     <value>toolStripCornerView90</value>
@@ -354,14 +384,17 @@
   <data name="toolStripCornerView90.Text" xml:space="preserve">
     <value>Corner view 90°</value>
   </data>
+  <data name="toolStripShowImages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
   <data name="toolStripLeftView.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
     <value>splitContainerHoriz</value>
   </data>
-  <data name="trackBarAngleHoriz.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="btSelectSolution.Text" xml:space="preserve">
+    <value>Select</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, PublicKeyToken=null</value>
@@ -378,6 +411,9 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentAnalysis</value>
   </data>
+  <data name="&gt;&gt;toolStripRightView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStrip_view.Name" xml:space="preserve">
     <value>toolStrip_view</value>
   </data>
@@ -390,8 +426,8 @@
   <data name="toolStripButtonTopView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripCornerView0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+  <data name="&gt;&gt;toolStripRightView1.Name" xml:space="preserve">
+    <value>toolStripRightView1</value>
   </data>
   <data name="pictureBoxSolution.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -402,14 +438,26 @@
   <data name="&gt;&gt;toolStripButtonTopView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripBackView.Name" xml:space="preserve">
-    <value>toolStripBackView</value>
+  <data name="&gt;&gt;toolStripBackView1.Name" xml:space="preserve">
+    <value>toolStripBackView1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="&gt;&gt;toolStripTopView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>
   </data>
   <data name="btSelectSolution.Location" type="System.Drawing.Point, System.Drawing">
     <value>500, 463</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
+    <value>splitContainerHoriz</value>
   </data>
   <data name="splitContainerHoriz.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -432,8 +480,8 @@
   <data name="&gt;&gt;toolStripButtonTopView.Name" xml:space="preserve">
     <value>toolStripButtonTopView</value>
   </data>
-  <data name="&gt;&gt;trackBarAngleVert.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="toolStripTopView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
   </data>
   <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
     <value>509</value>
@@ -441,8 +489,8 @@
   <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>
   </data>
-  <data name="toolStripButtonTopView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+  <data name="toolStripLeftView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
   </data>
   <data name="btSelectSolution.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -475,17 +523,14 @@
   <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 114</value>
+  <data name="&gt;&gt;trackBarAngleVert.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btSelectSolution.Text" xml:space="preserve">
-    <value>Select</value>
-  </data>
-  <data name="&gt;&gt;btSelectSolution.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="trackBarAngleHoriz.Size" type="System.Drawing.Size, System.Drawing">
     <value>306, 45</value>
@@ -499,6 +544,9 @@
   <data name="trackBarAngleVert.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="&gt;&gt;trackBarAngleVert.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="pictureBoxSolution.Size" type="System.Drawing.Size, System.Drawing">
     <value>598, 456</value>
   </data>
@@ -508,8 +556,14 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
+  <data name="trackBarAngleHoriz.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
   <data name="pictureBoxSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="toolStripRightView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

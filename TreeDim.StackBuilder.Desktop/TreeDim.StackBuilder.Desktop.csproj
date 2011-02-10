@@ -209,6 +209,12 @@
     <Compile Include="FormNewTruckAnalysis.Designer.cs">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOptimizeCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizeCase.Designer.cs">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="IDocument.cs" />
     <Compile Include="IDocumentFactory.cs" />
     <Compile Include="IView.cs" />
@@ -347,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruckAnalysis.resx">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -534,6 +546,7 @@
     <Content Include="Resources\CaseAnalysis.ico" />
     <None Include="Resources\Help.bmp" />
     <Content Include="Resources\Image.bmp" />
+    <None Include="Resources\OptimalCase.bmp" />
     <Content Include="Resources\PalletAnalysis.ico" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />

@@ -763,6 +763,16 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void toolStripButtonOptimiseCase_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // show optimisation form
+                FormOptimizeCase form = new FormOptimizeCase((DocumentSB)ActiveDocument);
+                form.ShowDialog();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
         #endregion
 
         #region Document / View status change handlers
@@ -885,5 +895,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

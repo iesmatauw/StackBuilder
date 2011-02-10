@@ -18,6 +18,9 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Desktop
 {
+    /// <summary>
+    /// Edit pallet solutions db
+    /// </summary>
     public partial class FormEditPalletSolutionDB : Form
     {
         #region Data members
@@ -278,9 +281,5 @@ namespace TreeDim.StackBuilder.Desktop
 
         }
         #endregion
-
-
-
-
     }
 }

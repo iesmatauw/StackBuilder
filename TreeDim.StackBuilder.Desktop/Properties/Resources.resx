@@ -358,4 +358,40 @@
   <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+  <data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+  <data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+  <data name="ID_AREA" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Cases/Layer</value>
+  </data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Cases/Pallet</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Layers</value>
+  </data>
+  <data name="ID_LENGTH" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="ID_WIDTH" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maximum volume is unsufficient to pack {0} {1} .</value>
+  </data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Inconsistency: Maximum {0} is lower than minimum {1}.</value>
+  </data>
 </root>

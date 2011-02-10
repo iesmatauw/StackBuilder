@@ -532,5 +532,88 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["ShowImagesCase"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int NumberWallsLength {
+            get {
+                return ((int)(this["NumberWallsLength"]));
+            }
+            set {
+                this["NumberWallsLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int NumberWallsWidth {
+            get {
+                return ((int)(this["NumberWallsWidth"]));
+            }
+            set {
+                this["NumberWallsWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int NumberWallsHeight {
+            get {
+                return ((int)(this["NumberWallsHeight"]));
+            }
+            set {
+                this["NumberWallsHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public double WallThickness {
+            get {
+                return ((double)(this["WallThickness"]));
+            }
+            set {
+                this["WallThickness"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("48")]
+        public int NumberBoxesPerCase {
+            get {
+                return ((int)(this["NumberBoxesPerCase"]));
+            }
+            set {
+                this["NumberBoxesPerCase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1200")]
+        public double PalletHeight {
+            get {
+                return ((double)(this["PalletHeight"]));
+            }
+            set {
+                this["PalletHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormOptimizeCasePosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormOptimizeCasePosition"]));
+            }
+            set {
+                this["FormOptimizeCasePosition"] = value;
+            }
+        }
     }
 }

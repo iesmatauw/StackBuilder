@@ -559,6 +559,5 @@ namespace TreeDim.StackBuilder.Desktop
         private List<CaseOptimSolution> _solutions = new List<CaseOptimSolution>();
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormOptimizeCase));
         #endregion
-
     }
 }

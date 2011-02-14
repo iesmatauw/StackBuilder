@@ -277,16 +277,31 @@
             // nudMinCaseHeight
             // 
             resources.ApplyResources(this.nudMinCaseHeight, "nudMinCaseHeight");
+            this.nudMinCaseHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudMinCaseHeight.Name = "nudMinCaseHeight";
             // 
             // nudMinCaseWidth
             // 
             resources.ApplyResources(this.nudMinCaseWidth, "nudMinCaseWidth");
+            this.nudMinCaseWidth.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudMinCaseWidth.Name = "nudMinCaseWidth";
             // 
             // nudMinCaseLength
             // 
             resources.ApplyResources(this.nudMinCaseLength, "nudMinCaseLength");
+            this.nudMinCaseLength.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudMinCaseLength.Name = "nudMinCaseLength";
             // 
             // lbHeight

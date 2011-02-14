@@ -9,7 +9,7 @@ namespace TreeDim.StackBuilder.Basics
     public class TruckAnalysis : ItemBase
     {
         #region Data members
-        private Analysis _analysis;
+        private PalletAnalysis _analysis;
         private SelSolution _selSolution;
         private TruckProperties _truckProperties;
         private TruckConstraintSet _constraintSet;
@@ -28,7 +28,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <param name="constraintSet">Constraint set</param>
         public TruckAnalysis(
             Document document
-            , Analysis analysis
+            , PalletAnalysis analysis
             , SelSolution selSolution
             , TruckProperties truckProperties
             , TruckConstraintSet constraintSet)
@@ -46,7 +46,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent analysis
         /// </summary>
-        public Analysis ParentAnalysis   { get { return _analysis; } }
+        public PalletAnalysis ParentAnalysis   { get { return _analysis; } }
         /// <summary>
         /// Truck properties item
         /// </summary>
@@ -64,7 +64,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent solution (from pallet analysis)
         /// </summary>
-        public Solution ParentSolution { get { return _selSolution.Solution; } }
+        public PalletSolution ParentSolution { get { return _selSolution.Solution; } }
         /// <summary>
         /// Parent selected solution (from pallet analysis)
         /// </summary>

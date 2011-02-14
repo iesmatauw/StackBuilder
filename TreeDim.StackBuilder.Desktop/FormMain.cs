@@ -50,7 +50,7 @@ namespace TreeDim.StackBuilder.Desktop
             // set static instance
             _instance = this;
             // set analysis solver
-            Analysis.Solver = new TreeDim.StackBuilder.Engine.Solver();
+            PalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.Solver();
             CaseAnalysis.Solver = new TreeDim.StackBuilder.Engine.CaseSolver();
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
@@ -640,17 +640,17 @@ namespace TreeDim.StackBuilder.Desktop
         // new
         public void OnNewDocument(Document doc) {}
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
-        public void OnNewAnalysisCreated(Document doc, Analysis analysis) { CreateOrActivateViewAnalysis(analysis); }
+        public void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis) { CreateOrActivateViewAnalysis(analysis); }
         public void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis) { CreateOrActivateViewCaseAnalysis(caseAnalysis); }
-        public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
-        public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution) { }
+        public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
+        public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
-        public void OnAnalysisRemoved(Document doc, Analysis analysis) { }
+        public void OnAnalysisRemoved(Document doc, PalletAnalysis analysis) { }
         public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis) { }
-        public void OnCaseAnalysisRemoved(Document doc, Analysis caseAnalysis) { }
-        public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution) { }
-        public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
+        public void OnCaseAnalysisRemoved(Document doc, PalletAnalysis caseAnalysis) { }
+        public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
+        public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
 
         // close
         public void OnDocumentClosed(Document doc) { }
@@ -738,12 +738,12 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void toolAddNewAnalysis(object sender, EventArgs e)
         {
-            try { Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI(); }
+            try { PalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void toolAddNewAnalysisBundle(object sender, EventArgs e)
         {
-            try { Analysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
+            try { PalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         private void toolAddNewCaseAnalysis(object sender, EventArgs e)
@@ -783,7 +783,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form activation/creation
-        public void CreateOrActivateViewAnalysis(Analysis analysis)
+        public void CreateOrActivateViewAnalysis(PalletAnalysis analysis)
         {
             // ---> search among existing views
             // ---> activate if found

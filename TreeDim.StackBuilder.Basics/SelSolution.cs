@@ -9,13 +9,13 @@ namespace TreeDim.StackBuilder.Basics
     public class SelSolution : ItemBase
     {
         #region Data members
-        Analysis _analysis;
-        Solution _solution;
+        PalletAnalysis _analysis;
+        PalletSolution _solution;
         List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
         #endregion
 
         #region Constructor
-        internal SelSolution(Document document, Analysis analysis, Solution sol)
+        internal SelSolution(Document document, PalletAnalysis analysis, PalletSolution sol)
             : base(document)
         {
             _analysis = analysis;
@@ -94,14 +94,14 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Encapsulated solution
         /// </summary>
-        public Solution Solution
+        public PalletSolution Solution
         {
             get { return _solution; }
         }
         /// <summary>
         /// Parent analysis
         /// </summary>
-        public Analysis Analysis
+        public PalletAnalysis Analysis
         {
             get { return _analysis; }
         }

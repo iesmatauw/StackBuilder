@@ -40,7 +40,7 @@ namespace TreeDim.StackBuilder.Engine
             // loop through all pallet solutions
             foreach (PalletSolutionDesc desc in _palletSolutionList)
             {
-                Solution palletSolution = desc.LoadPalletSolution();
+                PalletSolution palletSolution = desc.LoadPalletSolution();
                 BoxProperties caseProperties = palletSolution.Analysis.BProperties as BoxProperties;
 
                 // loop through all patterns

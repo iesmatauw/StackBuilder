@@ -54,7 +54,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 InterlayerProperties interlayerProperties = null;
 
                 // define constraints
-                ConstraintSetBox constraintSet = new ConstraintSetBox();
+                PalletConstraintSetBox constraintSet = new PalletConstraintSetBox();
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);
@@ -77,7 +77,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(constraintSet.ToString());
 
                 // initialize analysis
-                Analysis analysis = new Analysis(boxProperties, palletProperties, interlayerProperties, constraintSet);
+                PalletAnalysis analysis = new PalletAnalysis(boxProperties, palletProperties, interlayerProperties, constraintSet);
 
                 // initialize solver
                 Solver solver = new Solver();
@@ -85,7 +85,7 @@ namespace TreeDim.StackBuilder.Engine.Test
 
                 Console.WriteLine("=== Solutions ===");
                 int solIndex = 0;
-                foreach (Solution sol in analysis.Solutions)
+                foreach (PalletSolution sol in analysis.Solutions)
                 {
                     // instantiate graphics
                     Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));

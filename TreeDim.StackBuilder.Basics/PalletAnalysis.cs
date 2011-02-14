@@ -8,29 +8,29 @@ using log4net;
 namespace TreeDim.StackBuilder.Basics
 {
     #region Analysis
-    public class Analysis : ItemBase
+    public class PalletAnalysis : ItemBase
     {
         #region Data members
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
-        private ConstraintSet _constraintSet;
-        private List<Solution> _solutions;
+        private PalletConstraintSet _constraintSet;
+        private List<PalletSolution> _solutions;
         private List<SelSolution> _selectedSolutions = new List<SelSolution>();
         private static IAnalysisSolver _solver;
-        static readonly ILog _log = LogManager.GetLogger(typeof(Analysis));
+        static readonly ILog _log = LogManager.GetLogger(typeof(PalletAnalysis));
         #endregion
 
         #region Constructor
-        public Analysis(BProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, ConstraintSet constraintSet)
+        public PalletAnalysis(BProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
             // sanity checks
             if (palletProperties.ParentDocument != ParentDocument
                 || (interlayerProperties != null && interlayerProperties.ParentDocument != ParentDocument))
                 throw new Exception("box, pallet, interlayer do not belong to the same document");
-            if ((boxProperties is BoxProperties && constraintSet is ConstraintSetBundle)
-                || (boxProperties is BundleProperties && constraintSet is ConstraintSetBox))
+            if ((boxProperties is BoxProperties && constraintSet is PalletConstraintSetBundle)
+                || (boxProperties is BundleProperties && constraintSet is PalletConstraintSetBox))
                 throw new Exception("Invalid analysis: either BoxProperties with ConstraintSetBundle or BundleProperties with ConstraintSetBox");
 
             this.BProperties = boxProperties;
@@ -43,12 +43,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public List<Solution> Solutions
+        public List<PalletSolution> Solutions
         {
             set
             {
                 _solutions = value;
-                foreach (Solution sol in _solutions)
+                foreach (PalletSolution sol in _solutions)
                     sol.Analysis = this;
             }
             get { return _solutions; }
@@ -96,7 +96,7 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        public ConstraintSet ConstraintSet
+        public PalletConstraintSet ConstraintSet
         {
             get { return _constraintSet; }
             set { _constraintSet = value; }
@@ -197,7 +197,7 @@ namespace TreeDim.StackBuilder.Basics
     #region IAnalysisSolver
     public interface IAnalysisSolver
     { 
-        void ProcessAnalysis(Analysis analysis);
+        void ProcessAnalysis(PalletAnalysis analysis);
     }
     #endregion
 }

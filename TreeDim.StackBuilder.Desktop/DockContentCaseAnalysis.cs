@@ -73,7 +73,9 @@ namespace TreeDim.StackBuilder.Desktop
             // attach grid selection event handler
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
+        #endregion
 
+        #region Grid
         private void FillGrid()
         {
             // fill grid solutions
@@ -147,9 +149,9 @@ namespace TreeDim.StackBuilder.Desktop
             int iIndex = 0;
             foreach (CaseSolution sol in _caseAnalysis.Solutions)
             {
-                ++iIndex;
-                gridSolutions.Rows.Insert(iIndex);
-                // index
+                // insert new row
+                gridSolutions.Rows.Insert(++iIndex);
+                // # (index)
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
                 {
                     Graphics2DImage graphics = new Graphics2DImage(new Size(100, 50));
@@ -277,7 +279,7 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region ITemListener implementation
+        #region ItemListener implementation
         /// <summary>
         /// overrides IItemListener.Update
         /// </summary>
@@ -351,7 +353,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (toolStripShowPallet.Checked)    // also draws pallet solution
             {
-                Solution sol = GetCurrentSolution().PalletSolutionDesc.LoadPalletSolution();
+                PalletSolution sol = GetCurrentSolution().PalletSolutionDesc.LoadPalletSolution();
                 // instantiate graphics
                 Graphics3DImage graphics = new Graphics3DImage(pictureBoxPalletSolution.Size);
                 graphics.CameraPosition = Graphics3D.Corner_0;

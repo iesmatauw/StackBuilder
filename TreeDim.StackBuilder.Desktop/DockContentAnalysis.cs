@@ -27,7 +27,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// analysis
         /// </summary>
-        private Analysis _analysis;
+        private PalletAnalysis _analysis;
         /// <summary>
         /// view parameters
         /// </summary>
@@ -35,7 +35,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Currently selected solution
         /// </summary>
-        private Solution _sol;
+        private PalletSolution _sol;
         /// <summary>
         /// logger
         /// </summary>
@@ -48,7 +48,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="document">object implementing the IDocument interface</param>
         /// <param name="analysis">viewed analysis</param>
-        public DockContentAnalysis(IDocument document, Analysis analysis)
+        public DockContentAnalysis(IDocument document, PalletAnalysis analysis)
         {
             _document = document;
             _analysis = analysis;
@@ -153,7 +153,7 @@ namespace TreeDim.StackBuilder.Desktop
 
             // data rows
             int iIndex = 0;
-            foreach (Solution sol in _analysis.Solutions)
+            foreach (PalletSolution sol in _analysis.Solutions)
             {
                 ++iIndex;
                 gridSolutions.Rows.Insert(iIndex);
@@ -253,7 +253,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void UpdateGridCheckBoxes()
         {
             int iRow = 0;
-            foreach (Solution sol in _analysis.Solutions)
+            foreach (PalletSolution sol in _analysis.Solutions)
             {
                 ++iRow;
                 SourceGrid.Cells.CheckBox checkBox = gridSolutions[iRow, 6] as SourceGrid.Cells.CheckBox;
@@ -276,7 +276,7 @@ namespace TreeDim.StackBuilder.Desktop
             // return index
             return indexes[0]-1;            
         }
-        private Solution GetCurrentSolution()
+        private PalletSolution GetCurrentSolution()
         {
             int iIndexSol = GetCurrentSolutionIndex();
             if (-1 == iIndexSol) return null;
@@ -321,7 +321,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public Analysis Analysis
+        public PalletAnalysis Analysis
         {
             get { return _analysis; }
         }

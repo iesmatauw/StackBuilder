@@ -75,7 +75,7 @@ namespace TreeDim.StackBuilder.Basics
         public double PalletEfficiency {
             get
             {
-                Solution sol = _palletSolutionDesc.LoadPalletSolution();
+                PalletSolution sol = _palletSolutionDesc.LoadPalletSolution();
                 return (100.0 * _parentCaseAnalysis.BoxProperties.Volume * BoxPerPalletCount) / (sol.PalletLength * sol.PalletWidth * sol.PalletHeight); 
             } 
         }

@@ -106,7 +106,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 return swResult.ToArray();
             }
         }
-        public static void BuidAnalysisReport(Analysis analysis, SelSolution sol, string xsltTemplateFilePath, string outputFilePath)
+        public static void BuidAnalysisReport(PalletAnalysis analysis, SelSolution sol, string xsltTemplateFilePath, string outputFilePath)
         {
             // create xml data file + XmlTextReader
             string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
@@ -121,7 +121,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             using (FileStream fs = new FileStream(outputFilePath, FileMode.Create))
                 fs.Write(wordDoc, 0, wordDoc.Length);
         }
-        private static void CreateAnalysisDataFile(Analysis analysis, SelSolution sol, string xmlDataFilePath)
+        private static void CreateAnalysisDataFile(PalletAnalysis analysis, SelSolution sol, string xmlDataFilePath)
         {
             // instantiate XmlDocument
             XmlDocument xmlDoc = new XmlDocument();
@@ -160,7 +160,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             xmlDoc.Save(xmlDataFilePath);
         }
 
-        private static void AppendPalletAnalysisElement(Analysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
+        private static void AppendPalletAnalysisElement(PalletAnalysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // palletAnalysis
@@ -189,7 +189,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             AppendSolutionElement(selSolution.Solution, elemPalletAnalysis, xmlDoc);
         }
 
-        private static void AppendPalletElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendPalletElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get PalletProperties
@@ -248,7 +248,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemPallet.AppendChild(elemImage);
         }
 
-        private static void AppendCaseElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendCaseElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get BoxProperties
@@ -304,7 +304,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemCase.AppendChild(elemImage);
         }
 
-        private static void AppendBundleElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendBundleElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get BundleProperties
@@ -351,10 +351,10 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemBundle.AppendChild(elemImage);      
         }
 
-        private static void AppendConstraintSet(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendConstraintSet(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
-            ConstraintSet cs = analysis.ConstraintSet;
+            PalletConstraintSet cs = analysis.ConstraintSet;
             // solution
             XmlElement elemConstraintSet = xmlDoc.CreateElement("constraintSet", ns);
             elemPalletAnalysis.AppendChild(elemConstraintSet);
@@ -411,7 +411,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemConstraintSet.AppendChild(elemAllowAlignedLayers);
         }
 
-        private static void AppendInterlayerElement(Analysis analysis, Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendInterlayerElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // get BoxProperties
@@ -461,7 +461,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemInterlayer.AppendChild(elemImage); 
         }
 
-        private static void AppendSolutionElement(Solution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private static void AppendSolutionElement(PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
 
@@ -576,7 +576,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 elemSolution.AppendChild(elemImage);
             }
         }
-        private static void AppendTruckAnalysisElement(Analysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
+        private static void AppendTruckAnalysisElement(PalletAnalysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             // retrieve truck analysis if any
             if (!selSolution.HasTruckAnalyses) return;  // no truck analysis available -> exit

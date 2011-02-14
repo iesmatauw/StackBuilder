@@ -382,7 +382,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // check that a comparable solution is not already in database
                 BoxProperties boxProperties = tag.Analysis.BProperties as BoxProperties;
                 PalletProperties palletProperties = tag.Analysis.PalletProperties;
-                ConstraintSet constraintSet = tag.Analysis.ConstraintSet;
+                PalletConstraintSet constraintSet = tag.Analysis.ConstraintSet;
                 // instantiate new solution descriptor
 
 
@@ -656,7 +656,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="doc"></param>
         /// <param name="analysis"></param>
-        public void OnNewAnalysisCreated(Document doc, Analysis analysis)
+        public void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis)
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
@@ -712,7 +712,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="doc"></param>
         /// <param name="analysis"></param>
         /// <param name="selSolution"></param>
-        public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selSolution)
+        public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selSolution)
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
@@ -730,7 +730,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="analysis"></param>
         /// <param name="selSolution"></param>
         /// <param name="truckAnalysis"></param>
-        public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
@@ -786,7 +786,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="doc">parent document</param>
         /// <param name="analysis">analysis</param>
-        public void OnAnalysisRemoved(Document doc, Analysis analysis)
+        public void OnAnalysisRemoved(Document doc, PalletAnalysis analysis)
         {
             // get node
             TreeNode analysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
@@ -823,7 +823,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="doc"></param>
         /// <param name="analysis"></param>
         /// <param name="selSolution"></param>
-        public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selSolution)
+        public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution)
         {
             // get node
             TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
@@ -843,7 +843,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="analysis"></param>
         /// <param name="selSolution"></param>
         /// <param name="truckAnalysis"></param>
-        public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get node
             TreeNode truckAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis));
@@ -995,7 +995,7 @@ namespace TreeDim.StackBuilder.Desktop
         private NodeType _type;
         private Document _document;
         private ItemBase _itemProperties;
-        private Analysis _analysis;
+        private PalletAnalysis _analysis;
         private SelSolution _selSolution;
         private TruckAnalysis _truckAnalysis;
         private CaseAnalysis _caseAnalysis;
@@ -1012,9 +1012,9 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _type = type;
             _document = document;
-            if (_type == NodeType.NT_ANALYSIS && itemProperties is Analysis)
+            if (_type == NodeType.NT_ANALYSIS && itemProperties is PalletAnalysis)
             {
-                _analysis = itemProperties as Analysis;
+                _analysis = itemProperties as PalletAnalysis;
                 _itemProperties = null;
             }
             else
@@ -1023,14 +1023,14 @@ namespace TreeDim.StackBuilder.Desktop
                 _itemProperties = itemProperties;
             }
         }
-        public NodeTag(NodeType type, Document document, Analysis analysis, ItemBase itemProperties)
+        public NodeTag(NodeType type, Document document, PalletAnalysis analysis, ItemBase itemProperties)
         {
             _type = type;
             _document = document;
             _itemProperties = itemProperties;
             _analysis = analysis;
         }
-        public NodeTag(NodeType type, Document document, Analysis analysis, SelSolution selSolution)
+        public NodeTag(NodeType type, Document document, PalletAnalysis analysis, SelSolution selSolution)
         {
             _type = type;
             _document = document;
@@ -1038,7 +1038,7 @@ namespace TreeDim.StackBuilder.Desktop
             _analysis = analysis;
             _selSolution = selSolution;
         }
-        public NodeTag(NodeType type, Document document, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        public NodeTag(NodeType type, Document document, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             _type = type;
             _document = document;
@@ -1110,7 +1110,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// returns analysis if any
         /// </summary>
-        public Analysis Analysis { get { return _analysis; } }
+        public PalletAnalysis Analysis { get { return _analysis; } }
         /// <summary>
         ///  returns selected solution if any
         /// </summary>
@@ -1157,7 +1157,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Analysis
         /// </summary>
-        public Analysis Analysis { get { return _nodeTag.Analysis; } }
+        public PalletAnalysis Analysis { get { return _nodeTag.Analysis; } }
         /// <summary>
         /// ItemBase (BoxProperties \ PaletProperties \ Interlayer properties)
         /// </summary>

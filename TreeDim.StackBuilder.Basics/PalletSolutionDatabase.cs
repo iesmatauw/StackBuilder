@@ -202,7 +202,7 @@ namespace TreeDim.StackBuilder.Basics
         // parent database
         private PalletSolutionDatabase _parentDB;
         // cached pallet solution
-        private Solution _palletSolution;
+        private PalletSolution _palletSolution;
         #endregion
 
         #region Constructors
@@ -238,11 +238,11 @@ namespace TreeDim.StackBuilder.Basics
             _friendlyName = friendlyName;
             _parentDB = db;
         }
-        public PalletSolutionDesc(PalletSolutionDatabase db, Solution sol, string friendlyName)
+        public PalletSolutionDesc(PalletSolutionDatabase db, PalletSolution sol, string friendlyName)
         {
             BoxProperties boxProperties = sol.Analysis.BProperties as BoxProperties;
             PalletProperties palletProperties = sol.Analysis.PalletProperties;
-            ConstraintSet constraintSet = sol.Analysis.ConstraintSet;
+            PalletConstraintSet constraintSet = sol.Analysis.ConstraintSet;
             _guid = Guid.NewGuid();
             _friendlyName = friendlyName;
             _key = new PalletSolutionKey(
@@ -393,7 +393,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Loads pallet solution from database file
         /// </summary>
-        public Solution LoadPalletSolution()
+        public PalletSolution LoadPalletSolution()
         {
             if (null == _palletSolution)
             {
@@ -721,8 +721,8 @@ namespace TreeDim.StackBuilder.Basics
         public void Append(SelSolution selSolution, string name, bool keepSimilarSolutions)
         {
             Document document = selSolution.Analysis.ParentDocument;
-            Solution sol = selSolution.Solution;
-            Analysis analysis = sol.Analysis;
+            PalletSolution sol = selSolution.Solution;
+            PalletAnalysis analysis = sol.Analysis;
             // instantiate new descriptor
             PalletSolutionDesc desc = new PalletSolutionDesc(this, sol, name);
             // remove similar solutions

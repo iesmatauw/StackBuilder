@@ -36,12 +36,12 @@ namespace TreeDim.StackBuilder.Graphics
             // load pallet solution
             BoxProperties caseProperties;
 
-            Solution palletSolution = _caseSolution.PalletSolutionDesc.LoadPalletSolution();
+            PalletSolution palletSolution = _caseSolution.PalletSolutionDesc.LoadPalletSolution();
             if (null == palletSolution)
                 caseProperties = new BoxProperties(null, _caseSolution.CaseLength, _caseSolution.CaseWidth, _caseSolution.CaseHeight);
             else
             {
-                Analysis palletAnalysis = palletSolution.Analysis;
+                PalletAnalysis palletAnalysis = palletSolution.Analysis;
                 // retrieve case properties 
                 caseProperties = palletAnalysis.BProperties as BoxProperties;
             }

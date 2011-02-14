@@ -24,7 +24,7 @@ namespace TreeDim.StackBuilder.Desktop
         private PalletProperties[] _palletProperties;
         private InterlayerProperties[] _interlayerProperties;
         private Document _document;
-        private Analysis _analysis;
+        private PalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion
 
@@ -105,7 +105,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="document">Parent document</param>
         /// <param name="analysis">Analysis</param>
-        public FormNewAnalysis(Document document, Analysis analysis)
+        public FormNewAnalysis(Document document, PalletAnalysis analysis)
         {
             InitializeComponent();
             // save document reference
@@ -221,7 +221,7 @@ namespace TreeDim.StackBuilder.Desktop
                 }
                 else
                 {
-                    ConstraintSet constraintSet = _analysis.ConstraintSet;
+                    PalletConstraintSet constraintSet = _analysis.ConstraintSet;
                     AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
                     AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
                     AllowVerticalZ = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P);

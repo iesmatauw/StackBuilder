@@ -41,7 +41,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
                 // load document
                 Document doc = new Document(filePath,  new DocumentListenerLog());
                 // get first analysis
-                List<Analysis> analyses = doc.Analyses;
+                List<PalletAnalysis> analyses = doc.Analyses;
                 if (analyses.Count == 0)
                 {
                     log.Info("Document has no analysis -> Exiting...");
@@ -79,7 +79,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             {
                 _log.Info(string.Format("Loaded item {0}", itemBase.Name));
             }
-            public void OnNewAnalysisCreated(Document doc, Analysis analysis)
+            public void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis)
             {
                 _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
             }
@@ -87,27 +87,27 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
             {
                 _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
             }
-            public void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution)
+            public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution)
             {
                 _log.Info(string.Format("Selected solution added {0}", selectedSolution.Name));
             }
-            public void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+            public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }
             public void OnTypeRemoved(Document doc, ItemBase itemBase)
             { 
             }
-            public void OnAnalysisRemoved(Document doc, Analysis analysis)
+            public void OnAnalysisRemoved(Document doc, PalletAnalysis analysis)
             { 
             }
             public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
             {
             }
-            public void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution)
+            public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution)
             {
                 _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));
             }
-            public void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+            public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }
             public void OnDocumentClosed(Document doc)

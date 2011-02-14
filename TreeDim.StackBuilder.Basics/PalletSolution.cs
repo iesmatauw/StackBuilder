@@ -126,20 +126,20 @@ namespace TreeDim.StackBuilder.Basics
     }
     #endregion
 
-    #region Solution
+    #region PalletSolution
     /// <summary>
     /// A set of box position and orientation that represent a valid solution
     /// </summary>
-    public class Solution : List<ILayer>, IComparable  
+    public class PalletSolution : List<ILayer>, IComparable  
     {
         #region Data members
         private string _title;
         private bool _homogeneousLayer = false;
-        private Analysis _parentAnalysis = null;
+        private PalletAnalysis _parentAnalysis = null;
         #endregion
 
         #region Constructor
-        public Solution(Analysis analysis, string title, bool homogenousLayer)
+        public PalletSolution(PalletAnalysis analysis, string title, bool homogenousLayer)
         {
             _parentAnalysis = analysis;
             _title = title;
@@ -158,7 +158,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent analysis
         /// </summary>
-        public Analysis Analysis
+        public PalletAnalysis Analysis
         {
             get { return _parentAnalysis; }
             set { _parentAnalysis = value; }
@@ -319,7 +319,7 @@ namespace TreeDim.StackBuilder.Basics
         #region IComparable
         public int CompareTo(object obj)
         {
-            Solution sol = (Solution)obj;
+            PalletSolution sol = (PalletSolution)obj;
             if (this.CaseCount > sol.CaseCount)
                 return -1;
             else if (this.CaseCount == sol.CaseCount)

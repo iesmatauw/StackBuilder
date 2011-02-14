@@ -564,7 +564,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (document.Analyses.Count != 1)
                 throw new Exception("Failed to load analysis.");
             // get analysis and solution
-            Analysis analysis = document.Analyses[0];
+            PalletAnalysis analysis = document.Analyses[0];
             Graphics3DImage graphics = new Graphics3DImage(new Size(50,50));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;

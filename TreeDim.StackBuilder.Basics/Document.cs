@@ -25,16 +25,16 @@ namespace TreeDim.StackBuilder.Basics
         // new
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
-        void OnNewAnalysisCreated(Document doc, Analysis analysis);
+        void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis);
         void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis);
-        void OnNewSolutionAdded(Document doc, Analysis analysis, SelSolution selectedSolution);
-        void OnNewTruckAnalysisCreated(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
+        void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
+        void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
-        void OnAnalysisRemoved(Document doc, Analysis analysis);
+        void OnAnalysisRemoved(Document doc, PalletAnalysis analysis);
         void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis);
-        void OnSolutionRemoved(Document doc, Analysis analysis, SelSolution selectedSolution);
-        void OnTruckAnalysisRemoved(Document doc, Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
+        void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
+        void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
 
         // close
         void OnDocumentClosed(Document doc);
@@ -52,7 +52,7 @@ namespace TreeDim.StackBuilder.Basics
         private string _name, _description, _author;
         private DateTime _dateCreated;
         private List<ItemBase> _typeList = new List<ItemBase>();
-        private List<Analysis> _analyses = new List<Analysis>();
+        private List<PalletAnalysis> _analyses = new List<PalletAnalysis>();
         private List<CaseAnalysis> _caseAnalyses = new List<CaseAnalysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Document));
@@ -253,13 +253,13 @@ namespace TreeDim.StackBuilder.Basics
         /// <param name="constraintSet"></param>
         /// <param name="solver">Node : analysis creation requires a solver</param>
         /// <returns>An analysis</returns>
-        public Analysis CreateNewAnalysis(
+        public PalletAnalysis CreateNewAnalysis(
             string name, string description
             , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
-            , ConstraintSet constraintSet
+            , PalletConstraintSet constraintSet
             , IAnalysisSolver solver)
         {
-            Analysis analysis = new Analysis(box, pallet, interlayer, constraintSet);
+            PalletAnalysis analysis = new PalletAnalysis(box, pallet, interlayer, constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -287,13 +287,13 @@ namespace TreeDim.StackBuilder.Basics
         /// <param name="constraintSet"></param>
         /// <param name="solutions"></param>
         /// <returns></returns>
-        public Analysis CreateNewAnalysis(
+        public PalletAnalysis CreateNewAnalysis(
             string name, string description
             , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
-            , ConstraintSet constraintSet
-            , List<Solution> solutions)
+            , PalletConstraintSet constraintSet
+            , List<PalletSolution> solutions)
         {
-            Analysis analysis = new Analysis(box, pallet, interlayer, constraintSet);
+            PalletAnalysis analysis = new PalletAnalysis(box, pallet, interlayer, constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -356,10 +356,10 @@ namespace TreeDim.StackBuilder.Basics
                 if (!_typeList.Remove(item))
                     _log.Warn(string.Format("Failed to properly remove item {0}", item.Name));
             }
-            else if (item.GetType() == typeof(Analysis))
+            else if (item.GetType() == typeof(PalletAnalysis))
             {
-                NotifyOnAnalysisRemoved(item as Analysis);
-                if (!_analyses.Remove(item as Analysis))
+                NotifyOnAnalysisRemoved(item as PalletAnalysis);
+                if (!_analyses.Remove(item as PalletAnalysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
             else if (item.GetType() == typeof(SelSolution))
@@ -543,7 +543,7 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        public List<Analysis> Analyses
+        public List<PalletAnalysis> Analyses
         {
             get { return _analyses; }
         }
@@ -843,8 +843,8 @@ namespace TreeDim.StackBuilder.Basics
                 string sPalletId = eltAnalysis.Attributes["PalletId"].Value;
 
                 // load constraint set / solution list
-                ConstraintSet constraintSet = null;
-                List<Solution> solutions = new List<Solution>();
+                PalletConstraintSet constraintSet = null;
+                List<PalletSolution> solutions = new List<PalletSolution>();
                 List<int> selectedIndices = new List<int>();
 
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
@@ -873,7 +873,7 @@ namespace TreeDim.StackBuilder.Basics
                 }
 
                 // instantiate analysis
-                Analysis analysis = CreateNewAnalysis(
+                PalletAnalysis analysis = CreateNewAnalysis(
                     sName
                     , sDescription
                     , GetTypeByGuid(new Guid(sBoxId)) as BProperties
@@ -1007,9 +1007,9 @@ namespace TreeDim.StackBuilder.Basics
             return constraints;
         }
 
-        private ConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
+        private PalletConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
         {
-            ConstraintSetBox constraints = new ConstraintSetBox();
+            PalletConstraintSetBox constraints = new PalletConstraintSetBox();
             // align layers allowed
             if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
                 constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
@@ -1049,9 +1049,9 @@ namespace TreeDim.StackBuilder.Basics
                 throw new Exception("Invalid constraint set");
             return constraints;
         }
-        ConstraintSet LoadConstraintSetBundle(XmlElement eltConstraintSet)
+        PalletConstraintSet LoadConstraintSetBundle(XmlElement eltConstraintSet)
         {
-            ConstraintSetBundle constraints = new ConstraintSetBundle();
+            PalletConstraintSetBundle constraints = new PalletConstraintSetBundle();
             // align layers alowed
             if (eltConstraintSet.HasAttribute("AlignedLayersAllowed"))
                 constraints.AllowAlignedLayers = string.Equals(eltConstraintSet.Attributes["AlignedLayersAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
@@ -1082,11 +1082,11 @@ namespace TreeDim.StackBuilder.Basics
             return constraints;
         }
 
-        private Solution LoadSolution(XmlElement eltSolution)
+        private PalletSolution LoadSolution(XmlElement eltSolution)
         {
             // title -> instantiation
             string stitle = eltSolution.Attributes["Title"].Value;
-            Solution sol = new Solution(null, stitle, true);
+            PalletSolution sol = new PalletSolution(null, stitle, true);
             // homogeneous layers
             if (eltSolution.HasAttribute("HomogeneousLayers"))
             {
@@ -1276,7 +1276,7 @@ namespace TreeDim.StackBuilder.Basics
                 // create Analyses element
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
-                foreach (Analysis analysis in _analyses)
+                foreach (PalletAnalysis analysis in _analyses)
                     SavePalletAnalysis(analysis, xmlAnalysesElt, xmlDoc);
                 foreach (CaseAnalysis analysis in _caseAnalyses)
                     SaveCaseAnalysis(analysis, xmlAnalysesElt, xmlDoc);
@@ -1295,9 +1295,9 @@ namespace TreeDim.StackBuilder.Basics
             try
             {
                 // retrieve solution
-                Solution sol = selSolution.Solution;
+                PalletSolution sol = selSolution.Solution;
                 // retrieve analysis
-                Analysis analysis = sol.Analysis;
+                PalletAnalysis analysis = sol.Analysis;
                 // instantiate XmlDocument
                 XmlDocument xmlDoc = new XmlDocument();
                 // let's add the XML declaration section
@@ -1789,7 +1789,7 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        private void SavePalletAnalysis(Analysis analysis, XmlElement parentElement, XmlDocument xmlDoc)
+        private void SavePalletAnalysis(PalletAnalysis analysis, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create analysis element
             XmlElement xmlAnalysisElt = xmlDoc.CreateElement("AnalysisPallet");
@@ -1819,7 +1819,7 @@ namespace TreeDim.StackBuilder.Basics
             }
             // ###
             // ConstraintSet
-            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(ConstraintSetBundle));
+            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(PalletConstraintSetBundle));
             XmlElement constraintSetElement = xmlDoc.CreateElement(bundleAnalysis ? "ConstraintSetBundle":"ConstraintSetBox");
             XmlAttribute alignedLayersAttribute = xmlDoc.CreateAttribute("AlignedLayersAllowed");
             alignedLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlignedLayers);
@@ -1892,7 +1892,7 @@ namespace TreeDim.StackBuilder.Basics
             int solIndex = 0;
             XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
             xmlAnalysisElt.AppendChild(solutionsElt);
-            foreach (Solution sol in analysis.Solutions)
+            foreach (PalletSolution sol in analysis.Solutions)
             {
                 SaveSolution(
                     analysis
@@ -1905,7 +1905,7 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        public void Save(Analysis analysis, Solution sol, SelSolution selSolution, XmlElement parentElement, XmlDocument xmlDoc)
+        public void Save(PalletAnalysis analysis, PalletSolution sol, SelSolution selSolution, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create analysis element
             XmlElement xmlAnalysisElt = xmlDoc.CreateElement("AnalysisPallet");
@@ -1935,7 +1935,7 @@ namespace TreeDim.StackBuilder.Basics
             }
             // ###
             // ConstraintSet
-            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(ConstraintSetBundle));
+            bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(PalletConstraintSetBundle));
             XmlElement constraintSetElement = xmlDoc.CreateElement(bundleAnalysis ? "ConstraintSetBundle" : "ConstraintSetBox");
             XmlAttribute alignedLayersAttribute = xmlDoc.CreateAttribute("AlignedLayersAllowed");
             alignedLayersAttribute.Value = string.Format("{0}", analysis.ConstraintSet.AllowAlignedLayers);
@@ -2011,7 +2011,7 @@ namespace TreeDim.StackBuilder.Basics
             SaveSolution(analysis, sol, selSolution, true /* unique */, solutionsElt, xmlDoc );
         }
 
-        public void SaveSolution(Analysis analysis, Solution sol, SelSolution selSolution, bool unique, XmlElement solutionsElt, XmlDocument xmlDoc)
+        public void SaveSolution(PalletAnalysis analysis, PalletSolution sol, SelSolution selSolution, bool unique, XmlElement solutionsElt, XmlDocument xmlDoc)
         {
             // Solution
             XmlElement solutionElt = xmlDoc.CreateElement("Solution");
@@ -2223,7 +2223,7 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTypeCreated(this, item);
         }
-        private void NotifyOnNewAnalysisCreated(Analysis analysis)
+        private void NotifyOnNewAnalysisCreated(PalletAnalysis analysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
@@ -2233,12 +2233,12 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewCaseAnalysisCreated(this, caseAnalysis);
         }
-        internal void NotifyOnNewSolutionAdded(Analysis analysis, SelSolution selSolution)
+        internal void NotifyOnNewSolutionAdded(PalletAnalysis analysis, SelSolution selSolution)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewSolutionAdded(this, analysis, selSolution);
         }
-        internal void NotifyOnNewTruckAnalysisCreated(Analysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
+        internal void NotifyOnNewTruckAnalysisCreated(PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTruckAnalysisCreated(this, analysis, selSolution, truckAnalysis);
@@ -2253,7 +2253,7 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnTypeRemoved(this, item);
         }
-        private void NotifyOnAnalysisRemoved(Analysis analysis)
+        private void NotifyOnAnalysisRemoved(PalletAnalysis analysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
@@ -2263,7 +2263,7 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnCaseAnalysisRemoved(this, caseAnalysis);
         }
-        internal void NotifyOnSolutionRemoved(Analysis analysis, SelSolution selSolution)
+        internal void NotifyOnSolutionRemoved(PalletAnalysis analysis, SelSolution selSolution)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnSolutionRemoved(this, analysis, selSolution);

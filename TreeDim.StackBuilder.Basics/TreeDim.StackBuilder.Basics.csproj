@@ -58,26 +58,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analysis.cs" />
+    <Compile Include="CaseOptimAnalysis.cs" />
+    <Compile Include="PalletAnalysis.cs" />
     <Compile Include="BoxPosition.cs" />
     <Compile Include="BoxProperties.cs" />
     <Compile Include="BProperties.cs" />
     <Compile Include="BundleProperties.cs" />
     <Compile Include="CaseAnalysis.cs" />
     <Compile Include="CaseConstraintSet.cs" />
+    <Compile Include="CaseOptimSolution.cs" />
     <Compile Include="CaseSolution.cs" />
-    <Compile Include="ConstraintSet.cs" />
-    <Compile Include="ConstraintSetBox.cs" />
-    <Compile Include="ConstraintSetBundle.cs" />
+    <Compile Include="PalletConstraintSet.cs" />
+    <Compile Include="PalletConstraintSetBox.cs" />
+    <Compile Include="PalletConstraintSetBundle.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="HalfAxis.cs" />
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
-    <Compile Include="PalletOptimizer.cs" />
     <Compile Include="PalletProperties.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="SelSolution.cs" />
-    <Compile Include="Solution.cs" />
+    <Compile Include="PalletSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="TruckAnalysis.cs" />

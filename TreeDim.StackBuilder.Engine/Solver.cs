@@ -22,7 +22,7 @@ namespace TreeDim.StackBuilder.Engine
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
-        private ConstraintSet _constraintSet;
+        private PalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(Solver));
         #endregion
 
@@ -34,7 +34,11 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public methods
-        public void ProcessAnalysis(Analysis analysis)
+        /// <summary>
+        /// Process pallet analysis
+        /// </summary>
+        /// <param name="analysis">Pallet analysis to process</param>
+        public void ProcessAnalysis(PalletAnalysis analysis)
         {
             _bProperties = analysis.BProperties;
             _palletProperties = analysis.PalletProperties;
@@ -45,12 +49,23 @@ namespace TreeDim.StackBuilder.Engine
 
             analysis.Solutions = GenerateSolutions();
         }
+
+        public List<PalletSolution> Process(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
+        {
+            _bProperties = boxProperties;
+            _palletProperties = palletProperties;
+            _interlayerProperties = interlayerProperties;
+            _constraintSet = constraintSet;
+            if (!_constraintSet.IsValid)
+                throw new EngineException("Constraint set is invalid!");
+            return GenerateSolutions();            
+        }
         #endregion
 
         #region Private methods
-        private List<Solution> GenerateSolutions()
+        private List<PalletSolution> GenerateSolutions()
         {
-            List<Solution> solutions = new List<Solution>();
+            List<PalletSolution> solutions = new List<PalletSolution>();
 
             // loop through all patterns
             foreach (LayerPattern pattern in _patterns)
@@ -124,7 +139,7 @@ namespace TreeDim.StackBuilder.Engine
                                 }
                                 string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swaped" : "");
 
-                                Solution sol = new Solution(null, title, layer1T == layer2T);
+                                PalletSolution sol = new PalletSolution(null, title, layer1T == layer2T);
                                 int iLayerIndex = 0;
                                 bool innerLoopStop = false;
                                 double zLayer = _palletProperties.Height;
@@ -231,7 +246,7 @@ namespace TreeDim.StackBuilder.Engine
             get { return _palletProperties; }
             set { _palletProperties = value; }
         }
-        public ConstraintSet ConstraintSet
+        public PalletConstraintSet ConstraintSet
         {
             get { return _constraintSet; }
             set { _constraintSet = value; }

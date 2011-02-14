@@ -9,7 +9,7 @@ namespace TreeDim.StackBuilder.Basics
     /// <summary>
     /// Gathers a set of constraint to be used while computing solutions
     /// </summary>
-    public abstract class ConstraintSet
+    public abstract class PalletConstraintSet
     {
         #region Data members
         private int _maxNumberOfItems;
@@ -27,7 +27,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public ConstraintSet()
+        public PalletConstraintSet()
         {
         }
         #endregion
@@ -83,7 +83,9 @@ namespace TreeDim.StackBuilder.Basics
         }
         public bool UseMaximumHeight
         {
-            set { _useMaximumHeight = value; }
+            set {
+                _useMaximumHeight = value; 
+            }
             get { return _useMaximumHeight; }
         }
         public bool UseMaximumPalletWeight

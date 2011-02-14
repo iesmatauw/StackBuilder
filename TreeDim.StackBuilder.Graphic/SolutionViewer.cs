@@ -17,13 +17,13 @@ namespace TreeDim.StackBuilder.Graphics
     public class SolutionViewer
     {
         #region Data members
-        private Solution _solution;
-        private Analysis _analysis;
+        private PalletSolution _solution;
+        private PalletAnalysis _analysis;
         private bool _showDimensions = true;
         #endregion
 
         #region Constructor
-        public SolutionViewer(Solution solution)
+        public SolutionViewer(PalletSolution solution)
         {
             _analysis = null != solution ? solution.Analysis : null;
             _solution = solution;
@@ -188,7 +188,7 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public Solution Solution
+        public PalletSolution Solution
         {
             get { return _solution; }
             set { _solution = value; }

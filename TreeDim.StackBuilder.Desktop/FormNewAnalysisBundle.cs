@@ -23,7 +23,7 @@ namespace TreeDim.StackBuilder.Desktop
         private BProperties[] _bundles;
         private PalletProperties[] _palletProperties;
         private Document _document;
-        private Analysis _analysis;
+        private PalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisBundle));
         #endregion
 
@@ -75,7 +75,7 @@ namespace TreeDim.StackBuilder.Desktop
             // save document reference
             _document = document;
         }
-        public FormNewAnalysisBundle(Document document, Analysis analysis)
+        public FormNewAnalysisBundle(Document document, PalletAnalysis analysis)
         {
             InitializeComponent();
             // save document reference

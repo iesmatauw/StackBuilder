@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class ConstraintSetBox : ConstraintSet
+    public class PalletConstraintSetBox : PalletConstraintSet
     {
         #region Data members
         private bool _hasInterlayer;
@@ -15,7 +15,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public ConstraintSetBox()
+        public PalletConstraintSetBox()
         {
             for (int i = 0; i < 6; ++i) _allowedOrthoAxis[i] = false;
         }

@@ -95,7 +95,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="analysis"></param>
         /// <returns></returns>
-        public DockContentAnalysis CreateAnalysisView(Analysis analysis)
+        public DockContentAnalysis CreateAnalysisView(PalletAnalysis analysis)
         {
             DockContentAnalysis form = new DockContentAnalysis(this, analysis);
             _views.Add(form);
@@ -203,7 +203,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Creates a new palet analysis
         /// </summary>
         /// <returns>created palet analysis</returns>
-        public Analysis CreateNewAnalysisUI()
+        public PalletAnalysis CreateNewAnalysisUI()
         {
             if (!CanCreatePalletAnalysis) return null;
 
@@ -214,7 +214,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
             {
                 // build constraint set
-                ConstraintSetBox constraintSet = new ConstraintSetBox();
+                PalletConstraintSetBox constraintSet = new PalletConstraintSetBox();
                 // overhang / underhang
                 constraintSet.OverhangX = form.OverhangX;
                 constraintSet.OverhangY = form.OverhangY;
@@ -260,7 +260,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Creates a new bundle analysis
         /// </summary>
         /// <returns>created bundle analysis</returns>
-        public Analysis CreateNewAnalysisBundleUI()
+        public PalletAnalysis CreateNewAnalysisBundleUI()
         {
             FormNewAnalysisBundle form = new FormNewAnalysisBundle(this);
             form.Boxes = Bundles.ToArray();
@@ -268,7 +268,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
             {
                 // build constraintSet
-                ConstraintSetBundle constraintSet = new ConstraintSetBundle();
+                PalletConstraintSetBundle constraintSet = new PalletConstraintSetBundle();
                 // overhang / underhang
                 constraintSet.OverhangX = form.OverhangX;
                 constraintSet.OverhangY = form.OverhangY;
@@ -350,7 +350,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Edit specified pallet analysis
         /// </summary>
         /// <param name="analysis"></param>
-        public void EditPalletAnalysis(Analysis analysis)
+        public void EditPalletAnalysis(PalletAnalysis analysis)
         {
             // do we need to recompute analysis
             bool recomputeRequired = false;
@@ -372,7 +372,7 @@ namespace TreeDim.StackBuilder.Desktop
                     analysis.PalletProperties = form.SelectedPallet;
                     analysis.InterlayerProperties = form.SelectedInterlayer;
                     // build constraint set
-                    ConstraintSetBox constraintSet = analysis.ConstraintSet as ConstraintSetBox;
+                    PalletConstraintSetBox constraintSet = analysis.ConstraintSet as PalletConstraintSetBox;
                     // overhang / underhang
                     constraintSet.OverhangX = form.OverhangX;
                     constraintSet.OverhangY = form.OverhangY;
@@ -423,7 +423,7 @@ namespace TreeDim.StackBuilder.Desktop
                     analysis.BProperties = form.SelectedBundle;
                     analysis.PalletProperties = form.SelectedPallet;
                     // build constraintSet
-                    ConstraintSetBundle constraintSet = analysis.ConstraintSet as ConstraintSetBundle;
+                    PalletConstraintSetBundle constraintSet = analysis.ConstraintSet as PalletConstraintSetBundle;
                     // overhang / underhang
                     constraintSet.OverhangX = form.OverhangX;
                     constraintSet.OverhangY = form.OverhangY;

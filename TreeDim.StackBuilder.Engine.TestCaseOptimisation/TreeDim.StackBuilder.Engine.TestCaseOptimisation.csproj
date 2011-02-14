@@ -44,6 +44,10 @@
       <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
       <Name>Sharp3D.Math</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
+      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Name>TreeDim.StackBuilder.Basics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
       <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
       <Name>TreeDim.StackBuilder.Engine</Name>

@@ -80,7 +80,7 @@ namespace TreeDim.StackBuilder.Engine
         /// <summary>
         /// Layer pallet analysis constructor
         /// </summary>
-        public Layer(BProperties boxProperties, PalletProperties palletProperties, ConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
+        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
             _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
@@ -90,7 +90,7 @@ namespace TreeDim.StackBuilder.Engine
         /// <summary>
         /// Layer truck analysis constructor
         /// </summary>
-        public Layer(Solution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet, int orientation)
+        public Layer(PalletSolution sol, TruckProperties truckProperties, TruckConstraintSet constraintSet, int orientation)
         {
             switch (orientation)
             {
@@ -178,7 +178,7 @@ namespace TreeDim.StackBuilder.Engine
             }
         }
 
-        private void Initialize(Solution sol)
+        private void Initialize(PalletSolution sol)
         {
             switch (_axisOrtho)
             {

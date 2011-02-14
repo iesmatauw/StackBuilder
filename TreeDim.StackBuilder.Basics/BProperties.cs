@@ -55,6 +55,16 @@ namespace TreeDim.StackBuilder.Basics
         abstract public void SetColor(Color color);
         abstract public Color GetColor(HalfAxis.HAxis axis);
 
+        public double Dim(int index)
+        {
+            switch (index)
+            {
+                case 0: return _length;
+                case 1: return _width;
+                case 2: return Height;
+                default: throw new Exception("Invalid index...");
+            }
+        }
         public double Dimension(HalfAxis.HAxis axis)
         {
             switch (axis)

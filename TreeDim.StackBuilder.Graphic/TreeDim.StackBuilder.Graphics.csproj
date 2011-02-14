@@ -65,6 +65,7 @@
     <Compile Include="BSPNode.cs" />
     <Compile Include="BSPTree.cs" />
     <Compile Include="Case.cs" />
+    <Compile Include="CaseDefinitionViewer.cs" />
     <Compile Include="CaseSolutionViewer.cs" />
     <Compile Include="Drawable.cs" />
     <Compile Include="Face.cs" />

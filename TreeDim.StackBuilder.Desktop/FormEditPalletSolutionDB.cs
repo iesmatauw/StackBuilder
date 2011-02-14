@@ -249,7 +249,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Document document = new Document(desc.FullFilePath, null);
                 if (document.Analyses.Count == 0) return;
                 // get analysis and solution
-                Analysis analysis = document.Analyses[0];
+                PalletAnalysis analysis = document.Analyses[0];
                 {
                     Graphics3DImage graphics = new Graphics3DImage(pictureBoxCase.Size);
                     graphics.CameraPosition = Graphics3D.Corner_0;

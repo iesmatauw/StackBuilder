@@ -133,11 +133,12 @@ namespace TreeDim.StackBuilder.Engine
                         iMax = boxNumber;
                     }
                 }
-
+/*
             if (0 == sizeX_area1Opt)
                 _log.Debug("sizeX_area1Opt == 0");
             if (0 == sizeY_area1Opt)
                 _log.Debug("sizeY_area1Opt == 0");
+*/ 
             return iMax;            
         }
         private int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth

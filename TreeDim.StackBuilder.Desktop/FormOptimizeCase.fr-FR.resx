@@ -185,10 +185,10 @@
     <value>Contraintes % caisse </value>
   </data>
   <data name="lbPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
+    <value>166, 13</value>
   </data>
   <data name="lbPalletHeight.Text" xml:space="preserve">
-    <value>Hauteur de palette (mm)</value>
+    <value>Hauteur de palette maximale (mm)</value>
   </data>
   <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 13</value>
@@ -203,7 +203,7 @@
     <value>Optimiser</value>
   </data>
   <data name="btAddSolution.Text" xml:space="preserve">
-    <value>Ajouter cette solution au document</value>
+    <value>Ajouter la caisse et l'analyse de palette</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Recherche des dimensions de caisses optimales...</value>

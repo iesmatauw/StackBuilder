@@ -427,6 +427,9 @@ namespace TreeDim.StackBuilder.Desktop
             // new analysis bundle
             newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
             toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
+            // case optmisation
+            caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
+            toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization; 
             // edit pallet solutions database
             editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
         }
@@ -896,6 +899,9 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        private void caseOptimisationToolStripMenu_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

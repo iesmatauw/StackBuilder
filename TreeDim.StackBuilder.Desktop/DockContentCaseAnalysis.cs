@@ -229,7 +229,6 @@ namespace TreeDim.StackBuilder.Desktop
             UpdateGridCheckBoxes();
             UpdateSelectButtonText();
         }
-
         private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
         {
             // redraw

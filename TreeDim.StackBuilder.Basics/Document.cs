@@ -499,6 +499,9 @@ namespace TreeDim.StackBuilder.Basics
                 return bundleList;
             }
         }
+        /// <summary>
+        /// Builds and returns a list of pallets
+        /// </summary>
         public List<PalletProperties> Pallets
         {
             get
@@ -513,6 +516,9 @@ namespace TreeDim.StackBuilder.Basics
                 return palletList;
             }
         }
+        /// <summary>
+        /// Builds and returns a list of interlayers
+        /// </summary>
         public List<InterlayerProperties> Interlayers
         {
             get
@@ -527,7 +533,9 @@ namespace TreeDim.StackBuilder.Basics
                 return interlayerList;
             }
         }
-
+        /// <summary>
+        /// Build and returns a list of trucks
+        /// </summary>
         public List<TruckProperties> Trucks
         {
             get
@@ -543,6 +551,9 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
+        /// <summary>
+        /// Get list of analyses
+        /// </summary>
         public List<PalletAnalysis> Analyses
         {
             get { return _analyses; }
@@ -563,6 +574,11 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         public bool CanCreateCaseAnalysis
         { get { return this.Boxes.Count > 0 && !PalletSolutionDatabase.Instance.IsEmpty; } }
+        /// <summary>
+        /// Returns true if user can proceed to case optimization i.e. if documents contains at list one box and one pallet 
+        /// </summary>
+        public bool CanCreateCaseOptimization
+        { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
         #endregion
 
         #region Load methods

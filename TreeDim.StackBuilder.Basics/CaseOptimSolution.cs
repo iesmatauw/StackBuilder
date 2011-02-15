@@ -134,7 +134,12 @@ namespace TreeDim.StackBuilder.Basics
                 + constraintSet.NoWalls[1] * outerDim.X * outerDim.Z
                 + constraintSet.NoWalls[2] * outerDim.X * outerDim.Y;
         }
-        public double Volume(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        public double InnerVolume(BoxProperties boxProperties)
+        {
+            Vector3D innerDim = InnerDimensions(boxProperties);
+            return innerDim.X * innerDim.Y * innerDim.Z;
+        }
+        public double OuterVolume(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
         {
             Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
             return outerDim.X * outerDim.Y * outerDim.Z;

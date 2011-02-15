@@ -732,6 +732,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap OptimalCase {
+            get {
+                object obj = ResourceManager.GetObject("OptimalCase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Pallet {
             get {
                 object obj = ResourceManager.GetObject("Pallet", resourceCulture);

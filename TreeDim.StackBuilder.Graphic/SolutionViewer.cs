@@ -31,6 +31,10 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public methods
+        /// <summary>
+        /// Use this method when drawing a solution that belongs an analysis
+        /// </summary>
+        /// <param name="graphics"></param>
         public void Draw(Graphics3D graphics)
         {
             if (null == _solution)
@@ -80,6 +84,49 @@ namespace TreeDim.StackBuilder.Graphics
                 graphics.AddDimensions(new DimensionCube(_solution.PalletLength, _solution.PalletWidth, _solution.PalletHeight));
             }
 
+            // flush
+            graphics.Flush();
+        }
+        /// <summary>
+        ///  Use this method when solution does not refer an analysis (e.g. when displaying CaseOptimizer result)
+        /// </summary>
+        public static void Draw(Graphics3D graphics
+            , PalletSolution solution
+            , BoxProperties boxProperties, InterlayerProperties interlayerProperties, PalletProperties palletProperties)
+        {
+            // draw pallet
+            Pallet pallet = new Pallet(palletProperties);
+            pallet.Draw(graphics, Transform3D.Identity);
+            // draw solution
+            uint pickId = 0;
+            foreach (ILayer layer in solution)
+            {
+                BoxLayer blayer = layer as BoxLayer;
+                if (null != blayer)
+                {
+                    foreach (BoxPosition bPosition in blayer)
+                        graphics.AddBox(new Box(pickId++, boxProperties, bPosition));
+                }
+
+                InterlayerPos interlayerPos = layer as InterlayerPos;
+                if (null != interlayerPos && null != interlayerProperties)
+                {
+                    Box box = new Box(pickId++, interlayerProperties);
+                    // set position
+                    box.Position = new Vector3D(
+                        0.5 * (palletProperties.Length - interlayerProperties.Length)
+                        , 0.5 * (palletProperties.Width - interlayerProperties.Width)
+                        , interlayerPos.ZLow);
+                    // draw
+                    graphics.AddBox(box);
+                }
+            }
+ 
+            // always show dimensions
+            BoxLayer bLayer = solution[solution.Count - 1] as BoxLayer;
+            double palletHeight = solution[solution.Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(boxProperties) : 0.0);
+
+            graphics.AddDimensions(new DimensionCube(palletProperties.Length, palletProperties.Width, palletHeight));
             // flush
             graphics.Flush();
         }

@@ -195,7 +195,7 @@ namespace TreeDim.StackBuilder.Desktop
                 palletConstraintSet.SetAllowedPattern("Diagonale");
                 palletConstraintSet.SetAllowedPattern("Interlocked");
                 palletConstraintSet.SetAllowedPattern("Trilock");
-                palletConstraintSet.SetAllowedPattern("Spirale");
+                //palletConstraintSet.SetAllowedPattern("Spirale");
 
                 // allow aligned and alternate layers
                 palletConstraintSet.AllowAlignedLayers = true;
@@ -479,6 +479,36 @@ namespace TreeDim.StackBuilder.Desktop
             // draw associated pallet solution
             try
             {
+                // sanity check
+                if (pbPallet.Size.Width < 1 || pbPallet.Size.Height < 1)
+                    return;
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(pbPallet.Size);
+                // set camera position
+                graphics.CameraPosition = Graphics3D.Corner_0;
+                // set camera target
+                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+                // set light direction
+                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                // set viewport (not actually needed)
+                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+                // show images
+                graphics.ShowTextures = true;
+                // get selected solution
+                CaseOptimSolution solution = SelectedSolution;
+                // get selected box
+                BoxProperties boxProperties = SelectedBox;
+                // get selected pallet
+                PalletProperties palletProperties = SelectedPallet;
+                if (null != solution && null != boxProperties && null != palletProperties)
+                {
+                    Vector3D outerDim = solution.CaseDefinition.OuterDimensions(boxProperties, BuildCaseOptimConstraintSet());
+                    BoxProperties caseProperties = new BoxProperties(null, outerDim.X, outerDim.Y, outerDim.Z);
+                    caseProperties.SetColor(Color.Brown);
+                    SolutionViewer.Draw(graphics, solution.PalletSolution, caseProperties, null, palletProperties);
+                }
+                // show generated bitmap or picture box control
+                pbPallet.Image = graphics.Bitmap;
             }
             catch (Exception ex)
             {

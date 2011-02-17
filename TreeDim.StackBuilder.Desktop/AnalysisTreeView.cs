@@ -48,6 +48,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.Solution);        // 11
                 ImageList.Images.Add(AnalysisTreeView.TruckAnalysis);   // 12
                 ImageList.Images.Add(AnalysisTreeView.CaseAnalysis);    // 13
+                ImageList.Images.Add(AnalysisTreeView.CaseOfBoxes);     // 14
                 // instantiate context menu
                 this.ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -125,10 +126,10 @@ namespace TreeDim.StackBuilder.Desktop
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.CaseAnalysis, new EventHandler(onCreateNewCaseAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(onDocumentClose)));
-
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_BOX
                 || nodeTag.Type == NodeTag.NodeType.NT_CASE
+                || nodeTag.Type == NodeTag.NodeType.NT_CASEOFBOXES
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLET
                 || nodeTag.Type == NodeTag.NodeType.NT_BUNDLE
                 || nodeTag.Type == NodeTag.NodeType.NT_INTERLAYER
@@ -442,6 +443,7 @@ namespace TreeDim.StackBuilder.Desktop
                     || (tag.Type == NodeTag.NodeType.NT_ANALYSISINTERLAYER)
                     || (tag.Type == NodeTag.NodeType.NT_BOX)
                     || (tag.Type == NodeTag.NodeType.NT_CASE)
+                    || (tag.Type == NodeTag.NodeType.NT_CASEOFBOXES)
                     || (tag.Type == NodeTag.NodeType.NT_PALLET)
                     || (tag.Type == NodeTag.NodeType.NT_INTERLAYER)
                     || (tag.Type == NodeTag.NodeType.NT_BUNDLE)
@@ -588,8 +590,13 @@ namespace TreeDim.StackBuilder.Desktop
             int iconIndex = 0;
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_BOX;
             NodeTag.NodeType parentNodeType = NodeTag.NodeType.NT_LISTBOX;
-
-            if (itemProperties.GetType() == typeof(BoxProperties))
+            if (itemProperties.GetType() == typeof(CaseOfBoxesProperties))
+            {
+                iconIndex = 14;
+                nodeType = NodeTag.NodeType.NT_CASEOFBOXES;
+                parentNodeType = NodeTag.NodeType.NT_LISTCASE;
+            }
+            else if (itemProperties.GetType() == typeof(BoxProperties))
             {
                 BoxProperties boxProperties = itemProperties as BoxProperties;
                 if (boxProperties.HasInsideDimensions)
@@ -650,6 +657,16 @@ namespace TreeDim.StackBuilder.Desktop
             // insert
             parentNode.Nodes.Add(nodeItem);
             parentNode.Expand();
+
+            // if item is CaseOfBoxesProperties
+            if (itemProperties is CaseOfBoxesProperties)
+            {
+                // insert sub node
+                CaseOfBoxesProperties caseOfBoxesProperties = itemProperties as CaseOfBoxesProperties;
+                TreeNode subNode = new TreeNode(caseOfBoxesProperties.InsideBoxProperties.Name, 3, 3);
+                subNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOX, doc, caseOfBoxesProperties.InsideBoxProperties);
+                nodeItem.Nodes.Add(subNode);
+            }
         }
         /// <summary>
         /// handles new analysis created
@@ -667,7 +684,13 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
             // insert sub box node
-            int indexIconBoxAnalysis = analysis.IsBoxAnalysis ? 4 : 5;
+            int indexIconBoxAnalysis = 4;
+            if (analysis.BProperties is CaseOfBoxesProperties)
+                indexIconBoxAnalysis = 14;
+            else if (analysis.BProperties is BoxProperties)
+                indexIconBoxAnalysis = 4;
+            else if (analysis.BProperties is BundleProperties)
+                indexIconBoxAnalysis = 5;
             TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
             subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.BProperties);
             nodeAnalysis.Nodes.Add(subBoxNode);
@@ -760,6 +783,14 @@ namespace TreeDim.StackBuilder.Desktop
             else if (itemBase.GetType() == typeof(BundleProperties))
             {
                 nodeType = NodeTag.NodeType.NT_BUNDLE;
+            }
+            else if (itemBase.GetType() == typeof(CaseOfBoxesProperties))
+            {
+                nodeType = NodeTag.NodeType.NT_CASEOFBOXES;
+            }
+            else if (itemBase.GetType() == typeof(CaseOfBoxesProperties))
+            {
+                nodeType = NodeTag.NodeType.NT_CASEOFBOXES;
             }
             else if (itemBase.GetType() == typeof(InterlayerProperties))
             {
@@ -928,6 +959,10 @@ namespace TreeDim.StackBuilder.Desktop
             /// case
             /// </summary>
             NT_CASE,
+            /// <summary>
+            /// case of boxes
+            /// </summary>
+            NT_CASEOFBOXES,
             /// <summary>
             /// bundle
             /// </summary>

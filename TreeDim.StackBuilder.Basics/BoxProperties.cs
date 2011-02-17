@@ -23,6 +23,23 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor 1
+        /// </summary>
+        /// <param name="document">Parent document</param>
+        public BoxProperties(Document document)
+            : base(document)
+        {
+            _length = 0.0; _width = 0.0; _height = 0.0;
+            _hasInsideDimensions = true;
+        }
+        /// <summary>
+        /// Constructor 2
+        /// </summary>
+        /// <param name="document">Parent document</param>
+        /// <param name="length">Outer length</param>
+        /// <param name="width">Outer width</param>
+        /// <param name="height">Outer height</param>
         public BoxProperties(Document document, double length, double width, double height)
             : base(document)
         {
@@ -31,6 +48,16 @@ namespace TreeDim.StackBuilder.Basics
             _height     = height;
             _hasInsideDimensions = false;
         }
+        /// <summary>
+        /// Constructor 3
+        /// </summary>
+        /// <param name="document">Parent document</param>
+        /// <param name="length">Outer length</param>
+        /// <param name="width">Outer width</param>
+        /// <param name="height">Outer height</param>
+        /// <param name="insideLength">Inner length</param>
+        /// <param name="insideWidth">Inner width</param>
+        /// <param name="insideHeight">Inner height</param>
         public BoxProperties(Document document, double length, double width, double height, double insideLength, double insideWidth, double insideHeight)
             : base(document)
         {

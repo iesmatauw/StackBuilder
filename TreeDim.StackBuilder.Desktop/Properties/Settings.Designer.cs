@@ -615,5 +615,16 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["FormOptimizeCasePosition"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewCaseOfBoxesPosition {
+            get {
+                return ((global::TreeDim.StackBuilder.Desktop.WindowSettings)(this["FormNewCaseOfBoxesPosition"]));
+            }
+            set {
+                this["FormNewCaseOfBoxesPosition"] = value;
+            }
+        }
     }
 }

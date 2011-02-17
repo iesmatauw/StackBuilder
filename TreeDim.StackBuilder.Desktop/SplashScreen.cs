@@ -11,6 +11,9 @@ using System.Reflection;
 
 namespace TreeDim.StackBuilder.Desktop
 {
+    /// <summary>
+    /// Splash screen form
+    /// </summary>
     public partial class SplashScreen : Form
     {
         #region Constructor

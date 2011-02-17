@@ -199,9 +199,32 @@ namespace TreeDim.StackBuilder.Desktop
                         box.InsideWidth = form.InsideWidth;
                         box.InsideHeight = form.InsideHeight;
                         box.SetAllColors( form.Colors );
-                        box.SetAllColors(form.Colors);
                         box.TextureList = form.TextureList;
                         box.EndUpdate();
+                    }
+                }
+                else if (itemProp.GetType() == typeof(CaseOfBoxesProperties))
+                {
+                    CaseOfBoxesProperties caseOfBoxes = itemProp as CaseOfBoxesProperties;
+                    FormNewCaseOfBoxes form = new FormNewCaseOfBoxes(eventArg.Document, caseOfBoxes);
+                    form.Name = itemProp.Name;
+                    form.Description = itemProp.Description;
+
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        if (caseOfBoxes.HasDependingAnalyses)
+                        {
+                            if (DialogResult.Cancel == MessageBox.Show(
+                               string.Format(Resources.ID_DEPENDINGANALYSES, caseOfBoxes.Name)
+                               , Application.ProductName
+                               , MessageBoxButtons.OKCancel))
+                                return;
+                        }
+                        caseOfBoxes.Name = form.Name;
+                        caseOfBoxes.Description = form.Description;
+                        caseOfBoxes.SetAllColors(form.Colors);
+                        caseOfBoxes.TextureList = form.TextureList;
+                        caseOfBoxes.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BundleProperties))
@@ -786,6 +809,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form activation/creation
+        /// <summary>
+        /// Creates or activate a pallet analysis view
+        /// </summary>
         public void CreateOrActivateViewAnalysis(PalletAnalysis analysis)
         {
             // ---> search among existing views
@@ -809,7 +835,9 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentAnalysis formAnalysis = parentDocument.CreateAnalysisView(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
+        /// <summary>
+        /// Creates or activate a truck analysis view
+        /// </summary>
         public void CreateOrActivateViewTruckAnalysis(TruckAnalysis analysis)
         {
             // search among existing views
@@ -833,7 +861,9 @@ namespace TreeDim.StackBuilder.Desktop
             // show docked
             formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
+        /// <summary>
+        /// Creates or activate a case analysis view
+        /// </summary>
         public void CreateOrActivateViewCaseAnalysis(CaseAnalysis caseAnalysis)
         {
             // search ammong existing views
@@ -898,10 +928,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-        private void caseOptimisationToolStripMenu_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

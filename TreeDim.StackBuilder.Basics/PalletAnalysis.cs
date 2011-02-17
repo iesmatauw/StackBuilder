@@ -50,6 +50,7 @@ namespace TreeDim.StackBuilder.Basics
                 _solutions = value;
                 foreach (PalletSolution sol in _solutions)
                     sol.Analysis = this;
+
             }
             get { return _solutions; }
         }
@@ -171,7 +172,6 @@ namespace TreeDim.StackBuilder.Basics
                 UnSelectSolution(_selectedSolutions[0]);
             // clear solutions
             _solutions.Clear();
-
         }
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {

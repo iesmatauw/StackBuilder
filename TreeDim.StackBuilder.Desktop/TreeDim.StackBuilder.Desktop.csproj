@@ -173,6 +173,12 @@
     <Compile Include="FormNewCaseAnalysis.Designer.cs">
       <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewCaseOfBoxes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewCaseOfBoxes.Designer.cs">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewDocument.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCaseAnalysis.resx">
       <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.fr-FR.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.fr-FR.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
@@ -545,6 +557,7 @@
     <None Include="Resources\Database.bmp" />
     <Content Include="Resources\CaseAnalysis.ico" />
     <None Include="Resources\Help.bmp" />
+    <None Include="Resources\CaseOfBoxes.bmp" />
     <Content Include="Resources\Image.bmp" />
     <None Include="Resources\OptimalCase.bmp" />
     <Content Include="Resources\PalletAnalysis.ico" />

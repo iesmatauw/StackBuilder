@@ -128,61 +128,97 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Name
+        /// </summary>
         public string BoxName
         {
             get { return tbName.Text; }
             set { tbName.Text = value; }
         }
+        /// <summary>
+        /// Description
+        /// </summary>
         public string Description
         {
             get { return tbDescription.Text; }
             set { tbDescription.Text = value; }
         }
+        /// <summary>
+        /// Length
+        /// </summary>
         public double BoxLength
         {
             get { return (double)nudLength.Value; }
             set { nudLength.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Width
+        /// </summary>
         public double BoxWidth
         {
             get { return (double)nudWidth.Value; }
             set { nudWidth.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Height
+        /// </summary>
         public double BoxHeight
         {
             get { return (double)nudHeight.Value; }
             set { nudHeight.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Inside length
+        /// </summary>
         public double InsideLength
         {
             get { return (double)nudInsideLength.Value; }
             set { nudInsideLength.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Inside width
+        /// </summary>
         public double InsideWidth
         {
             get { return (double)nudInsideWidth.Value; }
             set { nudInsideWidth.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Inside height
+        /// </summary>
         public double InsideHeight
         {
             get { return (double)nudInsideHeight.Value; }
             set { nudInsideHeight.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Weight
+        /// </summary>
         public double Weight
         {
             get { return (double)nudWeight.Value; }
             set { nudWeight.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Weight on top
+        /// </summary>
         public double WeightOnTop
         {
             get { return (double)nudWeightOnTop.Value; }
             set { nudWeightOnTop.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Colors
+        /// </summary>
         public Color[] Colors
         {
             get { return _faceColors; }
             set { }
         }
+        /// <summary>
+        /// Textures
+        /// </summary>
         public List<Pair<HalfAxis.HAxis, Texture>> TextureList
         {
             get {   return _textures;   }

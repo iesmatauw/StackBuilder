@@ -157,6 +157,23 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return boxProperties;
         }
+
+        public CaseOfBoxesProperties CreateNewCaseOfBoxes(
+            string name, string description
+            , BoxProperties boxProperties
+            , CaseDefinition caseDefinition
+            , CaseOptimConstraintSet constraintSet)
+        {
+            CaseOfBoxesProperties caseProperties = new CaseOfBoxesProperties(this, boxProperties, caseDefinition, constraintSet);
+            caseProperties.Name = name;
+            caseProperties.Description = description;
+            // insert in list
+            _typeList.Add(caseProperties);
+            // notify listeners
+            NotifyOnNewTypeCreated(caseProperties);
+            Modify();
+            return caseProperties;
+        }
         
         public BundleProperties CreateNewBundle(
             string name, string description
@@ -302,6 +319,9 @@ namespace TreeDim.StackBuilder.Basics
             analysis.Solutions = solutions;
             // notify listeners
             NotifyOnNewAnalysisCreated(analysis);
+            // set solution selected if it is unique
+            if (solutions.Count == 1)
+                analysis.SelectSolutionByIndex(0);
             return analysis;
         }
 
@@ -348,6 +368,7 @@ namespace TreeDim.StackBuilder.Basics
             // notify listeners / remove
             if (item.GetType() == typeof(BoxProperties)
                 || item.GetType() == typeof(BundleProperties)
+                || item.GetType() == typeof(CaseOfBoxesProperties)
                 || item.GetType() == typeof(PalletProperties)
                 || item.GetType() == typeof(InterlayerProperties)
                 || item.GetType() == typeof(TruckProperties))
@@ -629,6 +650,8 @@ namespace TreeDim.StackBuilder.Basics
                         {
                             if (string.Equals(itemPropertiesNode.Name, "BoxProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadBoxProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "CaseOfBoxesProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadCaseOfBoxesProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "PalletProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadPalletProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "InterlayerProperties", StringComparison.CurrentCultureIgnoreCase))
@@ -753,6 +776,9 @@ namespace TreeDim.StackBuilder.Basics
                 , colors);
             boxProperties.Guid = new Guid(sid);
             boxProperties.TextureList = listTexture;
+        }
+        private void LoadCaseOfBoxesProperties(XmlElement eltCaseOfBoxesProperties)
+        { 
         }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
@@ -1275,6 +1301,9 @@ namespace TreeDim.StackBuilder.Basics
                     BoxProperties boxProperties = itemProperties as BoxProperties;
                     if (null != boxProperties)
                         Save(boxProperties, xmlItemPropertiesElt, xmlDoc);
+                    CaseOfBoxesProperties caseOfBoxesProperties = itemProperties as CaseOfBoxesProperties;
+                    if (null != caseOfBoxesProperties)
+                        Save(caseOfBoxesProperties, xmlItemPropertiesElt, xmlDoc);
                     BundleProperties bundleProperties = itemProperties as BundleProperties;
                     if (null != bundleProperties)
                         Save(bundleProperties, xmlItemPropertiesElt, xmlDoc);

@@ -47,8 +47,8 @@ namespace TreeDim.StackBuilder.Graphics
                     for (int k = 0; k < _caseDefinition.Arrangement._iHeight; ++k)
                         graphics.AddBox( new Box(pickId++, _boxProperties, GetPosition(i, j, k, _caseDefinition.Dim0, _caseDefinition.Dim1) ) );
             // add dimensions
-            Vector3D outerDimensions = _caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
-            graphics.AddDimensions(new DimensionCube(outerDimensions.X, outerDimensions.Y, outerDimensions.Z));
+            Vector3D innerDimensions = _caseDefinition.InnerDimensions(_boxProperties);
+            graphics.AddDimensions(new DimensionCube(innerDimensions.X, innerDimensions.Y, innerDimensions.Z));
             // flush
             graphics.Flush();
         }

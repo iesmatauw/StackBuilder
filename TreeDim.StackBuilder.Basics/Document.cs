@@ -7,6 +7,7 @@ using System.IO;
 using System.Xml;
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 using TreeDim.StackBuilder.Basics;
 
@@ -713,42 +714,12 @@ namespace TreeDim.StackBuilder.Basics
                 if (string.Equals(node.Name, "FaceColors", StringComparison.CurrentCultureIgnoreCase))
                 {
                     XmlElement faceColorList = node as XmlElement;
-                    foreach (XmlNode faceColorNode in faceColorList.ChildNodes)
-                    {
-                        XmlElement faceColorElt = faceColorNode as XmlElement;
-                        string sFaceIndex = faceColorElt.Attributes["FaceIndex"].Value;
-                        string sColorArgb = faceColorElt.Attributes["Color"].Value;
-                        int iFaceIndex = System.Convert.ToInt32(sFaceIndex);
-                        Color faceColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
-                        colors[iFaceIndex] = faceColor;
-                    }
+                    LoadFaceColors(faceColorList, ref colors);
                 }
                 else if (string.Equals(node.Name, "Textures", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    XmlElement textureList = node as XmlElement;
-                    foreach (XmlNode faceTextureNode in textureList.ChildNodes)
-                    {
-                        try
-                        {
-                            XmlElement xmlFaceTexture = faceTextureNode as XmlElement;
-                            // face normal
-                            HalfAxis.HAxis faceNormal = HalfAxis.Parse(xmlFaceTexture.Attributes["FaceNormal"].Value);
-                            // position
-                            Vector2D position = Vector2D.Parse(xmlFaceTexture.Attributes["Position"].Value);
-                            // size
-                            Vector2D size = Vector2D.Parse(xmlFaceTexture.Attributes["Size"].Value);
-                            // angle
-                            double angle = Convert.ToDouble(xmlFaceTexture.Attributes["Angle"].Value);
-                            // bitmap
-                            Bitmap bmp = Document.StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
-                            // add texture pair
-                            listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal, new Texture(bmp, position, size, angle)));
-                        }
-                        catch (Exception ex)
-                        {
-                            _log.Error(ex.ToString());
-                        }
-                    }
+                    XmlElement textureElt = node as XmlElement;
+                    LoadTextureList(textureElt, ref listTexture);
                 }
             }
             // create new BoxProperties instance
@@ -778,7 +749,105 @@ namespace TreeDim.StackBuilder.Basics
             boxProperties.TextureList = listTexture;
         }
         private void LoadCaseOfBoxesProperties(XmlElement eltCaseOfBoxesProperties)
-        { 
+        {
+            string sid = eltCaseOfBoxesProperties.Attributes["Id"].Value;
+            string sname = eltCaseOfBoxesProperties.Attributes["Name"].Value;
+            string sdescription = eltCaseOfBoxesProperties.Attributes["Description"].Value;
+            string sweight = eltCaseOfBoxesProperties.Attributes["Weight"].Value;
+            string sBoxId = eltCaseOfBoxesProperties.Attributes["InsideBoxId"].Value;
+
+            CaseDefinition caseDefinition = null;
+            CaseOptimConstraintSet constraintSet = null;
+            Color[] colors = new Color[6];
+            List<Pair<HalfAxis.HAxis, Texture>> listTexture = new List<Pair<HalfAxis.HAxis,Texture>>();
+            foreach (XmlNode node in eltCaseOfBoxesProperties.ChildNodes)
+            {
+                if (string.Equals(node.Name, "FaceColors", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement faceColorList = node as XmlElement;
+                    LoadFaceColors(faceColorList, ref colors);
+                }
+                else if (string.Equals(node.Name, "Textures", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement textureElt = node as XmlElement;
+                    LoadTextureList(textureElt, ref listTexture);
+                }
+                else if (string.Equals(node.Name, "CaseDefinition", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement caseDefinitionElt = node as XmlElement;
+                    LoadCaseDefinition(caseDefinitionElt, out caseDefinition);
+                }
+                else if (string.Equals(node.Name, "OptimConstraintSet", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement constraintSetElt = node as XmlElement;
+                    LoadOptimConstraintSet(constraintSetElt, out constraintSet);
+                }
+            }
+            CaseOfBoxesProperties caseOfBoxProperties = CreateNewCaseOfBoxes(
+                sname
+                , sdescription
+                , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
+                , caseDefinition
+                , constraintSet);
+            caseOfBoxProperties.Guid = new Guid(sid);
+            caseOfBoxProperties.TextureList = listTexture;
+            caseOfBoxProperties.SetAllColors( colors );
+        }
+        private void LoadFaceColors(XmlElement eltColors, ref Color[] colors)
+        {
+            foreach (XmlNode faceColorNode in eltColors.ChildNodes)
+            {
+                XmlElement faceColorElt = faceColorNode as XmlElement;
+                string sFaceIndex = faceColorElt.Attributes["FaceIndex"].Value;
+                string sColorArgb = faceColorElt.Attributes["Color"].Value;
+                int iFaceIndex = System.Convert.ToInt32(sFaceIndex);
+                Color faceColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
+                colors[iFaceIndex] = faceColor;
+            }
+        }
+        private void LoadTextureList(XmlElement eltTextureList, ref List<Pair<HalfAxis.HAxis, Texture>> listTexture)
+        {
+            foreach (XmlNode faceTextureNode in eltTextureList.ChildNodes)
+            {
+                try
+                {
+                    XmlElement xmlFaceTexture = faceTextureNode as XmlElement;
+                    // face normal
+                    HalfAxis.HAxis faceNormal = HalfAxis.Parse(xmlFaceTexture.Attributes["FaceNormal"].Value);
+                    // position
+                    Vector2D position = Vector2D.Parse(xmlFaceTexture.Attributes["Position"].Value);
+                    // size
+                    Vector2D size = Vector2D.Parse(xmlFaceTexture.Attributes["Size"].Value);
+                    // angle
+                    double angle = Convert.ToDouble(xmlFaceTexture.Attributes["Angle"].Value);
+                    // bitmap
+                    Bitmap bmp = Document.StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
+                    // add texture pair
+                    listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal, new Texture(bmp, position, size, angle)));
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                }
+            }
+        }
+        private void LoadCaseDefinition(XmlElement eltCaseDefinition, out CaseDefinition caseDefinition)
+        {
+            string sArrangement = eltCaseDefinition.Attributes["Arrangement"].Value;
+            string sDim = eltCaseDefinition.Attributes["Orientation"].Value;
+            int[] iOrientation = Document.ParseInt2(sDim);
+            caseDefinition = new CaseDefinition(
+                CaseOptimArrangement.TryParse(sArrangement)
+                , iOrientation[0]
+                , iOrientation[1]);
+        }
+
+        private void LoadOptimConstraintSet(XmlElement eltConstraintSet, out CaseOptimConstraintSet constraintSet)
+        {
+            string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
+            int[] iNoWalls = ParseInt3(sNoWalls);
+            double wallThickness = Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value);
+            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero); 
         }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
@@ -1298,12 +1367,12 @@ namespace TreeDim.StackBuilder.Basics
                 xmlRootElement.AppendChild(xmlItemPropertiesElt);
                 foreach (ItemBase itemProperties in _typeList)
                 {
-                    BoxProperties boxProperties = itemProperties as BoxProperties;
-                    if (null != boxProperties)
-                        Save(boxProperties, xmlItemPropertiesElt, xmlDoc);
                     CaseOfBoxesProperties caseOfBoxesProperties = itemProperties as CaseOfBoxesProperties;
                     if (null != caseOfBoxesProperties)
                         Save(caseOfBoxesProperties, xmlItemPropertiesElt, xmlDoc);
+                    BoxProperties boxProperties = itemProperties as BoxProperties;
+                    if (null != boxProperties && null == caseOfBoxesProperties)
+                        Save(boxProperties, xmlItemPropertiesElt, xmlDoc);
                     BundleProperties bundleProperties = itemProperties as BundleProperties;
                     if (null != bundleProperties)
                         Save(bundleProperties, xmlItemPropertiesElt, xmlDoc);
@@ -1453,28 +1522,80 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
             weightAttribute.Value = string.Format("{0}", boxProperties.Weight);
             xmlBoxProperties.Attributes.Append(weightAttribute);
-            // face colors
-            XmlElement xmlFaceColors = xmlDoc.CreateElement("FaceColors");
-            xmlBoxProperties.AppendChild(xmlFaceColors);
-            short i = 0;
-            foreach (Color color in boxProperties.Colors)
-            {
-                XmlElement xmlFaceColor = xmlDoc.CreateElement("FaceColor");
-                xmlFaceColors.AppendChild(xmlFaceColor);
-                // face index
-                XmlAttribute xmlFaceIndex = xmlDoc.CreateAttribute("FaceIndex");
-                xmlFaceIndex.Value = string.Format("{0}", i);
-                xmlFaceColor.Attributes.Append(xmlFaceIndex);
-                // color
-                XmlAttribute xmlColor = xmlDoc.CreateAttribute("Color");
-                xmlColor.Value = string.Format("{0}", color.ToArgb());
-                xmlFaceColor.Attributes.Append(xmlColor);
-                ++i;
-            }
-            // textures
+            // colors
+            SaveColors(boxProperties.Colors, xmlBoxProperties, xmlDoc);
+            // texture
+            SaveTextures(boxProperties.TextureList, xmlBoxProperties, xmlDoc);
+        }
+
+        public void Save(CaseOfBoxesProperties caseOfBoxesProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create xmlBoxProperties element
+            XmlElement xmlBoxProperties = xmlDoc.CreateElement("CaseOfBoxesProperties");
+            parentElement.AppendChild(xmlBoxProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = caseOfBoxesProperties.Guid.ToString();
+            xmlBoxProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = caseOfBoxesProperties.Name;
+            xmlBoxProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = caseOfBoxesProperties.Description;
+            xmlBoxProperties.Attributes.Append(descAttribute);
+            // weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = string.Format("{0}", caseOfBoxesProperties.Weight);
+            xmlBoxProperties.Attributes.Append(weightAttribute);
+            // save inside ref to box properties
+            XmlAttribute insideBoxId = xmlDoc.CreateAttribute("InsideBoxId");
+            insideBoxId.Value = caseOfBoxesProperties.InsideBoxProperties.Guid.ToString();
+            xmlBoxProperties.Attributes.Append(insideBoxId);
+            // save case definition
+            SaveCaseDefinition(caseOfBoxesProperties.CaseDefinition, xmlBoxProperties, xmlDoc);
+            // save optim constraintset
+            SaveCaseOptimConstraintSet(caseOfBoxesProperties.CaseOptimConstraintSet, xmlBoxProperties, xmlDoc);
+            // colors
+            SaveColors(caseOfBoxesProperties.Colors, xmlBoxProperties, xmlDoc);
+            // texture
+            SaveTextures(caseOfBoxesProperties.TextureList, xmlBoxProperties, xmlDoc);
+        }
+        private void SaveCaseDefinition(CaseDefinition caseDefinition, XmlElement xmlBoxProperties, XmlDocument xmlDoc)
+        {
+            XmlElement xmlCaseDefElement = xmlDoc.CreateElement("CaseDefinition");
+            xmlBoxProperties.AppendChild(xmlCaseDefElement);
+            // case arrangement
+            XmlAttribute xmlArrangement = xmlDoc.CreateAttribute("Arrangement");
+            xmlArrangement.Value = caseDefinition.Arrangement.ToString();
+            xmlCaseDefElement.Attributes.Append(xmlArrangement);
+            // box orientation
+            XmlAttribute xmlOrientation = xmlDoc.CreateAttribute("Orientation");
+            xmlOrientation.Value = string.Format("{0} {1}", caseDefinition.Dim0, caseDefinition.Dim1);
+            xmlCaseDefElement.Attributes.Append(xmlOrientation);
+        }
+        private void SaveCaseOptimConstraintSet(CaseOptimConstraintSet caseOptimConstraintSet, XmlElement xmlBoxProperties, XmlDocument xmlDoc)
+        {
+            XmlElement xmlCaseOptimConstraintSet = xmlDoc.CreateElement("OptimConstraintSet");
+            xmlBoxProperties.AppendChild(xmlCaseOptimConstraintSet);
+            // wall thickness
+            XmlAttribute xmlWallThickness = xmlDoc.CreateAttribute("WallThickness");
+            xmlWallThickness.Value = string.Format("{0}", caseOptimConstraintSet.WallThickness);
+            xmlCaseOptimConstraintSet.Attributes.Append(xmlWallThickness);
+            // no walls
+            XmlAttribute xmlNumberOfWalls = xmlDoc.CreateAttribute("NumberOfWalls");
+            xmlNumberOfWalls.Value = string.Format("{0} {1} {2}"
+                , caseOptimConstraintSet.NoWalls[0]
+                , caseOptimConstraintSet.NoWalls[1]
+                , caseOptimConstraintSet.NoWalls[2]);
+            xmlCaseOptimConstraintSet.Attributes.Append(xmlNumberOfWalls);
+        }
+        private void SaveTextures(List<Pair<HalfAxis.HAxis, Texture>> textureList, XmlElement xmlBoxProperties, XmlDocument xmlDoc)
+        { 
             XmlElement xmlTexturesElement = xmlDoc.CreateElement("Textures");
             xmlBoxProperties.AppendChild(xmlTexturesElement);
-            foreach (Pair<HalfAxis.HAxis, Texture> texPair in boxProperties.TextureList)
+            foreach (Pair<HalfAxis.HAxis, Texture> texPair in textureList)
             {
                 XmlElement xmlFaceTexture = xmlDoc.CreateElement("FaceTexture");
                 xmlTexturesElement.AppendChild(xmlFaceTexture);
@@ -1500,6 +1621,29 @@ namespace TreeDim.StackBuilder.Basics
                 xmlFaceTexture.Attributes.Append(xmlBitmap);
             }
         }
+
+        private void SaveColors(Color[] colors, XmlElement eltBoxProperties, XmlDocument xmlDoc)
+        { 
+            // face colors
+            XmlElement xmlFaceColors = xmlDoc.CreateElement("FaceColors");
+            eltBoxProperties.AppendChild(xmlFaceColors);
+            short i = 0;
+            foreach (Color color in colors)
+            {
+                XmlElement xmlFaceColor = xmlDoc.CreateElement("FaceColor");
+                xmlFaceColors.AppendChild(xmlFaceColor);
+                // face index
+                XmlAttribute xmlFaceIndex = xmlDoc.CreateAttribute("FaceIndex");
+                xmlFaceIndex.Value = string.Format("{0}", i);
+                xmlFaceColor.Attributes.Append(xmlFaceIndex);
+                // color
+                XmlAttribute xmlColor = xmlDoc.CreateAttribute("Color");
+                xmlColor.Value = string.Format("{0}", color.ToArgb());
+                xmlFaceColor.Attributes.Append(xmlColor);
+                ++i;
+            }
+        }
+
         public void Save(PalletProperties palletProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create xmlPalletProperties element
@@ -2249,6 +2393,37 @@ namespace TreeDim.StackBuilder.Basics
         {
             byte[] bytes = System.Convert.FromBase64String(bmpData);
             return new Bitmap(new System.IO.MemoryStream(bytes));
+        }
+        private static int[] ParseInt2(string value)
+        {
+            string regularExp = "(?<i1>.*) (?<i2>.*)";
+            Regex r = new Regex(regularExp, RegexOptions.Singleline);
+            Match m = r.Match(value);
+            if (m.Success)
+            {
+                int[] iArray = new int[2];
+                iArray[0] = int.Parse(m.Result("${i1}"));
+                iArray[1] = int.Parse(m.Result("${i2}"));
+                return iArray;
+            }
+            else
+                throw new Exception("Failed parsing int[2] from " + value);
+        }
+        private static int[] ParseInt3(string value)
+        {
+            string regularExp = "(?<i1>.*) (?<i2>.*) (?<i3>.*)";
+            Regex r = new Regex(regularExp, RegexOptions.Singleline);
+            Match m = r.Match(value);
+            if (m.Success)
+            {
+                int[] iArray = new int[3];
+                iArray[0] = int.Parse(m.Result("${i1}"));
+                iArray[1] = int.Parse(m.Result("${i2}"));
+                iArray[2] = int.Parse(m.Result("${i3}"));
+                return iArray;
+            }
+            else
+                throw new Exception("Failed parsing int[3] from " + value);
         }
         #endregion
 

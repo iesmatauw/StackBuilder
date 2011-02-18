@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sharp3D.Math.Core;
+using System.Text.RegularExpressions;
 #endregion
 
 namespace TreeDim.StackBuilder.Basics
@@ -83,9 +84,20 @@ namespace TreeDim.StackBuilder.Basics
         #region Object override
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("({0}*{1}*{2})", _iLength, _iWidth, _iHeight);
-            return sb.ToString();
+            return string.Format("{0} {1} {2}", _iLength, _iWidth, _iHeight);
+        }
+        #endregion
+
+        #region Parsing
+        public static CaseOptimArrangement TryParse(string value)
+        { 
+            string regularExp = "(?<i1>.*) (?<i2>.*) (?<i3>.*)";
+			Regex r = new Regex(regularExp, RegexOptions.Singleline);
+    		Match m = r.Match(value);
+		    if (m.Success)
+                return new CaseOptimArrangement(int.Parse(m.Result("${i1}")), int.Parse(m.Result("${i2}")), int.Parse(m.Result("${i3}"))) ;
+		    else
+			    throw new Exception("Failed parsing int[3] from " + value );
         }
         #endregion
 

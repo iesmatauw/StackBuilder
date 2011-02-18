@@ -204,7 +204,8 @@ namespace Sharp3D.Math.Core
 		public static Matrix2D Parse(string value)
 		{
 			Regex r = new Regex(regularExp, RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace);
-			Match m = r.Match(value);
+			
+            Match m = r.Match(value);
 			if (m.Success)
 			{
 				return new Matrix2D(

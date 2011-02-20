@@ -7,12 +7,19 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Resources;
 using TreeDim.StackBuilder.Desktop.Properties;
+
+using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
 {
     partial class AboutBox : Form
     {
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(AboutBox));
+        #endregion
+
+        #region Constructor
         public AboutBox()
         {
             InitializeComponent();
@@ -32,6 +39,7 @@ namespace TreeDim.StackBuilder.Desktop
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
         }
+        #endregion
 
         #region Assembly Attribute Accessors
 
@@ -116,6 +124,26 @@ namespace TreeDim.StackBuilder.Desktop
                     return "";
                 // If there is a Company attribute, return its value
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
+            }
+        }
+
+        public string CompanyUrl
+        {
+            set { this.linkLabelUrl.Text = value; }
+            get { return this.linkLabelUrl.Text; }
+        }
+        #endregion
+
+        #region Event handlers
+        private void linkLabelUrl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(this.linkLabelUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
         #endregion

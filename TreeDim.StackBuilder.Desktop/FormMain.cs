@@ -910,8 +910,9 @@ namespace TreeDim.StackBuilder.Desktop
         #region Help menu event handlers
         private void helpToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
-            AboutBox dlg = new AboutBox();
-            dlg.ShowDialog();
+            AboutBox form = new AboutBox();
+            form.CompanyUrl = "http://www.picador.fr/";
+            form.ShowDialog();
         }
         private void helpToolStripMenuItemHelp_Click(object sender, EventArgs e)
         {

@@ -32,8 +32,8 @@
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
-            this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
             this.btSelectSolution = new System.Windows.Forms.Button();
+            this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
             this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip_view = new System.Windows.Forms.ToolStrip();
             this.toolStripCornerView0 = new System.Windows.Forms.ToolStripButton();
@@ -74,8 +74,8 @@
             this.splitContainerHoriz.Panel1.BackgroundImage = null;
             this.splitContainerHoriz.Panel1.Controls.Add(this.pictureBoxSolution);
             this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleHoriz);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleVert);
             this.splitContainerHoriz.Panel1.Controls.Add(this.btSelectSolution);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleVert);
             this.splitContainerHoriz.Panel1.Font = null;
             // 
             // splitContainerHoriz.Panel2
@@ -114,6 +114,17 @@
             this.trackBarAngleHoriz.Value = 45;
             this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
             // 
+            // btSelectSolution
+            // 
+            this.btSelectSolution.AccessibleDescription = null;
+            this.btSelectSolution.AccessibleName = null;
+            resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
+            this.btSelectSolution.BackgroundImage = null;
+            this.btSelectSolution.Font = null;
+            this.btSelectSolution.Name = "btSelectSolution";
+            this.btSelectSolution.UseVisualStyleBackColor = true;
+            this.btSelectSolution.Click += new System.EventHandler(this.btSelectSolution_Click);
+            // 
             // trackBarAngleVert
             // 
             this.trackBarAngleVert.AccessibleDescription = null;
@@ -127,17 +138,6 @@
             this.trackBarAngleVert.TickFrequency = 15;
             this.trackBarAngleVert.Value = 45;
             this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
-            // 
-            // btSelectSolution
-            // 
-            this.btSelectSolution.AccessibleDescription = null;
-            this.btSelectSolution.AccessibleName = null;
-            resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
-            this.btSelectSolution.BackgroundImage = null;
-            this.btSelectSolution.Font = null;
-            this.btSelectSolution.Name = "btSelectSolution";
-            this.btSelectSolution.UseVisualStyleBackColor = true;
-            this.btSelectSolution.Click += new System.EventHandler(this.btSelectSolution_Click);
             // 
             // gridSolutions
             // 
@@ -316,7 +316,6 @@
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.ShowInTaskbar = false;
             this.ToolTipText = null;
-            this.Load += new System.EventHandler(this.DockContentAnalysis_Load);
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel1.PerformLayout();
             this.splitContainerHoriz.Panel2.ResumeLayout(false);

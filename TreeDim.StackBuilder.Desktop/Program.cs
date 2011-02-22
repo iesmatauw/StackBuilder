@@ -6,6 +6,9 @@ using Microsoft.Win32;
 using log4net;
 using log4net.Config;
 using System.Diagnostics;
+
+
+using ExceptionReporting;
 #endregion
 
 #region File association
@@ -52,6 +55,8 @@ namespace TreeDim.StackBuilder.Desktop
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);
+
                 Application.Run(new FormMain());
 
                 _log.Info("Closing " + Application.ProductName);
@@ -59,10 +64,38 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
+                Program.ReportException("Uncaught exception", ex);
             }
+        }
+
+        static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            Program.ReportException("Uncaught exception", e.Exception);
         }
         #endregion
 
+        #region Exception reporting
+        /// <summary>
+        /// Report an exception + custom message
+        /// </summary>
+        public static void ReportException(string customMessage, Exception exception)
+        {
+            ExceptionReporter reporter = new ExceptionReporter();
+            reporter.ReadConfig();
+            reporter.Show(customMessage, exception);
+        }
+        /// <summary>
+        /// Report an exception
+        /// </summary>
+        public static void ReportException(Exception exception)
+        { 
+            ExceptionReporter reporter = new ExceptionReporter();
+            reporter.ReadConfig();
+            reporter.Show(exception);        
+        }
+        #endregion
+
+        #region Constextual help
         internal class MessageFilter : IMessageFilter
         {
             #region IMessageFilter Members
@@ -97,7 +130,6 @@ namespace TreeDim.StackBuilder.Desktop
         // for the context specified by ctrContext.
         public static void ShowContextHelp(Control ctrContext)
         {
-
             int i=0;
             Control ctr = ctrContext;
             Form form = null;
@@ -116,6 +148,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , sHTMLHelp);
             }
         }
+        #endregion
 
         #region File association
         private static void RegisterFileType()

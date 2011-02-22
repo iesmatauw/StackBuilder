@@ -80,7 +80,7 @@ namespace TreeDim.StackBuilder.Engine
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
 
                 int maxY = (int)Math.Floor(actualWidth / boxWidth);
-                double ySpaceNew = (actualWidth - boxWidth * maxY) / (maxY - 1);
+                double ySpaceNew = maxY > 1 ? (actualWidth - boxWidth * maxY) / (maxY - 1) : 0;
                 for (int ix = iStep - 1 - i; ix < maxSizeXLength - i && i < iStep - 1; ++ix)
                     AddPosition(
                         layer
@@ -97,7 +97,7 @@ namespace TreeDim.StackBuilder.Engine
                         , yBase + boxLength + spaceY + iy * (boxWidth + spaceY))
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                 int maxX = (int)Math.Floor(actualLength / boxLength);
-                double xSpaceNew = (actualLength - boxLength * maxX) / (maxX - 1);
+                double xSpaceNew = maxX > 1 ? (actualLength - boxLength * maxX) / (maxX - 1) : 0;
                 for (int iy = iStep - 1 - i; iy < maxSizeYWidth - i && i < iStep - 1; ++iy)
                 {
                     AddPosition(

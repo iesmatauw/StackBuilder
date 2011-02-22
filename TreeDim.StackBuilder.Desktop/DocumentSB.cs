@@ -102,6 +102,17 @@ namespace TreeDim.StackBuilder.Desktop
             return form;
         }
         /// <summary>
+        /// Creates new DockContentAnalysis view
+        /// </summary>
+        /// <param name="analysis"></param>
+        /// <returns></returns>
+        public DockContentAnalysisCaseOfBoxes CreateAnalysisViewCaseOfBoxes(PalletAnalysis analysis)
+        {
+            DockContentAnalysisCaseOfBoxes form = new DockContentAnalysisCaseOfBoxes(this, analysis);
+            _views.Add(form);
+            return form;
+        }
+        /// <summary>
         /// Creates a new DockContentTruckAnalysis view
         /// </summary>
         /// <param name="analysis"></param>

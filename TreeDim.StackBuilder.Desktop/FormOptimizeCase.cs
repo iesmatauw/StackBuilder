@@ -13,8 +13,6 @@ using TreeDim.StackBuilder.Graphics;
 using TreeDim.StackBuilder.Engine;
 using TreeDim.StackBuilder.Desktop.Properties;
 using log4net;
-
-using log4net;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -34,17 +32,23 @@ namespace TreeDim.StackBuilder.Desktop
         private class BoxItem
         {
             private BProperties _boxProperties;
-
+            /// <summary>
+            /// Constructor
+            /// </summary>
             public BoxItem(BProperties boxProperties)
             {
                 _boxProperties = boxProperties;
             }
-
+            /// <summary>
+            /// returns the inner item
+            /// </summary>
             public BProperties Item
             {
                 get { return _boxProperties; }
             }
-
+            /// <summary>
+            /// return the box name to be displayed by combo box
+            /// </summary>
             public override string ToString()
             {
                 return _boxProperties.Name;
@@ -53,17 +57,23 @@ namespace TreeDim.StackBuilder.Desktop
         private class PalletItem
         {
             private PalletProperties _palletProperties;
-
+            /// <summary>
+            /// constructor
+            /// </summary>
             public PalletItem(PalletProperties palletProperties)
             {
                 _palletProperties = palletProperties;
             }
-
+            /// <summary>
+            /// returns the inner item
+            /// </summary>
             public PalletProperties Item
             {
                 get { return _palletProperties; }
             }
-
+            /// <summary>
+            /// returns the pallet name to be displayed by combo box
+            /// </summary>
             public override string ToString()
             {
                 return _palletProperties.Name;
@@ -113,11 +123,10 @@ namespace TreeDim.StackBuilder.Desktop
             FillGrid();
 
             UpdateButtonOptimizeStatus();
-            EnableDisableButtonAddSolution();
+            UpdateButtonAddSolutionStatus();
             // windows settings
             if (null != Settings.Default.FormOptimizeCasePosition)
                 Settings.Default.FormOptimizeCasePosition.Restore(this);
-
         }
 
         private void FormOptimizeCase_FormClosing(object sender, FormClosingEventArgs e)
@@ -139,7 +148,9 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             { _log.Error(ex.ToString()); }
         }
+        #endregion
 
+        #region Status
         private void UpdateButtonOptimizeStatus()
         {
             string message = string.Empty;
@@ -160,6 +171,11 @@ namespace TreeDim.StackBuilder.Desktop
             // status bar
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+        }
+
+        private void UpdateButtonAddSolutionStatus()
+        {
+            btAddSolution.Enabled = (null != SelectedSolution);
         }
         #endregion
 
@@ -200,7 +216,7 @@ namespace TreeDim.StackBuilder.Desktop
 
                 // fill grid using solutions
                 FillGrid();
-                EnableDisableButtonAddSolution();
+                UpdateButtonAddSolutionStatus();
             }
             catch (Exception ex)
             {
@@ -290,13 +306,15 @@ namespace TreeDim.StackBuilder.Desktop
             // redraw
             Draw();
             // update "Add solution" button status
-            EnableDisableButtonAddSolution();
+            UpdateButtonAddSolutionStatus();
         }
         private void OptimizationParameterChanged(object sender, EventArgs e)
         {
+            // update optimize button status
+            UpdateButtonOptimizeStatus();
+            // clear grid
             _solutions.Clear();
             FillGrid();
-            Draw();
         }
         private void splitContainerCasePallet_SplitterMoved(object sender, SplitterEventArgs e)
         {
@@ -504,7 +522,7 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {   _log.Error(ex.ToString());  }
             Draw();
-            EnableDisableButtonAddSolution();
+            UpdateButtonAddSolutionStatus();
         }
         #endregion
 
@@ -637,6 +655,9 @@ namespace TreeDim.StackBuilder.Desktop
             MinLength = minDim;
             MinWidth = minDim;
             MinHeight = minDim;
+
+            // update message + enable/disable optimise button
+            UpdateButtonOptimizeStatus();
         }
         private void SetMaxCaseDimensions()
         {
@@ -646,6 +667,8 @@ namespace TreeDim.StackBuilder.Desktop
             nudMaxCaseLength.Value = (decimal)(palletProperties.Length * 0.5);
             nudMaxCaseWidth.Value = (decimal)(palletProperties.Width * 0.5);
             nudMaxCaseHeight.Value = nudPalletHeight.Value * (decimal)0.5;
+            // update message + enable/disable optimise button
+            UpdateButtonOptimizeStatus();
         }
         private CaseOptimConstraintSet BuildCaseOptimConstraintSet()
         {
@@ -686,10 +709,6 @@ namespace TreeDim.StackBuilder.Desktop
             return palletConstraintSet;
         }
 
-        private void EnableDisableButtonAddSolution()
-        {
-            btAddSolution.Enabled = (null != SelectedSolution);
-        }
         #endregion
     }
 }

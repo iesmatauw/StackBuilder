@@ -35,6 +35,7 @@ namespace TreeDim.StackBuilder.Graphics
                 return -1;
             else if (b1.Center.Z == b2.Center.Z)
             {
+                /*
                 if (b1.Center == b2.Center)
                 {
                     sb.AppendLine(string.Format("{0} == {1}", b1.PickId, b2.PickId));
@@ -57,6 +58,8 @@ namespace TreeDim.StackBuilder.Graphics
                     sb.AppendLine(string.Format("{0} == {1}", b1.PickId, b2.PickId));
                     return 0;
                 }
+                */
+                return 0;
             }
             else
                 return -1;

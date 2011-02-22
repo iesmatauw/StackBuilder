@@ -16,12 +16,19 @@ namespace TreeDim.StackBuilder.Desktop
     /// </summary>
     public partial class SplashScreen : Form
     {
+        #region Data members
+        private Form _parentForm;
+        #endregion
+
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
-        public SplashScreen()
+        public SplashScreen(Form parentForm)
         {
+            // save parent form
+            _parentForm = parentForm;
+
             InitializeComponent();
 
             // make lower right pixel color transparent
@@ -63,6 +70,8 @@ namespace TreeDim.StackBuilder.Desktop
         private void timerClose_Tick(object sender, EventArgs e)
         {
             Close();
+            if (null != _parentForm)
+                _parentForm.BringToFront();
         }
     }
 }

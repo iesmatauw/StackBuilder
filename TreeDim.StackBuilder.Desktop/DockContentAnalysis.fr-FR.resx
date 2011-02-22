@@ -137,12 +137,6 @@
   <data name="trackBarAngleHoriz.Size" type="System.Drawing.Size, System.Drawing">
     <value>267, 45</value>
   </data>
-  <data name="trackBarAngleVert.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="trackBarAngleVert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 454</value>
-  </data>
   <data name="btSelectSolution.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -155,6 +149,12 @@
   <data name="btSelectSolution.Text" xml:space="preserve">
     <value>Sélectionner</value>
   </data>
+  <data name="trackBarAngleVert.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="trackBarAngleVert.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 454</value>
+  </data>
   <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 113</value>
   </data>
@@ -165,29 +165,32 @@
   <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
     <value>500</value>
   </data>
+  <data name="toolStripFrontView.Text" xml:space="preserve">
+    <value>Vue de face</value>
+  </data>
   <data name="toolStripRightView.Text" xml:space="preserve">
-    <value>Back view</value>
+    <value>Vue de droite</value>
   </data>
   <data name="toolStripRightView.ToolTipText" xml:space="preserve">
     <value>Right view</value>
   </data>
   <data name="toolStripBackView.Text" xml:space="preserve">
-    <value>Left view</value>
+    <value>Vue d'arrière</value>
   </data>
   <data name="toolStripBackView.ToolTipText" xml:space="preserve">
     <value>Rear view</value>
   </data>
   <data name="toolStripLeftView.Text" xml:space="preserve">
-    <value>Right view</value>
+    <value>Vue de gauche</value>
   </data>
   <data name="toolStripLeftView.ToolTipText" xml:space="preserve">
     <value>Left view</value>
   </data>
-  <data name="toolStripTopView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
   <data name="toolStripTopView.Text" xml:space="preserve">
-    <value>Top view</value>
+    <value>Vue de dessus</value>
+  </data>
+  <data name="toolStripShowImages.Text" xml:space="preserve">
+    <value>Afficher les images</value>
   </data>
   <data name="toolStrip_view.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 25</value>

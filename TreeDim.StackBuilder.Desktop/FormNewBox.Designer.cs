@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewBox));
-            this.bnOk = new System.Windows.Forms.Button();
+            this.bnOK = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.lbFace = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
@@ -87,12 +87,12 @@
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnOk
+            // bnOK
             // 
-            resources.ApplyResources(this.bnOk, "bnOk");
-            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Name = "bnOk";
-            this.bnOk.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.bnOK, "bnOK");
+            this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOK.Name = "bnOK";
+            this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
@@ -363,7 +363,8 @@
             resources.GetString("cbColor.Items35"),
             resources.GetString("cbColor.Items36"),
             resources.GetString("cbColor.Items37"),
-            resources.GetString("cbColor.Items38")});
+            resources.GetString("cbColor.Items38"),
+            resources.GetString("cbColor.Items39")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -499,7 +500,7 @@
             // 
             // FormNewBox
             // 
-            this.AcceptButton = this.bnOk;
+            this.AcceptButton = this.bnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
@@ -514,7 +515,7 @@
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.gbDimensions);
             this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnOk);
+            this.Controls.Add(this.bnOK);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewBox";
@@ -547,7 +548,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnOk;
+        private System.Windows.Forms.Button bnOK;
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Label lbFace;
         private System.Windows.Forms.GroupBox gbDimensions;

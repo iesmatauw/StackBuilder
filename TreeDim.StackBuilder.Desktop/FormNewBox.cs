@@ -317,7 +317,7 @@ namespace TreeDim.StackBuilder.Desktop
             else if (_mode == Mode.MODE_CASE && InsideHeight > BoxHeight)
                 message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight);
             // accept
-            bnOk.Enabled = string.IsNullOrEmpty(message);
+            bnOK.Enabled = string.IsNullOrEmpty(message);
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }

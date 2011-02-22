@@ -73,6 +73,10 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.AddBox(box);
                 }
             }
+
+            case_.DrawEnd(graphics);
+
+            // get case analysis
             if (_showDimensions)
             {
                 graphics.AddDimensions(new DimensionCube(_caseSolution.CaseLength, _caseSolution.CaseWidth, _caseSolution.CaseHeight));

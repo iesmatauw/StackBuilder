@@ -90,6 +90,7 @@ namespace TreeDim.StackBuilder.Graphics
         }
         public override void DrawEnd(Graphics3D graphics)
         {
+
         }
         #endregion
     }

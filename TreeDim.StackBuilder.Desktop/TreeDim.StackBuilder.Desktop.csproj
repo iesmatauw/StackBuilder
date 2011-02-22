@@ -99,6 +99,12 @@
     <Compile Include="DockContentAnalysis.Designer.cs">
       <DependentUpon>DockContentAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentAnalysisCaseOfBoxes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCaseOfBoxes.Designer.cs">
+      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentCaseAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysis.resx">
       <DependentUpon>DockContentAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.fr-FR.resx">
+      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.resx">
+      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentCaseAnalysis.resx">
       <DependentUpon>DockContentCaseAnalysis.cs</DependentUpon>
@@ -450,6 +462,10 @@
     <None Include="Resources\View_Top.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExceptionReporter\ExceptionReporter.WinForms.csproj">
+      <Project>{C49896A3-C0DA-45C4-B30E-4D17E548DBF6}</Project>
+      <Name>ExceptionReporter.WinForms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
       <Project>{CAD56B75-481B-4C76-B090-4BC2FF5E5681}</Project>
       <Name>OfficePickers</Name>

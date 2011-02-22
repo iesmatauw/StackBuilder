@@ -80,7 +80,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Name
         /// </summary>
-        public string Name
+        public string CaseName
         {
             get { return tbName.Text; }
             set { tbName.Text = value; }
@@ -88,7 +88,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Description
         /// </summary>
-        public string Description
+        public string CaseDescription
         {
             get { return tbDescription.Text; }
             set { tbDescription.Text = value; }

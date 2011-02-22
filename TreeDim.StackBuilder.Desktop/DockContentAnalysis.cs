@@ -64,18 +64,22 @@ namespace TreeDim.StackBuilder.Desktop
             base.OnLoad(e);
             // initialize toolStripShowImages
             toolStripShowImages.Checked = Settings.Default.ShowImagesPallet;
-            // Text
+            // set window caption
             this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
             // fill grid
             FillGrid();
 
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
-
-        private void DockContentAnalysis_Load(object sender, EventArgs e)
-        { 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            // save settings
+            Settings.Default.ShowImagesPallet = toolStripShowImages.Checked;
         }
+        #endregion
 
+        #region Fill grid
         private void FillGrid()
         {
             // fill grid solution
@@ -361,7 +365,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
+                _log.Error(ex.ToString()); Program.ReportException(ex);
             }
         }
         #endregion
@@ -369,13 +373,11 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers to define point of view
         private void onAngleHorizChanged(object sender, EventArgs e)
         {
-            trackBarAngleHoriz.Value = trackBarAngleHoriz.Value;
             Draw();
         }
 
         private void onAngleVertChanged(object sender, EventArgs e)
         {
-            trackBarAngleVert.Value = trackBarAngleVert.Value;
             Draw();
         }
         private void onViewSideFront(object sender, EventArgs e)
@@ -441,8 +443,6 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
-
-
     }
 
     #region CellBackColorAlternate and CellBackColorAlternateCheck
@@ -512,5 +512,4 @@ namespace TreeDim.StackBuilder.Desktop
         }
     }
     #endregion
-
 }

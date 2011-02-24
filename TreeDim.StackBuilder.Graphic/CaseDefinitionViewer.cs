@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 
 using TreeDim.StackBuilder.Basics;
 using Sharp3D.Math.Core;
@@ -17,6 +18,7 @@ namespace TreeDim.StackBuilder.Graphics
     {
         #region Data members
         private BoxProperties _boxProperties;
+        private BoxProperties _caseProperties;
         private CaseDefinition _caseDefinition;
         private CaseOptimConstraintSet _caseOptimConstraintSet;
         private bool _showDimentions = true;
@@ -31,11 +33,23 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
+        #region Public properties
+        public BoxProperties CaseProperties
+        {
+            get { return _caseProperties; }
+            set { _caseProperties = value; }
+        }
+        #endregion
+
         #region Public methods
         public void Draw(Graphics3D graphics)
         {
             if (null == _caseDefinition || null == _boxProperties)
                 return;
+            // draw case (back faces)
+            Case case_ = _caseProperties != null ? new Case(_caseProperties) : null;
+            if (null != case_)
+                case_.DrawBegin(graphics);
             // initialize Graphics3D object
             double boxLength = _caseDefinition.BoxLength(_boxProperties);
             double boxWidth = _caseDefinition.BoxWidth(_boxProperties);
@@ -46,11 +60,18 @@ namespace TreeDim.StackBuilder.Graphics
                 for (int j=0; j<_caseDefinition.Arrangement._iWidth; ++j)
                     for (int k = 0; k < _caseDefinition.Arrangement._iHeight; ++k)
                         graphics.AddBox( new Box(pickId++, _boxProperties, GetPosition(i, j, k, _caseDefinition.Dim0, _caseDefinition.Dim1) ) );
-            // add dimensions
+            // add external dimensions
+            Vector3D outerDimensions = _caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
+            graphics.AddDimensions(new DimensionCube(Vector3D.Zero,outerDimensions.X, outerDimensions.Y, outerDimensions.Z, Color.Black, true));
+            // add inner dimensions
+            Vector3D innerOffset = _caseDefinition.InnerOffset(_caseOptimConstraintSet);
             Vector3D innerDimensions = _caseDefinition.InnerDimensions(_boxProperties);
-            graphics.AddDimensions(new DimensionCube(innerDimensions.X, innerDimensions.Y, innerDimensions.Z));
+            graphics.AddDimensions(new DimensionCube(innerOffset, innerDimensions.X, innerDimensions.Y, innerDimensions.Z, Color.Red, false));
             // flush
             graphics.Flush();
+            // draw case (front faces)
+            if (null != case_)
+                case_.DrawEnd(graphics);
         }
         #endregion
 

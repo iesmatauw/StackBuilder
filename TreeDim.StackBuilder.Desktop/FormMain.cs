@@ -970,6 +970,18 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {   _log.Error(ex.ToString());  Program.ReportException(ex); }
         }
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Help.ShowHelp(this
+                    , Path.ChangeExtension(Application.ExecutablePath, "chm")
+                    , HelpNavigator.Topic
+                    , "TutorialIntroduction.html");
+            }
+            catch (Exception ex)
+            { _log.Error(ex.ToString()); Program.ReportException(ex); }
+        }
         #endregion
 
         #region Static instance accessor
@@ -978,5 +990,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

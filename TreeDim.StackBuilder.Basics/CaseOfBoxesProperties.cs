@@ -46,6 +46,13 @@ namespace TreeDim.StackBuilder.Basics
         { get { return _caseDefinition; } }
         public CaseOptimConstraintSet CaseOptimConstraintSet
         { get { return _constraintSet; } }
+        /// <summary>
+        /// override weight method
+        /// </summary>
+        public override double Weight
+        {
+            get { return base.Weight + _caseDefinition.Arrangement.Number * _boxProperties.Weight; }
+        }
         #endregion
 
         #region Dependancies

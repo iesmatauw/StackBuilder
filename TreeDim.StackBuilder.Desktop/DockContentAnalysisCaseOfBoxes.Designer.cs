@@ -37,8 +37,6 @@
             this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
             this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
             this.gridSolutions = new SourceGrid.Grid();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.toolStrip_view = new System.Windows.Forms.ToolStrip();
             this.toolStripCornerView_0 = new System.Windows.Forms.ToolStripButton();
             this.toolStripCornerView_90 = new System.Windows.Forms.ToolStripButton();
@@ -65,9 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPallet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.toolStrip_view.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,6 +185,7 @@
             this.trackBarAngleVert.Name = "trackBarAngleVert";
             this.trackBarAngleVert.SmallChange = 15;
             this.trackBarAngleVert.TickFrequency = 15;
+            this.trackBarAngleVert.Value = 45;
             this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
             // 
             // trackBarAngleHoriz
@@ -204,6 +200,7 @@
             this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
             this.trackBarAngleHoriz.SmallChange = 45;
             this.trackBarAngleHoriz.TickFrequency = 90;
+            this.trackBarAngleHoriz.Value = 45;
             this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
             // 
             // gridSolutions
@@ -221,41 +218,6 @@
             this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
             this.gridSolutions.TabStop = true;
             this.gridSolutions.ToolTipText = "";
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.AccessibleDescription = null;
-            this.splitContainer1.AccessibleName = null;
-            resources.ApplyResources(this.splitContainer1, "splitContainer1");
-            this.splitContainer1.BackgroundImage = null;
-            this.splitContainer1.Font = null;
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.AccessibleDescription = null;
-            this.splitContainer1.Panel1.AccessibleName = null;
-            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
-            this.splitContainer1.Panel1.BackgroundImage = null;
-            this.splitContainer1.Panel1.Font = null;
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.AccessibleDescription = null;
-            this.splitContainer1.Panel2.AccessibleName = null;
-            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
-            this.splitContainer1.Panel2.BackgroundImage = null;
-            this.splitContainer1.Panel2.Controls.Add(this.trackBar1);
-            this.splitContainer1.Panel2.Font = null;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.AccessibleDescription = null;
-            this.trackBar1.AccessibleName = null;
-            resources.ApplyResources(this.trackBar1, "trackBar1");
-            this.trackBar1.BackgroundImage = null;
-            this.trackBar1.Font = null;
-            this.trackBar1.Name = "trackBar1";
             // 
             // toolStrip_view
             // 
@@ -429,10 +391,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPallet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.toolStrip_view.ResumeLayout(false);
             this.toolStrip_view.PerformLayout();
             this.ResumeLayout(false);
@@ -452,18 +410,17 @@
         private System.Windows.Forms.ToolStripButton toolStripRightView;
         private System.Windows.Forms.ToolStripButton toolStripBackView;
         private System.Windows.Forms.ToolStripButton toolStripLeftView;
+        private System.Windows.Forms.ToolStripButton toolStripTopView;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripShowImages;
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.SplitContainer splitContainerHorizInside;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        //private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainerVertInside;
         private System.Windows.Forms.TrackBar trackBarAngleVert;
         private System.Windows.Forms.TrackBar trackBarAngleHoriz;
         private System.Windows.Forms.PictureBox pictureBoxCase;
         private System.Windows.Forms.PictureBox pictureBoxPallet;
-        private System.Windows.Forms.ToolStripButton toolStripTopView;
     }
 }

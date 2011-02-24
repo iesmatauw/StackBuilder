@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyCompany("TreeDim")]
 [assembly: AssemblyProduct("PLMPack StackBuilder")]
-[assembly: AssemblyCopyright("Copyright TreeDim ©  2010")]
+[assembly: AssemblyCopyright("Copyright TreeDim ©  2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,5 +34,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.1.19.0")]
-[assembly: AssemblyFileVersion("0.1.19.0")]
+[assembly: AssemblyVersion("0.1.21.0")]
+[assembly: AssemblyFileVersion("0.1.21.0")]

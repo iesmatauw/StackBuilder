@@ -79,6 +79,13 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Number of inner boxes
+        /// </summary>
+        public int Number
+        {
+            get { return _iLength * _iWidth * _iHeight; }
+        }
         #endregion
 
         #region Object override
@@ -156,6 +163,10 @@ namespace TreeDim.StackBuilder.Basics
             Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
             return outerDim.X * outerDim.Y * outerDim.Z;
         }
+        public double Weight(BoxProperties boxProperties)
+        {
+            return _arrangement.Number * boxProperties.Weight;
+        }
 
         #endregion
 
@@ -185,6 +196,13 @@ namespace TreeDim.StackBuilder.Basics
                 , _arrangement._iWidth * boxProperties.Dim(Dim1) + constraintSet.WallThickness * constraintSet.NoWalls[1]
                 , _arrangement._iHeight * boxProperties.Dim(Dim2) + constraintSet.WallThickness * constraintSet.NoWalls[2]
                 );
+        }
+        public Vector3D InnerOffset(CaseOptimConstraintSet constraintSet)
+        {
+            return new Vector3D(
+                0.5 * constraintSet.WallThickness * constraintSet.NoWalls[0]
+                , 0.5 * constraintSet.WallThickness * constraintSet.NoWalls[1]
+                , 0.5 * constraintSet.WallThickness * constraintSet.NoWalls[2]);
         }
         /// <summary>
         /// Returns true 

@@ -43,7 +43,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _length * _width * Height; }
         }
-        public double Weight
+        public virtual double Weight
         {
             get { return _weight; }
             set { _weight = value; Modify(); }

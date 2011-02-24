@@ -19,13 +19,22 @@ namespace TreeDim.StackBuilder.Graphics
         private Vector3D[] _pts = new Vector3D[8];
         private Color _color = Color.Black;
         private float _fontSize = 10.0F;
-
+        private bool _above = false;
         #endregion
 
-        #region Constructor
+        #region Constructors
         public DimensionCube(double length, double width, double height)
         {
             _dim[0] = length; _dim[1] = width; _dim[2] = height;
+            for (int i = 0; i < 3; ++i) _showArrow[i] = true;
+            BuildPoints();
+        }
+        public DimensionCube(Vector3D position, double length, double width, double height, Color color, bool above)
+        {
+            _position = position;
+            _dim[0] = length; _dim[1] = width; _dim[2] = height;
+            _color = color;
+            _above = above;
             for (int i = 0; i < 3; ++i) _showArrow[i] = true;
             BuildPoints();
         }
@@ -109,30 +118,60 @@ namespace TreeDim.StackBuilder.Graphics
             arrow1 = null;
             arrow2 = null;
 
-            if (viewDir.X < 0.0 && viewDir.Y >= 0.0)
+            if (!_above)
             {
-                arrow0 = new int[4] { 0, 4, 1, 5 };
-                arrow1 = new int[4] { 0, 1, 3, 2 };
-                arrow2 = new int[4] { 1, 2, 0, 3 };
+                if (viewDir.X < 0.0 && viewDir.Y >= 0.0)
+                {
+                    arrow0 = new int[4] { 0, 4, 1, 5 };
+                    arrow1 = new int[4] { 0, 1, 3, 2 };
+                    arrow2 = new int[4] { 1, 2, 0, 3 };
+                }
+                else if (viewDir.X < 0.0 && viewDir.Y < 0.0)
+                {
+                    arrow0 = new int[4] { 1, 5, 2, 6 };
+                    arrow1 = new int[4] { 1, 2, 0, 3 };
+                    arrow2 = new int[4] { 2, 3, 1, 0 };
+                }
+                else if (viewDir.X >= 0.0 && viewDir.Y < 0.0)
+                {
+                    arrow0 = new int[4] { 2, 6, 3, 7 };
+                    arrow1 = new int[4] { 2, 3, 1, 0 };
+                    arrow2 = new int[4] { 3, 0, 2, 1 };
+                }
+                else if (viewDir.X >= 0.0 && viewDir.Y >= 0.0)
+                {
+                    arrow0 = new int[4] { 3, 7, 0, 4 };
+                    arrow1 = new int[4] { 3, 0, 2, 1 };
+                    arrow2 = new int[4] { 0, 1, 3, 2 };
+                }
             }
-            else if (viewDir.X < 0.0 && viewDir.Y < 0.0)
+            else
             {
-                arrow0 = new int[4] { 1, 5, 2, 6 };
-                arrow1 = new int[4] { 1, 2, 0, 3 };
-                arrow2 = new int[4] { 2, 3, 1, 0 };
+                if (viewDir.X < 0.0 && viewDir.Y >= 0.0)
+                {
+                    arrow0 = new int[4] { 2, 6, 3, 7 };
+                    arrow1 = new int[4] { 7, 6, 4, 5 };
+                    arrow2 = new int[4] { 4, 7, 5, 6 };
+                }
+                else if (viewDir.X < 0.0 && viewDir.Y < 0.0)
+                {
+                    arrow0 = new int[4] { 3, 7, 0, 4 };
+                    arrow1 = new int[4] { 4, 7, 5, 6 };
+                    arrow2 = new int[4] { 4, 5, 7, 6 };
+                }
+                else if (viewDir.X >= 0.0 && viewDir.Y < 0.0)
+                {
+                    arrow0 = new int[4] { 4, 0, 5, 1 };
+                    arrow1 = new int[4] { 4, 5, 7, 6 };
+                    arrow2 = new int[4] { 6, 5, 7, 4 };
+                }
+                else if (viewDir.X >= 0.0 && viewDir.Y >= 0.0)
+                {
+                    arrow0 = new int[4] { 1, 5, 2, 6 };
+                    arrow1 = new int[4] { 5, 6, 4, 7 };
+                    arrow2 = new int[4] { 7, 6, 4, 5 };
+                }
             }
-            else if (viewDir.X >= 0.0 && viewDir.Y < 0.0)
-            {
-                arrow0 = new int[4] { 2, 6, 3, 7 };
-                arrow1 = new int[4] { 2, 3, 1, 0 };
-                arrow2 = new int[4] { 3, 0, 2, 1 };
-            }
-            else if (viewDir.X >= 0.0 && viewDir.Y >= 0.0)
-            {
-                arrow0 = new int[4] { 3, 7, 0, 4 };
-                arrow1 = new int[4] { 3, 0, 2, 1 };
-                arrow2 = new int[4] { 0, 1, 3, 2 };
-            }        
         }
 
         private void DrawArrow(int[] arrow, Graphics3D graphics)

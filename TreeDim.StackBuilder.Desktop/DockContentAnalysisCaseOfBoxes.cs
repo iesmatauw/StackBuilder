@@ -305,27 +305,46 @@ namespace TreeDim.StackBuilder.Desktop
                 if (pictureBoxPallet.Size.Width < 1 || pictureBoxPallet.Size.Height < 1)
                     return;
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxPallet.Size);
+                Graphics3DImage graphicsPallet = new Graphics3DImage(pictureBoxPallet.Size);
                 // set camera position 
                 double angleHorizRad = trackBarAngleHoriz.Value * Math.PI / 180.0;
                 double angleVertRad = trackBarAngleVert.Value * Math.PI / 180.0;
-                graphics.CameraPosition = new Vector3D(
+                graphicsPallet.CameraPosition = new Vector3D(
                     _cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
                     , _cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
                     , _cameraDistance * Math.Sin(angleVertRad));
                 // set camera target
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
+                graphicsPallet.Target = new Vector3D(0.0, 0.0, 0.0);
                 // set light direction
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                // set viewport (not actually needed)
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // show images
-                graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
                 SolutionViewer sv = new SolutionViewer(GetCurrentSolution());
-                sv.Draw(graphics);
+                sv.Draw(graphicsPallet);
                 // show generated bitmap on picture box control
-                pictureBoxPallet.Image = graphics.Bitmap;
+                pictureBoxPallet.Image = graphicsPallet.Bitmap;
+
+                // get case of boxes
+                CaseOfBoxesProperties caseOfBoxes = _analysis.BProperties as CaseOfBoxesProperties;
+
+                // instantiate graphics
+                Graphics3DImage graphicsCase = new Graphics3DImage(pictureBoxCase.Size);
+                graphicsCase.CameraPosition = new Vector3D(
+                    _cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
+                    , _cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
+                    , _cameraDistance * Math.Sin(angleVertRad));
+                // set camera target
+                graphicsCase.Target = new Vector3D(0.0, 0.0, 0.0);
+                // set light position
+                graphicsPallet.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                // set viewport (not actually needed)
+                graphicsPallet.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+                // show images
+                graphicsPallet.ShowTextures = toolStripShowImages.Checked;
+                // draw
+                CaseDefinitionViewer cdv = new CaseDefinitionViewer(caseOfBoxes.CaseDefinition, caseOfBoxes.InsideBoxProperties, caseOfBoxes.CaseOptimConstraintSet);
+                cdv.CaseProperties = caseOfBoxes;
+                cdv.Draw(graphicsCase);
+                // show generated bitmap on picture box control
+                pictureBoxCase.Image = graphicsCase.Bitmap;
             }
             catch (Exception ex)
             {

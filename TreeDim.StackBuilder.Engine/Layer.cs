@@ -54,9 +54,30 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public properties
-        public Vector3D Position { get { return _position; } }
-        public HalfAxis.HAxis LengthAxis { get { return _lengthAxis; } }
-        public HalfAxis.HAxis WidthAxis { get { return _widthAxis; } }
+        public Vector3D Position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+        public HalfAxis.HAxis LengthAxis
+        {
+            get { return _lengthAxis; }
+            set { _lengthAxis = value; }
+        }
+        public HalfAxis.HAxis WidthAxis
+        {
+            get { return _widthAxis; }
+            set { _widthAxis = value; }
+        }
+        public HalfAxis.HAxis HeightAxis
+        {
+            get
+            {
+                return HalfAxis.ToHalfAxis(
+                    Vector3D.CrossProduct( HalfAxis.ToVector3D(_lengthAxis), HalfAxis.ToVector3D(_widthAxis))
+                    );
+            } 
+        }
         #endregion
 
         #region Data members
@@ -70,6 +91,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Data members
         private HalfAxis.HAxis _axisOrtho = HalfAxis.HAxis.AXIS_Z_P;
         private HalfAxis.HAxis _lengthAxis = HalfAxis.HAxis.AXIS_X_P, _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
+        private bool _inversed = false;
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight = 0.0;
         private double _palletLength = 0.0, _palletWidth = 0.0;
         private Vector3D _vecTransf = Vector3D.Zero;
@@ -78,15 +100,29 @@ namespace TreeDim.StackBuilder.Engine
 
         #region Constructor
         /// <summary>
-        /// Layer pallet analysis constructor
+        /// Layer pallet analysis constructor (inversed = false)
         /// </summary>
         public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
+            _inversed = false;
             _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
             _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
             Initialize(boxProperties);
         }
+
+        /// <summary>
+        /// Layer pallet analysis constructor (inversed = false)
+        /// </summary>
+        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho, bool inversed)
+        {
+            _axisOrtho = axisOrtho;
+            _inversed = inversed;
+            _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
+            _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
+            Initialize(boxProperties);
+        }
+
         /// <summary>
         /// Layer truck analysis constructor
         /// </summary>
@@ -254,22 +290,13 @@ namespace TreeDim.StackBuilder.Engine
             Transform3D originTranslation = Transform3D.Translation(localTransfInv.transform(_vecTransf));
 
             Vector3D vPos = originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0));
-/*
-            if (IntersectWithContent(
-                new Vector2D(vPos.X, vPos.Y)
-                , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))
-                , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_widthAxis)))
-                ))
-            {
-                _log.Warn("Attempt to add a position that intersect with previouly inserted positions");
-                return;
-            }
-*/ 
             LayerPosition layerPos = new LayerPosition(
                 originTranslation.transform(new Vector3D(vPosition.X, vPosition.Y, 0.0))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_lengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(_widthAxis)))
                 );
+
+            // add position
             this.Add(layerPos);
         }
         #endregion
@@ -298,6 +325,10 @@ namespace TreeDim.StackBuilder.Engine
         public double PalletWidth
         {
             get { return _palletWidth; }
+        }
+        public bool Inversed
+        {
+            get { return _inversed; }
         }
         #endregion
     }

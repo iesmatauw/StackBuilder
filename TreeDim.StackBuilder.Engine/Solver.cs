@@ -89,13 +89,15 @@ namespace TreeDim.StackBuilder.Engine
                         {
                             // build 2 layers (pallet length/width)
                             Layer layer1 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho1);
+                            Layer layer1_inv = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho1, true);
                             Layer layer2 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho2);
+                            Layer layer2_inv = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho2, true);
                             double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
                             pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
                             pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
 
                             string layerAlignment = string.Empty;
-                            for (int j = 0; j < 4; ++j)
+                            for (int j = 0; j < 6; ++j)
                             {
                                 Layer layer1T = null, layer2T = null;
                                 if (0 == j && _constraintSet.AllowAlignedLayers)
@@ -123,6 +125,21 @@ namespace TreeDim.StackBuilder.Engine
                                     pattern.GenerateLayer(layer2, Math.Max(actualLength1, actualLength2), Math.Max(actualWidth1, actualWidth2));
                                     layer1T = layer2; layer2T = layer1;
                                     layerAlignment = "alternate-21";
+                                }
+                                else if (4 == j && _constraintSet.AllowAlternateLayers && pattern.CanBeInverted)
+                                {
+                                    pattern.GenerateLayer(layer1, actualLength1, actualWidth1);
+                                    pattern.GenerateLayer(layer1_inv, actualLength1, actualWidth1);
+                                    layer1T = layer1; layer2T = layer1_inv;
+                                    layerAlignment = "inv-1";
+                                }
+                                else if (5 == j && _constraintSet.AllowAlternateLayers && pattern.CanBeInverted)
+                                {
+                                    pattern.GenerateLayer(layer2, actualLength2, actualWidth2);
+                                    pattern.GenerateLayer(layer2_inv, actualLength2, actualWidth2);
+                                    layer1T = layer2; layer2T = layer2_inv;
+                                    layerAlignment = "inv-2";
+
                                 }
 
                                 if (null == layer1T || null == layer2T || 0 == layer1T.Count || 0 == layer2T.Count)
@@ -174,13 +191,40 @@ namespace TreeDim.StackBuilder.Engine
 
                                         if (!innerLoopStop)
                                         {
+                                            LayerPosition layerPosTemp = layerPos;
+
+                                            // if box bottom oriented to Z+, reverse box
+                                            if (layerPosTemp.HeightAxis == HalfAxis.HAxis.AXIS_Z_N)
+                                            {
+                                                if (layerPosTemp.LengthAxis == HalfAxis.HAxis.AXIS_X_P)
+                                                {
+                                                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                                                    layerPosTemp.Position += new Vector3D(0.0, -_bProperties.Width, -_bProperties.Height);
+                                                }
+                                                else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_Y_P)
+                                                {
+                                                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_N;
+                                                    layerPosTemp.Position += new Vector3D(_bProperties.Width, 0.0, -_bProperties.Height);
+                                                }
+                                                else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_X_N)
+                                                {
+                                                    layerPosTemp.LengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                                                    layerPosTemp.Position += new Vector3D(-_bProperties.Length, 0.0, -_bProperties.Height);
+                                                }
+                                                else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_Y_N)
+                                                {
+                                                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_P;
+                                                    layerPosTemp.Position += new Vector3D(-_bProperties.Width, 0.0, -_bProperties.Height);
+                                                }
+                                            }
+
                                             BoxPosition boxPos = new BoxPosition(
-                                                layerPos.Position
+                                                layerPosTemp.Position
                                                     - _constraintSet.OverhangX * Vector3D.XAxis
                                                     - _constraintSet.OverhangY * Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
-                                                , layerPos.LengthAxis
-                                                , layerPos.WidthAxis
+                                                , layerPosTemp.LengthAxis
+                                                , layerPosTemp.WidthAxis
                                                 );
                                             layer.Add(boxPos);
                                         }

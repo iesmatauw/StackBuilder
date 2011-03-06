@@ -123,31 +123,9 @@ namespace TreeDim.StackBuilder.Graphics
             // set position
             Position = bPosition.Position;
             // set direction length
-            switch (bPosition.DirectionLength)
-            {
-                case HalfAxis.HAxis.AXIS_X_N: LengthAxis = -Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_X_P: LengthAxis = Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_N: LengthAxis = -Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_P: LengthAxis = Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_N: LengthAxis = -Vector3D.ZAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_P: LengthAxis = Vector3D.ZAxis; break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
+            LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
             // set direction width
-            switch (bPosition.DirectionWidth)
-            {
-                case HalfAxis.HAxis.AXIS_X_N: WidthAxis = -Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_X_P: WidthAxis = Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_N: WidthAxis = -Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_P: WidthAxis = Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_N: WidthAxis = -Vector3D.ZAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_P: WidthAxis = Vector3D.ZAxis; break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
+            WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
             // IsBundle ?
             _noFlats = 3;
             _isBundle = bProperties.IsBundle;
@@ -177,31 +155,9 @@ namespace TreeDim.StackBuilder.Graphics
             // set position
             Position = bPosition.Position;
             // set direction length
-            switch (bPosition.DirectionLength)
-            {
-                case HalfAxis.HAxis.AXIS_X_N: LengthAxis = -Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_X_P: LengthAxis = Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_N: LengthAxis = -Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_P: LengthAxis = Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_N: LengthAxis = -Vector3D.ZAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_P: LengthAxis = Vector3D.ZAxis; break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
+            LengthAxis = HalfAxis.ToVector3D(bPosition.DirectionLength);
             // set direction width
-            switch (bPosition.DirectionWidth)
-            {
-                case HalfAxis.HAxis.AXIS_X_N: WidthAxis = -Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_X_P: WidthAxis = Vector3D.XAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_N: WidthAxis = -Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Y_P: WidthAxis = Vector3D.YAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_N: WidthAxis = -Vector3D.ZAxis; break;
-                case HalfAxis.HAxis.AXIS_Z_P: WidthAxis = Vector3D.ZAxis; break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
+            WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
         }
 
         public Box(uint pickId, BundleProperties bundleProperties)

@@ -109,6 +109,10 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return true; }
         }
+        public override bool CanBeInverted
+        {
+            get { return false; }
+        }
         #endregion
 
         #region Helpers

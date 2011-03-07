@@ -728,13 +728,13 @@ namespace TreeDim.StackBuilder.Basics
                 boxProperties = CreateNewCase(
                 sname
                 , sdescription
-                , System.Convert.ToDouble(slength)
-                , System.Convert.ToDouble(swidth)
-                , System.Convert.ToDouble(sheight)
-                , System.Convert.ToDouble(sInsideLength)
-                , System.Convert.ToDouble(sInsideWidth)
-                , System.Convert.ToDouble(sInsideHeight)
-                , System.Convert.ToDouble(sweight)
+                , System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture)
+                , System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture)
+                , System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture)
+                , System.Convert.ToDouble(sInsideLength, System.Globalization.CultureInfo.InvariantCulture)
+                , System.Convert.ToDouble(sInsideWidth, System.Globalization.CultureInfo.InvariantCulture)
+                , System.Convert.ToDouble(sInsideHeight, System.Globalization.CultureInfo.InvariantCulture)
+                , System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture)
                 , colors);
             else
                 boxProperties = CreateNewBox(

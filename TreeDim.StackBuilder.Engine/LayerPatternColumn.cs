@@ -59,15 +59,8 @@ namespace TreeDim.StackBuilder.Engine
         {
             return 1;
         }
-
-        public override bool CanBeSwaped
-        {
-            get { return false; }
-        }
-        public override bool CanBeInverted
-        {
-            get { return false; }
-        }
+        public override bool CanBeSwaped { get { return false; } }
+        public override bool CanBeInverted { get { return false; } }
         #endregion
     }
 }

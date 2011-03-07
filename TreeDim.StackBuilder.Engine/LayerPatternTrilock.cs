@@ -56,8 +56,8 @@ namespace TreeDim.StackBuilder.Engine
             double offsetY = 0.5 * (palletWidth - actualWidth);
 
             // compute spaces
-            double spaceX_area1 = sizeX_area1 + sizeX_area3 > 1 ? (actualLength - (boxWidth * sizeX_area1 + boxLength * sizeX_area3)) / (sizeX_area1 + sizeX_area3 -1) : 0.0;
-            double spaceX_area2 = sizeX_area2 > 1 ? (actualLength - sizeX_area2 * boxLength) / (sizeX_area2-1) : 0.0;
+            double spaceX_area1 = sizeX_area1 + sizeX_area3 > 1 ? (actualLength - (boxWidth * sizeX_area1 + boxLength * sizeX_area3)) / (sizeX_area1 + sizeX_area3 - 1) : 0.0;
+            double spaceX_area2 = sizeX_area2 > 1 ? (actualLength - sizeX_area2 * boxLength) / (sizeX_area2 - 1) : 0.0;
             double spaceX_area3 = spaceX_area1;
 
             double spaceY_area1 = 0.0, spaceY_area2 = 0.0, spaceY_area3 = 0.0;
@@ -65,13 +65,13 @@ namespace TreeDim.StackBuilder.Engine
             {
                 spaceY_area1 = sizeY_area1 + sizeY_area2 > 1 ? (actualWidth - sizeY_area1 * boxLength - sizeY_area2 * boxWidth) / (sizeY_area1 + sizeY_area2 - 1) : 0.0;
                 spaceY_area2 = spaceY_area1;
-                spaceY_area3 = (sizeY_area1 * (boxLength + spaceY_area1) - sizeY_area3 * boxWidth) / sizeY_area3; 
+                spaceY_area3 = (sizeY_area1 * (boxLength + spaceY_area1) - sizeY_area3 * boxWidth) / sizeY_area3;
             }
             else
             {
                 spaceY_area3 = sizeY_area2 + sizeY_area3 > 1 ? (actualWidth - (sizeY_area2 + sizeY_area3) * boxWidth) / (sizeY_area2 + sizeY_area3 - 1) : 0.0;
                 spaceY_area2 = spaceY_area3;
-                spaceY_area1 = (sizeY_area3 * (boxWidth + spaceY_area3) - sizeY_area1 * boxLength) / sizeY_area1; 
+                spaceY_area1 = (sizeY_area3 * (boxWidth + spaceY_area3) - sizeY_area1 * boxLength) / sizeY_area1;
             }
             // area1
             for (int i = 0; i < sizeX_area1; ++i)
@@ -87,7 +87,7 @@ namespace TreeDim.StackBuilder.Engine
                     AddPosition(layer
                         , new Vector2D(
                             offsetX + i * (boxLength + spaceX_area2)
-                            , actualWidth + offsetY - (j+1) * boxWidth - j * spaceY_area2)
+                            , actualWidth + offsetY - (j + 1) * boxWidth - j * spaceY_area2)
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
             // area3
             for (int i = 0; i < sizeX_area3; ++i)
@@ -95,7 +95,7 @@ namespace TreeDim.StackBuilder.Engine
                     AddPosition(layer
                         , new Vector2D(
                             offsetX + sizeX_area1 * (boxWidth + spaceX_area1) + i * (boxLength + spaceX_area3)
-                            , offsetY + j * (boxWidth + spaceY_area3) )
+                            , offsetY + j * (boxWidth + spaceY_area3))
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
 
         }
@@ -105,26 +105,20 @@ namespace TreeDim.StackBuilder.Engine
             return 1;
         }
 
-        public override bool CanBeSwaped
-        {
-            get { return true; }
-        }
-        public override bool CanBeInverted
-        {
-            get { return false; }
-        }
+        public override bool CanBeSwaped { get { return true; } }
+        public override bool CanBeInverted { get { return true; } }
         #endregion
 
         #region Helpers
         private int GetOptimalSizeArea1(double boxLength, double boxWidth, double palletLength, double palletWidth
-            ,out int sizeX_area1Opt, out int sizeY_area1Opt)
+            , out int sizeX_area1Opt, out int sizeY_area1Opt)
         {
             int iMaxSizeX_area1 = (int)Math.Floor((palletLength - boxLength) / boxWidth);
             int iMaxSizeY_area1 = (int)Math.Floor((palletWidth - boxWidth) / boxLength);
 
             int iMax = 0;
             sizeX_area1Opt = 0; sizeY_area1Opt = 0;
-            for (int i=1; i <= iMaxSizeX_area1; ++i)
+            for (int i = 1; i <= iMaxSizeX_area1; ++i)
                 for (int j = 1; j <= iMaxSizeY_area1; ++j)
                 {
                     int sizeX_area2, sizeY_area2, sizeX_area3, sizeY_area3;
@@ -137,13 +131,13 @@ namespace TreeDim.StackBuilder.Engine
                         iMax = boxNumber;
                     }
                 }
-/*
-            if (0 == sizeX_area1Opt)
-                _log.Debug("sizeX_area1Opt == 0");
-            if (0 == sizeY_area1Opt)
-                _log.Debug("sizeY_area1Opt == 0");
-*/ 
-            return iMax;            
+            /*
+                        if (0 == sizeX_area1Opt)
+                            _log.Debug("sizeX_area1Opt == 0");
+                        if (0 == sizeY_area1Opt)
+                            _log.Debug("sizeY_area1Opt == 0");
+            */
+            return iMax;
         }
         private int GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth
             , int sizeX_area1, int sizeY_area1

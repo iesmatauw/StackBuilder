@@ -92,14 +92,8 @@ namespace TreeDim.StackBuilder.Engine
         {
             return 2;
         }
-        public override bool CanBeSwaped
-        {
-            get { return true; }
-        }
-        public override bool CanBeInverted
-        {
-            get { return false; }
-        }
+        public override bool CanBeSwaped { get { return true; } }
+        public override bool CanBeInverted { get { return true; } }
         #endregion
     }
 }

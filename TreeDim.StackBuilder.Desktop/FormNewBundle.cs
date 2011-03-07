@@ -37,7 +37,7 @@ namespace TreeDim.StackBuilder.Desktop
             UnitThickness = 5.0;
             NoFlats = 10;
             // set horizontal angle
-            trackBarHorizAngle.Value = 45;
+            trackBarHorizAngle.Value = 225;
             // disable Ok buttons
             UpdateButtonOkStatus();
         }
@@ -58,7 +58,7 @@ namespace TreeDim.StackBuilder.Desktop
             UnitWeight = bundleProperties.UnitWeight;
             NoFlats = bundleProperties.NoFlats;
             // set horizontal angle
-            trackBarHorizAngle.Value = 45;
+            trackBarHorizAngle.Value = 225;
             // disable Ok buttons
             UpdateButtonOkStatus();
         }

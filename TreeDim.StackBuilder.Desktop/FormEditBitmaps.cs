@@ -41,7 +41,7 @@ namespace TreeDim.StackBuilder.Desktop
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
-            trackBarHorizAngle.Value = 45;
+            trackBarHorizAngle.Value = 225;
         }
         #endregion
 

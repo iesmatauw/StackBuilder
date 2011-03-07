@@ -885,6 +885,9 @@
   <data name="cbColor.Items12" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>378, 452</value>
   </data>
@@ -898,7 +901,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3981.19427, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4003.19277, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -931,7 +934,7 @@
     <value>24</value>
   </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>0, 590</value>
   </metadata>
   <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 17</value>

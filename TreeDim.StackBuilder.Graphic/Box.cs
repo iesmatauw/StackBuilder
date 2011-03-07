@@ -12,6 +12,10 @@ using System.Diagnostics;
 namespace TreeDim.StackBuilder.Graphics
 {
     #region Box
+    /// <summary>
+    /// This class used to draw any brick with side parallel to axes and normal oriented to exterior
+    /// Use method Graphics.Draw(Box box) to draw as ordered boxel
+    /// </summary>
     public class Box : Drawable
     {
         #region Data members
@@ -246,8 +250,6 @@ namespace TreeDim.StackBuilder.Graphics
             else
                 return new Vector3D[] { pt3, pt2, pt1, pt0 };
         }
-
-
 
         public Vector3D Center
         {
@@ -571,6 +573,4 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
     }
     #endregion
-
-
 }

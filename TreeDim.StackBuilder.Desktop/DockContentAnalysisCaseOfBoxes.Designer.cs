@@ -200,7 +200,7 @@
             this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
             this.trackBarAngleHoriz.SmallChange = 45;
             this.trackBarAngleHoriz.TickFrequency = 90;
-            this.trackBarAngleHoriz.Value = 45;
+            this.trackBarAngleHoriz.Value = 225;
             this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
             // 
             // gridSolutions

@@ -448,7 +448,9 @@ namespace TreeDim.StackBuilder.Graphics
         {
             _segments.Add(seg);        
         }
+        #endregion
 
+        #region Draw box
         /// <summary>
         /// Draw a line segment
         /// </summary>

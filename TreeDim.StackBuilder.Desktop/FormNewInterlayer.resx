@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnAccept.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="bnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnAccept.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>397, 8</value>
   </data>
-  <data name="bnAccept.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnAccept.TabIndex" type="System.Int32, mscorlib">
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="bnAccept.Text" xml:space="preserve">
+  <data name="bnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Name" xml:space="preserve">
-    <value>bnAccept</value>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Type" xml:space="preserve">
+  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnAccept.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnAccept.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -597,6 +597,9 @@
   <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>123, 16</value>
   </data>
@@ -610,7 +613,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.3989.23811, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4003.19277, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbColor</value>
@@ -790,7 +793,7 @@
     <value>4</value>
   </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>0, 316</value>
   </metadata>
   <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 17</value>

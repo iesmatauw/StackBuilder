@@ -68,11 +68,11 @@
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bnAccept
+            // bnOk
             // 
-            resources.ApplyResources(this.bnOk, "bnAccept");
+            resources.ApplyResources(this.bnOk, "bnOk");
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Name = "bnAccept";
+            this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
@@ -239,7 +239,8 @@
             resources.GetString("cbColor.Items10"),
             resources.GetString("cbColor.Items11"),
             resources.GetString("cbColor.Items12"),
-            resources.GetString("cbColor.Items13")});
+            resources.GetString("cbColor.Items13"),
+            resources.GetString("cbColor.Items14")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
@@ -289,6 +290,7 @@
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
             this.trackBarHorizAngle.TickFrequency = 90;
+            this.trackBarHorizAngle.Value = 225;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // pictureBox

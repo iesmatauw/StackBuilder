@@ -364,7 +364,8 @@
             resources.GetString("cbColor.Items36"),
             resources.GetString("cbColor.Items37"),
             resources.GetString("cbColor.Items38"),
-            resources.GetString("cbColor.Items39")});
+            resources.GetString("cbColor.Items39"),
+            resources.GetString("cbColor.Items40")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -454,6 +455,7 @@
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
             this.trackBarHorizAngle.TickFrequency = 90;
+            this.trackBarHorizAngle.Value = 225;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // lblName

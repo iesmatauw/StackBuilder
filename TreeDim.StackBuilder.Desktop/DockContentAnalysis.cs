@@ -382,28 +382,28 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void onViewSideFront(object sender, EventArgs e)
         {
-            trackBarAngleHoriz.Value = 0;
+            trackBarAngleHoriz.Value = 180;
             trackBarAngleVert.Value = 0;
             Draw();
         }
 
         private void onViewSideLeft(object sender, EventArgs e)
         {
-            trackBarAngleHoriz.Value = 90;
+            trackBarAngleHoriz.Value = 270;
             trackBarAngleVert.Value = 0;
             Draw();
         }
 
         private void onViewSideRear(object sender, EventArgs e)
         {
-            trackBarAngleHoriz.Value = 180;
+            trackBarAngleHoriz.Value = 90;
             trackBarAngleVert.Value = 0;
             Draw();
         }
 
         private void onViewSideRight(object sender, EventArgs e)
         {
-            trackBarAngleHoriz.Value = 270;
+            trackBarAngleHoriz.Value = 0;
             trackBarAngleVert.Value = 0;
             Draw();
         }

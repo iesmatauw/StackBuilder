@@ -86,7 +86,7 @@
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
             this.trackBarHorizAngle.TickFrequency = 90;
-            this.trackBarHorizAngle.Value = 45;
+            this.trackBarHorizAngle.Value = 225;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // tbPalletProperties

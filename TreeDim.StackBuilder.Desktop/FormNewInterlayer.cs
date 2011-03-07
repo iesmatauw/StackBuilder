@@ -32,7 +32,7 @@ namespace TreeDim.StackBuilder.Desktop
             InterlayerLength = 1200.0;
             InterlayerWidth = 1000.0;
             // set horizontal angle
-            trackBarHorizAngle.Value = 45;
+            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -54,7 +54,7 @@ namespace TreeDim.StackBuilder.Desktop
             this.Color = _interlayerProperties.Color;
 
             // set horizontal angle
-            trackBarHorizAngle.Value = 45;
+            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.21.0" ?>
+<?define Version = "0.1.22.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
 <?define Manufacturer="treeDim"?>
 <!-- Opensource-->
-<?define opensource="true"?>
+<?define opensource="false"?>
 <!--Serial number-->
 <?define serial="FX11-VR50-ZH01-PICA"?>
 

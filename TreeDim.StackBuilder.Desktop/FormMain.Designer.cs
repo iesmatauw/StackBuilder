@@ -45,7 +45,7 @@
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +73,7 @@
             this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStandard = new System.Windows.Forms.ToolStrip();
@@ -98,8 +99,7 @@
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
-            this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,6 +116,7 @@
             tabGradient1.StartColor = System.Drawing.SystemColors.Control;
             tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
             autoHideStripSkin1.TabGradient = tabGradient1;
+            autoHideStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
             dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
             tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
             tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
@@ -129,6 +130,7 @@
             tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
             dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
             dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
+            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
             tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
             tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -154,15 +156,15 @@
             dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
             this.dockPanel.Skin = dockPanelSkin1;
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolStripMenuItemTools,
             this.helpToolStripMenuItem});
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.Name = "menuStrip1";
+            resources.ApplyResources(this.menuStripMain, "menuStripMain");
+            this.menuStripMain.Name = "menuStripMain";
             // 
             // fileToolStripMenuItem
             // 
@@ -349,6 +351,12 @@
             this.helpToolStripMenuItemHelp.Name = "helpToolStripMenuItemHelp";
             this.helpToolStripMenuItemHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
             // 
+            // tutorialToolStripMenuItem
+            // 
+            this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
+            resources.ApplyResources(this.tutorialToolStripMenuItem, "tutorialToolStripMenuItem");
+            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
+            // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
@@ -526,25 +534,19 @@
             // 
             resources.ApplyResources(this.saveFileDialogSB, "saveFileDialogSB");
             // 
-            // tutorialToolStripMenuItem
-            // 
-            this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
-            resources.ApplyResources(this.tutorialToolStripMenuItem, "tutorialToolStripMenuItem");
-            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStripStandard);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripMain);
             this.Controls.Add(this.dockPanel);
             this.IsMdiContainer = true;
             this.Name = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             this.toolStripStandard.ResumeLayout(false);
             this.toolStripStandard.PerformLayout();
             this.ResumeLayout(false);
@@ -554,7 +556,7 @@
         #endregion
 
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;

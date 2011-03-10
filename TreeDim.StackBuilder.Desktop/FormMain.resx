@@ -136,7 +136,7 @@
     <value>dockPanel</value>
   </data>
   <data name="&gt;&gt;dockPanel.Type" xml:space="preserve">
-    <value>WeifenLuo.WinFormsUI.Docking.DockPanel, WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, PublicKeyToken=null</value>
+    <value>WeifenLuo.WinFormsUI.Docking.DockPanel, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dockPanel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -144,7 +144,7 @@
   <data name="&gt;&gt;dockPanel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
   <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -168,7 +168,7 @@
     <value>White</value>
   </data>
   <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="newToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;New</value>
@@ -193,7 +193,7 @@
     <value>White</value>
   </data>
   <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Open</value>
@@ -217,7 +217,7 @@
     <value>White</value>
   </data>
   <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="saveToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Save</value>
@@ -229,7 +229,7 @@
     <value>White</value>
   </data>
   <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
     <value>Save &amp;as...</value>
@@ -253,7 +253,7 @@
     <value>White</value>
   </data>
   <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
     <value>Save &amp;All</value>
@@ -262,7 +262,7 @@
     <value>White</value>
   </data>
   <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>Close</value>
@@ -271,22 +271,22 @@
     <value>Close active document</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnuFileMRU.Text" xml:space="preserve">
     <value>&amp;Recent Files...</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="exitToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Exit</value>
@@ -522,22 +522,22 @@
     <value>White</value>
   </data>
   <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>116, 22</value>
   </data>
   <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
     <value>Help</value>
   </data>
   <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>116, 22</value>
   </data>
   <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
     <value>Tutorial</value>
   </data>
   <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>113, 6</value>
   </data>
   <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>116, 22</value>
   </data>
   <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>About...</value>
@@ -548,28 +548,28 @@
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
     <value>784, 24</value>
   </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
+  <data name="menuStripMain.Text" xml:space="preserve">
     <value>menuStripMain</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
+  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
+    <value>menuStripMain</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <metadata name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -1184,6 +1184,12 @@
   <data name="&gt;&gt;helpToolStripMenuItemHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tutorialToolStripMenuItem.Name" xml:space="preserve">
+    <value>tutorialToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;tutorialToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
     <value>toolStripSeparator9</value>
   </data>
@@ -1327,12 +1333,6 @@
   </data>
   <data name="&gt;&gt;saveFileDialogSB.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tutorialToolStripMenuItem.Name" xml:space="preserve">
-    <value>tutorialToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;tutorialToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

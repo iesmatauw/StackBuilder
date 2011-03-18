@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.23.0" ?>
+<?define Version = "0.1.24.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
 <?define Manufacturer="treeDim"?>
 <!-- Opensource-->
-<?define opensource="false"?>
+<?define opensource="true"?>
 <!--Serial number-->
 <?define serial="FX11-VR50-ZH01-PICA"?>
 
@@ -41,7 +41,7 @@
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationShortcutFolder" Name="$(var.Manufacturer)"/>
       </Directory>
-      <Directory Id="DesktopFolder">
+      <Directory Id="DesktopFolder" Name="Desktop">
       </Directory>
     </Directory>
     <!--Properties-->
@@ -50,6 +50,7 @@
     <Property Id="PIDTemplate" Value="????-????-????-????" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
     <Property Id="SERIALNUMBER" Value="    -    -    -    "/>
+    <Property Id="ALLUSERS" Value="1"/>
     <!--Property references-->
     <PropertyRef Id="NETFRAMEWORK20"/>
     <!-- Conditions-->
@@ -58,6 +59,8 @@
     <Condition Message="This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again.">
       <![CDATA[Installed OR NETFRAMEWORK20]]>
     </Condition>
+    <!--Icon-->
+    <Icon Id="_treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
     <!-- Add files to installer package -->
     <DirectoryRef Id="INSTALLLOCATION">
       <Component Id="References" Guid="{F464B17D-D223-4c7a-BDDD-A0647B7D7430}">
@@ -71,18 +74,7 @@
         <File Id ="Win32Mapi.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Win32Mapi.dll" Checksum="yes"/>
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
-        <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes">
-          <Shortcut Id="ApplicationStartMenuShortcut" Name="PLMPack StackBuilder"
-           Description="PLMPack StackBuilder palettization application"
-           Directory="ApplicationShortcutFolder"
-           WorkingDirectory="INSTALLLOCATION"
-           Icon="treeDim.ico" Advertise="yes"/>
-          <Shortcut Id="ApplicationDesktopShortcut" Name="PLMPack StackBuilder"
-           Description="PLMPack StackBuilder palettization application"
-           Directory="DesktopFolder"
-           WorkingDirectory="INSTALLLOCATION"
-           Icon="treeDim.ico" Advertise="yes"/>
-        </File>
+        <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
         <!--File type association : begin-->
         <ProgId Id="TreeDim.StackBuilder" Description="TreeDim StachBuilder Data File" Icon="TreeDim.StackBuilder.Desktop.exe" IconIndex="0">
           <Extension Id="stb" ContentType="application/xml">
@@ -131,26 +123,50 @@
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">
-      <!--Uninstall shortcut-->
-      <Component Id="UninstallProduct" Guid="{F843FF45-764F-4659-9884-40F80AC76BA4}">
+      <!--Application shortcut & Uninstall shortcut-->
+      <Component Id="ProgramMenuShortcutComp" Guid="{AEB5AFCA-E43E-4523-9551-90D406BAD8E6}">
+        <Shortcut Id="ProgramMenuShortcut"
+                  Name="PLMPack Stackbuilder"
+                  Description="PLMPack StackBuilder palettization application"
+                  Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
+                  Icon="_treeDim.ico"/>
         <Shortcut Id="UninstallProduct"  Name="Uninstall PLMPack StackBuilder"
                   Description="Uninstalls PLMPack StackBuilder"
                   Target="[System64Folder]msiexec.exe"
                   Arguments="/x [ProductCode]"/>
-        <RegistryKey Root="HKCU" Key="Software\$(var.Manufacturer)\PLMPack StackBuilder\UninstallShortcut">
-          <RegistryValue Name="installed" Type="integer" Value="1" KeyPath="yes"/>
-        </RegistryKey>
-        <RemoveFolder Id="ApplicationShortcutFolder" On="uninstall"/>
+        <RemoveFolder Id="RemoveApplicationShortcutFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="$(var.Manufacturer)\PLMPack StackBuilder"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{28CF1E86-4236-4cd8-8AED-0CB95B579C25}">
+        <Shortcut Id="DesktopShortCut"
+                  Name="PLMPack Stackbuilder"
+                  Description="PLMPack StackBuilder palettization application"
+                  Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
+                  Icon="_treeDim.ico"/>
+        <RegistryValue Root="HKCU"
+                Key="$(var.Manufacturer)\PLMPack StackBuilder"
+                Name="installed"
+                Type="integer"
+                Value="1"
+                KeyPath="yes" />
       </Component>
     </DirectoryRef>
     <!-- Tell WiX to install the files -->
 		<Feature Id="ProductFeature" Title="SetupSB" Level="1">
       <ComponentRef Id="References" />
       <ComponentRef Id="Application"/>
+      <ComponentRef Id="ProgramMenuShortcutComp"/>
+      <ComponentRef Id="DesktopShortcutComp"/>
       <ComponentRef Id="ReportTemplateFiles"/>
       <ComponentRef Id="PalletSolutionsDB"/>
       <ComponentRef Id="resources_fr_FR"/>
-      <ComponentRef Id="UninstallProduct"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>
@@ -163,8 +179,7 @@
       <UpgradeVersion Minimum="$(var.Version)" IncludeMinimum="no"
                       OnlyDetect="yes"
                       Property="PROJECT_DOWNGRADE" />
-    </Upgrade>
- 
+    </Upgrade> 
     <!--UI-->
     <UI>
       <!-- Add UI to the installer -->
@@ -196,7 +211,6 @@
       <RemoveExistingProducts After="InstallFinalize"/>
     </InstallExecuteSequence>
     <!---->
-    <Icon Id="treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
     <Property Id="ARPPRODUCTICON" Value="treeDim.ico" />
 	</Product>
   <Fragment>

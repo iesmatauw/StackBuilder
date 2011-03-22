@@ -119,7 +119,7 @@
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
-        <File Id="Index.xml" Source="Index.xml"/>
+        <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">

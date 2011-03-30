@@ -570,15 +570,12 @@
     <Content Include="Resources\CaseAnalysis.bmp" />
     <None Include="Resources\Delete.bmp" />
     <None Include="Resources\Database.bmp" />
-    <Content Include="Resources\CaseAnalysis.ico" />
     <None Include="Resources\Help.bmp" />
     <None Include="Resources\CaseOfBoxes.bmp" />
     <Content Include="Resources\Image.bmp" />
     <None Include="Resources\OptimalCase.bmp" />
-    <Content Include="Resources\PalletAnalysis.ico" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
-    <Content Include="Resources\TruckAnalysis.ico" />
     <Content Include="Resources\Word.bmp" />
     <Content Include="treeDim.ico" />
   </ItemGroup>

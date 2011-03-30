@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Manufacturer -->
+<?define ShortcutFolder="Picador Windows"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     >
+  <Module Id="MergeModuleSB" Language="1033" Version="1.0.0.0">
+    <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c" Manufacturer="MergeModuleSB" InstallerVersion="200" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="MergeRedirectFolder">
+        <Directory Id="StackBuilder" Name="StackBuilder">
+          <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
+          <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
+          <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
+        <Directory Id="ApplicationShortcutFolder" Name="$(var.ShortcutFolder)" ShortName="Picador"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop">
+      </Directory>
+    </Directory>
+    <!--Properties-->
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+    <!--Components-->
+    <!--Icon-->
+    <Icon Id="_treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
+    <!-- Add files to installer package -->
+    <DirectoryRef Id="StackBuilder">
+      <Component Id="References" Guid="{F464B17D-D223-4c7a-BDDD-A0647B7D7430}">
+        <File Id="log4net.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\log4net.dll" KeyPath="yes" Checksum="yes"/>
+        <File Id ="WeifenLuo.WinFormsUI.Docking.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes"/>
+        <File Id ="OfficePickers.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\OfficePickers.dll" Checksum="yes"/>
+        <File Id ="PropertyGridEx.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\PropertyGridEx.dll" Checksum="yes"/>
+        <File Id ="SourceGrid.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\SourceGrid.dll" Checksum="yes"/>
+        <File Id ="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
+        <File Id ="ExceptionReporter.Winforms.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\ExceptionReporter.Winforms.dll" Checksum="yes"/>
+        <File Id ="Win32Mapi.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Win32Mapi.dll" Checksum="yes"/>
+      </Component>
+      <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
+        <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
+        <!--File type association : begin-->
+        <ProgId Id="TreeDim.StackBuilder" Description="TreeDim StachBuilder Data File" Icon="TreeDim.StackBuilder.Desktop.exe" IconIndex="0">
+          <Extension Id="stb" ContentType="application/xml">
+            <Verb Id="open" Command="Open" TargetFile="TreeDim.StackBuilder.Desktop.exe" Argument='"%1\"' />
+          </Extension>
+        </ProgId>
+        <!--File type association : end-->
+        <File Id="TreeDim.StackBuilder.Desktop.exe.config" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe.config" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Graphics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Graphics.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Engine.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
+        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\Help\Decompile\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <!--update config file-->
+        <util:XmlFile Id="SetInitialReportTemplatePath"
+                      File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value"
+                      Value="[REPORTTEMPLATES]Report.xslt"/>
+        <util:XmlFile Id="SetPalletSolutionsDBPath"
+                      File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value"
+                      Value="[PALLETSOLUTIONSDB]"/>
+        <!--update config file-->
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_FR">
+      <Component Id="resources_fr_FR" Guid="{C5AF9823-6681-4ac1-872F-AA6873A87D50}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="REPORTTEMPLATES">
+      <Component Id="ReportTemplateFiles" Guid="{1F629F03-7A0C-4e2f-B5D1-C85188C75A57}">
+        <File Id="Report.doc" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.doc" KeyPath="yes" Checksum="yes"/>
+        <File Id="Report.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xml" Checksum="yes"/>
+        <File Id="Report.xslt" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt" Checksum="yes"/>
+        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\WML2XSLT.EXE" Checksum="yes"/>
+        <File Id="xml2xslt.bat" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\xml2xslt.bat" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="PALLETSOLUTIONSDB">
+      <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
+        <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationShortcutFolder">
+      <!--Application shortcut & Uninstall shortcut-->
+      <Component Id="ProgramMenuShortcutComp" Guid="{AEB5AFCA-E43E-4523-9551-90D406BAD8E6}">
+        <Shortcut Id="ProgramMenuShortcut"
+                  Name="Stackbuilder"
+                  Description="StackBuilder palettization application"
+                  Target="[StackBuilder]TreeDim.StackBuilder.Desktop.exe"
+                  Icon="_treeDim.ico"/>
+        <RemoveFolder Id="RemoveApplicationShortcutFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="$(var.ShortcutFolder)\StackBuilder"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{28CF1E86-4236-4cd8-8AED-0CB95B579C25}">
+        <Shortcut Id="DesktopShortCut"
+                  Name="PLMPack Stackbuilder"
+                  Description="StackBuilder palettization application"
+                  Target="[StackBuilder]TreeDim.StackBuilder.Desktop.exe"
+                  Icon="_treeDim.ico"/>
+        <RegistryValue Root="HKCU"
+                Key="$(var.ShortcutFolder)\StackBuilder"
+                Name="installed"
+                Type="integer"
+                Value="1"
+                KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Module>
+</Wix>

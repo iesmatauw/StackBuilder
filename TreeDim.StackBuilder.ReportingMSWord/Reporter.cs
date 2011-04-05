@@ -177,7 +177,12 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             // pallet
             AppendPalletElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // case
-            if (analysis.BProperties is BoxProperties)
+            if (analysis.BProperties is CaseOfBoxesProperties)
+            {
+                AppendInsideBoxElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
+                AppendCaseOfBoxesElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
+            }
+            else if (analysis.BProperties is BoxProperties)
                 AppendCaseElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             else if (analysis.BProperties is BundleProperties)
                 AppendBundleElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
@@ -375,7 +380,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             if (cs.UseMaximumHeight)
             {
                 XmlElement maximumPalletHeight = xmlDoc.CreateElement("maximumPalletHeight", ns);
-                maximumPalletHeight.InnerText = string.Format("{0}", cs.MaximumHeight);
+                maximumPalletHeight.InnerText = string.Format("{0:F}", cs.MaximumHeight);
                 elemConstraintSet.AppendChild(maximumPalletHeight);
             }
             if (cs.UseMaximumNumberOfItems)
@@ -409,6 +414,170 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             XmlElement elemAllowAlignedLayers = xmlDoc.CreateElement("allowAlignedLayers", ns);
             elemAllowAlignedLayers.InnerText = cs.AllowAlignedLayers.ToString();
             elemConstraintSet.AppendChild(elemAllowAlignedLayers);
+        }
+        private static void AppendInsideBoxElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        { 
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // get caseOfBoxProperties
+            CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
+            // get box properties
+            BoxProperties boxProperties = caseOfBoxes.InsideBoxProperties;
+            // elemBoxes
+            XmlElement elemBox = xmlDoc.CreateElement("box", ns);
+            elemPalletAnalysis.AppendChild(elemBox);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = boxProperties.Name;
+            elemBox.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = boxProperties.Description;
+            elemBox.AppendChild(elemDescription);
+            // length
+            XmlElement elemLength = xmlDoc.CreateElement("length", ns);
+            elemLength.InnerText = string.Format("{0:F}", boxProperties.Length);
+            elemBox.AppendChild(elemLength);
+            // width
+            XmlElement elemWidth = xmlDoc.CreateElement("width", ns);
+            elemWidth.InnerText = string.Format("{0:F}", boxProperties.Width);
+            elemBox.AppendChild(elemWidth);
+            // height
+            XmlElement elemHeight = xmlDoc.CreateElement("height", ns);
+            elemHeight.InnerText = string.Format("{0:F}", boxProperties.Height);
+            elemBox.AppendChild(elemHeight);
+            // weight
+            XmlElement elemWeight = xmlDoc.CreateElement("weight", ns);
+            elemWeight.InnerText = string.Format("{0:F}", boxProperties.Weight);
+            elemBox.AppendChild(elemWeight);
+            // --- build image
+            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            graphics.CameraPosition = Graphics3D.Corner_0;
+            graphics.Target = Vector3D.Zero;
+            Box box = new Box(0, boxProperties);
+            graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+            graphics.Flush();
+            // ---
+            // view_box_iso
+            XmlElement elemImage = xmlDoc.CreateElement("view_box_iso", ns);
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
+            elemImage.Attributes.Append(styleAttribute);
+            elemBox.AppendChild(elemImage);
+        }
+        private static void AppendCaseOfBoxesElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // get CaseOfBoxProperties
+            CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
+            if (null == caseOfBoxes) return;
+            // elemCaseOfBoxes
+            XmlElement elemCaseOfBoxes = xmlDoc.CreateElement("caseOfBoxes", ns);
+            elemPalletAnalysis.AppendChild(elemCaseOfBoxes);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = caseOfBoxes.Name;
+            elemCaseOfBoxes.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = caseOfBoxes.Description;
+            elemCaseOfBoxes.AppendChild(elemDescription);
+            // length
+            XmlElement elemNoX = xmlDoc.CreateElement("noX", ns);
+            elemNoX.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Arrangement._iLength);
+            elemCaseOfBoxes.AppendChild(elemNoX);
+            // width
+            XmlElement elemNoY = xmlDoc.CreateElement("noY", ns);
+            elemNoY.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Arrangement._iWidth);
+            elemCaseOfBoxes.AppendChild(elemNoY);
+            // height
+            XmlElement elemNoZ = xmlDoc.CreateElement("noZ", ns);
+            elemNoZ.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Arrangement._iHeight);
+            elemCaseOfBoxes.AppendChild(elemNoZ);
+            // number of boxes
+            XmlElement elemNoBoxes = xmlDoc.CreateElement("numberOfBoxes", ns);
+            elemNoBoxes.InnerText = string.Format("{0}", caseOfBoxes.NumberOfBoxes);
+            elemCaseOfBoxes.AppendChild(elemNoBoxes);
+            // dim0
+            XmlElement eltDim0 = xmlDoc.CreateElement("dim0", ns);
+            eltDim0.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Dim0);
+            elemCaseOfBoxes.AppendChild(eltDim0);
+            // dim1
+            XmlElement eltDim1 = xmlDoc.CreateElement("dim1", ns);
+            eltDim1.InnerText = string.Format("{0}", caseOfBoxes.CaseDefinition.Dim1);
+            elemCaseOfBoxes.AppendChild(eltDim1);
+            // inner length
+            XmlElement eltInnerLength = xmlDoc.CreateElement("innerLength", ns);
+            eltInnerLength.InnerText = string.Format("{0}", caseOfBoxes.InsideLength);
+            elemCaseOfBoxes.AppendChild(eltInnerLength);
+            // inner width
+            XmlElement eltInnerWidth = xmlDoc.CreateElement("innerWidth", ns);
+            eltInnerWidth.InnerText = string.Format("{0}", caseOfBoxes.InsideWidth);
+            elemCaseOfBoxes.AppendChild(eltInnerWidth);
+            // inner height
+            XmlElement eltInnerHeight = xmlDoc.CreateElement("innerHeight", ns);
+            eltInnerHeight.InnerText = string.Format("{0}", caseOfBoxes.InsideHeight);
+            elemCaseOfBoxes.AppendChild(eltInnerHeight);
+            // inner volume
+            XmlElement eltInnerVolume = xmlDoc.CreateElement("innerVolume", ns);
+            eltInnerVolume.InnerText = string.Format("{0:F}", caseOfBoxes.InsideVolume * 1.0E-06);
+            elemCaseOfBoxes.AppendChild(eltInnerVolume);
+            // outer length
+            XmlElement eltOuterLength = xmlDoc.CreateElement("outerLength", ns);
+            eltOuterLength.InnerText = string.Format("{0:F}", caseOfBoxes.Length);
+            elemCaseOfBoxes.AppendChild(eltOuterLength);
+            // outer width
+            XmlElement eltOuterWidth = xmlDoc.CreateElement("outerWidth", ns);
+            eltOuterWidth.InnerText = string.Format("{0:F}", caseOfBoxes.Width);
+            elemCaseOfBoxes.AppendChild(eltOuterWidth);
+            // outer height
+            XmlElement eltOuterHeight = xmlDoc.CreateElement("outerHeight", ns);
+            eltOuterHeight.InnerText = string.Format("{0:F}", caseOfBoxes.Height);
+            elemCaseOfBoxes.AppendChild(eltOuterHeight);
+            // outer volume
+            XmlElement eltOuterVolume = xmlDoc.CreateElement("outerVolume", ns);
+            eltOuterVolume.InnerText = string.Format("{0:F}", caseOfBoxes.Volume * 1.0E-06);
+            elemCaseOfBoxes.AppendChild(eltOuterVolume);
+            // empty weight
+            XmlElement eltEmptyWeight = xmlDoc.CreateElement("emptyWeight", ns);
+            eltEmptyWeight.InnerText = string.Format("{0:F}", caseOfBoxes.Weight);
+            elemCaseOfBoxes.AppendChild(eltEmptyWeight);
+            // weight
+            XmlElement eltWeight = xmlDoc.CreateElement("weight", ns);
+            eltWeight.InnerText = string.Format("{0:F}", caseOfBoxes.Weight);
+            elemCaseOfBoxes.AppendChild(eltWeight);
+            // type converter
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+            // view case of boxes iso1
+            Graphics3DImage graphics1 = new Graphics3DImage(new Size(256, 256));
+            graphics1.CameraPosition = Graphics3D.Corner_0;
+            CaseDefinitionViewer viewer = new CaseDefinitionViewer(caseOfBoxes.CaseDefinition, caseOfBoxes.InsideBoxProperties, caseOfBoxes.CaseOptimConstraintSet);
+            viewer.CaseProperties = caseOfBoxes;
+            viewer.Draw(graphics1);
+            graphics1.Flush();
+            // view case of boxes iso2
+            Graphics3DImage graphics2 = new Graphics3DImage(new Size(256, 256));
+            graphics2.CameraPosition = Graphics3D.Corner_0;
+            Box box = new Box(0, caseOfBoxes);
+            graphics2.AddBox(box);
+            graphics2.AddDimensions(new DimensionCube(caseOfBoxes.Length, caseOfBoxes.Width, caseOfBoxes.Height));
+            graphics2.Flush();
+            // view_caseOfBoxes_iso1
+            XmlElement elemImage1 = xmlDoc.CreateElement("view_caseOfBoxes_iso1", ns);
+            elemImage1.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics1.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute1 = xmlDoc.CreateAttribute("style");
+            styleAttribute1.Value = string.Format("width:{0}pt;height:{1}pt", graphics1.Bitmap.Width / 3, graphics1.Bitmap.Height / 3);
+            elemImage1.Attributes.Append(styleAttribute1);
+            elemCaseOfBoxes.AppendChild(elemImage1);
+            // view_caseOfBoxes_iso2
+            XmlElement elemImage2 = xmlDoc.CreateElement("view_caseOfBoxes_iso2", ns);
+            elemImage2.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics2.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute2 = xmlDoc.CreateAttribute("style");
+            styleAttribute2.Value = string.Format("width:{0}pt;height:{1}pt", graphics2.Bitmap.Width / 3, graphics2.Bitmap.Height / 3);
+            elemImage2.Attributes.Append(styleAttribute2);
+            elemCaseOfBoxes.AppendChild(elemImage2);
         }
 
         private static void AppendInterlayerElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -488,16 +657,28 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             XmlElement elemPalletHeight = xmlDoc.CreateElement("palletHeight", ns);
             elemPalletHeight.InnerText = string.Format("{0:F}", sol.PalletHeight);
             elemSolution.AppendChild(elemPalletHeight);
-            // boxCount
-            XmlElement elemBoxCount = xmlDoc.CreateElement("boxCount", ns);
-            elemBoxCount.InnerText = string.Format("{0}", sol.Count);
-            elemSolution.AppendChild(elemBoxCount);
+            // caseCount
+            XmlElement elemCaseCount = xmlDoc.CreateElement("caseCount", ns);
+            elemCaseCount.InnerText = string.Format("{0}", sol.CaseCount);
+            elemSolution.AppendChild(elemCaseCount);
+            // if case of boxes, add box count + box efficiency
+            if (sol.Analysis.BProperties is CaseOfBoxesProperties)
+            {
+                CaseOfBoxesProperties caseOfBoxes = sol.Analysis.BProperties as CaseOfBoxesProperties;
+                XmlElement elemBoxCount = xmlDoc.CreateElement("boxCount", ns);
+                elemBoxCount.InnerText = string.Format("{0:F}", caseOfBoxes.NumberOfBoxes);
+                elemSolution.AppendChild(elemBoxCount);
+                XmlElement elemBoxEfficiency = xmlDoc.CreateElement("boxEfficiency", ns);
+                elemBoxEfficiency.InnerText = string.Format("{0:F}", sol.Efficiency);
+            }
             // interlayer count
             if (sol.Analysis.ConstraintSet.HasInterlayer)
-            { 
+            {
+                XmlElement elemInterlayerCount = xmlDoc.CreateElement("interlayerCount", ns);
+                elemInterlayerCount.InnerText = string.Format("{0}", sol.InterlayerCount);
+                elemSolution.AppendChild(elemInterlayerCount);
             }
             // --- layer images
-            //XmlElement elemLayers = xmlDoc.CreateElement("layers", ns);
             for (int i = 0; i < (sol.HasHomogeneousLayers ? 1 : 2); ++i)
             {
                 XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
@@ -524,7 +705,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 elemLayerImage.Attributes.Append(styleAttribute);
                 elemLayer.AppendChild(elemLayerImage);
                 // layerBoxCount
-                XmlElement elemLayerBoxCount = xmlDoc.CreateElement("layerBoxCount", ns);
+                XmlElement elemLayerBoxCount = xmlDoc.CreateElement("layerCaseCount", ns);
                 elemLayerBoxCount.InnerText = "0";
                 elemLayer.AppendChild(elemLayerBoxCount);
 
@@ -673,7 +854,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemPalletCount.InnerText = string.Format("{0}", truckSolution.PalletCount);
             elemTruckSolution.AppendChild(elemPalletCount);
             // boxCount
-            XmlElement elemBoxCount = xmlDoc.CreateElement("boxCount", ns);
+            XmlElement elemBoxCount = xmlDoc.CreateElement("caseCount", ns);
             elemBoxCount.InnerText = string.Format("{0}", truckSolution.BoxCount);
             elemTruckSolution.AppendChild(elemBoxCount);
             // loadWeight

@@ -88,7 +88,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void DoSplash()
         {
             SplashScreen sp = new SplashScreen(this);
-            sp.TimerInterval = 500;
+            sp.TimerInterval = 2500;
             sp.ShowDialog();
         }
         #endregion

@@ -196,7 +196,6 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics1.Flush();
                 // set to picture box
                 pictureBoxCase.Image = graphics1.Bitmap;
-
                 // instantiate graphics
                 Graphics3DImage graphics2 = new Graphics3DImage(pictureBoxCaseDefinition.Size);
                 graphics2.CameraPosition = new Vector3D(

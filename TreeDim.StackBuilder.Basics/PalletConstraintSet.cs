@@ -142,7 +142,7 @@ namespace TreeDim.StackBuilder.Basics
                 string sGlobal = string.Empty;
                 foreach (string patternName in _allowedPatterns)
                 {
-                    if (!string.IsNullOrEmpty(sGlobal))
+                    if (!string.IsNullOrEmpty(sGlobal) )
                         sGlobal += ",";
                     sGlobal += patternName;
                 }
@@ -160,11 +160,13 @@ namespace TreeDim.StackBuilder.Basics
                 string sGlobal = string.Empty;
                 for (int i=0; i<6; ++i)
                 {
-                    if (!string.IsNullOrEmpty(sGlobal))
-                        sGlobal += ",";
                     HalfAxis.HAxis axis = (HalfAxis.HAxis)i;
-                    if (AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N))
+                    if (AllowOrthoAxis(axis))
+                    {
+                        if (!string.IsNullOrEmpty(sGlobal))
+                            sGlobal += ",";
                         sGlobal += HalfAxis.ToString(axis);
+                    }
                 }
                 return sGlobal;
             }

@@ -192,8 +192,6 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Efficiency percentage
         /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
         public double Efficiency
         {
             get
@@ -208,10 +206,27 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
         /// <summary>
-        /// 
+        /// Box efficiency percentage
         /// </summary>
-        /// <param name="analysis"></param>
-        /// <returns></returns>
+        public double BoxEfficiency
+        {
+            get
+            {
+                CaseOfBoxesProperties caseOfBoxes = Analysis.BProperties as CaseOfBoxesProperties;
+                if (null == caseOfBoxes)
+                    return 0.0;
+                return 100.0 * CaseCount * caseOfBoxes.NumberOfBoxes * caseOfBoxes.InsideBoxProperties.Volume
+                    /
+                    (
+                        (Analysis.PalletProperties.Length - Analysis.ConstraintSet.OverhangX)
+                        * (Analysis.PalletProperties.Width - Analysis.ConstraintSet.OverhangY)
+                        * (Analysis.ConstraintSet.MaximumHeight - Analysis.PalletProperties.Height)
+                    );
+            }
+        }
+        /// <summary>
+        /// Pallet weight
+        /// </summary>
         public double PalletWeight
         {
             get

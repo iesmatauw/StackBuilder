@@ -43,7 +43,10 @@ namespace TreeDim.StackBuilder.Reporting.XsltGenerator
                     , string.Format("{0} -o {1} -ns \"http://treeDim/StackBuilder/ReportSchema.xsd\""
                     , filePathIn
                     , filePathTemp));
-                Process.Start(startInfo);
+                startInfo.UseShellExecute = false;
+                startInfo.RedirectStandardOutput = true;
+                Process procWml2xslt = Process.Start(startInfo);
+                Console.WriteLine(procWml2xslt.StandardOutput.ReadToEnd());
                 System.Threading.Thread.Sleep(1000);
                 // load xml file in document and parse document
                 using (FileStream fileStream = new FileStream(filePathTemp, FileMode.Open))
@@ -53,7 +56,6 @@ namespace TreeDim.StackBuilder.Reporting.XsltGenerator
                     log.Info(string.Format("Successfully opened file {0}", filePathIn));
                     XmlElement xmlRootElement = xmlDoc.DocumentElement;
 
-
                     XmlNamespaceManager nsm = new XmlNamespaceManager(xmlDoc.NameTable);
                     nsm.AddNamespace("w", "http://schemas.microsoft.com/office/word/2003/wordml");
                     nsm.AddNamespace("xls", "http://www.w3.org/1999/XSL/Transform");
@@ -62,7 +64,9 @@ namespace TreeDim.StackBuilder.Reporting.XsltGenerator
 
                     ModifyXslt(xmlDoc, xmlRootElement, nsm);
                     // finally save XmlDocument
-                    xmlDoc.Save(filePathOut);
+                    XmlTextWriter writer = new XmlTextWriter(filePathOut, System.Text.Encoding.UTF8);
+                    xmlDoc.Save(writer);
+                    writer.Close();
                     log.Info(string.Format("Successfully saved file {0}", filePathOut));
                 }
             }

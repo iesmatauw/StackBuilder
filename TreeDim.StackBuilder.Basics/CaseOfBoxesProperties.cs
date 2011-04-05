@@ -33,8 +33,6 @@ namespace TreeDim.StackBuilder.Basics
             _boxProperties.AddDependancie(this);
             _caseDefinition = caseDefinition;
             _constraintSet = constraintSet;
-            
-
             OnAttributeModified(boxProperties);
         }
         #endregion
@@ -52,6 +50,11 @@ namespace TreeDim.StackBuilder.Basics
         public override double Weight
         {
             get { return base.Weight + _caseDefinition.Arrangement.Number * _boxProperties.Weight; }
+        }
+
+        public int NumberOfBoxes
+        {
+            get { return _caseDefinition.Arrangement.Number; }
         }
         #endregion
 

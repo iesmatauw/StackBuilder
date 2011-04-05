@@ -99,6 +99,10 @@ namespace TreeDim.StackBuilder.Basics
             get { return _hasInsideDimensions ? _insideHeight : _height; }
             set { _insideHeight = value; Modify(); }
         }
+        public double InsideVolume
+        {
+            get { return InsideLength * InsideWidth * InsideHeight; }
+        }
         #endregion
 
         #region Colors

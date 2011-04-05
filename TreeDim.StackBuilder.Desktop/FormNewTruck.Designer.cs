@@ -179,7 +179,7 @@
             // 
             resources.ApplyResources(this.nudLength, "nudLength");
             this.nudLength.Maximum = new decimal(new int[] {
-            10000,
+            50000,
             0,
             0,
             0});

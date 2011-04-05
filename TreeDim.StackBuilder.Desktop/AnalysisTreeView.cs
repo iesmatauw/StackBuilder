@@ -533,10 +533,6 @@ namespace TreeDim.StackBuilder.Desktop
         /// event raised when a selected solution node is clicked
         /// </summary>
         public event AnalysisNodeClickHandler SolutionReportNodeClicked;
-        /// <summary>
-        /// event raised when a new analysis is created
-        /// </summary>
-        public event NewAnalysisCreatedHandler NewAnalysisCreated;
         #endregion
 
         #region IDocumentListener implementation

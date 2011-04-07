@@ -49,8 +49,8 @@ namespace TreeDim.StackBuilder.ReportingMSWord.Test
                 }
                 // build output file path
                 string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
-                string xsltTemplateFilePath = @"..\..\..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt";
-                Reporter.BuidAnalysisReport(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0), xsltTemplateFilePath, outputFilePath);
+                string templatePath = @"..\..\..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\";
+                Reporter.BuildAnalysisReport(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0),templatePath, outputFilePath);
 
                 Console.WriteLine("Saved report to: {0}", outputFilePath);
 

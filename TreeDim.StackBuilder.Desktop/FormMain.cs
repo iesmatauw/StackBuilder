@@ -348,8 +348,10 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                     // build output file path
                     string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
+                    // getting current culture
+                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
-                    Reporter.BuidAnalysisReport(
+                    Reporter.BuildAnalysisReport(
                         eventArg.Analysis
                         , eventArg.SelSolution
                         , Settings.Default.ReportTemplatePath

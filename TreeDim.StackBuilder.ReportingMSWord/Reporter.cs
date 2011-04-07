@@ -7,6 +7,7 @@ using System.Xml.Xsl;
 using System.IO;
 using System.Drawing;
 using System.ComponentModel;
+using System.Diagnostics;
 
 using Sharp3D.Math.Core;
 
@@ -84,7 +85,156 @@ namespace TreeDim.StackBuilder.ReportingMSWord
         }
         #endregion
 
-        #region Static methods
+        #region Xslt template file generation methods
+        public static bool BuildXsltFromWml(string reportTemplatePath, out string xsltFilePath)
+        {
+            // report file name
+            string wmlFileName = string.Format("ReportTemplate_{0}.xml"
+                , System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName);
+            // report file path
+            string wmlFilePath = Path.Combine(reportTemplatePath, wmlFileName);
+            // check if file can be found, else get default
+            if (!File.Exists(wmlFilePath))
+                wmlFilePath = Path.Combine(reportTemplatePath, "ReportTemplate_ENU.xml");
+            // check template file existence
+            if (!File.Exists(wmlFilePath))
+                throw new FileNotFoundException(string.Format("Failed to find template file {0}", wmlFilePath), wmlFilePath);
+            // get path of wml2xslt.exe
+            string wml2xsltPath = Path.Combine(reportTemplatePath, "WML2XSLT.EXE");
+            // temp xslt from wml
+            string tempXslt = Path.GetTempFileName();
+            ProcessStartInfo startInfo = new ProcessStartInfo(
+                wml2xsltPath
+                , string.Format("{0} -o {1} -ns \"http://treeDim/StackBuilder/ReportSchema.xsd\""
+                , wmlFilePath
+                , tempXslt));
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardOutput = true;
+            Process procWml2xslt = Process.Start(startInfo);
+            // wait ?
+            System.Threading.Thread.Sleep(500);
+            // create new xslt document
+            xsltFilePath = Path.ChangeExtension(Path.GetTempFileName(), "xslt");
+            // load xml file in document and parse document
+            using (FileStream fileStream = new FileStream(tempXslt, FileMode.Open))
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(fileStream);
+                XmlElement xmlRootElement = xmlDoc.DocumentElement;
+
+                XmlNamespaceManager nsm = new XmlNamespaceManager(xmlDoc.NameTable);
+                nsm.AddNamespace("w", "http://schemas.microsoft.com/office/word/2003/wordml");
+                nsm.AddNamespace("xls", "http://www.w3.org/1999/XSL/Transform");
+                nsm.AddNamespace("v", "urn:schemas-microsoft-com:vml");
+                nsm.AddNamespace("o", "urn:schemas-microsoft-com:office:office");
+
+                ModifyXslt(xmlDoc, xmlRootElement, nsm);
+                // finally save XmlDocument
+                XmlTextWriter writer = new XmlTextWriter(xsltFilePath, System.Text.Encoding.UTF8);
+                xmlDoc.Save(writer);
+                writer.Close();
+            }
+            return true;
+        }
+
+        static public void ModifyXslt(XmlDocument doc, XmlElement rootElement, XmlNamespaceManager nsm)
+        {
+            XmlNodeList nodeList = rootElement.SelectNodes("//w:pict", nsm);
+            Console.WriteLine("Modifying {0} nodes...", nodeList.Count);
+
+            int imageCounter = 0;
+
+            foreach (XmlNode node in nodeList)
+            {
+                string imageName = string.Format("wordml://010000{0}.gif", ++imageCounter);
+                // ### insert w:binData element
+                XmlElement binDataElement = doc.CreateElement("w:binData", "http://schemas.microsoft.com/office/word/2003/wordml");
+                // append w:name attribute
+                XmlAttribute nameAttribute = doc.CreateAttribute("w:name", "http://schemas.microsoft.com/office/word/2003/wordml");
+                nameAttribute.Value = imageName;
+                binDataElement.Attributes.Append(nameAttribute);
+                // append xsl:value-of element
+                XmlElement valueofElement = doc.CreateElement("value-of", "http://www.w3.org/1999/XSL/Transform");
+                // append "select" attribute
+                XmlAttribute selectAttribute = doc.CreateAttribute("select");
+                selectAttribute.Value = ".";
+                valueofElement.Attributes.Append(selectAttribute);
+                binDataElement.AppendChild(valueofElement);
+                // insert v:binary element
+                XmlElement pictElement = node as XmlElement;
+                pictElement.AppendChild(binDataElement);
+
+                // ### insert imagedata elt in  v:shape
+                foreach (XmlNode pictChildNode in node.ChildNodes)
+                {
+                    XmlElement shapeElt = pictChildNode as XmlElement;
+                    if (null == shapeElt) continue;
+                    if (0 != string.Compare(shapeElt.Name, "v:shape")) continue;
+
+                    // create imagedata elt
+                    XmlElement imageDataElt = doc.CreateElement("imageData", "urn:schemas-microsoft-com:vml");
+                    // create src attribute
+                    XmlAttribute srcAttribute = doc.CreateAttribute("src");
+                    srcAttribute.Value = imageName;
+                    imageDataElt.Attributes.Append(srcAttribute);
+                    // create title attribute
+                    XmlAttribute titleAttribute = doc.CreateAttribute("title", "urn:schemas-microsoft-com:office:office");
+                    titleAttribute.Value = "convert";
+                    imageDataElt.Attributes.Append(titleAttribute);
+                    shapeElt.AppendChild(imageDataElt);
+                }
+
+                // ### remove following w:p element
+                // get parent node
+                XmlNode pNode = node.ParentNode;
+                // get grand parent node
+                XmlNode ppNode = pNode.ParentNode;
+                XmlElement eltToRemove = null;
+                foreach (XmlNode childNode in ppNode.ChildNodes)
+                {
+                    eltToRemove = childNode as XmlElement;
+                    if (0 == string.Compare(eltToRemove.Name, "w:p", true))
+                    {
+                        break;
+                    }
+                    else
+                        eltToRemove = null;
+                }
+                // remove w:p element
+                if (null != eltToRemove)
+                    ppNode.RemoveChild(eltToRemove);
+
+                // ### remove following w:r element if it contains w:t
+                foreach (XmlNode childNode in ppNode.ChildNodes)
+                {
+                    eltToRemove = childNode as XmlElement;
+                    if (0 == string.Compare(eltToRemove.Name, "w:r", true))
+                    {
+                        bool hasTChild = false;
+                        foreach (XmlNode cNode in eltToRemove.ChildNodes)
+                        {
+                            if (0 == string.Compare(cNode.Name, "w:t", true))
+                            {
+                                hasTChild = true;
+                                break;
+                            }
+                        }
+                        if (hasTChild == true)
+                            break;
+                        else
+                            eltToRemove = null;
+                    }
+                    else
+                        eltToRemove = null;
+                }
+                // remove w:r element
+                if (null != eltToRemove)
+                    ppNode.RemoveChild(eltToRemove);
+            }
+        }
+        #endregion
+
+        #region Static report building methods
         /// <summary>
         /// Creates Word document from XML using XSLT
         /// </summary>
@@ -106,16 +256,22 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 return swResult.ToArray();
             }
         }
-        public static void BuidAnalysisReport(PalletAnalysis analysis, SelSolution sol, string xsltTemplateFilePath, string outputFilePath)
+        public static void BuildAnalysisReport(PalletAnalysis analysis, SelSolution sol, string reportTemplatePath, string outputFilePath)
         {
             // create xml data file + XmlTextReader
             string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
             CreateAnalysisDataFile(analysis, sol, xmlFilePath);
             XmlTextReader xmlData = new XmlTextReader(new FileStream(xmlFilePath, FileMode.Open, FileAccess.Read));
-            // test path + load template
+            // build xslt file
+            string xsltTemplateFilePath = string.Empty;
+            if (!BuildXsltFromWml(reportTemplatePath, out xsltTemplateFilePath))
+                throw new Exception("Failed to build xslt template");
+            // check availibility of files
             if (!File.Exists(xsltTemplateFilePath))
                 throw new Exception(string.Format("Report template path ({0}) is invalid", xsltTemplateFilePath));
+            // load generated xslt
             XmlTextReader xsltReader = new XmlTextReader(new FileStream(xsltTemplateFilePath, FileMode.Open, FileAccess.Read));
+            // generate word document
             byte[] wordDoc = GetWord(xmlData, xsltReader);
             // write resulting array to HDD, show process information
             using (FileStream fs = new FileStream(outputFilePath, FileMode.Create))

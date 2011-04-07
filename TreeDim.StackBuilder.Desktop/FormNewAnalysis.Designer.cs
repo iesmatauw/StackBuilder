@@ -108,168 +108,265 @@
             // 
             // bnOk
             // 
+            this.bnOk.AccessibleDescription = null;
+            this.bnOk.AccessibleName = null;
             resources.ApplyResources(this.bnOk, "bnOk");
+            this.bnOk.BackgroundImage = null;
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOk.Font = null;
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
             resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
+            this.label1.AccessibleDescription = null;
+            this.label1.AccessibleName = null;
             resources.ApplyResources(this.label1, "label1");
+            this.label1.Font = null;
             this.label1.Name = "label1";
             // 
             // label2
             // 
+            this.label2.AccessibleDescription = null;
+            this.label2.AccessibleName = null;
             resources.ApplyResources(this.label2, "label2");
+            this.label2.Font = null;
             this.label2.Name = "label2";
             // 
             // tbName
             // 
+            this.tbName.AccessibleDescription = null;
+            this.tbName.AccessibleName = null;
             resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.BackgroundImage = null;
+            this.tbName.Font = null;
             this.tbName.Name = "tbName";
             this.tbName.Validated += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbDescription
             // 
+            this.tbDescription.AccessibleDescription = null;
+            this.tbDescription.AccessibleName = null;
             resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.BackgroundImage = null;
+            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // pictureBoxPositionX
             // 
+            this.pictureBoxPositionX.AccessibleDescription = null;
+            this.pictureBoxPositionX.AccessibleName = null;
             resources.ApplyResources(this.pictureBoxPositionX, "pictureBoxPositionX");
+            this.pictureBoxPositionX.BackgroundImage = null;
+            this.pictureBoxPositionX.Font = null;
+            this.pictureBoxPositionX.ImageLocation = null;
             this.pictureBoxPositionX.Name = "pictureBoxPositionX";
             this.pictureBoxPositionX.TabStop = false;
             // 
             // pictureBoxPositionY
             // 
+            this.pictureBoxPositionY.AccessibleDescription = null;
+            this.pictureBoxPositionY.AccessibleName = null;
             resources.ApplyResources(this.pictureBoxPositionY, "pictureBoxPositionY");
+            this.pictureBoxPositionY.BackgroundImage = null;
+            this.pictureBoxPositionY.Font = null;
+            this.pictureBoxPositionY.ImageLocation = null;
             this.pictureBoxPositionY.Name = "pictureBoxPositionY";
             this.pictureBoxPositionY.TabStop = false;
             // 
             // pictureBoxPositionZ
             // 
+            this.pictureBoxPositionZ.AccessibleDescription = null;
+            this.pictureBoxPositionZ.AccessibleName = null;
             resources.ApplyResources(this.pictureBoxPositionZ, "pictureBoxPositionZ");
+            this.pictureBoxPositionZ.BackgroundImage = null;
+            this.pictureBoxPositionZ.Font = null;
+            this.pictureBoxPositionZ.ImageLocation = null;
             this.pictureBoxPositionZ.Name = "pictureBoxPositionZ";
             this.pictureBoxPositionZ.TabStop = false;
             // 
             // checkBoxPositionX
             // 
+            this.checkBoxPositionX.AccessibleDescription = null;
+            this.checkBoxPositionX.AccessibleName = null;
             resources.ApplyResources(this.checkBoxPositionX, "checkBoxPositionX");
+            this.checkBoxPositionX.BackgroundImage = null;
+            this.checkBoxPositionX.Font = null;
             this.checkBoxPositionX.Name = "checkBoxPositionX";
             this.checkBoxPositionX.UseVisualStyleBackColor = true;
             // 
             // checkBoxPositionY
             // 
+            this.checkBoxPositionY.AccessibleDescription = null;
+            this.checkBoxPositionY.AccessibleName = null;
             resources.ApplyResources(this.checkBoxPositionY, "checkBoxPositionY");
+            this.checkBoxPositionY.BackgroundImage = null;
+            this.checkBoxPositionY.Font = null;
             this.checkBoxPositionY.Name = "checkBoxPositionY";
             this.checkBoxPositionY.UseVisualStyleBackColor = true;
             // 
             // checkBoxPositionZ
             // 
+            this.checkBoxPositionZ.AccessibleDescription = null;
+            this.checkBoxPositionZ.AccessibleName = null;
             resources.ApplyResources(this.checkBoxPositionZ, "checkBoxPositionZ");
+            this.checkBoxPositionZ.BackgroundImage = null;
+            this.checkBoxPositionZ.Font = null;
             this.checkBoxPositionZ.Name = "checkBoxPositionZ";
             this.checkBoxPositionZ.UseVisualStyleBackColor = true;
             // 
             // gbAllowedBoxPositions
             // 
+            this.gbAllowedBoxPositions.AccessibleDescription = null;
+            this.gbAllowedBoxPositions.AccessibleName = null;
+            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
+            this.gbAllowedBoxPositions.BackgroundImage = null;
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionX);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionX);
-            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
+            this.gbAllowedBoxPositions.Font = null;
             this.gbAllowedBoxPositions.Name = "gbAllowedBoxPositions";
             this.gbAllowedBoxPositions.TabStop = false;
             // 
             // lbBox
             // 
+            this.lbBox.AccessibleDescription = null;
+            this.lbBox.AccessibleName = null;
             resources.ApplyResources(this.lbBox, "lbBox");
+            this.lbBox.Font = null;
             this.lbBox.Name = "lbBox";
             // 
             // lbPallet
             // 
+            this.lbPallet.AccessibleDescription = null;
+            this.lbPallet.AccessibleName = null;
             resources.ApplyResources(this.lbPallet, "lbPallet");
+            this.lbPallet.Font = null;
             this.lbPallet.Name = "lbPallet";
             // 
             // cbBox
             // 
-            this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBox.FormattingEnabled = true;
+            this.cbBox.AccessibleDescription = null;
+            this.cbBox.AccessibleName = null;
             resources.ApplyResources(this.cbBox, "cbBox");
+            this.cbBox.BackgroundImage = null;
+            this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBox.Font = null;
+            this.cbBox.FormattingEnabled = true;
             this.cbBox.Name = "cbBox";
             this.cbBox.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // cbPallet
             // 
-            this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPallet.FormattingEnabled = true;
+            this.cbPallet.AccessibleDescription = null;
+            this.cbPallet.AccessibleName = null;
             resources.ApplyResources(this.cbPallet, "cbPallet");
+            this.cbPallet.BackgroundImage = null;
+            this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPallet.Font = null;
+            this.cbPallet.FormattingEnabled = true;
             this.cbPallet.Name = "cbPallet";
             // 
             // checkedListBoxPatterns
             // 
+            this.checkedListBoxPatterns.AccessibleDescription = null;
+            this.checkedListBoxPatterns.AccessibleName = null;
+            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
+            this.checkedListBoxPatterns.BackgroundImage = null;
             this.checkedListBoxPatterns.CheckOnClick = true;
+            this.checkedListBoxPatterns.Font = null;
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
             resources.GetString("checkedListBoxPatterns.Items"),
             resources.GetString("checkedListBoxPatterns.Items1"),
             resources.GetString("checkedListBoxPatterns.Items2"),
             resources.GetString("checkedListBoxPatterns.Items3")});
-            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             // 
             // gbAllowedLayerPatterns
             // 
-            this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
+            this.gbAllowedLayerPatterns.AccessibleDescription = null;
+            this.gbAllowedLayerPatterns.AccessibleName = null;
             resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
+            this.gbAllowedLayerPatterns.BackgroundImage = null;
+            this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
+            this.gbAllowedLayerPatterns.Font = null;
             this.gbAllowedLayerPatterns.Name = "gbAllowedLayerPatterns";
             this.gbAllowedLayerPatterns.TabStop = false;
             // 
             // checkBoxMaximumNumberOfBoxes
             // 
+            this.checkBoxMaximumNumberOfBoxes.AccessibleDescription = null;
+            this.checkBoxMaximumNumberOfBoxes.AccessibleName = null;
             resources.ApplyResources(this.checkBoxMaximumNumberOfBoxes, "checkBoxMaximumNumberOfBoxes");
+            this.checkBoxMaximumNumberOfBoxes.BackgroundImage = null;
+            this.checkBoxMaximumNumberOfBoxes.Font = null;
             this.checkBoxMaximumNumberOfBoxes.Name = "checkBoxMaximumNumberOfBoxes";
             this.checkBoxMaximumNumberOfBoxes.UseVisualStyleBackColor = true;
             this.checkBoxMaximumNumberOfBoxes.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // checkBoxMaximumPalletHeight
             // 
+            this.checkBoxMaximumPalletHeight.AccessibleDescription = null;
+            this.checkBoxMaximumPalletHeight.AccessibleName = null;
             resources.ApplyResources(this.checkBoxMaximumPalletHeight, "checkBoxMaximumPalletHeight");
+            this.checkBoxMaximumPalletHeight.BackgroundImage = null;
+            this.checkBoxMaximumPalletHeight.Font = null;
             this.checkBoxMaximumPalletHeight.Name = "checkBoxMaximumPalletHeight";
             this.checkBoxMaximumPalletHeight.UseVisualStyleBackColor = true;
             this.checkBoxMaximumPalletHeight.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // lbStopStacking
             // 
+            this.lbStopStacking.AccessibleDescription = null;
+            this.lbStopStacking.AccessibleName = null;
             resources.ApplyResources(this.lbStopStacking, "lbStopStacking");
+            this.lbStopStacking.Font = null;
             this.lbStopStacking.Name = "lbStopStacking";
             // 
             // checkBoxMaximumPalletWeight
             // 
+            this.checkBoxMaximumPalletWeight.AccessibleDescription = null;
+            this.checkBoxMaximumPalletWeight.AccessibleName = null;
             resources.ApplyResources(this.checkBoxMaximumPalletWeight, "checkBoxMaximumPalletWeight");
+            this.checkBoxMaximumPalletWeight.BackgroundImage = null;
+            this.checkBoxMaximumPalletWeight.Font = null;
             this.checkBoxMaximumPalletWeight.Name = "checkBoxMaximumPalletWeight";
             this.checkBoxMaximumPalletWeight.UseVisualStyleBackColor = true;
             this.checkBoxMaximumPalletWeight.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // checkBoxMaximumLoadOnBox
             // 
+            this.checkBoxMaximumLoadOnBox.AccessibleDescription = null;
+            this.checkBoxMaximumLoadOnBox.AccessibleName = null;
             resources.ApplyResources(this.checkBoxMaximumLoadOnBox, "checkBoxMaximumLoadOnBox");
+            this.checkBoxMaximumLoadOnBox.BackgroundImage = null;
+            this.checkBoxMaximumLoadOnBox.Font = null;
             this.checkBoxMaximumLoadOnBox.Name = "checkBoxMaximumLoadOnBox";
             this.checkBoxMaximumLoadOnBox.UseVisualStyleBackColor = true;
             this.checkBoxMaximumLoadOnBox.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // nudMaximumNumberOfBoxes
             // 
+            this.nudMaximumNumberOfBoxes.AccessibleDescription = null;
+            this.nudMaximumNumberOfBoxes.AccessibleName = null;
             resources.ApplyResources(this.nudMaximumNumberOfBoxes, "nudMaximumNumberOfBoxes");
+            this.nudMaximumNumberOfBoxes.Font = null;
             this.nudMaximumNumberOfBoxes.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -279,7 +376,10 @@
             // 
             // nudMaximumPalletHeight
             // 
+            this.nudMaximumPalletHeight.AccessibleDescription = null;
+            this.nudMaximumPalletHeight.AccessibleName = null;
             resources.ApplyResources(this.nudMaximumPalletHeight, "nudMaximumPalletHeight");
+            this.nudMaximumPalletHeight.Font = null;
             this.nudMaximumPalletHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -289,8 +389,11 @@
             // 
             // nudMaximumPalletWeight
             // 
-            this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            this.nudMaximumPalletWeight.AccessibleDescription = null;
+            this.nudMaximumPalletWeight.AccessibleName = null;
             resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
+            this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            this.nudMaximumPalletWeight.Font = null;
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -300,8 +403,11 @@
             // 
             // nudMaximumLoadOnBox
             // 
-            this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            this.nudMaximumLoadOnBox.AccessibleDescription = null;
+            this.nudMaximumLoadOnBox.AccessibleName = null;
             resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
+            this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            this.nudMaximumLoadOnBox.Font = null;
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -311,41 +417,64 @@
             // 
             // lbKg2
             // 
+            this.lbKg2.AccessibleDescription = null;
+            this.lbKg2.AccessibleName = null;
             resources.ApplyResources(this.lbKg2, "lbKg2");
+            this.lbKg2.Font = null;
             this.lbKg2.Name = "lbKg2";
             // 
             // lbKg1
             // 
+            this.lbKg1.AccessibleDescription = null;
+            this.lbKg1.AccessibleName = null;
             resources.ApplyResources(this.lbKg1, "lbKg1");
+            this.lbKg1.Font = null;
             this.lbKg1.Name = "lbKg1";
             // 
             // lbMm
             // 
+            this.lbMm.AccessibleDescription = null;
+            this.lbMm.AccessibleName = null;
             resources.ApplyResources(this.lbMm, "lbMm");
+            this.lbMm.Font = null;
             this.lbMm.Name = "lbMm";
             // 
             // checkBoxInterlayer
             // 
+            this.checkBoxInterlayer.AccessibleDescription = null;
+            this.checkBoxInterlayer.AccessibleName = null;
             resources.ApplyResources(this.checkBoxInterlayer, "checkBoxInterlayer");
+            this.checkBoxInterlayer.BackgroundImage = null;
+            this.checkBoxInterlayer.Font = null;
             this.checkBoxInterlayer.Name = "checkBoxInterlayer";
             this.checkBoxInterlayer.UseVisualStyleBackColor = true;
             this.checkBoxInterlayer.CheckedChanged += new System.EventHandler(this.onInterlayerChecked);
             // 
             // cbInterlayer
             // 
-            this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbInterlayer.FormattingEnabled = true;
+            this.cbInterlayer.AccessibleDescription = null;
+            this.cbInterlayer.AccessibleName = null;
             resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
+            this.cbInterlayer.BackgroundImage = null;
+            this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbInterlayer.Font = null;
+            this.cbInterlayer.FormattingEnabled = true;
             this.cbInterlayer.Name = "cbInterlayer";
             // 
             // lbInterlayerFreq1
             // 
+            this.lbInterlayerFreq1.AccessibleDescription = null;
+            this.lbInterlayerFreq1.AccessibleName = null;
             resources.ApplyResources(this.lbInterlayerFreq1, "lbInterlayerFreq1");
+            this.lbInterlayerFreq1.Font = null;
             this.lbInterlayerFreq1.Name = "lbInterlayerFreq1";
             // 
             // nudInterlayerFreq
             // 
+            this.nudInterlayerFreq.AccessibleDescription = null;
+            this.nudInterlayerFreq.AccessibleName = null;
             resources.ApplyResources(this.nudInterlayerFreq, "nudInterlayerFreq");
+            this.nudInterlayerFreq.Font = null;
             this.nudInterlayerFreq.Minimum = new decimal(new int[] {
             1,
             0,
@@ -360,22 +489,34 @@
             // 
             // lbInterlayerFreq2
             // 
+            this.lbInterlayerFreq2.AccessibleDescription = null;
+            this.lbInterlayerFreq2.AccessibleName = null;
             resources.ApplyResources(this.lbInterlayerFreq2, "lbInterlayerFreq2");
+            this.lbInterlayerFreq2.Font = null;
             this.lbInterlayerFreq2.Name = "lbInterlayerFreq2";
             // 
             // lbPalletOverhangLength
             // 
+            this.lbPalletOverhangLength.AccessibleDescription = null;
+            this.lbPalletOverhangLength.AccessibleName = null;
             resources.ApplyResources(this.lbPalletOverhangLength, "lbPalletOverhangLength");
+            this.lbPalletOverhangLength.Font = null;
             this.lbPalletOverhangLength.Name = "lbPalletOverhangLength";
             // 
             // lbPalletOverhangWidth
             // 
+            this.lbPalletOverhangWidth.AccessibleDescription = null;
+            this.lbPalletOverhangWidth.AccessibleName = null;
             resources.ApplyResources(this.lbPalletOverhangWidth, "lbPalletOverhangWidth");
+            this.lbPalletOverhangWidth.Font = null;
             this.lbPalletOverhangWidth.Name = "lbPalletOverhangWidth";
             // 
             // nudPalletOverhangX
             // 
+            this.nudPalletOverhangX.AccessibleDescription = null;
+            this.nudPalletOverhangX.AccessibleName = null;
             resources.ApplyResources(this.nudPalletOverhangX, "nudPalletOverhangX");
+            this.nudPalletOverhangX.Font = null;
             this.nudPalletOverhangX.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -390,7 +531,10 @@
             // 
             // nudPalletOverhangY
             // 
+            this.nudPalletOverhangY.AccessibleDescription = null;
+            this.nudPalletOverhangY.AccessibleName = null;
             resources.ApplyResources(this.nudPalletOverhangY, "nudPalletOverhangY");
+            this.nudPalletOverhangY.Font = null;
             this.nudPalletOverhangY.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -405,50 +549,76 @@
             // 
             // gbOverhangUnderhang
             // 
+            this.gbOverhangUnderhang.AccessibleDescription = null;
+            this.gbOverhangUnderhang.AccessibleName = null;
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
+            this.gbOverhangUnderhang.BackgroundImage = null;
             this.gbOverhangUnderhang.Controls.Add(this.lbMm2);
             this.gbOverhangUnderhang.Controls.Add(this.lbMm1);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
+            this.gbOverhangUnderhang.Font = null;
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
             // lbMm2
             // 
+            this.lbMm2.AccessibleDescription = null;
+            this.lbMm2.AccessibleName = null;
             resources.ApplyResources(this.lbMm2, "lbMm2");
+            this.lbMm2.Font = null;
             this.lbMm2.Name = "lbMm2";
             // 
             // lbMm1
             // 
+            this.lbMm1.AccessibleDescription = null;
+            this.lbMm1.AccessibleName = null;
             resources.ApplyResources(this.lbMm1, "lbMm1");
+            this.lbMm1.Font = null;
             this.lbMm1.Name = "lbMm1";
             // 
             // checkBoxAllowAlignedLayer
             // 
+            this.checkBoxAllowAlignedLayer.AccessibleDescription = null;
+            this.checkBoxAllowAlignedLayer.AccessibleName = null;
             resources.ApplyResources(this.checkBoxAllowAlignedLayer, "checkBoxAllowAlignedLayer");
+            this.checkBoxAllowAlignedLayer.BackgroundImage = null;
+            this.checkBoxAllowAlignedLayer.Font = null;
             this.checkBoxAllowAlignedLayer.Name = "checkBoxAllowAlignedLayer";
             this.checkBoxAllowAlignedLayer.UseVisualStyleBackColor = true;
             this.checkBoxAllowAlignedLayer.CheckedChanged += new System.EventHandler(this.onCheckedChangedAlignedLayer);
             // 
             // checkBoxAllowAlternateLayer
             // 
+            this.checkBoxAllowAlternateLayer.AccessibleDescription = null;
+            this.checkBoxAllowAlternateLayer.AccessibleName = null;
             resources.ApplyResources(this.checkBoxAllowAlternateLayer, "checkBoxAllowAlternateLayer");
+            this.checkBoxAllowAlternateLayer.BackgroundImage = null;
+            this.checkBoxAllowAlternateLayer.Font = null;
             this.checkBoxAllowAlternateLayer.Name = "checkBoxAllowAlternateLayer";
             this.checkBoxAllowAlternateLayer.UseVisualStyleBackColor = true;
             this.checkBoxAllowAlternateLayer.CheckedChanged += new System.EventHandler(this.onCheckedChangedAlternateLayer);
             // 
             // gbLayerAlignment
             // 
+            this.gbLayerAlignment.AccessibleDescription = null;
+            this.gbLayerAlignment.AccessibleName = null;
+            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
+            this.gbLayerAlignment.BackgroundImage = null;
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlternateLayer);
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlignedLayer);
-            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
+            this.gbLayerAlignment.Font = null;
             this.gbLayerAlignment.Name = "gbLayerAlignment";
             this.gbLayerAlignment.TabStop = false;
             // 
             // gbStopStackingCondition
             // 
+            this.gbStopStackingCondition.AccessibleDescription = null;
+            this.gbStopStackingCondition.AccessibleName = null;
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
+            this.gbStopStackingCondition.BackgroundImage = null;
             this.gbStopStackingCondition.Controls.Add(this.lbMm);
             this.gbStopStackingCondition.Controls.Add(this.lbKg1);
             this.gbStopStackingCondition.Controls.Add(this.lbKg2);
@@ -461,19 +631,26 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
+            this.gbStopStackingCondition.Font = null;
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
             // checkBoxNumberOfPallets
             // 
+            this.checkBoxNumberOfPallets.AccessibleDescription = null;
+            this.checkBoxNumberOfPallets.AccessibleName = null;
             resources.ApplyResources(this.checkBoxNumberOfPallets, "checkBoxNumberOfPallets");
+            this.checkBoxNumberOfPallets.BackgroundImage = null;
+            this.checkBoxNumberOfPallets.Font = null;
             this.checkBoxNumberOfPallets.Name = "checkBoxNumberOfPallets";
             this.checkBoxNumberOfPallets.UseVisualStyleBackColor = true;
             // 
             // nudNumberOfBoxes
             // 
+            this.nudNumberOfBoxes.AccessibleDescription = null;
+            this.nudNumberOfBoxes.AccessibleName = null;
             resources.ApplyResources(this.nudNumberOfBoxes, "nudNumberOfBoxes");
+            this.nudNumberOfBoxes.Font = null;
             this.nudNumberOfBoxes.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -483,29 +660,42 @@
             // 
             // lbBoxes
             // 
+            this.lbBoxes.AccessibleDescription = null;
+            this.lbBoxes.AccessibleName = null;
             resources.ApplyResources(this.lbBoxes, "lbBoxes");
+            this.lbBoxes.Font = null;
             this.lbBoxes.Name = "lbBoxes";
             // 
             // gbAdditionalData
             // 
+            this.gbAdditionalData.AccessibleDescription = null;
+            this.gbAdditionalData.AccessibleName = null;
+            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
+            this.gbAdditionalData.BackgroundImage = null;
             this.gbAdditionalData.Controls.Add(this.lbSolutions);
             this.gbAdditionalData.Controls.Add(this.nudSolutions);
             this.gbAdditionalData.Controls.Add(this.checkBoxKeepSolutions);
             this.gbAdditionalData.Controls.Add(this.lbBoxes);
             this.gbAdditionalData.Controls.Add(this.nudNumberOfBoxes);
             this.gbAdditionalData.Controls.Add(this.checkBoxNumberOfPallets);
-            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
+            this.gbAdditionalData.Font = null;
             this.gbAdditionalData.Name = "gbAdditionalData";
             this.gbAdditionalData.TabStop = false;
             // 
             // lbSolutions
             // 
+            this.lbSolutions.AccessibleDescription = null;
+            this.lbSolutions.AccessibleName = null;
             resources.ApplyResources(this.lbSolutions, "lbSolutions");
+            this.lbSolutions.Font = null;
             this.lbSolutions.Name = "lbSolutions";
             // 
             // nudSolutions
             // 
+            this.nudSolutions.AccessibleDescription = null;
+            this.nudSolutions.AccessibleName = null;
             resources.ApplyResources(this.nudSolutions, "nudSolutions");
+            this.nudSolutions.Font = null;
             this.nudSolutions.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -525,30 +715,44 @@
             // 
             // checkBoxKeepSolutions
             // 
+            this.checkBoxKeepSolutions.AccessibleDescription = null;
+            this.checkBoxKeepSolutions.AccessibleName = null;
             resources.ApplyResources(this.checkBoxKeepSolutions, "checkBoxKeepSolutions");
+            this.checkBoxKeepSolutions.BackgroundImage = null;
+            this.checkBoxKeepSolutions.Font = null;
             this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
             this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
             this.checkBoxKeepSolutions.CheckedChanged += new System.EventHandler(this.onCheckedChangedKeepSolutions);
             // 
             // statusStripDef
             // 
+            this.statusStripDef.AccessibleDescription = null;
+            this.statusStripDef.AccessibleName = null;
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
+            this.statusStripDef.BackgroundImage = null;
+            this.statusStripDef.Font = null;
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            this.toolStripStatusLabelDef.AccessibleDescription = null;
+            this.toolStripStatusLabelDef.AccessibleName = null;
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            this.toolStripStatusLabelDef.BackgroundImage = null;
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewAnalysis
             // 
             this.AcceptButton = this.bnOk;
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.gbAdditionalData);
@@ -572,6 +776,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOk);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewAnalysis";

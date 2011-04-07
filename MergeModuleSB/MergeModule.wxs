@@ -74,12 +74,12 @@
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
-      <Component Id="ReportTemplateFiles" Guid="{1F629F03-7A0C-4e2f-B5D1-C85188C75A57}">
-        <File Id="Report.doc" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.doc" KeyPath="yes" Checksum="yes"/>
-        <File Id="Report.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xml" Checksum="yes"/>
-        <File Id="Report.xslt" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt" Checksum="yes"/>
-        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\WML2XSLT.EXE" Checksum="yes"/>
-        <File Id="xml2xslt.bat" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\xml2xslt.bat" Checksum="yes"/>
+      <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
+        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
+        <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\interop.schemalibraryclass.dll" Checksum="yes"/>
+        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\ReportTemplate_ENU.xml" Checksum="yes"/>
+        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\ReportTemplate_FRA.xml" Checksum="yes"/>
+        <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\ReportSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">

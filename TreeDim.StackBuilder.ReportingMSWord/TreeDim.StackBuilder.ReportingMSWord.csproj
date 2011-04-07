@@ -47,18 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReportSchema.xsc">
-      <DependentUpon>ReportSchema.xsd</DependentUpon>
-    </None>
-    <None Include="ReportSchema.xsd" />
-    <None Include="ReportSchema.xss">
-      <DependentUpon>ReportSchema.xsd</DependentUpon>
-    </None>
-    <None Include="ReportSchema.xsx">
-      <DependentUpon>ReportSchema.xsd</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
       <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
       <Name>Sharp3D.Math</Name>
@@ -75,6 +63,9 @@
   <ItemGroup>
     <Content Include="ReportTemplate\ReportTemplate_ENU.xml" />
     <Content Include="ReportTemplate\ReportTemplate_FRA.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReportTemplate\ReportSchema.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

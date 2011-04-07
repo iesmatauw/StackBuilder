@@ -104,15 +104,19 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             // temp xslt from wml
             string tempXslt = Path.GetTempFileName();
             ProcessStartInfo startInfo = new ProcessStartInfo(
-                wml2xsltPath
-                , string.Format("{0} -o {1} -ns \"http://treeDim/StackBuilder/ReportSchema.xsd\""
+                string.Format("\"{0}\"", wml2xsltPath)
+                , string.Format("\"{0}\" -o \"{1}\" -ns \"http://treeDim/StackBuilder/ReportSchema.xsd\""
                 , wmlFilePath
                 , tempXslt));
             startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true;
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.RedirectStandardOutput = true;
             Process procWml2xslt = Process.Start(startInfo);
-            // wait ?
-            System.Threading.Thread.Sleep(500);
+            _log.Info(procWml2xslt.StandardOutput.ReadToEnd());
+            // check xslt existence
+            if (!File.Exists(tempXslt))
+                throw new FileNotFoundException("Failed to generate .xslt file", tempXslt);
             // create new xslt document
             xsltFilePath = Path.ChangeExtension(Path.GetTempFileName(), "xslt");
             // load xml file in document and parse document

@@ -57,7 +57,6 @@
     <None Include="ReportSchema.xsx">
       <DependentUpon>ReportSchema.xsd</DependentUpon>
     </None>
-    <None Include="ReportTemplate\Report.doc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
@@ -74,8 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReportTemplate\Report.xml" />
-    <Content Include="ReportTemplate\Report.xslt" />
+    <Content Include="ReportTemplate\ReportTemplate_ENU.xml" />
+    <Content Include="ReportTemplate\ReportTemplate_FRA.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

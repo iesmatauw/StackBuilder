@@ -594,6 +594,18 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             XmlElement elemAllowedPatterns = xmlDoc.CreateElement("allowedPatterns", ns);
             elemAllowedPatterns.InnerText = cs.AllowedPatternString;
             elemConstraintSet.AppendChild(elemAllowedPatterns);
+            // allowedBoxAxis
+            XmlElement elemAllowedBoxAxis = xmlDoc.CreateElement("allowedOrthoAxis", ns);
+            elemAllowedBoxAxis.InnerText = cs.AllowOrthoAxisString;
+            elemConstraintSet.AppendChild(elemAllowedBoxAxis);
+            // allowAlternateLayers
+            XmlElement elemAllowAlternateLayers = xmlDoc.CreateElement("allowAlternateLayers", ns);
+            elemAllowAlternateLayers.InnerText = cs.AllowAlternateLayers.ToString();
+            elemConstraintSet.AppendChild(elemAllowAlternateLayers);
+            // allowAlignedLayers
+            XmlElement elemAllowAlignedLayers = xmlDoc.CreateElement("allowAlignedLayers", ns);
+            elemAllowAlignedLayers.InnerText = cs.AllowAlignedLayers.ToString();
+            elemConstraintSet.AppendChild(elemAllowAlignedLayers);
             // interlayerPeriod
             if (cs.HasInterlayer)
             {
@@ -636,18 +648,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
                 admissibleLoadOnTop.InnerText = string.Format("{0:F}", cs.MaximumWeightOnBox);
                 maximumWeightOnBoxGroup.AppendChild(admissibleLoadOnTop);
             }
-            // allowedBoxAxis
-            XmlElement elemAllowedBoxAxis = xmlDoc.CreateElement("allowedOrthoAxis", ns);
-            elemAllowedBoxAxis.InnerText = cs.AllowOrthoAxisString;
-            elemConstraintSet.AppendChild(elemAllowedBoxAxis);
-            // allowAlternateLayers
-            XmlElement elemAllowAlternateLayers = xmlDoc.CreateElement("allowAlternateLayers", ns);
-            elemAllowAlternateLayers.InnerText = cs.AllowAlternateLayers.ToString();
-            elemConstraintSet.AppendChild(elemAllowAlternateLayers);
-            // allowAlignedLayers
-            XmlElement elemAllowAlignedLayers = xmlDoc.CreateElement("allowAlignedLayers", ns);
-            elemAllowAlignedLayers.InnerText = cs.AllowAlignedLayers.ToString();
-            elemConstraintSet.AppendChild(elemAllowAlignedLayers);
+
         }
         private static void AppendInsideBoxElement(PalletAnalysis analysis, PalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         { 

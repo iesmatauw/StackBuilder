@@ -1141,7 +1141,7 @@ namespace TreeDim.StackBuilder.Basics
             // stop criterions
             if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
                 constraints.MaximumHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
-            if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
+            if (constraints.UseMaximumNumberOfCases = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
             if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
                 constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
@@ -1175,7 +1175,7 @@ namespace TreeDim.StackBuilder.Basics
             // stop criterions
             if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
                 constraints.MaximumHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
-            if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
+            if (constraints.UseMaximumNumberOfCases = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
             if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
                 constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
@@ -2043,7 +2043,7 @@ namespace TreeDim.StackBuilder.Basics
                 maximumHeightAttribute.Value = string.Format("{0}", analysis.ConstraintSet.MaximumHeight);
                 constraintSetElement.Attributes.Append(maximumHeightAttribute);
             }
-            if (analysis.ConstraintSet.UseMaximumNumberOfItems)
+            if (analysis.ConstraintSet.UseMaximumNumberOfCases)
             {
                 XmlAttribute maximumNumberOfItems = xmlDoc.CreateAttribute("ManimumNumberOfItems");
                 maximumNumberOfItems.Value = string.Format("{0}", analysis.ConstraintSet.MaximumNumberOfItems);
@@ -2159,7 +2159,7 @@ namespace TreeDim.StackBuilder.Basics
                 maximumHeightAttribute.Value = string.Format("{0}", analysis.ConstraintSet.MaximumHeight);
                 constraintSetElement.Attributes.Append(maximumHeightAttribute);
             }
-            if (analysis.ConstraintSet.UseMaximumNumberOfItems)
+            if (analysis.ConstraintSet.UseMaximumNumberOfCases)
             {
                 XmlAttribute maximumNumberOfItems = xmlDoc.CreateAttribute("ManimumNumberOfItems");
                 maximumNumberOfItems.Value = string.Format("{0}", analysis.ConstraintSet.MaximumNumberOfItems);

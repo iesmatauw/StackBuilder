@@ -8,6 +8,7 @@ using System.IO;
 using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Xml.Schema;
 
 using Sharp3D.Math.Core;
 
@@ -62,6 +63,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
     {
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(Reporter));
+        protected static bool _validateAgainstSchema = false;
         #endregion
 
         #region Static helpers
@@ -238,6 +240,48 @@ namespace TreeDim.StackBuilder.ReportingMSWord
         }
         #endregion
 
+        #region XML validator
+        // Validation Error Count
+        static int ErrorsCount = 0;
+        // Validation Error Message
+        static string ErrorMessage = "";
+
+        private static void ValidateXmlDocument(XmlReader documentToValidate, string schemaPath)
+        {
+            XmlSchema schema;
+            using (var schemaReader = XmlReader.Create(schemaPath))
+            {
+                schema = XmlSchema.Read(schemaReader, ValidationEventHandler);
+            }
+
+            var schemas = new XmlSchemaSet();
+            schemas.Add(schema);
+            var settings = new XmlReaderSettings();
+            settings.ValidationType = ValidationType.Schema;
+            settings.Schemas = schemas;
+            settings.ValidationFlags =
+                XmlSchemaValidationFlags.ProcessIdentityConstraints |
+                XmlSchemaValidationFlags.ReportValidationWarnings;
+            settings.ValidationEventHandler += ValidationEventHandler;
+
+            using (var validationReader = XmlReader.Create(documentToValidate, settings))
+            { while (validationReader.Read()) { } }
+
+            if (ErrorsCount > 0)
+                throw new Exception(ErrorMessage);
+        }
+
+        private static void ValidationEventHandler(
+            object sender, ValidationEventArgs args)
+        {
+            if (args.Severity == XmlSeverityType.Error)
+            {
+                ErrorMessage = ErrorMessage + args.Message + "\r\n";
+                ErrorsCount++;
+            }
+        }
+        #endregion
+
         #region Static report building methods
         /// <summary>
         /// Creates Word document from XML using XSLT
@@ -266,6 +310,11 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
             CreateAnalysisDataFile(analysis, sol, xmlFilePath);
             XmlTextReader xmlData = new XmlTextReader(new FileStream(xmlFilePath, FileMode.Open, FileAccess.Read));
+            // validate against schema
+            // note xml file validation against xml schema produces a large number of errors
+            // For the moment, I can not remove all errors
+            if (_validateAgainstSchema)
+                ValidateXmlDocument(xmlData, Path.Combine(reportTemplatePath, "ReportSchema.xsd"));
             // build xslt file
             string xsltTemplateFilePath = string.Empty;
             if (!BuildXsltFromWml(reportTemplatePath, out xsltTemplateFilePath))
@@ -476,7 +525,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             BundleProperties bundleProp = analysis.BProperties as BundleProperties;
             if (null == bundleProp) return;
             // bundle
-            XmlElement elemBundle = xmlDoc.CreateElement("case", ns);
+            XmlElement elemBundle = xmlDoc.CreateElement("bundle", ns);
             elemPalletAnalysis.AppendChild(elemBundle);
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
@@ -494,10 +543,26 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             XmlElement elemWidth = xmlDoc.CreateElement("width", ns);
             elemWidth.InnerText = string.Format("{0:F}", bundleProp.Width);
             elemBundle.AppendChild(elemWidth);
+            // numberOfFlats
+            XmlElement elemNumber = xmlDoc.CreateElement("numberOfFlats", ns);
+            elemNumber.InnerText = string.Format("{0}", bundleProp.NoFlats);
+            elemBundle.AppendChild(elemNumber);
             // unitThickness
-            XmlElement elemHeight = xmlDoc.CreateElement("unitThickness", ns);
-            elemHeight.InnerText = string.Format("{0:F}", bundleProp.UnitThickness);
-            elemBundle.AppendChild(elemHeight);
+            XmlElement elemUnitThickness = xmlDoc.CreateElement("unitThickness", ns);
+            elemUnitThickness.InnerText = string.Format("{0:F}", bundleProp.UnitThickness);
+            elemBundle.AppendChild(elemUnitThickness);
+            // unitWeight
+            XmlElement elemUnitWeight = xmlDoc.CreateElement("unitWeight", ns);
+            elemUnitWeight.InnerText = string.Format("{0:F}", bundleProp.UnitWeight);
+            elemBundle.AppendChild(elemUnitWeight);
+            // totalThickness
+            XmlElement elemTotalThickness = xmlDoc.CreateElement("totalThickness", ns);
+            elemTotalThickness.InnerText = string.Format("{0:F}", bundleProp.UnitThickness * bundleProp.NoFlats);
+            elemBundle.AppendChild(elemTotalThickness);
+            // totalWeight
+            XmlElement elemTotalWeight = xmlDoc.CreateElement("totalWeight", ns);
+            elemTotalWeight.InnerText = string.Format("{0:F}", bundleProp.UnitWeight * bundleProp.NoFlats);
+            elemBundle.AppendChild(elemTotalWeight);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
             graphics.CameraPosition = Graphics3D.Corner_0;
@@ -507,7 +572,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             graphics.Flush();
             // ---
             // view_bundle_iso
-            XmlElement elemImage = xmlDoc.CreateElement("view_case_iso", ns);
+            XmlElement elemImage = xmlDoc.CreateElement("view_bundle_iso", ns);
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
             elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
             XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
@@ -532,35 +597,44 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             // interlayerPeriod
             if (cs.HasInterlayer)
             {
+                XmlElement elemInterlayerPeriodGroup = xmlDoc.CreateElement("interlayerPeriodGroup", ns);
+                elemConstraintSet.AppendChild(elemInterlayerPeriodGroup);
                 XmlElement elemInterlayerPeriod = xmlDoc.CreateElement("interlayerPeriod", ns);
                 elemInterlayerPeriod.InnerText = string.Format("{0}", cs.InterlayerPeriod);
-                elemConstraintSet.AppendChild(elemInterlayerPeriod);
+                elemInterlayerPeriodGroup.AppendChild(elemInterlayerPeriod);
             }
             // stopCriterion
             if (cs.UseMaximumHeight)
             {
+                XmlElement maximumPalletHeightGroup = xmlDoc.CreateElement("maximumPalletHeightGroup", ns);
+                elemConstraintSet.AppendChild(maximumPalletHeightGroup);
                 XmlElement maximumPalletHeight = xmlDoc.CreateElement("maximumPalletHeight", ns);
                 maximumPalletHeight.InnerText = string.Format("{0:F}", cs.MaximumHeight);
-                elemConstraintSet.AppendChild(maximumPalletHeight);
+                maximumPalletHeightGroup.AppendChild(maximumPalletHeight);
             }
-            if (cs.UseMaximumNumberOfItems)
+            if (cs.UseMaximumNumberOfCases)
             {
+                XmlElement maximumNumberOfItemsGroup = xmlDoc.CreateElement("maximumNumberOfItemsGroup", ns);
+                elemConstraintSet.AppendChild(maximumNumberOfItemsGroup);
                 XmlElement maximumNumberOfItems = xmlDoc.CreateElement("maximumNumberOfItems", ns);
                 maximumNumberOfItems.InnerText = string.Format("{0}", cs.MaximumNumberOfItems);
-                elemConstraintSet.AppendChild(maximumNumberOfItems);
-
+                maximumNumberOfItemsGroup.AppendChild(maximumNumberOfItems);
             }
             if (cs.UseMaximumPalletWeight)
             {
+                XmlElement maximumPalletWeightGroup = xmlDoc.CreateElement("maximumPalletWeightGroup", ns);
+                elemConstraintSet.AppendChild(maximumPalletWeightGroup);
                 XmlElement maximumPalletWeight = xmlDoc.CreateElement("maximumPalletWeight", ns);
                 maximumPalletWeight.InnerText = string.Format("{0:F}", cs.MaximumPalletWeight);
-                elemConstraintSet.AppendChild(maximumPalletWeight);
+                maximumPalletWeightGroup.AppendChild(maximumPalletWeight);
             }
             if (cs.UseMaximumWeightOnBox)
             {
+                XmlElement maximumWeightOnBoxGroup = xmlDoc.CreateElement("maximumWeightOnBoxGroup", ns);
+                elemConstraintSet.AppendChild(maximumWeightOnBoxGroup);
                 XmlElement admissibleLoadOnTop = xmlDoc.CreateElement("admissibleLoadOnTop", ns);
                 admissibleLoadOnTop.InnerText = string.Format("{0:F}", cs.MaximumWeightOnBox);
-                elemConstraintSet.AppendChild(admissibleLoadOnTop);
+                maximumWeightOnBoxGroup.AppendChild(admissibleLoadOnTop);
             }
             // allowedBoxAxis
             XmlElement elemAllowedBoxAxis = xmlDoc.CreateElement("allowedOrthoAxis", ns);

@@ -250,7 +250,7 @@ namespace TreeDim.StackBuilder.Desktop
                 { 
                     AllowAlignedLayers = _analysis.ConstraintSet.AllowAlignedLayers;
                     AllowAlternateLayers = _analysis.ConstraintSet.AllowAlternateLayers;
-                    UseMaximumNumberOfBoxes = _analysis.ConstraintSet.UseMaximumNumberOfItems;
+                    UseMaximumNumberOfBoxes = _analysis.ConstraintSet.UseMaximumNumberOfCases;
                     UseMaximumPalletHeight = _analysis.ConstraintSet.UseMaximumHeight;
                     UseMaximumPalletWeight = _analysis.ConstraintSet.UseMaximumPalletWeight;
                     UseMaximumLoadOnBox = _analysis.ConstraintSet.UseMaximumWeightOnBox;

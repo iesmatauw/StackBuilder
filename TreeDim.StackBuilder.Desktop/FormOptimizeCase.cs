@@ -703,7 +703,7 @@ namespace TreeDim.StackBuilder.Desktop
 
             // do not use other constraints
             palletConstraintSet.UseMaximumPalletWeight = false;
-            palletConstraintSet.UseMaximumNumberOfItems = false;
+            palletConstraintSet.UseMaximumNumberOfCases = false;
             palletConstraintSet.UseMaximumWeightOnBox = false;
 
             return palletConstraintSet;

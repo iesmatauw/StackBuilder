@@ -23,7 +23,8 @@
                     <xs:element name="weight" type="xs:string"/>
                     <xs:element name="admissibleLoad" type="xs:string" />
                     <xs:element name="type" type="xs:string"/>
-                    <xs:element name="view_pallet_iso" type="xs:string"/>
+                    <xs:element name="view_pallet_iso" type="xs:string">
+                    </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -98,9 +99,11 @@
                     <xs:element name="description" type="xs:string"/>
                     <xs:element name="length" type="xs:string"/>
                     <xs:element name="width" type="xs:string"/>
+                    <xs:element name="numberOfFlats" type="xs:string"/>
                     <xs:element name="unitThickness" type="xs:string"/>
                     <xs:element name="unitWeight" type="xs:string"/>
-                    <xs:element name="numberOfFlats" type="xs:string"/>
+                    <xs:element name="totalThickness" type="xs:string"/>
+                    <xs:element name="totalWeight" type="xs:string"/>
                     <xs:element name="view_bundle_iso" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
@@ -123,15 +126,45 @@
                   <xs:sequence>
                     <xs:element name="overhangX" type="xs:string"/>
                     <xs:element name="overhangY" type="xs:string"/>
-                    <xs:element name="maximumPalletWeight" type="xs:string"/>
-                    <xs:element name="maximumPalletHeight" type="xs:string"/>
-                    <xs:element name="maximumNumberOfItems" type="xs:string"/>
-                    <xs:element name="admissibleLoadOnTop" type="xs:string"/>
+                    <xs:element name="maximumPalletWeightGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumPalletWeight" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumPalletHeightGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumPalletHeight" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumNumberOfItemsGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumNumberOfItems" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="admissibleLoadOnTopGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="admissibleLoadOnTop" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element name="allowedPatterns" type="xs:string"/>
                     <xs:element name="allowedOrthoAxis" type="xs:string"/>
                     <xs:element name="allowAlignedLayers" type="xs:string"/>
                     <xs:element name="allowAlternateLayers" type="xs:string"/>
-                    <xs:element name="interlayerPeriod" type="xs:string"/>
+                    <xs:element name="interlayerPeriodGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="interlayerPeriod" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:sequence>                  
                 </xs:complexType>
               </xs:element>
@@ -140,11 +173,11 @@
                   <xs:sequence>
                     <xs:element name="title" type="xs:string"/>
                     <xs:element name="homogeneousLayer" type="xs:string"/>
+                    <xs:element name="efficiency" type="xs:string"/>
                     <xs:element name="caseCount" type="xs:string"/>
                     <xs:element name="interlayerCount" type="xs:string"/>
                     <xs:element name="palletWeight" type="xs:string"/>
                     <xs:element name="palletHeight" type="xs:string"/>
-                    <xs:element name="efficiency" type="xs:string"/>
                     <xs:element name="layer1_caseCount" type="xs:string"/>
                     <xs:element name="layer1_image" type="xs:string"/>
                     <xs:element name="layer2_caseCount" type="xs:string"/>
@@ -172,6 +205,8 @@
         <xs:element name="truckAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
               <xs:element name="truck" minOccurs="1" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>

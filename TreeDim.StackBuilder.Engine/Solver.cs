@@ -187,7 +187,7 @@ namespace TreeDim.StackBuilder.Engine
                                     {
                                         int iCount = sol.Count + 1;
                                         innerLoopStop = (iCount * _bProperties.Weight > _constraintSet.MaximumPalletWeight)
-                                        || (_constraintSet.UseMaximumNumberOfItems && (iCount > _constraintSet.MaximumNumberOfItems));
+                                        || (_constraintSet.UseMaximumNumberOfCases && (iCount > _constraintSet.MaximumNumberOfItems));
 
                                         if (!innerLoopStop)
                                         {

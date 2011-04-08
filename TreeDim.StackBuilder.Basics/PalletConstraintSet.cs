@@ -76,7 +76,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Stop conditions
-        public bool UseMaximumNumberOfItems
+        public bool UseMaximumNumberOfCases
         {
             set { _useMaximumNumberOfItems = value; }
             get { return _useMaximumNumberOfItems; }

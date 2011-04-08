@@ -247,7 +247,7 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.InterlayerPeriod = form.InterlayerPeriod;
                 // stop criterion
                 constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
                 constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
                 constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
                 constraintSet.MaximumHeight = form.MaximumPalletHeight;
@@ -291,7 +291,7 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
                 // stop criterion
                 constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
                 constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
                 constraintSet.MaximumHeight = form.MaximumPalletHeight;
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
@@ -406,7 +406,7 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.InterlayerPeriod = form.InterlayerPeriod;
                     // stop criterion
                     constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                    constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                    constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
                     constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
                     constraintSet.UseMaximumWeightOnBox = form.UseMaximumLoadOnBox;
                     constraintSet.MaximumHeight = form.MaximumPalletHeight;
@@ -446,7 +446,7 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
                     // stop criterion
                     constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
-                    constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfBoxes;
+                    constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
                     constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
                     constraintSet.MaximumHeight = form.MaximumPalletHeight;
                     constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;

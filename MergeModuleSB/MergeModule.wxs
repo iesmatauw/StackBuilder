@@ -5,7 +5,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      >
-  <Module Id="MergeModuleSB" Language="1033" Version="0.1.25.0">
+  <Module Id="MergeModuleSB" Language="1033" Version="0.1.26.0">
     <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c" Manufacturer="MergeModuleSB" InstallerVersion="200" />
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
@@ -59,7 +59,7 @@
                       File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value"
-                      Value="[REPORTTEMPLATES]Report.xslt"/>
+                      Value="[REPORTTEMPLATES]"/>
         <util:XmlFile Id="SetPalletSolutionsDBPath"
                       File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
@@ -75,11 +75,11 @@
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
-        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
-        <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\interop.schemalibraryclass.dll" Checksum="yes"/>
-        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\ReportTemplate_ENU.xml" Checksum="yes"/>
-        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\ReportTemplate_FRA.xml" Checksum="yes"/>
-        <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\ReportSchema.xsd" Checksum="yes"/>
+        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
+        <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
+        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_ENU.xml" Checksum="yes"/>
+        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_FRA.xml" Checksum="yes"/>
+        <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">

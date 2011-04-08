@@ -61,11 +61,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReportTemplate\ReportTemplate_ENU.xml" />
-    <Content Include="ReportTemplate\ReportTemplate_FRA.xml" />
+    <Content Include="ReportTemplates\ReportTemplate_ENU.xml" />
+    <Content Include="ReportTemplates\ReportTemplate_FRA.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReportTemplate\ReportSchema.xsd" />
+    <None Include="ReportTemplates\ReportSchema.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -114,25 +114,25 @@ namespace TreeDim.StackBuilder.Desktop
         public double PalletLength
         {
             get { return System.Convert.ToDouble(nudLength.Text); }
-            set { nudLength.Text = string.Format("{0}", value); }
+            set { nudLength.Text = string.Format("{0:F}", value); }
         }
 
         public double PalletWidth
         {
             get { return System.Convert.ToDouble(nudWidth.Text); }
-            set { nudWidth.Text = string.Format("{0}", value); }
+            set { nudWidth.Text = string.Format("{0:F}", value); }
         }
 
         public double PalletHeight
         {
             get { return System.Convert.ToDouble(nudHeight.Text); }
-            set { nudHeight.Text = string.Format("{0}", value); }
+            set { nudHeight.Text = string.Format("{0:F}", value); }
         }
 
         public double Weight
         {
             get { return System.Convert.ToDouble(nudWeight.Text); }
-            set { nudWeight.Text = string.Format("{0}", value); }
+            set { nudWeight.Text = string.Format("{0:F}", value); }
         }
 
         public Color Color

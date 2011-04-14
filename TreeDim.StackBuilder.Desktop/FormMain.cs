@@ -301,6 +301,7 @@ namespace TreeDim.StackBuilder.Desktop
                         pallet.Length = form.PalletLength;
                         pallet.Width = form.PalletWidth;
                         pallet.Height = form.PalletHeight;
+                        pallet.Weight = form.Weight;
                         pallet.Type = form.PalletType;
                         pallet.Color = form.Color;
                         pallet.EndUpdate();

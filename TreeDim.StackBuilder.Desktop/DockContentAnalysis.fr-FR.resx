@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -172,19 +172,19 @@
     <value>Vue de droite</value>
   </data>
   <data name="toolStripRightView.ToolTipText" xml:space="preserve">
-    <value>Right view</value>
+    <value>Vue de droite</value>
   </data>
   <data name="toolStripBackView.Text" xml:space="preserve">
     <value>Vue d'arrière</value>
   </data>
   <data name="toolStripBackView.ToolTipText" xml:space="preserve">
-    <value>Rear view</value>
+    <value>Vue d'arrière</value>
   </data>
   <data name="toolStripLeftView.Text" xml:space="preserve">
     <value>Vue de gauche</value>
   </data>
   <data name="toolStripLeftView.ToolTipText" xml:space="preserve">
-    <value>Left view</value>
+    <value>Vue de gauche</value>
   </data>
   <data name="toolStripTopView.Text" xml:space="preserve">
     <value>Vue de dessus</value>
@@ -216,5 +216,20 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAgB8AAIAP
         AACABwAAgAMAAIABAACAAQAAgAEAAIABAACAAQAAwAEAAOABAADwAQAA+AEAAP//AAD//wAA
 </value>
+  </data>
+  <data name="toolStrip_view.Text" xml:space="preserve">
+    <value>Vues</value>
+  </data>
+  <data name="toolStripCornerView180.Text" xml:space="preserve">
+    <value>Vue à 180°</value>
+  </data>
+  <data name="toolStripCornerView0.Text" xml:space="preserve">
+    <value>Vue à 0°</value>
+  </data>
+  <data name="toolStripCornerView270.Text" xml:space="preserve">
+    <value>Vue à 270°</value>
+  </data>
+  <data name="toolStripCornerView90.Text" xml:space="preserve">
+    <value>Vue à 90°</value>
   </data>
 </root>

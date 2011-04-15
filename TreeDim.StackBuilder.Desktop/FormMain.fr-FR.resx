@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -749,5 +749,11 @@
         AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
         AAD//wAA//8AAA==
 </value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Créer un nouveau fichier</value>
+  </data>
+  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tutoriel</value>
   </data>
 </root>

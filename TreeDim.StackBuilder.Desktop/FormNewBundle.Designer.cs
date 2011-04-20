@@ -99,7 +99,8 @@
             resources.GetString("cbColor.Items12"),
             resources.GetString("cbColor.Items13"),
             resources.GetString("cbColor.Items14"),
-            resources.GetString("cbColor.Items15")});
+            resources.GetString("cbColor.Items15"),
+            resources.GetString("cbColor.Items16")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
@@ -164,6 +165,7 @@
             this.nudLength.AccessibleDescription = null;
             this.nudLength.AccessibleName = null;
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.DecimalPlaces = 1;
             this.nudLength.Font = null;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
@@ -361,6 +363,7 @@
             this.nudWidth.AccessibleDescription = null;
             this.nudWidth.AccessibleName = null;
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.DecimalPlaces = 1;
             this.nudWidth.Font = null;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,

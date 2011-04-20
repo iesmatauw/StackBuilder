@@ -266,7 +266,7 @@
             this.Controls.Add(this.lbName);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.CaseName = "FormNewCaseOfBoxes";
+            this.Name = "FormNewCaseOfBoxes";
             this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FormNewCaseOfBoxes_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewCaseOfBoxes_FormClosing);

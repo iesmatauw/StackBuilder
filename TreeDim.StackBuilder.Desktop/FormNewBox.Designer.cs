@@ -162,6 +162,7 @@
             // 
             // nudInsideLength
             // 
+            this.nudInsideLength.DecimalPlaces = 1;
             resources.ApplyResources(this.nudInsideLength, "nudInsideLength");
             this.nudInsideLength.Maximum = new decimal(new int[] {
             10000,
@@ -178,6 +179,7 @@
             // 
             // nudInsideHeight
             // 
+            this.nudInsideHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudInsideHeight, "nudInsideHeight");
             this.nudInsideHeight.Maximum = new decimal(new int[] {
             10000,
@@ -194,6 +196,7 @@
             // 
             // nudInsideWidth
             // 
+            this.nudInsideWidth.DecimalPlaces = 1;
             resources.ApplyResources(this.nudInsideWidth, "nudInsideWidth");
             this.nudInsideWidth.Maximum = new decimal(new int[] {
             10000,
@@ -225,6 +228,7 @@
             // 
             // nudLength
             // 
+            this.nudLength.DecimalPlaces = 1;
             resources.ApplyResources(this.nudLength, "nudLength");
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
@@ -246,6 +250,7 @@
             // 
             // nudHeight
             // 
+            this.nudHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudHeight, "nudHeight");
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
@@ -267,6 +272,7 @@
             // 
             // nudWidth
             // 
+            this.nudWidth.DecimalPlaces = 1;
             resources.ApplyResources(this.nudWidth, "nudWidth");
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
@@ -365,7 +371,8 @@
             resources.GetString("cbColor.Items37"),
             resources.GetString("cbColor.Items38"),
             resources.GetString("cbColor.Items39"),
-            resources.GetString("cbColor.Items40")});
+            resources.GetString("cbColor.Items40"),
+            resources.GetString("cbColor.Items41")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 

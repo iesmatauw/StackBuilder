@@ -117,16 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 20</value>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tbName.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
-  </data>
-  <data name="lbNoFlats.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
@@ -136,9 +132,6 @@
   </data>
   <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
-  </data>
-  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
-    <value>10</value>
   </data>
   <data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
     <value>lblDescription</value>
@@ -155,9 +148,7 @@
   <data name="cbColor.Items8" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 199</value>
   </data>
@@ -179,11 +170,17 @@
   <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 33</value>
   </data>
+  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 250</value>
+  </data>
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;nudWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbUnitWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>201, 52</value>
@@ -194,14 +191,17 @@
   <data name="lbThickness.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;lbUnitLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
   </data>
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
+  </data>
+  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
   </data>
   <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
     <value>$this</value>
@@ -221,24 +221,24 @@
   <data name="&gt;&gt;tbName.Name" xml:space="preserve">
     <value>tbName</value>
   </data>
-  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 23</value>
+  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
   <data name="cbColor.Items2" xml:space="preserve">
     <value>Color</value>
-  </data>
-  <data name="lbUnitWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
   </data>
   <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -252,11 +252,14 @@
   <data name="nudWeight.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
     <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;lbColor.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
   </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>399, 33</value>
@@ -273,14 +276,14 @@
   <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
   </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
+  <data name="&gt;&gt;nudWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 45</value>
+  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
+    <value>trackBarHorizAngle</value>
   </data>
   <data name="&gt;&gt;nudLength.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -294,23 +297,20 @@
   <data name="lbUnitThickness.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="&gt;&gt;nudLength.Name" xml:space="preserve">
+    <value>nudLength</value>
   </data>
   <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Weight</value>
   </data>
   <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
     <value>gbWeight</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="nudNoFlats.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 103</value>
@@ -321,8 +321,8 @@
   <data name="&gt;&gt;lbUnitLength.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="nudThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
+  <data name="&gt;&gt;nudNoFlats.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbUnitThickness.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -387,11 +387,8 @@
   <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>399, 7</value>
   </data>
-  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;nudLength.Name" xml:space="preserve">
-    <value>nudLength</value>
+  <data name="&gt;&gt;lbNoFlats.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -402,9 +399,6 @@
   <data name="cbColor.Items12" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 63</value>
   </data>
@@ -414,17 +408,11 @@
   <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 316</value>
-  </data>
-  <data name="&gt;&gt;lbColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbLength.Text" xml:space="preserve">
-    <value>Length</value>
   </data>
   <data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
     <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -462,6 +450,9 @@
   <data name="lbThickness.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 76</value>
   </data>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 7</value>
+  </data>
   <data name="lbUnitLength.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -483,11 +474,11 @@
   <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 22</value>
   </data>
-  <data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 23</value>
-  </data>
   <data name="&gt;&gt;lbUnitThickness.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="nudNoFlats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
   </data>
   <data name="lbColor.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -506,9 +497,6 @@
   </data>
   <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
     <value>$this</value>
@@ -531,8 +519,11 @@
   <data name="lbUnitThickness.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 51</value>
+  </data>
+  <data name="nudLength.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -546,8 +537,8 @@
   <data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
     <value>pictureBox</value>
   </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
+  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="lbUnitLength.Location" type="System.Drawing.Point, System.Drawing">
     <value>201, 25</value>
@@ -557,9 +548,6 @@
   </data>
   <data name="&gt;&gt;lbUnitLength.Name" xml:space="preserve">
     <value>lbUnitLength</value>
-  </data>
-  <data name="&gt;&gt;lbNoFlats.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="bnOk.Text" xml:space="preserve">
     <value>&amp;Ok</value>
@@ -576,17 +564,14 @@
   <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
   </data>
-  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
-    <value>bnOk</value>
-  </data>
-  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4003.19277, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4121.29832, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lbWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -597,8 +582,8 @@
   <data name="lbUnitLength.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
   </data>
   <data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -624,6 +609,9 @@
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 45</value>
+  </data>
   <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
@@ -636,20 +624,23 @@
   <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 49</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
   <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
     <value>cbColor</value>
   </data>
   <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
+  </data>
   <data name="&gt;&gt;lbLength.Name" xml:space="preserve">
     <value>lbLength</value>
   </data>
   <data name="lbNoFlats.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
+  </data>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 20</value>
@@ -669,14 +660,8 @@
   <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lbUnitThickness.Name" xml:space="preserve">
-    <value>lbUnitThickness</value>
-  </data>
   <data name="&gt;&gt;nudWeight.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
   </data>
   <data name="cbColor.Items15" xml:space="preserve">
     <value>Color</value>
@@ -690,17 +675,14 @@
   <data name="&gt;&gt;lbWeight.Name" xml:space="preserve">
     <value>lbWeight</value>
   </data>
-  <data name="nudNoFlats.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
+  <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="lbUnitWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;nudThickness.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -708,8 +690,11 @@
   <data name="&gt;&gt;nudWidth.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
     <value>bnCancel</value>
@@ -720,14 +705,17 @@
   <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 24</value>
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
   </data>
-  <data name="lbUnitWidth.Text" xml:space="preserve">
-    <value>mm</value>
+  <data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 23</value>
   </data>
   <data name="&gt;&gt;lbColor.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;lbThickness.Name" xml:space="preserve">
+    <value>lbThickness</value>
   </data>
   <data name="lbColor.Text" xml:space="preserve">
     <value>Color</value>
@@ -738,8 +726,8 @@
   <data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 51</value>
+  <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
   </data>
   <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -747,20 +735,20 @@
   <data name="lbUnitLength.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
   </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimentions</value>
-  </data>
-  <data name="lbUnitWeight.Text" xml:space="preserve">
-    <value>kg</value>
+  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 316</value>
   </data>
   <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 7</value>
+  <data name="lbNoFlats.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
     <value>246, 130</value>
+  </data>
+  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="cbColor.Items3" xml:space="preserve">
     <value>Color</value>
@@ -768,44 +756,56 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>500, 376</value>
   </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
-  <data name="&gt;&gt;lbThickness.Name" xml:space="preserve">
-    <value>lbThickness</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbUnitWeight.Name" xml:space="preserve">
-    <value>lbUnitWeight</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbUnitThickness.Name" xml:space="preserve">
+    <value>lbUnitThickness</value>
   </data>
   <data name="&gt;&gt;nudNoFlats.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
+  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;lbColor.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
+  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 23</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbUnitWeight.Name" xml:space="preserve">
+    <value>lbUnitWeight</value>
+  </data>
+  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbUnitWeight.Text" xml:space="preserve">
+    <value>kg</value>
+  </data>
+  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 20</value>
   </data>
   <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 7</value>
+  </data>
+  <data name="lbUnitWidth.Text" xml:space="preserve">
+    <value>mm</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>484, 338</value>
   </data>
   <data name="&gt;&gt;lblName.Name" xml:space="preserve">
     <value>lblName</value>
+  </data>
+  <data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 24</value>
   </data>
   <data name="&gt;&gt;lbUnitWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -819,8 +819,8 @@
   <data name="&gt;&gt;lbNoFlats.Name" xml:space="preserve">
     <value>lbNoFlats</value>
   </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimentions</value>
   </data>
   <data name="cbColor.Items4" xml:space="preserve">
     <value>Color</value>
@@ -828,11 +828,11 @@
   <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
-  <data name="nudLength.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="nudWidth.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -855,8 +855,8 @@
   <data name="lbUnitWeight.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;nudNoFlats.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cbColor.Items11" xml:space="preserve">
     <value>Color</value>
@@ -876,14 +876,17 @@
   <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 49</value>
   </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
-    <value>trackBarHorizAngle</value>
+  <data name="nudThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 250</value>
+  <data name="&gt;&gt;lbUnitLength.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
   </data>
   <data name="&gt;&gt;lbUnitWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -894,8 +897,8 @@
   <data name="bnCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -138,6 +138,7 @@
             // nudLength
             // 
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.DecimalPlaces = 1;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -149,6 +150,7 @@
             // nudWidth
             // 
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.DecimalPlaces = 1;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -160,6 +162,7 @@
             // nudHeight
             // 
             resources.ApplyResources(this.nudHeight, "nudHeight");
+            this.nudHeight.DecimalPlaces = 1;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -262,7 +265,8 @@
             resources.GetString("cbColor.Items10"),
             resources.GetString("cbColor.Items11"),
             resources.GetString("cbColor.Items12"),
-            resources.GetString("cbColor.Items13")});
+            resources.GetString("cbColor.Items13"),
+            resources.GetString("cbColor.Items14")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 

@@ -34,6 +34,7 @@
               <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
               <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
+              <Directory Id="SAMPLES" Name="Samples"/>
              </Directory>
           </Directory>
         </Directory>
@@ -88,7 +89,7 @@
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
-        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\Help\Decompile\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
@@ -120,6 +121,12 @@
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
         <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SAMPLES">
+      <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">
+        <File Id="Matches.stb" Source="..\Samples\Matches.stb"/>
+        <File Id="Matches.doc" Source="..\Samples\Matches.doc"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">
@@ -167,6 +174,7 @@
       <ComponentRef Id="ReportTemplates"/>
       <ComponentRef Id="PalletSolutionsDB"/>
       <ComponentRef Id="resources_fr_FR"/>
+      <ComponentRef Id="Samples"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>

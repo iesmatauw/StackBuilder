@@ -980,7 +980,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Help.ShowHelp(this
                     , Path.ChangeExtension(Application.ExecutablePath, "chm")
                     , HelpNavigator.Topic
-                    , "TutorialIntroduction.html");
+                    , "Tutorial.html");
             }
             catch (Exception ex)
             { _log.Error(ex.ToString()); Program.ReportException(ex); }

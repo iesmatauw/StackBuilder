@@ -71,10 +71,16 @@ namespace TreeDim.StackBuilder.Desktop
             // or show splash sceen 
             else
             {
-                // --- instantiate and start splach screen thread
-                Thread th = new Thread(new ThreadStart(DoSplash));
-                th.Start();
-                // ---
+                bool multithreaded = false;
+                if (multithreaded)
+                {
+                    // --- instantiate and start splach screen thread
+                    Thread th = new Thread(new ThreadStart(DoSplash));
+                    th.Start();
+                    // ---
+                }
+                else
+                    DoSplash();
             }
         }
 
@@ -87,9 +93,11 @@ namespace TreeDim.StackBuilder.Desktop
         #region SplashScreen
         public void DoSplash()
         {
-            SplashScreen sp = new SplashScreen(this);
-            sp.TimerInterval = 2500;
-            sp.ShowDialog();
+            using (SplashScreen sp = new SplashScreen(this))
+            {
+                sp.TimerInterval = 2000;
+                sp.ShowDialog();
+            }
         }
         #endregion
 
@@ -488,6 +496,7 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 if (!File.Exists(filePath))
                 {
+                    _mruManager.Remove(filePath);
                     MessageBox.Show(string.Format(Resources.ID_FILENOTFOUND, filePath));
                     return;
                 }

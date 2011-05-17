@@ -37,12 +37,12 @@ namespace TreeDim.StackBuilder.Engine
             else if (2.0 * sizeY_area1 * boxWidth > palletWidth
                 && 2.0 * sizeX_area1 * boxLength > actualLength)
                 actualLength = 2.0 * sizeX_area1 * boxLength;
-            else if (2.0 * sizeX_area2 * boxLength > palletLength
-                && 2.0 * sizeY_area2 * boxWidth > actualWidth)
-                actualWidth = 2.0 * sizeY_area2 * boxWidth;
-            else if (2.0 * sizeY_area2 * boxWidth > palletWidth
-                && 2.0 * sizeX_area2 * boxLength > actualLength)
-                actualLength = 2.0 * sizeX_area2 * boxLength;
+            else if (2.0 * sizeX_area2 * boxWidth > palletLength
+                && 2.0 * sizeY_area2 * boxLength > actualWidth)
+                actualWidth = 2.0 * sizeY_area2 * boxLength;
+            else if (2.0 * sizeY_area2 * boxLength > palletWidth
+                && 2.0 * sizeX_area2 * boxWidth > actualLength)
+                actualLength = 2.0 * sizeX_area2 * boxWidth;
         }
 
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)

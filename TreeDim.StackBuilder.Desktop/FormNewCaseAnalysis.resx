@@ -429,6 +429,9 @@
   <data name="checkedListBoxPatterns.Items3" xml:space="preserve">
     <value>Trilock</value>
   </data>
+  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+    <value>Spirale</value>
+  </data>
   <data name="checkedListBoxPatterns.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 18</value>
   </data>

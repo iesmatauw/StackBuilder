@@ -691,7 +691,7 @@ namespace TreeDim.StackBuilder.Desktop
             palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
 
             // use all existing patterns
-            palletConstraintSet.AllowedPatternString = "Column,Diagonale,Interlocked,Trilock";
+            palletConstraintSet.AllowedPatternString = "Column,Diagonale,Interlocked,Trilock,Spirale";
 
             // allow aligned and alternate layers
             palletConstraintSet.AllowAlignedLayers = true;

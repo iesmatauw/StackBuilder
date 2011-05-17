@@ -163,7 +163,9 @@
             resources.GetString("checkedListBoxPatterns.Items"),
             resources.GetString("checkedListBoxPatterns.Items1"),
             resources.GetString("checkedListBoxPatterns.Items2"),
-            resources.GetString("checkedListBoxPatterns.Items3")});
+            resources.GetString("checkedListBoxPatterns.Items3"),
+            resources.GetString("checkedListBoxPatterns.Items4")
+            });
             resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             this.checkedListBoxPatterns.Click += new System.EventHandler(this.onAllowedPatternsChanged);

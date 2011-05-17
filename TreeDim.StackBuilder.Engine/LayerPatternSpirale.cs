@@ -24,69 +24,65 @@ namespace TreeDim.StackBuilder.Engine
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
 
-            int sizeXLength = 0, sizeXWidth = 0, sizeYLength = 0, sizeYWidth = 0;
-            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out sizeXLength, out sizeXWidth, out sizeYLength, out sizeYWidth);
+            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
+            GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
+                , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
 
-            actualLength = sizeXLength * boxLength + sizeXWidth * boxWidth;
-            actualWidth = sizeYWidth * boxWidth + sizeYLength * boxLength;
+            actualLength = sizeX_area1 * boxLength + sizeX_area2 * boxWidth;
+            actualWidth = sizeY_area1 * boxWidth + sizeY_area2 * boxLength;
+
+            if (2.0 * sizeX_area1 * boxLength > palletLength
+                && 2.0 * sizeY_area1 * boxWidth > actualWidth)
+                actualWidth = 2.0 * sizeY_area1 * boxWidth;
+            else if (2.0 * sizeY_area1 * boxWidth > palletWidth
+                && 2.0 * sizeX_area1 * boxLength > actualLength)
+                actualLength = 2.0 * sizeX_area1 * boxLength;
+            else if (2.0 * sizeX_area2 * boxLength > palletLength
+                && 2.0 * sizeY_area2 * boxWidth > actualWidth)
+                actualWidth = 2.0 * sizeY_area2 * boxWidth;
+            else if (2.0 * sizeY_area2 * boxWidth > palletWidth
+                && 2.0 * sizeX_area2 * boxLength > actualLength)
+                actualLength = 2.0 * sizeX_area2 * boxLength;
         }
 
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
             layer.Clear();
-            throw new NotImplementedException();
-/*
+
             double boxLength = layer.BoxLength;
             double boxWidth = layer.BoxWidth;
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
 
-            int maxSizeXLength = 0, maxSizeXWidth = 0, maxSizeYLength = 0, maxSizeYWidth = 0;
-            GetSizeXY(boxLength, boxWidth, palletLength, palletWidth
-                , out maxSizeXLength, out maxSizeXWidth, out maxSizeYLength, out maxSizeYWidth);
+            int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
+            GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth, out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
 
+            // compute offsets
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
 
-            double spaceX = maxSizeXLength + maxSizeXWidth > 1 ? (actualLength - (maxSizeXLength * boxLength + maxSizeXWidth * boxWidth)) / (maxSizeXLength + maxSizeXWidth - 1) : 0.0;
-            double spaceY = maxSizeYLength + maxSizeYWidth > 1 ? (actualWidth - (maxSizeYLength * boxWidth + maxSizeYWidth * boxLength)) / (maxSizeYLength + maxSizeYWidth - 1) : 0.0;
-
-            // length aligned boxes
-            for (int i=0; i<maxSizeXLength; ++i)
-                for (int j = 0; j < maxSizeYLength; ++j)
+            // area1
+            for (int i=0; i<sizeX_area1; ++i)
+                for (int j = 0; j<sizeY_area1; ++j)
                 {
-                    AddPosition(
-                        layer
-                        , new Vector2D(
-                            offsetX + i * (boxLength + spaceX)
-                            , offsetY + j * (boxWidth + spaceY))
+                    AddPosition(layer
+                        , new Vector2D(offsetX + i * boxLength, offsetY + j * boxWidth)
                         , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                    AddPosition(
-                        layer
-                        , new Vector2D(
-                            palletLength - offsetX - boxLength - i * (boxLength + spaceX)
-                            , palletWidth - offsetY - boxWidth - i * (boxWidth + spaceY))
-                        , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                    AddPosition(layer
+                        , new Vector2D(palletLength - offsetX - i * boxLength, palletWidth - offsetY - j * boxWidth)
+                        , HalfAxis.HAxis.AXIS_X_N, HalfAxis.HAxis.AXIS_Y_N);
                 }
-            // width aligned boxes
-            for (int i=0; i<maxSizeXWidth; ++i)
-                for (int j = 0; j < maxSizeYWidth; ++j)
+            // area2
+            for (int i=0; i<sizeX_area2; ++i)
+                for (int j = 0; j<sizeY_area2; ++j)
                 {
-                    AddPosition(
-                        layer
-                        , new Vector2D(
-                            offsetX + maxSizeXWidth * (boxLength + spaceX) + boxWidth + i * (boxWidth + spaceX)
-                            , offsetY + maxSizeYLength * (boxWidth + spaceY) + j * (boxLength + spaceY))
+                    AddPosition(layer
+                        , new Vector2D(palletLength - offsetX - i * boxWidth, offsetY + j * boxLength)
                         , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
-                    AddPosition(
-                        layer
-                        , new Vector2D(
-                            palletLength - offsetX - maxSizeXWidth * (boxLength + spaceX) - boxWidth - i * (boxWidth + spaceX)
-                            , palletWidth - offsetY - maxSizeYLength * (boxWidth + spaceY) - j * (boxLength + spaceY))
-                        , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                    AddPosition(layer
+                        , new Vector2D(offsetX + i * boxWidth, palletWidth - offsetY - j * boxLength)
+                        , HalfAxis.HAxis.AXIS_Y_N, HalfAxis.HAxis.AXIS_X_P);
                 }
-*/ 
         }
 
         public override int GetNumberOfVariants(Layer layer)
@@ -94,35 +90,49 @@ namespace TreeDim.StackBuilder.Engine
             return 1;
         }
         public override bool CanBeSwaped { get { return true; } }
-        public override bool CanBeInverted { get { return true; } }
+        public override bool CanBeInverted { get { return false; } }
         #endregion
 
         #region Helpers
-        private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
-            out int sizeXLength, out int sizeXWidth, out int sizeYLength, out int sizeYWidth)
+        private void GetOptimalSizesXY(
+            double boxLength, double boxWidth
+            , double palletLength, double palletWidth
+            , out int sizeX_area1, out int sizeY_area1
+            , out int sizeX_area2, out int sizeY_area2)
         {
             // get optimum combination of sizeXLength, sizeYLength
             int sizeXLengthMax = (int)Math.Floor((palletLength - boxWidth) / boxLength);
             int sizeYLengthMax = (int)Math.Floor((palletWidth - boxLength) / boxWidth);
-            int iBoxNumberMax = 0;
-            int sizeXLengthOpt = 1, sizeYLengthOpt = 1;
 
-            for (int iSizeXLength = 1; iSizeXLength <= sizeXLengthMax; ++iSizeXLength)
-                for (int iSizeYLength = 1; iSizeYLength <= sizeYLengthMax; ++iSizeYLength)
+            // initialization
+            int iBoxNumberMax = 0;
+            sizeX_area1 = 0;
+            sizeY_area1 = 0;
+            sizeX_area2 = 0;
+            sizeY_area2 = 0;
+
+            for (int i1 = 1; i1 <= sizeXLengthMax; ++i1)
+                for (int j1 = 1; j1 <= sizeYLengthMax; ++j1)
                 {
-                    int iBoxNumber = GetBoxNumber(iSizeXLength, iSizeYLength, boxLength, boxWidth, palletLength, palletWidth);
-                    if (iBoxNumber >= iBoxNumberMax)
+                    double L1 = i1 * boxLength;
+                    double H1 = j1 * boxWidth;
+
+                    if ( (L1 > 0.5 * palletLength && H1 > 0.5 * palletWidth)
+                        || (L1 < 0.5 * palletLength && H1 < 0.5 *palletWidth))
+                        continue;
+
+                    int i2 = (int)((palletLength - L1) / boxWidth);
+                    int j2 = (int)((palletWidth - H1) / boxLength);
+
+                    if (iBoxNumberMax < 2 * (i1 * j1 + i2 * j2))
                     {
-                        sizeXLengthOpt = iSizeXLength;
-                        sizeYLengthOpt = iSizeYLength;
-                        iBoxNumberMax = iBoxNumber;
+                        iBoxNumberMax = 2 * (i1 * j1 + i2 * j2);
+                        sizeX_area1 = i1;
+                        sizeY_area1 = j1;
+                        sizeX_area2 = i2;
+                        sizeY_area2 = j2;
                     }
                 }
-            // compute corresponding sizeXLength / sizeXWidth / sizeYLength / sizeYWidth
-            sizeXLength = sizeXLengthOpt;
-            sizeYLength = sizeYLengthOpt;
-            sizeXWidth = (int)Math.Floor((palletLength - sizeXLength * boxLength) / boxWidth);
-            sizeYWidth = (int)Math.Floor((palletWidth - sizeYLength * boxWidth) / boxLength);
         }
 
         private int GetBoxNumber(int sizeXLength, int sizeYLength,

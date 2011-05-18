@@ -12,10 +12,7 @@ namespace TreeDim.StackBuilder.Engine
     class LayerPatternSpirale: LayerPattern
     {
         #region Implementation of LayerPattern abstract properties and methods
-        public override string Name
-        {
-            get { return "Spirale"; }
-        }
+        public override string Name   { get { return "Spirale"; } }
 
         public override void GetLayerDimensions(Layer layer, out double actualLength, out double actualWidth)
         {
@@ -24,13 +21,14 @@ namespace TreeDim.StackBuilder.Engine
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
 
+            // compute optimal layout by evaluating all spirale configurations
             int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
             GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
                 , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
 
+            // actual length / actual width
             actualLength = sizeX_area1 * boxLength + sizeX_area2 * boxWidth;
             actualWidth = sizeY_area1 * boxWidth + sizeY_area2 * boxLength;
-
             if (2.0 * sizeX_area1 * boxLength > palletLength
                 && 2.0 * sizeY_area1 * boxWidth > actualWidth)
                 actualWidth = 2.0 * sizeY_area1 * boxWidth;
@@ -47,6 +45,7 @@ namespace TreeDim.StackBuilder.Engine
 
         public override void GenerateLayer(Layer layer, double actualLength, double actualWidth)
         {
+            // initialization
             layer.Clear();
 
             double boxLength = layer.BoxLength;
@@ -54,8 +53,10 @@ namespace TreeDim.StackBuilder.Engine
             double palletLength = GetPalletLength(layer);
             double palletWidth = GetPalletWidth(layer);
 
+            // compute optimal layout by evaluating all spirale configurations
             int sizeX_area1 = 0, sizeY_area1 = 0, sizeX_area2 = 0, sizeY_area2 = 0;
-            GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth, out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
+            GetOptimalSizesXY(boxLength, boxWidth, palletLength, palletWidth
+                , out sizeX_area1, out sizeY_area1, out sizeX_area2, out sizeY_area2);
 
             // compute offsets
             double offsetX = 0.5 * (palletLength - actualLength);
@@ -85,10 +86,7 @@ namespace TreeDim.StackBuilder.Engine
                 }
         }
 
-        public override int GetNumberOfVariants(Layer layer)
-        {
-            return 1;
-        }
+        public override int GetNumberOfVariants(Layer layer) { return 1; }
         public override bool CanBeSwaped { get { return true; } }
         public override bool CanBeInverted { get { return false; } }
         #endregion
@@ -133,18 +131,6 @@ namespace TreeDim.StackBuilder.Engine
                         sizeY_area2 = j2;
                     }
                 }
-        }
-
-        private int GetBoxNumber(int sizeXLength, int sizeYLength,
-            double boxLength, double boxWidth, double palletLength, double palletWidth)
-        {
-            // check possibility
-            if ( (sizeXLength * boxLength > 0.5 * palletLength) && (sizeYLength * boxWidth > 0.5 * palletWidth) )
-                return 0;
-            // combination is possible compute number of boxes
-            int sizeXWidth = (int)Math.Floor((palletLength - sizeXLength * boxLength) / boxWidth);
-            int sizeYWidth = (int)Math.Floor((palletWidth - sizeYLength * boxWidth) / boxLength);
-            return 2 * (sizeXLength * sizeYLength + sizeXWidth * sizeYWidth);
         }
         #endregion
     }

@@ -53,7 +53,7 @@
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
-        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\Help\Decompile\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"

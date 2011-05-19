@@ -132,9 +132,18 @@ namespace TreeDim.StackBuilder.Desktop
             set { this.linkLabelUrl.Text = value; }
             get { return this.linkLabelUrl.Text; }
         }
+
+        public string SupportEmail
+        {
+            set { this.linkLabelEmail.Text = value; }
+            get { return this.linkLabelEmail.Text; }
+        }
         #endregion
 
         #region Event handlers
+        /// <summary>
+        /// Web site url click handler
+        /// </summary>
         private void linkLabelUrl_Click(object sender, EventArgs e)
         {
             try
@@ -146,6 +155,25 @@ namespace TreeDim.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
+        /// <summary>
+        /// Email address click hnadler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabelEmail_Click(object sender, EventArgs e)
+        { 
+            try
+            {
+                System.Diagnostics.Process.Start(
+                    "mailto:" + this.linkLabelEmail.Text
+                    + "?subject="+ AssemblyTitle + " " + AssemblyVersion + " bug report");
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }        
+        }
         #endregion
+
     }
 }

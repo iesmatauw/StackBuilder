@@ -1011,7 +1011,7 @@
     <value>Fill</value>
   </data>
   <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 23</value>
+    <value>143, 27</value>
   </data>
   <data name="labelVersion.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -1044,7 +1044,7 @@
     <value>Fill</value>
   </data>
   <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 46</value>
+    <value>143, 54</value>
   </data>
   <data name="labelCopyright.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -1077,7 +1077,7 @@
     <value>Fill</value>
   </data>
   <data name="labelCompanyName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 69</value>
+    <value>143, 81</value>
   </data>
   <data name="labelCompanyName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -1106,35 +1106,11 @@
   <data name="&gt;&gt;labelCompanyName.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="linkLabelUrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 93</value>
-  </data>
-  <data name="linkLabelUrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 21</value>
-  </data>
-  <data name="linkLabelUrl.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="linkLabelUrl.Text" xml:space="preserve">
-    <value>CompanyWebSiteUrl</value>
-  </data>
-  <data name="&gt;&gt;linkLabelUrl.Name" xml:space="preserve">
-    <value>linkLabelUrl</value>
-  </data>
-  <data name="&gt;&gt;linkLabelUrl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;linkLabelUrl.Parent" xml:space="preserve">
-    <value>tableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;linkLabelUrl.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="textBoxDescription.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="textBoxDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 117</value>
+    <value>143, 171</value>
   </data>
   <data name="textBoxDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 3, 3, 3</value>
@@ -1146,7 +1122,7 @@
     <value>Both</value>
   </data>
   <data name="textBoxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 113</value>
+    <value>271, 56</value>
   </data>
   <data name="textBoxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1164,7 +1140,7 @@
     <value>tableLayoutPanel</value>
   </data>
   <data name="&gt;&gt;textBoxDescription.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1191,7 +1167,55 @@
     <value>tableLayoutPanel</value>
   </data>
   <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="linkLabelUrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 108</value>
+  </data>
+  <data name="linkLabelUrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 21</value>
+  </data>
+  <data name="linkLabelUrl.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="linkLabelUrl.Text" xml:space="preserve">
+    <value>CompanyWebSiteUrl</value>
+  </data>
+  <data name="&gt;&gt;linkLabelUrl.Name" xml:space="preserve">
+    <value>linkLabelUrl</value>
+  </data>
+  <data name="&gt;&gt;linkLabelUrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelUrl.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;linkLabelUrl.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="linkLabelEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 136</value>
+  </data>
+  <data name="linkLabelEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 21</value>
+  </data>
+  <data name="linkLabelEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="linkLabelEmail.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="&gt;&gt;linkLabelEmail.Name" xml:space="preserve">
+    <value>linkLabelEmail</value>
+  </data>
+  <data name="&gt;&gt;linkLabelEmail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelEmail.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;linkLabelEmail.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="tableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1200,7 +1224,7 @@
     <value>9, 9</value>
   </data>
   <data name="tableLayoutPanel.RowCount" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="tableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>417, 265</value>
@@ -1221,7 +1245,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="7" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCompanyName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelUrl" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDescription" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,Percent,67" /&gt;&lt;Rows Styles="Percent,10,Percent,10,Percent,10,Percent,10,28807,Percent,9,053498,Percent,51,0288,Absolute,29" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="8" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCompanyName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDescription" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelUrl" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelEmail" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,Percent,67" /&gt;&lt;Rows Styles="Percent,10,46512,Percent,10,46512,Percent,10,46512,Percent,10,46512,Percent,10,56604,Percent,12,07547,Percent,23,25581,Percent,11,62791,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

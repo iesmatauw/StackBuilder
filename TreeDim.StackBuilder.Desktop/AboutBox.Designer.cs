@@ -34,9 +34,10 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelCompanyName = new System.Windows.Forms.Label();
-            this.linkLabelUrl = new System.Windows.Forms.LinkLabel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
+            this.linkLabelUrl = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +50,10 @@
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 6);
+            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 7);
             this.tableLayoutPanel.Controls.Add(this.linkLabelUrl, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 5);
-            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 6);
+            this.tableLayoutPanel.Controls.Add(this.linkLabelEmail, 1, 5);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             // 
             // logoPictureBox
@@ -60,7 +62,7 @@
             this.logoPictureBox.ErrorImage = null;
             this.logoPictureBox.InitialImage = null;
             this.logoPictureBox.Name = "logoPictureBox";
-            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 7);
+            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 8);
             this.logoPictureBox.TabStop = false;
             // 
             // labelProductName
@@ -87,13 +89,6 @@
             this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelCompanyName.Name = "labelCompanyName";
             // 
-            // linkLabelUrl
-            // 
-            resources.ApplyResources(this.linkLabelUrl, "linkLabelUrl");
-            this.linkLabelUrl.Name = "linkLabelUrl";
-            this.linkLabelUrl.TabStop = true;
-            this.linkLabelUrl.Click += new System.EventHandler(this.linkLabelUrl_Click);
-            // 
             // textBoxDescription
             // 
             resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
@@ -106,6 +101,20 @@
             resources.ApplyResources(this.okButton, "okButton");
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.okButton.Name = "okButton";
+            // 
+            // linkLabelUrl
+            // 
+            resources.ApplyResources(this.linkLabelUrl, "linkLabelUrl");
+            this.linkLabelUrl.Name = "linkLabelUrl";
+            this.linkLabelUrl.TabStop = true;
+            this.linkLabelUrl.Click += new System.EventHandler(this.linkLabelUrl_Click);
+            // 
+            // linkLabelEmail
+            // 
+            resources.ApplyResources(this.linkLabelEmail, "linkLabelEmail");
+            this.linkLabelEmail.Name = "linkLabelEmail";
+            this.linkLabelEmail.TabStop = true;
+            this.linkLabelEmail.Click += new System.EventHandler(this.linkLabelEmail_Click);
             // 
             // AboutBox
             // 
@@ -137,5 +146,6 @@
         private System.Windows.Forms.LinkLabel linkLabelUrl;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.LinkLabel linkLabelEmail;
     }
 }

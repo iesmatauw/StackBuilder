@@ -967,7 +967,8 @@ namespace TreeDim.StackBuilder.Desktop
         private void helpToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
             AboutBox form = new AboutBox();
-            form.CompanyUrl = "http://www.picador.fr/";
+            form.CompanyUrl = "http://stackbuilder.codeplex.com/";
+            form.SupportEmail = "treedim@gmail.com";
             form.ShowDialog();
         }
         private void helpToolStripMenuItemHelp_Click(object sender, EventArgs e)

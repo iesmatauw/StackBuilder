@@ -336,7 +336,11 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
-                FormEditBitmaps form = new FormEditBitmaps(_boxProperties);
+                FormEditBitmaps form = null;
+                if (null == _boxProperties)
+                    form = new FormEditBitmaps(BoxLength, BoxWidth, BoxHeight, _faceColors);
+                else
+                    form = new FormEditBitmaps(_boxProperties);
                 form.Textures = _textures;
                 if (DialogResult.OK == form.ShowDialog())
                     _textures = form.Textures;

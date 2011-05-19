@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.1.27.0" ?>
+<?define Version = "0.1.28.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -127,6 +127,8 @@
       <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">
         <File Id="Matches.stb" Source="..\Samples\Matches.stb"/>
         <File Id="Matches.doc" Source="..\Samples\Matches.doc"/>
+        <File Id="Case_44_28_29.stb" Source="..\Samples\Case_44_28_29.stb"/>
+        <File Id="Case_44_28_29.doc" Source="..\Samples\Case_44_28_29.doc"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">

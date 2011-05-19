@@ -27,15 +27,31 @@ namespace TreeDim.StackBuilder.Desktop
         private bool _preventHandling = false;
         #endregion
 
-        #region Constructor
+        #region Constructors
         /// <summary>
-        /// Constructor
+        /// constructor (from existing BoxProperties)
         /// </summary>
         public FormEditBitmaps(BoxProperties boxProperties)
         {
             InitializeComponent();
             // set internal box properties
             _boxProperties = boxProperties;
+            // get textures
+            _textures = _boxProperties.TextureListCopy;
+            // set default face
+            cbFace.SelectedIndex = 0;
+            // set horizontal angle
+            trackBarHorizAngle.Value = 225;
+        }
+        /// <summary>
+        /// constructor (from length, width, height)
+        /// </summary>
+        public FormEditBitmaps(double length, double width, double height, Color[] faceColors)
+        {
+            InitializeComponent();
+            // set internal box properties
+            _boxProperties = new BoxProperties(null, length, width, height);
+            _boxProperties.SetAllColors(faceColors);
             // get textures
             _textures = _boxProperties.TextureListCopy;
             // set default face

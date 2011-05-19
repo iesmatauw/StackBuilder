@@ -805,7 +805,7 @@
     <value>listBoxTextures</value>
   </data>
   <data name="&gt;&gt;listBoxTextures.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Desktop.ListBoxImages, TreeDim.StackBuilder.Desktop, Version=0.1.27.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Desktop.ListBoxImages, TreeDim.StackBuilder.Desktop, Version=0.1.28.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listBoxTextures.Parent" xml:space="preserve">
     <value>$this</value>

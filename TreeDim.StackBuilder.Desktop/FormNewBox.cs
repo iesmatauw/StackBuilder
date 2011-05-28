@@ -272,7 +272,30 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void onBoxPropertyChanged(object sender, EventArgs e)
         {
+            // maintain inside dimensions
+            NumericUpDown nud = sender as NumericUpDown;
+            if (null != nud)
+            {
+                const double thickness = 1.0;
+                // length
+                if (nudLength == nud && BoxLength < InsideLength + thickness)
+                    InsideLength = BoxLength - thickness;
+                else if (nudInsideLength == nud && BoxLength < InsideLength + thickness)
+                    BoxLength = InsideLength + thickness;
+                // width
+                if (nudWidth == nud && BoxWidth < InsideWidth + thickness)
+                    InsideWidth = BoxWidth - thickness;
+                else if (nudInsideWidth == nud && BoxWidth < InsideWidth + thickness)
+                    BoxWidth = InsideWidth + thickness;
+                // height
+                if (nudHeight == nud && BoxHeight < InsideHeight + thickness)
+                    InsideHeight = BoxHeight - thickness;
+                else if (nudInsideHeight == nud && BoxHeight < InsideHeight + thickness)
+                    BoxHeight = InsideHeight + thickness;
+            }
+            // update ok button status
             UpdateButtonOkStatus();
+            // update box drawing
             DrawBox();
         }
         private void onSelectedFaceChanged(object sender, EventArgs e)

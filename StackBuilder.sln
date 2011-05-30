@@ -73,6 +73,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MergeModuleSB", "MergeModul
 		{1505A6E5-E6F9-4408-A5C8-968417081CBD} = {1505A6E5-E6F9-4408-A5C8-968417081CBD}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.EdgeCrushTest", "TreeDim.EdgeCrushTest\TreeDim.EdgeCrushTest.csproj", "{E4240EE0-60B3-4435-BD09-F81D56C0899A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,16 @@ Global
 		{DCE973AD-D647-4989-8F16-F43FF7E058A2}.Release|Mixed Platforms.Build.0 = Release|x86
 		{DCE973AD-D647-4989-8F16-F43FF7E058A2}.Release|x86.ActiveCfg = Release|x86
 		{DCE973AD-D647-4989-8F16-F43FF7E058A2}.Release|x86.Build.0 = Release|x86
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E4240EE0-60B3-4435-BD09-F81D56C0899A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

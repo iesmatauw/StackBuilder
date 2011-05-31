@@ -209,6 +209,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewStackingStrengthAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewStackingStrengthAnalysis.Designer.cs">
+      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewStackingStrengthAnalysis.resx">
+      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
@@ -576,6 +585,7 @@
     <None Include="Resources\OptimalCase.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
+    <Content Include="Resources\AnalysisStackingStrength.bmp" />
     <Content Include="Resources\Word.bmp" />
     <Content Include="treeDim.ico" />
   </ItemGroup>

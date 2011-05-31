@@ -831,6 +831,16 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
+        private void toolStripStackingStrength_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // show stacking strength analysis form
+                FormNewStackingStrengthAnalysis form = new FormNewStackingStrengthAnalysis();
+                form.ShowDialog();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex);}
+        }
         #endregion
 
         #region Document / View status change handlers
@@ -1003,5 +1013,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

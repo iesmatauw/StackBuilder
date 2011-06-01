@@ -130,20 +130,20 @@
   <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Inconsistency: Maximum {0} is lower than minimum {1}.</value>
   </data>
-  <data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet height (mm)</value>
+  </data>
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
+    <value>File {0} could not be found</value>
+  </data>
+  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatternCollumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PatternCollumn.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
-    <value>Save file {0}?</value>
   </data>
   <data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>Pallet count</value>
@@ -178,9 +178,6 @@
   <data name="ID_CASECOUNT" xml:space="preserve">
     <value>Case count</value>
   </data>
-  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ID_CASESPALLET" xml:space="preserve">
     <value>Cases/Pallet</value>
   </data>
@@ -205,8 +202,8 @@
   <data name="ID_WIDTH" xml:space="preserve">
     <value>Width</value>
   </data>
-  <data name="ID_NODE_PALLETS" xml:space="preserve">
-    <value>Pallets</value>
+  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatternInterlocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PatternInterlocked.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,11 +235,11 @@
   <data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Layer pattern</value>
   </data>
+  <data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_CASESLAYER" xml:space="preserve">
-    <value>Cases/Layer</value>
   </data>
   <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>Define at least one stop stacking criterion</value>
@@ -253,8 +250,8 @@
   <data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>Load (kg)</value>
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
+    <value>Pallets</value>
   </data>
   <data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -271,8 +268,8 @@
   <data name="ID_A2" xml:space="preserve">
     <value>A2</value>
   </data>
-  <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Pallet weight (kg)</value>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Layers</value>
   </data>
   <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -286,14 +283,20 @@
   <data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ID_ABOUT" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+    <value>Define at least one stacking pattern</value>
+  </data>
   <data name="ID_A1" xml:space="preserve">
     <value>A1</value>
   </data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+    <value>Load (kg)</value>
+  </data>
   <data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>Generate report for {0}</value>
-  </data>
-  <data name="ID_NODE_ANALYSES" xml:space="preserve">
-    <value>Analyses</value>
   </data>
   <data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Trucks</value>
@@ -322,9 +325,6 @@
   <data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ID_LAYERS" xml:space="preserve">
-    <value>Layers</value>
-  </data>
   <data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -343,14 +343,17 @@
   <data name="ID_HEIGHT" xml:space="preserve">
     <value>Height</value>
   </data>
-  <data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Cases/Layer</value>
   </data>
   <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>Interlayers</value>
   </data>
-  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
-    <value>Define at least one stacking pattern</value>
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+    <value>Analyses</value>
+  </data>
+  <data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -361,11 +364,11 @@
   <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
     <value>{0} has some depending analyses.\nIf you proceed with the modifications, analyses will be recomputed and any selected solutions removed.\nContinue?</value>
   </data>
-  <data name="ID_FILENOTFOUND" xml:space="preserve">
-    <value>File {0} could not be found</value>
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+    <value>Save file {0}?</value>
   </data>
-  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Pallet weight (kg)</value>
   </data>
   <data name="ID_ADDNEWCASE" xml:space="preserve">
     <value>Add new case...</value>
@@ -385,16 +388,16 @@
   <data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>Add new truck...</value>
   </data>
-  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ID_ABOUT" xml:space="preserve">
-    <value>About {0}</value>
+  <data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ID_VERSION" xml:space="preserve">
     <value>Version : {0}</value>
   </data>
-  <data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

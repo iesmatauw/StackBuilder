@@ -7,6 +7,9 @@ using System.Collections;
 
 namespace PrimeFactorisation
 {
+    /// <summary>
+    /// This class used to derive prime factors from any integer
+    /// </summary>
     internal class Eratosthenes : IEnumerable<int>
     {
         private static List<int> _primes = new List<int>();

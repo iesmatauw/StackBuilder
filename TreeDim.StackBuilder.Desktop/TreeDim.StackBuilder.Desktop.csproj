@@ -483,6 +483,10 @@
       <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
       <Name>Sharp3D.Math</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TreeDim.EdgeCrushTest\TreeDim.EdgeCrushTest.csproj">
+      <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>
+      <Name>TreeDim.EdgeCrushTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>TreeDim.StackBuilder.Basics</Name>

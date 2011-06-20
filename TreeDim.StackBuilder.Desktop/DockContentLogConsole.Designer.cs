@@ -58,7 +58,7 @@
             this.AutoHideToolStripMenuItem,
             this.HideToolStripMenuItem});
             this.ContextMenuDock.Name = "ContextMenuStrip1";
-            this.ContextMenuDock.Size = new System.Drawing.Size(174, 114);
+            this.ContextMenuDock.Size = new System.Drawing.Size(174, 136);
             this.ContextMenuDock.Text = "Window Position";
             // 
             // FloatingToolStripMenuItem
@@ -113,7 +113,7 @@
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockBottom;
             this.ShowInTaskbar = false;
             this.TabPageContextMenuStrip = this.ContextMenuDock;
-            this.Text = "Debug console";
+            this.Text = "Log console";
             this.ContextMenuDock.ResumeLayout(false);
             this.ResumeLayout(false);
 

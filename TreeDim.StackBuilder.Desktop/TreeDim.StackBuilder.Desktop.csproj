@@ -41,6 +41,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\TreeDim.StackBuilder.Desktop.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -335,9 +336,6 @@
     <EmbeddedResource Include="FormNewBundle.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBundle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewCaseAnalysis.fr.resx">
-      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCaseAnalysis.resx">
       <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>

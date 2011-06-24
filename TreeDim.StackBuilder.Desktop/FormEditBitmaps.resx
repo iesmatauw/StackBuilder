@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,782 +59,1607 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="bnOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 7</value>
-  </data>
-  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="bnOK.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Right</value>
+	</data>
+	<data name="bnOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
+		<value>499, 7</value>
+	</data>
+	<data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 23</value>
+	</data>
+	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="bnOK.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
+	<data name="&gt;&gt;bnOK.Name" xml:space="preserve">
     <value>bnOK</value>
   </data>
-  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
+	<data name="&gt;&gt;bnOK.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
+	<data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
     <value>24</value>
   </data>
-  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+	<data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Right</value>
+	</data>
+	<data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+		<value>499, 36</value>
+	</data>
+	<data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 23</value>
+	</data>
+	<data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
   </data>
-  <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 36</value>
-  </data>
-  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
     <value>bnCancel</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+	<data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>23</value>
   </data>
-  <data name="labelFace.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 9</value>
-  </data>
-  <data name="labelFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="labelFace.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="labelFace.Text" xml:space="preserve">
+	<data name="labelFace.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="labelFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="labelFace.Location" type="System.Drawing.Point, System.Drawing">
+		<value>6, 9</value>
+	</data>
+	<data name="labelFace.Size" type="System.Drawing.Size, System.Drawing">
+		<value>31, 13</value>
+	</data>
+	<data name="labelFace.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="labelFace.Text" xml:space="preserve">
     <value>Face</value>
   </data>
-  <data name="&gt;&gt;labelFace.Name" xml:space="preserve">
+	<data name="&gt;&gt;labelFace.Name" xml:space="preserve">
     <value>labelFace</value>
   </data>
-  <data name="&gt;&gt;labelFace.Type" xml:space="preserve">
+	<data name="&gt;&gt;labelFace.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelFace.Parent" xml:space="preserve">
+	<data name="&gt;&gt;labelFace.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;labelFace.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;labelFace.ZOrder" xml:space="preserve">
     <value>22</value>
   </data>
-  <data name="cbFace.Items" xml:space="preserve">
+	<data name="cbFace.Items" xml:space="preserve">
     <value>Rear</value>
   </data>
-  <data name="cbFace.Items1" xml:space="preserve">
+	<data name="cbFace.Items1" xml:space="preserve">
     <value>Front</value>
   </data>
-  <data name="cbFace.Items2" xml:space="preserve">
+	<data name="cbFace.Items2" xml:space="preserve">
     <value>Right</value>
   </data>
-  <data name="cbFace.Items3" xml:space="preserve">
+	<data name="cbFace.Items3" xml:space="preserve">
     <value>Left</value>
   </data>
-  <data name="cbFace.Items4" xml:space="preserve">
+	<data name="cbFace.Items4" xml:space="preserve">
     <value>Bottom</value>
   </data>
-  <data name="cbFace.Items5" xml:space="preserve">
+	<data name="cbFace.Items5" xml:space="preserve">
     <value>Top</value>
   </data>
-  <data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 9</value>
-  </data>
-  <data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 21</value>
-  </data>
-  <data name="cbFace.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbFace.Name" xml:space="preserve">
+	<data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
+		<value>80, 9</value>
+	</data>
+	<data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
+		<value>123, 21</value>
+	</data>
+	<data name="cbFace.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="&gt;&gt;cbFace.Name" xml:space="preserve">
     <value>cbFace</value>
   </data>
-  <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
+	<data name="&gt;&gt;cbFace.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
+	<data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
-  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 65</value>
-  </data>
-  <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 234</value>
-  </data>
-  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
+	<data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Bottom, Left, Right</value>
+	</data>
+	<data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>364, 65</value>
+	</data>
+	<data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>210, 234</value>
+	</data>
+	<data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
     <value>pictureBox</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
+	<data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
+	<data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
     <value>20</value>
   </data>
-  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 306</value>
-  </data>
-  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 45</value>
-  </data>
-  <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
+	<data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Bottom, Left, Right</value>
+	</data>
+	<data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
+		<value>364, 306</value>
+	</data>
+	<data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
+		<value>210, 45</value>
+	</data>
+	<data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
     <value>trackBarHorizAngle</value>
   </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
+	<data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
     <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
+	<data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+	<data name="label1.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+		<value>6, 43</value>
+	</data>
+	<data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>48, 13</value>
+	</data>
+	<data name="label1.TabIndex" type="System.Int32, mscorlib">
+		<value>7</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+    <value>Admissible load weight</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 43</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Textures</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+	<data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+	<data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+	<data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="lbOrigin.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbOrigin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbOrigin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 277</value>
-  </data>
-  <data name="lbOrigin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbOrigin.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lbOrigin.Text" xml:space="preserve">
+	<data name="lbOrigin.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbOrigin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbOrigin.Location" type="System.Drawing.Point, System.Drawing">
+		<value>17, 277</value>
+	</data>
+	<data name="lbOrigin.Size" type="System.Drawing.Size, System.Drawing">
+		<value>34, 13</value>
+	</data>
+	<data name="lbOrigin.TabIndex" type="System.Int32, mscorlib">
+		<value>8</value>
+	</data>
+	<data name="lbOrigin.Text" xml:space="preserve">
     <value>Origin</value>
   </data>
-  <data name="&gt;&gt;lbOrigin.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbOrigin.Name" xml:space="preserve">
     <value>lbOrigin</value>
   </data>
-  <data name="&gt;&gt;lbOrigin.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbOrigin.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbOrigin.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbOrigin.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbOrigin.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbOrigin.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="lbSize.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbSize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 306</value>
-  </data>
-  <data name="lbSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 13</value>
-  </data>
-  <data name="lbSize.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="lbSize.Text" xml:space="preserve">
+	<data name="lbSize.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbSize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbSize.Location" type="System.Drawing.Point, System.Drawing">
+		<value>17, 306</value>
+	</data>
+	<data name="lbSize.Size" type="System.Drawing.Size, System.Drawing">
+		<value>27, 13</value>
+	</data>
+	<data name="lbSize.TabIndex" type="System.Int32, mscorlib">
+		<value>9</value>
+	</data>
+	<data name="lbSize.Text" xml:space="preserve">
     <value>Size</value>
   </data>
-  <data name="&gt;&gt;lbSize.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbSize.Name" xml:space="preserve">
     <value>lbSize</value>
   </data>
-  <data name="&gt;&gt;lbSize.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbSize.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbSize.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbSize.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbSize.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbSize.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="lbAngle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 334</value>
-  </data>
-  <data name="lbAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="lbAngle.Text" xml:space="preserve">
+	<data name="lbAngle.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbAngle.Location" type="System.Drawing.Point, System.Drawing">
+		<value>17, 334</value>
+	</data>
+	<data name="lbAngle.Size" type="System.Drawing.Size, System.Drawing">
+		<value>34, 13</value>
+	</data>
+	<data name="lbAngle.TabIndex" type="System.Int32, mscorlib">
+		<value>10</value>
+	</data>
+	<data name="lbAngle.Text" xml:space="preserve">
     <value>Angle</value>
   </data>
-  <data name="&gt;&gt;lbAngle.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbAngle.Name" xml:space="preserve">
     <value>lbAngle</value>
   </data>
-  <data name="&gt;&gt;lbAngle.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbAngle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbAngle.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbAngle.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbAngle.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbAngle.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="nudPositionX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 277</value>
-  </data>
-  <data name="nudPositionX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="nudPositionX.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;nudPositionX.Name" xml:space="preserve">
+	<data name="nudPositionX.Location" type="System.Drawing.Point, System.Drawing">
+		<value>71, 277</value>
+	</data>
+	<data name="nudPositionX.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudPositionX.TabIndex" type="System.Int32, mscorlib">
+		<value>11</value>
+	</data>
+	<data name="&gt;&gt;nudPositionX.Name" xml:space="preserve">
     <value>nudPositionX</value>
   </data>
-  <data name="&gt;&gt;nudPositionX.Type" xml:space="preserve">
+	<data name="&gt;&gt;nudPositionX.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudPositionX.Parent" xml:space="preserve">
+	<data name="&gt;&gt;nudPositionX.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudPositionX.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;nudPositionX.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="nudPositionY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 277</value>
-  </data>
-  <data name="nudPositionY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="nudPositionY.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;nudPositionY.Name" xml:space="preserve">
+	<data name="nudPositionY.Location" type="System.Drawing.Point, System.Drawing">
+		<value>177, 277</value>
+	</data>
+	<data name="nudPositionY.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudPositionY.TabIndex" type="System.Int32, mscorlib">
+		<value>12</value>
+	</data>
+	<data name="&gt;&gt;nudPositionY.Name" xml:space="preserve">
     <value>nudPositionY</value>
   </data>
-  <data name="&gt;&gt;nudPositionY.Type" xml:space="preserve">
+	<data name="&gt;&gt;nudPositionY.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudPositionY.Parent" xml:space="preserve">
+	<data name="&gt;&gt;nudPositionY.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudPositionY.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;nudPositionY.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="nudSizeX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 306</value>
-  </data>
-  <data name="nudSizeX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="nudSizeX.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;nudSizeX.Name" xml:space="preserve">
+	<data name="nudSizeX.Location" type="System.Drawing.Point, System.Drawing">
+		<value>71, 306</value>
+	</data>
+	<data name="nudSizeX.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudSizeX.TabIndex" type="System.Int32, mscorlib">
+		<value>13</value>
+	</data>
+	<data name="&gt;&gt;nudSizeX.Name" xml:space="preserve">
     <value>nudSizeX</value>
   </data>
-  <data name="&gt;&gt;nudSizeX.Type" xml:space="preserve">
+	<data name="&gt;&gt;nudSizeX.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudSizeX.Parent" xml:space="preserve">
+	<data name="&gt;&gt;nudSizeX.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudSizeX.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;nudSizeX.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="nudSizeY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 306</value>
-  </data>
-  <data name="nudSizeY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="nudSizeY.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;nudSizeY.Name" xml:space="preserve">
+	<data name="nudSizeY.Location" type="System.Drawing.Point, System.Drawing">
+		<value>177, 306</value>
+	</data>
+	<data name="nudSizeY.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudSizeY.TabIndex" type="System.Int32, mscorlib">
+		<value>14</value>
+	</data>
+	<data name="&gt;&gt;nudSizeY.Name" xml:space="preserve">
     <value>nudSizeY</value>
   </data>
-  <data name="&gt;&gt;nudSizeY.Type" xml:space="preserve">
+	<data name="&gt;&gt;nudSizeY.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudSizeY.Parent" xml:space="preserve">
+	<data name="&gt;&gt;nudSizeY.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudSizeY.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;nudSizeY.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="nudAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 334</value>
-  </data>
-  <data name="nudAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="nudAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;nudAngle.Name" xml:space="preserve">
+	<data name="nudAngle.Location" type="System.Drawing.Point, System.Drawing">
+		<value>71, 334</value>
+	</data>
+	<data name="nudAngle.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudAngle.TabIndex" type="System.Int32, mscorlib">
+		<value>15</value>
+	</data>
+	<data name="&gt;&gt;nudAngle.Name" xml:space="preserve">
     <value>nudAngle</value>
   </data>
-  <data name="&gt;&gt;nudAngle.Type" xml:space="preserve">
+	<data name="&gt;&gt;nudAngle.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudAngle.Parent" xml:space="preserve">
+	<data name="&gt;&gt;nudAngle.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudAngle.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;nudAngle.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="lbUnitOriginX.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitOriginX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitOriginX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 277</value>
-  </data>
-  <data name="lbUnitOriginX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
-  <data name="lbUnitOriginX.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="lbUnitOriginX.Text" xml:space="preserve">
+	<data name="lbUnitOriginX.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbUnitOriginX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbUnitOriginX.Location" type="System.Drawing.Point, System.Drawing">
+		<value>144, 277</value>
+	</data>
+	<data name="lbUnitOriginX.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 13</value>
+	</data>
+	<data name="lbUnitOriginX.TabIndex" type="System.Int32, mscorlib">
+		<value>16</value>
+	</data>
+	<data name="lbUnitOriginX.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginX.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginX.Name" xml:space="preserve">
     <value>lbUnitOriginX</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginX.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginX.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginX.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginX.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginX.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginX.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="lbUnitSizeX.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitSizeX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitSizeX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 306</value>
-  </data>
-  <data name="lbUnitSizeX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
-  <data name="lbUnitSizeX.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="lbUnitSizeX.Text" xml:space="preserve">
+	<data name="lbUnitSizeX.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbUnitSizeX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbUnitSizeX.Location" type="System.Drawing.Point, System.Drawing">
+		<value>144, 306</value>
+	</data>
+	<data name="lbUnitSizeX.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 13</value>
+	</data>
+	<data name="lbUnitSizeX.TabIndex" type="System.Int32, mscorlib">
+		<value>17</value>
+	</data>
+	<data name="lbUnitSizeX.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeX.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeX.Name" xml:space="preserve">
     <value>lbUnitSizeX</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeX.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeX.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeX.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeX.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeX.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeX.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="lbUnitAngle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 334</value>
-  </data>
-  <data name="lbUnitAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 13</value>
-  </data>
-  <data name="lbUnitAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="lbUnitAngle.Text" xml:space="preserve">
+	<data name="lbUnitAngle.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbUnitAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbUnitAngle.Location" type="System.Drawing.Point, System.Drawing">
+		<value>144, 334</value>
+	</data>
+	<data name="lbUnitAngle.Size" type="System.Drawing.Size, System.Drawing">
+		<value>11, 13</value>
+	</data>
+	<data name="lbUnitAngle.TabIndex" type="System.Int32, mscorlib">
+		<value>18</value>
+	</data>
+	<data name="lbUnitAngle.Text" xml:space="preserve">
     <value>°</value>
   </data>
-  <data name="&gt;&gt;lbUnitAngle.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitAngle.Name" xml:space="preserve">
     <value>lbUnitAngle</value>
   </data>
-  <data name="&gt;&gt;lbUnitAngle.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitAngle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitAngle.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitAngle.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbUnitAngle.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitAngle.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lbUnitOriginY.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitOriginY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitOriginY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 277</value>
-  </data>
-  <data name="lbUnitOriginY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
-  <data name="lbUnitOriginY.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="lbUnitOriginY.Text" xml:space="preserve">
+	<data name="lbUnitOriginY.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbUnitOriginY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbUnitOriginY.Location" type="System.Drawing.Point, System.Drawing">
+		<value>249, 277</value>
+	</data>
+	<data name="lbUnitOriginY.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 13</value>
+	</data>
+	<data name="lbUnitOriginY.TabIndex" type="System.Int32, mscorlib">
+		<value>19</value>
+	</data>
+	<data name="lbUnitOriginY.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginY.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginY.Name" xml:space="preserve">
     <value>lbUnitOriginY</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginY.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginY.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginY.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginY.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbUnitOriginY.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitOriginY.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lbUnitSizeY.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbUnitSizeY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbUnitSizeY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 306</value>
-  </data>
-  <data name="lbUnitSizeY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
-  <data name="lbUnitSizeY.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="lbUnitSizeY.Text" xml:space="preserve">
+	<data name="lbUnitSizeY.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbUnitSizeY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbUnitSizeY.Location" type="System.Drawing.Point, System.Drawing">
+		<value>249, 306</value>
+	</data>
+	<data name="lbUnitSizeY.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 13</value>
+	</data>
+	<data name="lbUnitSizeY.TabIndex" type="System.Int32, mscorlib">
+		<value>20</value>
+	</data>
+	<data name="lbUnitSizeY.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeY.Name" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeY.Name" xml:space="preserve">
     <value>lbUnitSizeY</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeY.Type" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeY.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeY.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeY.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbUnitSizeY.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;lbUnitSizeY.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="bnMoveUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnMoveUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 64</value>
-  </data>
-  <data name="bnMoveUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 22</value>
-  </data>
-  <data name="bnMoveUp.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="bnMoveUp.Text" xml:space="preserve">
+	<data name="bnMoveUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnMoveUp.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 64</value>
+	</data>
+	<data name="bnMoveUp.Size" type="System.Drawing.Size, System.Drawing">
+		<value>81, 22</value>
+	</data>
+	<data name="bnMoveUp.TabIndex" type="System.Int32, mscorlib">
+		<value>21</value>
+	</data>
+	<data name="bnMoveUp.Text" xml:space="preserve">
     <value>Move up</value>
   </data>
-  <data name="&gt;&gt;bnMoveUp.Name" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveUp.Name" xml:space="preserve">
     <value>bnMoveUp</value>
   </data>
-  <data name="&gt;&gt;bnMoveUp.Type" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveUp.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnMoveUp.Parent" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveUp.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnMoveUp.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveUp.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="bnMoveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnMoveDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 92</value>
-  </data>
-  <data name="bnMoveDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 23</value>
-  </data>
-  <data name="bnMoveDown.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="bnMoveDown.Text" xml:space="preserve">
+	<data name="bnMoveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnMoveDown.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 92</value>
+	</data>
+	<data name="bnMoveDown.Size" type="System.Drawing.Size, System.Drawing">
+		<value>80, 23</value>
+	</data>
+	<data name="bnMoveDown.TabIndex" type="System.Int32, mscorlib">
+		<value>22</value>
+	</data>
+	<data name="bnMoveDown.Text" xml:space="preserve">
     <value>Move down</value>
   </data>
-  <data name="&gt;&gt;bnMoveDown.Name" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveDown.Name" xml:space="preserve">
     <value>bnMoveDown</value>
   </data>
-  <data name="&gt;&gt;bnMoveDown.Type" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnMoveDown.Parent" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveDown.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnMoveDown.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;bnMoveDown.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="bnAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 133</value>
-  </data>
-  <data name="bnAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 23</value>
-  </data>
-  <data name="bnAdd.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="bnAdd.Text" xml:space="preserve">
+	<data name="bnAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnAdd.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 133</value>
+	</data>
+	<data name="bnAdd.Size" type="System.Drawing.Size, System.Drawing">
+		<value>77, 23</value>
+	</data>
+	<data name="bnAdd.TabIndex" type="System.Int32, mscorlib">
+		<value>23</value>
+	</data>
+	<data name="bnAdd.Text" xml:space="preserve">
     <value>Add texture...</value>
   </data>
-  <data name="&gt;&gt;bnAdd.Name" xml:space="preserve">
+	<data name="&gt;&gt;bnAdd.Name" xml:space="preserve">
     <value>bnAdd</value>
   </data>
-  <data name="&gt;&gt;bnAdd.Type" xml:space="preserve">
+	<data name="&gt;&gt;bnAdd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnAdd.Parent" xml:space="preserve">
+	<data name="&gt;&gt;bnAdd.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnAdd.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;bnAdd.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="bnRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 162</value>
-  </data>
-  <data name="bnRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 26</value>
-  </data>
-  <data name="bnRemove.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="bnRemove.Text" xml:space="preserve">
+	<data name="bnRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnRemove.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 162</value>
+	</data>
+	<data name="bnRemove.Size" type="System.Drawing.Size, System.Drawing">
+		<value>78, 26</value>
+	</data>
+	<data name="bnRemove.TabIndex" type="System.Int32, mscorlib">
+		<value>24</value>
+	</data>
+	<data name="bnRemove.Text" xml:space="preserve">
     <value>Remove</value>
   </data>
-  <data name="&gt;&gt;bnRemove.Name" xml:space="preserve">
+	<data name="&gt;&gt;bnRemove.Name" xml:space="preserve">
     <value>bnRemove</value>
   </data>
-  <data name="&gt;&gt;bnRemove.Type" xml:space="preserve">
+	<data name="&gt;&gt;bnRemove.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bnRemove.Parent" xml:space="preserve">
+	<data name="&gt;&gt;bnRemove.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bnRemove.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;bnRemove.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="openImageFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="openImageFileDialog.Filter" xml:space="preserve">
+	<metadata name="openImageFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>17, 17</value>
+	</metadata>
+	<data name="openImageFileDialog.Filter" xml:space="preserve">
     <value>Image Files (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
   </data>
-  <data name="listBoxTextures.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 62</value>
-  </data>
-  <data name="listBoxTextures.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 199</value>
-  </data>
-  <data name="listBoxTextures.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;listBoxTextures.Name" xml:space="preserve">
+	<data name="listBoxTextures.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 62</value>
+	</data>
+	<data name="listBoxTextures.Size" type="System.Drawing.Size, System.Drawing">
+		<value>128, 199</value>
+	</data>
+	<data name="listBoxTextures.TabIndex" type="System.Int32, mscorlib">
+		<value>6</value>
+	</data>
+	<data name="&gt;&gt;listBoxTextures.Name" xml:space="preserve">
     <value>listBoxTextures</value>
   </data>
-  <data name="&gt;&gt;listBoxTextures.Type" xml:space="preserve">
+	<data name="&gt;&gt;listBoxTextures.Type" xml:space="preserve">
     <value>TreeDim.StackBuilder.Desktop.ListBoxImages, TreeDim.StackBuilder.Desktop, Version=0.1.28.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;listBoxTextures.Parent" xml:space="preserve">
+	<data name="&gt;&gt;listBoxTextures.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;listBoxTextures.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;listBoxTextures.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+		<value>6, 13</value>
+	</data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>584, 362</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+    <value>Optimize case dimensions...</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 362</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Edit face bitmaps...</value>
-  </data>
-  <data name="&gt;&gt;openImageFileDialog.Name" xml:space="preserve">
+	<data name="&gt;&gt;openImageFileDialog.Name" xml:space="preserve">
     <value>openImageFileDialog</value>
   </data>
-  <data name="&gt;&gt;openImageFileDialog.Type" xml:space="preserve">
+	<data name="&gt;&gt;openImageFileDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormEditBitmaps</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="labelProductName.Text" xml:space="preserve">
+		<value>Product Name</value>
+	</data>
+	<data name="labelVersion.Text" xml:space="preserve">
+		<value>Version</value>
+	</data>
+	<data name="labelCopyright.Text" xml:space="preserve">
+		<value>Copyright</value>
+	</data>
+	<data name="labelCompanyName.Text" xml:space="preserve">
+		<value>Company Name</value>
+	</data>
+	<data name="textBoxDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="okButton.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="linkLabelUrl.Text" xml:space="preserve">
+		<value>CompanyWebSiteUrl</value>
+	</data>
+	<data name="linkLabelEmail.Text" xml:space="preserve">
+		<value>Email</value>
+	</data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+		<value>Show images</value>
+	</data>
+	<data name="toolStrip_view.Text" xml:space="preserve">
+		<value>Views</value>
+	</data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+		<value>Front view</value>
+	</data>
+	<data name="toolStripCornerView180.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+		<value>Back view</value>
+	</data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+		<value>Rear view</value>
+	</data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+		<value>Right view</value>
+	</data>
+	<data name="toolStripCornerView0.Text" xml:space="preserve">
+		<value>Corner view 0°</value>
+	</data>
+	<data name="toolStripCornerView270.Text" xml:space="preserve">
+		<value>Corner view 270°</value>
+	</data>
+	<data name="toolStripCornerView90.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="btSelectSolution.Text" xml:space="preserve">
+		<value>Select</value>
+	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+		<value>Back view</value>
+	</data>
+	<data name="toolStripTopView.Text" xml:space="preserve">
+		<value>Top view</value>
+	</data>
+	<data name="toolStripCornerView_90.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="toolStripCornerView_180.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripCornerView_0.Text" xml:space="preserve">
+		<value>Corner view 0°</value>
+	</data>
+	<data name="toolStripCornerView_270.Text" xml:space="preserve">
+		<value>Corner view 270</value>
+	</data>
+	<data name="toolStripButtonTopView.Text" xml:space="preserve">
+		<value>Top view</value>
+	</data>
+	<data name="toolStripShowPallet.Text" xml:space="preserve">
+		<value>Show pallet</value>
+	</data>
+	<data name="toolStripViews.Text" xml:space="preserve">
+		<value>Views</value>
+	</data>
+	<data name="toolStripButton4.Text" xml:space="preserve">
+		<value>Corner view 270°</value>
+	</data>
+	<data name="toolStripButton8.Text" xml:space="preserve">
+		<value>Right view</value>
+	</data>
+	<data name="toolStripButton9.Text" xml:space="preserve">
+		<value>Top view</value>
+	</data>
+	<data name="toolStripButton5.Text" xml:space="preserve">
+		<value>Front view</value>
+	</data>
+	<data name="toolStripButton2.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="toolStripButton1.Text" xml:space="preserve">
+		<value>Corner view 0°</value>
+	</data>
+	<data name="toolStripButton3.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripButton6.Text" xml:space="preserve">
+		<value>Back view</value>
+	</data>
+	<data name="toolStripButton7.Text" xml:space="preserve">
+		<value>Left view</value>
+	</data>
+	<data name="lbFriendlyName.Text" xml:space="preserve">
+		<value>Friendly name</value>
+	</data>
+	<data name="labelQuestion.Text" xml:space="preserve">
+		<value>Database already contains some solution(s) for a case with these dimensions:</value>
+	</data>
+	<data name="rbKeepReplace1.Text" xml:space="preserve">
+		<value>Keep any existing solutions and also save this one</value>
+	</data>
+	<data name="rbKeepReplace2.Text" xml:space="preserve">
+		<value>Replace any existing solutions</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStrip1</value>
+	</data>
+	<data name="btClose.Text" xml:space="preserve">
+		<value>Close</value>
+	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(dimensions)</value>
+	</data>
+	<data name="menuStripMain.Text" xml:space="preserve">
+		<value>menuStripMain</value>
+	</data>
+	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
+		<value>File</value>
+	</data>
+	<data name="newToolStripMenuItem.Text" xml:space="preserve">
+		<value>&amp;New</value>
+	</data>
+	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Create new file</value>
+	</data>
+	<data name="openToolStripMenuItem.Text" xml:space="preserve">
+		<value>&amp;Open</value>
+	</data>
+	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Open file</value>
+	</data>
+	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
+		<value>&amp;Save</value>
+	</data>
+	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Save file</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+		<value>Save &amp;as...</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Save &amp;as...</value>
+	</data>
+	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+		<value>Save &amp;All</value>
+	</data>
+	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
+		<value>Close</value>
+	</data>
+	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Close active document</value>
+	</data>
+	<data name="mnuFileMRU.Text" xml:space="preserve">
+		<value>&amp;Recent Files...</value>
+	</data>
+	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
+		<value>&amp;Exit</value>
+	</data>
+	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Exit the application</value>
+	</data>
+	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
+		<value>Tools</value>
+	</data>
+	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Box</value>
+	</data>
+	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Case</value>
+	</data>
+	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Interlayer</value>
+	</data>
+	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+		<value>New B&amp;undle</value>
+	</data>
+	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Pallet</value>
+	</data>
+	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Truck</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Analysis</value>
+	</data>
+	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Bundle Analysis</value>
+	</data>
+	<data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>New &amp;Case Analysis</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+		<value>Search for optimal case</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+		<value>Search for optimal case</value>
+	</data>
+	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
+		<value>&amp;Edit pallet solutions database...</value>
+	</data>
+	<data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>New S&amp;tacking Strength Analysis</value>
+	</data>
+	<data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Compute maximum load on case using McKee formula</value>
+	</data>
+	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
+		<value>Help</value>
+	</data>
+	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+		<value>Help</value>
+	</data>
+	<data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+		<value>Tutorial</value>
+	</data>
+	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+		<value>About...</value>
+	</data>
+	<data name="toolStripButtonNewFile.Text" xml:space="preserve">
+		<value>&amp;New file</value>
+	</data>
+	<data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
+		<value>Create new file</value>
+	</data>
+	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+		<value>&amp;Open file</value>
+	</data>
+	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+		<value>Open file</value>
+	</data>
+	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
+		<value>&amp;Save file</value>
+	</data>
+	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+		<value>Sale &amp;All files</value>
+	</data>
+	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+		<value>Add New Box</value>
+	</data>
+	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+		<value>Add new case...</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+		<value>Add New Bundle</value>
+	</data>
+	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
+		<value>Add New Interlayer</value>
+	</data>
+	<data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+		<value>Add New Interlayer</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+		<value>Add New Pallet</value>
+	</data>
+	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+		<value>Add New Truck</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+		<value>Create new Analysis</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+		<value>Create new bundle analysis</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
+		<value>Create new case analysis</value>
+	</data>
+	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+		<value>Search for optimal case</value>
+	</data>
+	<data name="toolStripStackingStrengthAnalysis.Text" xml:space="preserve">
+		<value>Add case strength analysis</value>
+	</data>
+	<data name="toolStripStackingStrengthAnalysis.ToolTipText" xml:space="preserve">
+		<value>Compute stacking strength using McKee formula</value>
+	</data>
+	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Edit pallet solution database</value>
+	</data>
+	<data name="toolStripButtonHelp.Text" xml:space="preserve">
+		<value>Help</value>
+	</data>
+	<data name="toolStripStandard.Text" xml:space="preserve">
+		<value>Standard</value>
+	</data>
+	<data name="openFileDialogSB.Filter" xml:space="preserve">
+		<value>StackBuilder files|*.stb|All files|*.*</value>
+	</data>
+	<data name="openFileDialogSB.Title" xml:space="preserve">
+		<value>Open file...</value>
+	</data>
+	<data name="saveFileDialogSB.Filter" xml:space="preserve">
+		<value>StackBuilder files|*.stb</value>
+	</data>
+	<data name="saveFileDialogSB.Title" xml:space="preserve">
+		<value>Save file...</value>
+	</data>
+	<data name="lbMm.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
+		<value>Pallet overhang / underhang</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Pallet</value>
+	</data>
+	<data name="gbLayerAlignment.Text" xml:space="preserve">
+		<value>Layer alignment</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
+		<value>every  </value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>boxe(s)</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+		<value>when pallet height reaches</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>allow aligned layer</value>
+	</data>
+	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
+		<value>layers</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+		<value>when total pallet weight reaches</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>when number of boxes reaches</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>Stop stacking:</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Box</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Allowed layer patterns</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Column</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Interlocked</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>Diagonale</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Spiral</value>
+	</data>
+	<data name="lbKg2.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
+		<value>Show number of pallets required to stack </value>
+	</data>
+	<data name="gbAdditionalData.Text" xml:space="preserve">
+		<value>Additional data</value>
+	</data>
+	<data name="checkBoxPositionX.Text" xml:space="preserve">
+		<value>X</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+		<value>Allowed box positions</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
+		<value>when load on lower boxes reaches</value>
+	</data>
+	<data name="checkBoxPositionZ.Text" xml:space="preserve">
+		<value>Z</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>that are among the</value>
+	</data>
+	<data name="checkBoxInterlayer.Text" xml:space="preserve">
+		<value>Interlayer</value>
+	</data>
+	<data name="checkBoxPositionY.Text" xml:space="preserve">
+		<value>Y</value>
+	</data>
+	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
+		<value>Length</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>best solution(s)</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+		<value>Width</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>allow alternate layer</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>Additional stop stacking condition</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="lbBundle.Text" xml:space="preserve">
+		<value>Bundle</value>
+	</data>
+	<data name="bnAccept.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbFace.Text" xml:space="preserve">
+		<value>Face</value>
+	</data>
+	<data name="lbInsideHeight.Text" xml:space="preserve">
+		<value>Inside height</value>
+	</data>
+	<data name="lbInsideWidth.Text" xml:space="preserve">
+		<value>Inside width</value>
+	</data>
+	<data name="lbInsideLength.Text" xml:space="preserve">
+		<value>Inside length</value>
+	</data>
+	<data name="lbUnitHeightInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitWidthInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitLengthInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitHeight.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitWidth.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitLength.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+		<value>Height</value>
+	</data>
+	<data name="lbWidth.Text" xml:space="preserve">
+		<value>Width</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+		<value>Length</value>
+	</data>
+	<data name="gbDimensions.Text" xml:space="preserve">
+		<value>Dimentions</value>
+	</data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items2" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items3" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items4" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items5" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items6" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items7" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items8" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items9" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items10" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items11" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items12" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items13" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items14" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items15" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items16" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items17" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items18" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items19" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items20" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items21" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items22" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items23" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items29" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items30" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items31" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items32" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items33" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items34" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items35" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items36" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items37" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items38" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items39" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items40" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items41" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="btBitmaps.Text" xml:space="preserve">
+		<value>Bitmaps...</value>
+	</data>
+	<data name="chkAllFaces.Text" xml:space="preserve">
+		<value>All faces are the same color</value>
+	</data>
+	<data name="gbFaceColor.Text" xml:space="preserve">
+		<value>Face color</value>
+	</data>
+	<data name="lbWeight.Text" xml:space="preserve">
+		<value>Weight</value>
+	</data>
+	<data name="lbWeightOnTop.Text" xml:space="preserve">
+		<value>Admissible weight on top</value>
+	</data>
+	<data name="lbUnitWeightOnTop.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbUnitWeight.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="gbWeight.Text" xml:space="preserve">
+		<value>Weight</value>
+	</data>
+	<data name="lblName.Text" xml:space="preserve">
+		<value>Name</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="lbThickness.Text" xml:space="preserve">
+		<value>Thickness</value>
+	</data>
+	<data name="lbNoFlats.Text" xml:space="preserve">
+		<value>Number of flats</value>
+	</data>
+	<data name="lbUnitThickness.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbColor.Text" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Name</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
+		<value>when total case weight reaches</value>
+	</data>
+	<data name="gbSolutionFiltering.Text" xml:space="preserve">
+		<value>Additional data</value>
+	</data>
+	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
+		<value>where case contains at least</value>
+	</data>
+	<data name="lbFilterSolutions.Text" xml:space="preserve">
+		<value>Keep solutions:</value>
+	</data>
+	<data name="cbColor.Items42" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items43" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items44" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items45" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items46" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items47" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items48" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbAuthor.Text" xml:space="preserve">
+		<value>&amp;Author</value>
+	</data>
+	<data name="lbDateCreated.Text" xml:space="preserve">
+		<value>Date created</value>
+	</data>
+	<data name="gbColor.Text" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="radioButtonPallet1.Text" xml:space="preserve">
+		<value>Insert pallet from database</value>
+	</data>
+	<data name="radioButtonPallet2.Text" xml:space="preserve">
+		<value>Create new pallet</value>
+	</data>
+	<data name="lbMm3.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbType.Text" xml:space="preserve">
+		<value>Type</value>
+	</data>
+	<data name="radioButtonTruck2.Text" xml:space="preserve">
+		<value>Create new truck</value>
+	</data>
+	<data name="radioButtonTruck1.Text" xml:space="preserve">
+		<value>Insert truck from database</value>
+	</data>
+	<data name="lbKg.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="labelTruck.Text" xml:space="preserve">
+		<value>Truck</value>
+	</data>
+	<data name="checkBoxAllowSeveralLayers.Text" xml:space="preserve">
+		<value>Allow several pallet layers</value>
+	</data>
+	<data name="checkBoxAllowPalletOrientationX.Text" xml:space="preserve">
+		<value>Allow default pallet orientation</value>
+	</data>
+	<data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
+		<value>Allow orthogonal pallet orientation</value>
+	</data>
+	<data name="labelMinimalDistPalletWall.Text" xml:space="preserve">
+		<value>Minimal distance between pallet and truck walls</value>
+	</data>
+	<data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
+		<value>Minimal distance pallet / truck roof</value>
+	</data>
+	<data name="lbUnitDistPalletWalls.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitDistPalletRoof.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="btAddSolution.Text" xml:space="preserve">
+		<value>Create case and pallet analysis</value>
+	</data>
+	<data name="groupBox.Text" xml:space="preserve">
+		<value>Box (inner product)</value>
+	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+		<value>Case constraints</value>
+	</data>
+	<data name="gbPallet.Text" xml:space="preserve">
+		<value>Pallet</value>
+	</data>
+	<data name="lbNumber.Text" xml:space="preserve">
+		<value>Number of boxes per case</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Width</value>
+	</data>
+	<data name="btSetMinimum.Text" xml:space="preserve">
+		<value>Set minimum</value>
+	</data>
+	<data name="btOptimize.Text" xml:space="preserve">
+		<value>Optimize</value>
+	</data>
+	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
+		<value>Min. case dimensions (mm)</value>
+	</data>
+	<data name="btSetMaximum.Text" xml:space="preserve">
+		<value>Set maximum</value>
+	</data>
+	<data name="lbWallThickness.Text" xml:space="preserve">
+		<value>Wall thickness (mm)</value>
+	</data>
+	<data name="lbBoxDimensions.Text" xml:space="preserve">
+		<value>(dimensions)</value>
+	</data>
+	<data name="lbWalls.Text" xml:space="preserve">
+		<value>Number of walls</value>
+	</data>
+	<data name="lbPalletHeight.Text" xml:space="preserve">
+		<value>Maximum pallet height (mm)</value>
+	</data>
+	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+		<value>Max. case dimensions (mm)</value>
+	</data>
+	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+		<value>Help</value>
+	</data>
+	<data name="lbAdmissibleWeight.Text" xml:space="preserve">
+		<value>Admissible weight</value>
+	</data>
+	<data name="lbAdmissibleHeight.Text" xml:space="preserve">
+		<value>Admissible height</value>
+	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+		<value>Right view</value>
+	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+		<value>Left view</value>
+	</data>
+	<data name="toolStripCornerView_90.ToolTipText" xml:space="preserve">
+		<value>Corner view</value>
+	</data>
+	<data name="toolStripCornerView1.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="toolStripCornerView2.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripCornerView3.Text" xml:space="preserve">
+		<value>Corner view 270°</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+		<value>Add a new pallet</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+		<value>Add a new pallet analysis</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+		<value>Add a new bundle analysis</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
+		<value>Add </value>
+	</data>
 </root>

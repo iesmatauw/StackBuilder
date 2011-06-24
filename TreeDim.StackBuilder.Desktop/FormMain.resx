@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,126 +59,126 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dockPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dockPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="dockPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 610</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dockPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;dockPanel.Name" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="dockPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="dockPanel.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="dockPanel.Size" type="System.Drawing.Size, System.Drawing">
+		<value>784, 610</value>
+	</data>
+	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="dockPanel.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;dockPanel.Name" xml:space="preserve">
     <value>dockPanel</value>
   </data>
-  <data name="&gt;&gt;dockPanel.Type" xml:space="preserve">
+	<data name="&gt;&gt;dockPanel.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.DockPanel, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;dockPanel.Parent" xml:space="preserve">
+	<data name="&gt;&gt;dockPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;dockPanel.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;dockPanel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 24</value>
-  </data>
-  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
+	<metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>0, 0</value>
+	</metadata>
+	<data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
+		<value>784, 24</value>
+	</data>
+	<data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="menuStripMain.Text" xml:space="preserve">
     <value>menuStripMain</value>
   </data>
-  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
+	<data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
     <value>menuStripMain</value>
   </data>
-  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
+	<data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
+	<data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+	<data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>35, 20</value>
+	</data>
+	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ+SURBVDhPjZPZS1RxFMenv6H/oIdexQcFX6KnIB96CUKC
         CixfKqQMDAqJIBJaJbfENFLKYjBLXDKJaTRyIbcccxnHcWa8szmOM84+d66ffr876pQQduFwfufe813O
@@ -193,21 +193,21 @@
         s43msUWdoNNkpWMwF3sjSAeyQWapst/B4LBF//6v2LtvkmBWzDY2bePbjyVMI/N8FuBe084Pc9DN3HVy
         oNI+ot+ZU9MrNtKoEwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="newToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="newToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;New</value>
   </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Create new file</value>
   </data>
-  <data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGUSURBVDhPtZOxS8NAFMbzJ2R0vD8ho2PG4pTRMU52ETII
         drwxkxy4dDydOp5LqVAhiENBqScoFmsx6uJ4IHT9fHc505RaqIOBD47kfb/vvXskCDZ4pm8f4EKC56Su
@@ -218,21 +218,21 @@
         oUs/2N9brNKuxa5SK7oYEdQq6FxQmuKVZIdBZMyl9/vnywDBU/AOKUuQpQnS3RhJK0a8HSGKGCLGwLZC
         hGEIRvrTj/Tvxd+zmgI5yMmqsQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="openToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="openToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Open</value>
   </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Open file</value>
   </data>
-  <data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPrVOhksIwFOQT7hP4hEpkJDISGXkyEhmJrERG
         IiORcce5ypORyMhzj93XQkOPU3ed2WGmze7b3RdWq/940rmKIk04VYkROBbp+wmHIiEA+0E84Qd5zCYx
@@ -242,33 +242,33 @@
         RhfSGSNsfihV3D5gKieTHBcCsBiPuAeTbQqQ7Pe9FJC5fx96vCMxjr+b1gHyaW5kXrOwzqDQrMh5kHzh
         2qwSFdiE2ajL8fn8uCIjC0p6QR5A0yxLgcycOgIOW4G//KNv5kbQ6QovDPwAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="saveToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="saveToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Save</value>
   </data>
-  <data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Save file</value>
   </data>
-  <data name="saveAsToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+	<data name="saveAsToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
     <value>Save &amp;as...</value>
   </data>
-  <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Save &amp;as...</value>
   </data>
-  <data name="saveAllToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="saveAllToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVDhPtZMhb8MwFIT7U/YTBgcNAw0HPVZoGBg4GDho
         WGhppNKkyT/BcGyGg4Fjtzs3idqk6chW6alSlLvv3Xsvu91//MKhIATWS0HfZ/TPGV3HahO8Z+0TnIvY
@@ -278,144 +278,144 @@
         EWJEyopDw7HlFXk2YJsSW8fsjeXdd9AA41Fku868/Aje3j+xf3qF45C0b61M69KqNO1N8l98yT+wZ6LI
         RnGINAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="saveAllToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="saveAllToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
     <value>Save &amp;All</value>
   </data>
-  <data name="closeToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+	<data name="closeToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Close active document</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 6</value>
-  </data>
-  <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
+	<data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>139, 6</value>
+	</data>
+	<data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="mnuFileMRU.Text" xml:space="preserve">
     <value>&amp;Recent Files...</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 6</value>
-  </data>
-  <data name="exitToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+	<data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+		<value>139, 6</value>
+	</data>
+	<data name="exitToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>142, 22</value>
+	</data>
+	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Exit</value>
   </data>
-  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Exit the application</value>
   </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
-  </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+	<data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+		<value>45, 20</value>
+	</data>
+	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
     <value>Tools</value>
   </data>
-  <data name="newBoxToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newBoxToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVDhPY2AY1KCiouI/PozX8SCNM2++wophhuI0AFlz
         wayLKIbA5EA0VgOI0QxyGVYDqKYZ3e/IBuO0GV9owwwkyt+4bMepGRSSFEUZzACyE8ygzgr0cRwASwEb
         i/fMD1oAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="newBoxToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newBoxToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Box</value>
   </data>
-  <data name="newCaseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newCaseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVDhPY2AYrOA/0GHEYKzu/+/m5vb//yE+nBjJcAwD
         wJrwGQDSPCfKBuY6FAPgNuIyAKYZmwHE+BdsMwxDvQF3AYokskJkDaMGQKIPZxRiCzj0QMOlGRQVRMUC
         etQhpyKi0gFNMi4Ag7Ul6fq2otoAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="newCaseToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newCaseToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Case</value>
   </data>
-  <data name="newInterlayerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newInterlayerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA1SURBVDhPY2AYBThDwM3N7T8xGKsBII1fn8whiEHqMAwY
         1Yw74LAGGCgEiYkqnJpHswE4BADXnvSZwHtaFgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newInterlayerToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Interlayer</value>
   </data>
-  <data name="newBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVDhPY2AY+sDNze0/sRirb+/cuQM2AEQTwiB1GIbA
         NJNtCLILyDIE3QWDyxBiYgclUEkNUFD44Y0Vkl0AM43YgMTqAmRDyHYBXTMoAGJohbawRrSiAAAAAElF
         TkSuQmCC
 </value>
-  </data>
-  <data name="newBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>New B&amp;undle</value>
   </data>
-  <data name="newPalletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newPalletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPY2AYBcM1BP4f4vv/v47hP5jGw8bqf5iGO3fu
         wDXjYmMYQIrmOVE2/1EMgGmuqKiA24yLDXIRigFUsZkYP2M4G+QHkCCxGGuogzSD/AqThPkPRMPEQPJY
         badGOgYAwLDt8eT57l0AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="newPalletToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newPalletToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Pallet</value>
   </data>
-  <data name="newTruckToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newTruckToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVDhPY2AYBXhDYOrpxP8Np83+z38Z+n/Fx3g4Xv4x
         9v+CdyH/97+b9B9uwP/HZf9fzmYH4/9PasAS3n2c/2NWCf7P3Cb3v+mSyf+ZL73/L/8WBcZz3/n9T1qm
@@ -426,90 +426,90 @@
         //6VHZAABBrg2sr+33caGxzbxcv+NzLT/w+iQeIgvWADQNjExOT/o0ePwDRMDJ3GpgYejRMmTPhvbW39
         H0TjShzEqBmCWQsADMMcGU82sOcAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="newTruckToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newTruckToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Truck</value>
   </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 6</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+		<value>222, 6</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVDhPY2CgBZgTZfMfhIFmg2lcbKx2E6sZaiiGGWBb
         CWEkSxAGEGszzFtQSyAGEKsZFhZIhpBnAIYXiHUBLGywhQHBgEP2O8iA///BgU2eF/5/YvhfUVFBngEw
         zW5ubqQbgGEzzAsgCWIwirOR0yBIghiMM9+BNKP4CU0lSA6n7ZTmZgAnUDfW5c8DCwAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Analysis</value>
   </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newAnalysisBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVDhP1VNLDsAQEHU6Z3Iwx7FvusV+6jUzplJtTNJN
         JS8E72Pg3NctpURACOHsn8bdt5adBKtkiKtA3qg2YHIVMOoCpZEtznKkLmAhS8IhgSW2FHaowT8TUHZ6
         C9YaMFkFLDUAmW/AngDkGKMS5SFgYQVTMouQ9/4Vbd/d+fKL59F4Azs/ChyDUAwU4z5bRQAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newAnalysisBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Bundle Analysis</value>
   </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="newCaseAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPY2CgAfhPiZn/50TZgAwAG1JRUfEfH0a3CKwZ
         hkEaZ958BcfY+MgGYGgmZDtIHmYASTbDXAXzJsgQFGcTaTM8nOAGEONnkO0wC5FdADaEWJthgYxhAFQA
         5jSsNHIsYRiALImNjRxWyGkFa0wQMgDddpSYwOUSXIFHkguw2Qw3gJhApCST4dQLANv2YFrzjzlJAAAA
         AElFTkSuQmCC
 </value>
-  </data>
-  <data name="newCaseAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+	</data>
+	<data name="newCaseAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New &amp;Case Analysis</value>
   </data>
-  <data name="caseOptimisationToolStripMenu.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+	<data name="caseOptimisationToolStripMenu.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
     <value>Search for optimal case</value>
   </data>
-  <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
     <value>Search for optimal case</value>
   </data>
-  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 6</value>
-  </data>
-  <data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+		<value>222, 6</value>
+	</data>
+	<data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPpdHJSwJhHMZx8V/o3sVTBC149NYhiBaiKILK
         QxSBllZQFy9REW1WRgthWRkVJZhgC4lJQUIQRLaJQUYoWGpJaqYT8TTOa4s4I0EvzOXlnc98f+/weBzL
@@ -520,36 +520,36 @@
         kEUA5wIfluEMzPeKCaBXVdJAMSIJgC11urcOys4ijLQIMd0lgml9EC8BPwE2xioAewko7zjzJc5U5jTL
         2lpWwGYox8NVX/pULuA1HMSxWYOVSSnSpnIB/93/BBeQKlSJ6fg8AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="editPaletSolutionsDB.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+	</data>
+	<data name="editPaletSolutionsDB.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
     <value>&amp;Edit pallet solutions database...</value>
   </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newStackingStrengthAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="newStackingStrengthAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>225, 22</value>
+	</data>
+	<data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>New S&amp;tacking Strength Analysis</value>
   </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Compute maximum load on case using McKee formula</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+	<data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>41, 20</value>
+	</data>
+	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIkSURBVDhPbZJNaxNBGMf3I+Qj5BtY8eIxR6FaFg+Sk+Sg
         Uj0FDxIP6kJRUjRllSLFpmaJb6nSsj3EvFTN4mspxW6hsXmxyQZCSZNNOzW12lbz7zMzRRpw4GH+M/x/
@@ -562,36 +562,36 @@
         vHzLmZyDG6NzqGzQW9KpqmaLvnhwzffK9TbOXIri7niu9/e8ypQRHH4LI7OCxXwN63R7jVZH9MTLO01Q
         JGr9/79++rqG+/F5nA9N4eS5hziu6hi4HMNNPYNkrtgDHQCUX/M9CUpi5gAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+	</data>
+	<data name="helpToolStripMenuItemHelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+		<value>111, 22</value>
+	</data>
+	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
-  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+	<data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>111, 22</value>
+	</data>
+	<data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
     <value>Tutorial</value>
   </data>
-  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 6</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+	<data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+		<value>108, 6</value>
+	</data>
+	<data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
+		<value>111, 22</value>
+	</data>
+	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>About...</value>
   </data>
-  <metadata name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 24</value>
-  </metadata>
-  <data name="toolStripButtonNewFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<metadata name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>0, 24</value>
+	</metadata>
+	<data name="toolStripButtonNewFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ+SURBVDhPjZPZS1RxFMenv6H/oIdexQcFX6KnIB96CUKC
         CixfKqQMDAqJIBJaJbfENFLKYjBLXDKJaTRyIbcccxnHcWa8szmOM84+d66ffr876pQQduFwfufe813O
@@ -606,21 +606,21 @@
         s43msUWdoNNkpWMwF3sjSAeyQWapst/B4LBF//6v2LtvkmBWzDY2bePbjyVMI/N8FuBe084Pc9DN3HVy
         oNI+ot+ZU9MrNtKoEwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonNewFile.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonNewFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonNewFile.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonNewFile.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonNewFile.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonNewFile.Text" xml:space="preserve">
     <value>&amp;New file</value>
   </data>
-  <data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
     <value>Create new file</value>
   </data>
-  <data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGUSURBVDhPtZOxS8NAFMbzJ2R0vD8ho2PG4pTRMU52ETII
         drwxkxy4dDydOp5LqVAhiENBqScoFmsx6uJ4IHT9fHc505RaqIOBD47kfb/vvXskCDZ4pm8f4EKC56Su
@@ -631,21 +631,21 @@
         oUs/2N9brNKuxa5SK7oYEdQq6FxQmuKVZIdBZMyl9/vnywDBU/AOKUuQpQnS3RhJK0a8HSGKGCLGwLZC
         hGEIRvrTj/Tvxd+zmgI5yMmqsQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonFileOpen.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonFileOpen.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonFileOpen.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
     <value>&amp;Open file</value>
   </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
     <value>Open file</value>
   </data>
-  <data name="toolStripButtonFileSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonFileSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPrVOhksIwFOQT7hP4hEpkJDISGXkyEhmJrERG
         IiORcce5ypORyMhzj93XQkOPU3ed2WGmze7b3RdWq/940rmKIk04VYkROBbp+wmHIiEA+0E84Qd5zCYx
@@ -655,18 +655,18 @@
         RhfSGSNsfihV3D5gKieTHBcCsBiPuAeTbQqQ7Pe9FJC5fx96vCMxjr+b1gHyaW5kXrOwzqDQrMh5kHzh
         2qwSFdiE2ajL8fn8uCIjC0p6QR5A0yxLgcycOgIOW4G//KNv5kbQ6QovDPwAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonFileSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonFileSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonFileSave.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonFileSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonFileSave.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
     <value>&amp;Save file</value>
   </data>
-  <data name="toolStripButtonFileSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonFileSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVDhPtZMhb8MwFIT7U/YTBgcNAw0HPVZoGBg4GDho
         WGhppNKkyT/BcGyGg4Fjtzs3idqk6chW6alSlLvv3Xsvu91//MKhIATWS0HfZ/TPGV3HahO8Z+0TnIvY
@@ -676,108 +676,108 @@
         EWJEyopDw7HlFXk2YJsSW8fsjeXdd9AA41Fku868/Aje3j+xf3qF45C0b61M69KqNO1N8l98yT+wZ6LI
         RnGINAAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonFileSaveAll.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonFileSaveAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonFileSaveAll.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonFileSaveAll.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
     <value>Sale &amp;All files</value>
   </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripButtonAddNewBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+		<value>6, 25</value>
+	</data>
+	<data name="toolStripButtonAddNewBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVDhPY2AY1KCiouI/PozX8SCNM2++wophhuI0AFlz
         wayLKIbA5EA0VgOI0QxyGVYDqKYZ3e/IBuO0GV9owwwkyt+4bMepGRSSFEUZzACyE8ygzgr0cRwASwEb
         i/fMD1oAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonAddNewBox.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonAddNewBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonAddNewBox.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonAddNewBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
     <value>Add New Box</value>
   </data>
-  <data name="toolStripButtonAddNewCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonAddNewCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVDhPY2AYrOA/0GHEYKzu/+/m5vb//yE+nBjJcAwD
         wJrwGQDSPCfKBuY6FAPgNuIyAKYZmwHE+BdsMwxDvQF3AYokskJkDaMGQKIPZxRiCzj0QMOlGRQVRMUC
         etQhpyKi0gFNMi4Ag7Ul6fq2otoAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonAddNewCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonAddNewCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonAddNewCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonAddNewCase.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
     <value>Add new case...</value>
   </data>
-  <data name="toolStripButtonCreateNewBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonCreateNewBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVDhPY2AY+sDNze0/sRirb+/cuQM2AEQTwiB1GIbA
         NJNtCLILyDIE3QWDyxBiYgclUEkNUFD44Y0Vkl0AM43YgMTqAmRDyHYBXTMoAGJohbawRrSiAAAAAElF
         TkSuQmCC
 </value>
-  </data>
-  <data name="toolStripButtonCreateNewBundle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonCreateNewBundle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>Transparent</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundle.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
     <value>Add New Bundle</value>
   </data>
-  <data name="toolStripButtonCreateNewInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonCreateNewInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA1SURBVDhPY2AYBThDwM3N7T8xGKsBII1fn8whiEHqMAwY
         1Yw74LAGGCgEiYkqnJpHswE4BADXnvSZwHtaFgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonCreateNewInterlayer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonCreateNewInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
     <value>Add New Interlayer</value>
   </data>
-  <data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
     <value>Add New Interlayer</value>
   </data>
-  <data name="toolStripButtonAddNewPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonAddNewPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPY2AYBcM1BP4f4vv/v47hP5jGw8bqf5iGO3fu
         wDXjYmMYQIrmOVE2/1EMgGmuqKiA24yLDXIRigFUsZkYP2M4G+QHkCCxGGuogzSD/AqThPkPRMPEQPJY
         badGOgYAwLDt8eT57l0AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonAddNewPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
-  </data>
-  <data name="toolStripButtonAddNewPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonAddNewPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>Transparent</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
     <value>Add New Pallet</value>
   </data>
-  <data name="toolStripButtonAddNewTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonAddNewTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVDhPY2AYBXhDYOrpxP8Np83+z38Z+n/Fx3g4Xv4x
         9v+CdyH/97+b9B9uwP/HZf9fzmYH4/9PasAS3n2c/2NWCf7P3Cb3v+mSyf+ZL73/L/8WBcZz3/n9T1qm
@@ -788,119 +788,119 @@
         //6VHZAABBrg2sr+33caGxzbxcv+NzLT/w+iQeIgvWADQNjExOT/o0ePwDRMDJ3GpgYejRMmTPhvbW39
         H0TjShzEqBmCWQsADMMcGU82sOcAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonAddNewTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonAddNewTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonAddNewTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonAddNewTruck.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
     <value>Add New Truck</value>
   </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+		<value>6, 25</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVDhPY2CgBZgTZfMfhIFmg2lcbKx2E6sZaiiGGWBb
         CWEkSxAGEGszzFtQSyAGEKsZFhZIhpBnAIYXiHUBLGywhQHBgEP2O8iA///BgU2eF/5/YvhfUVFBngEw
         zW5ubqQbgGEzzAsgCWIwirOR0yBIghiMM9+BNKP4CU0lSA6n7ZTmZgAnUDfW5c8DCwAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>Transparent</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
     <value>Create new Analysis</value>
   </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonCreateNewBundleAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVDhP1VNLDsAQEHU6Z3Iwx7FvusV+6jUzplJtTNJN
         JS8E72Pg3NctpURACOHsn8bdt5adBKtkiKtA3qg2YHIVMOoCpZEtznKkLmAhS8IhgSW2FHaowT8TUHZ6
         C9YaMFkFLDUAmW/AngDkGKMS5SFgYQVTMouQ9/4Vbd/d+fKL59F4Azs/ChyDUAwU4z5bRQAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>Transparent</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
     <value>Create new bundle analysis</value>
   </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonCreateNewCaseAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPY2CgAfhPiZn/50TZgAwAG1JRUfEfH0a3CKwZ
         hkEaZ958BcfY+MgGYGgmZDtIHmYASTbDXAXzJsgQFGcTaTM8nOAGEONnkO0wC5FdADaEWJthgYxhAFQA
         5jSsNHIsYRiALImNjRxWyGkFa0wQMgDddpSYwOUSXIFHkguw2Qw3gJhApCST4dQLANv2YFrzjzlJAAAA
         AElFTkSuQmCC
 </value>
-  </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
     <value>Create new case analysis</value>
   </data>
-  <data name="toolStripButtonOptimiseCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripButtonOptimiseCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABvSURBVDhPY2AYrOA/0GGEME63/38rowLHIIPQ+VDDsRpA
         ULPSRh+YyzAMIEozLgMI+fc/SCMMY/PC//+fGOAYpACdj6YZZCEKIMoAkME4vUDIBTDNgyYMMKOQkBfw
         xT/INIKBiC/1gQ0gAtMm3wIAEVcDtxctSEkAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="toolStripButtonOptimiseCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonOptimiseCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripButtonOptimiseCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonOptimiseCase.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
     <value>Search for optimal case</value>
   </data>
-  <data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripStackingStrengthAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
+		<value>6, 25</value>
+	</data>
+	<data name="toolStripStackingStrengthAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVDhP3ZTbDsAgCEP5dP/c2cQabsrc48yIGzaHIslE
         ktVFxnNepaYUDH6q0ckdpNRQgJ3hGyo1vkpr0n1AwxzfTSFCIBpWTKwcXM4zwhZEt3AEzFYJxR6cbAF0
         NtvRbhYk63+X04WMk+wevCt8e92PIGEyt3cSABjRDSQFEPJ2zNUv4vP5A5ODwYg6jd2OAAAAAElFTkSu
         QmCC
 </value>
-  </data>
-  <data name="toolStripStackingStrengthAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripStackingStrengthAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripStackingStrengthAnalysis.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripStackingStrengthAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripStackingStrengthAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripStackingStrengthAnalysis.Text" xml:space="preserve">
     <value>Add case strength analysis</value>
   </data>
-  <data name="toolStripStackingStrengthAnalysis.ToolTipText" xml:space="preserve">
+	<data name="toolStripStackingStrengthAnalysis.ToolTipText" xml:space="preserve">
     <value>Compute stacking strength using McKee formula</value>
   </data>
-  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+		<value>6, 25</value>
+	</data>
+	<data name="editPaletSolutionsDBToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPpdHJSwJhHMZx8V/o3sVTBC149NYhiBaiKILK
         QxSBllZQFy9REW1WRgthWRkVJZhgC4lJQUIQRLaJQUYoWGpJaqYT8TTOa4s4I0EvzOXlnc98f+/weBzL
@@ -911,84 +911,84 @@
         kEUA5wIfluEMzPeKCaBXVdJAMSIJgC11urcOys4ijLQIMd0lgml9EC8BPwE2xioAewko7zjzJc5U5jTL
         2lpWwGYox8NVX/pULuA1HMSxWYOVSSnSpnIB/93/BBeQKlSJ6fg8AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
-  </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+	</data>
+	<data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>Transparent</value>
+	</data>
+	<data name="editPaletSolutionsDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Edit pallet solution database</value>
   </data>
-  <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
+	<data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
+		<value>6, 25</value>
+	</data>
+	<data name="toolStripButtonHelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+		<value>White</value>
+	</data>
+	<data name="toolStripButtonHelp.Size" type="System.Drawing.Size, System.Drawing">
+		<value>23, 22</value>
+	</data>
+	<data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="toolStripButtonHelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
+	<data name="toolStripStandard.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 24</value>
+	</data>
+	<data name="toolStripStandard.Size" type="System.Drawing.Size, System.Drawing">
+		<value>784, 25</value>
+	</data>
+	<data name="toolStripStandard.TabIndex" type="System.Int32, mscorlib">
+		<value>8</value>
+	</data>
+	<data name="toolStripStandard.Text" xml:space="preserve">
+    <value>Standard</value>
   </data>
-  <data name="toolStripButtonHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
-    <value>toolStripButtonHelp</value>
-  </data>
-  <data name="toolStripStandard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="toolStripStandard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 25</value>
-  </data>
-  <data name="toolStripStandard.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="toolStripStandard.Text" xml:space="preserve">
+	<data name="&gt;&gt;toolStripStandard.Name" xml:space="preserve">
     <value>toolStripStandard</value>
   </data>
-  <data name="&gt;&gt;toolStripStandard.Name" xml:space="preserve">
-    <value>toolStripStandard</value>
-  </data>
-  <data name="&gt;&gt;toolStripStandard.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripStandard.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripStandard.Parent" xml:space="preserve">
+	<data name="&gt;&gt;toolStripStandard.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;toolStripStandard.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;toolStripStandard.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="openFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>280, 17</value>
-  </metadata>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
+	<metadata name="openFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>280, 17</value>
+	</metadata>
+	<data name="openFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder files|*.stb|All files|*.*</value>
   </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
+	<data name="openFileDialogSB.Title" xml:space="preserve">
     <value>Open file...</value>
   </data>
-  <metadata name="saveFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>427, 17</value>
-  </metadata>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+	<metadata name="saveFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>427, 17</value>
+	</metadata>
+	<data name="saveFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder files|*.stb</value>
   </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
+	<data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>Save file...</value>
   </data>
-  <data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 6</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 610</value>
-  </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
+		<value>222, 6</value>
+	</data>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+		<value>6, 13</value>
+	</data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>784, 610</value>
+	</data>
+	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
@@ -1060,350 +1060,1061 @@
         AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
         AAD//wAA//8AAA==
 </value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+    <value>Optimize case dimensions...</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>PLMPack StackBuilder</value>
-  </data>
-  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
     <value>fileToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newToolStripMenuItem.Name" xml:space="preserve">
     <value>newToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
     <value>openToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;openToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;openToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
     <value>saveToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;saveToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;saveToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveAsToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;saveAsToolStripMenuItem.Name" xml:space="preserve">
     <value>saveAsToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;saveAsToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;saveAsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveAllToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;saveAllToolStripMenuItem.Name" xml:space="preserve">
     <value>saveAllToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;saveAllToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;saveAllToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;closeToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;closeToolStripMenuItem.Name" xml:space="preserve">
     <value>closeToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuFileMRU.Name" xml:space="preserve">
+	<data name="&gt;&gt;mnuFileMRU.Name" xml:space="preserve">
     <value>mnuFileMRU</value>
   </data>
-  <data name="&gt;&gt;mnuFileMRU.Type" xml:space="preserve">
+	<data name="&gt;&gt;mnuFileMRU.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
     <value>toolStripSeparator2</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
     <value>exitToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItemTools.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripMenuItemTools.Name" xml:space="preserve">
     <value>toolStripMenuItemTools</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItemTools.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripMenuItemTools.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newBoxToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newBoxToolStripMenuItem.Name" xml:space="preserve">
     <value>newBoxToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newBoxToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newBoxToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newCaseToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newCaseToolStripMenuItem.Name" xml:space="preserve">
     <value>newCaseToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newCaseToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newCaseToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newInterlayerToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newInterlayerToolStripMenuItem.Name" xml:space="preserve">
     <value>newInterlayerToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newInterlayerToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newInterlayerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newBundleToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newBundleToolStripMenuItem.Name" xml:space="preserve">
     <value>newBundleToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newBundleToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newBundleToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newPalletToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newPalletToolStripMenuItem.Name" xml:space="preserve">
     <value>newPalletToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newPalletToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newPalletToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newTruckToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newTruckToolStripMenuItem.Name" xml:space="preserve">
     <value>newTruckToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newTruckToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newTruckToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
     <value>toolStripSeparator5</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newAnalysisToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newAnalysisToolStripMenuItem.Name" xml:space="preserve">
     <value>newAnalysisToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newAnalysisToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newAnalysisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Name" xml:space="preserve">
     <value>newAnalysisBundleToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newCaseAnalysisToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newCaseAnalysisToolStripMenuItem.Name" xml:space="preserve">
     <value>newCaseAnalysisToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newCaseAnalysisToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newCaseAnalysisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;caseOptimisationToolStripMenu.Name" xml:space="preserve">
+	<data name="&gt;&gt;caseOptimisationToolStripMenu.Name" xml:space="preserve">
     <value>caseOptimisationToolStripMenu</value>
   </data>
-  <data name="&gt;&gt;caseOptimisationToolStripMenu.Type" xml:space="preserve">
+	<data name="&gt;&gt;caseOptimisationToolStripMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator7.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator7.Name" xml:space="preserve">
     <value>toolStripSeparator7</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator7.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator7.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editPaletSolutionsDB.Name" xml:space="preserve">
+	<data name="&gt;&gt;editPaletSolutionsDB.Name" xml:space="preserve">
     <value>editPaletSolutionsDB</value>
   </data>
-  <data name="&gt;&gt;editPaletSolutionsDB.Type" xml:space="preserve">
+	<data name="&gt;&gt;editPaletSolutionsDB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newStackingStrengthAnalysisToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;newStackingStrengthAnalysisToolStripMenuItem.Name" xml:space="preserve">
     <value>newStackingStrengthAnalysisToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;newStackingStrengthAnalysisToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;newStackingStrengthAnalysisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;helpToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;helpToolStripMenuItem.Name" xml:space="preserve">
     <value>helpToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;helpToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;helpToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;helpToolStripMenuItemHelp.Name" xml:space="preserve">
+	<data name="&gt;&gt;helpToolStripMenuItemHelp.Name" xml:space="preserve">
     <value>helpToolStripMenuItemHelp</value>
   </data>
-  <data name="&gt;&gt;helpToolStripMenuItemHelp.Type" xml:space="preserve">
+	<data name="&gt;&gt;helpToolStripMenuItemHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tutorialToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;tutorialToolStripMenuItem.Name" xml:space="preserve">
     <value>tutorialToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;tutorialToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;tutorialToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
     <value>toolStripSeparator9</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;helpToolStripMenuItemAbout.Name" xml:space="preserve">
+	<data name="&gt;&gt;helpToolStripMenuItemAbout.Name" xml:space="preserve">
     <value>helpToolStripMenuItemAbout</value>
   </data>
-  <data name="&gt;&gt;helpToolStripMenuItemAbout.Type" xml:space="preserve">
+	<data name="&gt;&gt;helpToolStripMenuItemAbout.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonNewFile.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonNewFile.Name" xml:space="preserve">
     <value>toolStripButtonNewFile</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonNewFile.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonNewFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonFileOpen.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonFileOpen.Name" xml:space="preserve">
     <value>toolStripButtonFileOpen</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonFileOpen.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonFileOpen.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonFileSave.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonFileSave.Name" xml:space="preserve">
     <value>toolStripButtonFileSave</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonFileSave.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonFileSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonFileSaveAll.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonFileSaveAll.Name" xml:space="preserve">
     <value>toolStripButtonFileSaveAll</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonFileSaveAll.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonFileSaveAll.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
     <value>toolStripSeparator3</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewBox.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewBox.Name" xml:space="preserve">
     <value>toolStripButtonAddNewBox</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewBox.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewCase.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewCase.Name" xml:space="preserve">
     <value>toolStripButtonAddNewCase</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewCase.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewCase.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewBundle.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewBundle.Name" xml:space="preserve">
     <value>toolStripButtonCreateNewBundle</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewBundle.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewBundle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewInterlayer.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewInterlayer.Name" xml:space="preserve">
     <value>toolStripButtonCreateNewInterlayer</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewInterlayer.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewInterlayer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewPallet.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewPallet.Name" xml:space="preserve">
     <value>toolStripButtonAddNewPallet</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewPallet.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewPallet.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewTruck.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewTruck.Name" xml:space="preserve">
     <value>toolStripButtonAddNewTruck</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonAddNewTruck.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonAddNewTruck.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
     <value>toolStripSeparator4</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewAnalysis.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewAnalysis.Name" xml:space="preserve">
     <value>toolStripButtonCreateNewAnalysis</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewAnalysis.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewBundleAnalysis.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewBundleAnalysis.Name" xml:space="preserve">
     <value>toolStripButtonCreateNewBundleAnalysis</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewBundleAnalysis.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewBundleAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewCaseAnalysis.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewCaseAnalysis.Name" xml:space="preserve">
     <value>toolStripButtonCreateNewCaseAnalysis</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewCaseAnalysis.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonCreateNewCaseAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonOptimiseCase.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonOptimiseCase.Name" xml:space="preserve">
     <value>toolStripButtonOptimiseCase</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonOptimiseCase.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonOptimiseCase.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator10.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator10.Name" xml:space="preserve">
     <value>toolStripSeparator10</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator10.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator10.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripStackingStrengthAnalysis.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripStackingStrengthAnalysis.Name" xml:space="preserve">
     <value>toolStripStackingStrengthAnalysis</value>
   </data>
-  <data name="&gt;&gt;toolStripStackingStrengthAnalysis.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripStackingStrengthAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator6.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator6.Name" xml:space="preserve">
     <value>toolStripSeparator6</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator6.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator6.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editPaletSolutionsDBToolStripMenuItem.Name" xml:space="preserve">
+	<data name="&gt;&gt;editPaletSolutionsDBToolStripMenuItem.Name" xml:space="preserve">
     <value>editPaletSolutionsDBToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;editPaletSolutionsDBToolStripMenuItem.Type" xml:space="preserve">
+	<data name="&gt;&gt;editPaletSolutionsDBToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator8.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator8.Name" xml:space="preserve">
     <value>toolStripSeparator8</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator8.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator8.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonHelp.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonHelp.Name" xml:space="preserve">
     <value>toolStripButtonHelp</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonHelp.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripButtonHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;openFileDialogSB.Name" xml:space="preserve">
+	<data name="&gt;&gt;openFileDialogSB.Name" xml:space="preserve">
     <value>openFileDialogSB</value>
   </data>
-  <data name="&gt;&gt;openFileDialogSB.Type" xml:space="preserve">
+	<data name="&gt;&gt;openFileDialogSB.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveFileDialogSB.Name" xml:space="preserve">
+	<data name="&gt;&gt;saveFileDialogSB.Name" xml:space="preserve">
     <value>saveFileDialogSB</value>
   </data>
-  <data name="&gt;&gt;saveFileDialogSB.Type" xml:space="preserve">
+	<data name="&gt;&gt;saveFileDialogSB.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator11.Name" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator11.Name" xml:space="preserve">
     <value>toolStripSeparator11</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator11.Type" xml:space="preserve">
+	<data name="&gt;&gt;toolStripSeparator11.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="labelProductName.Text" xml:space="preserve">
+		<value>Product Name</value>
+	</data>
+	<data name="labelVersion.Text" xml:space="preserve">
+		<value>Version</value>
+	</data>
+	<data name="labelCopyright.Text" xml:space="preserve">
+		<value>Copyright</value>
+	</data>
+	<data name="labelCompanyName.Text" xml:space="preserve">
+		<value>Company Name</value>
+	</data>
+	<data name="textBoxDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="okButton.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="linkLabelUrl.Text" xml:space="preserve">
+		<value>CompanyWebSiteUrl</value>
+	</data>
+	<data name="linkLabelEmail.Text" xml:space="preserve">
+		<value>Email</value>
+	</data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+		<value>Show images</value>
+	</data>
+	<data name="toolStrip_view.Text" xml:space="preserve">
+		<value>Views</value>
+	</data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+		<value>Front view</value>
+	</data>
+	<data name="toolStripCornerView180.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+		<value>Back view</value>
+	</data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+		<value>Rear view</value>
+	</data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+		<value>Right view</value>
+	</data>
+	<data name="toolStripCornerView0.Text" xml:space="preserve">
+		<value>Corner view 0°</value>
+	</data>
+	<data name="toolStripCornerView270.Text" xml:space="preserve">
+		<value>Corner view 270°</value>
+	</data>
+	<data name="toolStripCornerView90.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="btSelectSolution.Text" xml:space="preserve">
+		<value>Select</value>
+	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+		<value>Back view</value>
+	</data>
+	<data name="toolStripTopView.Text" xml:space="preserve">
+		<value>Top view</value>
+	</data>
+	<data name="toolStripCornerView_90.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="toolStripCornerView_180.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripCornerView_0.Text" xml:space="preserve">
+		<value>Corner view 0°</value>
+	</data>
+	<data name="toolStripCornerView_270.Text" xml:space="preserve">
+		<value>Corner view 270</value>
+	</data>
+	<data name="toolStripButtonTopView.Text" xml:space="preserve">
+		<value>Top view</value>
+	</data>
+	<data name="toolStripShowPallet.Text" xml:space="preserve">
+		<value>Show pallet</value>
+	</data>
+	<data name="toolStripViews.Text" xml:space="preserve">
+		<value>Views</value>
+	</data>
+	<data name="toolStripButton4.Text" xml:space="preserve">
+		<value>Corner view 270°</value>
+	</data>
+	<data name="toolStripButton8.Text" xml:space="preserve">
+		<value>Right view</value>
+	</data>
+	<data name="toolStripButton9.Text" xml:space="preserve">
+		<value>Top view</value>
+	</data>
+	<data name="toolStripButton5.Text" xml:space="preserve">
+		<value>Front view</value>
+	</data>
+	<data name="toolStripButton2.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="toolStripButton1.Text" xml:space="preserve">
+		<value>Corner view 0°</value>
+	</data>
+	<data name="toolStripButton3.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripButton6.Text" xml:space="preserve">
+		<value>Back view</value>
+	</data>
+	<data name="toolStripButton7.Text" xml:space="preserve">
+		<value>Left view</value>
+	</data>
+	<data name="lbFriendlyName.Text" xml:space="preserve">
+		<value>Friendly name</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>&amp;OK</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>&amp;Cancel</value>
+	</data>
+	<data name="labelQuestion.Text" xml:space="preserve">
+		<value>Database already contains some solution(s) for a case with these dimensions:</value>
+	</data>
+	<data name="rbKeepReplace1.Text" xml:space="preserve">
+		<value>Keep any existing solutions and also save this one</value>
+	</data>
+	<data name="rbKeepReplace2.Text" xml:space="preserve">
+		<value>Replace any existing solutions</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStrip1</value>
+	</data>
+	<data name="labelFace.Text" xml:space="preserve">
+		<value>Face</value>
+	</data>
+	<data name="cbFace.Items" xml:space="preserve">
+		<value>Rear</value>
+	</data>
+	<data name="cbFace.Items1" xml:space="preserve">
+		<value>Front</value>
+	</data>
+	<data name="cbFace.Items2" xml:space="preserve">
+		<value>Right</value>
+	</data>
+	<data name="cbFace.Items3" xml:space="preserve">
+		<value>Left</value>
+	</data>
+	<data name="cbFace.Items4" xml:space="preserve">
+		<value>Bottom</value>
+	</data>
+	<data name="cbFace.Items5" xml:space="preserve">
+		<value>Top</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Admissible load weight</value>
+	</data>
+	<data name="lbOrigin.Text" xml:space="preserve">
+		<value>Origin</value>
+	</data>
+	<data name="lbSize.Text" xml:space="preserve">
+		<value>Size</value>
+	</data>
+	<data name="lbAngle.Text" xml:space="preserve">
+		<value>Angle</value>
+	</data>
+	<data name="lbUnitOriginX.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitSizeX.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitAngle.Text" xml:space="preserve">
+		<value>°</value>
+	</data>
+	<data name="lbUnitOriginY.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitSizeY.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="bnMoveUp.Text" xml:space="preserve">
+		<value>Move up</value>
+	</data>
+	<data name="bnMoveDown.Text" xml:space="preserve">
+		<value>Move down</value>
+	</data>
+	<data name="bnAdd.Text" xml:space="preserve">
+		<value>Add texture...</value>
+	</data>
+	<data name="bnRemove.Text" xml:space="preserve">
+		<value>Remove</value>
+	</data>
+	<data name="openImageFileDialog.Filter" xml:space="preserve">
+		<value>Image Files (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
+	</data>
+	<data name="btClose.Text" xml:space="preserve">
+		<value>Close</value>
+	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(dimensions)</value>
+	</data>
+	<data name="lbMm.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
+		<value>Pallet overhang / underhang</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Pallet</value>
+	</data>
+	<data name="gbLayerAlignment.Text" xml:space="preserve">
+		<value>Layer alignment</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
+		<value>every  </value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>boxe(s)</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+		<value>when pallet height reaches</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>allow aligned layer</value>
+	</data>
+	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
+		<value>layers</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+		<value>when total pallet weight reaches</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>when number of boxes reaches</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>Stop stacking:</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Box</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Allowed layer patterns</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Column</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Interlocked</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>Diagonale</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Spiral</value>
+	</data>
+	<data name="lbKg2.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
+		<value>Show number of pallets required to stack </value>
+	</data>
+	<data name="gbAdditionalData.Text" xml:space="preserve">
+		<value>Additional data</value>
+	</data>
+	<data name="checkBoxPositionX.Text" xml:space="preserve">
+		<value>X</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+		<value>Allowed box positions</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
+		<value>when load on lower boxes reaches</value>
+	</data>
+	<data name="checkBoxPositionZ.Text" xml:space="preserve">
+		<value>Z</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>that are among the</value>
+	</data>
+	<data name="checkBoxInterlayer.Text" xml:space="preserve">
+		<value>Interlayer</value>
+	</data>
+	<data name="checkBoxPositionY.Text" xml:space="preserve">
+		<value>Y</value>
+	</data>
+	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
+		<value>Length</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>best solution(s)</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+		<value>Width</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>allow alternate layer</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>Additional stop stacking condition</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="lbBundle.Text" xml:space="preserve">
+		<value>Bundle</value>
+	</data>
+	<data name="bnAccept.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbFace.Text" xml:space="preserve">
+		<value>Face</value>
+	</data>
+	<data name="lbInsideHeight.Text" xml:space="preserve">
+		<value>Inside height</value>
+	</data>
+	<data name="lbInsideWidth.Text" xml:space="preserve">
+		<value>Inside width</value>
+	</data>
+	<data name="lbInsideLength.Text" xml:space="preserve">
+		<value>Inside length</value>
+	</data>
+	<data name="lbUnitHeightInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitWidthInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitLengthInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitHeight.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitWidth.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitLength.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+		<value>Height</value>
+	</data>
+	<data name="lbWidth.Text" xml:space="preserve">
+		<value>Width</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+		<value>Length</value>
+	</data>
+	<data name="gbDimensions.Text" xml:space="preserve">
+		<value>Dimentions</value>
+	</data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items2" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items3" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items4" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items5" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items6" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items7" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items8" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items9" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items10" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items11" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items12" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items13" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items14" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items15" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items16" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items17" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items18" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items19" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items20" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items21" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items22" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items23" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items29" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items30" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items31" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items32" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items33" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items34" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items35" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items36" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items37" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items38" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items39" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items40" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items41" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="btBitmaps.Text" xml:space="preserve">
+		<value>Bitmaps...</value>
+	</data>
+	<data name="chkAllFaces.Text" xml:space="preserve">
+		<value>All faces are the same color</value>
+	</data>
+	<data name="gbFaceColor.Text" xml:space="preserve">
+		<value>Face color</value>
+	</data>
+	<data name="lbWeight.Text" xml:space="preserve">
+		<value>Weight</value>
+	</data>
+	<data name="lbWeightOnTop.Text" xml:space="preserve">
+		<value>Admissible weight on top</value>
+	</data>
+	<data name="lbUnitWeightOnTop.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbUnitWeight.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="gbWeight.Text" xml:space="preserve">
+		<value>Weight</value>
+	</data>
+	<data name="lblName.Text" xml:space="preserve">
+		<value>Name</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="lbThickness.Text" xml:space="preserve">
+		<value>Thickness</value>
+	</data>
+	<data name="lbNoFlats.Text" xml:space="preserve">
+		<value>Number of flats</value>
+	</data>
+	<data name="lbUnitThickness.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbColor.Text" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Name</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
+		<value>when total case weight reaches</value>
+	</data>
+	<data name="gbSolutionFiltering.Text" xml:space="preserve">
+		<value>Additional data</value>
+	</data>
+	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
+		<value>where case contains at least</value>
+	</data>
+	<data name="lbFilterSolutions.Text" xml:space="preserve">
+		<value>Keep solutions:</value>
+	</data>
+	<data name="cbColor.Items42" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items43" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items44" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items45" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items46" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items47" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items48" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbAuthor.Text" xml:space="preserve">
+		<value>&amp;Author</value>
+	</data>
+	<data name="lbDateCreated.Text" xml:space="preserve">
+		<value>Date created</value>
+	</data>
+	<data name="gbColor.Text" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="radioButtonPallet1.Text" xml:space="preserve">
+		<value>Insert pallet from database</value>
+	</data>
+	<data name="radioButtonPallet2.Text" xml:space="preserve">
+		<value>Create new pallet</value>
+	</data>
+	<data name="lbMm3.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbType.Text" xml:space="preserve">
+		<value>Type</value>
+	</data>
+	<data name="radioButtonTruck2.Text" xml:space="preserve">
+		<value>Create new truck</value>
+	</data>
+	<data name="radioButtonTruck1.Text" xml:space="preserve">
+		<value>Insert truck from database</value>
+	</data>
+	<data name="lbKg.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="labelTruck.Text" xml:space="preserve">
+		<value>Truck</value>
+	</data>
+	<data name="checkBoxAllowSeveralLayers.Text" xml:space="preserve">
+		<value>Allow several pallet layers</value>
+	</data>
+	<data name="checkBoxAllowPalletOrientationX.Text" xml:space="preserve">
+		<value>Allow default pallet orientation</value>
+	</data>
+	<data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
+		<value>Allow orthogonal pallet orientation</value>
+	</data>
+	<data name="labelMinimalDistPalletWall.Text" xml:space="preserve">
+		<value>Minimal distance between pallet and truck walls</value>
+	</data>
+	<data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
+		<value>Minimal distance pallet / truck roof</value>
+	</data>
+	<data name="lbUnitDistPalletWalls.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitDistPalletRoof.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="btAddSolution.Text" xml:space="preserve">
+		<value>Create case and pallet analysis</value>
+	</data>
+	<data name="groupBox.Text" xml:space="preserve">
+		<value>Box (inner product)</value>
+	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+		<value>Case constraints</value>
+	</data>
+	<data name="gbPallet.Text" xml:space="preserve">
+		<value>Pallet</value>
+	</data>
+	<data name="lbNumber.Text" xml:space="preserve">
+		<value>Number of boxes per case</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Width</value>
+	</data>
+	<data name="btSetMinimum.Text" xml:space="preserve">
+		<value>Set minimum</value>
+	</data>
+	<data name="btOptimize.Text" xml:space="preserve">
+		<value>Optimize</value>
+	</data>
+	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
+		<value>Min. case dimensions (mm)</value>
+	</data>
+	<data name="btSetMaximum.Text" xml:space="preserve">
+		<value>Set maximum</value>
+	</data>
+	<data name="lbWallThickness.Text" xml:space="preserve">
+		<value>Wall thickness (mm)</value>
+	</data>
+	<data name="lbBoxDimensions.Text" xml:space="preserve">
+		<value>(dimensions)</value>
+	</data>
+	<data name="lbWalls.Text" xml:space="preserve">
+		<value>Number of walls</value>
+	</data>
+	<data name="lbPalletHeight.Text" xml:space="preserve">
+		<value>Maximum pallet height (mm)</value>
+	</data>
+	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+		<value>Max. case dimensions (mm)</value>
+	</data>
+	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+		<value>Help</value>
+	</data>
+	<data name="lbAdmissibleWeight.Text" xml:space="preserve">
+		<value>Admissible weight</value>
+	</data>
+	<data name="lbAdmissibleHeight.Text" xml:space="preserve">
+		<value>Admissible height</value>
+	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+		<value>Right view</value>
+	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+		<value>Left view</value>
+	</data>
+	<data name="toolStripCornerView_90.ToolTipText" xml:space="preserve">
+		<value>Corner view</value>
+	</data>
+	<data name="toolStripCornerView1.Text" xml:space="preserve">
+		<value>Corner view 90°</value>
+	</data>
+	<data name="toolStripCornerView2.Text" xml:space="preserve">
+		<value>Corner view 180°</value>
+	</data>
+	<data name="toolStripCornerView3.Text" xml:space="preserve">
+		<value>Corner view 270°</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+		<value>Add a new pallet</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+		<value>Add a new pallet analysis</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+		<value>Add a new bundle analysis</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
+		<value>Add </value>
+	</data>
 </root>

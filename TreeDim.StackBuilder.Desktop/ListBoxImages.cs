@@ -108,9 +108,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// item drawing method
         /// </summary>
-        /// <param name="e"></param>
-        /// <param name="margin"></param>
-        /// <param name="imageSize"></param>
+        /// <param name="e">Event arguments</param>
+        /// <param name="margin">Margin</param>
+        /// <param name="imageSize">Image size</param>
+        /// <param name="selected">true when drawing selected item</param>
         public void drawItem(DrawItemEventArgs e, Padding margin, Size imageSize, bool selected)
         {
             // draw background

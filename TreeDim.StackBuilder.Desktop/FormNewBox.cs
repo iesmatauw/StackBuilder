@@ -42,6 +42,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// FormNewBox constructor used when defining a new BoxProperties item
         /// </summary>
         /// <param name="document">Document in which the BoxProperties item is to be created</param>
+        /// <param name="mode">Mode is either Mode.MODE_CASE or Mode.MODE_BOX</param>
         public FormNewBox(Document document, Mode mode)
         {
             InitializeComponent();

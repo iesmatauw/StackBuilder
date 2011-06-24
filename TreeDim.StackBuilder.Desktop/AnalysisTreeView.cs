@@ -830,7 +830,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// handles analysis removed from document : actually removed analysis node from parent document node
         /// </summary>
         /// <param name="doc">parent document</param>
-        /// <param name="analysis">analysis</param>
+        /// <param name="caseAnalysis">analysis</param>
         public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
         {
             // get node

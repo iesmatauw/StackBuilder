@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewStackingStrengthAnalysis));
             this.lbCase = new System.Windows.Forms.Label();
             this.cbCases = new System.Windows.Forms.ComboBox();
             this.lbCardboard = new System.Windows.Forms.Label();
@@ -42,109 +43,115 @@
             // 
             // lbCase
             // 
-            this.lbCase.AutoSize = true;
-            this.lbCase.Location = new System.Drawing.Point(8, 10);
+            this.lbCase.AccessibleDescription = null;
+            this.lbCase.AccessibleName = null;
+            resources.ApplyResources(this.lbCase, "lbCase");
+            this.lbCase.Font = null;
             this.lbCase.Name = "lbCase";
-            this.lbCase.Size = new System.Drawing.Size(31, 13);
-            this.lbCase.TabIndex = 0;
-            this.lbCase.Text = "Case";
             // 
             // cbCases
             // 
+            this.cbCases.AccessibleDescription = null;
+            this.cbCases.AccessibleName = null;
+            resources.ApplyResources(this.cbCases, "cbCases");
+            this.cbCases.BackgroundImage = null;
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCases.Font = null;
             this.cbCases.FormattingEnabled = true;
-            this.cbCases.Location = new System.Drawing.Point(119, 10);
             this.cbCases.Name = "cbCases";
-            this.cbCases.Size = new System.Drawing.Size(230, 21);
-            this.cbCases.TabIndex = 1;
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // lbCardboard
             // 
-            this.lbCardboard.AutoSize = true;
-            this.lbCardboard.Location = new System.Drawing.Point(8, 42);
+            this.lbCardboard.AccessibleDescription = null;
+            this.lbCardboard.AccessibleName = null;
+            resources.ApplyResources(this.lbCardboard, "lbCardboard");
+            this.lbCardboard.Font = null;
             this.lbCardboard.Name = "lbCardboard";
-            this.lbCardboard.Size = new System.Drawing.Size(56, 13);
-            this.lbCardboard.TabIndex = 2;
-            this.lbCardboard.Text = "Cardboard";
             // 
             // lbHumidity
             // 
-            this.lbHumidity.AutoSize = true;
-            this.lbHumidity.Location = new System.Drawing.Point(8, 74);
+            this.lbHumidity.AccessibleDescription = null;
+            this.lbHumidity.AccessibleName = null;
+            resources.ApplyResources(this.lbHumidity, "lbHumidity");
+            this.lbHumidity.Font = null;
             this.lbHumidity.Name = "lbHumidity";
-            this.lbHumidity.Size = new System.Drawing.Size(83, 13);
-            this.lbHumidity.TabIndex = 3;
-            this.lbHumidity.Text = "Rate of humidity";
             // 
             // lbStorageDuration
             // 
-            this.lbStorageDuration.AutoSize = true;
-            this.lbStorageDuration.Location = new System.Drawing.Point(8, 106);
+            this.lbStorageDuration.AccessibleDescription = null;
+            this.lbStorageDuration.AccessibleName = null;
+            resources.ApplyResources(this.lbStorageDuration, "lbStorageDuration");
+            this.lbStorageDuration.Font = null;
             this.lbStorageDuration.Name = "lbStorageDuration";
-            this.lbStorageDuration.Size = new System.Drawing.Size(85, 13);
-            this.lbStorageDuration.TabIndex = 4;
-            this.lbStorageDuration.Text = "Storage duration";
             // 
             // cbCardboard
             // 
+            this.cbCardboard.AccessibleDescription = null;
+            this.cbCardboard.AccessibleName = null;
+            resources.ApplyResources(this.cbCardboard, "cbCardboard");
+            this.cbCardboard.BackgroundImage = null;
             this.cbCardboard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCardboard.Font = null;
             this.cbCardboard.FormattingEnabled = true;
-            this.cbCardboard.Location = new System.Drawing.Point(119, 42);
             this.cbCardboard.Name = "cbCardboard";
-            this.cbCardboard.Size = new System.Drawing.Size(230, 21);
-            this.cbCardboard.TabIndex = 5;
             this.cbCardboard.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // cbRateOfHumidity
             // 
+            this.cbRateOfHumidity.AccessibleDescription = null;
+            this.cbRateOfHumidity.AccessibleName = null;
+            resources.ApplyResources(this.cbRateOfHumidity, "cbRateOfHumidity");
+            this.cbRateOfHumidity.BackgroundImage = null;
             this.cbRateOfHumidity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRateOfHumidity.Font = null;
             this.cbRateOfHumidity.FormattingEnabled = true;
-            this.cbRateOfHumidity.Location = new System.Drawing.Point(119, 74);
             this.cbRateOfHumidity.Name = "cbRateOfHumidity";
-            this.cbRateOfHumidity.Size = new System.Drawing.Size(230, 21);
-            this.cbRateOfHumidity.TabIndex = 6;
             this.cbRateOfHumidity.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // cbStorageDuration
             // 
+            this.cbStorageDuration.AccessibleDescription = null;
+            this.cbStorageDuration.AccessibleName = null;
+            resources.ApplyResources(this.cbStorageDuration, "cbStorageDuration");
+            this.cbStorageDuration.BackgroundImage = null;
             this.cbStorageDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStorageDuration.Font = null;
             this.cbStorageDuration.FormattingEnabled = true;
-            this.cbStorageDuration.Location = new System.Drawing.Point(119, 106);
             this.cbStorageDuration.Name = "cbStorageDuration";
-            this.cbStorageDuration.Size = new System.Drawing.Size(230, 21);
-            this.cbStorageDuration.TabIndex = 7;
             this.cbStorageDuration.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // bnOK
             // 
-            this.bnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnOK.AccessibleDescription = null;
+            this.bnOK.AccessibleName = null;
+            resources.ApplyResources(this.bnOK, "bnOK");
+            this.bnOK.BackgroundImage = null;
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Location = new System.Drawing.Point(407, 10);
+            this.bnOK.Font = null;
             this.bnOK.Name = "bnOK";
-            this.bnOK.Size = new System.Drawing.Size(75, 23);
-            this.bnOK.TabIndex = 8;
-            this.bnOK.Text = "OK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(407, 40);
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 9;
-            this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // FormNewStackingStrengthAnalysis
             // 
             this.AcceptButton = this.bnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(492, 385);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOK);
             this.Controls.Add(this.cbStorageDuration);
@@ -155,12 +162,13 @@
             this.Controls.Add(this.lbCardboard);
             this.Controls.Add(this.cbCases);
             this.Controls.Add(this.lbCase);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewStackingStrengthAnalysis";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Create new strength analysis...";
             this.ResumeLayout(false);
             this.PerformLayout();
 

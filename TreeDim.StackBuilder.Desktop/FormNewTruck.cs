@@ -20,8 +20,8 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewTruck : Form
     {
         #region Data members
-        private Document _document;
-        private TruckProperties _truckProperties;
+        [NonSerialized]private Document _document;
+        [NonSerialized]private TruckProperties _truckProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewTruck));
         #endregion
 

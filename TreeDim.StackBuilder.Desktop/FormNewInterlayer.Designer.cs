@@ -70,43 +70,68 @@
             // 
             // bnOk
             // 
+            this.bnOk.AccessibleDescription = null;
+            this.bnOk.AccessibleName = null;
             resources.ApplyResources(this.bnOk, "bnOk");
+            this.bnOk.BackgroundImage = null;
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOk.Font = null;
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
             resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // tbDescription
             // 
+            this.tbDescription.AccessibleDescription = null;
+            this.tbDescription.AccessibleName = null;
             resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.BackgroundImage = null;
+            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbName
             // 
+            this.tbName.AccessibleDescription = null;
+            this.tbName.AccessibleName = null;
             resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.BackgroundImage = null;
+            this.tbName.Font = null;
             this.tbName.Name = "tbName";
             this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // lblDescription
             // 
+            this.lblDescription.AccessibleDescription = null;
+            this.lblDescription.AccessibleName = null;
             resources.ApplyResources(this.lblDescription, "lblDescription");
+            this.lblDescription.Font = null;
             this.lblDescription.Name = "lblDescription";
             // 
             // lblName
             // 
+            this.lblName.AccessibleDescription = null;
+            this.lblName.AccessibleName = null;
             resources.ApplyResources(this.lblName, "lblName");
+            this.lblName.Font = null;
             this.lblName.Name = "lblName";
             // 
             // nudLength
             // 
+            this.nudLength.AccessibleDescription = null;
+            this.nudLength.AccessibleName = null;
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.Font = null;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -127,7 +152,10 @@
             // 
             // nudThickness
             // 
+            this.nudThickness.AccessibleDescription = null;
+            this.nudThickness.AccessibleName = null;
             resources.ApplyResources(this.nudThickness, "nudThickness");
+            this.nudThickness.Font = null;
             this.nudThickness.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -148,6 +176,10 @@
             // 
             // gbDimensions
             // 
+            this.gbDimensions.AccessibleDescription = null;
+            this.gbDimensions.AccessibleName = null;
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
+            this.gbDimensions.BackgroundImage = null;
             this.gbDimensions.Controls.Add(this.lbUnitThickness);
             this.gbDimensions.Controls.Add(this.lbUnitWidth);
             this.gbDimensions.Controls.Add(this.lbUnitLength);
@@ -157,28 +189,40 @@
             this.gbDimensions.Controls.Add(this.lbThickness);
             this.gbDimensions.Controls.Add(this.lbWidth);
             this.gbDimensions.Controls.Add(this.lbLength);
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
+            this.gbDimensions.Font = null;
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
             // lbUnitThickness
             // 
+            this.lbUnitThickness.AccessibleDescription = null;
+            this.lbUnitThickness.AccessibleName = null;
             resources.ApplyResources(this.lbUnitThickness, "lbUnitThickness");
+            this.lbUnitThickness.Font = null;
             this.lbUnitThickness.Name = "lbUnitThickness";
             // 
             // lbUnitWidth
             // 
+            this.lbUnitWidth.AccessibleDescription = null;
+            this.lbUnitWidth.AccessibleName = null;
             resources.ApplyResources(this.lbUnitWidth, "lbUnitWidth");
+            this.lbUnitWidth.Font = null;
             this.lbUnitWidth.Name = "lbUnitWidth";
             // 
             // lbUnitLength
             // 
+            this.lbUnitLength.AccessibleDescription = null;
+            this.lbUnitLength.AccessibleName = null;
             resources.ApplyResources(this.lbUnitLength, "lbUnitLength");
+            this.lbUnitLength.Font = null;
             this.lbUnitLength.Name = "lbUnitLength";
             // 
             // nudWidth
             // 
+            this.nudWidth.AccessibleDescription = null;
+            this.nudWidth.AccessibleName = null;
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.Font = null;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -199,32 +243,48 @@
             // 
             // lbThickness
             // 
+            this.lbThickness.AccessibleDescription = null;
+            this.lbThickness.AccessibleName = null;
             resources.ApplyResources(this.lbThickness, "lbThickness");
+            this.lbThickness.Font = null;
             this.lbThickness.Name = "lbThickness";
             // 
             // lbWidth
             // 
+            this.lbWidth.AccessibleDescription = null;
+            this.lbWidth.AccessibleName = null;
             resources.ApplyResources(this.lbWidth, "lbWidth");
+            this.lbWidth.Font = null;
             this.lbWidth.Name = "lbWidth";
             // 
             // lbLength
             // 
+            this.lbLength.AccessibleDescription = null;
+            this.lbLength.AccessibleName = null;
             resources.ApplyResources(this.lbLength, "lbLength");
+            this.lbLength.Font = null;
             this.lbLength.Name = "lbLength";
             // 
             // label1
             // 
+            this.label1.AccessibleDescription = null;
+            this.label1.AccessibleName = null;
             resources.ApplyResources(this.label1, "label1");
+            this.label1.Font = null;
             this.label1.Name = "label1";
             // 
             // cbColor
             // 
+            this.cbColor.AccessibleDescription = null;
+            this.cbColor.AccessibleName = null;
+            resources.ApplyResources(this.cbColor, "cbColor");
+            this.cbColor.BackgroundImage = null;
             this.cbColor.Color = System.Drawing.Color.Beige;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColor, "cbColor");
+            this.cbColor.Font = null;
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -240,14 +300,20 @@
             resources.GetString("cbColor.Items11"),
             resources.GetString("cbColor.Items12"),
             resources.GetString("cbColor.Items13"),
-            resources.GetString("cbColor.Items14")});
+            resources.GetString("cbColor.Items14"),
+            resources.GetString("cbColor.Items15"),
+            resources.GetString("cbColor.Items16"),
+            resources.GetString("cbColor.Items17")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
             // nudWeight
             // 
-            this.nudWeight.DecimalPlaces = 3;
+            this.nudWeight.AccessibleDescription = null;
+            this.nudWeight.AccessibleName = null;
             resources.ApplyResources(this.nudWeight, "nudWeight");
+            this.nudWeight.DecimalPlaces = 3;
+            this.nudWeight.Font = null;
             this.nudWeight.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -258,34 +324,52 @@
             // 
             // lbWeight
             // 
+            this.lbWeight.AccessibleDescription = null;
+            this.lbWeight.AccessibleName = null;
             resources.ApplyResources(this.lbWeight, "lbWeight");
+            this.lbWeight.Font = null;
             this.lbWeight.Name = "lbWeight";
             // 
             // gbWeight
             // 
+            this.gbWeight.AccessibleDescription = null;
+            this.gbWeight.AccessibleName = null;
+            resources.ApplyResources(this.gbWeight, "gbWeight");
+            this.gbWeight.BackgroundImage = null;
             this.gbWeight.Controls.Add(this.lbUnitWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
-            resources.ApplyResources(this.gbWeight, "gbWeight");
+            this.gbWeight.Font = null;
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
             // lbUnitWeight
             // 
+            this.lbUnitWeight.AccessibleDescription = null;
+            this.lbUnitWeight.AccessibleName = null;
             resources.ApplyResources(this.lbUnitWeight, "lbUnitWeight");
+            this.lbUnitWeight.Font = null;
             this.lbUnitWeight.Name = "lbUnitWeight";
             // 
             // gbColor
             // 
+            this.gbColor.AccessibleDescription = null;
+            this.gbColor.AccessibleName = null;
+            resources.ApplyResources(this.gbColor, "gbColor");
+            this.gbColor.BackgroundImage = null;
             this.gbColor.Controls.Add(this.cbColor);
             this.gbColor.Controls.Add(this.label1);
-            resources.ApplyResources(this.gbColor, "gbColor");
+            this.gbColor.Font = null;
             this.gbColor.Name = "gbColor";
             this.gbColor.TabStop = false;
             // 
             // trackBarHorizAngle
             // 
+            this.trackBarHorizAngle.AccessibleDescription = null;
+            this.trackBarHorizAngle.AccessibleName = null;
             resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
+            this.trackBarHorizAngle.BackgroundImage = null;
+            this.trackBarHorizAngle.Font = null;
             this.trackBarHorizAngle.LargeChange = 90;
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
@@ -295,29 +379,44 @@
             // 
             // pictureBox
             // 
+            this.pictureBox.AccessibleDescription = null;
+            this.pictureBox.AccessibleName = null;
             resources.ApplyResources(this.pictureBox, "pictureBox");
+            this.pictureBox.BackgroundImage = null;
+            this.pictureBox.Font = null;
+            this.pictureBox.ImageLocation = null;
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.TabStop = false;
             // 
             // statusStripDef
             // 
+            this.statusStripDef.AccessibleDescription = null;
+            this.statusStripDef.AccessibleName = null;
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
+            this.statusStripDef.BackgroundImage = null;
+            this.statusStripDef.Font = null;
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            this.toolStripStatusLabelDef.AccessibleDescription = null;
+            this.toolStripStatusLabelDef.AccessibleName = null;
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            this.toolStripStatusLabelDef.BackgroundImage = null;
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewInterlayer
             // 
             this.AcceptButton = this.bnOk;
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.trackBarHorizAngle);
@@ -331,6 +430,8 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOk);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewInterlayer";

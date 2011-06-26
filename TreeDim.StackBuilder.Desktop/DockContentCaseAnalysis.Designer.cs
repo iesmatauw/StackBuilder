@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentCaseAnalysis));
+            this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.splitContainerVert = new System.Windows.Forms.SplitContainer();
+            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
+            this.btSelectSolution = new System.Windows.Forms.Button();
+            this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
+            this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
+            this.pictureBoxPalletSolution = new System.Windows.Forms.PictureBox();
+            this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip_view = new System.Windows.Forms.ToolStrip();
             this.toolStripCornerView0 = new System.Windows.Forms.ToolStripButton();
             this.toolStripCornerView90 = new System.Windows.Forms.ToolStripButton();
@@ -44,26 +52,100 @@
             this.toolStripShowImages = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripShowPallet = new System.Windows.Forms.ToolStripButton();
-            this.btSelectSolution = new System.Windows.Forms.Button();
-            this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
-            this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
-            this.gridSolutions = new SourceGrid.Grid();
-            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPalletSolution = new System.Windows.Forms.PictureBox();
-            this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
-            this.splitContainerVert = new System.Windows.Forms.SplitContainer();
-            this.toolStrip_view.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalletSolution)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalletSolution)).BeginInit();
+            this.toolStrip_view.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainerHoriz
+            // 
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
+            this.splitContainerHoriz.Name = "splitContainerHoriz";
+            // 
+            // splitContainerHoriz.Panel1
+            // 
+            this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
+            // 
+            // splitContainerHoriz.Panel2
+            // 
+            this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
+            // 
+            // splitContainerVert
+            // 
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
+            this.splitContainerVert.Name = "splitContainerVert";
+            // 
+            // splitContainerVert.Panel1
+            // 
+            this.splitContainerVert.Panel1.Controls.Add(this.pictureBoxSolution);
+            this.splitContainerVert.Panel1.Controls.Add(this.btSelectSolution);
+            this.splitContainerVert.Panel1.Controls.Add(this.trackBarAngleVert);
+            this.splitContainerVert.Panel1.Controls.Add(this.trackBarAngleHoriz);
+            // 
+            // splitContainerVert.Panel2
+            // 
+            this.splitContainerVert.Panel2.Controls.Add(this.pictureBoxPalletSolution);
+            // 
+            // pictureBoxSolution
+            // 
+            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.TabStop = false;
+            this.pictureBoxSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
+            // 
+            // btSelectSolution
+            // 
+            resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
+            this.btSelectSolution.Name = "btSelectSolution";
+            this.btSelectSolution.UseVisualStyleBackColor = true;
+            // 
+            // trackBarAngleVert
+            // 
+            resources.ApplyResources(this.trackBarAngleVert, "trackBarAngleVert");
+            this.trackBarAngleVert.LargeChange = 15;
+            this.trackBarAngleVert.Maximum = 90;
+            this.trackBarAngleVert.Name = "trackBarAngleVert";
+            this.trackBarAngleVert.TickFrequency = 15;
+            this.trackBarAngleVert.Value = 45;
+            this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
+            // 
+            // trackBarAngleHoriz
+            // 
+            resources.ApplyResources(this.trackBarAngleHoriz, "trackBarAngleHoriz");
+            this.trackBarAngleHoriz.LargeChange = 45;
+            this.trackBarAngleHoriz.Maximum = 360;
+            this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
+            this.trackBarAngleHoriz.SmallChange = 45;
+            this.trackBarAngleHoriz.TickFrequency = 90;
+            this.trackBarAngleHoriz.Value = 225;
+            this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
+            // 
+            // pictureBoxPalletSolution
+            // 
+            resources.ApplyResources(this.pictureBoxPalletSolution, "pictureBoxPalletSolution");
+            this.pictureBoxPalletSolution.Name = "pictureBoxPalletSolution";
+            this.pictureBoxPalletSolution.TabStop = false;
+            this.pictureBoxPalletSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
+            // 
+            // gridSolutions
+            // 
+            this.gridSolutions.AcceptsInputChar = false;
+            resources.ApplyResources(this.gridSolutions, "gridSolutions");
+            this.gridSolutions.EnableSort = false;
+            this.gridSolutions.Name = "gridSolutions";
+            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
+            this.gridSolutions.TabStop = true;
+            this.gridSolutions.ToolTipText = "";
             // 
             // toolStrip_view
             // 
@@ -188,88 +270,6 @@
             this.toolStripShowPallet.Name = "toolStripShowPallet";
             this.toolStripShowPallet.Click += new System.EventHandler(this.toolStripShowPallet_Click);
             // 
-            // btSelectSolution
-            // 
-            resources.ApplyResources(this.btSelectSolution, "btSelectSolution");
-            this.btSelectSolution.Name = "btSelectSolution";
-            this.btSelectSolution.UseVisualStyleBackColor = true;
-            // 
-            // trackBarAngleVert
-            // 
-            resources.ApplyResources(this.trackBarAngleVert, "trackBarAngleVert");
-            this.trackBarAngleVert.LargeChange = 15;
-            this.trackBarAngleVert.Maximum = 90;
-            this.trackBarAngleVert.Name = "trackBarAngleVert";
-            this.trackBarAngleVert.TickFrequency = 15;
-            this.trackBarAngleVert.Value = 45;
-            this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
-            // 
-            // trackBarAngleHoriz
-            // 
-            resources.ApplyResources(this.trackBarAngleHoriz, "trackBarAngleHoriz");
-            this.trackBarAngleHoriz.LargeChange = 45;
-            this.trackBarAngleHoriz.Maximum = 360;
-            this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
-            this.trackBarAngleHoriz.SmallChange = 45;
-            this.trackBarAngleHoriz.TickFrequency = 90;
-            this.trackBarAngleHoriz.Value = 225;
-            this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
-            // 
-            // gridSolutions
-            // 
-            this.gridSolutions.AcceptsInputChar = false;
-            resources.ApplyResources(this.gridSolutions, "gridSolutions");
-            this.gridSolutions.EnableSort = false;
-            this.gridSolutions.Name = "gridSolutions";
-            this.gridSolutions.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridSolutions.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridSolutions.SpecialKeys = SourceGrid.GridSpecialKeys.Arrows;
-            this.gridSolutions.TabStop = true;
-            this.gridSolutions.ToolTipText = "";
-            // 
-            // pictureBoxSolution
-            // 
-            resources.ApplyResources(this.pictureBoxSolution, "pictureBoxSolution");
-            this.pictureBoxSolution.Name = "pictureBoxSolution";
-            this.pictureBoxSolution.TabStop = false;
-            this.pictureBoxSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
-            // 
-            // pictureBoxPalletSolution
-            // 
-            resources.ApplyResources(this.pictureBoxPalletSolution, "pictureBoxPalletSolution");
-            this.pictureBoxPalletSolution.Name = "pictureBoxPalletSolution";
-            this.pictureBoxPalletSolution.TabStop = false;
-            this.pictureBoxPalletSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
-            // 
-            // splitContainerHoriz
-            // 
-            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
-            this.splitContainerHoriz.Name = "splitContainerHoriz";
-            // 
-            // splitContainerHoriz.Panel1
-            // 
-            this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
-            // 
-            // splitContainerHoriz.Panel2
-            // 
-            this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
-            // 
-            // splitContainerVert
-            // 
-            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
-            this.splitContainerVert.Name = "splitContainerVert";
-            // 
-            // splitContainerVert.Panel1
-            // 
-            this.splitContainerVert.Panel1.Controls.Add(this.pictureBoxSolution);
-            this.splitContainerVert.Panel1.Controls.Add(this.btSelectSolution);
-            this.splitContainerVert.Panel1.Controls.Add(this.trackBarAngleVert);
-            this.splitContainerVert.Panel1.Controls.Add(this.trackBarAngleHoriz);
-            // 
-            // splitContainerVert.Panel2
-            // 
-            this.splitContainerVert.Panel2.Controls.Add(this.pictureBoxPalletSolution);
-            // 
             // DockContentCaseAnalysis
             // 
             resources.ApplyResources(this, "$this");
@@ -278,12 +278,6 @@
             this.Controls.Add(this.toolStrip_view);
             this.Name = "DockContentCaseAnalysis";
             this.ShowInTaskbar = false;
-            this.toolStrip_view.ResumeLayout(false);
-            this.toolStrip_view.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalletSolution)).EndInit();
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
             this.splitContainerHoriz.ResumeLayout(false);
@@ -291,6 +285,12 @@
             this.splitContainerVert.Panel1.PerformLayout();
             this.splitContainerVert.Panel2.ResumeLayout(false);
             this.splitContainerVert.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalletSolution)).EndInit();
+            this.toolStrip_view.ResumeLayout(false);
+            this.toolStrip_view.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

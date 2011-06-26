@@ -20,8 +20,8 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewPallet : Form
     {
         #region Data members
-        private Document _document;
-        private PalletProperties _palletProperties;
+        [NonSerialized]private Document _document;
+        [NonSerialized]private PalletProperties _palletProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
         #endregion
 
@@ -52,8 +52,6 @@ namespace TreeDim.StackBuilder.Desktop
             // select radio button
             radioButtonPallet1.Checked = false;
             radioButtonPallet2.Checked = true;
-            onPalletInsertionModeChanged(this, null);
-            UpdateButtonOkStatus();
         }
         public FormNewPallet(Document document, PalletProperties palletProperties)
         {
@@ -85,8 +83,6 @@ namespace TreeDim.StackBuilder.Desktop
             // select radio button
             radioButtonPallet1.Checked = false;
             radioButtonPallet2.Checked = true;
-            onPalletInsertionModeChanged(this, null);
-            UpdateButtonOkStatus();
         }
         #endregion
 
@@ -240,6 +236,9 @@ namespace TreeDim.StackBuilder.Desktop
         #region Load / FormClosing event
         private void FormNewPallet_Load(object sender, EventArgs e)
         {
+            onPalletInsertionModeChanged(this, null);
+            UpdateButtonOkStatus();
+
             // windows settings
             if (null != Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition.Restore(this);

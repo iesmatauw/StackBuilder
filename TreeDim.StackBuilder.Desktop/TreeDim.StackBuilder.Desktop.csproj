@@ -250,6 +250,9 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
       <Generator>"C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\x64\resgen.exe"</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.ja-JP.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -265,14 +268,26 @@
     <EmbeddedResource Include="DockContentAnalysis.fr-FR.resx">
       <DependentUpon>DockContentAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysis.ja-JP.resx">
+      <DependentUpon>DockContentAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysis.resx">
       <DependentUpon>DockContentAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.fr-FR.resx">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.ja-JP.resx">
+      <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.resx">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentCaseAnalysis.fr-FR.resx">
+      <DependentUpon>DockContentCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentCaseAnalysis.ja-JP.resx">
+      <DependentUpon>DockContentCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentCaseAnalysis.resx">
       <DependentUpon>DockContentCaseAnalysis.cs</DependentUpon>
@@ -286,10 +301,16 @@
     <EmbeddedResource Include="DockContentTruckAnalysis.fr-FR.resx">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentTruckAnalysis.ja-JP.resx">
+      <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentTruckAnalysis.resx">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.fr-FR.resx">
+      <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAppendSolutionToDB.ja-JP.resx">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.resx">
@@ -298,10 +319,16 @@
     <EmbeddedResource Include="FormEditBitmaps.fr-FR.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.ja-JP.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditPalletSolutionDB.fr-FR.resx">
+      <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPalletSolutionDB.ja-JP.resx">
       <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditPalletSolutionDB.resx">
@@ -310,7 +337,13 @@
     <EmbeddedResource Include="FormMain.fr-FR.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.ja-JP.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.ja-JP.resx">
       <DependentUpon>FormNewAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.resx">
@@ -320,10 +353,16 @@
     <EmbeddedResource Include="FormNewAnalysisBundle.fr-FR.resx">
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBundle.ja-JP.resx">
+      <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisBundle.resx">
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.fr-FR.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.ja-JP.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
@@ -333,9 +372,18 @@
     <EmbeddedResource Include="FormNewBundle.fr-FR.resx">
       <DependentUpon>FormNewBundle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.ja-JP.resx">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseAnalysis.ja-JP.resx">
+      <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCaseAnalysis.resx">
       <DependentUpon>FormNewCaseAnalysis.cs</DependentUpon>
@@ -343,10 +391,16 @@
     <EmbeddedResource Include="FormNewCaseOfBoxes.fr-FR.resx">
       <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCaseOfBoxes.ja-JP.resx">
+      <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewCaseOfBoxes.resx">
       <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.fr-FR.resx">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.ja-JP.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.resx">
@@ -356,11 +410,17 @@
     <EmbeddedResource Include="FormNewInterlayer.fr-FR.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.ja-JP.resx">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.fr-FR.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.ja-JP.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.resx">
@@ -370,10 +430,19 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewStackingStrengthAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewStackingStrengthAnalysis.ja-JP.resx">
+      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewStackingStrengthAnalysis.resx">
       <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.ja-JP.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.resx">
@@ -382,10 +451,16 @@
     <EmbeddedResource Include="FormNewTruckAnalysis.fr-FR.resx">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruckAnalysis.ja-JP.resx">
+      <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruckAnalysis.resx">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.ja-JP.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.resx">

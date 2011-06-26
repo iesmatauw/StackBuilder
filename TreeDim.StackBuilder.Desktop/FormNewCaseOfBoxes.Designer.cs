@@ -59,77 +59,132 @@
             // 
             // splitContainerCaseOfBoxes
             // 
+            this.splitContainerCaseOfBoxes.AccessibleDescription = null;
+            this.splitContainerCaseOfBoxes.AccessibleName = null;
             resources.ApplyResources(this.splitContainerCaseOfBoxes, "splitContainerCaseOfBoxes");
+            this.splitContainerCaseOfBoxes.BackgroundImage = null;
+            this.splitContainerCaseOfBoxes.Font = null;
             this.splitContainerCaseOfBoxes.Name = "splitContainerCaseOfBoxes";
             // 
             // splitContainerCaseOfBoxes.Panel1
             // 
+            this.splitContainerCaseOfBoxes.Panel1.AccessibleDescription = null;
+            this.splitContainerCaseOfBoxes.Panel1.AccessibleName = null;
+            resources.ApplyResources(this.splitContainerCaseOfBoxes.Panel1, "splitContainerCaseOfBoxes.Panel1");
+            this.splitContainerCaseOfBoxes.Panel1.BackgroundImage = null;
             this.splitContainerCaseOfBoxes.Panel1.Controls.Add(this.pictureBoxCaseDefinition);
+            this.splitContainerCaseOfBoxes.Panel1.Font = null;
             // 
             // splitContainerCaseOfBoxes.Panel2
             // 
+            this.splitContainerCaseOfBoxes.Panel2.AccessibleDescription = null;
+            this.splitContainerCaseOfBoxes.Panel2.AccessibleName = null;
+            resources.ApplyResources(this.splitContainerCaseOfBoxes.Panel2, "splitContainerCaseOfBoxes.Panel2");
+            this.splitContainerCaseOfBoxes.Panel2.BackgroundImage = null;
             this.splitContainerCaseOfBoxes.Panel2.Controls.Add(this.pictureBoxCase);
+            this.splitContainerCaseOfBoxes.Panel2.Font = null;
             // 
             // pictureBoxCaseDefinition
             // 
+            this.pictureBoxCaseDefinition.AccessibleDescription = null;
+            this.pictureBoxCaseDefinition.AccessibleName = null;
             resources.ApplyResources(this.pictureBoxCaseDefinition, "pictureBoxCaseDefinition");
+            this.pictureBoxCaseDefinition.BackgroundImage = null;
+            this.pictureBoxCaseDefinition.Font = null;
+            this.pictureBoxCaseDefinition.ImageLocation = null;
             this.pictureBoxCaseDefinition.Name = "pictureBoxCaseDefinition";
             this.pictureBoxCaseDefinition.TabStop = false;
             this.pictureBoxCaseDefinition.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
             // 
             // pictureBoxCase
             // 
+            this.pictureBoxCase.AccessibleDescription = null;
+            this.pictureBoxCase.AccessibleName = null;
             resources.ApplyResources(this.pictureBoxCase, "pictureBoxCase");
+            this.pictureBoxCase.BackgroundImage = null;
+            this.pictureBoxCase.Font = null;
+            this.pictureBoxCase.ImageLocation = null;
             this.pictureBoxCase.Name = "pictureBoxCase";
             this.pictureBoxCase.TabStop = false;
             this.pictureBoxCase.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
             // 
             // lbName
             // 
+            this.lbName.AccessibleDescription = null;
+            this.lbName.AccessibleName = null;
             resources.ApplyResources(this.lbName, "lbName");
+            this.lbName.Font = null;
             this.lbName.Name = "lbName";
             // 
             // lbDescription
             // 
+            this.lbDescription.AccessibleDescription = null;
+            this.lbDescription.AccessibleName = null;
             resources.ApplyResources(this.lbDescription, "lbDescription");
+            this.lbDescription.Font = null;
             this.lbDescription.Name = "lbDescription";
             // 
             // bnOK
             // 
+            this.bnOK.AccessibleDescription = null;
+            this.bnOK.AccessibleName = null;
             resources.ApplyResources(this.bnOK, "bnOK");
+            this.bnOK.BackgroundImage = null;
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOK.Font = null;
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
+            this.bnCancel.AccessibleDescription = null;
+            this.bnCancel.AccessibleName = null;
             resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // tbName
             // 
+            this.tbName.AccessibleDescription = null;
+            this.tbName.AccessibleName = null;
             resources.ApplyResources(this.tbName, "tbName");
+            this.tbName.BackgroundImage = null;
+            this.tbName.Font = null;
             this.tbName.Name = "tbName";
             this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // tbDescription
             // 
+            this.tbDescription.AccessibleDescription = null;
+            this.tbDescription.AccessibleName = null;
             resources.ApplyResources(this.tbDescription, "tbDescription");
+            this.tbDescription.BackgroundImage = null;
+            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
             // 
             // btBitmaps
             // 
+            this.btBitmaps.AccessibleDescription = null;
+            this.btBitmaps.AccessibleName = null;
             resources.ApplyResources(this.btBitmaps, "btBitmaps");
+            this.btBitmaps.BackgroundImage = null;
+            this.btBitmaps.Font = null;
             this.btBitmaps.Name = "btBitmaps";
             this.btBitmaps.UseVisualStyleBackColor = true;
             this.btBitmaps.Click += new System.EventHandler(this.btBitmaps_Click);
             // 
             // cbFace
             // 
+            this.cbFace.AccessibleDescription = null;
+            this.cbFace.AccessibleName = null;
+            resources.ApplyResources(this.cbFace, "cbFace");
+            this.cbFace.BackgroundImage = null;
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFace.Font = null;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
             resources.GetString("cbFace.Items"),
@@ -138,36 +193,47 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
             // gbFaceColor
             // 
+            this.gbFaceColor.AccessibleDescription = null;
+            this.gbFaceColor.AccessibleName = null;
             resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
+            this.gbFaceColor.BackgroundImage = null;
             this.gbFaceColor.Controls.Add(this.btBitmaps);
             this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
+            this.gbFaceColor.Font = null;
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
             // chkAllFaces
             // 
+            this.chkAllFaces.AccessibleDescription = null;
+            this.chkAllFaces.AccessibleName = null;
             resources.ApplyResources(this.chkAllFaces, "chkAllFaces");
+            this.chkAllFaces.BackgroundImage = null;
+            this.chkAllFaces.Font = null;
             this.chkAllFaces.Name = "chkAllFaces";
             this.chkAllFaces.UseVisualStyleBackColor = true;
             this.chkAllFaces.CheckedChanged += new System.EventHandler(this.chkAllFaces_CheckedChanged);
             // 
             // cbColor
             // 
+            this.cbColor.AccessibleDescription = null;
+            this.cbColor.AccessibleName = null;
+            resources.ApplyResources(this.cbColor, "cbColor");
+            this.cbColor.BackgroundImage = null;
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColor, "cbColor");
+            this.cbColor.Font = null;
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -217,18 +283,27 @@
             resources.GetString("cbColor.Items45"),
             resources.GetString("cbColor.Items46"),
             resources.GetString("cbColor.Items47"),
-            resources.GetString("cbColor.Items48")});
+            resources.GetString("cbColor.Items48"),
+            resources.GetString("cbColor.Items49"),
+            resources.GetString("cbColor.Items50")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
             // lbFace
             // 
+            this.lbFace.AccessibleDescription = null;
+            this.lbFace.AccessibleName = null;
             resources.ApplyResources(this.lbFace, "lbFace");
+            this.lbFace.Font = null;
             this.lbFace.Name = "lbFace";
             // 
             // trackBarHorizAngle
             // 
+            this.trackBarHorizAngle.AccessibleDescription = null;
+            this.trackBarHorizAngle.AccessibleName = null;
             resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
+            this.trackBarHorizAngle.BackgroundImage = null;
+            this.trackBarHorizAngle.Font = null;
             this.trackBarHorizAngle.LargeChange = 90;
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
@@ -237,22 +312,32 @@
             // 
             // statusStripDef
             // 
+            this.statusStripDef.AccessibleDescription = null;
+            this.statusStripDef.AccessibleName = null;
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
+            this.statusStripDef.BackgroundImage = null;
+            this.statusStripDef.Font = null;
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
+            this.toolStripStatusLabelDef.AccessibleDescription = null;
+            this.toolStripStatusLabelDef.AccessibleName = null;
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            this.toolStripStatusLabelDef.BackgroundImage = null;
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewCaseOfBoxes
             // 
             this.AcceptButton = this.bnOK;
+            this.AccessibleDescription = null;
+            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.statusStripDef);
@@ -264,6 +349,8 @@
             this.Controls.Add(this.bnOK);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
+            this.Font = null;
+            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewCaseOfBoxes";

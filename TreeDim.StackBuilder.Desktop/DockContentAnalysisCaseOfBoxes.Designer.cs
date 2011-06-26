@@ -376,6 +376,7 @@
             this.Controls.Add(this.toolStrip_view);
             this.Icon = null;
             this.Name = "DockContentAnalysisCaseOfBoxes";
+            this.ShowIcon = false;
             this.ToolTipText = null;
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel2.ResumeLayout(false);

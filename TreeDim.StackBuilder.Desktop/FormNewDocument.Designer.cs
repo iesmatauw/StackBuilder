@@ -65,11 +65,11 @@
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
             // 
-            // bnAccept
+            // bnOk
             // 
-            resources.ApplyResources(this.bnOk, "bnAccept");
+            resources.ApplyResources(this.bnOk, "bnOk");
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Name = "bnAccept";
+            this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel

@@ -43,114 +43,75 @@
             // 
             // lbCase
             // 
-            this.lbCase.AccessibleDescription = null;
-            this.lbCase.AccessibleName = null;
             resources.ApplyResources(this.lbCase, "lbCase");
-            this.lbCase.Font = null;
             this.lbCase.Name = "lbCase";
             // 
             // cbCases
             // 
-            this.cbCases.AccessibleDescription = null;
-            this.cbCases.AccessibleName = null;
-            resources.ApplyResources(this.cbCases, "cbCases");
-            this.cbCases.BackgroundImage = null;
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCases.Font = null;
             this.cbCases.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.Name = "cbCases";
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // lbCardboard
             // 
-            this.lbCardboard.AccessibleDescription = null;
-            this.lbCardboard.AccessibleName = null;
             resources.ApplyResources(this.lbCardboard, "lbCardboard");
-            this.lbCardboard.Font = null;
             this.lbCardboard.Name = "lbCardboard";
             // 
             // lbHumidity
             // 
-            this.lbHumidity.AccessibleDescription = null;
-            this.lbHumidity.AccessibleName = null;
             resources.ApplyResources(this.lbHumidity, "lbHumidity");
-            this.lbHumidity.Font = null;
             this.lbHumidity.Name = "lbHumidity";
             // 
             // lbStorageDuration
             // 
-            this.lbStorageDuration.AccessibleDescription = null;
-            this.lbStorageDuration.AccessibleName = null;
             resources.ApplyResources(this.lbStorageDuration, "lbStorageDuration");
-            this.lbStorageDuration.Font = null;
             this.lbStorageDuration.Name = "lbStorageDuration";
             // 
             // cbCardboard
             // 
-            this.cbCardboard.AccessibleDescription = null;
-            this.cbCardboard.AccessibleName = null;
-            resources.ApplyResources(this.cbCardboard, "cbCardboard");
-            this.cbCardboard.BackgroundImage = null;
             this.cbCardboard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCardboard.Font = null;
             this.cbCardboard.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCardboard, "cbCardboard");
             this.cbCardboard.Name = "cbCardboard";
             this.cbCardboard.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // cbRateOfHumidity
             // 
-            this.cbRateOfHumidity.AccessibleDescription = null;
-            this.cbRateOfHumidity.AccessibleName = null;
-            resources.ApplyResources(this.cbRateOfHumidity, "cbRateOfHumidity");
-            this.cbRateOfHumidity.BackgroundImage = null;
             this.cbRateOfHumidity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRateOfHumidity.Font = null;
             this.cbRateOfHumidity.FormattingEnabled = true;
+            resources.ApplyResources(this.cbRateOfHumidity, "cbRateOfHumidity");
             this.cbRateOfHumidity.Name = "cbRateOfHumidity";
             this.cbRateOfHumidity.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // cbStorageDuration
             // 
-            this.cbStorageDuration.AccessibleDescription = null;
-            this.cbStorageDuration.AccessibleName = null;
-            resources.ApplyResources(this.cbStorageDuration, "cbStorageDuration");
-            this.cbStorageDuration.BackgroundImage = null;
             this.cbStorageDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStorageDuration.Font = null;
             this.cbStorageDuration.FormattingEnabled = true;
+            resources.ApplyResources(this.cbStorageDuration, "cbStorageDuration");
             this.cbStorageDuration.Name = "cbStorageDuration";
             this.cbStorageDuration.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // bnOK
             // 
-            this.bnOK.AccessibleDescription = null;
-            this.bnOK.AccessibleName = null;
             resources.ApplyResources(this.bnOK, "bnOK");
-            this.bnOK.BackgroundImage = null;
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Font = null;
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.AccessibleDescription = null;
-            this.bnCancel.AccessibleName = null;
             resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // FormNewStackingStrengthAnalysis
             // 
             this.AcceptButton = this.bnOK;
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOK);
@@ -162,8 +123,6 @@
             this.Controls.Add(this.lbCardboard);
             this.Controls.Add(this.cbCases);
             this.Controls.Add(this.lbCase);
-            this.Font = null;
-            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewStackingStrengthAnalysis";

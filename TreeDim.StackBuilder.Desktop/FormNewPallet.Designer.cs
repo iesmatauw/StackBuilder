@@ -345,7 +345,10 @@
             this.cbColor.FormattingEnabled = true;
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
-            resources.GetString("cbColor.Items1")});
+            resources.GetString("cbColor.Items1"),
+            resources.GetString("cbColor.Items2"),
+            resources.GetString("cbColor.Items3"),
+            resources.GetString("cbColor.Items4")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 

@@ -452,7 +452,10 @@
             resources.GetString("cbColor.Items41"),
             resources.GetString("cbColor.Items42"),
             resources.GetString("cbColor.Items43"),
-            resources.GetString("cbColor.Items44")});
+            resources.GetString("cbColor.Items44"),
+            resources.GetString("cbColor.Items45"),
+            resources.GetString("cbColor.Items46"),
+            resources.GetString("cbColor.Items47")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 

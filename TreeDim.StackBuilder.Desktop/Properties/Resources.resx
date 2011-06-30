@@ -126,16 +126,16 @@
 	</data>
 	<data name="ID_LOADHEIGHT" xml:space="preserve">
     <value>Load height (mm)</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Inconsistency: Maximum {0} is lower than minimum {1}.</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet height (mm)</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_FILENOTFOUND" xml:space="preserve">
     <value>File {0} could not be found</value>
-  </data>
+  <comment></comment></data>
 	<data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -147,61 +147,61 @@
 	</data>
 	<data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>Pallet count</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_CLOSE" xml:space="preserve">
     <value>Close</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_NODE_BOXES" xml:space="preserve">
     <value>Boxes</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
     <value>Allow aligned and/or alternate layers</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_SENDTODATABASE" xml:space="preserve">
     <value>Send to database</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
     <value>Define at least one vertical axis</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_DELETE" xml:space="preserve">
     <value>Delete {0}</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
     <value>Add new case analysis...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_SELECTED" xml:space="preserve">
     <value>Selected</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_AREA" xml:space="preserve">
     <value>Area</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_CASECOUNT" xml:space="preserve">
     <value>Case count</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_CASESPALLET" xml:space="preserve">
     <value>Cases/Pallet</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWBOX" xml:space="preserve">
     <value>Add new box...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
     <value>Name field is empty</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_EFFICIENCY" xml:space="preserve">
     <value>Efficiency (%)</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
     <value>Inside length ({0}) ought to be lower than length ({1})</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_A3" xml:space="preserve">
     <value>A3</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>Pallet solution database is empty.\nClosing form...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_WIDTH" xml:space="preserve">
     <value>Width</value>
-  </data>
+  <comment></comment></data>
 	<data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -210,31 +210,31 @@
 	</data>
 	<data name="ID_LAYOUT" xml:space="preserve">
     <value>Layout</value>
-  </data>
+  <comment></comment></data>
 	<data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
     <value>Add new interlayer...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
     <value>Unselect solution {0}</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
     <value>Add new truck analysis...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
     <value>Inside height ({0}) ought to be lower than height ({1})</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
     <value>Add new analysis...</value>
-  </data>
+  <comment></comment></data>
 	<data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Layer pattern</value>
-  </data>
+  <comment></comment></data>
 	<data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -243,22 +243,22 @@
 	</data>
 	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>Define at least one stop stacking criterion</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_NODE_CASES" xml:space="preserve">
     <value>Cases</value>
-  </data>
+  <comment></comment></data>
 	<data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallets</value>
-  </data>
+  <comment></comment></data>
 	<data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_INVALIDNAME" xml:space="preserve">
     <value>Given name ({0}) is invalid</value>
-  </data>
+  <comment></comment></data>
 	<data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -267,10 +267,10 @@
 	</data>
 	<data name="ID_A2" xml:space="preserve">
     <value>A2</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_LAYERS" xml:space="preserve">
     <value>Layers</value>
-  </data>
+  <comment></comment></data>
 	<data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -279,37 +279,37 @@
 	</data>
 	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
     <value>Inside width ({0}) ought to be lower than width ({1})</value>
-  </data>
+  <comment></comment></data>
 	<data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ABOUT" xml:space="preserve">
     <value>About {0}</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
     <value>Define at least one stacking pattern</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_A1" xml:space="preserve">
     <value>A1</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_LOADWEIGHT" xml:space="preserve">
     <value>Load (kg)</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>Generate report for {0}</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Trucks</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>Bundles</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
     <value>Description field is empty</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_READY" xml:space="preserve">
     <value>Ready</value>
-  </data>
+  <comment></comment></data>
 	<data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -318,10 +318,10 @@
 	</data>
 	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Add new bundle...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_INDEX" xml:space="preserve">
     <value>Index</value>
-  </data>
+  <comment></comment></data>
 	<data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -330,10 +330,10 @@
 	</data>
 	<data name="ID_EDIT" xml:space="preserve">
     <value>Edit {0}...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>Add new bundle analysis...</value>
-  </data>
+  <comment></comment></data>
 	<data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -342,16 +342,16 @@
 	</data>
 	<data name="ID_HEIGHT" xml:space="preserve">
     <value>Height</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_CASESLAYER" xml:space="preserve">
     <value>Cases/Layer</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>Interlayers</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
-  </data>
+  <comment></comment></data>
 	<data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -363,31 +363,31 @@
 	</data>
 	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
     <value>{0} has some depending analyses.\nIf you proceed with the modifications, analyses will be recomputed and any selected solutions removed.\nContinue?</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>Save file {0}?</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Pallet weight (kg)</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWCASE" xml:space="preserve">
     <value>Add new case...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_LENGTH" xml:space="preserve">
     <value>Length</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_ADDNEWPALLET" xml:space="preserve">
     <value>Add new pallet...</value>
-  </data>
+  <comment></comment></data>
 	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
     <value>Maximum volume is unsufficient to pack {0} {1} .</value>
-  </data>
+  <comment></comment></data>
 	<data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>Add new truck...</value>
-  </data>
+  <comment></comment></data>
 	<data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
@@ -396,7 +396,7 @@
 	</data>
 	<data name="ID_VERSION" xml:space="preserve">
     <value>Version : {0}</value>
-  </data>
+  <comment></comment></data>
 	<data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>

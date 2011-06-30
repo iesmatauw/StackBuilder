@@ -154,13 +154,76 @@
 	<data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
-	<data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+	<data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+	<data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
 		<value>43, 13</value>
 	</data>
-	<data name="label1.Text" xml:space="preserve">
-    <value>Charge admissible</value>
+	<data name="lbColor.Text" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items2" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items3" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items4" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items5" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items6" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items7" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items8" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items9" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items10" xml:space="preserve">
+    <value>Couleur</value>
   </data>
 	<data name="cbColor.Items11" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items12" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items13" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items14" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items15" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items16" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items17" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items18" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items19" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items20" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items21" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+	<data name="cbColor.Items22" xml:space="preserve">
     <value>Couleur</value>
   </data>
 	<data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
@@ -181,871 +244,37 @@
 	<data name="gbColor.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
-	<data name="lblDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-	<data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimensions</value>
-  </data>
-	<data name="labelProductName.Text" xml:space="preserve">
-		<value>Produit</value>
-	</data>
-	<data name="labelCompanyName.Text" xml:space="preserve">
-		<value>Entreprise</value>
-	</data>
-	<data name="okButton.Text" xml:space="preserve">
-		<value>OK</value>
-	</data>
 	<data name="$this.Text" xml:space="preserve">
-		<value>Recherche des dimensions de caisses optimales...</value>
-	</data>
-	<data name="toolStripShowImages.Text" xml:space="preserve">
-		<value>Affichier les images</value>
-	</data>
-	<data name="toolStrip_view.Text" xml:space="preserve">
-		<value>Vues</value>
-	</data>
-	<data name="toolStripFrontView.Text" xml:space="preserve">
-		<value>Front view</value>
-	</data>
-	<data name="toolStripCornerView180.Text" xml:space="preserve">
-		<value>Vue à 180°</value>
-	</data>
-	<data name="toolStripRightView.Text" xml:space="preserve">
-		<value>Right view</value>
-	</data>
-	<data name="toolStripBackView.Text" xml:space="preserve">
-		<value>Rear view</value>
-	</data>
-	<data name="toolStripLeftView.Text" xml:space="preserve">
-		<value>Left view</value>
-	</data>
-	<data name="toolStripCornerView0.Text" xml:space="preserve">
-		<value>Corner view 0°</value>
-	</data>
-	<data name="toolStripCornerView270.Text" xml:space="preserve">
-		<value>Vue à 270°</value>
-	</data>
-	<data name="toolStripCornerView90.Text" xml:space="preserve">
-		<value>Vue à 90°</value>
-	</data>
-	<data name="btSelectSolution.Text" xml:space="preserve">
-		<value>Sélectionner</value>
-	</data>
-	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
-		<value>Vue d'arrière</value>
-	</data>
-	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
-		<value>Vue de droite</value>
-	</data>
-	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
-		<value>Vue de gauche</value>
-	</data>
-	<data name="toolStripTopView.Text" xml:space="preserve">
-		<value>Top view</value>
-	</data>
-	<data name="toolStripCornerView_90.Text" xml:space="preserve">
-		<value>Vue de coin 90°</value>
-	</data>
-	<data name="toolStripCornerView_180.Text" xml:space="preserve">
-		<value>Vue de coin 180°</value>
-	</data>
-	<data name="toolStripCornerView_0.Text" xml:space="preserve">
-		<value>Vue de coin 0°</value>
-	</data>
-	<data name="toolStripCornerView_270.Text" xml:space="preserve">
-		<value>Vue de coin 270°</value>
-	</data>
-	<data name="toolStripCornerView_90.ToolTipText" xml:space="preserve">
-		<value>Vue de coin 90°</value>
-	</data>
-	<data name="toolStripCornerView1.Text" xml:space="preserve">
-		<value>Vue de coin 90°</value>
-	</data>
-	<data name="toolStripCornerView2.Text" xml:space="preserve">
-		<value>Vue de coin 180°</value>
-	</data>
-	<data name="toolStripCornerView3.Text" xml:space="preserve">
-		<value>Vue de coin 270°</value>
-	</data>
-	<data name="lbFriendlyName.Text" xml:space="preserve">
-		<value>Nom usuel</value>
-	</data>
-	<data name="cbFace.Items" xml:space="preserve">
-		<value>Arrière</value>
-	</data>
-	<data name="cbFace.Items1" xml:space="preserve">
-		<value>Avant</value>
-	</data>
-	<data name="cbFace.Items2" xml:space="preserve">
-		<value>Droite</value>
-	</data>
-	<data name="cbFace.Items3" xml:space="preserve">
-		<value>Gauche</value>
-	</data>
-	<data name="cbFace.Items4" xml:space="preserve">
-		<value>Bas</value>
-	</data>
-	<data name="cbFace.Items5" xml:space="preserve">
-		<value>Haut</value>
-	</data>
-	<data name="btClose.Text" xml:space="preserve">
-		<value>Fermer</value>
-	</data>
-	<data name="lbPalletDimensions.Text" xml:space="preserve">
-		<value>Dimensions de palette</value>
-	</data>
-	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
-		<value>&amp;Fichier</value>
-	</data>
-	<data name="newToolStripMenuItem.Text" xml:space="preserve">
-		<value>&amp;Nouveau</value>
-	</data>
-	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Créer un nouveau fichier</value>
-	</data>
-	<data name="openToolStripMenuItem.Text" xml:space="preserve">
-		<value>&amp;Ouvrir...</value>
-	</data>
-	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
-		<value>&amp;Enregistrer</value>
-	</data>
-	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
-		<value>Enregistrer &amp;sous...</value>
-	</data>
-	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
-		<value>Enregistrer &amp;tout</value>
-	</data>
-	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
-		<value>Fermer</value>
-	</data>
-	<data name="mnuFileMRU.Text" xml:space="preserve">
-		<value>&amp;Fichiers récents</value>
-	</data>
-	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
-		<value>&amp;Quitter</value>
-	</data>
-	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
-		<value>Ou&amp;tils</value>
-	</data>
-	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvel &amp;Etui</value>
-	</data>
-	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvelle &amp;Caisse</value>
-	</data>
-	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvel &amp;Intercalaire</value>
-	</data>
-	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouveau &amp;Bundle</value>
-	</data>
-	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvelle &amp;Palette</value>
-	</data>
-	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouveau &amp;Camion</value>
-	</data>
-	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvelle &amp;Analyse</value>
-	</data>
-	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvelle analyse de &amp;Bundle</value>
-	</data>
-	<data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvelle analyse de &amp;Etui/Caisse</value>
-	</data>
-	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
-		<value>Editer la base de données des solution de palettes</value>
-	</data>
-	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
-		<value>&amp;Aide</value>
-	</data>
-	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-		<value>Aide</value>
-	</data>
-	<data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
-		<value>Tutoriel</value>
-	</data>
-	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-		<value>A propos de StackBuilder...</value>
-	</data>
-	<data name="toolStripButtonNewFile.Text" xml:space="preserve">
-		<value>&amp;Nouveau fichier</value>
-	</data>
-	<data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
-		<value>Créer un nouveau document</value>
-	</data>
-	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-		<value>&amp;Ouvrir un fichier</value>
-	</data>
-	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-		<value>Ouvrir une fichier</value>
-	</data>
-	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
-		<value>&amp;Enregistrer</value>
-	</data>
-	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
-		<value>Enregistrer &amp;Tout</value>
-	</data>
-	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
-		<value>Ajouter un nouvel étui...</value>
-	</data>
-	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
-		<value>Ajouter une nouvelle caisse...</value>
-	</data>
-	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
-		<value>Ajouter un nouveau &amp;Bundle</value>
-	</data>
-	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
-		<value>Ajouter une nouvelle &amp;Intercalaire</value>
-	</data>
-	<data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
-		<value>Ajouter un nouvel intercallaire</value>
-	</data>
-	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
-		<value>Ajouter une nouvelle &amp;Palette</value>
-	</data>
-	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
-		<value>Ajouter un nouveau &amp;Camion</value>
-	</data>
-	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
-		<value>Créer une nouvelle analyse caisse/palette</value>
-	</data>
-	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
-		<value>Créer une nouvelle analyse bundle/palette</value>
-	</data>
-	<data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
-		<value>Ajouter une nouvelle analyse étui/caisse</value>
-	</data>
-	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
-		<value>Rechercher la caisse optimale</value>
-	</data>
-	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Editer la base de donnée des solutions de palettes</value>
-	</data>
-	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
-		<value>Ajouter une nouvelle palette</value>
-	</data>
-	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
-		<value>Ajouter une nouvelle analyse caisse/palette</value>
-	</data>
-	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
-		<value>Ajouter une nouvelle analyse bundle/palette</value>
-	</data>
-	<data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
-		<value>Ajouter une nouvelle analyse étui/caisse</value>
-	</data>
-	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-		<value>Aide</value>
-	</data>
-	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
-		<value>Débord pallette</value>
-	</data>
-	<data name="lbPallet.Text" xml:space="preserve">
-		<value>Palette</value>
-	</data>
-	<data name="gbLayerAlignment.Text" xml:space="preserve">
-		<value>Alignement des couches</value>
-	</data>
-	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
-		<value>tous les</value>
-	</data>
-	<data name="lbBoxes.Text" xml:space="preserve">
-		<value>caisses</value>
-	</data>
-	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
-		<value>la hauteur de la palette atteint</value>
-	</data>
-	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-		<value>autoriser l'alignement des couches</value>
-	</data>
-	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
-		<value>couche(s)</value>
-	</data>
-	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
-		<value>le poids total de la pallette atteint</value>
-	</data>
-	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-		<value>le nombre de bundle atteint</value>
-	</data>
-	<data name="lbStopStacking.Text" xml:space="preserve">
-		<value>Arrêter l'empilement lorsque:</value>
-	</data>
-	<data name="lbBox.Text" xml:space="preserve">
-		<value>Etui</value>
-	</data>
-	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-		<value>Motif de couches autorisées</value>
-	</data>
-	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
-		<value>Colonnes</value>
-	</data>
-	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
-		<value>Afficher le nombre de pallettes requis pour</value>
-	</data>
-	<data name="gbAdditionalData.Text" xml:space="preserve">
-		<value>Données additionnelles</value>
-	</data>
-	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
-		<value>Positions de caisses autorisées</value>
-	</data>
-	<data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
-		<value>le poids au dessus des caisses les plus basses atteint</value>
-	</data>
-	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
-		<value>Garder seulement les </value>
-	</data>
-	<data name="checkBoxInterlayer.Text" xml:space="preserve">
-		<value>Intercalaire</value>
-	</data>
-	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
-		<value>Longueur</value>
-	</data>
-	<data name="lbSolutions.Text" xml:space="preserve">
-		<value>meilleure(s) solution(s)</value>
-	</data>
-	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
-		<value>Largeur</value>
-	</data>
-	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-		<value>autoriser l'alternance des couches</value>
-	</data>
-	<data name="gbStopStackingCondition.Text" xml:space="preserve">
-		<value>Condition d'arrêt de l'empilement</value>
-	</data>
-	<data name="lbInsideHeight.Text" xml:space="preserve">
-		<value>Hauteur int.</value>
-	</data>
-	<data name="lbInsideWidth.Text" xml:space="preserve">
-		<value>Largeur int.</value>
-	</data>
-	<data name="lbInsideLength.Text" xml:space="preserve">
-		<value>Longueur int.</value>
-	</data>
-	<data name="lbHeight.Text" xml:space="preserve">
-		<value>Hauteur</value>
-	</data>
-	<data name="cbColor.Items14" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items16" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items35" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="btBitmaps.Text" xml:space="preserve">
-		<value>Images...</value>
-	</data>
-	<data name="chkAllFaces.Text" xml:space="preserve">
-		<value>Toutes les faces sont de la même couleur</value>
-	</data>
-	<data name="gbFaceColor.Text" xml:space="preserve">
-		<value>Couleur des faces</value>
-	</data>
-	<data name="lbWeightOnTop.Text" xml:space="preserve">
-		<value>Poid admissible sur le dessus</value>
-	</data>
-	<data name="lbNoFlats.Text" xml:space="preserve">
-		<value>Nombre de plats</value>
-	</data>
-	<data name="lbColor.Text" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="lbName.Text" xml:space="preserve">
-		<value>Nom</value>
-	</data>
-	<data name="cbColor.Items47" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="lbAuthor.Text" xml:space="preserve">
-		<value>&amp;Auteur</value>
-	</data>
-	<data name="lbDateCreated.Text" xml:space="preserve">
-		<value>Date de création</value>
-	</data>
-	<data name="radioButtonPallet1.Text" xml:space="preserve">
-		<value>Insérer une pallette à partir de la base de données</value>
-	</data>
-	<data name="radioButtonPallet2.Text" xml:space="preserve">
-		<value>Créer une nouvelle pallette</value>
-	</data>
-	<data name="lbAdmissibleWeight.Text" xml:space="preserve">
-		<value>Charge admissible</value>
-	</data>
-	<data name="lbAdmissibleHeight.Text" xml:space="preserve">
-		<value>Hauteur admissible</value>
-	</data>
-	<data name="radioButtonTruck2.Text" xml:space="preserve">
-		<value>Créer un nouveau camion</value>
-	</data>
-	<data name="radioButtonTruck1.Text" xml:space="preserve">
-		<value>Insérer un camion à partir de la base de données</value>
-	</data>
-	<data name="labelTruck.Text" xml:space="preserve">
-		<value>Camion</value>
-	</data>
-	<data name="checkBoxAllowSeveralLayers.Text" xml:space="preserve">
-		<value>Autoriser plusieurs couches de palettes</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationX.Text" xml:space="preserve">
-		<value>Autoriser l'orientation des palettes par défaut</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
-		<value>Autoriser l'orientation orthogonale des palettes</value>
-	</data>
-	<data name="labelMinimalDistPalletWall.Text" xml:space="preserve">
-		<value>Distance minimale entre palette et paroies du camion</value>
-	</data>
-	<data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
-		<value>Distance minimal par rapport au toit du camion</value>
-	</data>
-	<data name="btAddSolution.Text" xml:space="preserve">
-		<value>Ajouter la caisse et l'analyse de palette</value>
-	</data>
-	<data name="groupBox.Text" xml:space="preserve">
-		<value>Etui (produit)</value>
-	</data>
-	<data name="gbCase.Text" xml:space="preserve">
-		<value>Contraintes % caisse </value>
-	</data>
-	<data name="gbPallet.Text" xml:space="preserve">
-		<value>Palette</value>
-	</data>
-	<data name="lbNumber.Text" xml:space="preserve">
-		<value>Nombre d'étui par caisse</value>
-	</data>
-	<data name="label3.Text" xml:space="preserve">
-		<value>Largeur</value>
-	</data>
-	<data name="btSetMinimum.Text" xml:space="preserve">
-		<value>Minimum par défaut</value>
-	</data>
-	<data name="btOptimize.Text" xml:space="preserve">
-		<value>Optimiser</value>
-	</data>
-	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
-		<value>Dimensions min. caisse (mm)</value>
-	</data>
-	<data name="btSetMaximum.Text" xml:space="preserve">
-		<value>Maximum par défaut</value>
-	</data>
-	<data name="lbWallThickness.Text" xml:space="preserve">
-		<value>Epaisseur mur (mm)</value>
-	</data>
-	<data name="lbWalls.Text" xml:space="preserve">
-		<value>Nombre de mur</value>
-	</data>
-	<data name="lbPalletHeight.Text" xml:space="preserve">
-		<value>Hauteur de palette maximale (mm)</value>
-	</data>
-	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
-		<value>Dimensions max. caisse (mm)</value>
-	</data>
-	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Ouvrir le fichier</value>
-	</data>
-	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Enregistrer</value>
-	</data>
-	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Enregistrer sous...</value>
-	</data>
-	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Fermer le document actif</value>
-	</data>
-	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
-		<value>Recherche de la caisse optimale</value>
-	</data>
-	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
-		<value>Recherche de la caisse optimale</value>
-	</data>
-	<data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>Nouvelle analyse de résistance à la compression verticale</value>
-	</data>
-	<data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Recherche de la charge maximale supportée par une caisse d'après la formule de McKee</value>
-	</data>
-	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>Quitter l'application.</value>
-	</data>
-	<data name="lbMm.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbMm2.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
+    <value>Créer un nouvel intercallaire...</value>
+  </data>
 	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
 		<value>toolStripStatusLabelDef</value>
 	</data>
-	<data name="label2.Text" xml:space="preserve">
+	<data name="lblDescription.Text" xml:space="preserve">
 		<value>Description</value>
 	</data>
-	<data name="lbBundle.Text" xml:space="preserve">
-		<value>Bundle</value>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Couleur</value>
 	</data>
-	<data name="bnAccept.Text" xml:space="preserve">
+	<data name="lbUnitThickness.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
 		<value>OK</value>
 	</data>
-	<data name="lbFace.Text" xml:space="preserve">
-		<value>Face</value>
-	</data>
-	<data name="lbUnitHeightInside.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitWidthInside.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitLengthInside.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitHeight.Text" xml:space="preserve">
+	<data name="lbUnitLength.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
 	<data name="lbUnitWidth.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
-	<data name="lbUnitLength.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="cbColor.Items" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items1" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items2" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items3" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items4" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items5" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items6" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items7" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items8" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items9" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items10" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items12" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items13" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items15" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items17" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items18" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items19" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items20" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items21" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items22" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items23" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items24" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items25" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items26" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items27" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items28" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items29" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items30" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items31" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items32" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items33" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items34" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items36" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items37" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items38" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items39" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items40" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items41" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="lbUnitWeightOnTop.Text" xml:space="preserve">
-		<value>kg</value>
-	</data>
 	<data name="lbUnitWeight.Text" xml:space="preserve">
 		<value>kg</value>
 	</data>
-	<data name="lbUnitThickness.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbDescription.Text" xml:space="preserve">
-		<value>Description</value>
-	</data>
-	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
-		<value>quand le nombre total de caisse atteint</value>
-	</data>
-	<data name="gbSolutionFiltering.Text" xml:space="preserve">
-		<value>Données additionnelles</value>
-	</data>
-	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
-		<value>où les caisses contiennent au moins.</value>
-	</data>
-	<data name="lbFilterSolutions.Text" xml:space="preserve">
-		<value>Garder les solutions:</value>
-	</data>
-	<data name="cbColor.Items42" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items43" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items44" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items45" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items46" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="cbColor.Items48" xml:space="preserve">
-		<value>Couleur</value>
-	</data>
-	<data name="lbMm3.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbType.Text" xml:space="preserve">
-		<value>Type</value>
-	</data>
-	<data name="lbKg.Text" xml:space="preserve">
-		<value>kg</value>
-	</data>
-	<data name="lbUnitDistPalletWalls.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitDistPalletRoof.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbBoxDimensions.Text" xml:space="preserve">
-		<value>(dimensions)</value>
-	</data>
-	<data name="labelVersion.Text" xml:space="preserve">
-		<value>Version</value>
-	</data>
-	<data name="labelCopyright.Text" xml:space="preserve">
-		<value>Copyright</value>
-	</data>
-	<data name="textBoxDescription.Text" xml:space="preserve">
-		<value>Description</value>
-	</data>
-	<data name="linkLabelUrl.Text" xml:space="preserve">
-		<value>UrlSiteEntreprise</value>
-	</data>
-	<data name="linkLabelEmail.Text" xml:space="preserve">
-		<value>Email</value>
-	</data>
-	<data name="toolStripButtonTopView.Text" xml:space="preserve">
-		<value>Vue de dessus</value>
-	</data>
-	<data name="toolStripShowPallet.Text" xml:space="preserve">
-		<value>Afficher la palette</value>
-	</data>
-	<data name="toolStripViews.Text" xml:space="preserve">
-		<value>Vues</value>
-	</data>
-	<data name="toolStripButton4.Text" xml:space="preserve">
-		<value>Vue de coin 270°</value>
-	</data>
-	<data name="toolStripButton8.Text" xml:space="preserve">
-		<value>Vue de droite</value>
-	</data>
-	<data name="toolStripButton9.Text" xml:space="preserve">
-		<value>Vue de dessus</value>
-	</data>
-	<data name="toolStripButton5.Text" xml:space="preserve">
-		<value>Vue de face</value>
-	</data>
-	<data name="toolStripButton2.Text" xml:space="preserve">
-		<value>Vue de coin 90°</value>
-	</data>
-	<data name="toolStripButton1.Text" xml:space="preserve">
-		<value>Vue de coin 0°</value>
-	</data>
-	<data name="toolStripButton3.Text" xml:space="preserve">
-		<value>Vue de coin 180°</value>
-	</data>
-	<data name="toolStripButton6.Text" xml:space="preserve">
-		<value>Vue de derrière</value>
-	</data>
-	<data name="toolStripButton7.Text" xml:space="preserve">
-		<value>Vue de gauche</value>
-	</data>
-	<data name="bnOk.Text" xml:space="preserve">
-		<value>OK</value>
-	</data>
-	<data name="labelQuestion.Text" xml:space="preserve">
-		<value>La base de donnée contient déjà une solution pour une caisse avec ces dimensions:</value>
-	</data>
-	<data name="rbKeepReplace1.Text" xml:space="preserve">
-		<value>Conserver les solutions existantes et sauvegarder celle-ci.</value>
-	</data>
-	<data name="rbKeepReplace2.Text" xml:space="preserve">
-		<value>Remplacer la solution existante.</value>
-	</data>
 	<data name="statusStripDef.Text" xml:space="preserve">
-		<value>statusStrip1</value>
+		<value>statusStripDef</value>
 	</data>
-	<data name="labelFace.Text" xml:space="preserve">
-		<value>Face</value>
-	</data>
-	<data name="lbOrigin.Text" xml:space="preserve">
-		<value>Origine</value>
-	</data>
-	<data name="lbSize.Text" xml:space="preserve">
-		<value>Dimensions:</value>
-	</data>
-	<data name="lbAngle.Text" xml:space="preserve">
-		<value>Angle</value>
-	</data>
-	<data name="lbUnitOriginX.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitSizeX.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitAngle.Text" xml:space="preserve">
-		<value>°</value>
-	</data>
-	<data name="lbUnitOriginY.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="lbUnitSizeY.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="bnMoveUp.Text" xml:space="preserve">
-		<value>Déplacer vers le haut</value>
-	</data>
-	<data name="bnMoveDown.Text" xml:space="preserve">
-		<value>Déplacer vers le bas</value>
-	</data>
-	<data name="bnAdd.Text" xml:space="preserve">
-		<value>Ajouter une texture</value>
-	</data>
-	<data name="bnRemove.Text" xml:space="preserve">
-		<value>Supprimer</value>
-	</data>
-	<data name="openImageFileDialog.Filter" xml:space="preserve">
-		<value>Fichiers image (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
-	</data>
-	<data name="menuStripMain.Text" xml:space="preserve">
-		<value>menu principal</value>
-	</data>
-	<data name="toolStripStackingStrengthAnalysis.Text" xml:space="preserve">
-		<value>Ajouter une analyse de caisse</value>
-	</data>
-	<data name="toolStripStackingStrengthAnalysis.ToolTipText" xml:space="preserve">
-		<value>Calculer la résistance à la compression verticale en utilisant la formule de McKee</value>
-	</data>
-	<data name="toolStripButtonHelp.Text" xml:space="preserve">
-		<value>Aide</value>
-	</data>
-	<data name="toolStripStandard.Text" xml:space="preserve">
-		<value>Standard</value>
-	</data>
-	<data name="openFileDialogSB.Filter" xml:space="preserve">
-		<value>StackBuilder files|*.stb|Tous les fichiers|*.*</value>
-	</data>
-	<data name="openFileDialogSB.Title" xml:space="preserve">
-		<value>Ouvrir...</value>
-	</data>
-	<data name="saveFileDialogSB.Title" xml:space="preserve">
-		<value>Sauvegarder...</value>
-	</data>
-	<data name="saveFileDialogSB.Filter" xml:space="preserve">
-		<value>StackBuilder files|*.stb</value>
-	</data>
-	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
-		<value>Interbloqués</value>
-	</data>
-	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
-		<value>Diagonale</value>
-	</data>
-	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
-		<value>Trilock</value>
-	</data>
-	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
-		<value>Spirale</value>
-	</data>
-	<data name="lbKg2.Text" xml:space="preserve">
-		<value>kg</value>
-	</data>
-	<data name="checkBoxPositionX.Text" xml:space="preserve">
-		<value>X</value>
-	</data>
-	<data name="lbMm1.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="checkBoxPositionZ.Text" xml:space="preserve">
-		<value>Z</value>
-	</data>
-	<data name="lbKg1.Text" xml:space="preserve">
-		<value>kg</value>
-	</data>
-	<data name="checkBoxPositionY.Text" xml:space="preserve">
-		<value>Y</value>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Couleur</value>
 	</data>
 </root>

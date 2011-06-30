@@ -744,7 +744,6 @@
             resources.ApplyResources(this.toolStripButtonHelp, "toolStripButtonHelp");
             this.toolStripButtonHelp.BackgroundImage = null;
             this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonHelp.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Help;
             this.toolStripButtonHelp.Name = "toolStripButtonHelp";
             this.toolStripButtonHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);
             // 

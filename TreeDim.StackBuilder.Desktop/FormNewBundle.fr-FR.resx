@@ -168,6 +168,24 @@
   <data name="cbColor.Items17" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -224,9 +242,6 @@
   <data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimensions</value>
-  </data>
   <data name="lbNoFlats.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -263,19 +278,19 @@
   <data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
   <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
-  <data name="bnOk.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
   <data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Créer un nouveau bundle...</value>
+    <value>Créer une nouvelle liasse...</value>
   </data>
 </root>

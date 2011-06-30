@@ -45,7 +45,7 @@
             this.lbThickness = new System.Windows.Forms.Label();
             this.lbWidth = new System.Windows.Forms.Label();
             this.lbLength = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbColor = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
             this.lbWeight = new System.Windows.Forms.Label();
@@ -265,13 +265,13 @@
             this.lbLength.Font = null;
             this.lbLength.Name = "lbLength";
             // 
-            // label1
+            // lbColor
             // 
-            this.label1.AccessibleDescription = null;
-            this.label1.AccessibleName = null;
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Font = null;
-            this.label1.Name = "label1";
+            this.lbColor.AccessibleDescription = null;
+            this.lbColor.AccessibleName = null;
+            resources.ApplyResources(this.lbColor, "lbColor");
+            this.lbColor.Font = null;
+            this.lbColor.Name = "lbColor";
             // 
             // cbColor
             // 
@@ -303,7 +303,12 @@
             resources.GetString("cbColor.Items14"),
             resources.GetString("cbColor.Items15"),
             resources.GetString("cbColor.Items16"),
-            resources.GetString("cbColor.Items17")});
+            resources.GetString("cbColor.Items17"),
+            resources.GetString("cbColor.Items18"),
+            resources.GetString("cbColor.Items19"),
+            resources.GetString("cbColor.Items20"),
+            resources.GetString("cbColor.Items21"),
+            resources.GetString("cbColor.Items22")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
@@ -358,7 +363,7 @@
             resources.ApplyResources(this.gbColor, "gbColor");
             this.gbColor.BackgroundImage = null;
             this.gbColor.Controls.Add(this.cbColor);
-            this.gbColor.Controls.Add(this.label1);
+            this.gbColor.Controls.Add(this.lbColor);
             this.gbColor.Font = null;
             this.gbColor.Name = "gbColor";
             this.gbColor.TabStop = false;
@@ -474,7 +479,7 @@
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.Label lbLength;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.NumericUpDown nudWeight;
         private System.Windows.Forms.Label lbWeight;

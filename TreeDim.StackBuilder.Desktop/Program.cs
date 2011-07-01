@@ -47,7 +47,15 @@ namespace TreeDim.StackBuilder.Desktop
             // using Environment.GetCommandLineArgs()
             try
             {
-                // get 
+				// force CultureToUse culture if specified in config file
+                string specifiedCulture = TreeDim.StackBuilder.Desktop.Properties.Settings.Default.CultureToUse;
+                if (!string.IsNullOrEmpty(specifiedCulture))
+                {
+                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(specifiedCulture);
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(specifiedCulture);
+                }
+
+                // get current culture
                 _log.Info(string.Format("Starting {0} with user culture {1}", Application.ProductName, Thread.CurrentThread.CurrentUICulture));
 
                 // file association

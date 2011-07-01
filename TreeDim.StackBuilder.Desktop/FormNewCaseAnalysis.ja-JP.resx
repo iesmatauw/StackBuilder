@@ -199,7 +199,7 @@
 		<value>Y</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
-		<value>boxe（S）</value>
+		<value>ボックス（ES）</value>
 	</data>
 	<data name="checkBoxPositionX.Text" xml:space="preserve">
 		<value>X</value>

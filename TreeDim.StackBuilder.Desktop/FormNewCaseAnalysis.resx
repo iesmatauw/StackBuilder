@@ -1036,7 +1036,7 @@
 		<value>77, 13</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
-    <value>boxe(s)</value>
+    <value>box(es)</value>
   <comment></comment></data>
 	<data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

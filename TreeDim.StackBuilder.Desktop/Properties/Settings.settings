@@ -158,5 +158,8 @@
     <Setting Name="FormNewCaseOfBoxesPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="CultureToUse" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

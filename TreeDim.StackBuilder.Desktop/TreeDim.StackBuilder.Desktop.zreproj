@@ -29,15 +29,15 @@
     <globalSetting name="Project-PersistGridSettings">True</globalSetting>
     <globalSetting name="ColorifyNullCells">True</globalSetting>
     <globalSetting name="EnableExcelExportSnapshots">True</globalSetting>
-    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="580152642" /&gt;&lt;item type="2" checksum="1179097237" /&gt;&lt;item type="2" checksum="2606634414" /&gt;&lt;item type="2" checksum="2859916086" /&gt;&lt;item type="2" checksum="200339134" /&gt;&lt;item type="2" checksum="1758011869" /&gt;&lt;item type="2" checksum="4721719111" /&gt;&lt;/items&gt;</globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items /&gt;</globalSetting>
     <globalSetting name="autoTranslateForm.prefixTextBox.Text">####</globalSetting>
     <globalSetting name="autoTranslateForm.prefixCheckBox.Checked">False</globalSetting>
     <globalSetting name="autoTranslateForm.referenceLanguageComboBoxEdit.SelectedIndex">0</globalSetting>
     <globalSetting name="autoTranslateForm.languagesToTranslateCheckListBox">1</globalSetting>
     <globalSetting name="advancedOptionsPanel.Visible">True</globalSetting>
     <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\TreeDim.StackBuilder.Desktop.xls</globalSetting>
-    <globalSetting name="sendFileToTranslator.fileGroupsListBox">AboutBox###{{{}}}###DockContentAnalysis###{{{}}}###FormEditBitmaps</globalSetting>
-    <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Français (France) (fr-fr)###{{{}}}###Japonais (Japon) (ja-jp)</globalSetting>
+    <globalSetting name="sendFileToTranslator.fileGroupsListBox">AboutBox###{{{}}}###DockContentAnalysis###{{{}}}###DockContentAnalysisCaseOfBoxes###{{{}}}###DockContentCaseAnalysis###{{{}}}###DockContentTruckAnalysis###{{{}}}###FormAppendSolutionToDB###{{{}}}###FormEditBitmaps###{{{}}}###FormEditPalletSolutionDB###{{{}}}###FormMain###{{{}}}###FormNewAnalysis###{{{}}}###FormNewAnalysisBundle###{{{}}}###FormNewBox###{{{}}}###FormNewBundle###{{{}}}###FormNewCaseAnalysis###{{{}}}###FormNewCaseOfBoxes###{{{}}}###FormNewDocument###{{{}}}###FormNewInterlayer###{{{}}}###FormNewPallet###{{{}}}###FormNewStackingStrengthAnalysis###{{{}}}###FormNewTruck###{{{}}}###FormNewTruckAnalysis###{{{}}}###FormOptimizeCase###{{{}}}###Properties\Resources</globalSetting>
+    <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Japonais (Japon) (ja-jp)</globalSetting>
     <globalSetting name="sendFileToTranslator.referenceLanguageComboBoxEdit.SelectedIndex">0</globalSetting>
     <globalSetting name="sendFileToTranslator.openFileAfterGeneratingCheckEdit.Checked">True</globalSetting>
     <globalSetting name="sendFileToTranslator.openAfterGeneratingCheckEdit.Checked">False</globalSetting>
@@ -69,7 +69,8 @@ Kind regards</globalSetting>
     <userSetting name="François@TREEDIM_PC2.filesInitialDir">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop</userSetting>
     <userSetting name="François@TREEDIM_PC2.FindText">
     </userSetting>
-    <userSetting name="François@TREEDIM_PC2.RecentFiles">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentDocumentExplorer.resx###***###K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\SplashScreen.resx###***###K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.fr-FR.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.ja-JP.resx###***###K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.fr-FR.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.ja-JP.resx###***###K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentLogConsole.resx###***###K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.fr-FR.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.ja-JP.resx###***###K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.fr-FR.resx;K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.ja-JP.resx</userSetting>
+    <userSetting name="François@TREEDIM_PC2.RecentFiles">
+    </userSetting>
     <description>
     </description>
   </configuration>
@@ -81,24 +82,13 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="93" ignoreDuringExportAndImport="False" uniqueID="12e5acf8-7a4f-41cc-8ac3-debdcff97313">
-      <file filePath="FormNewAnalysisBundle.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisBundle.resx" uniqueID="b896243e-1093-4d26-a877-ab6975b39f70" />
-      <file filePath="FormNewAnalysisBundle.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisBundle.fr-FR.resx" uniqueID="70fac2fa-6fa3-492b-8ca8-78f86a1f206e" />
-      <file filePath="FormNewAnalysisBundle.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisBundle.ja-JP.resx" uniqueID="8459afcb-8786-4dee-8ed5-0b25c896750b" />
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="95" ignoreDuringExportAndImport="False" uniqueID="08c8d338-d82c-4938-834f-864fe1e367dd">
+      <file filePath="AnalysisTreeView.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\AnalysisTreeView.resx" uniqueID="205db24d-199a-44fa-b9a2-a6ff6283157f" />
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="60" ignoreDuringExportAndImport="False" uniqueID="28652fff-0a78-4939-93d6-7e3b684ea612">
-      <file filePath="DockContentAnalysisCaseOfBoxes.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentAnalysisCaseOfBoxes.resx" uniqueID="ddce5b54-e3b9-4f7a-bc69-da53a8bee330" />
-      <file filePath="DockContentAnalysisCaseOfBoxes.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentAnalysisCaseOfBoxes.fr-FR.resx" uniqueID="dac9c340-8660-426f-a7ac-00ec856df1e6" />
-      <file filePath="DockContentAnalysisCaseOfBoxes.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentAnalysisCaseOfBoxes.ja-JP.resx" uniqueID="7b6e6da5-d6d9-4422-9dce-9ebdbc9816e3" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="4" ignoreDuringExportAndImport="False" uniqueID="12759e9c-c03e-4c82-b960-adb3bbeddc40">
-      <file filePath="FormNewStackingStrengthAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewStackingStrengthAnalysis.resx" uniqueID="10021da5-66d0-4133-824d-377694325acc" />
-      <file filePath="FormNewStackingStrengthAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewStackingStrengthAnalysis.fr-FR.resx" uniqueID="a20e8f08-d573-4fb2-9809-6ad65c891e03" />
-      <file filePath="FormNewStackingStrengthAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewStackingStrengthAnalysis.ja-JP.resx" uniqueID="65ad50f8-8ae4-4e73-a97c-93a05c8b2a86" />
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="96" ignoreDuringExportAndImport="False" uniqueID="86d63c54-3a81-4e39-9c89-e7e547fcb5df">
+      <file filePath="CheckedListBoxWithImage.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\CheckedListBoxWithImage.resx" uniqueID="c06ebb56-c929-4302-afb4-c1920d23d235" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -109,10 +99,34 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="60" ignoreDuringExportAndImport="False" uniqueID="28652fff-0a78-4939-93d6-7e3b684ea612">
+      <file filePath="DockContentAnalysisCaseOfBoxes.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentAnalysisCaseOfBoxes.resx" uniqueID="ddce5b54-e3b9-4f7a-bc69-da53a8bee330" />
+      <file filePath="DockContentAnalysisCaseOfBoxes.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentAnalysisCaseOfBoxes.fr-FR.resx" uniqueID="dac9c340-8660-426f-a7ac-00ec856df1e6" />
+      <file filePath="DockContentAnalysisCaseOfBoxes.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentAnalysisCaseOfBoxes.ja-JP.resx" uniqueID="7b6e6da5-d6d9-4422-9dce-9ebdbc9816e3" />
+      <remarks>
+      </remarks>
+    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="14" ignoreDuringExportAndImport="False" uniqueID="312fc05b-9d1e-4b9c-b229-675eba07faab">
       <file filePath="DockContentCaseAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentCaseAnalysis.resx" uniqueID="02dfe8ff-6c8b-4de4-a088-23eed87277c1" />
       <file filePath="DockContentCaseAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentCaseAnalysis.fr-FR.resx" uniqueID="06f046f7-2ebc-4cae-80e6-4bf21d35be57" />
       <file filePath="DockContentCaseAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentCaseAnalysis.ja-JP.resx" uniqueID="fba03f7d-0c98-46fe-b30e-917a2081181d" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="59" ignoreDuringExportAndImport="False" uniqueID="d0d1bde5-b989-4102-814d-1968830a5df8">
+      <file filePath="DockContentDocumentExplorer.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentDocumentExplorer.resx" uniqueID="1931a268-2068-426e-9407-e71ed15c1231" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="101" ignoreDuringExportAndImport="False" uniqueID="421579f9-ce54-4938-bf0c-b40753c8e4d0">
+      <file filePath="DockContentLogConsole.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentLogConsole.resx" uniqueID="5e57fc9b-bdbf-4509-bd53-9b638214a8d0" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="81" ignoreDuringExportAndImport="False" uniqueID="095a0f17-c9bf-4b21-a01e-cbbcf30bcffc">
+      <file filePath="DockContentTruckAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.resx" uniqueID="c424824c-f450-42af-a43f-98111a08e514" />
+      <file filePath="DockContentTruckAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.fr-FR.resx" uniqueID="a48ce4bb-8e88-4bfd-b3ad-f6eb3610202c" />
+      <file filePath="DockContentTruckAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.ja-JP.resx" uniqueID="29aecd29-41a8-4c64-9cbc-e777232fca27" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -130,10 +144,66 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="99" ignoreDuringExportAndImport="False" uniqueID="956cf523-e01c-40d8-a95a-a5da76b8e2f8">
+      <file filePath="FormEditPalletSolutionDB.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.resx" uniqueID="e1be817c-bfc9-4f5c-8c19-d185d7122795" />
+      <file filePath="FormEditPalletSolutionDB.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.fr-FR.resx" uniqueID="69974e38-e761-47c1-b908-acbdf2305b24" />
+      <file filePath="FormEditPalletSolutionDB.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.ja-JP.resx" uniqueID="1d2179e9-b54f-45d2-a9d7-a212aacca6a7" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="91" ignoreDuringExportAndImport="False" uniqueID="77bcd22b-3576-4fcd-8faf-9744ac7f388c">
+      <file filePath="FormMain.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.resx" uniqueID="6f2506df-2c10-4891-aa7f-70f4a903d51e" />
+      <file filePath="FormMain.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.fr-FR.resx" uniqueID="33083335-706d-4085-a631-c5e0697ebbaf" />
+      <file filePath="FormMain.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.ja-JP.resx" uniqueID="3922d737-2e28-405c-bfd5-7a0b1fbb9a7b" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="92" ignoreDuringExportAndImport="False" uniqueID="61da1dcd-73ce-4ad4-bbe7-2c1e1335486c">
+      <file filePath="FormNewAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysis.resx" uniqueID="4a57e072-7724-402c-addd-cd5a218929fd" />
+      <file filePath="FormNewAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysis.fr-FR.resx" uniqueID="bd4f37ae-3e92-43bc-ab3e-a5e3bb227408" />
+      <file filePath="FormNewAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysis.ja-JP.resx" uniqueID="330a5321-7c5e-4eb0-b4cb-9ca08c92ed6b" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="93" ignoreDuringExportAndImport="False" uniqueID="12e5acf8-7a4f-41cc-8ac3-debdcff97313">
+      <file filePath="FormNewAnalysisBundle.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisBundle.resx" uniqueID="b896243e-1093-4d26-a877-ab6975b39f70" />
+      <file filePath="FormNewAnalysisBundle.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisBundle.fr-FR.resx" uniqueID="70fac2fa-6fa3-492b-8ca8-78f86a1f206e" />
+      <file filePath="FormNewAnalysisBundle.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysisBundle.ja-JP.resx" uniqueID="8459afcb-8786-4dee-8ed5-0b25c896750b" />
+      <remarks>
+      </remarks>
+    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="84" ignoreDuringExportAndImport="False" uniqueID="525af30a-f4ab-4cfe-b84f-ddfa3db0947a">
       <file filePath="FormNewBox.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBox.resx" uniqueID="23eb7d9b-6183-4be8-8eeb-62819ad7d310" />
       <file filePath="FormNewBox.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBox.fr-FR.resx" uniqueID="895d3de7-ce66-4ce6-8a05-ef4c52f5691f" />
       <file filePath="FormNewBox.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBox.ja-JP.resx" uniqueID="eed427d2-22f9-46d3-8337-1d9711b2b1e7" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="86" ignoreDuringExportAndImport="False" uniqueID="b6ff4e62-4a3e-446d-8531-5613519fe2cb">
+      <file filePath="FormNewBundle.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBundle.resx" uniqueID="dbf66e9e-a0bf-42a3-aba0-247b1acbd387" />
+      <file filePath="FormNewBundle.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBundle.fr-FR.resx" uniqueID="41473895-7d36-4785-bc96-0b3785fc91b0" />
+      <file filePath="FormNewBundle.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBundle.ja-JP.resx" uniqueID="bbd4abd4-3f16-4f63-aa82-04ecd8ad9b48" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="1303798c-63c2-4e14-8e29-2c14a4a13f81">
+      <file filePath="FormNewCaseAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.resx" uniqueID="bfd3cb9c-95cf-4f86-9a26-6075faa9f805" />
+      <file filePath="FormNewCaseAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.fr-FR.resx" uniqueID="7501b3b3-cd75-4233-8676-ed171d782cf1" />
+      <file filePath="FormNewCaseAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.ja-JP.resx" uniqueID="0a65952b-32ad-415d-9eef-6960065ef347" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="85" ignoreDuringExportAndImport="False" uniqueID="62cba9af-a57e-48b7-86c9-4dfa600d3b30">
+      <file filePath="FormNewCaseOfBoxes.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseOfBoxes.resx" uniqueID="a2e76fe1-3cbf-4c11-b576-a4e2f26cd70f" />
+      <file filePath="FormNewCaseOfBoxes.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseOfBoxes.fr-FR.resx" uniqueID="0f1dd0a8-ea58-44fd-bb20-8f98d4d89786" />
+      <file filePath="FormNewCaseOfBoxes.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseOfBoxes.ja-JP.resx" uniqueID="ecfd0b36-6488-41f8-b45c-09a5fa239a25" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="97" ignoreDuringExportAndImport="False" uniqueID="f1905f9e-1eef-47e6-abb4-77aae03eb406">
+      <file filePath="FormNewDocument.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewDocument.resx" uniqueID="22535e26-31be-4f5b-bba0-da8cb7c7dbe9" />
+      <file filePath="FormNewDocument.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewDocument.fr-FR.resx" uniqueID="ba70f9e9-8ae2-4041-83f4-8dc71c1b036b" />
+      <file filePath="FormNewDocument.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewDocument.ja-JP.resx" uniqueID="084a7e06-4d75-4647-8b79-23b017e10f8c" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -151,45 +221,17 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="4" ignoreDuringExportAndImport="False" uniqueID="12759e9c-c03e-4c82-b960-adb3bbeddc40">
+      <file filePath="FormNewStackingStrengthAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewStackingStrengthAnalysis.resx" uniqueID="10021da5-66d0-4133-824d-377694325acc" />
+      <file filePath="FormNewStackingStrengthAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewStackingStrengthAnalysis.fr-FR.resx" uniqueID="a20e8f08-d573-4fb2-9809-6ad65c891e03" />
+      <file filePath="FormNewStackingStrengthAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewStackingStrengthAnalysis.ja-JP.resx" uniqueID="65ad50f8-8ae4-4e73-a97c-93a05c8b2a86" />
+      <remarks>
+      </remarks>
+    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="89" ignoreDuringExportAndImport="False" uniqueID="8d50bd78-f45e-4149-87c8-8d94a189361a">
       <file filePath="FormNewTruck.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewTruck.resx" uniqueID="5a1ce6b8-c08d-4cae-946c-27bc557f2b2d" />
       <file filePath="FormNewTruck.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewTruck.fr-FR.resx" uniqueID="9d0aab13-4985-4b59-ab75-78208f6df35d" />
       <file filePath="FormNewTruck.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewTruck.ja-JP.resx" uniqueID="5607ded3-9489-43b2-a93b-49c0614e9338" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="90" ignoreDuringExportAndImport="False" uniqueID="af27ed8e-10fa-4963-b272-2c2369385fba">
-      <file filePath="FormOptimizeCase.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormOptimizeCase.resx" uniqueID="0fb040ec-ce78-4feb-9a0f-3581e8c9fee1" />
-      <file filePath="FormOptimizeCase.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormOptimizeCase.fr-FR.resx" uniqueID="f48ebe11-dfad-40a3-88d3-47fcb08f2864" />
-      <file filePath="FormOptimizeCase.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormOptimizeCase.ja-JP.resx" uniqueID="76e49d7c-49c9-49d8-b646-69cf9b5ab96b" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="91" ignoreDuringExportAndImport="False" uniqueID="77bcd22b-3576-4fcd-8faf-9744ac7f388c">
-      <file filePath="FormMain.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.resx" uniqueID="6f2506df-2c10-4891-aa7f-70f4a903d51e" />
-      <file filePath="FormMain.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.fr-FR.resx" uniqueID="33083335-706d-4085-a631-c5e0697ebbaf" />
-      <file filePath="FormMain.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormMain.ja-JP.resx" uniqueID="3922d737-2e28-405c-bfd5-7a0b1fbb9a7b" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="86" ignoreDuringExportAndImport="False" uniqueID="b6ff4e62-4a3e-446d-8531-5613519fe2cb">
-      <file filePath="FormNewBundle.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBundle.resx" uniqueID="dbf66e9e-a0bf-42a3-aba0-247b1acbd387" />
-      <file filePath="FormNewBundle.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBundle.fr-FR.resx" uniqueID="41473895-7d36-4785-bc96-0b3785fc91b0" />
-      <file filePath="FormNewBundle.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewBundle.ja-JP.resx" uniqueID="bbd4abd4-3f16-4f63-aa82-04ecd8ad9b48" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="85" ignoreDuringExportAndImport="False" uniqueID="62cba9af-a57e-48b7-86c9-4dfa600d3b30">
-      <file filePath="FormNewCaseOfBoxes.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseOfBoxes.resx" uniqueID="a2e76fe1-3cbf-4c11-b576-a4e2f26cd70f" />
-      <file filePath="FormNewCaseOfBoxes.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseOfBoxes.fr-FR.resx" uniqueID="0f1dd0a8-ea58-44fd-bb20-8f98d4d89786" />
-      <file filePath="FormNewCaseOfBoxes.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseOfBoxes.ja-JP.resx" uniqueID="ecfd0b36-6488-41f8-b45c-09a5fa239a25" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="92" ignoreDuringExportAndImport="False" uniqueID="61da1dcd-73ce-4ad4-bbe7-2c1e1335486c">
-      <file filePath="FormNewAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysis.resx" uniqueID="4a57e072-7724-402c-addd-cd5a218929fd" />
-      <file filePath="FormNewAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysis.fr-FR.resx" uniqueID="bd4f37ae-3e92-43bc-ab3e-a5e3bb227408" />
-      <file filePath="FormNewAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewAnalysis.ja-JP.resx" uniqueID="330a5321-7c5e-4eb0-b4cb-9ca08c92ed6b" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -200,63 +242,22 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="95" ignoreDuringExportAndImport="False" uniqueID="08c8d338-d82c-4938-834f-864fe1e367dd">
-      <file filePath="AnalysisTreeView.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\AnalysisTreeView.resx" uniqueID="205db24d-199a-44fa-b9a2-a6ff6283157f" />
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="90" ignoreDuringExportAndImport="False" uniqueID="af27ed8e-10fa-4963-b272-2c2369385fba">
+      <file filePath="FormOptimizeCase.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormOptimizeCase.resx" uniqueID="0fb040ec-ce78-4feb-9a0f-3581e8c9fee1" />
+      <file filePath="FormOptimizeCase.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormOptimizeCase.fr-FR.resx" uniqueID="f48ebe11-dfad-40a3-88d3-47fcb08f2864" />
+      <file filePath="FormOptimizeCase.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormOptimizeCase.ja-JP.resx" uniqueID="76e49d7c-49c9-49d8-b646-69cf9b5ab96b" />
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="96" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="CheckedListBoxWithImage.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\CheckedListBoxWithImage.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="100" ignoreDuringExportAndImport="False" uniqueID="3c8209d5-0667-4bc6-b800-d2df72862099">
+      <file filePath="Properties\Resources.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.resx" uniqueID="50b3f36a-8ab0-4fd9-a174-1448091bb383" />
+      <file filePath="Properties\Resources.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.fr-FR.resx" uniqueID="df3bb641-990c-4600-b28d-1a76fc4a5f87" />
+      <file filePath="Properties\Resources.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.ja-JP.resx" uniqueID="f5a4acc7-367d-41f8-9495-a531c1e85bd6" />
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="97" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="FormNewDocument.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewDocument.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="FormNewDocument.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewDocument.fr-FR.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="FormNewDocument.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewDocument.ja-JP.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="59" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="DockContentDocumentExplorer.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentDocumentExplorer.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="98" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="SplashScreen.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\SplashScreen.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="99" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="FormEditPalletSolutionDB.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="FormEditPalletSolutionDB.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.fr-FR.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="FormEditPalletSolutionDB.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormEditPalletSolutionDB.ja-JP.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="100" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="Properties\Resources.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="Properties\Resources.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.fr-FR.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="Properties\Resources.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.ja-JP.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="101" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="DockContentLogConsole.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentLogConsole.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="81" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="DockContentTruckAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="DockContentTruckAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.fr-FR.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="DockContentTruckAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentTruckAnalysis.ja-JP.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <remarks>
-      </remarks>
-    </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="00000000-0000-0000-0000-000000000000">
-      <file filePath="FormNewCaseAnalysis.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="FormNewCaseAnalysis.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.fr-FR.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
-      <file filePath="FormNewCaseAnalysis.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\FormNewCaseAnalysis.ja-JP.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="98" ignoreDuringExportAndImport="False" uniqueID="e75ab2f5-5259-47a7-91dc-c835e6eb9cd3">
+      <file filePath="SplashScreen.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\SplashScreen.resx" uniqueID="98c1cd5a-3393-473e-b745-e275cbb685d2" />
       <remarks>
       </remarks>
     </fileGroup>

@@ -32,6 +32,7 @@
           <Directory Id="PLMPackDir" Name="PLMPack">
             <Directory Id="INSTALLLOCATION" Name="StackBuilder">
               <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
+              <Directory Id="LOCALIZATION_JP" Name="ja-JP"/>
               <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
               <Directory Id="SAMPLES" Name="Samples"/>
@@ -109,12 +110,18 @@
           <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
         </Component>
     </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_JP">
+      <Component Id="resources_ja_JP">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll"/>
+      </Component> 
+    </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
         <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
         <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
         <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_ENU.xml" Checksum="yes"/>
         <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_FRA.xml" Checksum="yes"/>
+        <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_JPN.xml" Checksum="yes"/>
         <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
       </Component>        
     </DirectoryRef>
@@ -176,6 +183,7 @@
       <ComponentRef Id="ReportTemplates"/>
       <ComponentRef Id="PalletSolutionsDB"/>
       <ComponentRef Id="resources_fr_FR"/>
+      <ComponentRef Id="resources_ja_JP"/>
       <ComponentRef Id="Samples"/>
 		</Feature>
     <!--Upgrade table-->

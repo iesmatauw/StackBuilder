@@ -8,6 +8,7 @@ using System.Xml;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 using TreeDim.StackBuilder.Basics;
 
@@ -638,7 +639,16 @@ namespace TreeDim.StackBuilder.Basics
             if (docElement.HasAttribute("Description"))
                 _author = docElement.Attributes["Author"].Value;
             if (docElement.HasAttribute("DateCreated"))
-                _dateCreated = System.Convert.ToDateTime(docElement.Attributes["DateCreated"].Value);
+            {
+                try
+                {
+                    _dateCreated = System.Convert.ToDateTime(docElement.Attributes["DateCreated"].Value, new CultureInfo("en-US"));
+                }
+                catch (Exception /*ex*/)
+                {
+                    _log.Debug("Failed to load date of creation correctly: Loading file generated with former version?");
+                }
+            }
 
             foreach (XmlNode docChildNode in docElement.ChildNodes)
             {
@@ -1361,7 +1371,7 @@ namespace TreeDim.StackBuilder.Basics
                 xmlRootElement.Attributes.Append(xmlDocAuthorAttribute);
                 // dateCreated
                 XmlAttribute xmlDateCreatedAttribute = xmlDoc.CreateAttribute("DateCreated");
-                xmlDateCreatedAttribute.Value = string.Format("{0}", _dateCreated);
+                xmlDateCreatedAttribute.Value = Convert.ToString(_dateCreated, new CultureInfo("en-US")); //string.Format("{0}", _dateCreated);
                 xmlRootElement.Attributes.Append(xmlDateCreatedAttribute);
                 // create ItemProperties element
                 XmlElement xmlItemPropertiesElt = xmlDoc.CreateElement("ItemProperties");

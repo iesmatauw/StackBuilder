@@ -79,6 +79,7 @@
         <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
         <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_ENU.xml" Checksum="yes"/>
         <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_FRA.xml" Checksum="yes"/>
+        <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplate_JPN.xml" Checksum="yes"/>
         <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>

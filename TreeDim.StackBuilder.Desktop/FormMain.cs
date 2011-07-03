@@ -470,9 +470,12 @@ namespace TreeDim.StackBuilder.Desktop
             // new analysis bundle
             newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
             toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
-            // case optmisation
+            // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
-            toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization; 
+            toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
+            // stacking strength analysis
+            newStackingStrengthAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.Cases.Count > 0;
+            toolStripStackingStrengthAnalysis.Enabled = (null != doc) && doc.Cases.Count > 0;
             // edit pallet solutions database
             editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
         }
@@ -836,7 +839,7 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 // show stacking strength analysis form
-                FormNewStackingStrengthAnalysis form = new FormNewStackingStrengthAnalysis();
+                FormNewStackingStrengthAnalysis form = new FormNewStackingStrengthAnalysis((DocumentSB)ActiveDocument);
                 form.ShowDialog();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex);}

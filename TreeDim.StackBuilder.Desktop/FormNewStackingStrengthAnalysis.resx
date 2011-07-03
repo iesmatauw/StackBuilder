@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,329 +59,329 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="lbCase.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="lbCase.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 10</value>
-	</data>
-	<data name="lbCase.Size" type="System.Drawing.Size, System.Drawing">
-		<value>31, 13</value>
-	</data>
-	<data name="lbCase.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="lbCase.Text" xml:space="preserve">
-    <value>Case</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbCase.Name" xml:space="preserve">
-    <value>lbCase</value>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbCase.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-	<data name="&gt;&gt;lbCase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 10</value>
   </data>
-	<data name="&gt;&gt;lbCase.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lbCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
   </data>
-	<data name="&gt;&gt;lbCase.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-	<data name="cbCases.Location" type="System.Drawing.Point, System.Drawing">
-		<value>119, 10</value>
-	</data>
-	<data name="cbCases.Size" type="System.Drawing.Size, System.Drawing">
-		<value>230, 21</value>
-	</data>
-	<data name="cbCases.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="&gt;&gt;cbCases.Name" xml:space="preserve">
-    <value>cbCases</value>
-  </data>
-	<data name="&gt;&gt;cbCases.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;cbCases.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;cbCases.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-	<data name="lbCardboard.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lbCardboard.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 42</value>
-	</data>
-	<data name="lbCardboard.Size" type="System.Drawing.Size, System.Drawing">
-		<value>56, 13</value>
-	</data>
-	<data name="lbCardboard.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="lbCardboard.Text" xml:space="preserve">
-    <value>Cardboard</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbCardboard.Name" xml:space="preserve">
-    <value>lbCardboard</value>
-  </data>
-	<data name="&gt;&gt;lbCardboard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbCardboard.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;lbCardboard.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-	<data name="lbHumidity.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lbHumidity.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 74</value>
-	</data>
-	<data name="lbHumidity.Size" type="System.Drawing.Size, System.Drawing">
-		<value>83, 13</value>
-	</data>
-	<data name="lbHumidity.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
-	</data>
-	<data name="lbHumidity.Text" xml:space="preserve">
-    <value>Rate of humidity</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbHumidity.Name" xml:space="preserve">
-    <value>lbHumidity</value>
-  </data>
-	<data name="&gt;&gt;lbHumidity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbHumidity.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;lbHumidity.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-	<data name="lbStorageDuration.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lbStorageDuration.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 106</value>
-	</data>
-	<data name="lbStorageDuration.Size" type="System.Drawing.Size, System.Drawing">
-		<value>85, 13</value>
-	</data>
-	<data name="lbStorageDuration.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
-	<data name="lbStorageDuration.Text" xml:space="preserve">
-    <value>Storage duration</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbStorageDuration.Name" xml:space="preserve">
-    <value>lbStorageDuration</value>
-  </data>
-	<data name="&gt;&gt;lbStorageDuration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbStorageDuration.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;lbStorageDuration.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-	<data name="cbCardboard.Location" type="System.Drawing.Point, System.Drawing">
-		<value>119, 42</value>
-	</data>
-	<data name="cbCardboard.Size" type="System.Drawing.Size, System.Drawing">
-		<value>230, 21</value>
-	</data>
-	<data name="cbCardboard.TabIndex" type="System.Int32, mscorlib">
-		<value>5</value>
-	</data>
-	<data name="&gt;&gt;cbCardboard.Name" xml:space="preserve">
-    <value>cbCardboard</value>
-  </data>
-	<data name="&gt;&gt;cbCardboard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;cbCardboard.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;cbCardboard.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-	<data name="cbRateOfHumidity.Location" type="System.Drawing.Point, System.Drawing">
-		<value>119, 74</value>
-	</data>
-	<data name="cbRateOfHumidity.Size" type="System.Drawing.Size, System.Drawing">
-		<value>230, 21</value>
-	</data>
-	<data name="cbRateOfHumidity.TabIndex" type="System.Int32, mscorlib">
-		<value>6</value>
-	</data>
-	<data name="&gt;&gt;cbRateOfHumidity.Name" xml:space="preserve">
-    <value>cbRateOfHumidity</value>
-  </data>
-	<data name="&gt;&gt;cbRateOfHumidity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;cbRateOfHumidity.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;cbRateOfHumidity.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-	<data name="cbStorageDuration.Location" type="System.Drawing.Point, System.Drawing">
-		<value>119, 106</value>
-	</data>
-	<data name="cbStorageDuration.Size" type="System.Drawing.Size, System.Drawing">
-		<value>230, 21</value>
-	</data>
-	<data name="cbStorageDuration.TabIndex" type="System.Int32, mscorlib">
-		<value>7</value>
-	</data>
-	<data name="&gt;&gt;cbStorageDuration.Name" xml:space="preserve">
-    <value>cbStorageDuration</value>
-  </data>
-	<data name="&gt;&gt;cbStorageDuration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;cbStorageDuration.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;cbStorageDuration.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Right</value>
-	</data>
-	<data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
-		<value>407, 10</value>
-	</data>
-	<data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 23</value>
-	</data>
-	<data name="bnOK.TabIndex" type="System.Int32, mscorlib">
-		<value>8</value>
-	</data>
-	<data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;bnOK.Name" xml:space="preserve">
-    <value>bnOK</value>
-  </data>
-	<data name="&gt;&gt;bnOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Right</value>
-	</data>
-	<data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-		<value>407, 40</value>
-	</data>
-	<data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 23</value>
-	</data>
-	<data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
-		<value>9</value>
-	</data>
-	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+  <data name="lbCase.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>True</value>
-	</metadata>
-	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-		<value>6, 13</value>
-	</data>
-	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-		<value>492, 385</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Case</value>
+  </data>
+  <data name="&gt;&gt;lbCase.Name" xml:space="preserve">
+    <value>lbCase</value>
+  </data>
+  <data name="&gt;&gt;lbCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCase.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbCase.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="cbCases.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 10</value>
+  </data>
+  <data name="cbCases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 21</value>
+  </data>
+  <data name="cbCases.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbCases.Name" xml:space="preserve">
+    <value>cbCases</value>
+  </data>
+  <data name="&gt;&gt;cbCases.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCases.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbCases.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lbCardboard.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbCardboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 42</value>
+  </data>
+  <data name="lbCardboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="lbCardboard.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbCardboard.Text" xml:space="preserve">
+    <value>Cardboard</value>
+  </data>
+  <data name="&gt;&gt;lbCardboard.Name" xml:space="preserve">
+    <value>lbCardboard</value>
+  </data>
+  <data name="&gt;&gt;lbCardboard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCardboard.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbCardboard.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lbHumidity.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbHumidity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 74</value>
+  </data>
+  <data name="lbHumidity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="lbHumidity.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbHumidity.Text" xml:space="preserve">
+    <value>Rate of humidity</value>
+  </data>
+  <data name="&gt;&gt;lbHumidity.Name" xml:space="preserve">
+    <value>lbHumidity</value>
+  </data>
+  <data name="&gt;&gt;lbHumidity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbHumidity.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbHumidity.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbStorageDuration.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbStorageDuration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 106</value>
+  </data>
+  <data name="lbStorageDuration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="lbStorageDuration.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbStorageDuration.Text" xml:space="preserve">
+    <value>Storage duration</value>
+  </data>
+  <data name="&gt;&gt;lbStorageDuration.Name" xml:space="preserve">
+    <value>lbStorageDuration</value>
+  </data>
+  <data name="&gt;&gt;lbStorageDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbStorageDuration.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbStorageDuration.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cbCardboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 42</value>
+  </data>
+  <data name="cbCardboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 21</value>
+  </data>
+  <data name="cbCardboard.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cbCardboard.Name" xml:space="preserve">
+    <value>cbCardboard</value>
+  </data>
+  <data name="&gt;&gt;cbCardboard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCardboard.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbCardboard.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbRateOfHumidity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 74</value>
+  </data>
+  <data name="cbRateOfHumidity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 21</value>
+  </data>
+  <data name="cbRateOfHumidity.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cbRateOfHumidity.Name" xml:space="preserve">
+    <value>cbRateOfHumidity</value>
+  </data>
+  <data name="&gt;&gt;cbRateOfHumidity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbRateOfHumidity.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbRateOfHumidity.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbStorageDuration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 106</value>
+  </data>
+  <data name="cbStorageDuration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 21</value>
+  </data>
+  <data name="cbStorageDuration.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;cbStorageDuration.Name" xml:space="preserve">
+    <value>cbStorageDuration</value>
+  </data>
+  <data name="&gt;&gt;cbStorageDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbStorageDuration.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbStorageDuration.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 10</value>
+  </data>
+  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
+    <value>bnOK</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 40</value>
+  </data>
+  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>492, 385</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
     <value>Create new stacking strength analysis...</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;$this.Name" xml:space="preserve">
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewStackingStrengthAnalysis</value>
   </data>
-	<data name="&gt;&gt;$this.Type" xml:space="preserve">
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

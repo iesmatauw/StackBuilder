@@ -20,7 +20,9 @@ namespace TreeDim.EdgeCrushTest
             k = 5.87 * ECT * Math.Pow(2.0 * (L + B) , 0.4924) * Math.Pow(T, 0.5076);
             k = k * kHumid * kJStock;
         }
+        #endregion
 
+        #region Coefficient dictionnary
         public static Dictionary<string, double> HumidityCoefDictionnary
         {
             get
@@ -45,14 +47,14 @@ namespace TreeDim.EdgeCrushTest
             {
                 Dictionary<string, double> jStockCoef = new Dictionary<string, double>()
                 {
-                    {"0 day", 1.0}
-                    , {"1-3 days", 0.7}
-                    , {"4-10 days", 0.65}
-                    , {"11-30 days", 0.6}
-                    , {"1-2 monthes", 0.55}
-                    , {"2-3 monthes", 0.55}
-                    , {"3-4 monthes", 0.5}
-                    , {"more than 4 monthes", 0.45}
+                    {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_0DAY, 1.0}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_1_3DAYS, 0.7}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_4_10DAYS, 0.65}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_11_30DAYS, 0.6}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_1_2MONTHES, 0.55}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_2_3MONTHES, 0.55}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_3_4MONTHES, 0.5}
+                    , {TreeDim.EdgeCrushTest.Resource.STORAGEDURATION_4_MONTHES, 0.45}
                 };
                 return jStockCoef;
             }

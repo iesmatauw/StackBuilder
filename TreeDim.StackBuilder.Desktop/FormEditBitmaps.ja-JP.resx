@@ -124,10 +124,10 @@
 		<value>キャンセル</value>
 	</data>
 	<data name="labelFace.Text" xml:space="preserve">
-		<value>顔</value>
+		<value>前面</value>
 	</data>
 	<data name="cbFace.Items" xml:space="preserve">
-		<value>リア</value>
+		<value>後</value>
 	</data>
 	<data name="cbFace.Items1" xml:space="preserve">
 		<value>前</value>
@@ -187,6 +187,6 @@
 		<value>画像</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-		<value>顔画像を編集する</value>
+		<value>面の画像を編集する</value>
 	</data>
 </root>

@@ -121,7 +121,7 @@
     <value>[OK]</value>
   </data>
 	<data name="lbFriendlyName.Text" xml:space="preserve">
-		<value>フレンドリ名</value>
+		<value>名前</value>
 	</data>
 	<data name="bnCancel.Text" xml:space="preserve">
 		<value>キャンセル</value>

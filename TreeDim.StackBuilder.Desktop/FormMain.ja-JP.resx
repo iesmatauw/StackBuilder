@@ -577,7 +577,7 @@
 		<value>新しいバンドル</value>
 	</data>
 	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しい層間</value>
+		<value>新しいパッド</value>
 	</data>
 	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
 		<value>パレットのソリューションのデータベースを編集する</value>
@@ -616,10 +616,10 @@
 		<value>新しいケースを追加...</value>
 	</data>
 	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
-		<value>＆パレットのソリューションのデータベースを編集...</value>
+		<value>パレットのソリューションのデータベースを編集...</value>
 	</data>
 	<data name="openToolStripMenuItem.Text" xml:space="preserve">
-		<value>開き</value>
+		<value>開く</value>
 	</data>
 	<data name="newToolStripMenuItem.Text" xml:space="preserve">
 		<value>新</value>
@@ -634,10 +634,10 @@
 		<value>開いているファイル</value>
 	</data>
 	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
-		<value>出口</value>
+		<value>終了</value>
 	</data>
 	<data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいスタッキング強度解析</value>
+		<value>新しい積込強度解析</value>
 	</data>
 	<data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
 		<value>マッキーの式を使用してケースの最大負荷を計算する</value>
@@ -646,7 +646,7 @@
 		<value>新しいファイルを作成します。</value>
 	</data>
 	<data name="toolStripStackingStrengthAnalysis.ToolTipText" xml:space="preserve">
-		<value>マッキーの公式を使ってスタッキング強度を計算する</value>
+		<value>マッキーの公式を使って積込強度を計算する</value>
 	</data>
 	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
 		<value>新しいケース/パレット分析</value>
@@ -664,7 +664,7 @@
 		<value>最適なケースの検索</value>
 	</data>
 	<data name="toolStripStandard.Text" xml:space="preserve">
-		<value>標準的な</value>
+		<value>標準</value>
 	</data>
 	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
 		<value>新しいバンドルの分析を作成します。</value>

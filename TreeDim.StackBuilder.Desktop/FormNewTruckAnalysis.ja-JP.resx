@@ -139,7 +139,7 @@
 		<value>トラック</value>
 	</data>
 	<data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
-		<value>最小の距離パレット/トラック屋根</value>
+		<value>最小の距離(パレットとトラック天井)</value>
 	</data>
 	<data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
 		<value>直交パレットの向きを許可する</value>

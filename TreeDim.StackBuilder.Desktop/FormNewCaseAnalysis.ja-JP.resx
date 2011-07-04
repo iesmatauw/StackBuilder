@@ -133,7 +133,7 @@
 		<value>toolStripStatusLabelDef</value>
 	</data>
 	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
-		<value>ケースは、少なくとも含まれていますここで、</value>
+		<value>最低限、ケースに含まれる</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
 		<value>トリロック</value>
@@ -151,7 +151,7 @@
 		<value>新しいケースの分析を作成する...</value>
 	</data>
 	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
-		<value>総ケースの重量に達するときの</value>
+		<value>総重量が以下に達する場合</value>
 	</data>
 	<data name="lbDescription.Text" xml:space="preserve">
 		<value>説明</value>
@@ -190,7 +190,7 @@
 		<value>statusStripDef</value>
 	</data>
 	<data name="lbFilterSolutions.Text" xml:space="preserve">
-		<value>ソリューションに注意してください。</value>
+		<value>ソリューションを維持する</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
 		<value>インタロックした</value>
@@ -199,7 +199,7 @@
 		<value>Y</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
-		<value>ボックス（ES）</value>
+		<value>ボックス</value>
 	</data>
 	<data name="checkBoxPositionX.Text" xml:space="preserve">
 		<value>X</value>

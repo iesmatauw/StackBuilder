@@ -191,7 +191,7 @@
 		<value>の間にあることを</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
-		<value>boxe（S）</value>
+		<value>ボックス</value>
 	</data>
 	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
 		<value>スタックに必要なパレット数を表示する</value>

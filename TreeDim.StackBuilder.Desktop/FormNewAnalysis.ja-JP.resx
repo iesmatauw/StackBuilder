@@ -137,7 +137,7 @@
 		<value>ミリメートル</value>
 	</data>
 	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
-		<value>パレットのオーバーハング/ underhang</value>
+		<value>パレットのオーバーハング/ アンダーハング</value>
 	</data>
 	<data name="lbPallet.Text" xml:space="preserve">
 		<value>パレット</value>
@@ -185,22 +185,22 @@
 		<value>ボックス</value>
 	</data>
 	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-		<value>許可された層パターン</value>
+		<value>レイヤーパターンを適用</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
-		<value>トリロック</value>
+		<value>トライロック</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
-		<value>対角</value>
+		<value>ダイアゴナル(対角)</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
-		<value>インタロックした</value>
+		<value>インタロック</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
 		<value>スパイラル</value>
 	</data>
 	<data name="lbKg2.Text" xml:space="preserve">
-		<value>キロ</value>
+		<value>Kg</value>
 	</data>
 	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
 		<value>スタックに必要なパレット数を表示する</value>
@@ -230,7 +230,7 @@
 		<value>の間にあることを</value>
 	</data>
 	<data name="checkBoxInterlayer.Text" xml:space="preserve">
-		<value>中間層</value>
+		<value>パッド</value>
 	</data>
 	<data name="checkBoxPositionY.Text" xml:space="preserve">
 		<value>Y</value>
@@ -239,7 +239,7 @@
 		<value>長さ</value>
 	</data>
 	<data name="lbSolutions.Text" xml:space="preserve">
-		<value>最良の解決策（S）</value>
+		<value>最良の解決策</value>
 	</data>
 	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
 		<value>toolStripStatusLabelDef</value>
@@ -254,7 +254,7 @@
 		<value>別の層を許可する</value>
 	</data>
 	<data name="gbStopStackingCondition.Text" xml:space="preserve">
-		<value>追加のストップスタッキング状態</value>
+		<value>積込をストップする、その他の条件</value>
 	</data>
 	<data name="statusStripDef.Text" xml:space="preserve">
 		<value>statusStripDef</value>

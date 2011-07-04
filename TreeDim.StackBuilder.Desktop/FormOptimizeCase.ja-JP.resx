@@ -184,7 +184,7 @@
 		<value>ケースの制約</value>
 	</data>
 	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
-		<value>マックス。ケース寸法（mm）</value>
+		<value>最大ケース寸法（mm）</value>
 	</data>
 	<data name="lbPalletDimensions.Text" xml:space="preserve">
 		<value>（寸法）</value>

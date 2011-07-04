@@ -958,10 +958,10 @@
 		<value>[OK]</value>
 	</data>
 	<data name="linkLabelUrl.Text" xml:space="preserve">
-		<value>CompanyWebSiteUrl</value>
+		<value>www.digital-sleeve.com</value>
 	</data>
 	<data name="linkLabelEmail.Text" xml:space="preserve">
-		<value>メール</value>
+		<value>info@digital-sleeve.com</value>
 	</data>
 	<data name="labelVersion.Text" xml:space="preserve">
 		<value>バージョン</value>

@@ -160,7 +160,7 @@
 		<value>の名前</value>
 	</data>
 	<data name="lbThickness.Text" xml:space="preserve">
-		<value>厚</value>
+		<value>厚み</value>
 	</data>
 	<data name="cbColor.Items6" xml:space="preserve">
 		<value>カラー</value>
@@ -245,5 +245,8 @@
 	</data>
 	<data name="bnCancel.Text" xml:space="preserve">
 		<value>キャンセル</value>
+	</data>
+	<data name="cbColor.Items23" xml:space="preserve">
+		<value>カラー</value>
 	</data>
 </root>

@@ -151,7 +151,7 @@
 		<value>カラー</value>
 	</data>
 	<data name="lbInsideLength.Text" xml:space="preserve">
-		<value>長さの内側</value>
+		<value>長さ(内寸)</value>
 	</data>
 	<data name="cbColor.Items34" xml:space="preserve">
 		<value>カラー</value>
@@ -163,7 +163,7 @@
 		<value>重さ</value>
 	</data>
 	<data name="chkAllFaces.Text" xml:space="preserve">
-		<value>すべての面では同じ色です。</value>
+		<value>すべての面は同じ色です。</value>
 	</data>
 	<data name="lbUnitHeightInside.Text" xml:space="preserve">
 		<value>ミリメートル</value>
@@ -193,7 +193,7 @@
 		<value>カラー</value>
 	</data>
 	<data name="lbInsideWidth.Text" xml:space="preserve">
-		<value>幅内</value>
+		<value>幅(内寸)</value>
 	</data>
 	<data name="cbColor.Items1" xml:space="preserve">
 		<value>カラー</value>
@@ -274,7 +274,7 @@
 		<value>カラー</value>
 	</data>
 	<data name="gbFaceColor.Text" xml:space="preserve">
-		<value>顔の色</value>
+		<value>面の色</value>
 	</data>
 	<data name="cbColor.Items38" xml:space="preserve">
 		<value>カラー</value>
@@ -319,7 +319,7 @@
 		<value>キロ</value>
 	</data>
 	<data name="lbWeightOnTop.Text" xml:space="preserve">
-		<value>上許容重量</value>
+		<value>上への許容重量</value>
 	</data>
 	<data name="cbColor.Items32" xml:space="preserve">
 		<value>カラー</value>
@@ -328,7 +328,7 @@
 		<value>カラー</value>
 	</data>
 	<data name="lbInsideHeight.Text" xml:space="preserve">
-		<value>高さの内側</value>
+		<value>高さ(内寸)</value>
 	</data>
 	<data name="lbUnitLength.Text" xml:space="preserve">
 		<value>ミリメートル</value>

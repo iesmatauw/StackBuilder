@@ -136,6 +136,6 @@
 		<value>貯蔵期間</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-		<value>新しいスタッキング強度解析を作成します...</value>
+		<value>新しい積込強度解析を作成します...</value>
 	</data>
 </root>

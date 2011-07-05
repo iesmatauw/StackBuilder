@@ -70,8 +70,7 @@
             this.btAddSolution = new System.Windows.Forms.Button();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.groupBoxAllowedOrientations = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.chkVerticalOrientationOnly = new System.Windows.Forms.CheckBox();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
             this.splitContainerCasePallet.SuspendLayout();
@@ -93,7 +92,6 @@
             this.gbPallet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).BeginInit();
             this.statusStripDef.SuspendLayout();
-            this.groupBoxAllowedOrientations.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerCasePallet
@@ -132,6 +130,7 @@
             // groupBox
             // 
             resources.ApplyResources(this.groupBox, "groupBox");
+            this.groupBox.Controls.Add(this.chkVerticalOrientationOnly);
             this.groupBox.Controls.Add(this.nudNumber);
             this.groupBox.Controls.Add(this.lbNumber);
             this.groupBox.Controls.Add(this.lbBoxDimensions);
@@ -461,23 +460,16 @@
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
-            // groupBoxAllowedOrientations
+            // chkVerticalOrientationOnly
             // 
-            this.groupBoxAllowedOrientations.Controls.Add(this.label1);
-            resources.ApplyResources(this.groupBoxAllowedOrientations, "groupBoxAllowedOrientations");
-            this.groupBoxAllowedOrientations.Name = "groupBoxAllowedOrientations";
-            this.groupBoxAllowedOrientations.TabStop = false;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.chkVerticalOrientationOnly, "chkVerticalOrientationOnly");
+            this.chkVerticalOrientationOnly.Name = "chkVerticalOrientationOnly";
+            this.chkVerticalOrientationOnly.UseVisualStyleBackColor = true;
             // 
             // FormOptimizeCase
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBoxAllowedOrientations);
             this.Controls.Add(this.splitContainerCasePallet);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.btAddSolution);
@@ -519,8 +511,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
-            this.groupBoxAllowedOrientations.ResumeLayout(false);
-            this.groupBoxAllowedOrientations.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,7 +558,6 @@
         private System.Windows.Forms.SplitContainer splitContainerCasePallet;
         private System.Windows.Forms.PictureBox pbBoxesLayout;
         private System.Windows.Forms.PictureBox pbPallet;
-        private System.Windows.Forms.GroupBox groupBoxAllowedOrientations;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkVerticalOrientationOnly;
     }
 }

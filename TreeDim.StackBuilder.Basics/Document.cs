@@ -858,7 +858,7 @@ namespace TreeDim.StackBuilder.Basics
             string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
             int[] iNoWalls = ParseInt3(sNoWalls);
             double wallThickness = Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value);
-            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero); 
+            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero, false); 
         }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {

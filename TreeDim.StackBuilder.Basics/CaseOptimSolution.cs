@@ -12,16 +12,18 @@ namespace TreeDim.StackBuilder.Basics
     public class CaseOptimConstraintSet
     {
         #region Constructor
-        public CaseOptimConstraintSet(int[] noWalls, double wallThickness, Vector3D caseLimitMin, Vector3D caseLimitMax)
+        public CaseOptimConstraintSet(int[] noWalls, double wallThickness, Vector3D caseLimitMin, Vector3D caseLimitMax, bool forceVerticalCaseOrientation)
         {
             NoWalls = noWalls;
             _wallThickness = wallThickness;
             _caseLimitMin = caseLimitMin;
             _caseLimitMax = caseLimitMax;
+            _forceVerticalCaseOrientation = forceVerticalCaseOrientation;
         }
         #endregion
 
         #region Data members
+        private bool _forceVerticalCaseOrientation;
         /// <summary>
         /// Case wall thickness
         /// </summary>
@@ -56,6 +58,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _noWalls; }
             set { for (int i = 0; i < 3; ++i)   _noWalls[i] = value[i]; }
+        }
+        public bool ForceVerticalcaseOrientation
+        {
+            get { return _forceVerticalCaseOrientation; }
+            set { _forceVerticalCaseOrientation = value; }
         }
         #endregion
 
@@ -213,7 +220,8 @@ namespace TreeDim.StackBuilder.Basics
         {
             Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
             return outerDim.X <= constraintSet.CaseLimitMax.X && outerDim.Y <= constraintSet.CaseLimitMax.Y && outerDim.Z <= constraintSet.CaseLimitMax.Z
-                && outerDim.X >= constraintSet.CaseLimitMin.X && outerDim.Y >= constraintSet.CaseLimitMin.Y && outerDim.Z >= constraintSet.CaseLimitMin.Z;
+                && outerDim.X >= constraintSet.CaseLimitMin.X && outerDim.Y >= constraintSet.CaseLimitMin.Y && outerDim.Z >= constraintSet.CaseLimitMin.Z
+                && ((_dim0 == 0 && _dim1 == 1) || !constraintSet.ForceVerticalcaseOrientation);
         }
         #endregion
 

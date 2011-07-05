@@ -114,6 +114,8 @@ namespace TreeDim.StackBuilder.Desktop
             nudPalletHeight.Value = (decimal)Settings.Default.PalletHeight;
             nudWallThickness.Value = (decimal)Settings.Default.WallThickness;
             nudNumber.Value = Settings.Default.NumberBoxesPerCase;
+            // set vertical orientation only
+            ForceVerticalBoxOrientation = Settings.Default.ForceVerticalBoxOrientation;
             // set min / max case dimensions
             SetMinCaseDimensions();
             SetMaxCaseDimensions();
@@ -354,6 +356,11 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         private double WallThickness { get { return (double)nudWallThickness.Value; } }
+        private bool ForceVerticalBoxOrientation
+        {
+            get { return chkVerticalOrientationOnly.Checked; }
+            set { chkVerticalOrientationOnly.Checked = value; }
+        }
         #endregion
 
         #region Grid
@@ -677,17 +684,18 @@ namespace TreeDim.StackBuilder.Desktop
                     , WallThickness
                     , new Vector3D(MinLength, MinWidth, MinHeight)
                     , new Vector3D(MaxLength, MaxWidth, MaxHeight)
+                    , ForceVerticalBoxOrientation
                     );
         }
         private PalletConstraintSet BuildPalletConstraintSet()
         {
             // build pallet constraint set
             PalletConstraintSetBox palletConstraintSet = new PalletConstraintSetBox();
-            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
-            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
-            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);
-            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, true);
-            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, true);
+            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, !ForceVerticalBoxOrientation);
+            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, !ForceVerticalBoxOrientation);
+            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, !ForceVerticalBoxOrientation);
+            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, !ForceVerticalBoxOrientation);
+            palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, !ForceVerticalBoxOrientation);
             palletConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
 
             // use all existing patterns

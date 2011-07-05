@@ -49,6 +49,7 @@ namespace TreeDim.StackBuilder.Engine.TestCaseOptimisation
                 , 4.0
                 , new Vector3D(30.0, 30.0, 70.0)
                 , new Vector3D(500.0, 500.0, 500.0)
+                , false
                 );
 
             CaseOptimizer caseOptimizer = new CaseOptimizer(boxProperties, palletProperties, constraintSet, caseOptimConstraintSet);

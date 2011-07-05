@@ -29,7 +29,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        private Document _document;
+        [NonSerialized]private Document _document;
         public Color[] _faceColors = new Color[6];
         public BoxProperties _boxProperties;
         public Mode _mode;

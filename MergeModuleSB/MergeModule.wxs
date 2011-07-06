@@ -11,8 +11,10 @@
       <Directory Id="MergeRedirectFolder">
         <Directory Id="StackBuilder" Name="StackBuilder">
           <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
+          <Directory Id="LOCALIZATION_JP" Name="ja-JP"/>
           <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
           <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
+          <Directory Id="SAMPLES" Name="Samples"/>
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
@@ -47,6 +49,7 @@
           </Extension>
         </ProgId>
         <!--File type association : end-->
+        <File Id="TreeDim.EdgeCrushTest.dll" Source="..\TreeDim.EdgeCrushTest\Bin\Release\TreeDim.EdgeCrushTest.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Desktop.exe.config" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe.config" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Graphics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Graphics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Engine.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes"/>
@@ -73,6 +76,11 @@
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_JP">
+      <Component Id="resources_ja_JP" Guid="{67FFCA56-36E7-4fc2-B931-3EC0339D274D}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll"/>
+      </Component>
+    </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
         <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
@@ -86,6 +94,14 @@
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
         <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SAMPLES">
+      <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">
+        <File Id="Matches.stb" Source="..\Samples\Matches.stb"/>
+        <File Id="Matches.doc" Source="..\Samples\Matches.doc"/>
+        <File Id="Case_44_28_29.stb" Source="..\Samples\Case_44_28_29.stb"/>
+        <File Id="Case_44_28_29.doc" Source="..\Samples\Case_44_28_29.doc"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">

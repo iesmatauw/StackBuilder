@@ -35,6 +35,7 @@ namespace TreeDim.StackBuilder.Desktop
         public Mode _mode;
         public List<Pair<HalfAxis.HAxis, Texture>> _textures;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
+        private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
         #endregion
 
         #region Constructor
@@ -248,10 +249,13 @@ namespace TreeDim.StackBuilder.Desktop
             lbUnitWeightOnTop.Visible = _mode == Mode.MODE_CASE;
             // caption
             this.Text = Mode.MODE_CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
+            // update thicknesses
+            UpdateThicknesses();
+            // update box drawing
+            DrawBox();
             // windows settings
             if (null != Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition.Restore(this);
-            DrawBox();
         }
         private void FormNewBox_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -277,23 +281,24 @@ namespace TreeDim.StackBuilder.Desktop
             NumericUpDown nud = sender as NumericUpDown;
             if (null != nud)
             {
-                const double thickness = 1.0;
                 // length
-                if (nudLength == nud && BoxLength < InsideLength + thickness)
-                    InsideLength = BoxLength - thickness;
-                else if (nudInsideLength == nud && BoxLength < InsideLength + thickness)
-                    BoxLength = InsideLength + thickness;
+                if (nudLength == nud)
+                    InsideLength = BoxLength - _thicknessLength;
+                else if (nudInsideLength == nud && BoxLength < InsideLength)
+                    BoxLength = InsideLength + _thicknessLength;
                 // width
-                if (nudWidth == nud && BoxWidth < InsideWidth + thickness)
-                    InsideWidth = BoxWidth - thickness;
-                else if (nudInsideWidth == nud && BoxWidth < InsideWidth + thickness)
-                    BoxWidth = InsideWidth + thickness;
+                if (nudWidth == nud)
+                    InsideWidth = BoxWidth - _thicknessWidth;
+                else if (nudInsideWidth == nud && BoxWidth < InsideWidth)
+                    BoxWidth = InsideWidth + _thicknessWidth;
                 // height
-                if (nudHeight == nud && BoxHeight < InsideHeight + thickness)
-                    InsideHeight = BoxHeight - thickness;
-                else if (nudInsideHeight == nud && BoxHeight < InsideHeight + thickness)
-                    BoxHeight = InsideHeight + thickness;
+                if (nudHeight == nud)
+                    InsideHeight = BoxHeight - _thicknessHeight;
+                else if (nudInsideHeight == nud && BoxHeight <= InsideHeight)
+                    BoxHeight = InsideHeight + _thicknessHeight;
             }
+            // update thicknesses
+            UpdateThicknesses();
             // update ok button status
             UpdateButtonOkStatus();
             // update box drawing
@@ -374,6 +379,15 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
+        }
+        #endregion
+
+        #region Helpers
+        private void UpdateThicknesses()
+        {
+            _thicknessLength = BoxLength - InsideLength;
+            _thicknessWidth = BoxWidth - InsideWidth;
+            _thicknessHeight = BoxHeight - InsideHeight;
         }
         #endregion
 

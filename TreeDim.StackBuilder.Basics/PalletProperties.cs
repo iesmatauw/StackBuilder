@@ -14,8 +14,13 @@ namespace TreeDim.StackBuilder.Basics
         { 
             BLOCK
             , UK_STANDARD
+            , EUR
+            , EUR2
+            , EUR3
+            , EUR6
+            , US_48_40
         }
-        public static string[] PalletTypeNames = { "Block", "UK Standard" };
+        public static string[] PalletTypeNames = {"Block", "UK Standard", "EUR", "EUR2", "EUR3", "EUR6", "US 48 x 40"};
         #endregion
 
         #region Data members

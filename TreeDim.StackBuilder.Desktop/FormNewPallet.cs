@@ -33,7 +33,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
 
             // initialize type combo
-            for (int i = 0; i < 2; ++i)
+            for (int i = 0; i < 7; ++i)
                 cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
             cbType.SelectedIndex = 1;
 
@@ -60,7 +60,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             _palletProperties = palletProperties;
             // initialize type combo
-            for (int i = 0; i < 2; ++i)
+            for (int i = 0; i < 7; ++i)
                 cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
             cbType.SelectedIndex = 1;
 

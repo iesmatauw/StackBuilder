@@ -10,6 +10,98 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Graphics
 {
+    #region Position
+    public struct Position
+    {
+        #region Data members
+        private int _index;
+        private Vector3D _xyz;
+        private HalfAxis.HAxis _axis1, _axis2;
+        #endregion
+
+        #region Constructor
+        public Position(int index, Vector3D xyz, HalfAxis.HAxis axis1, HalfAxis.HAxis axis2)
+        {
+            _index = index; _xyz = xyz; _axis1 = axis1; _axis2 = axis2;
+        }
+        #endregion
+
+        #region Public properties
+        public Vector3D XYZ {   get {return _xyz;}  }
+        public HalfAxis.HAxis Axis1 { get { return _axis1; } }
+        public HalfAxis.HAxis Axis2 { get { return _axis2; } }
+        public int Index { get { return _index; } }
+        #endregion
+    }
+    #endregion
+
+    #region PalletData
+    public class PalletData
+    {
+        #region Data members
+        private string _name;
+        private string _description;
+        private List<Vector3D> _lumbers;
+        private List<Position> _positions;
+        private Vector3D _defaultDimensions;
+        private static List<PalletData> _pool;
+        #endregion
+
+        #region Constructor
+        private PalletData(string name, string description, Vector3D[] lumbers, Position[] positions, Vector3D dimensions)
+        {
+            _name = name;
+            _description = description;
+            _lumbers = new List<Vector3D>(lumbers);
+            _positions = new List<Position>(positions);
+            _defaultDimensions = dimensions;
+        }
+        #endregion
+
+        #region Static pool methods
+        private static void Initialize()
+        {
+            if (null == _pool)
+            {
+                _pool = new List<PalletData>();
+                
+            }
+        }
+
+        public static PalletData GetByName(string name)
+        {
+            return _pool.Find(delegate(PalletData type) { return string.Compare(type._name, name, true) == 0; });
+        }
+        #endregion
+
+        #region Drawing
+        public void Draw(Graphics3D graphics, Vector3D dimensions, Color color, Transform3D t)
+        {
+            double coefX = dimensions.X / _defaultDimensions.X;
+            double coefY = dimensions.Y / _defaultDimensions.Y;
+            double coefZ = dimensions.Z / _defaultDimensions.Z;
+            uint pickId = 0;
+            foreach (Position pos in _positions)
+            {
+                double coef0 = coefX, coef1 = coefY, coef2 = coefZ;
+                if (pos.Axis1 == HalfAxis.HAxis.AXIS_X_P && pos.Axis2 == HalfAxis.HAxis.AXIS_Y_P)
+                { coef0 = coefX; coef1 = coefY; }
+                else if (pos.Axis1 == HalfAxis.HAxis.AXIS_Y_P && pos.Axis2 == HalfAxis.HAxis.AXIS_X_N)
+                { coef0 = coefY; coef1 = coefX; }
+                Vector3D dim = _lumbers[pos.Index];
+                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2);
+                box.SetAllFacesColor(color);
+                box.Position = t.transform(new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ));
+                box.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis1, t)); ;
+                box.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis2, t)); ;
+                graphics.AddBox(box);
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Pallet
     public class Pallet
     {
         #region Data members
@@ -40,6 +132,7 @@ namespace TreeDim.StackBuilder.Graphics
                 case PalletProperties.PalletType.BLOCK:
                     {
                         Box box = new Box(0, _length, _width, _height);
+                        box.SetAllFacesColor(_color);
                         box.Position = t.transform(Vector3D.Zero);
                         box.LengthAxis  = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, t));
                         box.WidthAxis   = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, t));
@@ -109,6 +202,16 @@ namespace TreeDim.StackBuilder.Graphics
                         }
                     }
                     break;
+                case PalletProperties.PalletType.EUR:
+                    break;
+                case PalletProperties.PalletType.EUR2:
+                    break;
+                case PalletProperties.PalletType.EUR3:
+                    break;
+                case PalletProperties.PalletType.EUR6:
+                    break;
+                case PalletProperties.PalletType.US_48_40:
+                    break;
                 default:
                     break;
             }
@@ -147,4 +250,5 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
     }
+    #endregion
 }

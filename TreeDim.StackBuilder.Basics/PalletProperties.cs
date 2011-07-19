@@ -9,33 +9,19 @@ namespace TreeDim.StackBuilder.Basics
 {
     public class PalletProperties : ItemBase
     {
-        #region Enums
-        public enum PalletType
-        { 
-            BLOCK
-            , UK_STANDARD
-            , EUR
-            , EUR2
-            , EUR3
-            , EUR6
-            , US_48_40
-        }
-        public static string[] PalletTypeNames = {"Block", "UK Standard", "EUR", "EUR2", "EUR3", "EUR6", "US 48 x 40"};
-        #endregion
-
         #region Data members
         double _length, _width, _height;
         double _weight;
         double _admissibleLoadWeight, _admissibleLoadHeight;
         private Color _color = Color.Yellow;
-        private PalletType _type = PalletType.BLOCK;
+        private string _typeName = "Block";
         #endregion
 
         #region Constructor
-        public PalletProperties(Document document, PalletType type, double length, double width, double height)
+        public PalletProperties(Document document, string typeName, double length, double width, double height)
             : base(document)
         {
-            _type = type;
+            _typeName = typeName;
             _length = length;
             _width = width;
             _height = height;
@@ -73,10 +59,10 @@ namespace TreeDim.StackBuilder.Basics
             get { return _admissibleLoadHeight; }
             set { _admissibleLoadHeight = value; Modify(); }
         }
-        public PalletType Type
+        public string TypeName
         {
-            get { return _type; }
-            set { _type = value; Modify(); }
+            get { return _typeName; }
+            set { _typeName = value; Modify(); }
         }
         public Color Color
         {
@@ -90,7 +76,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             StringBuilder sBuilder = new StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("PalletProperties => Length {0} Width {0} Height {0}", _length, _width, _height));
+            sBuilder.Append(string.Format("PalletProperties => Type {0} Length {1} Width {2} Height {3}", _typeName, _length, _width, _height));
             return sBuilder.ToString();
         }
         #endregion

@@ -194,7 +194,7 @@ namespace TreeDim.StackBuilder.Desktop
         {        
             FormNewPallet form = new FormNewPallet(this);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewPallet(form.PalletName, form.Description, form.PalletType
+                CreateNewPallet(form.PalletName, form.Description, form.PalletTypeName
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
                     , form.Weight);
         }

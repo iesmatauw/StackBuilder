@@ -442,7 +442,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             elemPallet.AppendChild(elemLoad);
             // type
             XmlElement elemType = xmlDoc.CreateElement("type", ns);
-            elemType.InnerText = palletProp.Type.ToString();
+            elemType.InnerText = palletProp.TypeName;
             elemPallet.AppendChild(elemType);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));

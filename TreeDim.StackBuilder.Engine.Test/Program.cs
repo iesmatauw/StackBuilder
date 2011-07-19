@@ -47,7 +47,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(boxProperties.ToString());
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(doc, PalletProperties.PalletType.BLOCK, 1000, 800, 150);
+                PalletProperties palletProperties = new PalletProperties(doc, "Block", 1000, 800, 150);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 

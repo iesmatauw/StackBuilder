@@ -215,11 +215,11 @@ namespace TreeDim.StackBuilder.Basics
 
         public PalletProperties CreateNewPallet(
             string name, string description
-            , PalletProperties.PalletType type
+            , string typeName
             , double length, double width, double height
             , double weight)
         {
-            PalletProperties palletProperties = new PalletProperties(this, type, length, width, height);
+            PalletProperties palletProperties = new PalletProperties(this, typeName, length, width, height);
             palletProperties.Name = name;
             palletProperties.Description = description;
             palletProperties.Weight = weight;
@@ -872,11 +872,16 @@ namespace TreeDim.StackBuilder.Basics
             string stype = eltPalletProperties.Attributes["Type"].Value;
             string sColor = eltPalletProperties.Attributes["Color"].Value;
 
+            if ("0" == stype)
+                stype = "Block";
+            else if ("1" == stype)
+                stype = "UK Standard";
+
             // create new PalletProperties instance
             PalletProperties palletProperties = CreateNewPallet(
                 sname
                 , sdescription
-                , (PalletProperties.PalletType)System.Convert.ToInt32(stype)
+                , stype
                 , System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture)
                 , System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture)
                 , System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture)
@@ -1698,7 +1703,7 @@ namespace TreeDim.StackBuilder.Basics
             xmlPalletProperties.Attributes.Append(admLoadHeightAttribute);
             // type
             XmlAttribute typeAttribute = xmlDoc.CreateAttribute("Type");
-            typeAttribute.Value = string.Format("{0}", (int)palletProperties.Type);
+            typeAttribute.Value = string.Format("{0}", palletProperties.TypeName);
             xmlPalletProperties.Attributes.Append(typeAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");

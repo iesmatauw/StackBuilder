@@ -33,8 +33,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
 
             // initialize type combo
-            for (int i = 0; i < 7; ++i)
-                cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
+            cbType.Items.AddRange(PalletData.TypeNames);
             cbType.SelectedIndex = 1;
 
             // initialize database pallet combo
@@ -60,9 +59,17 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             _palletProperties = palletProperties;
             // initialize type combo
-            for (int i = 0; i < 7; ++i)
-                cbType.Items.Add(PalletProperties.PalletTypeNames[i]);
-            cbType.SelectedIndex = 1;
+            cbType.Items.AddRange(PalletData.TypeNames);
+            // find index
+            int index = 0;
+            foreach (string item in cbType.Items)
+            {
+                if (string.Equals(item, _palletProperties.TypeName))
+                    break;
+                ++index;
+            }
+            if (cbType.Items.Count >= index)
+                cbType.SelectedIndex = index;
 
             // initialize database pallet combo
             if (0 == cbPallet.Items.Count)
@@ -71,7 +78,7 @@ namespace TreeDim.StackBuilder.Desktop
                 radioButtonPallet2.Checked = true;
             }
             // set caption text
-            Text = string.Format("Edit {0}...", _palletProperties.Name);
+            Text = string.Format(Resources.ID_PALLETCAPTIONEDIT, _palletProperties.Name);
             // initialize data
             tbName.Text = _palletProperties.Name;
             tbDescription.Text = _palletProperties.Description;
@@ -136,15 +143,17 @@ namespace TreeDim.StackBuilder.Desktop
             get { return cbColor.Color; }
         }
 
-        public PalletProperties.PalletType PalletType
+        public string PalletTypeName
         {
-            get { return (PalletProperties.PalletType)cbType.SelectedIndex; }
+            get { return cbType.Items[cbType.SelectedIndex].ToString(); }
         }
         #endregion
 
         #region Draw pallet
         private void DrawPallet()
         {
+            if (0 == cbType.Items.Count)
+                return;
             try
             {
                 double angle = trackBarHorizAngle.Value;
@@ -157,7 +166,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
-                PalletProperties palletProperties = new PalletProperties(null, PalletType, PalletLength, PalletWidth, PalletHeight);
+                PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight);
                 palletProperties.Color = Color;
                 Pallet pallet = new Pallet(palletProperties);
                 pallet.Draw(graphics, Transform3D.Identity);

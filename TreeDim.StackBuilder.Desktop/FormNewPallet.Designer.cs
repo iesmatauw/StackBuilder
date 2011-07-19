@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewPallet));
             this.bnAccept = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
-            this.radioButtonPallet1 = new System.Windows.Forms.RadioButton();
-            this.radioButtonPallet2 = new System.Windows.Forms.RadioButton();
             this.lbName = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
@@ -49,8 +47,6 @@
             this.lbMm2 = new System.Windows.Forms.Label();
             this.lbMm3 = new System.Windows.Forms.Label();
             this.lbKg1 = new System.Windows.Forms.Label();
-            this.cbPallet = new System.Windows.Forms.ComboBox();
-            this.tbPalletProperties = new System.Windows.Forms.TextBox();
             this.lbType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
@@ -89,30 +85,6 @@
             this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPallet1
-            // 
-            this.radioButtonPallet1.AccessibleDescription = null;
-            this.radioButtonPallet1.AccessibleName = null;
-            resources.ApplyResources(this.radioButtonPallet1, "radioButtonPallet1");
-            this.radioButtonPallet1.BackgroundImage = null;
-            this.radioButtonPallet1.Font = null;
-            this.radioButtonPallet1.Name = "radioButtonPallet1";
-            this.radioButtonPallet1.TabStop = true;
-            this.radioButtonPallet1.UseVisualStyleBackColor = true;
-            this.radioButtonPallet1.CheckedChanged += new System.EventHandler(this.onPalletInsertionModeChanged);
-            // 
-            // radioButtonPallet2
-            // 
-            this.radioButtonPallet2.AccessibleDescription = null;
-            this.radioButtonPallet2.AccessibleName = null;
-            resources.ApplyResources(this.radioButtonPallet2, "radioButtonPallet2");
-            this.radioButtonPallet2.BackgroundImage = null;
-            this.radioButtonPallet2.Font = null;
-            this.radioButtonPallet2.Name = "radioButtonPallet2";
-            this.radioButtonPallet2.TabStop = true;
-            this.radioButtonPallet2.UseVisualStyleBackColor = true;
-            this.radioButtonPallet2.CheckedChanged += new System.EventHandler(this.onPalletInsertionModeChanged);
             // 
             // lbName
             // 
@@ -268,27 +240,6 @@
             this.lbKg1.Font = null;
             this.lbKg1.Name = "lbKg1";
             // 
-            // cbPallet
-            // 
-            this.cbPallet.AccessibleDescription = null;
-            this.cbPallet.AccessibleName = null;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
-            this.cbPallet.BackgroundImage = null;
-            this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPallet.Font = null;
-            this.cbPallet.FormattingEnabled = true;
-            this.cbPallet.Name = "cbPallet";
-            // 
-            // tbPalletProperties
-            // 
-            this.tbPalletProperties.AccessibleDescription = null;
-            this.tbPalletProperties.AccessibleName = null;
-            resources.ApplyResources(this.tbPalletProperties, "tbPalletProperties");
-            this.tbPalletProperties.BackgroundImage = null;
-            this.tbPalletProperties.Font = null;
-            this.tbPalletProperties.Name = "tbPalletProperties";
-            this.tbPalletProperties.ReadOnly = true;
-            // 
             // lbType
             // 
             this.lbType.AccessibleDescription = null;
@@ -307,7 +258,7 @@
             this.cbType.Font = null;
             this.cbType.FormattingEnabled = true;
             this.cbType.Name = "cbType";
-            this.cbType.SelectedIndexChanged += new System.EventHandler(this.onPalletPropertyChanged);
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.onPalletTypeChanged);
             // 
             // trackBarHorizAngle
             // 
@@ -348,7 +299,10 @@
             resources.GetString("cbColor.Items1"),
             resources.GetString("cbColor.Items2"),
             resources.GetString("cbColor.Items3"),
-            resources.GetString("cbColor.Items4")});
+            resources.GetString("cbColor.Items4"),
+            resources.GetString("cbColor.Items5"),
+            resources.GetString("cbColor.Items6"),
+            resources.GetString("cbColor.Items7")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
@@ -398,8 +352,6 @@
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.lbType);
-            this.Controls.Add(this.tbPalletProperties);
-            this.Controls.Add(this.cbPallet);
             this.Controls.Add(this.lbKg1);
             this.Controls.Add(this.lbMm3);
             this.Controls.Add(this.lbMm2);
@@ -417,8 +369,6 @@
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.radioButtonPallet2);
-            this.Controls.Add(this.radioButtonPallet1);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnAccept);
             this.Font = null;
@@ -447,8 +397,6 @@
 
         private System.Windows.Forms.Button bnAccept;
         private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.RadioButton radioButtonPallet1;
-        private System.Windows.Forms.RadioButton radioButtonPallet2;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbDescription;
@@ -466,8 +414,6 @@
         private System.Windows.Forms.Label lbMm2;
         private System.Windows.Forms.Label lbMm3;
         private System.Windows.Forms.Label lbKg1;
-        private System.Windows.Forms.ComboBox cbPallet;
-        private System.Windows.Forms.TextBox tbPalletProperties;
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;

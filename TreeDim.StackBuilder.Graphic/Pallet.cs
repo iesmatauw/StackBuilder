@@ -44,17 +44,19 @@ namespace TreeDim.StackBuilder.Graphics
         private List<Vector3D> _lumbers;
         private List<Position> _positions;
         private Vector3D _defaultDimensions;
+        private double _weight;
         private static List<PalletData> _pool;
         #endregion
 
         #region Constructor
-        private PalletData(string name, string description, Vector3D[] lumbers, Position[] positions, Vector3D dimensions)
+        private PalletData(string name, string description, Vector3D[] lumbers, Position[] positions, Vector3D dimensions, double weight)
         {
             _name = name;
             _description = description;
             _lumbers = new List<Vector3D>(lumbers);
             _positions = new List<Position>(positions);
             _defaultDimensions = dimensions;
+            _weight = weight;
         }
         #endregion
 
@@ -63,7 +65,18 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _name; }
         }
-
+        public string Description
+        {
+            get { return _description; }
+        }
+        public Vector3D Dimensions
+        {
+            get { return _defaultDimensions; }
+        }
+        public double Length { get { return _defaultDimensions.X; } }
+        public double Width { get { return _defaultDimensions.Y; } }
+        public double Height { get { return _defaultDimensions.Z; } }
+        public double Weight { get { return _weight; } }
         #endregion
 
         #region Static pool methods
@@ -83,7 +96,7 @@ namespace TreeDim.StackBuilder.Graphics
                     Position[] positions = {
                         new Position(0, new Vector3D(0.0, 0.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
                     };
-                    _pool.Add(new PalletData("Block", "Block", lumbers, positions, dimensions));
+                    _pool.Add(new PalletData("Block", "Block", lumbers, positions, dimensions, 20));
                 }
 
                 // --------------------------------------------------------------------------------
@@ -152,12 +165,9 @@ namespace TreeDim.StackBuilder.Graphics
                              , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
 
                     };
-                    _pool.Add(new PalletData("UK Standard", "UK Standard", lumbers, positions, dimensions));
+                    _pool.Add(new PalletData("UK Standard", "UK Standard", lumbers, positions, dimensions, 20));
 
                 }
-                // --------------------------------------------------------------------------------
-                // EUR
-
                 // --------------------------------------------------------------------------------
                 // GMA 48*40
                 {
@@ -204,9 +214,7 @@ namespace TreeDim.StackBuilder.Graphics
                             , new Position(0, new Vector3D(0.5 * (dimensions.X + 9 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
                                 , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
                     };
- 
-
-                    _pool.Add(new PalletData("US GMA 48x40", "Grocery", lumbers, positions, dimensions));
+                    _pool.Add(new PalletData("GMA 48x40", "Grocery Manufacturer Association (North America)", lumbers, positions, dimensions, 20));
                 }
                 // --------------------------------------------------------------------------------
                 // EUR
@@ -276,7 +284,7 @@ namespace TreeDim.StackBuilder.Graphics
                              , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
 
                         };
-                    _pool.Add(new PalletData("EUR", "EUR-EPAL ()", lumbers, positions, dimensions));
+                    _pool.Add(new PalletData("EUR", "EUR-EPAL (http://www.epal-pallets.de/uk/produkte/paletten.php)", lumbers, positions, dimensions, 20));
                 }
                 // --------------------------------------------------------------------------------
                 // EUR2

@@ -31,26 +31,12 @@ namespace TreeDim.StackBuilder.Desktop
             InitializeComponent();
             // save document reference
             _document = document;
-
             // initialize type combo
             cbType.Items.AddRange(PalletData.TypeNames);
-            cbType.SelectedIndex = 1;
-
-            // initialize database pallet combo
-            if (0 == cbPallet.Items.Count)
-            {
-                radioButtonPallet1.Checked = false;
-                radioButtonPallet2.Checked = true;
-            }
-            // initialize data
-            PalletLength = 1200;
-            PalletWidth = 1000;
-            PalletHeight = 150;
-            Weight = 20;
-
-            // select radio button
-            radioButtonPallet1.Checked = false;
-            radioButtonPallet2.Checked = true;
+            // set selected item
+            PalletTypeName = Properties.Settings.Default.PalletTypeName;
+            // initialize dimensions
+            onPalletTypeChanged(this, null);
         }
         public FormNewPallet(Document document, PalletProperties palletProperties)
         {
@@ -60,23 +46,8 @@ namespace TreeDim.StackBuilder.Desktop
             _palletProperties = palletProperties;
             // initialize type combo
             cbType.Items.AddRange(PalletData.TypeNames);
-            // find index
-            int index = 0;
-            foreach (string item in cbType.Items)
-            {
-                if (string.Equals(item, _palletProperties.TypeName))
-                    break;
-                ++index;
-            }
-            if (cbType.Items.Count >= index)
-                cbType.SelectedIndex = index;
-
-            // initialize database pallet combo
-            if (0 == cbPallet.Items.Count)
-            {
-                radioButtonPallet1.Checked = false;
-                radioButtonPallet2.Checked = true;
-            }
+            // set selected item
+            PalletTypeName = _palletProperties.TypeName;
             // set caption text
             Text = string.Format(Resources.ID_PALLETCAPTIONEDIT, _palletProperties.Name);
             // initialize data
@@ -86,10 +57,6 @@ namespace TreeDim.StackBuilder.Desktop
             PalletWidth = _palletProperties.Width;
             PalletHeight = _palletProperties.Height;
             Weight = _palletProperties.Weight;
-
-            // select radio button
-            radioButtonPallet1.Checked = false;
-            radioButtonPallet2.Checked = true;
         }
         #endregion
 
@@ -146,6 +113,18 @@ namespace TreeDim.StackBuilder.Desktop
         public string PalletTypeName
         {
             get { return cbType.Items[cbType.SelectedIndex].ToString(); }
+            set
+            {
+                int index = 0;
+                foreach (string item in cbType.Items)
+                {
+                    if (string.Equals(item, value))
+                        break;
+                    ++index;
+                }
+                if (cbType.Items.Count > index)
+                    cbType.SelectedIndex = index;
+            }
         }
         #endregion
 
@@ -190,32 +169,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             DrawPallet();
         }
-        private void onPalletInsertionModeChanged(object sender, EventArgs e)
-        {
-            cbPallet.Enabled = radioButtonPallet1.Checked;
-            tbPalletProperties.Enabled = radioButtonPallet1.Checked;
 
-            lbName.Enabled = radioButtonPallet2.Checked;
-            tbName.Enabled = radioButtonPallet2.Checked;
-            lbDescription.Enabled = radioButtonPallet2.Checked;
-            tbDescription.Enabled = radioButtonPallet2.Checked;
-            lbType.Enabled = radioButtonPallet2.Checked;
-            cbType.Enabled = radioButtonPallet2.Checked;
-            lbColor.Enabled = radioButtonPallet2.Checked;
-            cbColor.Enabled = radioButtonPallet2.Checked;
-            lbLength.Enabled = radioButtonPallet2.Checked;
-            nudLength.Enabled = radioButtonPallet2.Checked;
-            lbWidth.Enabled = radioButtonPallet2.Checked;
-            nudWidth.Enabled = radioButtonPallet2.Checked;
-            lbHeight.Enabled = radioButtonPallet2.Checked;
-            nudHeight.Enabled = radioButtonPallet2.Checked;
-            lbWeight.Enabled = radioButtonPallet2.Checked;
-            nudWeight.Enabled = radioButtonPallet2.Checked;
-            lbMm1.Enabled = radioButtonPallet2.Checked;
-            lbMm2.Enabled = radioButtonPallet2.Checked;
-            lbMm3.Enabled = radioButtonPallet2.Checked;
-            lbKg1.Enabled = radioButtonPallet2.Checked;
-        }
         private void UpdateButtonOkStatus()
         {
             string message = string.Empty;
@@ -240,12 +194,26 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateButtonOkStatus();
         }
+        private void onPalletTypeChanged(object sender, EventArgs e)
+        {
+            PalletData palletData = PalletData.GetByName(PalletTypeName);
+            if (null == palletData) return;
+
+            // set name / description / length / width / height / weight
+            PalletName = palletData.Name;
+            Description = palletData.Description;
+            PalletLength = palletData.Length;
+            PalletWidth = palletData.Width;
+            PalletHeight = palletData.Height;
+            Weight = palletData.Weight;
+
+            DrawPallet();
+        }
         #endregion
 
         #region Load / FormClosing event
         private void FormNewPallet_Load(object sender, EventArgs e)
         {
-            onPalletInsertionModeChanged(this, null);
             UpdateButtonOkStatus();
 
             // windows settings
@@ -258,8 +226,12 @@ namespace TreeDim.StackBuilder.Desktop
             // window position
             if (null == Settings.Default.FormNewPalletPosition)
                 Settings.Default.FormNewPalletPosition = new WindowSettings();
-            Settings.Default.FormNewPalletPosition.Record(this); 
+            Settings.Default.FormNewPalletPosition.Record(this);
+            // pallet type name
+            Settings.Default.PalletTypeName = PalletTypeName;
         }
         #endregion
+
+
     }
 }

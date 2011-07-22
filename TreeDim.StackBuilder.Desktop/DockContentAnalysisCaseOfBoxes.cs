@@ -342,6 +342,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // draw
                 CaseDefinitionViewer cdv = new CaseDefinitionViewer(caseOfBoxes.CaseDefinition, caseOfBoxes.InsideBoxProperties, caseOfBoxes.CaseOptimConstraintSet);
                 cdv.CaseProperties = caseOfBoxes;
+                cdv.Orientation = GetCurrentSolution().FirstCaseOrientation;
                 cdv.Draw(graphicsCase);
                 // show generated bitmap on picture box control
                 pictureBoxCase.Image = graphicsCase.Bitmap;

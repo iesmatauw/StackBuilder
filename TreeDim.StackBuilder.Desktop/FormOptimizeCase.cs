@@ -559,6 +559,7 @@ namespace TreeDim.StackBuilder.Desktop
                 if (null == solution) return;
                 // instantiate case definition viewer
                 CaseDefinitionViewer cdv = new CaseDefinitionViewer(SelectedSolution.CaseDefinition, SelectedBox, BuildCaseOptimConstraintSet());
+                cdv.Orientation = SelectedSolution.PalletSolution.FirstCaseOrientation;
                 cdv.Draw(graphics);
                 // show generated bitmap on picture box control
                 pbBoxesLayout.Image = graphics.Bitmap;

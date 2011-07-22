@@ -80,4 +80,47 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+
+    public struct Orientation
+    {
+        #region Constructor
+        public Orientation(HalfAxis.HAxis dir0, HalfAxis.HAxis dir1)
+        {   _dir0 = dir0; _dir1 = dir1; }
+        #endregion
+
+        #region Public properties
+        public HalfAxis.HAxis Dir0
+        {   get {   return _dir0;   }  }
+        public HalfAxis.HAxis Dir1
+        {   get {   return _dir1;   }  }
+        public Transform3D Transformation
+        {
+            get
+            {
+                Matrix4D mat = Matrix4D.Identity;
+                Vector3D x = HalfAxis.ToVector3D(_dir0);
+                Vector3D y = HalfAxis.ToVector3D(_dir1);
+                Vector3D z = Vector3D.CrossProduct(x, y);
+                mat.M11 = x.X;
+                mat.M21 = x.Y;
+                mat.M31 = x.Z;
+                mat.M12 = y.X;
+                mat.M22 = y.Y;
+                mat.M32 = y.Z;
+                mat.M13 = z.X;
+                mat.M23 = z.Y;
+                mat.M33 = z.Z;
+                return new Transform3D(mat);
+            }
+        }
+        #endregion
+
+        #region Static members
+        public static Orientation Default = new Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+        #endregion
+
+        #region Data members
+        private HalfAxis.HAxis _dir0, _dir1;
+        #endregion
+    }
 }

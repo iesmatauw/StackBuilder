@@ -314,6 +314,20 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return "Z"; }
         }
+
+        public Orientation FirstCaseOrientation
+        {
+            get
+            {
+                if (Count > 0)
+                {
+                    BoxLayer boxLayer = this[0] as BoxLayer;
+                    if (null != boxLayer && boxLayer.Count > 0)
+                        return new Orientation(boxLayer[0].DirectionLength, boxLayer[0].DirectionWidth);
+                }
+                return new Orientation();
+            }
+        }
         #endregion
 
         #region Adding layer / interlayer

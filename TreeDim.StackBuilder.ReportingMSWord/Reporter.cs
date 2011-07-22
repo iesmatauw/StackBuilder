@@ -790,6 +790,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
             graphics1.CameraPosition = Graphics3D.Corner_0;
             CaseDefinitionViewer viewer = new CaseDefinitionViewer(caseOfBoxes.CaseDefinition, caseOfBoxes.InsideBoxProperties, caseOfBoxes.CaseOptimConstraintSet);
             viewer.CaseProperties = caseOfBoxes;
+            viewer.Orientation = sol.FirstCaseOrientation;
             viewer.Draw(graphics1);
             graphics1.Flush();
             // view case of boxes iso2

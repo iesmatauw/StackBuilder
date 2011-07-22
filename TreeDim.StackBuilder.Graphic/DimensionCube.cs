@@ -98,6 +98,18 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
+        #region Transformation
+        public static DimensionCube Transform(DimensionCube dimCube, Transform3D transform)
+        {
+            Vector3D pos = transform.transform(dimCube._position);
+            Vector3D dim = transform.transformRot(new Vector3D(dimCube._dim) );
+            if (dim.X < 0) { pos.X += dim.X; dim.X = -dim.X; }
+            if (dim.Y < 0) { pos.Y += dim.Y; dim.Y = -dim.Y; }
+            if (dim.Z < 0) { pos.Z += dim.Z; dim.Z = -dim.Z; }
+            return new DimensionCube(pos, dim.X, dim.Y, dim.Z, dimCube.Color, dimCube._above); ;
+        }
+        #endregion
+
         #region Helpers
         private void BuildPoints()
         {

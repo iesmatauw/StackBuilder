@@ -119,7 +119,7 @@ namespace TreeDim.StackBuilder.Desktop
             for (int i=0; i<6; ++i)
                 _faceColors[i] = _boxProperties.Colors[i];
             // set textures
-            _textures = _boxProperties.TextureList;
+            _textures = _boxProperties.TextureListCopy;
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
@@ -227,7 +227,8 @@ namespace TreeDim.StackBuilder.Desktop
             set
             {
                 _textures.Clear();
-                _textures.AddRange(value);}
+                _textures.AddRange(value);
+            }
         }
         #endregion
 

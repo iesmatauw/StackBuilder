@@ -53,6 +53,13 @@ namespace TreeDim.StackBuilder.Basics
             _size = size;
             _angle = angle;
         }
+        public Texture(Texture texture)
+        {
+            _bitmap = new Bitmap(texture._bitmap);
+            _position = texture._position;
+            _size = texture.Size;
+            _angle = texture._angle;
+        }
         #endregion
 
         #region Public properties

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,255 +59,258 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="ID_ABOUT" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ID_ABOUT" xml:space="preserve">
     <value>A propos de {0}</value>
   </data>
-	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse...</value>
   </data>
-	<data name="ID_ADDNEWBOX" xml:space="preserve">
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
     <value>Créer un nouvel étui...</value>
   </data>
-	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Créer un nouveau bundle...</value>
   </data>
-	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse de bundle...</value>
   </data>
-	<data name="ID_ADDNEWCASE" xml:space="preserve">
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
     <value>Créer une nouvelle caisse...</value>
   </data>
-	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse étui/caisse...</value>
   </data>
-	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
     <value>Créer un nouvel intercallaire...</value>
   </data>
-	<data name="ID_ADDNEWPALLET" xml:space="preserve">
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
     <value>Créer une nouvelle palette...</value>
   </data>
-	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>Créer un nouveau camion...</value>
   </data>
-	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
     <value>Créer une nouvelle analyse camion...</value>
   </data>
-	<data name="ID_CASECOUNT" xml:space="preserve">
+  <data name="ID_CASECOUNT" xml:space="preserve">
     <value>Nombre de caisses</value>
   </data>
-	<data name="ID_CLOSE" xml:space="preserve">
+  <data name="ID_CLOSE" xml:space="preserve">
     <value>Fermer</value>
   </data>
-	<data name="ID_DATABASEEMPTY" xml:space="preserve">
-    <value>La base de données est vide.\nLa boîte de dialogue va être fermée.</value>
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
+    <value>La base de données est vide.
+Cette boîte de dialogue va être fermée.</value>
   </data>
-	<data name="ID_DELETE" xml:space="preserve">
+  <data name="ID_DELETE" xml:space="preserve">
     <value>Supprimer {0}</value>
   </data>
-	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
-    <value>Des analyses dépendent de {0}.\nSi vous confirmez les modifications, elles devront être recalculées et les solutions sélectionnées seront perdues.\nSouhaitez-vous continuer?</value>
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+    <value>Des analyses dépendent de {0}.
+Si vous confirmez les modifications, elles devront être recalculées et les solutions sélectionnées seront perdues.
+Souhaitez-vous continuer?</value>
   </data>
-	<data name="ID_EDIT" xml:space="preserve">
+  <data name="ID_EDIT" xml:space="preserve">
     <value>Editer {0}</value>
   </data>
-	<data name="ID_EFFICIENCY" xml:space="preserve">
+  <data name="ID_EFFICIENCY" xml:space="preserve">
     <value>Efficacité (%)</value>
   </data>
-	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
     <value>Le champ "Description" est vide</value>
   </data>
-	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
     <value>Le champ "Nom" est vide</value>
   </data>
-	<data name="ID_FILENOTFOUND" xml:space="preserve">
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
     <value>Le fichier {0} est introuvable</value>
   </data>
-	<data name="ID_GENERATEREPORT" xml:space="preserve">
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>Générer un rapport pour {0}</value>
   </data>
-	<data name="ID_INDEX" xml:space="preserve">
+  <data name="ID_INDEX" xml:space="preserve">
     <value>Index</value>
   </data>
-	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
     <value>La hauteur intérieure ({0}) doit être inférieure à la hauteur ({1})</value>
   </data>
-	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
     <value>La longueur intérieure ({0})doit être inférieure à la longueur ({1})</value>
   </data>
-	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
     <value>La largeur intérieure ({0}) doit être inférieure à la largeur ({1})</value>
   </data>
-	<data name="ID_INVALIDNAME" xml:space="preserve">
+  <data name="ID_INVALIDNAME" xml:space="preserve">
     <value>Le nom saisi ({0}) est invalide</value>
   </data>
-	<data name="ID_LAYERPATTERN" xml:space="preserve">
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Couches</value>
   </data>
-	<data name="ID_LAYOUT" xml:space="preserve">
+  <data name="ID_LAYOUT" xml:space="preserve">
     <value>Disposition</value>
   </data>
-	<data name="ID_LOADHEIGHT" xml:space="preserve">
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
     <value>Hauteur de chargement (mm)</value>
   </data>
-	<data name="ID_LOADWEIGHT" xml:space="preserve">
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
     <value>Masse du chargement (kg)</value>
   </data>
-	<data name="ID_NODE_ANALYSES" xml:space="preserve">
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
   </data>
-	<data name="ID_NODE_BOXES" xml:space="preserve">
+  <data name="ID_NODE_BOXES" xml:space="preserve">
     <value>Etuis</value>
   </data>
-	<data name="ID_NODE_BUNDLES" xml:space="preserve">
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>Bundles</value>
   </data>
-	<data name="ID_NODE_CASES" xml:space="preserve">
+  <data name="ID_NODE_CASES" xml:space="preserve">
     <value>Caisses</value>
   </data>
-	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>Intercallaires</value>
   </data>
-	<data name="ID_NODE_PALLETS" xml:space="preserve">
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallettes</value>
   </data>
-	<data name="ID_NODE_TRUCKS" xml:space="preserve">
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Camions</value>
   </data>
-	<data name="ID_PALLETCOUNT" xml:space="preserve">
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>Nombre de pallettes</value>
   </data>
-	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Poid de la palette (kg)</value>
   </data>
-	<data name="ID_READY" xml:space="preserve">
+  <data name="ID_READY" xml:space="preserve">
     <value>Prêt</value>
   </data>
-	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>Sauvegarder les modifications apportées au fichier {0} ?</value>
   </data>
-	<data name="ID_SENDTODATABASE" xml:space="preserve">
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
     <value>Conserver dans la base de données</value>
   </data>
-	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
     <value>Désélectionner la solution {0}</value>
   </data>
-	<data name="ID_VERSION" xml:space="preserve">
+  <data name="ID_VERSION" xml:space="preserve">
     <value>Version : {0}</value>
   </data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
-		<value>Le volume maximum est insuffisant pour emballer {0} {1}.</value>
-	</data>
-	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
-		<value>Inconsistance: La {0} maximale est inférieur à la minimale {1}</value>
-	</data>
-	<data name="ID_A2" xml:space="preserve">
-		<value>A2</value>
-	</data>
-	<data name="ID_LAYERS" xml:space="preserve">
-		<value>Couches</value>
-	</data>
-	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
-		<value>Définir au moins un patron de rangement</value>
-	</data>
-	<data name="ID_A1" xml:space="preserve">
-		<value>A1</value>
-	</data>
-	<data name="ID_HEIGHT" xml:space="preserve">
-		<value>Hauteur</value>
-	</data>
-	<data name="ID_CASESLAYER" xml:space="preserve">
-		<value>Caisses/Couche</value>
-	</data>
-	<data name="ID_LENGTH" xml:space="preserve">
-		<value>Longueur</value>
-	</data>
-	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-		<value>Hauteur de palette (mm)</value>
-	</data>
-	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
-		<value>Autoriser les couches alignées et/ou alternées</value>
-	</data>
-	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
-		<value>Définir au moins un axe vertical</value>
-	</data>
-	<data name="ID_SELECTED" xml:space="preserve">
-		<value>Sélectionné</value>
-	</data>
-	<data name="ID_AREA" xml:space="preserve">
-		<value>Surface</value>
-	</data>
-	<data name="ID_CASESPALLET" xml:space="preserve">
-		<value>Caisses/palette</value>
-	</data>
-	<data name="ID_A3" xml:space="preserve">
-		<value>A3</value>
-	</data>
-	<data name="ID_WIDTH" xml:space="preserve">
-		<value>Largeur</value>
-	</data>
-	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
-		<value>Définir au moins un critère d'arrêt pour l'empilage</value>
-	</data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Le volume maximum est insuffisant pour emballer {0} {1}.</value>
+  </data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Inconsistance: La {0} maximale est inférieur à la minimale {1}</value>
+  </data>
+  <data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Couches</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+    <value>Définir au moins un patron de rangement</value>
+  </data>
+  <data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+    <value>Hauteur</value>
+  </data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Caisses/Couche</value>
+  </data>
+  <data name="ID_LENGTH" xml:space="preserve">
+    <value>Longueur</value>
+  </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Hauteur de palette (mm)</value>
+  </data>
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+    <value>Autoriser les couches alignées et/ou alternées</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+    <value>Définir au moins un axe vertical</value>
+  </data>
+  <data name="ID_SELECTED" xml:space="preserve">
+    <value>Sélectionné</value>
+  </data>
+  <data name="ID_AREA" xml:space="preserve">
+    <value>Surface</value>
+  </data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Caisses/palette</value>
+  </data>
+  <data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+  <data name="ID_WIDTH" xml:space="preserve">
+    <value>Largeur</value>
+  </data>
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+    <value>Définir au moins un critère d'arrêt pour l'empilage</value>
+  </data>
 </root>

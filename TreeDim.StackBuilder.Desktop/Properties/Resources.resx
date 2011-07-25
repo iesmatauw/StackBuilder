@@ -128,7 +128,7 @@
     <value>Load height (mm)</value>
   </data>
   <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
-    <value>Inconsistency: Maximum {0} is lower than minimum {1}.</value>
+    <value>Inconsistency:Maximum {0} is lower than minimum {1}.</value>
   </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet height (mm)</value>
@@ -197,7 +197,8 @@
     <value>A3</value>
   </data>
   <data name="ID_DATABASEEMPTY" xml:space="preserve">
-    <value>Pallet solution database is empty.\n Closing form...</value>
+    <value>Pallet solution database is empty.
+Closing form...</value>
   </data>
   <data name="ID_WIDTH" xml:space="preserve">
     <value>Width</value>
@@ -362,7 +363,9 @@
     <value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
-    <value>{0} has some depending analyses.\nIf you proceed with the modifications, analyses will be recomputed and any selected solutions removed.\nContinue?</value>
+    <value>{0} has some depending analyses.
+If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
+Continue?</value>
   </data>
   <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>Save file {0}?</value>

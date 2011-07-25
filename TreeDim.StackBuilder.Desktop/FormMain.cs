@@ -57,11 +57,6 @@ namespace TreeDim.StackBuilder.Desktop
 
             InitializeComponent();
 
-            // initialize database
-            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
-            PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
-            PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
-
             // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length >= 2)
@@ -150,7 +145,10 @@ namespace TreeDim.StackBuilder.Desktop
                 CreateBasicLayout();
             dockPanel.ResumeLayout(true, true);
 
-            UpdateToolbarState();
+            // initialize database
+            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+            PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
+            PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
 
             // MRUManager
             _mruManager = new MruManager();
@@ -159,6 +157,7 @@ namespace TreeDim.StackBuilder.Desktop
              mnuFileMRU,                        // Recent Files menu item
              "Software\\TreeDim\\StackBuilder"); // Registry path to keep MRU list
 
+            UpdateToolbarState();
 
             // windows settings
             if (null != Settings.Default.FormMainPosition)
@@ -474,8 +473,8 @@ namespace TreeDim.StackBuilder.Desktop
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             // stacking strength analysis
-            newStackingStrengthAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.Cases.Count > 0;
-            toolStripStackingStrengthAnalysis.Enabled = (null != doc) && doc.Cases.Count > 0;
+            newStackingStrengthAnalysisToolStripMenuItem.Enabled = false;//(null != doc) && doc.Cases.Count > 0;
+            toolStripStackingStrengthAnalysis.Enabled = false;//(null != doc) && doc.Cases.Count > 0;
             // edit pallet solutions database
             editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
         }

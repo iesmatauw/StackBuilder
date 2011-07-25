@@ -299,8 +299,8 @@ namespace TreeDim.StackBuilder.Graphics
                     Vector3D[] lumbers = {
                          new Vector3D(1000.0, 98.0, 25.0)
                          , new Vector3D(1000.0, 98.0, 25.0)
-                         , new Vector3D(160.0, 95.0, 95.0)
-                         , new Vector3D(95.0, 95.0, 95.0)
+                         , new Vector3D(160.0, 95.0, 77.0)
+                         , new Vector3D(95.0, 95.0, 77.0)
                          , new Vector3D(1200.0, 98.0, 25.0)
                          , new Vector3D(1000.0, 112.0, 17.0)
                          , new Vector3D(1000.0, 135.0, 17.0)

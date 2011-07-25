@@ -46,9 +46,14 @@ namespace TreeDim.StackBuilder.Desktop
         #region IDocument implementation
         public bool IsDirty { get { return _dirty; } }
         public bool IsNew { get { return string.IsNullOrEmpty(_filePath); } }
+        public bool HasValidPath  {   get { return System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(_filePath)); } }
         public void Save()
         {
             if (IsNew) return;
+            if (!HasValidPath)
+                throw new System.IO.DirectoryNotFoundException(
+                    string.Format("Directory {0} could not be found!", System.IO.Path.GetDirectoryName(_filePath))
+                    );
             Write(_filePath);
             _dirty = false;
         }

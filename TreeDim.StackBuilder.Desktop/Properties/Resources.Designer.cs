@@ -339,7 +339,8 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pallet solution database is empty.\n Closing form....
+        ///   Looks up a localized string similar to Pallet solution database is empty.
+        ///Closing form....
         /// </summary>
         internal static string ID_DATABASEEMPTY {
             get {
@@ -375,7 +376,9 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} has some depending analyses.\nIf you proceed with the modifications, analyses will be recomputed and any selected solutions removed.\nContinue?.
+        ///   Looks up a localized string similar to {0} has some depending analyses.
+        ///If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
+        ///Continue?.
         /// </summary>
         internal static string ID_DEPENDINGANALYSES {
             get {
@@ -555,7 +558,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inconsistency: Maximum {0} is lower than minimum {1}..
+        ///   Looks up a localized string similar to Inconsistency:Maximum {0} is lower than minimum {1}..
         /// </summary>
         internal static string ID_MAXLOWERTHANMIN {
             get {

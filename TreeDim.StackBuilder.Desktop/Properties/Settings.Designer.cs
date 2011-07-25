@@ -360,7 +360,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\PalletSolutions\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\PalletSolutionsDB\\")]
         public string PalletSolutionsPath {
             get {
                 return ((string)(this["PalletSolutionsPath"]));

@@ -129,6 +129,7 @@
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
         <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
+        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="SAMPLES">

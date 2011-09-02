@@ -199,6 +199,9 @@
 	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
 		<value>スパイラル</value>
 	</data>
+  <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Enlarged spiral</value>
+	</data>  
 	<data name="lbKg2.Text" xml:space="preserve">
 		<value>Kg</value>
 	</data>

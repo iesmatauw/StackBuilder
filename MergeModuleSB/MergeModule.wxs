@@ -5,7 +5,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      >
-  <Module Id="MergeModuleSB" Language="1033" Version="0.1.31.0">
+  <Module Id="MergeModuleSB" Language="1033" Version="0.2.01.0">
     <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c" Manufacturer="MergeModuleSB" InstallerVersion="200" />
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">

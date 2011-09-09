@@ -124,6 +124,12 @@
     <Compile Include="DockContentLogConsole.Designer.cs">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentStartPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentStartPage.Designer.cs">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentTruckAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentTruckAnalysis.fr-FR.resx">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>

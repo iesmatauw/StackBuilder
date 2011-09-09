@@ -59,6 +59,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form override
+        private void DockContentAnalysis_Load(object sender, EventArgs e)
+        {
+
+        }
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -443,6 +447,8 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
+
+
     }
 
     #region CellBackColorAlternate and CellBackColorAlternateCheck

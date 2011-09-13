@@ -56,20 +56,24 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="StackBuilderSchema.designer.cs" />
+    <Compile Include="XML Schemas\SolutionListSchema.designer.cs" />
+    <Compile Include="XML Schemas\StackBuilderSchema.designer.cs" />
+    <Compile Include="XmlFileLoader.cs" />
+    <Compile Include="XmlFileProcessorException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Settings.settings">
+    <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="StackBuilderSchema.xsd">
+    <None Include="XML Schemas\SolutionListSchema.xsd" />
+    <None Include="XML Schemas\StackBuilderSchema.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -96,7 +100,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XmlFileProcessorInput.xml" />
+    <Content Include="Readme\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

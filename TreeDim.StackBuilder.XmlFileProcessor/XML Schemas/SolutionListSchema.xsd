@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SolutionListSchema"
+    targetNamespace="http://www.treedim.com/SolutionListSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://www.treedim.com/SolutionListSchema.xsd"
+    xmlns:mstns="http://www.treedim.com/SolutionListSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <!-- BEGIN STACKBUILDER Format Schema -->
+  <xs:annotation>
+    <xs:documentation>
+      PLMPack STACKBUILDER Schema
+      Version 0.2.1.0 (September, 2011)
+    </xs:documentation>
+  </xs:annotation>
+  <!-- import needed for xml:base attribute-->
+  <!-- Primitive Types-->
+  <xs:simpleType name="bool">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+  <xs:simpleType name="dateTime">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="float">
+    <xs:restriction base="xs:double"/>
+  </xs:simpleType>
+  <xs:simpleType name="int">
+    <xs:restriction base="xs:long"/>
+  </xs:simpleType>
+  <xs:simpleType name="Name">
+    <xs:restriction base="xs:Name"/>
+  </xs:simpleType>
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- Container Types -->
+  <xs:simpleType name="ListOfBools">
+    <xs:list itemType="bool"/>
+  </xs:simpleType>
+  <xs:simpleType name="ListOfFloats">
+    <xs:list itemType="float"/>
+  </xs:simpleType>
+  <xs:simpleType name="ListOfHexBinary">
+    <xs:list itemType="xs:hexBinary"/>
+  </xs:simpleType>
+  <xs:simpleType name="ListOfInts">
+    <xs:list itemType="int"/>
+  </xs:simpleType>
+  <xs:simpleType name="ListOfNames">
+    <xs:list itemType="Name"/>
+  </xs:simpleType>
+  <xs:simpleType name="int2">
+    <xs:restriction base="ListOfInts">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="float2">
+    <xs:restriction base="ListOfFloats">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="float3">
+    <xs:restriction base="ListOfFloats">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--Pallet solution-->
+  <xs:element name="PalletSolution">
+    <xs:complexType>
+      <xs:attribute name="title" type="string" use="required"/>
+      <xs:attribute name="caseCount" type ="int" use="required"/>
+      <xs:attribute name="interlayerCount" type="int" use="required"/>
+      <xs:attribute name="weight" type="float" use="required"/>
+      <xs:attribute name="efficiency" type="float" use="required"/>
+      <xs:attribute name="palletDimensions" type="float3" use="required"/>
+      <xs:attribute name="homogeneousLayer" type="bool" use="required"/>
+      <xs:attribute name="layer1" type="string" use="required"/>
+      <xs:attribute name="layer2" type="string" use="required"/>
+    </xs:complexType>    
+  </xs:element>
+  <!--Pallet solution list-->
+  <xs:element name="PALLETSOLUTIONLIST">
+    <xs:annotation>
+      <xs:appinfo>enable-xmlns</xs:appinfo>
+      <xs:documentation>
+        The PALLETSOLUTIONLIST declares the root element of the document that comprises
+        the list of solutions of the pallet.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PalletSolution" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="AnalysisId" type="xs:NCName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

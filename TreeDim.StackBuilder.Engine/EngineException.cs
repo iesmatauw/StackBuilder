@@ -8,7 +8,7 @@ namespace TreeDim.StackBuilder.Engine
 {
     public class EngineException : Exception
     {
-        #region Constructor
+        #region Constructors
         public EngineException()
             : base()
         { 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.2.01.0" ?>
+<?define Version = "0.2.1.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -91,7 +91,10 @@
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
-        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe.config" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes"/>
+        <File Id="TreeDim"
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"

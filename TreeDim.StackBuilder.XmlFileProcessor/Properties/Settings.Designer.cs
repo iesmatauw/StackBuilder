@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TreeDim.StackBuilder.XmlFileProcessor {
+namespace TreeDim.StackBuilder.XmlFileProcessor.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -34,8 +34,8 @@ namespace TreeDim.StackBuilder.XmlFileProcessor {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\TreeDim.StackBuilder.XmlFileProcessor\\StackBuilderSchema" +
-            ".xsd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\TreeDim.StackBuilder.XmlFileProcessor\\XML Schemas\\StackB" +
+            "uilderSchema.xsd")]
         public string XmlSchemaFilePath {
             get {
                 return ((string)(this["XmlSchemaFilePath"]));

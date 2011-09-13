@@ -32,13 +32,13 @@ namespace TreeDim.StackBuilder.Basics
             if ((boxProperties is BoxProperties && constraintSet is PalletConstraintSetBundle)
                 || (boxProperties is BundleProperties && constraintSet is PalletConstraintSetBox))
                 throw new Exception("Invalid analysis: either BoxProperties with ConstraintSetBundle or BundleProperties with ConstraintSetBox");
-
+            // has interlayer ?
+            constraintSet.HasInterlayer = null != interlayerProperties;
+            // setting members
             this.BProperties = boxProperties;
             this.PalletProperties = palletProperties;
             this.InterlayerProperties = interlayerProperties;
             this.ConstraintSet = constraintSet;
-
-
         }
         #endregion
 

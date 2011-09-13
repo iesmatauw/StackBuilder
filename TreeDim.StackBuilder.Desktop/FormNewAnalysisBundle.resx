@@ -646,7 +646,7 @@
     <value>Spiral</value>
   <comment></comment></data>
   <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
-    <value>Enlarged spirale</value>
+    <value>Enlarged spiral</value>
   <comment></comment></data>
 	<data name="checkedListBoxPatterns.Location" type="System.Drawing.Point, System.Drawing">
 		<value>12, 18</value>

@@ -186,8 +186,11 @@ namespace TreeDim.StackBuilder.Engine
                                     foreach (LayerPosition layerPos in currentLayer)
                                     {
                                         int iCount = sol.Count + 1;
-                                        innerLoopStop = (iCount * _bProperties.Weight > _constraintSet.MaximumPalletWeight)
-                                        || (_constraintSet.UseMaximumNumberOfCases && (iCount > _constraintSet.MaximumNumberOfItems));
+                                        innerLoopStop =
+											(_constraintSet.UseMaximumPalletWeight
+											&& (iCount * _bProperties.Weight + _palletProperties.Weight)> _constraintSet.MaximumPalletWeight)
+	                                        || (_constraintSet.UseMaximumNumberOfCases
+											&& (iCount > _constraintSet.MaximumNumberOfItems));
 
                                         if (!innerLoopStop)
                                         {

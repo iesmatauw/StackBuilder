@@ -153,7 +153,7 @@
       <xs:enumeration value="PNG"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="predefinedPointOfView">
+  <xs:simpleType name="pointOfViewValue">
     <xs:restriction base="xs:string">
       <xs:enumeration value="FRONT"/>
       <xs:enumeration value="BACK"/>
@@ -279,7 +279,7 @@
       <xs:attribute name="id" type="xs:NCName" use="required"/>
       <xs:attribute name="name" type="string" use="required"/>
       <xs:attribute name="description" type="string" use="optional"/>
-      <xs:attribute name="dimensions" type="string" use="required"/>
+      <xs:attribute name="dimensions" type="float3" use="required"/>
       <xs:attribute name="type" type="palletType" use="required"/>
       <xs:attribute name="weight" type="float" use="required"/>
       <xs:attribute name="color" type="xs:hexBinary" use="required"/>
@@ -421,6 +421,7 @@
       <xs:attribute name="bundleId" type="xs:NCName" use="optional"/>
       <xs:attribute name="palletId" type="xs:NCName" use="required"/>
       <xs:attribute name="interlayerId" type="xs:NCName" use="optional"/>
+      <xs:attribute name ="interlayerPeriod" type="int" use="optional"/>
       <xs:attribute name="overhang" type="float2" use="optional"/>
       <xs:attribute name="allowedLayerPatterns" type="ListOfPatterns" use="optional"/>
       <xs:attribute name="allowedLayerArrangements" type="ListOfLayerArrangements" use="optional"/>
@@ -448,37 +449,15 @@
     </xs:annotation>
   </xs:element>
   <!-- Output -->
-  <xs:element name="PointOfView">
-    <xs:annotation>
-      <xs:documentation>
-        Defines a view with azimuth and elevation angle
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:attribute name="azimuth" type="float" use="required"/>
-      <xs:attribute name="elevation" type="float" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PointOfViewPredefined">
-    <xs:annotation>
-      <xs:documentation>
-        Predefined point of view
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:attribute name="name" type="predefinedPointOfView" use="required"/>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="viewParameters">
     <xs:complexType>
-      <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element ref="PointOfViewPredefined"/>
-        <xs:element ref="PointOfView"/>
-      </xs:choice>
       <xs:attribute name="imageSize" type="int2" use="required"/>
       <xs:attribute name="path" type="xs:string" use="required"/>
       <xs:attribute name="format" type="imageFormat" use="required"/>
       <xs:attribute name="showDimensions" type="bool" use="optional"/>
+      <xs:attribute name="predefinedPointOfView" type="pointOfViewValue" use="optional"/>
+      <xs:attribute name="azimuth" type="float" use="optional"/>
+      <xs:attribute name="eleation" type="float" use="optional"/>
     </xs:complexType>    
   </xs:element>
   <xs:element name="viewItem">
@@ -492,6 +471,30 @@
         <xs:element ref ="viewParameters" minOccurs="1" maxOccurs="1"/>
       </xs:sequence>
       <xs:attribute name="itemId" type="xs:NCName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="solutionRef">
+    <xs:annotation>
+      <xs:documentation>
+        Refers a pallet analysis solution.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="analysisId" type="xs:NCName" use="required"/>
+      <xs:attribute name="index" type="int" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="viewSolution">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies a pallet solution view
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="solutionRef" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="viewParameters" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="analysisSolutionList">
@@ -557,6 +560,13 @@
               The output element defines the requested output.
             </xs:documentation>
           </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="analysisSolutionList" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element ref="viewItem" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element ref="viewSolution" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>

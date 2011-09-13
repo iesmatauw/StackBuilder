@@ -14,7 +14,7 @@ namespace TreeDim.StackBuilder.Engine
        #region Implementation of LayerPattern abstract properties and methods
         public override string Name
         {
-            get { return "Enlarged spirale"; }
+            get { return "Enlarged spiral"; }
         }
 
         public override void GetLayerDimensions(Layer layer, out double actualLength, out double actualWidth)

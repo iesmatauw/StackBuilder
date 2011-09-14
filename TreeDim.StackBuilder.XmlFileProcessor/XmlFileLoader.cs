@@ -169,15 +169,15 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // instantiate graphics
             Graphics3DImage graphics = InitializeImageFromViewParameters(vSol.viewParameters);
             // load analysis
-            PalletAnalysis analysis = LoadPalletAnalysis(_root, vSol.solutionRef.analysisId);
+            PalletAnalysis analysis = LoadPalletAnalysis(vSol.solutionRef.analysisId);
             // compute solutions
             TreeDim.StackBuilder.Engine.Solver solver = new TreeDim.StackBuilder.Engine.Solver();
             solver.ProcessAnalysis(analysis);
             // retrieve wanted solution
-            List<PalletSolution> solutions = analysis.Solutions;
+            List<Basics.PalletSolution> solutions = analysis.Solutions;
             if (vSol.solutionRef.index >= solutions.Count)
                 throw new Exception(string.Format("Analysis {0} has no solution with index {1}", analysis.Name, vSol.solutionRef.index));
-            PalletSolution sol = solutions[(int)vSol.solutionRef.index];
+            Basics.PalletSolution sol = solutions[(int)vSol.solutionRef.index];
             // display solution
             SolutionViewer solViewer = new SolutionViewer(sol);
             solViewer.Draw(graphics);
@@ -185,8 +185,33 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         }
 
         private void ProcessAnalysisSolutionList(analysisSolutionList solutionList)
-        { 
-           
+        {
+            // load analysis
+            PalletAnalysis analysis = LoadPalletAnalysis(solutionList.analysisId);
+            if (solutionList.maxNumberOfSolutionsSpecified)
+                analysis.ConstraintSet.NumberOfSolutionsKept = (int)solutionList.maxNumberOfSolutions;
+            // compute solutions
+            TreeDim.StackBuilder.Engine.Solver solver = new TreeDim.StackBuilder.Engine.Solver();
+            solver.ProcessAnalysis(analysis);
+            // instantiate pallet solution list
+            PALLETSOLUTIONLIST palletSolutionList = new PALLETSOLUTIONLIST();
+            // saves solutions to list
+            foreach (PalletSolution sol in analysis.Solutions)
+            {
+                palletSolution xmlPalletSol = new palletSolution();
+                xmlPalletSol.title = sol.Title;
+                xmlPalletSol.caseCount = sol.CaseCount;
+                xmlPalletSol.efficiency = sol.Efficiency;
+                xmlPalletSol.weight = sol.PalletWeight;
+                xmlPalletSol.palletDimensions.Add(sol.PalletLength);
+                xmlPalletSol.palletDimensions.Add(sol.PalletWidth);
+                xmlPalletSol.palletDimensions.Add(sol.PalletHeight);
+                xmlPalletSol.homogeneousLayer = sol.HasHomogeneousLayers;
+
+                palletSolutionList.palletSolution.Add(xmlPalletSol);
+            }
+
+            palletSolutionList.SaveToFile(solutionList.path);
         }
 
         private Graphics3DImage InitializeImageFromViewParameters(viewParameters vParam)
@@ -323,9 +348,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             }
         }
 
-        private static PalletAnalysis LoadPalletAnalysis(STACKBUILDER root, string sid)
+        private PalletAnalysis LoadPalletAnalysis(string sid)
         {
-            palletAnalysis xmlAnalysis = root.data.analyses.palletAnalysis.Find(delegate(palletAnalysis pa) { return pa.id == sid; });
+            palletAnalysis xmlAnalysis = _root.data.analyses.palletAnalysis.Find(delegate(palletAnalysis pa) { return pa.id == sid; });
             if (null == xmlAnalysis)
                 return null;
             else
@@ -406,9 +431,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
                 // instantiate pallet analysis
                 PalletAnalysis analysis = new PalletAnalysis(
-                    LoadCaseById(root.data.items.library_cases, xmlAnalysis.caseId)
-                    , LoadPalletById(root.data.items.library_pallets, xmlAnalysis.palletId)
-                    , LoadInterlayerById(root.data.items.library_interlayers, xmlAnalysis.interlayerId)
+                    LoadCaseById(_root.data.items.library_cases, xmlAnalysis.caseId)
+                    , LoadPalletById(_root.data.items.library_pallets, xmlAnalysis.palletId)
+                    , LoadInterlayerById(_root.data.items.library_interlayers, xmlAnalysis.interlayerId)
                     , constraintSet);
                 // name
                 analysis.Name = xmlAnalysis.name;

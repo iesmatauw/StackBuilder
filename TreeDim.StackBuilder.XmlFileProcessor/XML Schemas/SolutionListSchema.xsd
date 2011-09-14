@@ -68,7 +68,7 @@
     </xs:restriction>
   </xs:simpleType>
   <!--Pallet solution-->
-  <xs:element name="PalletSolution">
+  <xs:element name="palletSolution">
     <xs:complexType>
       <xs:attribute name="title" type="string" use="required"/>
       <xs:attribute name="caseCount" type ="int" use="required"/>
@@ -92,9 +92,9 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="PalletSolution" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="palletSolution" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
-      <xs:attribute name="AnalysisId" type="xs:NCName" use="required"/>
+      <xs:attribute name="analysisId" type="xs:NCName" use="required"/>
     </xs:complexType>
   </xs:element>
 </xs:schema>

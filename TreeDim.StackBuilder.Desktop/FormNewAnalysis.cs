@@ -480,12 +480,13 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get
             {
+                string[] patternNames = TreeDim.StackBuilder.Engine.Solver.PatternNames;
                 List<string> listAllowedPatterns = new List<string>();
                 foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
                 {
                     // use the IndexOf method to get the index of an item
                     if (checkedListBoxPatterns.GetItemCheckState(checkedListBoxPatterns.Items.IndexOf(itemChecked)) == CheckState.Checked)
-                        listAllowedPatterns.Add(itemChecked.ToString());
+                        listAllowedPatterns.Add(patternNames[checkedListBoxPatterns.Items.IndexOf(itemChecked)]);
                 }
                 return listAllowedPatterns;
             }
@@ -497,15 +498,18 @@ namespace TreeDim.StackBuilder.Desktop
         {
             set
             {
-                string allowedPatterns = value;
+                // get list of existing patterns
+                List<string> patternNameList = TreeDim.StackBuilder.Engine.Solver.PatternNameList;
                 int iCountAllowedPatterns = 0;
-                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                string[] vPatternNames = value.Split(',');
+                foreach (string patternName in vPatternNames)
                 {
-                    string patternName = checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]);
-                    bool patternAllowed = allowedPatterns.Contains(patternName);
-                    checkedListBoxPatterns.SetItemChecked(i, patternAllowed);
-                    if (patternAllowed)
+                    int index = patternNameList.FindIndex(delegate(string s) { return s == patternName; });
+                    if (-1 != index)
+                    {
+                        checkedListBoxPatterns.SetItemChecked(index, true);
                         ++iCountAllowedPatterns;
+                    }                    
                 }
                 if (iCountAllowedPatterns == 0)
                     for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)

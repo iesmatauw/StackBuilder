@@ -66,7 +66,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             set
             {
-                string[] patternNames = value.Split(';');
+                string[] patternNames = value.Split(',');
                 foreach (string patternName in patternNames)
                     SetAllowedPattern(patternName);
             }
@@ -76,7 +76,7 @@ namespace TreeDim.StackBuilder.Basics
                 foreach (string patternName in _allowedPatterns)
                 {
                     if (!string.IsNullOrEmpty(sGlobal))
-                        sGlobal += ";";
+                        sGlobal += ",";
                     sGlobal += patternName;
                 }
                 return sGlobal;

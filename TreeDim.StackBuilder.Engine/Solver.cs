@@ -18,7 +18,7 @@ namespace TreeDim.StackBuilder.Engine
     public class Solver : IAnalysisSolver
     {
         #region Data members
-        private List<LayerPattern> _patterns = new List<LayerPattern>();
+        private static List<LayerPattern> _patterns = new List<LayerPattern>();
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
@@ -29,7 +29,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Constructor
         public Solver()
         {
-            LoadPatterns();
+            Solver.LoadPatterns();
         }
         #endregion
 
@@ -270,15 +270,44 @@ namespace TreeDim.StackBuilder.Engine
 
             return solutions;
         }
+        #endregion
 
-        private void LoadPatterns()
+        #region Static methods
+        private static void LoadPatterns()
         {
-            _patterns.Add(new LayerPatternColumn());
-            _patterns.Add(new LayerPatternInterlocked());
-            _patterns.Add(new LayerPatternDiagonale());
-            _patterns.Add(new LayerPatternTrilock());
-            _patterns.Add(new LayerPatternSpirale());
-            _patterns.Add(new LayerPatternEnlargedSpirale());
+            if (0 == _patterns.Count)
+            {
+                _patterns.Add(new LayerPatternColumn());
+                _patterns.Add(new LayerPatternInterlocked());
+                _patterns.Add(new LayerPatternDiagonale());
+                _patterns.Add(new LayerPatternTrilock());
+                _patterns.Add(new LayerPatternSpirale());
+                _patterns.Add(new LayerPatternEnlargedSpirale());
+            }
+        }
+
+        public static string[] PatternNames
+        {
+            get
+            {
+                Solver.LoadPatterns();
+                string[] patternNames = new string[_patterns.Count];
+                int i=0;
+                foreach (LayerPattern p in _patterns)
+                    patternNames[i++] = p.Name;
+                return patternNames;
+            }
+        }
+        public static List<string> PatternNameList
+        {
+            get
+            {
+                Solver.LoadPatterns();
+                List<string> patternNameList = new List<string>();
+                foreach (LayerPattern p in _patterns)
+                    patternNameList.Add( p.Name );
+                return patternNameList;
+            }
         }
         #endregion
 

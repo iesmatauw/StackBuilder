@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.2.1.0" ?>
+<?define Version = "0.2.2.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -95,6 +95,8 @@
         <File Id="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe.config" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes"/>
+        <File Id="Plossum_CommandLine.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes"/>
+        <File Id="C5.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
@@ -107,7 +109,7 @@
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value"
                       Value="[PALLETSOLUTIONSDB]"/>
         <util:XmlFile Id="SetStackBuilderSchemaPath"
-                      File="[INSTALLOCATION]TreeDim.StackBuilder.XmlFileProcessor.exe.config"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.XmlFileProcessor.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value"
                       Value="[INSTALLLOCATION]XML Schemas\StackBuilderSchema.xsd"/>
@@ -116,7 +118,8 @@
     </DirectoryRef>
     <DirectoryRef Id="XMLSCHEMAS">
       <Component Id="XmlSchemas" Guid="{A5C4F5DC-49B3-4df8-9FA4-2AD1F4737C3F}">
-        <File Id="StackBuilderSchema" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\StackBuilderSchema.xsd" Checksum="yes"/>
+        <File Id="StackBuilderSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\StackBuilderSchema.xsd" Checksum="yes"/>
+        <File Id="SolutionListSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\SolutionListSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_FR">
@@ -151,6 +154,8 @@
         <File Id="Matches.doc" Source="..\Samples\Matches.doc"/>
         <File Id="Case_44_28_29.stb" Source="..\Samples\Case_44_28_29.stb"/>
         <File Id="Case_44_28_29.doc" Source="..\Samples\Case_44_28_29.doc"/>
+        <File Id="XmlFileProcessorInput.xml" Source="..\Samples\XmlFileProcessorInput.xml"/>
+        <File Id="TestXmlFileProcessor.bat" Source="..\Samples\TestXmlFileProcessor.bat"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">
@@ -200,6 +205,7 @@
       <ComponentRef Id="resources_fr_FR"/>
       <ComponentRef Id="resources_ja_JP"/>
       <ComponentRef Id="Samples"/>
+      <ComponentRef Id="XmlSchemas"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>

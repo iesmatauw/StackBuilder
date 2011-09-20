@@ -6147,6 +6147,305 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd", IsNullable = false)]
+    public partial class reportParameters
+    {
+
+        private string nameField;
+
+        private string descriptionField;
+
+        private string authorField;
+
+        private string templateDirField;
+
+        private string outputPathField;
+
+        private reportFormat formatField;
+
+        private static System.Xml.Serialization.XmlSerializer serializer;
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string description
+        {
+            get
+            {
+                return this.descriptionField;
+            }
+            set
+            {
+                this.descriptionField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string author
+        {
+            get
+            {
+                return this.authorField;
+            }
+            set
+            {
+                this.authorField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string templateDir
+        {
+            get
+            {
+                return this.templateDirField;
+            }
+            set
+            {
+                this.templateDirField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string outputPath
+        {
+            get
+            {
+                return this.outputPathField;
+            }
+            set
+            {
+                this.outputPathField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public reportFormat format
+        {
+            get
+            {
+                return this.formatField;
+            }
+            set
+            {
+                this.formatField = value;
+            }
+        }
+
+        private static System.Xml.Serialization.XmlSerializer Serializer
+        {
+            get
+            {
+                if ((serializer == null))
+                {
+                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(reportParameters));
+                }
+                return serializer;
+            }
+        }
+
+        #region Serialize/Deserialize
+        /// <summary>
+        /// Serializes current reportParameters object into an XML document
+        /// </summary>
+        /// <returns>string XML value</returns>
+        public virtual string Serialize()
+        {
+            System.IO.StreamReader streamReader = null;
+            System.IO.MemoryStream memoryStream = null;
+            try
+            {
+                memoryStream = new System.IO.MemoryStream();
+                Serializer.Serialize(memoryStream, this);
+                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+                streamReader = new System.IO.StreamReader(memoryStream);
+                return streamReader.ReadToEnd();
+            }
+            finally
+            {
+                if ((streamReader != null))
+                {
+                    streamReader.Dispose();
+                }
+                if ((memoryStream != null))
+                {
+                    memoryStream.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes workflow markup into an reportParameters object
+        /// </summary>
+        /// <param name="xml">string workflow markup to deserialize</param>
+        /// <param name="obj">Output reportParameters object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool Deserialize(string xml, out reportParameters obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(reportParameters);
+            try
+            {
+                obj = Deserialize(xml);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool Deserialize(string xml, out reportParameters obj)
+        {
+            System.Exception exception = null;
+            return Deserialize(xml, out obj, out exception);
+        }
+
+        public static reportParameters Deserialize(string xml)
+        {
+            System.IO.StringReader stringReader = null;
+            try
+            {
+                stringReader = new System.IO.StringReader(xml);
+                return ((reportParameters)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
+            }
+            finally
+            {
+                if ((stringReader != null))
+                {
+                    stringReader.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Serializes current reportParameters object into file
+        /// </summary>
+        /// <param name="fileName">full path of outupt xml file</param>
+        /// <param name="exception">output Exception value if failed</param>
+        /// <returns>true if can serialize and save into file; otherwise, false</returns>
+        public virtual bool SaveToFile(string fileName, out System.Exception exception)
+        {
+            exception = null;
+            try
+            {
+                SaveToFile(fileName);
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                exception = e;
+                return false;
+            }
+        }
+
+        public virtual void SaveToFile(string fileName)
+        {
+            System.IO.StreamWriter streamWriter = null;
+            try
+            {
+                string xmlString = Serialize();
+                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
+                streamWriter = xmlFile.CreateText();
+                streamWriter.WriteLine(xmlString);
+                streamWriter.Close();
+            }
+            finally
+            {
+                if ((streamWriter != null))
+                {
+                    streamWriter.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes xml markup from file into an reportParameters object
+        /// </summary>
+        /// <param name="fileName">string xml file to load and deserialize</param>
+        /// <param name="obj">Output reportParameters object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool LoadFromFile(string fileName, out reportParameters obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(reportParameters);
+            try
+            {
+                obj = LoadFromFile(fileName);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool LoadFromFile(string fileName, out reportParameters obj)
+        {
+            System.Exception exception = null;
+            return LoadFromFile(fileName, out obj, out exception);
+        }
+
+        public static reportParameters LoadFromFile(string fileName)
+        {
+            System.IO.FileStream file = null;
+            System.IO.StreamReader sr = null;
+            try
+            {
+                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
+                sr = new System.IO.StreamReader(file);
+                string xmlString = sr.ReadToEnd();
+                sr.Close();
+                file.Close();
+                return Deserialize(xmlString);
+            }
+            finally
+            {
+                if ((file != null))
+                {
+                    file.Dispose();
+                }
+                if ((sr != null))
+                {
+                    sr.Dispose();
+                }
+            }
+        }
+        #endregion
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
+    public enum reportFormat
+    {
+
+        /// <remarks/>
+        WORDML,
+
+        /// <remarks/>
+        HTML,
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd", IsNullable = false)]
     public partial class viewItem
     {
 
@@ -6804,6 +7103,238 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         }
 
         public static viewSolution LoadFromFile(string fileName)
+        {
+            System.IO.FileStream file = null;
+            System.IO.StreamReader sr = null;
+            try
+            {
+                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
+                sr = new System.IO.StreamReader(file);
+                string xmlString = sr.ReadToEnd();
+                sr.Close();
+                file.Close();
+                return Deserialize(xmlString);
+            }
+            finally
+            {
+                if ((file != null))
+                {
+                    file.Dispose();
+                }
+                if ((sr != null))
+                {
+                    sr.Dispose();
+                }
+            }
+        }
+        #endregion
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd", IsNullable = false)]
+    public partial class reportSolution
+    {
+
+        private solutionRef solutionRefField;
+
+        private reportParameters reportParametersField;
+
+        private static System.Xml.Serialization.XmlSerializer serializer;
+
+        public reportSolution()
+        {
+            this.reportParametersField = new reportParameters();
+            this.solutionRefField = new solutionRef();
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        public solutionRef solutionRef
+        {
+            get
+            {
+                return this.solutionRefField;
+            }
+            set
+            {
+                this.solutionRefField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public reportParameters reportParameters
+        {
+            get
+            {
+                return this.reportParametersField;
+            }
+            set
+            {
+                this.reportParametersField = value;
+            }
+        }
+
+        private static System.Xml.Serialization.XmlSerializer Serializer
+        {
+            get
+            {
+                if ((serializer == null))
+                {
+                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(reportSolution));
+                }
+                return serializer;
+            }
+        }
+
+        #region Serialize/Deserialize
+        /// <summary>
+        /// Serializes current reportSolution object into an XML document
+        /// </summary>
+        /// <returns>string XML value</returns>
+        public virtual string Serialize()
+        {
+            System.IO.StreamReader streamReader = null;
+            System.IO.MemoryStream memoryStream = null;
+            try
+            {
+                memoryStream = new System.IO.MemoryStream();
+                Serializer.Serialize(memoryStream, this);
+                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+                streamReader = new System.IO.StreamReader(memoryStream);
+                return streamReader.ReadToEnd();
+            }
+            finally
+            {
+                if ((streamReader != null))
+                {
+                    streamReader.Dispose();
+                }
+                if ((memoryStream != null))
+                {
+                    memoryStream.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes workflow markup into an reportSolution object
+        /// </summary>
+        /// <param name="xml">string workflow markup to deserialize</param>
+        /// <param name="obj">Output reportSolution object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool Deserialize(string xml, out reportSolution obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(reportSolution);
+            try
+            {
+                obj = Deserialize(xml);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool Deserialize(string xml, out reportSolution obj)
+        {
+            System.Exception exception = null;
+            return Deserialize(xml, out obj, out exception);
+        }
+
+        public static reportSolution Deserialize(string xml)
+        {
+            System.IO.StringReader stringReader = null;
+            try
+            {
+                stringReader = new System.IO.StringReader(xml);
+                return ((reportSolution)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
+            }
+            finally
+            {
+                if ((stringReader != null))
+                {
+                    stringReader.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Serializes current reportSolution object into file
+        /// </summary>
+        /// <param name="fileName">full path of outupt xml file</param>
+        /// <param name="exception">output Exception value if failed</param>
+        /// <returns>true if can serialize and save into file; otherwise, false</returns>
+        public virtual bool SaveToFile(string fileName, out System.Exception exception)
+        {
+            exception = null;
+            try
+            {
+                SaveToFile(fileName);
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                exception = e;
+                return false;
+            }
+        }
+
+        public virtual void SaveToFile(string fileName)
+        {
+            System.IO.StreamWriter streamWriter = null;
+            try
+            {
+                string xmlString = Serialize();
+                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
+                streamWriter = xmlFile.CreateText();
+                streamWriter.WriteLine(xmlString);
+                streamWriter.Close();
+            }
+            finally
+            {
+                if ((streamWriter != null))
+                {
+                    streamWriter.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes xml markup from file into an reportSolution object
+        /// </summary>
+        /// <param name="fileName">string xml file to load and deserialize</param>
+        /// <param name="obj">Output reportSolution object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool LoadFromFile(string fileName, out reportSolution obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(reportSolution);
+            try
+            {
+                obj = LoadFromFile(fileName);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool LoadFromFile(string fileName, out reportSolution obj)
+        {
+            System.Exception exception = null;
+            return LoadFromFile(fileName, out obj, out exception);
+        }
+
+        public static reportSolution LoadFromFile(string fileName)
         {
             System.IO.FileStream file = null;
             System.IO.StreamReader sr = null;
@@ -8127,10 +8658,13 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
         private List<viewSolution> viewSolutionField;
 
+        private List<reportSolution> reportSolutionField;
+
         private static System.Xml.Serialization.XmlSerializer serializer;
 
         public STACKBUILDEROutput()
         {
+            this.reportSolutionField = new List<reportSolution>();
             this.viewSolutionField = new List<viewSolution>();
             this.viewItemField = new List<viewItem>();
             this.analysisSolutionListField = new List<analysisSolutionList>();
@@ -8172,6 +8706,19 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             set
             {
                 this.viewSolutionField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("reportSolution", Order = 3)]
+        public List<reportSolution> reportSolution
+        {
+            get
+            {
+                return this.reportSolutionField;
+            }
+            set
+            {
+                this.reportSolutionField = value;
             }
         }
 

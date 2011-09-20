@@ -15,7 +15,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        internal SelSolution(Document document, PalletAnalysis analysis, PalletSolution sol)
+        public SelSolution(Document document, PalletAnalysis analysis, PalletSolution sol)
             : base(document)
         {
             _analysis = analysis;

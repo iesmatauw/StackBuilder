@@ -10,7 +10,7 @@
   <xs:annotation>
     <xs:documentation>
       PLMPack STACKBUILDER input Schema
-      Version 0.2.1.0 (September, 2011)
+      Version 0.2.2.0 (September, 2011)
 
       Note that this software document is distributed on an "AS IS" basis, with ALL EXPRESS AND
       IMPLIED WARRANTIES AND CONDITIONS DISCLAIMED, INCLUDING, WITHOUT LIMITATION, ANY IMPLIED
@@ -132,7 +132,7 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ListOfLayerArrangements">
-    <xs:list itemType="LayerArrangement"/>    
+    <xs:list itemType="LayerArrangement"/>
   </xs:simpleType>
   <xs:simpleType name="palletType">
     <xs:restriction base="xs:string">
@@ -151,6 +151,12 @@
       <xs:enumeration value="JPG"/>
       <xs:enumeration value="GIF"/>
       <xs:enumeration value="PNG"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="reportFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WORDML"/>
+      <xs:enumeration value="HTML"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="pointOfViewValue">
@@ -242,8 +248,8 @@
       <xs:attribute name="description" type="string" use="optional"/>
       <xs:attribute name="outerdimensions" type="float3" use="required"/>
       <xs:attribute name="innerDimensions" type="float3" use="optional"/>
-      <xs:attribute name="weight" type="float" use="required"/>      
-    </xs:complexType>    
+      <xs:attribute name="weight" type="float" use="required"/>
+    </xs:complexType>
   </xs:element>
   <!--bundle-->
   <xs:element name="bundle">
@@ -254,8 +260,8 @@
       <xs:attribute name="flatDimensions" type="float3" use="required"/>
       <xs:attribute name="flatWeight" type="float" use="required"/>
       <xs:attribute name="numberFlats" type="int" use="required"/>
-      <xs:attribute name="color" type="xs:hexBinary" use="required"/>      
-    </xs:complexType>   
+      <xs:attribute name="color" type="xs:hexBinary" use="required"/>
+    </xs:complexType>
   </xs:element>
   <!--interlayer-->
   <xs:element name="interlayer">
@@ -292,14 +298,14 @@
         A truck is a container on which pallet solutions are stacked.
       </xs:documentation>
     </xs:annotation>
-      <xs:complexType>
-        <xs:attribute name="id" type="xs:NCName" use="required"/>
-        <xs:attribute name="name" type="string" use="required"/>
-        <xs:attribute name="description" type="string" use="optional"/>
-        <xs:attribute name="dimensions" type="float3" use="required"/>
-        <xs:attribute name="color" type="xs:hexBinary" use="required"/>        
-      </xs:complexType>
-    </xs:element>
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:NCName" use="required"/>
+      <xs:attribute name="name" type="string" use="required"/>
+      <xs:attribute name="description" type="string" use="optional"/>
+      <xs:attribute name="dimensions" type="float3" use="required"/>
+      <xs:attribute name="color" type="xs:hexBinary" use="required"/>
+    </xs:complexType>
+  </xs:element>
   <!-- libraries-->
   <xs:element name="library_boxes">
     <xs:annotation>
@@ -309,7 +315,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="box" minOccurs="0" maxOccurs="unbounded"/>              
+        <xs:element ref="box" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -411,7 +417,7 @@
               <xs:element ref="stopMaxNumber" minOccurs="0" maxOccurs="1"/>
               <xs:element ref="stopMaxWeightOnCase" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
-          </xs:complexType>          
+          </xs:complexType>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="id" type="xs:NCName" use="required"/>
@@ -432,14 +438,14 @@
       <xs:documentation>
         Stacking a pallet solution on a truck.
       </xs:documentation>
-    </xs:annotation>    
+    </xs:annotation>
   </xs:element>
   <xs:element name="caseAnalysis">
     <xs:annotation>
       <xs:documentation>
         Finding out the best way to fill a list of case among a set of case/pallet analysis solutions.
       </xs:documentation>
-    </xs:annotation>    
+    </xs:annotation>
   </xs:element>
   <xs:element name="caseOptimisation">
     <xs:annotation>
@@ -458,7 +464,17 @@
       <xs:attribute name="predefinedPointOfView" type="pointOfViewValue" use="optional"/>
       <xs:attribute name="azimuth" type="float" use="optional"/>
       <xs:attribute name="eleation" type="float" use="optional"/>
-    </xs:complexType>    
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reportParameters">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="description" type="xs:string" use="optional"/>
+      <xs:attribute name="author" type="xs:string" use="required"/>
+      <xs:attribute name="templateDir" type="xs:string" use="required"/>
+      <xs:attribute name="outputPath" type="xs:string" use="required"/>
+      <xs:attribute name="format" type="reportFormat" use="required"/>
+    </xs:complexType>
   </xs:element>
   <xs:element name="viewItem">
     <xs:annotation>
@@ -484,6 +500,7 @@
       <xs:attribute name="index" type="int" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!--viewSolution-->
   <xs:element name="viewSolution">
     <xs:annotation>
       <xs:documentation>
@@ -494,6 +511,20 @@
       <xs:sequence>
         <xs:element ref="solutionRef" minOccurs="1" maxOccurs="1"/>
         <xs:element ref="viewParameters" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--reportSolution-->
+  <xs:element name="reportSolution">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies a pallet soltion report
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="solutionRef" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="reportParameters" minOccurs="1" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -539,8 +570,8 @@
                     <xs:element ref="library_bundles" minOccurs="0" maxOccurs="1"/>
                     <xs:element ref="library_trucks" minOccurs="0" maxOccurs="1"/>
                   </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="analyses" minOccurs="1" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>
@@ -565,6 +596,7 @@
               <xs:element ref="analysisSolutionList" minOccurs="0" maxOccurs="unbounded"/>
               <xs:element ref="viewItem" minOccurs="0" maxOccurs="unbounded"/>
               <xs:element ref="viewSolution" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element ref="reportSolution" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

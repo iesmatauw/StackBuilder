@@ -146,7 +146,7 @@ namespace TreeDim.StackBuilder.ReportingMSWord
         static public void ModifyXslt(XmlDocument doc, XmlElement rootElement, XmlNamespaceManager nsm)
         {
             XmlNodeList nodeList = rootElement.SelectNodes("//w:pict", nsm);
-            Console.WriteLine("Modifying {0} nodes...", nodeList.Count);
+            _log.DebugFormat("Modifying {0} nodes...", nodeList.Count);
 
             int imageCounter = 0;
 

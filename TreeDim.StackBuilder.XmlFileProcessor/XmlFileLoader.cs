@@ -21,6 +21,8 @@ using TreeDim.StackBuilder.Graphics;
 // properties
 using TreeDim.StackBuilder.XmlFileProcessor.Properties;
 
+// reporting
+using TreeDim.StackBuilder.ReportingMSWord;
 #endregion
 
 namespace TreeDim.StackBuilder.XmlFileProcessor
@@ -46,7 +48,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
             // validate file against schema
             if (Settings.Default.ValidateInputFile && !Validate(filePath))
-                    throw new XmlFileProcessorException(string.Format("File {0} failed to Validate", filePath));
+                throw new XmlFileProcessorException(string.Format("File {0} failed to Validate", filePath));
 
             // load file using automatically generated classes
             _root = STACKBUILDER.LoadFromFile(filePath);
@@ -123,12 +125,17 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 try { ProcessViewSolution(vSolution); }
                 catch (Exception ex) { _log.Error(ex.ToString()); }
             }
+            foreach (reportSolution rSolution in _root.output.reportSolution)
+            {
+                try { ProcessReportSolution(rSolution); }
+                catch (Exception ex) { _log.Error(ex.ToString()); }
+            }
         }
         private void ProcessViewItem(viewItem vItem)
         {
             Graphics3DImage graphics = InitializeImageFromViewParameters(vItem.viewParameters);
-            // load cases
-            BoxProperties bProperties = LoadCaseById(_root.data.items.library_cases, vItem.itemId);
+            // load case
+            BoxProperties bProperties = LoadCaseById(null, _root.data.items.library_cases, vItem.itemId);
             if (null != bProperties)
             {
                 graphics.AddBox(new Box(0, bProperties));
@@ -136,8 +143,8 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     graphics.AddDimensions(new DimensionCube(bProperties.Length, bProperties.Width, bProperties.Height));
 
             }
-            // load pallets
-            PalletProperties palletProperties = LoadPalletById(_root.data.items.library_pallets, vItem.itemId);
+            // load pallet
+            PalletProperties palletProperties = LoadPalletById(null, _root.data.items.library_pallets, vItem.itemId);
             if (null != palletProperties)
             {
                 Pallet pallet = new Pallet(palletProperties);
@@ -146,17 +153,29 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     graphics.AddDimensions(new DimensionCube(palletProperties.Length, palletProperties.Width, palletProperties.Height));
             }
             // load interlayer
-            InterlayerProperties interlayerProperties = LoadInterlayerById(_root.data.items.library_interlayers, vItem.itemId);
+            InterlayerProperties interlayerProperties = LoadInterlayerById(null, _root.data.items.library_interlayers, vItem.itemId);
             if (null != interlayerProperties)
             {
                 graphics.AddBox(new Box(0, interlayerProperties));
                 if (vItem.viewParameters.showDimensions)
                     graphics.AddDimensions(new DimensionCube(interlayerProperties.Length, interlayerProperties.Width, interlayerProperties.Thickness));
             }
+            // load bundle
+            BundleProperties bundleProperties = LoadBundleById(null, _root.data.items.library_bundles, vItem.itemId);
+            if (null != bundleProperties)
+            {
+                graphics.AddBox(new Box(0, bundleProperties));
+                if (vItem.viewParameters.showDimensions)
+                    graphics.AddDimensions(new DimensionCube(bundleProperties.Length, bundleProperties.Width, bundleProperties.Height));
+            }
             // load truck
             TruckProperties truckProperties = null;
             if (null != truckProperties)
-            { 
+            {
+                Truck truck = new Truck(truckProperties);
+                truck.Draw(graphics);
+                if (vItem.viewParameters.showDimensions)
+                    graphics.AddDimensions(new DimensionCube(truckProperties.Length, truckProperties.Width, truckProperties.Height));
             }
 
             FinalizeImageFromViewParameters(vItem.viewParameters, graphics);
@@ -168,7 +187,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // instantiate graphics
             Graphics3DImage graphics = InitializeImageFromViewParameters(vSol.viewParameters);
             // load analysis
-            PalletAnalysis analysis = LoadPalletAnalysis(vSol.solutionRef.analysisId);
+            PalletAnalysis analysis = LoadPalletAnalysis(null, vSol.solutionRef.analysisId);
             // compute solutions
             TreeDim.StackBuilder.Engine.Solver solver = new TreeDim.StackBuilder.Engine.Solver();
             solver.ProcessAnalysis(analysis);
@@ -186,7 +205,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         private void ProcessAnalysisSolutionList(analysisSolutionList solutionList)
         {
             // load analysis
-            PalletAnalysis analysis = LoadPalletAnalysis(solutionList.analysisId);
+            PalletAnalysis analysis = LoadPalletAnalysis(null, solutionList.analysisId);
             if (solutionList.maxNumberOfSolutionsSpecified)
                 analysis.ConstraintSet.NumberOfSolutionsKept = (int)solutionList.maxNumberOfSolutions;
             // compute solutions
@@ -213,6 +232,28 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             palletSolutionList.SaveToFile(solutionList.path);
         }
 
+        private void ProcessReportSolution(reportSolution rSol)
+        {
+            // create document
+            Document doc = new Document(rSol.reportParameters.name, rSol.reportParameters.description, rSol.reportParameters.author, DateTime.Now, null);
+            // load analysis
+            PalletAnalysis analysis = LoadPalletAnalysis(doc, rSol.solutionRef.analysisId);
+            if (null == analysis)
+                return;
+            // compute solutions
+            TreeDim.StackBuilder.Engine.Solver solver = new TreeDim.StackBuilder.Engine.Solver();
+            solver.ProcessAnalysis(analysis);
+            // retrieve wanted solution
+            List<Basics.PalletSolution> solutions = analysis.Solutions;
+            if (rSol.solutionRef.index >= solutions.Count)
+                throw new Exception(string.Format("Analysis {0} has no solution with index {1}", analysis.Name, rSol.solutionRef.index));
+            Basics.PalletSolution sol = solutions[(int)rSol.solutionRef.index];
+            // selected solution
+            SelSolution selSolution = new SelSolution(doc, analysis, sol);
+            // generate report
+            Reporter.BuildAnalysisReport(analysis, selSolution, rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
+        }
+
         private Graphics3DImage InitializeImageFromViewParameters(viewParameters vParam)
         {
             long[] iSize = vParam.imageSize.ToArray();
@@ -233,7 +274,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     default: break;
                 }
             }
-            return graphics;            
+            return graphics;
         }
 
         private void FinalizeImageFromViewParameters(viewParameters vParam, Graphics3DImage graphics)
@@ -250,7 +291,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
 
         #region Loading case / pallet / interlayer / analysis
-        private static BoxProperties LoadCaseById(List<@case> listCase, string sid)
+        private static BoxProperties LoadCaseById(Document doc, List<@case> listCase, string sid)
         {
             @case caseItem = listCase.Find(delegate(@case c) { return c.id == sid; });
             if (null == caseItem)
@@ -260,7 +301,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 double[] outerLength = caseItem.outerdimensions.ToArray();
                 double[] insideLength = caseItem.innerDimensions.ToArray();
                 // instantiate BoxProperties
-                BoxProperties bProperties = new BoxProperties(null, outerLength[0], outerLength[1], outerLength[2], insideLength[0], insideLength[1], insideLength[2]);
+                BoxProperties bProperties = new BoxProperties(doc, outerLength[0], outerLength[1], outerLength[2], insideLength[0], insideLength[1], insideLength[2]);
                 // name
                 bProperties.Name = caseItem.name;
                 // description
@@ -287,7 +328,25 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             }
         }
 
-        private static PalletProperties LoadPalletById(List<pallet> listPallet, string sid)
+        private static BundleProperties LoadBundleById(Document doc, List<bundle> listBundles, string sid)
+        {
+            bundle bundleItem = listBundles.Find(delegate(bundle b) { return b.id == sid; });
+            if (null == bundleItem)
+                return null;
+            else
+            {
+                double[] bundleDim = bundleItem.flatDimensions.ToArray();
+                // instantiate bundle
+                BundleProperties bundleProperties = new BundleProperties(
+                    doc, bundleItem.name, bundleItem.description
+                    , bundleDim[0], bundleDim[1], bundleDim[2]
+                    , bundleItem.flatWeight, (int)bundleItem.numberFlats
+                    , System.Drawing.Color.FromArgb((int)bundleItem.color[0], (int)bundleItem.color[1], (int)bundleItem.color[2]));
+                return bundleProperties;
+            }
+        }
+
+        private static PalletProperties LoadPalletById(Document doc, List<pallet> listPallet, string sid)
         {
             pallet palletItem = listPallet.Find(delegate(pallet p) { return p.id == sid; });
             if (null == palletItem)
@@ -311,7 +370,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                         throw new Exception("Pallet with id = {0} has an unknown pallet type");
                 }
                 // instantiate pallet properties
-                PalletProperties palletProperties = new PalletProperties(null, typeName, dimensions[0], dimensions[1], dimensions[2]);
+                PalletProperties palletProperties = new PalletProperties(doc, typeName, dimensions[0], dimensions[1], dimensions[2]);
                 // name
                 palletProperties.Name = palletItem.name;
                 // description
@@ -325,7 +384,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             }
         }
 
-        private static InterlayerProperties LoadInterlayerById(List<interlayer> listInterlayer, string sid)
+        private static InterlayerProperties LoadInterlayerById(Document doc, List<interlayer> listInterlayer, string sid)
         {
             interlayer interlayerItem = listInterlayer.Find(delegate(interlayer i) { return i.id == sid; });
             if (null == interlayerItem)
@@ -336,7 +395,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 double[] dimensions = interlayerItem.dimensions.ToArray();
                 // instantiate interlayer properties
                 InterlayerProperties interlayerProperties = new InterlayerProperties(
-                    null
+                    doc
                     , interlayerItem.name
                     , interlayerItem.description
                     , dimensions[0], dimensions[1], dimensions[2]
@@ -347,100 +406,136 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             }
         }
 
-        private PalletAnalysis LoadPalletAnalysis(string sid)
+        private PalletAnalysis LoadPalletAnalysis(Document doc, string sid)
         {
+            PalletAnalysis analysis = null;
+
             palletAnalysis xmlAnalysis = _root.data.analyses.palletAnalysis.Find(delegate(palletAnalysis pa) { return pa.id == sid; });
             if (null == xmlAnalysis)
-                return null;
-            else
+                throw new XmlFileProcessorException(string.Format("Failed to load analysis with Id = {0}", xmlAnalysis.id));
+
+            BoxProperties caseProperties = LoadCaseById(doc, _root.data.items.library_cases, xmlAnalysis.caseId);
+            BundleProperties bundleProperties = LoadBundleById(doc, _root.data.items.library_bundles, xmlAnalysis.bundleId);
+
+            BProperties bProperties;
+            PalletConstraintSet constraintSet;
+
+            if (null != caseProperties)
             {
-                PalletConstraintSetBox constraintSet = new PalletConstraintSetBox();
+                PalletConstraintSetBox caseConstraintSet = new PalletConstraintSetBox();
                 // interlayer
-                constraintSet.HasInterlayer = xmlAnalysis.interlayerPeriodSpecified;
-                // allow aligned / alternate layers
-                constraintSet.AllowAlignedLayers = false;
-                constraintSet.AllowAlternateLayers = false;
-                foreach (LayerArrangement layerArr in xmlAnalysis.allowedLayerArrangements)
-                {
-                    if (layerArr == LayerArrangement.ALIGNED)
-                        constraintSet.AllowAlignedLayers = true;
-                    if (layerArr == LayerArrangement.ROTATED180 | layerArr == LayerArrangement.ROTATED90)
-                        constraintSet.AllowAlternateLayers = true;
-                }
-                // allowed patterns
-                foreach (PatternName patternName in xmlAnalysis.allowedLayerPatterns)
-                {
-                    switch (patternName)
-                    {
-                        case PatternName.COLUMN: constraintSet.SetAllowedPattern("Column"); break;
-                        case PatternName.DIAGONAL: constraintSet.SetAllowedPattern("Diagonal"); break;
-                        case PatternName.INTERLOCK: constraintSet.SetAllowedPattern("Interlock"); break;
-                        case PatternName.TRILOCK: constraintSet.SetAllowedPattern("Trilock"); break;
-                        case PatternName.SPIRAL: constraintSet.SetAllowedPattern("Spiral"); break;
-                        case PatternName.ENLARGED_SPIRAL: constraintSet.SetAllowedPattern("Enlarged spiral"); break;
-                        default: break;
-                    }
-                }
+                caseConstraintSet.HasInterlayer = xmlAnalysis.interlayerPeriodSpecified;
+ 
                 // allowed ortho axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, true);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
-                // overhang
-                constraintSet.OverhangX = xmlAnalysis.overhang[0];
-                constraintSet.OverhangY = xmlAnalysis.overhang[1];
-                // stop criterions
-                // max height
-                if (xmlAnalysis.stackingStopCriterions.stopMaxHeight.maxHeightSpecified)
-                {
-                    constraintSet.UseMaximumHeight = true;
-                    constraintSet.MaximumHeight = xmlAnalysis.stackingStopCriterions.stopMaxHeight.maxHeight;
-                }
-                else
-                    constraintSet.UseMaximumHeight = false;
-                // max weight
-                if (xmlAnalysis.stackingStopCriterions.stopMaxWeight.maxWeightSpecified)
-                {
-                    constraintSet.UseMaximumPalletWeight = true;
-                    constraintSet.MaximumPalletWeight = xmlAnalysis.stackingStopCriterions.stopMaxWeight.maxWeight;
-                }
-                else
-                    constraintSet.UseMaximumPalletWeight = false;
-                // max number of box/bundle
-                if (xmlAnalysis.stackingStopCriterions.stopMaxNumber.maxNumberSpecified)
-                {
-                    constraintSet.UseMaximumNumberOfCases = true;
-                    constraintSet.MaximumNumberOfItems = (int)xmlAnalysis.stackingStopCriterions.stopMaxNumber.maxNumber;
-                }
-                else
-                    constraintSet.UseMaximumNumberOfCases = false;
-                // max weight on case
-                if (xmlAnalysis.stackingStopCriterions.stopMaxWeightOnCase.maxWeightOnCaseSpecified)
-                {
-                    constraintSet.UseMaximumWeightOnBox = true;
-                    constraintSet.MaximumWeightOnBox = xmlAnalysis.stackingStopCriterions.stopMaxWeightOnCase.maxWeightOnCase;
-                }
-                else
-                    constraintSet.UseMaximumWeightOnBox = false;
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, true);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, true);
+                caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
 
                 // interlayer period
-                constraintSet.InterlayerPeriod = xmlAnalysis.interlayerPeriodSpecified ? (int)xmlAnalysis.interlayerPeriod : 1;
+                caseConstraintSet.InterlayerPeriod = xmlAnalysis.interlayerPeriodSpecified ? (int)xmlAnalysis.interlayerPeriod : 1;
 
+                bProperties = caseProperties;
+                constraintSet = caseConstraintSet;
+            }
+            else if (null != bundleProperties)
+            {
+                PalletConstraintSetBundle bundleConstraintSet = new PalletConstraintSetBundle();
+
+                bProperties = bundleProperties;
+                constraintSet = bundleConstraintSet;
+            }
+            else
+                throw new XmlFileProcessorException(string.Format("Failed to load analysis with Id = {0}", xmlAnalysis.id));
+
+           // generic constraintSet properties
+           // allow aligned / alternate layers
+            constraintSet.AllowAlignedLayers = false;
+            constraintSet.AllowAlternateLayers = false;
+            foreach (LayerArrangement layerArr in xmlAnalysis.allowedLayerArrangements)
+            {
+                if (layerArr == LayerArrangement.ALIGNED)
+                    constraintSet.AllowAlignedLayers = true;
+                if (layerArr == LayerArrangement.ROTATED180 | layerArr == LayerArrangement.ROTATED90)
+                    constraintSet.AllowAlternateLayers = true;
+            }
+            // allowed patterns
+            foreach (PatternName patternName in xmlAnalysis.allowedLayerPatterns)
+            {
+                switch (patternName)
+                {
+                    case PatternName.COLUMN: constraintSet.SetAllowedPattern("Column"); break;
+                    case PatternName.DIAGONAL: constraintSet.SetAllowedPattern("Diagonal"); break;
+                    case PatternName.INTERLOCK: constraintSet.SetAllowedPattern("Interlock"); break;
+                    case PatternName.TRILOCK: constraintSet.SetAllowedPattern("Trilock"); break;
+                    case PatternName.SPIRAL: constraintSet.SetAllowedPattern("Spiral"); break;
+                    case PatternName.ENLARGED_SPIRAL: constraintSet.SetAllowedPattern("Enlarged spiral"); break;
+                    default: break;
+                }
+            }
+            // overhang
+            constraintSet.OverhangX = xmlAnalysis.overhang[0];
+            constraintSet.OverhangY = xmlAnalysis.overhang[1];
+
+            // stop criterions
+            // max height
+            if (xmlAnalysis.stackingStopCriterions.stopMaxHeight.maxHeightSpecified)
+            {
+                constraintSet.UseMaximumHeight = true;
+                constraintSet.MaximumHeight = xmlAnalysis.stackingStopCriterions.stopMaxHeight.maxHeight;
+            }
+            else
+                constraintSet.UseMaximumHeight = false;
+            // max weight
+            if (xmlAnalysis.stackingStopCriterions.stopMaxWeight.maxWeightSpecified)
+            {
+                constraintSet.UseMaximumPalletWeight = true;
+                constraintSet.MaximumPalletWeight = xmlAnalysis.stackingStopCriterions.stopMaxWeight.maxWeight;
+            }
+            else
+                constraintSet.UseMaximumPalletWeight = false;
+            // max number of box/bundle
+            if (xmlAnalysis.stackingStopCriterions.stopMaxNumber.maxNumberSpecified)
+            {
+                constraintSet.UseMaximumNumberOfCases = true;
+                constraintSet.MaximumNumberOfItems = (int)xmlAnalysis.stackingStopCriterions.stopMaxNumber.maxNumber;
+            }
+            else
+                constraintSet.UseMaximumNumberOfCases = false;
+            // max weight on case
+            if (xmlAnalysis.stackingStopCriterions.stopMaxWeightOnCase.maxWeightOnCaseSpecified)
+            {
+                constraintSet.UseMaximumWeightOnBox = true;
+                constraintSet.MaximumWeightOnBox = xmlAnalysis.stackingStopCriterions.stopMaxWeightOnCase.maxWeightOnCase;
+            }
+            else
+                constraintSet.UseMaximumWeightOnBox = false;
+
+            if (null != doc)
+            {
+                analysis = doc.CreateNewAnalysis(xmlAnalysis.name, xmlAnalysis.description
+                    , bProperties
+                    , LoadPalletById(doc, _root.data.items.library_pallets, xmlAnalysis.palletId)
+                    , LoadInterlayerById(doc, _root.data.items.library_interlayers, xmlAnalysis.interlayerId)
+                    , constraintSet
+                    , new TreeDim.StackBuilder.Engine.Solver());
+            }
+            else
+            {
                 // instantiate pallet analysis
-                PalletAnalysis analysis = new PalletAnalysis(
-                    LoadCaseById(_root.data.items.library_cases, xmlAnalysis.caseId)
-                    , LoadPalletById(_root.data.items.library_pallets, xmlAnalysis.palletId)
-                    , LoadInterlayerById(_root.data.items.library_interlayers, xmlAnalysis.interlayerId)
+                analysis = new PalletAnalysis(
+                    bProperties
+                    , LoadPalletById(null, _root.data.items.library_pallets, xmlAnalysis.palletId)
+                    , LoadInterlayerById(null, _root.data.items.library_interlayers, xmlAnalysis.interlayerId)
                     , constraintSet);
                 // name
                 analysis.Name = xmlAnalysis.name;
                 // description
                 analysis.Description = xmlAnalysis.description;
-
-                return analysis;
             }
+            return analysis;
         }
         #endregion
     }

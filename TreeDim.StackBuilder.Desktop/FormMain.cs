@@ -145,8 +145,7 @@ namespace TreeDim.StackBuilder.Desktop
                 CreateBasicLayout();
             dockPanel.ResumeLayout(true, true);
 
-            // initialize database
-            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+            // initialize database events
             PalletSolutionDatabase.Instance.SolutionAppended += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
             PalletSolutionDatabase.Instance.SolutionDeleted += new PalletSolutionDatabase.SolutionMoveHandler(PalletSolutionDBModified);
 

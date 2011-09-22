@@ -5,7 +5,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      >
-  <Module Id="MergeModuleSB" Language="1033" Version="0.2.2.0">
+  <Module Id="MergeModuleSB" Language="1033" Version="0.2.3.0">
     <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c" Manufacturer="MergeModuleSB" InstallerVersion="200" />
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
@@ -15,6 +15,7 @@
           <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
           <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
           <Directory Id="SAMPLES" Name="Samples"/>
+          <Directory Id="XMLSCHEMAS" Name="XML Schemas"/>
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
@@ -56,7 +57,11 @@
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
-        <File Id ="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe.config" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes"/>
+        <File Id="Plossum_CommandLine.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes"/>
+        <File Id="C5.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
                       File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
@@ -68,7 +73,18 @@
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value"
                       Value="[PALLETSOLUTIONSDB]"/>
+        <util:XmlFile Id="SetStackBuilderSchemaPath"
+                      File="[StackBuilder]TreeDim.StackBuilder.XmlFileProcessor.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value"
+                      Value="[StackBuilder]XML Schemas\StackBuilderSchema.xsd"/>
         <!--update config file-->
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="XMLSCHEMAS">
+      <Component Id="XmlSchemas" Guid="{A5C4F5DC-49B3-4df8-9FA4-2AD1F4737C3F}">
+        <File Id="StackBuilderSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\StackBuilderSchema.xsd" Checksum="yes"/>
+        <File Id="SolutionListSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\SolutionListSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_FR">
@@ -94,6 +110,7 @@
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
         <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
+        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="SAMPLES">
@@ -102,6 +119,8 @@
         <File Id="Matches.doc" Source="..\Samples\Matches.doc"/>
         <File Id="Case_44_28_29.stb" Source="..\Samples\Case_44_28_29.stb"/>
         <File Id="Case_44_28_29.doc" Source="..\Samples\Case_44_28_29.doc"/>
+        <File Id="XmlFileProcessorInput.xml" Source="..\Samples\XmlFileProcessorInput.xml"/>
+        <File Id="TestXmlFileProcessor.bat" Source="..\Samples\TestXmlFileProcessor.bat"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="ApplicationShortcutFolder">

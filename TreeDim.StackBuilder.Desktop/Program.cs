@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Diagnostics;
+// log4net
 using log4net;
 using log4net.Config;
-using System.Diagnostics;
-
-
+// Exception reporter
 using ExceptionReporting;
+// treeDiM
+using TreeDim.StackBuilder.Basics;
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 #region File association
@@ -60,6 +63,10 @@ namespace TreeDim.StackBuilder.Desktop
 
                 // file association
                 RegisterFileType();
+
+                // initialize database with containing folder
+                PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

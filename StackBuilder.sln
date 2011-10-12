@@ -1,9 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI controls", "GUI controls", "{C6DE47A1-1707-4139-9638-37CA983F3086}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test projects", "Test projects", "{36E4D3C5-28FD-46B9-8763-C3316F67C6BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML Help", "HTML Help", "{59115AF3-A2B9-4FBB-9525-B5BD9C2AE34D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionReporter", "ExceptionReporter", "{4FC24C4E-9D40-446E-B780-13269113BB8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Engine", "TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj", "{2E646606-052D-4063-9218-1379430B070E}"
 EndProject
@@ -44,21 +50,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Report
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.ReportingMSWord.Test", "TreeDim.StackBuilder.ReportingMSWord.Test\TreeDim.StackBuilder.ReportingMSWord.Test.csproj", "{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Graphics.BoxelOrderer.Test", "Test\TreeDim.Stackbuilder.Graphics.BoxelOrderer.Test\TreeDim.StackBuilder.Graphics.BoxelOrderer.Test.csproj", "{70C5EAF0-C268-4395-9CF6-115DFB502236}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Reporting.XsltGenerator", "TreeDim.StackBuilder.Reporting.XsltGenerator\TreeDim.StackBuilder.Reporting.XsltGenerator.csproj", "{73F7AD40-F55C-4B68-887A-DA188BA4B4CE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML Help", "HTML Help", "{59115AF3-A2B9-4FBB-9525-B5BD9C2AE34D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Engine.TestCaseOptimisation", "TreeDim.StackBuilder.Engine.TestCaseOptimisation\TreeDim.StackBuilder.Engine.TestCaseOptimisation.csproj", "{2A6670DA-F272-4D77-AF6E-F3710AED677E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionReporter.WinForms", "ExceptionReporter\ExceptionReporter.WinForms.csproj", "{C49896A3-C0DA-45C4-B30E-4D17E548DBF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32Mapi", "Win32Mapi\Win32Mapi.csproj", "{60A93330-81F1-46CC-87C6-F38C4B5DBC7B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionReporter", "ExceptionReporter", "{4FC24C4E-9D40-446E-B780-13269113BB8E}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MergeModuleSB", "MergeModuleSB\MergeModuleSB.wixproj", "{DCE973AD-D647-4989-8F16-F43FF7E058A2}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -76,6 +76,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.EdgeCrushTest", "TreeDim.EdgeCrushTest\TreeDim.EdgeCrushTest.csproj", "{E4240EE0-60B3-4435-BD09-F81D56C0899A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.XmlFileProcessor", "TreeDim.StackBuilder.XmlFileProcessor\TreeDim.StackBuilder.XmlFileProcessor.csproj", "{108EA949-8BA4-4686-88FD-AE6E75C064DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reporting", "Reporting", "{984497B5-C76B-49C3-9C6D-00E25252DD93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -290,7 +292,9 @@ Global
 		{2A6670DA-F272-4D77-AF6E-F3710AED677E} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B} = {F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}
 		{DCE973AD-D647-4989-8F16-F43FF7E058A2} = {F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}
-		{60A93330-81F1-46CC-87C6-F38C4B5DBC7B} = {4FC24C4E-9D40-446E-B780-13269113BB8E}
 		{C49896A3-C0DA-45C4-B30E-4D17E548DBF6} = {4FC24C4E-9D40-446E-B780-13269113BB8E}
+		{60A93330-81F1-46CC-87C6-F38C4B5DBC7B} = {4FC24C4E-9D40-446E-B780-13269113BB8E}
+		{1505A6E5-E6F9-4408-A5C8-968417081CBD} = {984497B5-C76B-49C3-9C6D-00E25252DD93}
+		{73F7AD40-F55C-4B68-887A-DA188BA4B4CE} = {984497B5-C76B-49C3-9C6D-00E25252DD93}
 	EndGlobalSection
 EndGlobal

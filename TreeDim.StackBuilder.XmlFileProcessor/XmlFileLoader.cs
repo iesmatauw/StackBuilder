@@ -22,7 +22,7 @@ using TreeDim.StackBuilder.Graphics;
 using TreeDim.StackBuilder.XmlFileProcessor.Properties;
 
 // reporting
-using TreeDim.StackBuilder.ReportingMSWord;
+using TreeDim.StackBuilder.Reporting;
 #endregion
 
 namespace TreeDim.StackBuilder.XmlFileProcessor
@@ -251,7 +251,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // selected solution
             SelSolution selSolution = new SelSolution(doc, analysis, sol);
             // generate report
-            Reporter.BuildAnalysisReport(analysis, selSolution, rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
+            ReporterMSWord.BuildAnalysisReport(analysis, selSolution, rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
         }
 
         private Graphics3DImage InitializeImageFromViewParameters(viewParameters vParam)

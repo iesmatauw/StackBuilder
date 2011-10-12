@@ -8,7 +8,7 @@ using log4net;
 
 namespace TreeDim.StackBuilder.Reporting
 {
-    public class Reporter
+    class ReporterHtml : Reporter
     {
     }
 }

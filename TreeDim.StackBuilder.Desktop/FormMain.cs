@@ -17,7 +17,7 @@ using Utilities;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
-using TreeDim.StackBuilder.ReportingMSWord;
+using TreeDim.StackBuilder.Reporting;
 
 using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
@@ -358,7 +358,7 @@ namespace TreeDim.StackBuilder.Desktop
                     // getting current culture
                     string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
-                    Reporter.BuildAnalysisReport(
+                    ReporterMSWord.BuildAnalysisReport(
                         eventArg.Analysis
                         , eventArg.SelSolution
                         , Settings.Default.ReportTemplatePath

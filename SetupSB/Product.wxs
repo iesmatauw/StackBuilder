@@ -90,7 +90,7 @@
         <File Id="TreeDim.StackBuilder.Graphics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Graphics.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Engine.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Basics.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes"/>
-        <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ReportingMSWord.dll" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.ReportingMSWord.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Reporting.dll" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes"/>
@@ -134,12 +134,12 @@
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
-        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
-        <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
-        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes"/>
-        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes"/>
-        <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes"/>
-        <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
+        <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
+        <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
+        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes"/>
+        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes"/>
+        <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes"/>
+        <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
       </Component>        
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">

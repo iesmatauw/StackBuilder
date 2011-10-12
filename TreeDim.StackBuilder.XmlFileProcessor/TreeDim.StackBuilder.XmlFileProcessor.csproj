@@ -106,9 +106,9 @@
       <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
       <Name>TreeDim.StackBuilder.Graphics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.ReportingMSWord\TreeDim.StackBuilder.ReportingMSWord.csproj">
+    <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\TreeDim.StackBuilder.Reporting.csproj">
       <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
-      <Name>TreeDim.StackBuilder.ReportingMSWord</Name>
+      <Name>TreeDim.StackBuilder.Reporting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

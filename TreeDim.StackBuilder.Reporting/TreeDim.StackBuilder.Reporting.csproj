@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E82AB523-ACE9-41F5-B5D6-F2D9AD6D2576}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TreeDim.StackBuilder.ReportingMSWord.Test</RootNamespace>
-    <AssemblyName>TreeDim.StackBuilder.ReportingMSWord.Test</AssemblyName>
+    <RootNamespace>TreeDim.StackBuilder.Reporting</RootNamespace>
+    <AssemblyName>TreeDim.StackBuilder.Reporting</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -62,13 +62,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Reporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TreeDim.StackBuilder.ReportingMSWord.Test.exe.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Compile Include="ReporterHtml.cs" />
+    <Compile Include="ReporterMSWord.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
@@ -79,14 +76,20 @@
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>TreeDim.StackBuilder.Basics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
-      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
-      <Name>TreeDim.StackBuilder.Engine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj">
       <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
       <Name>TreeDim.StackBuilder.Graphics</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReportTemplates\ReportTemplateHtml_ENU.xsl" />
+    <Content Include="ReportTemplates\ReportTemplateMSWord_ENU.xml" />
+    <Content Include="ReportTemplates\ReportTemplateMSWord_FRA.xml" />
+    <Content Include="ReportTemplates\ReportTemplateMSWord_JPN.xml" />
+    <Content Include="SampleReportData\SampleReport.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReportTemplates\ReportSchema.xsd" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

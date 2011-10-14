@@ -148,6 +148,14 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap HTML
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("HTML", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap TruckAnalysis
         {
             get

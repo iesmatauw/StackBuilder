@@ -447,8 +447,6 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
-
-
     }
 
     #region CellBackColorAlternate and CellBackColorAlternateCheck

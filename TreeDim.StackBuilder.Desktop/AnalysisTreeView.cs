@@ -148,9 +148,10 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSISSOL)
             {
-                string message = string.Format(Resources.ID_GENERATEREPORT, nodeTag.SelSolution.Name);
-                ToolStripMenuItem menuItem = new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReport));
-                contextMenuStrip.Items.Add(menuItem);
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelSolution.Name);
+                contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)) );
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
+                contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)) );
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
             {
@@ -237,12 +238,21 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-        private void onAnalysisReport(object sender, EventArgs e)
+        private void onAnalysisReportMSWord(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                SolutionReportNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+                SolutionReportMSWordClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisReportHTML(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionReportHtmlClicked(this, new AnalysisTreeViewEventArgs(tag));
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -532,7 +542,8 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// event raised when a selected solution node is clicked
         /// </summary>
-        public event AnalysisNodeClickHandler SolutionReportNodeClicked;
+        public event AnalysisNodeClickHandler SolutionReportMSWordClicked;
+        public event AnalysisNodeClickHandler SolutionReportHtmlClicked;
         #endregion
 
         #region IDocumentListener implementation

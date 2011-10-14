@@ -139,6 +139,13 @@ namespace TreeDim.StackBuilder.Desktop
             _views.Add(form);
             return form;
         }
+
+        public DockContentReport CreateReportHtml(SelSolution selSolution, string htmlFilePath)
+        {
+            DockContentReport form = new DockContentReport(this, selSolution, htmlFilePath);
+            _views.Add(form);
+            return form;
+        }
         #endregion
 
         #region UI item creation

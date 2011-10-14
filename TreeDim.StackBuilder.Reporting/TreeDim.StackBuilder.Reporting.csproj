@@ -82,6 +82,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReportTemplates\HTMLPageSample.htm" />
     <Content Include="ReportTemplates\ReportTemplateHtml_ENU.xsl" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_ENU.xml" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_FRA.xml" />

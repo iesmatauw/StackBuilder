@@ -101,12 +101,14 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
-            _documentExplorer.DocumentTreeView.SolutionReportNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
+            _documentExplorer.DocumentTreeView.SolutionReportMSWordClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
+            _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
 
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
         }
+
 
         private IDockContent ReloadContent(string persistString)
         {
@@ -358,7 +360,8 @@ namespace TreeDim.StackBuilder.Desktop
                     // getting current culture
                     string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                     // build report
-                    ReporterMSWord.BuildAnalysisReport(
+                    ReporterMSWord reporter = new ReporterMSWord();
+                    reporter.BuildAnalysisReport(
                         eventArg.Analysis
                         , eventArg.SelSolution
                         , Settings.Default.ReportTemplatePath
@@ -367,6 +370,36 @@ namespace TreeDim.StackBuilder.Desktop
                     _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
                     // open resulting report in Word
                     Process.Start(new ProcessStartInfo(outputFilePath));
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+                Program.ReportException(ex);
+            }
+        }
+
+        void DocumentTreeView_SolutionReportHtmlClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+            try
+            {
+                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null != eventArg.SelSolution))
+                { 
+                    // build output file path
+                    string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
+                    // getting current culture
+                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
+                    // build report
+                    ReporterHtml reporter = new ReporterHtml(
+                        eventArg.Analysis
+                        , eventArg.SelSolution
+                        , Settings.Default.ReportTemplatePath
+                        , outputFilePath);
+                    // logging
+                    _log.Debug(string.Format("Saved report to {0}", outputFilePath));
+                    // open resulting report
+                    DocumentSB parentDocument = (DocumentSB)eventArg.Analysis.ParentDocument;
+                    DockContentReport dockContent = CreateOrActivateHtmlReport(eventArg.SelSolution, outputFilePath);
                 }
             }
             catch (Exception ex)
@@ -952,6 +985,30 @@ namespace TreeDim.StackBuilder.Desktop
             formCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
 
+        /// <summary>
+        /// Create or activate report view
+        /// </summary>
+        public DockContentReport CreateOrActivateHtmlReport(SelSolution selSolution, string htmlFilePath)
+        { 
+            // search among existing views
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentReport form = view as DockContentReport;
+                    if (null == form) continue;
+                    if (selSolution == form.SelSolution)
+                    {
+                        form.Activate();
+                        return form;
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            DocumentSB parentDocument = (DocumentSB)selSolution.Analysis.ParentDocument;
+            DockContentReport formReport = parentDocument.CreateReportHtml(selSolution, htmlFilePath);
+            formReport.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            return formReport;
+        }
         #endregion
 
         #region Helpers
@@ -1014,7 +1071,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
     }
 }

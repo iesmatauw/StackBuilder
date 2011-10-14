@@ -71,9 +71,75 @@
     <xsl:apply-templates select="constraintSet"/>
     <xsl:apply-templates select="palletSolution"/>
   </xsl:template>
+  
+  <!-- #### CASE ####-->
+  <xsl:template match="case">
+    <h3 style="font-family:arial;color:blue;">Case</h3>
+    <table class="style1">
+      <tr>
+        <td  class="style2">
+          <b>Name:</b>
+        </td>
+        <td colspan="2">
+          <xsl:value-of select="name"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <b>Description:</b>
+        </td>
+        <td colspan="2">
+          <xsl:value-of select="description"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <strong>Length (mm):</strong>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="length"/>
+        </td>
+        <td rowspan="5">
+          <xsl:apply-templates select="view_case_iso"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <strong>Width (mm):</strong>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="width"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <strong>Height (mm):</strong>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="height"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <b>Weight (kg):</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="weight"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <b>Admissible load on top (kg):</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="admissibleLoad"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
+  <!-- #### PALLET ####-->
   <xsl:template match="pallet">
     <h3 style="font-family:arial;color:blue;">Pallet</h3>
-
     <table class="style1">
       <tr>
         <td  class="style2">
@@ -135,11 +201,6 @@
         </td>
       </tr>
     </table>
-
- 
-  </xsl:template>
-  <xsl:template match="case">
-    <h3 style="font-family:arial;color:blue;">Case</h3>
   </xsl:template>
   <xsl:template match="box">
     <h3 style="font-family:arial;color:blue;">Box</h3>
@@ -147,8 +208,62 @@
   <xsl:template match="bundle">
     <h3 style="font-family:arial;color:blue;">Bundle</h3>
   </xsl:template>
+  <!--#### INTERLAYER ####-->
   <xsl:template match="interlayer">
     <h3 style="font-family:arial;color:blue;">Interlayer</h3>
+    <table class="style1">
+      <tr>
+        <td  class="style2">
+          <b>Name:</b>
+        </td>
+        <td colspan="2">
+          <xsl:value-of select="name"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <b>Description:</b>
+        </td>
+        <td colspan="2">
+          <xsl:value-of select="description"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <strong>Length (mm):</strong>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="length"/>
+        </td>
+        <td rowspan="4">
+          <xsl:apply-templates select="view_interlayer_iso"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <strong>Width (mm):</strong>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="width"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <strong>Thickness (mm):</strong>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="thickness"/>
+        </td>
+      </tr>
+      <tr>
+        <td  class="style2">
+          <b>Weight (kg):</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="weight"/>
+        </td>
+      </tr>
+    </table>
   </xsl:template>
   <xsl:template match="constraintSet">
     <h3 style="font-family:arial;color:blue;">Constraints</h3>
@@ -157,7 +272,19 @@
     <h3 style="font-family:arial;color:blue;">Selected solution</h3>
   </xsl:template>
 
+  <!--CASE-->
+  <xsl:template match="view_case_iso">
+    <img src="images\view_case_iso.gif" width="150" height="150"></img>
+  </xsl:template>  
+  <!--PALLET-->
   <xsl:template match="view_pallet_iso">
-    <img src="images\view_pallet_iso.gif" alt="Pallet view (iso)" width="128" height="128"/>
+    <img src="images\view_pallet_iso.gif" width="150" height="150"></img>
   </xsl:template>
+  <!--INTERLAYER-->
+  <xsl:template match="view_interlayer_iso">
+    <img src="images\view_interlayer_iso.gif" width="150" height="150"></img>
+  </xsl:template>
+  <!--BUNDLE-->
+  
+  <!---->
 </xsl:stylesheet>

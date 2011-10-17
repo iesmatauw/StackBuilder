@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "0.2.3.0" ?>
+<?define Version = "1.0.0.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -139,6 +139,9 @@
         <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes"/>
         <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes"/>
         <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes"/>
+        <File Id="ReportTemplateHtml_ENU.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ENU.xsl" Checksum="yes"/>
+        <File Id="ReportTemplateHtml_FRA.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_FRA.xsl" Checksum="yes"/>
+        <File Id="ReportTemplateHtml_JPN.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_JPN.xsl" Checksum="yes"/>
         <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
       </Component>        
     </DirectoryRef>

@@ -5,7 +5,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      >
-  <Module Id="MergeModuleSB" Language="1033" Version="0.2.3.0">
+  <Module Id="MergeModuleSB" Language="1033" Version="1.0.0.0">
     <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c" Manufacturer="MergeModuleSB" InstallerVersion="200" />
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
@@ -104,6 +104,9 @@
         <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes"/>
         <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes"/>
         <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes"/>
+        <File Id="ReportTemplateHtml_ENU.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ENU.xsl" Checksum="yes"/>
+        <File Id="ReportTemplateHtml_FRA.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_FRA.xsl" Checksum="yes"/>
+        <File Id="ReportTemplateHtml_JPN.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_JPN.xsl" Checksum="yes"/>
         <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>

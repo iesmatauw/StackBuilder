@@ -70,6 +70,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void Kill(ItemBase item)
         {
             Close();
+            _selSolution.RemoveListener(this);
         }
         #endregion
 

@@ -576,7 +576,16 @@ namespace TreeDim.StackBuilder.Graphics
                         g.DrawLine(penPathThin, pt2D[0], pt2D[1]);                        
                     }
                 }
-            }  
+            }
+  
+            // draw box tape
+            if (box.ShowTape)
+            {
+                Brush brushTape = new SolidBrush(box.TapeColor);
+                // get tape points
+                Point[] pts = TransformPoint(GetCurrentTransformation(), box.TapePoints);
+                g.FillPolygon(brushTape, pts);
+            }
 
             if (_showBoxIds)
             {

@@ -1542,6 +1542,21 @@ namespace TreeDim.StackBuilder.Basics
             SaveColors(boxProperties.Colors, xmlBoxProperties, xmlDoc);
             // texture
             SaveTextures(boxProperties.TextureList, xmlBoxProperties, xmlDoc);
+            // tape
+            XmlAttribute tapeAttribute = xmlDoc.CreateAttribute("ShowTape");
+            tapeAttribute.Value = string.Format("{0}", boxProperties.ShowTape);
+            xmlBoxProperties.Attributes.Append(tapeAttribute);
+            if (boxProperties.ShowTape)
+            {
+                XmlAttribute tapeWidthAttribute = xmlDoc.CreateAttribute("TapeWidth");
+                tapeWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.TapeWidth);
+                xmlBoxProperties.Attributes.Append(tapeWidthAttribute);
+
+                XmlAttribute tapeColorAttribute = xmlDoc.CreateAttribute("TapeColor");
+                tapeColorAttribute.Value = string.Format("{0}", boxProperties.TapeColor.ToArgb());
+                xmlBoxProperties.Attributes.Append(tapeColorAttribute);
+            }
+
         }
 
         public void Save(CaseOfBoxesProperties caseOfBoxesProperties, XmlElement parentElement, XmlDocument xmlDoc)

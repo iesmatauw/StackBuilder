@@ -214,6 +214,9 @@ namespace TreeDim.StackBuilder.Desktop
                         box.InsideHeight = form.InsideHeight;
                         box.SetAllColors(form.Colors);
                         box.TextureList = form.TextureList;
+                        box.ShowTape = form.ShowTape;
+                        box.TapeWidth = form.TapeWidth;
+                        box.TapeColor = form.TapeColor;
                         box.EndUpdate();
                     }
                 }

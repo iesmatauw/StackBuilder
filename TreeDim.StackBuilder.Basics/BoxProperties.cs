@@ -20,6 +20,9 @@ namespace TreeDim.StackBuilder.Basics
         private double _insideLength, _insideWidth, _insideHeight;
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
+        private bool _showTape;
+        private double _tapeWidth;
+        private Color _tapeColor;
         #endregion
 
         #region Constructor
@@ -47,6 +50,7 @@ namespace TreeDim.StackBuilder.Basics
             _width      = width;
             _height     = height;
             _hasInsideDimensions = false;
+            _showTape = false;
         }
         /// <summary>
         /// Constructor 3
@@ -183,6 +187,24 @@ namespace TreeDim.StackBuilder.Basics
                     list.Add(new Pair< HalfAxis.HAxis, Texture >(tex.first, tex.second.Clone()));
                 return list;
             }
+        }
+        #endregion
+
+        #region Tape properties
+        public bool ShowTape
+        {
+            get { return _showTape;     }
+            set { _showTape = value;    }
+        }
+        public double TapeWidth
+        {
+            get { return _tapeWidth;    }
+            set { _tapeWidth = value;   }
+        }
+        public Color TapeColor
+        {
+            get { return _tapeColor;    }
+            set { _tapeColor = value;   }
         }
         #endregion
 

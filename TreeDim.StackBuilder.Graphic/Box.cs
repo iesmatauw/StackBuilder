@@ -31,6 +31,12 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         private bool _isBundle = false;
         private int _noFlats = 0;
+        /// <summary>
+        /// Tape related properties
+        /// </summary>
+        private bool _showTape = false;
+        private double _tapeWidth;
+        private Color _tapeColor;
         #endregion
 
         #region Constructor
@@ -72,7 +78,7 @@ namespace TreeDim.StackBuilder.Graphics
 
             _position.X = x;
             _position.Y = y;
-            _position.Z = z;        
+            _position.Z = z;
         }
         public Box(uint pickId, BProperties bProperties)
         {
@@ -97,6 +103,10 @@ namespace TreeDim.StackBuilder.Graphics
                     if (null == _textureLists[iIndex])
                         _textureLists[iIndex] = new List<Texture>();
                     _textureLists[iIndex].Add(tex.second);
+
+                    _showTape = boxProperties.ShowTape;
+                    _tapeWidth = boxProperties.TapeWidth;
+                    _tapeColor = boxProperties.TapeColor;
                 }
             }
         }
@@ -122,6 +132,9 @@ namespace TreeDim.StackBuilder.Graphics
                         _textureLists[iIndex] = new List<Texture>();
                     _textureLists[iIndex].Add(tex.second);
                 }
+                _showTape = boxProperties.ShowTape;
+                _tapeWidth = boxProperties.TapeWidth;
+                _tapeColor = boxProperties.TapeColor;
             }
 
             // set position
@@ -262,6 +275,35 @@ namespace TreeDim.StackBuilder.Graphics
             }
         }
 
+        public bool ShowTape
+        {
+            get { return _showTape; }
+            set { _showTape = value; }
+        }
+
+        public double TapeWidth
+        {
+            get { return _tapeWidth; }
+        }
+
+        public Color TapeColor
+        {
+            get { return _tapeColor; }
+        }
+
+        public Vector3D[] TapePoints
+        {
+            get
+            {
+                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                Vector3D[] points = new Vector3D[4];
+                points[0] = _position + 0.0 * _lengthAxis + 0.5 * (_dim[1] - _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
+                points[1] = _position + _dim[0] * _lengthAxis + 0.5 * (_dim[1] - _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
+                points[2] = _position + _dim[0] * _lengthAxis + 0.5 * (_dim[1] + _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
+                points[3] = _position + 0.0 * _lengthAxis + 0.5 * (_dim[1] + _tapeWidth) * _widthAxis + _dim[2] * heightAxis;
+                return points;
+            }
+        }
         #endregion
 
         #region XMin / XMax / YMin / YMax / ZMin

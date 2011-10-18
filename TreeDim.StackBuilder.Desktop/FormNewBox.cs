@@ -230,6 +230,30 @@ namespace TreeDim.StackBuilder.Desktop
                 _textures.AddRange(value);
             }
         }
+        /// <summary>
+        /// Show / Hide tape
+        /// </summary>
+        public bool ShowTape
+        {
+            get { return checkBoxTape.Checked; }
+            set { checkBoxTape.Checked = value; }
+        }
+        /// <summary>
+        /// Tape width
+        /// </summary>
+        public double TapeWidth
+        {
+            get { return (double)nudTapeWidth.Value; }
+            set { nudTapeWidth.Value = (decimal)value; }
+        }
+        /// <summary>
+        /// Tape color
+        /// </summary>
+        public Color TapeColor
+        {
+            get { return cbTapeColor.Color;}
+            set { cbTapeColor.Color = value; }
+        }
         #endregion
 
         #region Load / FormClosing event
@@ -248,6 +272,13 @@ namespace TreeDim.StackBuilder.Desktop
             lbWeightOnTop.Visible = _mode == Mode.MODE_CASE;
             nudWeightOnTop.Visible = _mode == Mode.MODE_CASE;
             lbUnitWeightOnTop.Visible = _mode == Mode.MODE_CASE;
+
+            gbTape.Visible = _mode == Mode.MODE_CASE;
+            checkBoxTape.Visible = _mode == Mode.MODE_CASE;
+            lbTapeColor.Visible = _mode == Mode.MODE_CASE;
+            cbTapeColor.Visible = _mode == Mode.MODE_CASE;
+            lbTapeWidth.Visible = _mode == Mode.MODE_CASE;
+            nudTapeWidth.Visible = _mode == Mode.MODE_CASE;
             // caption
             this.Text = Mode.MODE_CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
             // update thicknesses
@@ -412,6 +443,9 @@ namespace TreeDim.StackBuilder.Desktop
                 BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
                 boxProperties.SetAllColors(_faceColors);
                 boxProperties.TextureList = _textures;
+                boxProperties.ShowTape = ShowTape;
+                boxProperties.TapeColor = TapeColor;
+                boxProperties.TapeWidth = TapeWidth;
                 Box box = new Box(0, boxProperties);
                 graphics.AddBox(box);
                 graphics.AddDimensions(new DimensionCube((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value));
@@ -425,5 +459,15 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
+
+        private void checkBoxTape_Click(object sender, EventArgs e)
+        {
+            lbTapeColor.Enabled = checkBoxTape.Checked;
+            cbTapeColor.Enabled = checkBoxTape.Checked;
+            lbTapeWidth.Enabled = checkBoxTape.Checked;
+            nudTapeWidth.Enabled = checkBoxTape.Checked;
+
+            DrawBox();
+        }
     }
 }

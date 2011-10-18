@@ -104,10 +104,11 @@ namespace TreeDim.StackBuilder.Graphics
                         _textureLists[iIndex] = new List<Texture>();
                     _textureLists[iIndex].Add(tex.second);
 
-                    _showTape = boxProperties.ShowTape;
-                    _tapeWidth = boxProperties.TapeWidth;
-                    _tapeColor = boxProperties.TapeColor;
                 }
+                // tape
+                _showTape = boxProperties.ShowTape;
+                _tapeWidth = boxProperties.TapeWidth;
+                _tapeColor = boxProperties.TapeColor;
             }
         }
         public Box(uint pickId, BProperties bProperties, BoxPosition bPosition)

@@ -581,10 +581,22 @@ namespace TreeDim.StackBuilder.Graphics
             // draw box tape
             if (box.ShowTape)
             {
-                Brush brushTape = new SolidBrush(box.TapeColor);
+                // get color
+                double cosA = System.Math.Abs(Vector3D.DotProduct(faces[5].Normal, _vLight));
+                Color color = Color.FromArgb((int)(box.TapeColor.R * cosA), (int)(box.TapeColor.G * cosA), (int)(box.TapeColor.B * cosA));
+                // instantiate brush
+                Brush brushTape = new SolidBrush(color);
                 // get tape points
                 Point[] pts = TransformPoint(GetCurrentTransformation(), box.TapePoints);
+                // fill polygon
                 g.FillPolygon(brushTape, pts);
+                // draw path
+                Brush brushPath = new SolidBrush(faces[5].ColorPath);
+                Pen penPathThick = new Pen(brushPath, 1.5f);
+                int ptCount = pts.Length;
+                for (int j = 1; j < ptCount; ++j)
+                    g.DrawLine(penPathThick, pts[j - 1], pts[j]);
+                g.DrawLine(penPathThick, pts[ptCount - 1], pts[0]);
             }
 
             if (_showBoxIds)

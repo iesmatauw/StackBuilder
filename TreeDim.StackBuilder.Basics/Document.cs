@@ -719,6 +719,9 @@ namespace TreeDim.StackBuilder.Basics
 
             Color[] colors = new Color[6];
             List<Pair<HalfAxis.HAxis, Texture>> listTexture = new List<Pair<HalfAxis.HAxis,Texture>>();
+            bool hasTape = false;
+            double tapeWidth = 0.0;
+            Color tapeColor = Color.Black;
             foreach (XmlNode node in eltBoxProperties.ChildNodes)
             {
                 if (string.Equals(node.Name, "FaceColors", StringComparison.CurrentCultureIgnoreCase))
@@ -730,6 +733,11 @@ namespace TreeDim.StackBuilder.Basics
                 {
                     XmlElement textureElt = node as XmlElement;
                     LoadTextureList(textureElt, ref listTexture);
+                }
+                else if (string.Equals(node.Name, "Tape", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    XmlElement tapeElt = node as XmlElement;
+                    hasTape = LoadTape(tapeElt, out tapeWidth,  out tapeColor);
                 }
             }
             // create new BoxProperties instance
@@ -757,6 +765,10 @@ namespace TreeDim.StackBuilder.Basics
                 , colors);
             boxProperties.Guid = new Guid(sid);
             boxProperties.TextureList = listTexture;
+            // tape
+            boxProperties.ShowTape = hasTape;
+            boxProperties.TapeColor = tapeColor;
+            boxProperties.TapeWidth = tapeWidth;
         }
         private void LoadCaseOfBoxesProperties(XmlElement eltCaseOfBoxesProperties)
         {
@@ -841,6 +853,22 @@ namespace TreeDim.StackBuilder.Basics
                     _log.Error(ex.ToString());
                 }
             }
+        }
+        private bool LoadTape(XmlElement eltTape, out double tapeWidth, out Color tapeColor)
+        {
+            tapeWidth = 0.0;
+            tapeColor = Color.Black;
+            try
+            {
+                tapeWidth = Convert.ToDouble(eltTape.Attributes["TapeWidth"].Value);
+                string sColorArgb = eltTape.Attributes["TapeColor"].Value;
+                tapeColor = Color.FromArgb(System.Convert.ToInt32(sColorArgb));
+            }
+            catch (Exception /*ex*/)
+            {
+                return false;
+            }
+            return true;
         }
         private void LoadCaseDefinition(XmlElement eltCaseDefinition, out CaseDefinition caseDefinition)
         {
@@ -1548,13 +1576,16 @@ namespace TreeDim.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(tapeAttribute);
             if (boxProperties.ShowTape)
             {
+                XmlElement tapeElt = xmlDoc.CreateElement("Tape");
+                xmlBoxProperties.AppendChild(tapeElt);
+
                 XmlAttribute tapeWidthAttribute = xmlDoc.CreateAttribute("TapeWidth");
                 tapeWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", boxProperties.TapeWidth);
-                xmlBoxProperties.Attributes.Append(tapeWidthAttribute);
+                tapeElt.Attributes.Append(tapeWidthAttribute);
 
                 XmlAttribute tapeColorAttribute = xmlDoc.CreateAttribute("TapeColor");
                 tapeColorAttribute.Value = string.Format("{0}", boxProperties.TapeColor.ToArgb());
-                xmlBoxProperties.Attributes.Append(tapeColorAttribute);
+                tapeElt.Attributes.Append(tapeColorAttribute);
             }
 
         }

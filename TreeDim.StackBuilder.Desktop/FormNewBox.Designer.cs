@@ -627,7 +627,7 @@
             resources.ApplyResources(this.checkBoxTape, "checkBoxTape");
             this.checkBoxTape.Name = "checkBoxTape";
             this.checkBoxTape.UseVisualStyleBackColor = true;
-            this.checkBoxTape.Click += new System.EventHandler(this.checkBoxTape_Click);
+            this.checkBoxTape.Click += new System.EventHandler(this.onCheckBoxTapeClicked);
             // 
             // FormNewBox
             // 

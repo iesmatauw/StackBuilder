@@ -51,6 +51,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             // mode
             _mode = mode;
+
             switch (_mode)
             {
                 case Mode.MODE_CASE:
@@ -60,6 +61,8 @@ namespace TreeDim.StackBuilder.Desktop
                     nudInsideLength.Value = nudLength.Value - 6.0M;
                     nudInsideWidth.Value = nudWidth.Value - 6.0M;
                     nudInsideHeight.Value = nudHeight.Value - 6.0M;
+                    nudTapeWidth.Value = 50;
+                    cbTapeColor.Color = Color.Beige;
                     break;
                 case Mode.MODE_BOX:
                     nudLength.Value = 120.0M;
@@ -93,12 +96,18 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="document">Document that contains the edited box</param>
         /// <param name="boxProperties">Edited box</param>
         public FormNewBox(Document document, BoxProperties boxProperties)
-        {
+        { 
             InitializeComponent();
-            // save document reference
+
+           // save document reference
             _document = document;
             _boxProperties = boxProperties;
             _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
+            // set colors
+            for (int i=0; i<6; ++i)
+                _faceColors[i] = _boxProperties.Colors[i];
+            // set textures
+            _textures = _boxProperties.TextureListCopy;
             // set caption text
             Text = string.Format("Edit {0}...", _boxProperties.Name);
             // initialize value
@@ -115,11 +124,10 @@ namespace TreeDim.StackBuilder.Desktop
             // color : all faces set together / face by face
             chkAllFaces.Checked = _boxProperties.UniqueColor;
             chkAllFaces_CheckedChanged(this, null);
-            // set colors
-            for (int i=0; i<6; ++i)
-                _faceColors[i] = _boxProperties.Colors[i];
-            // set textures
-            _textures = _boxProperties.TextureListCopy;
+            // tape
+            checkBoxTape.Checked = _boxProperties.ShowTape;
+            nudTapeWidth.Value = (decimal)_boxProperties.TapeWidth;
+            cbTapeColor.Color = _boxProperties.TapeColor;
             // set default face
             cbFace.SelectedIndex = 0;
             // set horizontal angle
@@ -283,12 +291,15 @@ namespace TreeDim.StackBuilder.Desktop
             this.Text = Mode.MODE_CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
             // update thicknesses
             UpdateThicknesses();
+            // update tape definition controls
+            onCheckBoxTapeClicked(this, null);
             // update box drawing
             DrawBox();
             // windows settings
             if (null != Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition.Restore(this);
         }
+
         private void FormNewBox_FormClosing(object sender, FormClosingEventArgs e)
         {
             // window position
@@ -296,6 +307,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.FormNewBoxPosition = new WindowSettings();
             Settings.Default.FormNewBoxPosition.Record(this);
         }
+
         #endregion
 
         #region Form override
@@ -336,6 +348,7 @@ namespace TreeDim.StackBuilder.Desktop
             // update box drawing
             DrawBox();
         }
+
         private void onSelectedFaceChanged(object sender, EventArgs e)
         {
             // get current index
@@ -348,7 +361,8 @@ namespace TreeDim.StackBuilder.Desktop
             if (!chkAllFaces.Checked)
             {
                 int iSel = cbFace.SelectedIndex;
-                _faceColors[iSel] = cbColor.Color;
+                if (iSel >=0 && iSel < 6)
+                    _faceColors[iSel] = cbColor.Color;
             }
             else
             {
@@ -357,10 +371,12 @@ namespace TreeDim.StackBuilder.Desktop
             }
             DrawBox();
         }
+
         private void onHorizAngleChanged(object sender, EventArgs e)
         {
             DrawBox();
         }
+
         private void UpdateButtonOkStatus()
         {
             // status + message
@@ -382,10 +398,12 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
+
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
         }
+
         private void chkAllFaces_CheckedChanged(object sender, EventArgs e)
         {
             lbFace.Enabled = !chkAllFaces.Checked;
@@ -411,6 +429,16 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
+        }
+        
+        private void onCheckBoxTapeClicked(object sender, EventArgs e)
+        {
+            lbTapeColor.Enabled = checkBoxTape.Checked;
+            cbTapeColor.Enabled = checkBoxTape.Checked;
+            lbTapeWidth.Enabled = checkBoxTape.Checked;
+            nudTapeWidth.Enabled = checkBoxTape.Checked;
+
+            DrawBox();
         }
         #endregion
 
@@ -459,15 +487,5 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
-
-        private void checkBoxTape_Click(object sender, EventArgs e)
-        {
-            lbTapeColor.Enabled = checkBoxTape.Checked;
-            cbTapeColor.Enabled = checkBoxTape.Checked;
-            lbTapeWidth.Enabled = checkBoxTape.Checked;
-            nudTapeWidth.Enabled = checkBoxTape.Checked;
-
-            DrawBox();
-        }
     }
 }

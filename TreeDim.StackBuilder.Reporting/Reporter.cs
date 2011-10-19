@@ -774,6 +774,8 @@ namespace TreeDim.StackBuilder.Reporting
                 elemLayer.AppendChild(elemLayerBoxCount);
 
                 elemSolution.AppendChild(elemLayer);
+                // save image
+                SaveImageAs(graphics.Bitmap, string.Format("layerImage{0}.gif", i + 1));
             }
             // --- pallet images
             for (int i = 0; i < 5; ++i)
@@ -819,6 +821,7 @@ namespace TreeDim.StackBuilder.Reporting
                 styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
+                // Save image ?
                 SaveImageAs(graphics.Bitmap, viewName + ".gif");
             }
         }
@@ -900,6 +903,8 @@ namespace TreeDim.StackBuilder.Reporting
             styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
             elemImage.Attributes.Append(styleAttribute);
             elemTruck.AppendChild(elemImage);
+            // Save image ?
+            SaveImageAs(graphics.Bitmap, "view_truck_iso.gif");
         }
         private void AppendTruckSolutionElement(TruckAnalysis truckAnalysis, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
         {
@@ -963,6 +968,9 @@ namespace TreeDim.StackBuilder.Reporting
                 styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
                 elemImage.Attributes.Append(styleAttribute);
                 elemTruckSolution.AppendChild(elemImage);
+                // Save image ?
+                SaveImageAs(graphics.Bitmap, viewName + ".gif");
+
             }
         }
         #endregion

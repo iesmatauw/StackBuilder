@@ -31,6 +31,7 @@ namespace TreeDim.StackBuilder.Graphics
             _caseDefinition = caseDefinition;
             _boxProperties = boxProperties;
             _caseOptimConstraintSet = caseConstraintSet;
+            _globalOrientation = new Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
         }
         #endregion
 

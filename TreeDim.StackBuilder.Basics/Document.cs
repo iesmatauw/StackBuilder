@@ -646,6 +646,7 @@ namespace TreeDim.StackBuilder.Basics
                 }
                 catch (Exception /*ex*/)
                 {
+                    _dateCreated = DateTime.Now;
                     _log.Debug("Failed to load date of creation correctly: Loading file generated with former version?");
                 }
             }

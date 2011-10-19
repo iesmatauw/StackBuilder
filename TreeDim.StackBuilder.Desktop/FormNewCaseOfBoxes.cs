@@ -208,6 +208,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // view case definition
                 CaseDefinitionViewer viewer = new CaseDefinitionViewer(_caseOfBoxesProperties.CaseDefinition, _caseOfBoxesProperties.InsideBoxProperties, _caseOfBoxesProperties.CaseOptimConstraintSet);
                 viewer.CaseProperties = _caseOfBoxesProperties;
+                viewer.Orientation = new Basics.Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
                 viewer.Draw(graphics2);  
                 graphics2.Flush();
                 // set to picture box

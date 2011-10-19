@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "1.0.0.0" ?>
+<?define Version = "1.0.0.1" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -147,8 +147,15 @@
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
-        <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
-        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb"/>
+        <CreateFolder Directory="PALLETSOLUTIONSDB">
+          <Permission User="Everyone" GenericAll="yes"/>
+        </CreateFolder>
+        <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml">
+          <Permission User="Everyone" GenericAll="yes"/>
+        </File>
+        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb">
+          <Permission User="Everyone" GenericAll="yes"/>
+        </File>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="SAMPLES">

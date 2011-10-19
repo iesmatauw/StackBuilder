@@ -304,6 +304,9 @@ namespace TreeDim.StackBuilder.Desktop
                 // sanity check
                 if (pictureBoxPallet.Size.Width < 1 || pictureBoxPallet.Size.Height < 1)
                     return;
+                // no solution selected -> exit
+                if (null == GetCurrentSolution())
+                    return;
                 // instantiate graphics
                 Graphics3DImage graphicsPallet = new Graphics3DImage(pictureBoxPallet.Size);
                 // set camera position 

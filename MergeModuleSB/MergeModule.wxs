@@ -112,8 +112,15 @@
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">
       <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
-        <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml"/>
-        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb"/>
+        <CreateFolder Directory="PALLETSOLUTIONSDB">
+          <Permission User="Everyone" GenericAll="yes"/>
+        </CreateFolder>
+        <File Id="Index.xml" Source="..\PalletSolutionsDB\Index.xml">
+          <Permission User="Everyone" GenericAll="yes"/>
+        </File>
+        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb">
+          <Permission User="Everyone" GenericAll="yes"/>
+        </File>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="SAMPLES">
@@ -135,7 +142,7 @@
                   Target="[StackBuilder]TreeDim.StackBuilder.Desktop.exe"
                   Icon="_treeDim.ico"/>
         <RemoveFolder Id="RemoveApplicationShortcutFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU"
+        <RegistryValue Root="HKMU"
                        Key="$(var.ShortcutFolder)\StackBuilder"
                        Name="installed"
                        Type="integer"
@@ -150,7 +157,7 @@
                   Description="StackBuilder palettization application"
                   Target="[StackBuilder]TreeDim.StackBuilder.Desktop.exe"
                   Icon="_treeDim.ico"/>
-        <RegistryValue Root="HKCU"
+        <RegistryValue Root="HKMU"
                 Key="$(var.ShortcutFolder)\StackBuilder"
                 Name="installed"
                 Type="integer"

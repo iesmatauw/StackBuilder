@@ -579,7 +579,7 @@ namespace TreeDim.StackBuilder.Graphics
             }
   
             // draw box tape
-            if (box.ShowTape)
+            if (box.ShowTape && faces[5].IsVisible(_vTarget - _vCameraPos))
             {
                 // get color
                 double cosA = System.Math.Abs(Vector3D.DotProduct(faces[5].Normal, _vLight));

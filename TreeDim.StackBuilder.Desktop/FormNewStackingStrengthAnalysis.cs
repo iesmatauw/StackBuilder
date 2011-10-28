@@ -54,7 +54,11 @@ namespace TreeDim.StackBuilder.Desktop
         #region Event handlers
         private void onDataChanged(object sender, EventArgs e)
         {
-
+            // selected case
+            /*
+            BoxProperties case = null;
+            McKeeFormula.FormulaOption1()
+            */
         }
         #endregion
 

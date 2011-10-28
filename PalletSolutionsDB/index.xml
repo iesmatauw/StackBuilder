@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
 <Solutions>
-  <Solution PalletDimensions="1200,1000,1200" Overhang="0,0" CaseDimensions="200,300,200" CaseInsideDimensions="194,294,194" CaseCount="100" FriendlyName="shortSolution" Guid="d544479d-9633-4962-a908-64269ee9f19a" />
-  <Solution PalletDimensions="1200,1000,1300" Overhang="0,0" CaseDimensions="440,280,290" CaseInsideDimensions="434,274,278" CaseCount="27" FriendlyName="sol1200" Guid="5bdcb19d-4225-4a6d-b7b1-6ad3d86f1d7b" />
-  <Solution PalletDimensions="1200,1000,2600" Overhang="0,0" CaseDimensions="200,300,200" CaseInsideDimensions="194,294,194" CaseCount="240" FriendlyName="shortAnalysis2600" Guid="37934478-3521-4baf-9940-f087a1b30eff" />
   <Solution PalletDimensions="1200,1000,2600" Overhang="0,0" CaseDimensions="440,280,290" CaseInsideDimensions="434,274,278" CaseCount="72" FriendlyName="Case_440x280x290_on_EUR2" Guid="44c1c155-bd5b-49d7-aefd-e1bc13961418" />
 </Solutions>

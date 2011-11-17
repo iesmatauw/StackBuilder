@@ -177,6 +177,8 @@ namespace TreeDim.StackBuilder.Reporting
             AppendPalletAnalysisElement(analysis, sol, elemDocument, xmlDoc);
             // truckAnalysis
             AppendTruckAnalysisElement(analysis, sol, elemDocument, xmlDoc);
+            // ectAnalysis
+            AppendEctAnalysisElement(analysis, sol, elemDocument, xmlDoc);
 
             // finally save xml document
             _log.Debug(string.Format("Generating xml data file {0}", xmlDataFilePath));
@@ -835,9 +837,7 @@ namespace TreeDim.StackBuilder.Reporting
             XmlElement elemTruckAnalysis = xmlDoc.CreateElement("truckAnalysis", ns);
             elemDocument.AppendChild(elemTruckAnalysis);
 
-
             TruckAnalysis truckAnalysis = selSolution.TruckAnalyses[0];
-
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
             elemName.InnerText = analysis.Name;
@@ -850,6 +850,93 @@ namespace TreeDim.StackBuilder.Reporting
             AppendTruckElement(truckAnalysis, elemTruckAnalysis, xmlDoc);
             // solution
             AppendTruckSolutionElement(truckAnalysis, elemTruckAnalysis, xmlDoc);
+        }
+
+        private void AppendEctAnalysisElement(PalletAnalysis analysis, SelSolution selSolution, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            // retrieve ect analysis if any
+            if (!selSolution.HasECTAnalyses) return;
+
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // ectAnalysis
+            XmlElement elemEctAnalysis = xmlDoc.CreateElement("ectAnalysis", ns);
+            elemDocument.AppendChild(elemEctAnalysis);
+
+            ECTAnalysis ectAnalysis = selSolution.EctAnalyses[0];
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = ectAnalysis.Name;
+            elemEctAnalysis.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = ectAnalysis.Description;
+            elemEctAnalysis.AppendChild(elemDescription);
+            // cardboard
+            XmlElement elemCardboard = xmlDoc.CreateElement("cardboard", ns);
+            elemEctAnalysis.AppendChild(elemCardboard);
+            XmlElement elemCardboardName = xmlDoc.CreateElement("name", ns);
+            elemCardboardName.InnerText = ectAnalysis.Cardboard.Name;
+            elemCardboard.AppendChild(elemCardboardName);
+            XmlElement elemCardboardThickness = xmlDoc.CreateElement("thickness", ns);
+            elemCardboardThickness.InnerText = string.Format("{0:0.00}", ectAnalysis.Cardboard.Thickness);
+            elemCardboard.AppendChild(elemCardboardThickness);
+            XmlElement elemCardboadECT = xmlDoc.CreateElement("ect", ns);
+            elemCardboadECT.InnerText = string.Format("{0:0.00}", ectAnalysis.Cardboard.ECT);
+            elemCardboard.AppendChild(elemCardboadECT);
+            XmlElement elemCardboardStiffnessX = xmlDoc.CreateElement("stiffnessX", ns);
+            elemCardboardStiffnessX.InnerText = string.Format("{0:0.00}", ectAnalysis.Cardboard.RigidityDX);
+            elemCardboard.AppendChild(elemCardboardStiffnessX);
+            XmlElement elemCardboardStiffnessY = xmlDoc.CreateElement("stiffnessY", ns);
+            elemCardboardStiffnessY.InnerText = string.Format("{0:0.00}", ectAnalysis.Cardboard.RigidityDY);
+            elemCardboard.AppendChild(elemCardboardStiffnessY);
+            // case type
+            XmlElement elemCaseType = xmlDoc.CreateElement("caseType", ns);
+            elemCaseType.InnerText = ectAnalysis.CaseType;
+            elemEctAnalysis.AppendChild(elemCaseType);
+            // printed surface
+            XmlElement elemPrintedSurface = xmlDoc.CreateElement("printedSurface", ns);
+            elemPrintedSurface.InnerText = ectAnalysis.PrintSurface;
+            elemEctAnalysis.AppendChild(elemPrintedSurface);
+            // mc kee formula mode
+            XmlElement elemMcKeeFormula = xmlDoc.CreateElement("mcKeeFormulaMode", ns);
+            elemMcKeeFormula.InnerText = ectAnalysis.McKeeFormulaText;
+            elemEctAnalysis.AppendChild(elemMcKeeFormula);
+            // bct_static
+            XmlElement elemStaticBCT = xmlDoc.CreateElement("bct_static", ns);
+            elemEctAnalysis.AppendChild(elemStaticBCT);
+            XmlElement elemStaticValue = xmlDoc.CreateElement("static_value", ns);
+            elemStaticValue.InnerText = string.Format("{0:0.00}", ectAnalysis.StaticBCT);
+            elemStaticBCT.AppendChild(elemStaticValue);
+            // bct_dynamic
+            XmlElement elemDynamicBCT = xmlDoc.CreateElement("bct_dynamic", ns);
+            elemEctAnalysis.AppendChild(elemDynamicBCT);
+            Dictionary<KeyValuePair<string, string>, double> ectDictionary = ectAnalysis.DynamicBCTDictionary;
+            foreach (string storageKey in TreeDim.EdgeCrushTest.McKeeFormula.StockCoefDictionary.Keys)
+            {
+                XmlElement elemBCTStorage = xmlDoc.CreateElement("bct_dynamic_storage", ns);
+                elemDynamicBCT.AppendChild(elemBCTStorage);
+                // duration
+                XmlElement elemStorageDuration = xmlDoc.CreateElement("duration", ns);
+                elemStorageDuration.InnerText = storageKey;
+                elemBCTStorage.AppendChild(elemStorageDuration);
+                // humidity rate -> values
+                string[] elementHumidityNames
+                    = {
+                      "humidity_0_45"
+                      , "humidity_46_55"
+                      , "humidity_56_65"
+                      , "humidity_66_75"
+                      , "humidity_76_85"
+                      , "humidity_86_100"
+                   };
+                int indexHumidity = 0;
+                foreach (string humidityKey in TreeDim.EdgeCrushTest.McKeeFormula.HumidityCoefDictionary.Keys)
+                {
+                    XmlElement elemHumidity = xmlDoc.CreateElement(elementHumidityNames[indexHumidity++], ns);
+                    elemHumidity.InnerText = string.Format("{0:0.00}", ectDictionary[new KeyValuePair<string, string>(storageKey, humidityKey)]);
+                    elemBCTStorage.AppendChild(elemHumidity);
+                } 
+            }
         }
 
         private void AppendTruckElement(TruckAnalysis truckAnalysis, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
@@ -970,7 +1057,6 @@ namespace TreeDim.StackBuilder.Reporting
                 elemTruckSolution.AppendChild(elemImage);
                 // Save image ?
                 SaveImageAs(graphics.Bitmap, viewName + ".gif");
-
             }
         }
         #endregion

@@ -95,6 +95,9 @@ namespace TreeDim.StackBuilder.Reporting.Test
             public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }
+            public void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
+            { 
+            }
             public void OnTypeRemoved(Document doc, ItemBase itemBase)
             { 
             }
@@ -109,6 +112,9 @@ namespace TreeDim.StackBuilder.Reporting.Test
                 _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));
             }
             public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+            { 
+            }
+            public void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
             { 
             }
             public void OnDocumentClosed(Document doc)

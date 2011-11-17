@@ -66,6 +66,11 @@ namespace TreeDim.StackBuilder.Desktop
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Document.RemoveView(this);
+        }
 
         private void FillGrid()
         {
@@ -351,7 +356,5 @@ namespace TreeDim.StackBuilder.Desktop
         private void onViewTop(object sender, EventArgs e)             {  _cameraPosition = Graphics3D.Top;         Draw();     }
         private void toolStripButtonShowImages_Click(object sender, EventArgs e)    { toolStripShowImages.Checked = !toolStripShowImages.Checked; Draw(); }
         #endregion
-
-
     }
 }

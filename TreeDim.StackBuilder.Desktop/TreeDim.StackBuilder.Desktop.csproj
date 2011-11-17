@@ -122,6 +122,12 @@
     <Compile Include="DockContentDocumentExplorer.Designer.cs">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentECTAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentECTAnalysis.Designer.cs">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentLogConsole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,12 @@
     </Compile>
     <Compile Include="DocumentSB.cs" />
     <Compile Include="FileAssociation.cs" />
+    <Compile Include="FormEdgeCrushTestResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEdgeCrushTestResult.Designer.cs">
+      <DependentUpon>FormEdgeCrushTestResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAppendSolutionToDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +323,9 @@
     <EmbeddedResource Include="DockContentDocumentExplorer.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentTruckAnalysis.resx">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEdgeCrushTestResult.resx">
+      <DependentUpon>FormEdgeCrushTestResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.fr-FR.resx">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
@@ -512,6 +530,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -647,9 +666,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PatternInterlocked.bmp" />
-    <None Include="TreeDim.StackBuilder.Desktop.exe.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -682,6 +698,8 @@
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
+    <Content Include="Resources\AnalysisStackingStrength.ico" />
+    <None Include="Resources\AnalysisStackingStrength.png" />
     <Content Include="Resources\CaseAnalysis.bmp" />
     <None Include="Resources\Delete.bmp" />
     <None Include="Resources\Database.bmp" />

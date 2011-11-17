@@ -177,7 +177,8 @@ namespace TreeDim.StackBuilder.Desktop
         #region DocumentTreeView event handlers
         void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
-            if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null == eventArg.TruckAnalysis))
+            if ((null == eventArg.ItemBase) && (null != eventArg.Analysis)
+                && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
             {
                 CaseOfBoxesProperties caseOfBoxes = eventArg.Analysis.BProperties as CaseOfBoxesProperties;
                 if (null != caseOfBoxes)
@@ -350,6 +351,12 @@ namespace TreeDim.StackBuilder.Desktop
                 if (null != truckAnalysis)
                     CreateOrActivateViewTruckAnalysis(truckAnalysis);
             }
+            else if (null != eventArg.ECTAnalysis)
+            {
+                ECTAnalysis ectAnalysis = eventArg.ECTAnalysis;
+                if (null != ectAnalysis)
+                    CreateOrActivateViewECTAnalysis(ectAnalysis);
+            }
         }
 
         void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
@@ -507,10 +514,7 @@ namespace TreeDim.StackBuilder.Desktop
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
-            // stacking strength analysis
-            newStackingStrengthAnalysisToolStripMenuItem.Enabled = false;//(null != doc) && doc.Cases.Count > 0;
-            toolStripStackingStrengthAnalysis.Enabled = false;//(null != doc) && doc.Cases.Count > 0;
-            // edit pallet solutions database
+           // edit pallet solutions database
             editPaletSolutionsDBToolStripMenuItem.Enabled = !PalletSolutionDatabase.Instance.IsEmpty;
         }
         #endregion
@@ -738,6 +742,7 @@ namespace TreeDim.StackBuilder.Desktop
             CreateOrActivateViewCaseAnalysis(caseAnalysis); 
         }
         public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
+        public void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) {  }
         public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
@@ -746,6 +751,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void OnCaseAnalysisRemoved(Document doc, PalletAnalysis caseAnalysis) { }
         public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
+        public void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) { }
 
         // close
         public void OnDocumentClosed(Document doc) { }
@@ -958,11 +964,37 @@ namespace TreeDim.StackBuilder.Desktop
             // ---> not found
             // ---> create new form
             // get document
-            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
+            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
             // instantiate form
             DockContentTruckAnalysis formTruckAnalysis = parentDocument.CreateTruckAnalysisView(analysis);
             // show docked
             formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void CreateOrActivateViewECTAnalysis(ECTAnalysis analysis)
+        { 
+            // search among existing views
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentECTAnalysis form = view as DockContentECTAnalysis;
+                    if (null == form) continue;
+                    if (analysis == form.ECTAnalysis)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            // get document
+            DocumentSB parentDocument = analysis.ParentDocument as DocumentSB;
+            // instantiate form
+            DockContentECTAnalysis formECTAnalysis = parentDocument.CreateECTAnalysisView(analysis);
+            // show docked
+            formECTAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
         /// <summary>
         /// Creates or activate a case analysis view

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewStackingStrengthAnalysis));
-            this.lbCase = new System.Windows.Forms.Label();
-            this.cbCases = new System.Windows.Forms.ComboBox();
             this.lbCardboard = new System.Windows.Forms.Label();
             this.lbHumidity = new System.Windows.Forms.Label();
             this.lbStorageDuration = new System.Windows.Forms.Label();
@@ -40,19 +38,6 @@
             this.bnOK = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // lbCase
-            // 
-            resources.ApplyResources(this.lbCase, "lbCase");
-            this.lbCase.Name = "lbCase";
-            // 
-            // cbCases
-            // 
-            this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCases.FormattingEnabled = true;
-            resources.ApplyResources(this.cbCases, "cbCases");
-            this.cbCases.Name = "cbCases";
-            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.onDataChanged);
             // 
             // lbCardboard
             // 
@@ -121,8 +106,6 @@
             this.Controls.Add(this.lbStorageDuration);
             this.Controls.Add(this.lbHumidity);
             this.Controls.Add(this.lbCardboard);
-            this.Controls.Add(this.cbCases);
-            this.Controls.Add(this.lbCase);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewStackingStrengthAnalysis";
@@ -136,8 +119,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbCase;
-        private System.Windows.Forms.ComboBox cbCases;
         private System.Windows.Forms.Label lbCardboard;
         private System.Windows.Forms.Label lbHumidity;
         private System.Windows.Forms.Label lbStorageDuration;

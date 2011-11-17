@@ -60,12 +60,12 @@ namespace TreeDim.StackBuilder.Basics
             get { return _guid; }
             set { _guid = value; }
         }
-        public string Name
+        public virtual string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-        public string Description
+        public virtual string Description
         {
             get { return _description; }
             set { _description = value; }

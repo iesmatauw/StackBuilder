@@ -18,6 +18,8 @@ namespace TreeDim.StackBuilder.Desktop
         void Close();
         List<IView> Views { get; }
         IView ActiveView { get; }
+        void AddView(IView view);
+        void RemoveView(IView view);
 
         event EventHandler Modified;
     }

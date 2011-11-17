@@ -196,5 +196,13 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap AnalysisStackingStrength
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("AnalysisStackingStrength", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

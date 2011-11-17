@@ -9,9 +9,10 @@ namespace TreeDim.StackBuilder.Basics
     public class SelSolution : ItemBase
     {
         #region Data members
-        PalletAnalysis _analysis;
-        PalletSolution _solution;
-        List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
+        private PalletAnalysis _analysis;
+        private PalletSolution _solution;
+        private List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
+        private List<ECTAnalysis> _ectAnalyses = new List<ECTAnalysis>();
         #endregion
 
         #region Constructor
@@ -87,6 +88,42 @@ namespace TreeDim.StackBuilder.Basics
         {
             ParentDocument.RemoveItem(truckAnalysis);
             _truckAnalyses.Remove(truckAnalysis);
+        }
+
+        #endregion
+
+        #region ECT analysis
+        public ECTAnalysis CreateNewECTAnalysis(string name, string description)
+        {
+            ECTAnalysis ectAnalysis = new ECTAnalysis(this.ParentDocument, _analysis, this);
+            _ectAnalyses.Add(ectAnalysis);
+            AddDependancie(ectAnalysis);
+            ParentDocument.NotifyOnNewECTAnalysisCreated(_analysis, this, ectAnalysis);
+            ParentDocument.Modify();
+
+            return ectAnalysis;
+        }
+
+        public bool HasECTAnalyses
+        {
+            get { return _ectAnalyses.Count > 0; }
+        }
+        /// <summary>
+        /// Removes an ect analysis
+        /// </summary>
+        /// <param name="ectAnalysis"></param>
+        public void RemoveECTAnalysis(ECTAnalysis ectAnalysis)
+        {
+            ParentDocument.RemoveItem(ectAnalysis);
+            _ectAnalyses.Remove(ectAnalysis);
+        }
+
+        /// <summary>
+        /// List of depending truck analyses
+        /// </summary>
+        public List<ECTAnalysis> EctAnalyses
+        {
+            get { return _ectAnalyses; }
         }
         #endregion
 

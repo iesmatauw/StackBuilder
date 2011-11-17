@@ -66,8 +66,8 @@ namespace TreeDim.StackBuilder.Desktop
 
         public void Close(CancelEventArgs e)
         {
-            foreach (IView view in Views)
-                view.Close();
+            while (_views.Count > 0)
+                RemoveView(_views[0]);
             base.Close();
         }
 
@@ -92,6 +92,17 @@ namespace TreeDim.StackBuilder.Desktop
                 return _activeView;
             }
         }
+
+        public void AddView(IView view)
+        {
+            _views.Add(view);
+        }
+
+        public void RemoveView(IView view)
+        {
+            // remove from list of attached views
+            _views.Remove(view);
+        }
         #endregion
 
         #region View creation methods
@@ -103,7 +114,7 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentAnalysis CreateAnalysisView(PalletAnalysis analysis)
         {
             DockContentAnalysis form = new DockContentAnalysis(this, analysis);
-            _views.Add(form);
+            AddView(form);
             return form;
         }
         /// <summary>
@@ -114,7 +125,7 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentAnalysisCaseOfBoxes CreateAnalysisViewCaseOfBoxes(PalletAnalysis analysis)
         {
             DockContentAnalysisCaseOfBoxes form = new DockContentAnalysisCaseOfBoxes(this, analysis);
-            _views.Add(form);
+            AddView(form);
             return form;
         }
         /// <summary>
@@ -125,7 +136,16 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentTruckAnalysis CreateTruckAnalysisView(TruckAnalysis analysis)
         {
             DockContentTruckAnalysis form = new DockContentTruckAnalysis(this, analysis);
-            _views.Add(form);
+            AddView(form);
+            return form;
+        }
+        /// <summary>
+        /// Creates a new DockContentECTAnalysis view
+        /// </summary>
+        public DockContentECTAnalysis CreateECTAnalysisView(ECTAnalysis analysis)
+        {
+            DockContentECTAnalysis form = new DockContentECTAnalysis(this, analysis);
+            AddView(form);
             return form;
         }
         /// <summary>
@@ -136,14 +156,14 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentCaseAnalysis CreateCaseAnalysisView(CaseAnalysis analysis)
         {
             DockContentCaseAnalysis form = new DockContentCaseAnalysis(this, analysis);
-            _views.Add(form);
+            AddView(form);
             return form;
         }
 
         public DockContentReport CreateReportHtml(SelSolution selSolution, string htmlFilePath)
         {
             DockContentReport form = new DockContentReport(this, selSolution, htmlFilePath);
-            _views.Add(form);
+            AddView(form);
             return form;
         }
         #endregion
@@ -537,6 +557,15 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (recomputeRequired)
                 truckAnalysis.OnEndUpdate(null);
+        }
+
+        /// <summary>
+        /// Edit given ECT analysis
+        /// </summary>
+        /// <param name="ectAnalysis"></param>
+        public void EditECTAnalysis(ECTAnalysis ectAnalysis)
+        { 
+            
         }
         #endregion
     }

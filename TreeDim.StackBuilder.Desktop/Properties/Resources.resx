@@ -403,4 +403,13 @@ Continue?</value>
   <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
     <value>Generate HTML report for {0}</value>
   </data>
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+    <value>Add new ECT analysis...</value>
+  </data>
+  <data name="ID_ECT" xml:space="preserve">
+    <value>ECT</value>
+  </data>
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+    <value>Edge Crush Test Analysis</value>
+  </data>
 </root>

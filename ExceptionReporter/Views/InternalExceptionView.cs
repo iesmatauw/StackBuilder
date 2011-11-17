@@ -196,6 +196,11 @@ namespace ExceptionReporting.WinForms.Views
 			ResumeLayout(false);
 		}
 
+        /// <summary> 
+        /// ShowException
+        /// </summary>
+        /// <param name="message">Attendant message</param>
+        /// <param name="ex">Exception detailed in dialog</param>
 		public void ShowException(string message, Exception ex)
 		{
 			lblGeneralMessage.Text = message;

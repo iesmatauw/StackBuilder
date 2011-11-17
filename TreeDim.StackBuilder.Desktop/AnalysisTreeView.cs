@@ -49,6 +49,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisTreeView.TruckAnalysis);   // 12
                 ImageList.Images.Add(AnalysisTreeView.CaseAnalysis);    // 13
                 ImageList.Images.Add(AnalysisTreeView.CaseOfBoxes);     // 14
+                ImageList.Images.Add(AnalysisTreeView.AnalysisStackingStrength); //15
                 // instantiate context menu
                 this.ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -160,6 +161,13 @@ namespace TreeDim.StackBuilder.Desktop
                 message = string.Format(Resources.ID_DELETE, nodeTag.TruckAnalysis.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteTruckAnalysis)));
             }
+            if (nodeTag.Type == NodeTag.NodeType.NT_ECTANALYSIS)
+            {
+                string message = string.Format(Resources.ID_EDIT, nodeTag.ECTAnalysis.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditECTAnalysis)));
+                message = string.Format(Resources.ID_DELETE, nodeTag.ECTAnalysis.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteECTAnalysis)));
+            }
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTBOX)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(onCreateNewBox)));
             if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
@@ -186,6 +194,8 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectAnalysisSolution)));
                 if (nodeTag.Document.Trucks.Count > 0 && !nodeTag.SelSolution.HasDependingAnalyses)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.TruckAnalysis, new EventHandler(onCreateNewTruckAnalysis)));
+                if (!nodeTag.SelSolution.HasECTAnalyses)
+                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWECTANALYSIS, AnalysisTreeView.AnalysisStackingStrength, new EventHandler(onCreateNewECTAnalysis)));
                 if (nodeTag.Analysis.IsBoxAnalysis)
                 {
                     BoxProperties bProperties = nodeTag.Analysis.BProperties as BoxProperties;
@@ -265,12 +275,30 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void onEditECTAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).EditECTAnalysis(tag.ECTAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
         private void onDeleteTruckAnalysis(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 tag.SelSolution.RemoveTruckAnalysis(tag.TruckAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onDeleteECTAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.SelSolution.RemoveECTAnalysis(tag.ECTAnalysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -410,6 +438,25 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
 
+        private void onCreateNewECTAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+
+                if (tag.SelSolution.HasECTAnalyses)
+                    return;
+
+                SelSolution selSolution = tag.SelSolution;
+                PalletAnalysis analysis = selSolution.Analysis;
+
+                ECTAnalysis ectAnalysis = selSolution.CreateNewECTAnalysis(analysis.Name, analysis.Description);
+                if (null != ectAnalysis)
+                    FormMain.GetInstance().CreateOrActivateViewECTAnalysis(ectAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+
         private void onCreateNewCaseAnalysis(object sender, EventArgs e)
         {
             NodeTag tag = SelectedNode.Tag as NodeTag;
@@ -468,6 +515,10 @@ namespace TreeDim.StackBuilder.Desktop
                     AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
                 }
                 else if (tag.Type == NodeTag.NodeType.NT_CASEANALYSIS)
+                {
+                    AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
+                }
+                else if (tag.Type == NodeTag.NodeType.NT_ECTANALYSIS)
                 {
                     AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
                 }
@@ -739,9 +790,6 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// handles new solution added
         /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="analysis"></param>
-        /// <param name="selSolution"></param>
         public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selSolution)
         {
             // get parent node
@@ -754,12 +802,8 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Expand();
         }
         /// <summary>
-        /// handles new truck created
+        /// handles new truck analysis created
         /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="analysis"></param>
-        /// <param name="selSolution"></param>
-        /// <param name="truckAnalysis"></param>
         public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get parent node
@@ -768,6 +812,20 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 12, 12);
             nodeTruckAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis);
             parentNode.Nodes.Add(nodeTruckAnalysis);
+            // expand parent tree node
+            parentNode.Expand();
+        }
+        /// <summary>
+        /// handles new ECT analysis created
+        /// </summary>
+        public void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis)
+        {
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            // insert truckAnalysis node
+            TreeNode nodeECTAnalysis = new TreeNode(ectAnalysis.Name, 15, 15);
+            nodeECTAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_ECTANALYSIS, doc, analysis, selSolution, ectAnalysis);
+            parentNode.Nodes.Add(nodeECTAnalysis);
             // expand parent tree node
             parentNode.Expand();
         }
@@ -877,10 +935,6 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// handles truck analysis removal : removed truck analysis node from 
         /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="analysis"></param>
-        /// <param name="selSolution"></param>
-        /// <param name="truckAnalysis"></param>
         public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             // get node
@@ -895,9 +949,23 @@ namespace TreeDim.StackBuilder.Desktop
             Nodes.Remove(truckAnalysisNode);  
         }
         /// <summary>
+        /// handles ECT analysis removal
+        /// </summary>
+        public void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis)
+        { 
+            // get node
+            TreeNode ectAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ECTANALYSIS, doc, analysis, selSolution, ectAnalysis));
+            // test
+            if (null == ectAnalysisNode)
+            {
+                _log.Warn(string.Format("Failed to find a valid tree node for truck analysis {0}", ectAnalysis.Name));
+            }
+            // remove node
+            Nodes.Remove(ectAnalysisNode);
+        }
+        /// <summary>
         /// handles document closing event by removing the corresponding document node in TreeView
         /// </summary>
-        /// <param name="doc"></param>
         public void OnDocumentClosed(Document doc)
         {
             NodeTag.NodeType nodeType = NodeTag.NodeType.NT_DOCUMENT;
@@ -1015,7 +1083,7 @@ namespace TreeDim.StackBuilder.Desktop
             /// </summary>
             NT_TRUCKANALYSIS,
             /// <summary>
-            /// truck analysis
+            /// truck analysis solution
             /// </summary>
             NT_TRUCKANALYSISSOL,
             /// <summary>
@@ -1026,6 +1094,10 @@ namespace TreeDim.StackBuilder.Desktop
             /// case analysis solution
             /// </summary>
             NT_CASESOLUTION,
+            /// <summary>
+            /// ECT analysis (Edge Crush Test)
+            /// </summary>
+            NT_ECTANALYSIS,
             /// <summary>
             /// unknown
             /// </summary>
@@ -1042,6 +1114,7 @@ namespace TreeDim.StackBuilder.Desktop
         private TruckAnalysis _truckAnalysis;
         private CaseAnalysis _caseAnalysis;
         private CaseSolution _caseSolution;
+        private ECTAnalysis _ectAnalysis;
         #endregion
 
         #region Constructor
@@ -1088,6 +1161,15 @@ namespace TreeDim.StackBuilder.Desktop
             _analysis = analysis;
             _selSolution = selSolution;
             _truckAnalysis = truckAnalysis;
+        }
+        public NodeTag(NodeType type, Document document, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis)
+        {
+            _type = type;
+            _document = document;
+            _itemProperties = null;
+            _analysis = analysis;
+            _selSolution = selSolution;
+            _ectAnalysis = ectAnalysis;
         }
         public NodeTag(NodeType type, Document doc, CaseAnalysis caseAnalysis)
         { 
@@ -1165,6 +1247,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// returns case analysis
         /// </summary>
         public CaseAnalysis CaseAnalysis { get { return _caseAnalysis; } }
+        /// <summary>
+        /// returns ECT analysis
+        /// </summary>
+        public ECTAnalysis ECTAnalysis { get { return _ectAnalysis; } }
         #endregion
     }
     #endregion
@@ -1216,6 +1302,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// Case analysis
         /// </summary>
         public CaseAnalysis CaseAnalysis { get { return _nodeTag.CaseAnalysis; } }
+        /// <summary>
+        /// ECTAnalysis
+        /// </summary>
+        public ECTAnalysis ECTAnalysis { get { return _nodeTag.ECTAnalysis; } }
         #endregion
     }
     #endregion

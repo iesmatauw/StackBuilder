@@ -31,12 +31,14 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis);
         void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
         void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
+        void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, PalletAnalysis analysis);
         void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis);
         void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
         void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
+        void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis);
 
         // close
         void OnDocumentClosed(Document doc);
@@ -401,6 +403,11 @@ namespace TreeDim.StackBuilder.Basics
                 NotifyOnCaseAnalysisRemoved(caseAnalysis);
                 if (!_caseAnalyses.Remove(caseAnalysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
+            }
+            else if (item.GetType() == typeof(ECTAnalysis))
+            {
+                ECTAnalysis ectAnalysis = item as ECTAnalysis;
+                NotifyOnECTAnalysisRemoved(ectAnalysis.ParentSelSolution, ectAnalysis);
             }
             else
                 Debug.Assert(false);
@@ -1066,6 +1073,19 @@ namespace TreeDim.StackBuilder.Basics
                                         }
                                     }
                                 }
+                                else if (string.Equals("ECTAnalyses", solutionInnerNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    XmlElement ectAnalysesElt = solutionInnerNode as XmlElement;
+                                    foreach (XmlNode ectAnalysisNode in ectAnalysesElt.ChildNodes)
+                                    {
+                                        if (string.Equals("EctAnalysis", ectAnalysisNode.Name, StringComparison.CurrentCultureIgnoreCase))
+                                        {
+                                            XmlElement ectAnalysisElt = ectAnalysisNode as XmlElement;
+                                            SelSolution selSolution = analysis.GetSelSolutionBySolutionIndex(indexSol);
+                                            LoadECTAnalysis(ectAnalysisElt, selSolution);
+                                        }
+                                    }
+                                }
                             }
                             ++indexSol;
                         }
@@ -1375,6 +1395,45 @@ namespace TreeDim.StackBuilder.Basics
             XmlElement eltLayer = eltLayers.ChildNodes[0] as XmlElement;
             sol.Layer = LoadLayer(eltLayer) as BoxLayer;
             return sol;
+        }
+
+        private ECTAnalysis LoadECTAnalysis(XmlElement eltEctAnalysis, SelSolution selSolution)
+        {
+            string name = eltEctAnalysis.Attributes["Name"].Value;
+            string description = eltEctAnalysis.Attributes["Description"].Value;
+            ECTAnalysis ectAnalysis = selSolution.CreateNewECTAnalysis(name, description);
+            // Cardboard
+            foreach (XmlNode node in eltEctAnalysis.ChildNodes)
+            {
+                if (string.Equals(node.Name, "Cardboard", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    string cardboardName = string.Empty;
+                    double thickness = 0.0, ect = 0.0, stiffnessX = 0.0, stiffnessY = 0.0;
+
+                    XmlElement eltCardboard = node as XmlElement;
+                    if (eltCardboard.HasAttribute("Name"))
+                        cardboardName = eltCardboard.Attributes["Name"].Value;
+                    if (eltCardboard.HasAttribute("Thickness"))
+                        thickness = double.Parse(eltCardboard.Attributes["Thickness"].Value);
+                    if (eltCardboard.HasAttribute("ECT"))
+                        ect = double.Parse(eltCardboard.Attributes["ECT"].Value);
+                    if (eltCardboard.HasAttribute("StiffnessX"))
+                        stiffnessX = double.Parse(eltCardboard.Attributes["StiffnessX"].Value);
+                    if (eltCardboard.HasAttribute("StiffnessY"))
+                        stiffnessY = double.Parse(eltCardboard.Attributes["StiffnessY"].Value);
+                    ectAnalysis.Cardboard = new EdgeCrushTest.McKeeFormula.QualityData(name, thickness, ect, stiffnessX, stiffnessY);
+                }                
+            }
+            // CaseType
+            if (eltEctAnalysis.HasAttribute("CaseType"))
+                ectAnalysis.CaseType = eltEctAnalysis.Attributes["CaseType"].Value;
+            // PrintSurface
+            if (eltEctAnalysis.HasAttribute("PrintSurface"))
+                ectAnalysis.PrintSurface = eltEctAnalysis.Attributes["PrintSurface"].Value;
+            // McKeeFormulaMode
+            if (eltEctAnalysis.HasAttribute("McKeeFormulaMode"))
+                ectAnalysis.McKeeFormulaText = eltEctAnalysis.Attributes["McKeeFormulaMode"].Value;
+            return ectAnalysis;
         }
         #endregion
 
@@ -2313,6 +2372,13 @@ namespace TreeDim.StackBuilder.Basics
 
                 foreach (TruckAnalysis truckAnalysis in selSolution.TruckAnalyses)
                     Save(truckAnalysis, unique, truckAnalysesElt, xmlDoc);
+
+                // ect analyses
+                XmlElement ectAnalysesElt = xmlDoc.CreateElement("EctAnalyses");
+                solutionElt.AppendChild(ectAnalysesElt);
+
+                foreach (ECTAnalysis ectAnalysis in selSolution.EctAnalyses)
+                    Save(ectAnalysis, unique, ectAnalysesElt, xmlDoc);
             }
         }
 
@@ -2386,6 +2452,55 @@ namespace TreeDim.StackBuilder.Basics
                 // increment index
                 ++solutionIndex;
             }
+        }
+
+        public void Save(ECTAnalysis ectAnalysis, bool unique, XmlElement ectAnalysesElt, XmlDocument xmlDoc)
+        {
+            XmlElement ectAnalysisElt = xmlDoc.CreateElement("EctAnalysis");
+            ectAnalysesElt.AppendChild(ectAnalysisElt);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = ectAnalysis.Name;
+            ectAnalysisElt.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descriptionAttribute = xmlDoc.CreateAttribute("Description");
+            descriptionAttribute.Value = ectAnalysis.Description;
+            ectAnalysisElt.Attributes.Append(descriptionAttribute);
+            // cardboard
+            XmlElement cardboardElt = xmlDoc.CreateElement("Cardboard");
+            ectAnalysesElt.AppendChild(cardboardElt);
+            // - name
+            XmlAttribute nameCardboardAttribute = xmlDoc.CreateAttribute("Name");
+            nameCardboardAttribute.Value = ectAnalysis.Cardboard.Name;
+            cardboardElt.Attributes.Append(nameCardboardAttribute);
+            // - thickness
+            XmlAttribute thicknessAttribute = xmlDoc.CreateAttribute("Thickness");
+            thicknessAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.Thickness);
+            cardboardElt.Attributes.Append(thicknessAttribute);
+             // - ect
+            XmlAttribute ectAttribute = xmlDoc.CreateAttribute("ECT");
+            ectAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.ECT);
+            cardboardElt.Attributes.Append(ectAttribute);
+            // - stiffnessX
+            XmlAttribute stiffnessAttributeX = xmlDoc.CreateAttribute("StiffnessX");
+            stiffnessAttributeX.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.RigidityDX);
+            cardboardElt.Attributes.Append(stiffnessAttributeX);
+            // - stiffnessY
+            XmlAttribute stiffnessAttributeY = xmlDoc.CreateAttribute("StiffnessY");
+            stiffnessAttributeY.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", ectAnalysis.Cardboard.RigidityDY);
+            cardboardElt.Attributes.Append(stiffnessAttributeY);
+            // case type
+            XmlAttribute caseTypeAttribute = xmlDoc.CreateAttribute("CaseType");
+            caseTypeAttribute.Value = ectAnalysis.CaseType;
+            ectAnalysisElt.Attributes.Append(caseTypeAttribute);
+            // print surface
+            XmlAttribute printSurfaceAttribute = xmlDoc.CreateAttribute("PrintSurface");
+            printSurfaceAttribute.Value = ectAnalysis.PrintSurface;
+            ectAnalysesElt.Attributes.Append(printSurfaceAttribute);
+            // mc kee formula mode
+            XmlAttribute mcKeeFormulaAttribute = xmlDoc.CreateAttribute("McKeeFormulaMode");
+            mcKeeFormulaAttribute.Value = ectAnalysis.McKeeFormulaText;
+            ectAnalysisElt.Attributes.Append(mcKeeFormulaAttribute);
         }
 
         public void Save(BoxLayer boxLayer, XmlElement layersElt, XmlDocument xmlDoc)
@@ -2526,6 +2641,11 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTruckAnalysisCreated(this, analysis, selSolution, truckAnalysis);
         }
+        internal void NotifyOnNewECTAnalysisCreated(PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis)
+        { 
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewECTAnalysisCreated(this, analysis, selSolution, ectAnalysis);
+        }
         private void NotifyOnDocumentClosed()
         {
             foreach (IDocumentListener listener in _listeners)
@@ -2556,6 +2676,13 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnTruckAnalysisRemoved(this, selSolution.Analysis, selSolution, truckAnalysis);
         }
+
+        internal void NotifyOnECTAnalysisRemoved(SelSolution selSolution, ECTAnalysis ectAnalysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnECTAnalysisRemoved(this, selSolution.Analysis, selSolution, ectAnalysis);
+        }
+ 
         #endregion
     }
     #endregion

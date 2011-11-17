@@ -30,24 +30,22 @@ namespace TreeDim.StackBuilder.Desktop
         #region Loading
         private void FormNewStackingStrengthAnalysis_Load(object sender, EventArgs e)
         {
-            // cases
-            foreach (BProperties bproperties in _document.Cases)
-                cbCases.Items.Add(bproperties.Name);
             // cardboards
-            
+            foreach (string s in McKeeFormula.CardboardQualityDictionary.Keys)
+                cbCardboard.Items.Add(s);            
             // rate of humidity
-            foreach (string s in McKeeFormula.HumidityCoefDictionnary.Keys)
+            foreach (string s in McKeeFormula.HumidityCoefDictionary.Keys)
                 cbRateOfHumidity.Items.Add(s);
             // storage duration
-            foreach (string s in McKeeFormula.JStockCoefDictionnary.Keys)
+            foreach (string s in McKeeFormula.StockCoefDictionary.Keys)
                 cbStorageDuration.Items.Add(s);
-
             // initialization
-            cbCases.SelectedIndex = 0;
-            cbRateOfHumidity.SelectedIndex = 0;
-            cbStorageDuration.SelectedIndex = 0;
-
-
+            if (cbCardboard.Items.Count > 0)
+                cbCardboard.SelectedIndex = 0;
+            if (cbRateOfHumidity.Items.Count > 0)
+                cbRateOfHumidity.SelectedIndex = 0;
+            if (cbStorageDuration.Items.Count > 0)
+                cbStorageDuration.SelectedIndex = 0;
         }
         #endregion
 
@@ -61,7 +59,5 @@ namespace TreeDim.StackBuilder.Desktop
             */
         }
         #endregion
-
-
     }
 }

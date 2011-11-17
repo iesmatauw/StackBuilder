@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="Basics" targetNamespace="http://tempuri.org/Basics.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/Basics.xsd" xmlns:mstns="http://tempuri.org/Basics.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema id="Basics"
+           targetNamespace="http://tempuri.org/Basics.xsd"
+           elementFormDefault="qualified"
+           xmlns="http://tempuri.org/Basics.xsd"
+           xmlns:mstns="http://tempuri.org/Basics.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="AxisDir">
     <xs:restriction base="xs:token">
       <xs:enumeration value="XN" />

@@ -237,6 +237,54 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ectAnalysis" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="cardboard" minOccurs="1" maxOccurs="1">
+                <xs:complexType >
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="thickness" type="xs:string"/>
+                    <xs:element name="ect" type="xs:string"/>
+                    <xs:element name="stiffnessX" type="xs:string"/>
+                    <xs:element name="stiffnessY" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="caseType" type="xs:string"/>
+              <xs:element name="printedSurface" type="xs:string"/>
+              <xs:element name="mcKeeFormulaMode" type="xs:string"/>
+              <xs:element name="bct_static">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="static_value" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="bct_dynamic" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="bct_dynamic_storage" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="duration" type="xs:string"/>
+                          <xs:element name="humidity_0_45" type="xs:string"/>
+                          <xs:element name="humidity_46_55" type="xs:string"/>
+                          <xs:element name="humidity_56_65" type="xs:string"/>
+                          <xs:element name="humidity_66_75" type="xs:string"/>
+                          <xs:element name="humidity_76_85" type="xs:string"/>
+                          <xs:element name="humidity_86_100" type="xs:string"/>                          
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

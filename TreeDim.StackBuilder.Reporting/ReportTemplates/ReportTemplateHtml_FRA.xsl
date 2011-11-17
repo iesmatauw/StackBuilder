@@ -58,6 +58,7 @@
         </table>
         <xsl:apply-templates select="palletAnalysis"/>
         <xsl:apply-templates select="truckAnalysis"/>
+        <xsl:apply-templates select="ectAnalysis"/>
       </body>
     </html>
   </xsl:template>
@@ -77,6 +78,36 @@
     <h2 style="font-familly:arial;color:red;">Analyse chargement camion</h2>
     <xsl:apply-templates select="truck"/>
     <xsl:apply-templates select="truckSolution"/>
+  </xsl:template>
+  <xsl:template match="ectAnalysis">
+    <h2 style="font-familly:arial;color:red;">BCT analysis</h2>
+    <xsl:apply-templates select="cardboard"/>
+    <table border="0" cellpadding="2">
+      <tr>
+        <td class="style2">
+          <b>Case style:</b>
+        </td>
+        <td class ="style2">
+          <b>Printed surface:</b>
+        </td>
+        <td class="style2">
+          <b>Mc Kee formula:</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="style3">
+          <xsl:value-of select="caseType"/>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="printedSurface"/>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="mcKeeFormulaMode"/>
+        </td>
+      </tr>
+    </table>
+    <xsl:apply-templates select="bct_static"/>
+    <xsl:apply-templates select="bct_dynamic"/>
   </xsl:template>
   <!-- #### CASE ####-->
   <xsl:template match="case">
@@ -940,5 +971,117 @@
         </td>
       </tr>
     </table>
+  </xsl:template>
+  <!--CARDBOARD-->
+  <xsl:template match="cardboard">
+    <h3 style="font-family:arial;color:blue;">Carton</h3>
+    <table border="0" cellpadding="5">
+      <tr>
+        <td class="style2">
+          <b>Name</b>
+        </td>
+        <td class="style2">
+          <b>Thickness (mm)</b>
+        </td>
+        <td class="style2">
+          <b>ECT (N.m)</b>
+        </td>
+        <td class="style2">
+          <b>StiffnessX (N/m)</b>
+        </td>
+        <td class="style2">
+          <b>StiffnessY (N/m)</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="style3">
+          <xsl:value-of select="name"/>
+        </td>
+        <td>
+          <xsl:value-of select="thickness"/>
+        </td>
+        <td>
+          <xsl:value-of select="ect"/>
+        </td>
+        <td>
+          <xsl:value-of select="stiffnessX"/>
+        </td>
+        <td>
+          <xsl:value-of select="stiffnessY"/>
+        </td>       
+      </tr>
+    </table>
+  </xsl:template>
+  <!--BCT_STATIC-->
+  <xsl:template match="bct_static">
+    <h3 style="font-family:arial;color:blue;">RCV statique</h3>
+    <table border="0" cellpadding="2">
+      <tr>
+        <td class="style2">
+          <b>Static BCP (daN)</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="static_value"/>
+        </td>
+      </tr>
+    </table> 
+  </xsl:template>
+  <!--BCT_DYNAMIC-->
+  <xsl:template match="bct_dynamic">
+    <h3 style="font-family:arial;color:blue;">RCV dynamique (daN)</h3>
+    <table border="0" cellpadding="7">
+      <tr>
+        <td class="style2">
+          <b>Storage</b>
+        </td>
+        <td class="style2">
+          <b>0-45 %</b>
+        </td>
+        <td class="style2">
+          <b>46-55 %</b>
+        </td>
+        <td class="style2">
+          <b>56-65 %</b>
+        </td>
+        <td class="style2">
+          <b>66-75 %</b>
+        </td>
+        <td class="style2">
+          <b>76-85 %</b>
+        </td>
+        <td class="style2">
+          <b>86-100 %</b>
+        </td>
+      </tr>
+      <xsl:apply-templates select="bct_dynamic_storage"/>
+    </table>
+  </xsl:template>
+  <!--BCT_DYNAMIC_STORAGE-->
+  <xsl:template match="bct_dynamic_storage">
+    <tr>
+      <td class="style2">
+        <b>
+          <xsl:value-of select="duration"/>
+        </b>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_0_45"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_46_55"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_56_65"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_66_75"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_76_85"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_86_100"/>
+      </td>
+    </tr>
   </xsl:template>
 </xsl:stylesheet>

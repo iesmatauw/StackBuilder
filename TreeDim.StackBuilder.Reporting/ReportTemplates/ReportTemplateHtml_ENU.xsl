@@ -58,6 +58,7 @@
         </table>
         <xsl:apply-templates select="palletAnalysis"/>
         <xsl:apply-templates select="truckAnalysis"/>
+        <xsl:apply-templates select="ectAnalysis"/>
       </body>
     </html>
   </xsl:template>
@@ -77,6 +78,38 @@
     <h2 style="font-familly:arial;color:red;">Truck analysis</h2>
     <xsl:apply-templates select="truck"/>
     <xsl:apply-templates select="truckSolution"/>
+  </xsl:template>
+  <xsl:template match="ectAnalysis">
+    <h2 style="font-familly:arial;color:red;">BCT analysis</h2>
+    <xsl:apply-templates select="cardboard"/>
+    <table border="0" cellpadding="2">
+      <tr>
+        <td class="style2">
+          <b>Case style:</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="caseType"/>
+        </td>
+      </tr>
+      <tr>
+        <td class ="style2">
+          <b>Printed surface:</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="printedSurface"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>Mc Kee formula:</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="mcKeeFormulaMode"/>
+        </td>
+      </tr>      
+    </table>
+    <xsl:apply-templates select="bct_static"/>
+    <xsl:apply-templates select="bct_dynamic"/>
   </xsl:template>
   <!-- #### CASE ####-->
   <xsl:template match="case">
@@ -940,5 +973,106 @@
         </td>
       </tr>
     </table>
+  </xsl:template>
+  <!--CARDBOARD-->
+  <xsl:template match="cardboard">
+    <b>Cardboard</b>
+    <table border="0" cellpadding="5">
+      <tr>
+        <td class="style2">Name</td>
+        <td class="style2">Thickness (mm)</td>
+        <td class="style2">ECT (N.m)</td>
+        <td class="style2">StiffnessX (N/m)</td>
+        <td class="style2">StiffnessY (N/m)</td>
+      </tr>
+      <tr>
+        <td class="style3">
+          <xsl:value-of select="name"/>
+        </td>
+        <td>
+          <xsl:value-of select="thickness"/>
+        </td>
+        <td>
+          <xsl:value-of select="ect"/>
+        </td>
+        <td>
+          <xsl:value-of select="stiffnessX"/>
+        </td>
+        <td>
+          <xsl:value-of select="stiffnessY"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
+  <!--BCT_STATIC-->
+  <xsl:template match="bct_static">
+    <table border="0" cellpadding="2">
+      <tr>
+        <td class="style2">
+          <b>Static BCP</b>
+        </td>
+        <td class="style3">
+          <xsl:text/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
+  <!--BCT_DYNAMIC-->
+  <xsl:template match="bct_dynamic">
+    <b>Dynamic BCP</b>
+    <table border="0" cellpadding="7">
+      <tr>
+        <td class="style2">
+          <b>Storage</b>
+        </td>
+        <td class="style2">
+          <b>0-45 %</b>
+        </td>
+        <td class="style2">
+          <b>46-55 %</b>
+        </td>
+        <td class="style2">
+          <b>56-65 %</b>
+        </td>
+        <td class="style2">
+          <b>66-75 %</b>
+        </td>
+        <td class="style2">
+          <b>76-85 %</b>
+        </td>
+        <td class="style2">
+          <b>86-100 %</b>
+        </td>
+      </tr>
+      <xsl:apply-templates select="bct_dynamic_storage"/>
+    </table>
+  </xsl:template>
+  <!--BCT_DYNAMIC_STORAGE-->
+  <xsl:template match="bct_dynamic_storage">
+    <tr>
+      <td class="style2">
+        <b>
+          <xsl:value-of select="duration"/>
+        </b>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_0_45"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_46_55"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_56_65"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_66_75"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_76_85"/>
+      </td>
+      <td class="style3">
+        <xsl:value-of select="humidity_86_100"/>
+      </td>
+    </tr>
   </xsl:template>
 </xsl:stylesheet>

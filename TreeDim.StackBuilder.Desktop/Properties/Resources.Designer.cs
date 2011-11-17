@@ -249,6 +249,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new ECT analysis....
+        /// </summary>
+        internal static string ID_ADDNEWECTANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWECTANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new interlayer....
         /// </summary>
         internal static string ID_ADDNEWINTERLAYER {
@@ -383,6 +392,24 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_DEPENDINGANALYSES {
             get {
                 return ResourceManager.GetString("ID_DEPENDINGANALYSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ECT.
+        /// </summary>
+        internal static string ID_ECT {
+            get {
+                return ResourceManager.GetString("ID_ECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edge Crush Test Analysis.
+        /// </summary>
+        internal static string ID_EDGECRUSHTEST {
+            get {
+                return ResourceManager.GetString("ID_EDGECRUSHTEST", resourceCulture);
             }
         }
         

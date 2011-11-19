@@ -65,9 +65,6 @@
     <Setting Name="NoSolutionsToKeep" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.ReportingMSWord\ReportTemplate\Report.xslt</Value>
-    </Setting>
     <Setting Name="ShowLogConsole" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -166,6 +163,9 @@
     </Setting>
     <Setting Name="PalletTypeName" Type="System.String" Scope="User">
       <Value Profile="(Default)">EUR</Value>
+    </Setting>
+    <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

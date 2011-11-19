@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,110 +117,87 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Type de carton</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
+  <data name="lbStiffnessY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
   </data>
-  <data name="lbName.Text" xml:space="preserve">
-    <value>Nom</value>
+  <data name="lbStiffnessY.Text" xml:space="preserve">
+    <value>Rigidité Y</value>
   </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
   </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Boîte</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Rigidité X</value>
   </data>
-  <data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 17</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 13</value>
   </data>
-  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>autoriser les couches alternées</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Epaisseur</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 17</value>
+  <data name="lbPrintedSurface.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 45</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-    <value>autoriser les couches alignées</value>
+  <data name="lbPrintedSurface.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 13</value>
   </data>
-  <data name="checkedListBoxPatterns.Items" xml:space="preserve">
-    <value>Colonne</value>
+  <data name="lbPrintedSurface.Text" xml:space="preserve">
+    <value>Surface imprimée</value>
   </data>
-  <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
-    <value>Interbloqués</value>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Caisse</value>
   </data>
-  <data name="checkedListBoxPatterns.Items2" xml:space="preserve">
-    <value>Diagonale</value>
+  <data name="lbCaseType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
   </data>
-  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
-    <value>Spirale</value>
+  <data name="lbCaseType.Text" xml:space="preserve">
+    <value>Type de caisse</value>
   </data>
-  <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-    <value>Patrons de couche autorisés</value>
+  <data name="gbFormula.Text" xml:space="preserve">
+    <value>Formule de McKee</value>
   </data>
-  <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
-    <value>Position de boîtes autorisées</value>
+  <data name="rbFormula2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 17</value>
   </data>
-  <data name="checkBoxMaximumCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 17</value>
+  <data name="rbFormula2.Text" xml:space="preserve">
+    <value>Améliorée (utilise les rigidités cartons)</value>
   </data>
-  <data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
-    <value>quand le poid total de la caisse atteint</value>
+  <data name="rbFormula1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 17</value>
   </data>
-  <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 13</value>
+  <data name="rbFormula1.Text" xml:space="preserve">
+    <value>Classique (utilise le coefficient ECT)</value>
   </data>
-  <data name="lbStopStacking.Text" xml:space="preserve">
-    <value>Arrêter l'empilement:</value>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>Resultats</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 17</value>
+  <data name="lbDynamicBCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 13</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>quand le nombre total de boîtes atteint</value>
+  <data name="lbDynamicBCT.Text" xml:space="preserve">
+    <value>RCV dynamique (daN) (Taux d'humidité / Durée de stockage)</value>
   </data>
-  <data name="gbStopStackingCondition.Text" xml:space="preserve">
-    <value>Conditions additionnelles pour l'arrêt d'empilement</value>
+  <data name="lbStaticBCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
   </data>
-  <data name="lbSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 13</value>
+  <data name="lbStaticBCT.Text" xml:space="preserve">
+    <value>RCV statique</value>
   </data>
-  <data name="lbSolutions.Text" xml:space="preserve">
-    <value>meilleure(s) solution(s)</value>
-  </data>
-  <data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="lbBoxes.Text" xml:space="preserve">
-    <value>Boîte(s)</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 17</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
-    <value>qui sont parmis les</value>
-  </data>
-  <data name="checkBoxMinNumberOfItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 17</value>
-  </data>
-  <data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
-    <value>pour lesquels la caisse contient au moins</value>
-  </data>
-  <data name="lbFilterSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 13</value>
-  </data>
-  <data name="lbFilterSolutions.Text" xml:space="preserve">
-    <value>Conserver les solutions:</value>
-  </data>
-  <data name="gbSolutionFiltering.Text" xml:space="preserve">
-    <value>Données additionnelles</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palette</value>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAQAAAABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAABAA
+        AAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAgICAAMDAwAAAAP8AAP8AAAD//wD/AAAA/wD/AP//
+        AAD///8AAzMzMzMzAAADu7u7u7MwAAO7u7u7s7MAA7u7u7uzuzADu7u7u7O7swO7u7u7s7uzA7u7u7uz
+        u7MDMzMzMzO7swCbu7O7uTuzCZm7uzuZk7MAkDu7s7m7MwCQCTMzOTOTAJCZkAAJCZkAkAkAAAkAkAAA
+        CQAAAACQAAAJAAAAAJCADwAAgAcAAIADAACAAQAAgAAAAIAAAACAAAAAgAAAAMAAAACAAAAA0AAAANgA
+        AADR6AAA2+0AAPv9AAD7/QAA
+</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Créer une nouvelle analyse de caisse...</value>
+    <value>Analyse RCV</value>
   </data>
 </root>

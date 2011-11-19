@@ -154,12 +154,6 @@
     </Compile>
     <Compile Include="DocumentSB.cs" />
     <Compile Include="FileAssociation.cs" />
-    <Compile Include="FormEdgeCrushTestResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEdgeCrushTestResult.Designer.cs">
-      <DependentUpon>FormEdgeCrushTestResult.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAppendSolutionToDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,12 +232,6 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewStackingStrengthAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNewStackingStrengthAnalysis.Designer.cs">
-      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormNewTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +260,24 @@
       <DependentUpon>ListBoxImages.cs</DependentUpon>
     </Compile>
     <Compile Include="MruManager.cs" />
+    <Compile Include="OptionPanelDebugging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanelDebugging.Designer.cs">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanelReporting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanelReporting.Designer.cs">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsFormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsFormSettings.Designer.cs">
+      <DependentUpon>OptionsFormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.fr-FR.resx">
@@ -323,6 +329,12 @@
     <EmbeddedResource Include="DockContentDocumentExplorer.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.fr-FR.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentECTAnalysis.ja-JP.resx">
+      <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentECTAnalysis.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,9 +358,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentTruckAnalysis.resx">
       <DependentUpon>DockContentTruckAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEdgeCrushTestResult.resx">
-      <DependentUpon>FormEdgeCrushTestResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppendSolutionToDB.fr-FR.resx">
       <DependentUpon>FormAppendSolutionToDB.cs</DependentUpon>
@@ -476,15 +485,6 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewStackingStrengthAnalysis.fr-FR.resx">
-      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewStackingStrengthAnalysis.ja-JP.resx">
-      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNewStackingStrengthAnalysis.resx">
-      <DependentUpon>FormNewStackingStrengthAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -511,6 +511,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelDebugging.fr-FR.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelDebugging.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelReporting.fr-FR.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelReporting.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsFormSettings.resx">
+      <DependentUpon>OptionsFormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -599,6 +614,10 @@
     <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
       <Project>{CAD56B75-481B-4C76-B090-4BC2FF5E5681}</Project>
       <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsLib\OptionsLib.csproj">
+      <Project>{5035348F-344F-4822-823E-6CB4D79D80D7}</Project>
+      <Name>OptionsLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
       <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>

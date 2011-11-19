@@ -103,10 +103,16 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportMSWordClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
+            LogConsole();
+        }
 
+        public void LogConsole()
+        { 
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
+            else
+                _logConsole.Hide();
         }
 
 
@@ -874,15 +880,15 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-        private void toolStripStackingStrength_Click(object sender, EventArgs e)
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                // show stacking strength analysis form
-                FormNewStackingStrengthAnalysis form = new FormNewStackingStrengthAnalysis((DocumentSB)ActiveDocument);
+                // show OptionsFormSettings
+                OptionsFormSettings form = new OptionsFormSettings();
                 form.ShowDialog();
             }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex);}
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
         #endregion
 
@@ -1106,5 +1112,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

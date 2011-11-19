@@ -280,7 +280,7 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).EditECTAnalysis(tag.ECTAnalysis);
+                AnalysisNodeClicked(this, new AnalysisTreeViewEventArgs(tag));
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }

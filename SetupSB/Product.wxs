@@ -37,6 +37,7 @@
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
               <Directory Id="SAMPLES" Name="Samples"/>
               <Directory Id="XMLSCHEMAS" Name="XML Schemas"/>
+              <Directory Id="CARDBOARDQUALITYDATA" Name="CardboardQualityData"/>
              </Directory>
           </Directory>
         </Directory>
@@ -75,6 +76,7 @@
         <File Id ="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
         <File Id ="ExceptionReporter.Winforms.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\ExceptionReporter.Winforms.dll" Checksum="yes"/>
         <File Id ="Win32Mapi.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Win32Mapi.dll" Checksum="yes"/>
+        <File Id="OptionsLib.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\OptionsLib.dll" Checksum="yes"/>
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
@@ -113,6 +115,16 @@
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value"
                       Value="[INSTALLLOCATION]XML Schemas\StackBuilderSchema.xsd"/>
+        <util:XmlFile Id="SetCardboardQualityDBFile"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.EdgeCrushTest.Properties.Settings/setting[\[]@name='CardboardQualityDBFile'[\]]/value"
+                      Value="[INSTALLLOCATION]CardboardQualityData\CardboardQualityData.xml"/>
+        <util:XmlFile Id="SetShowLogConsole"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ShowLogConsole'[\]]/value"
+                      Value="False"/>
         <!--update config file-->
       </Component>
     </DirectoryRef>
@@ -122,14 +134,22 @@
         <File Id="SolutionListSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\SolutionListSchema.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="CARDBOARDQUALITYDATA">
+      <Component Id="CardboardQualityData" Guid="{B63A07E3-A933-484D-9A31-4BA9FE2D32D6}">
+        <File Id="CardboardQualityData.xml" Source="..\TreeDim.EdgeCrushTest\CardboardQualityData\CardboardQualityData.xml" Checksum="yes"/>
+        <File Id="CardboardQualityData.xsd" Source="..\TreeDim.EdgeCrushTest\CardboardQualityData\CardboardQualityData.xsd" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_FR">
-        <Component Id="resources_fr_FR">
+        <Component Id="resources_fr_FR" Guid="{78E448DA-06F6-48D1-B9EB-8C3135623A2B}">
           <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
+          <File Id="TreeDim.EdgeCrushTest.resources.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.EdgeCrushTest.resources.dll"/>
         </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_JP">
-      <Component Id="resources_ja_JP">
+      <Component Id="resources_ja_JP" Guid="{38DB11A6-D128-441A-A7BF-079B4B23FB74}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll"/>
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.EdgeCrushTest.resources.dll"/>
       </Component> 
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
@@ -216,6 +236,7 @@
       <ComponentRef Id="resources_ja_JP"/>
       <ComponentRef Id="Samples"/>
       <ComponentRef Id="XmlSchemas"/>
+      <ComponentRef Id="CardboardQualityData"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>

@@ -978,19 +978,19 @@
     <table border="0" cellpadding="5">
       <tr>
         <td class="style2">
-          <b>Name</b>
+          <b>Désignation</b>
         </td>
         <td class="style2">
-          <b>Thickness (mm)</b>
+          <b>Epaisseur (mm)</b>
         </td>
         <td class="style2">
           <b>ECT (N.m)</b>
         </td>
         <td class="style2">
-          <b>StiffnessX (N/m)</b>
+          <b>Rigidité X (N/m)</b>
         </td>
         <td class="style2">
-          <b>StiffnessY (N/m)</b>
+          <b>Rigidité Y (N/m)</b>
         </td>
       </tr>
       <tr>
@@ -1018,7 +1018,7 @@
     <table border="0" cellpadding="2">
       <tr>
         <td class="style2">
-          <b>Static BCP (daN)</b>
+          <b>RCV statique (daN)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="static_value"/>
@@ -1029,10 +1029,11 @@
   <!--BCT_DYNAMIC-->
   <xsl:template match="bct_dynamic">
     <h3 style="font-family:arial;color:blue;">RCV dynamique (daN)</h3>
+    Les résultats sont donnés en daN.
     <table border="0" cellpadding="7">
       <tr>
         <td class="style2">
-          <b>Storage</b>
+          <b>Stockage / Humidité (%)</b>
         </td>
         <td class="style2">
           <b>0-45 %</b>

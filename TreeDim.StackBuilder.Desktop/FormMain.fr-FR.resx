@@ -259,7 +259,7 @@
 </value>
   </data>
   <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvel Etui</value>
@@ -273,7 +273,7 @@
 </value>
   </data>
   <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Caisse</value>
@@ -286,7 +286,7 @@
 </value>
   </data>
   <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvel Intercalaire</value>
@@ -300,7 +300,7 @@
 </value>
   </data>
   <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Liasse</value>
@@ -314,7 +314,7 @@
 </value>
   </data>
   <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Palette</value>
@@ -333,13 +333,13 @@
 </value>
   </data>
   <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouveau Camion</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 6</value>
+    <value>331, 6</value>
   </data>
   <data name="newAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -351,7 +351,7 @@
 </value>
   </data>
   <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Analyse Caisse/Palette</value>
@@ -366,7 +366,7 @@
 </value>
   </data>
   <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle analyse de Liasse/Palette</value>
@@ -381,13 +381,13 @@
 </value>
   </data>
   <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle analyse de Etui/Caisse</value>
   </data>
   <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
     <value>Recherche de la caisse optimale</value>
@@ -395,20 +395,8 @@
   <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
     <value>Recherche de la caisse optimale</value>
   </data>
-  <data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 6</value>
-  </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
-  </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvelle analyse de résistance à la compression verticale</value>
-  </data>
-  <data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Recherche de la charge maximale supportée par une caisse d'après la formule de McKee</value>
-  </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 6</value>
+    <value>331, 6</value>
   </data>
   <data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -424,10 +412,19 @@
 </value>
   </data>
   <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 22</value>
+    <value>334, 22</value>
   </data>
   <data name="editPaletSolutionsDB.Text" xml:space="preserve">
     <value>Editer la base de données des solution de palettes</value>
+  </data>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>331, 6</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>334, 22</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Paramètres...</value>
   </data>
   <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 20</value>

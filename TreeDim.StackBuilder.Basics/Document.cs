@@ -348,6 +348,7 @@ namespace TreeDim.StackBuilder.Basics
                 if (caseAnalysis.Solutions.Count < 1)
                 {	// remove analysis from list if it has no valid solution
                     _caseAnalyses.Remove(caseAnalysis);
+                    _log.InfoFormat("Failed to find any solution {0}", caseAnalysis.Name);
                     return null;
                 }
             }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,109 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
+  <data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 13</value>
   </data>
-  <data name="lbName.Text" xml:space="preserve">
-    <value>Nom</value>
+  <data name="lbReportTemplatesDir.Text" xml:space="preserve">
+    <value>Dossier des patrons de rapport</value>
   </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+  <data name="tbReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 5</value>
   </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Boîte</value>
+  <data name="tbReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 20</value>
   </data>
-  <data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 17</value>
+  <data name="btReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 5</value>
   </data>
-  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>autoriser les couches alternées</value>
-  </data>
-  <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 17</value>
-  </data>
-  <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-    <value>autoriser les couches alignées</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items" xml:space="preserve">
-    <value>Colonne</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
-    <value>Interbloqués</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items2" xml:space="preserve">
-    <value>Diagonale</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
-    <value>Spirale</value>
-  </data>
-  <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-    <value>Patrons de couche autorisés</value>
-  </data>
-  <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
-    <value>Position de boîtes autorisées</value>
-  </data>
-  <data name="checkBoxMaximumCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 17</value>
-  </data>
-  <data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
-    <value>quand le poid total de la caisse atteint</value>
-  </data>
-  <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 13</value>
-  </data>
-  <data name="lbStopStacking.Text" xml:space="preserve">
-    <value>Arrêter l'empilement:</value>
-  </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 17</value>
-  </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>quand le nombre total de boîtes atteint</value>
-  </data>
-  <data name="gbStopStackingCondition.Text" xml:space="preserve">
-    <value>Conditions additionnelles pour l'arrêt d'empilement</value>
-  </data>
-  <data name="lbSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 13</value>
-  </data>
-  <data name="lbSolutions.Text" xml:space="preserve">
-    <value>meilleure(s) solution(s)</value>
-  </data>
-  <data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="lbBoxes.Text" xml:space="preserve">
-    <value>Boîte(s)</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 17</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
-    <value>qui sont parmis les</value>
-  </data>
-  <data name="checkBoxMinNumberOfItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 17</value>
-  </data>
-  <data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
-    <value>pour lesquels la caisse contient au moins</value>
-  </data>
-  <data name="lbFilterSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 13</value>
-  </data>
-  <data name="lbFilterSolutions.Text" xml:space="preserve">
-    <value>Conserver les solutions:</value>
-  </data>
-  <data name="gbSolutionFiltering.Text" xml:space="preserve">
-    <value>Données additionnelles</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palette</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Créer une nouvelle analyse de caisse...</value>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>450, 215</value>
   </data>
 </root>

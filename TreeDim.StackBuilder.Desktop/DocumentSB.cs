@@ -564,8 +564,8 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="ectAnalysis"></param>
         public void EditECTAnalysis(ECTAnalysis ectAnalysis)
-        { 
-            
+        {
+            // uses FormMain.CreateOrActivateViewECTAnalysis
         }
         #endregion
     }

@@ -69,10 +69,10 @@
             this.newAnalysisBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseOptimisationToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.newStackingStrengthAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -256,10 +256,10 @@
             this.newAnalysisBundleToolStripMenuItem,
             this.newCaseAnalysisToolStripMenuItem,
             this.caseOptimisationToolStripMenu,
-            this.toolStripSeparator11,
-            this.newStackingStrengthAnalysisToolStripMenuItem,
             this.toolStripSeparator7,
-            this.editPaletSolutionsDB});
+            this.editPaletSolutionsDB,
+            this.toolStripSeparator6,
+            this.settingsToolStripMenuItem});
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             // 
             // newBoxToolStripMenuItem
@@ -328,18 +328,6 @@
             this.caseOptimisationToolStripMenu.Name = "caseOptimisationToolStripMenu";
             this.caseOptimisationToolStripMenu.Click += new System.EventHandler(this.toolStripButtonOptimiseCase_Click);
             // 
-            // toolStripSeparator11
-            // 
-            resources.ApplyResources(this.toolStripSeparator11, "toolStripSeparator11");
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            // 
-            // newStackingStrengthAnalysisToolStripMenuItem
-            // 
-            resources.ApplyResources(this.newStackingStrengthAnalysisToolStripMenuItem, "newStackingStrengthAnalysisToolStripMenuItem");
-            this.newStackingStrengthAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisStackingStrength;
-            this.newStackingStrengthAnalysisToolStripMenuItem.Name = "newStackingStrengthAnalysisToolStripMenuItem";
-            this.newStackingStrengthAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolStripStackingStrength_Click);
-            // 
             // toolStripSeparator7
             // 
             resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
@@ -350,6 +338,17 @@
             resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
             this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
             this.editPaletSolutionsDB.Click += new System.EventHandler(this.toolEditPalletSolutionsDB);
+            // 
+            // toolStripSeparator6
+            // 
+            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            resources.ApplyResources(this.settingsToolStripMenuItem, "settingsToolStripMenuItem");
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -626,7 +625,7 @@
         private System.Windows.Forms.ToolStripMenuItem caseOptimisationToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripMenuItem newStackingStrengthAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }

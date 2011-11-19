@@ -174,6 +174,9 @@ namespace TreeDim.EdgeCrushTest
         #endregion
 
         #region Coefficient dictionnary
+        /// <summary>
+        /// Convert to McKeeFormula to string
+        /// </summary>
         public static string ModeText(McKeeFormula.FormulaType type)
         {
             switch (type)
@@ -183,6 +186,9 @@ namespace TreeDim.EdgeCrushTest
                 default: return "";
             }
         }
+        /// <summary>
+        /// Convert string to McKeeFormula
+        /// </summary>
         public static McKeeFormula.FormulaType TextToMode(string sMode)
         {
             if (string.Equals(sMode, TreeDim.EdgeCrushTest.Properties.Resource.MCKEEFORMULA_CLASSIC))
@@ -206,7 +212,6 @@ namespace TreeDim.EdgeCrushTest
                 return caseTypeDictionary;
             }
         }
-
         /// <summary>
         /// Humidity coefficient dictionnary
         /// </summary>
@@ -226,7 +231,6 @@ namespace TreeDim.EdgeCrushTest
                 return humidityCoefs;
             }
         }
-
         /// <summary>
         /// Stock coefficient dictionary
         /// </summary>
@@ -291,15 +295,14 @@ namespace TreeDim.EdgeCrushTest
                                 , new QualityData(quality.Name, quality.Thickness, quality.ECT, quality.RigidityDX, quality.RigidityDY));
                         }
                         catch (Exception ex)
-                        {
-                            _log.Error(quality.Name + " -> " + ex.Message);
-                        }
+                        {   _log.Error(quality.Name + " -> " + ex.Message); }
                     }
+                    // log info -> cardboard quality db successfully loaded
+                    _log.DebugFormat("Successfully loaded cardboard quality db: {0}", dbFilePath);
                 }
                 return _cardboardQualityDictionary;
             }
         }
-
         #endregion
     }
 }

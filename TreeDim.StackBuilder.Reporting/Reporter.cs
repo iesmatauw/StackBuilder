@@ -96,7 +96,11 @@ namespace TreeDim.StackBuilder.Reporting
         {
             get
             {
-                return _selSolution;
+                if (null != _palletAnalysis)
+                    return _selSolution;
+                else if (null != _caseAnalysis)
+                    return PalletAnalysis.GetSelSolutionBySolutionIndex(0);
+                return null;
             }
         }
         #endregion

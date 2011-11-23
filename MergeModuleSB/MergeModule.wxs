@@ -16,6 +16,7 @@
           <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
           <Directory Id="SAMPLES" Name="Samples"/>
           <Directory Id="XMLSCHEMAS" Name="XML Schemas"/>
+          <Directory Id="CARDBOARDQUALITYDATA" Name="CardboardQualityData"/>
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
@@ -40,6 +41,7 @@
         <File Id ="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
         <File Id ="ExceptionReporter.Winforms.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\ExceptionReporter.Winforms.dll" Checksum="yes"/>
         <File Id ="Win32Mapi.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Win32Mapi.dll" Checksum="yes"/>
+        <File Id="OptionsLib.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\OptionsLib.dll" Checksum="yes"/>
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>
@@ -85,6 +87,12 @@
       <Component Id="XmlSchemas" Guid="{A5C4F5DC-49B3-4df8-9FA4-2AD1F4737C3F}">
         <File Id="StackBuilderSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\StackBuilderSchema.xsd" Checksum="yes"/>
         <File Id="SolutionListSchema.xsd" Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\SolutionListSchema.xsd" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="CARDBOARDQUALITYDATA">
+      <Component Id="CardboardQualityData" Guid="{B63A07E3-A933-484D-9A31-4BA9FE2D32D6}">
+        <File Id="CardboardQualityData.xml" Source="..\TreeDim.EdgeCrushTest\CardboardQualityData\CardboardQualityData.xml" Checksum="yes"/>
+        <File Id="CardboardQualityData.xsd" Source="..\TreeDim.EdgeCrushTest\CardboardQualityData\CardboardQualityData.xsd" Checksum="yes"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_FR">

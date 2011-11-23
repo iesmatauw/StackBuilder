@@ -24,6 +24,107 @@ using TreeDim.StackBuilder.Graphics;
 namespace TreeDim.StackBuilder.Reporting
 {
     /// <summary>
+    /// class used to encapsulate an analysis and a solution
+    /// </summary>
+    public class ReportData
+    {
+        #region Data members
+        private PalletAnalysis _palletAnalysis;
+        private SelSolution _selSolution;
+        private CaseAnalysis _caseAnalysis;
+        private SelCaseSolution _selCaseSolution;
+
+        private PalletSolution _palletSolution;
+        #endregion
+
+        #region Constructors
+        public ReportData(PalletAnalysis palletAnalysis, SelSolution selSolution)
+        {
+            _palletAnalysis = palletAnalysis;
+            _selSolution = selSolution;
+        }
+        public ReportData(CaseAnalysis caseAnalysis, SelCaseSolution selCaseSolution)
+        {
+            _caseAnalysis = caseAnalysis;
+            _selCaseSolution = selCaseSolution;
+        }
+        public ReportData(PalletAnalysis palletAnalysis, SelSolution selSolution, CaseAnalysis caseAnalysis, SelCaseSolution selCaseSolution)
+        {
+            _palletAnalysis = palletAnalysis;
+            _selSolution = selSolution;
+            _caseAnalysis = caseAnalysis;
+            _selCaseSolution = selCaseSolution;
+        }
+        #endregion
+
+        #region Public accessors
+        public Document Document
+        {
+            get
+            {
+                if (null != _palletAnalysis)
+                    return _palletAnalysis.ParentDocument;
+                if (null != _caseAnalysis)
+                    return _caseAnalysis.ParentDocument;
+                return null;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return (null != _palletAnalysis && null != _selSolution)
+                || (null != _caseAnalysis && null != _selCaseSolution);
+            }
+        }
+
+        public PalletAnalysis PalletAnalysis
+        {
+            get
+            {
+                if (null != _palletAnalysis)
+                    return _palletAnalysis;
+                else if (null != _caseAnalysis)
+                    return PalletSolution.Analysis;
+                else
+                    return null;
+            }
+        }
+
+        public SelSolution SelSolution
+        {
+            get
+            {
+                return _selSolution;
+            }
+        }
+        #endregion
+
+        #region PalletSolution
+        public PalletSolution PalletSolution
+        {
+            get
+            {
+                // case analysis
+                if (null != _caseAnalysis)
+                {
+                    if (null == _palletSolution)
+                        _palletSolution = _selCaseSolution.Solution.AttachedPalletSolution;
+                    return _palletSolution;
+                }
+                // pallet analysis 
+                else if (null != _palletAnalysis)
+                    return _selSolution.Solution;
+                // error!
+                else
+                    return null;
+            }
+        }
+        #endregion
+    }
+
+    /// <summary>
     /// Generates pallet analyses reports
     /// </summary>
     abstract public class Reporter
@@ -50,14 +151,17 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Report generation
-        public void BuildAnalysisReport(PalletAnalysis analysis, SelSolution sol, string reportTemplatePath, string outputFilePath)
+        public void BuildAnalysisReport(ReportData inputData, string reportTemplatePath, string outputFilePath)
         {
+            // verify if inputData is a valid entry
+            if (!inputData.IsValid)
+                throw new Exception("Reporter.BuildAnalysisReport(): ReportData argument is invalid!");
+            // create directory if needed
             if (WriteImageFiles && !Directory.Exists(ImageDirectory))
-                Directory.CreateDirectory(ImageDirectory);
- 
+                Directory.CreateDirectory(ImageDirectory); 
             // create xml data file + XmlTextReader
             string xmlFilePath = Path.ChangeExtension(System.IO.Path.GetTempFileName(), "xml");
-           CreateAnalysisDataFile(analysis, sol, xmlFilePath, WriteNamespace);
+           CreateAnalysisDataFile(inputData, xmlFilePath, WriteNamespace);
             XmlTextReader xmlData = new XmlTextReader(new FileStream(xmlFilePath, FileMode.Open, FileAccess.Read));
             // validate against schema
             // note xml file validation against xml schema produces a large number of errors
@@ -67,7 +171,7 @@ namespace TreeDim.StackBuilder.Reporting
             // build xslt file
             string xsltTemplateFilePath = string.Empty;
             if (!RetrieveXsltTemplate(reportTemplatePath, ref xsltTemplateFilePath))
-                throw new Exception("Failed to build xslt template");
+                throw new Exception(string.Format("Failed to build/retrieve xslt template: {0}",reportTemplatePath));
             // check availibility of files
             if (!File.Exists(xsltTemplateFilePath))
                 throw new Exception(string.Format("Report template path ({0}) is invalid", xsltTemplateFilePath));
@@ -79,14 +183,16 @@ namespace TreeDim.StackBuilder.Reporting
             using (FileStream fs = new FileStream(outputFilePath, FileMode.Create))
                 fs.Write(wordDoc, 0, wordDoc.Length);
         }
+        #endregion
 
+        #region Xml transformation using xsl template
         /// <summary>
         /// Creates document from XML using XSLT
         /// </summary>
         /// <param name="xmlData">Report data as XML</param>
         /// <param name="xsltReader">XSLT transformation as Stream, used for document creation</param>
         /// <returns>Resulting document as byte[]</returns>
-        public static byte[] GetReport(XmlReader xmlData, XmlReader xsltReader)
+        private static byte[] GetReport(XmlReader xmlData, XmlReader xsltReader)
         {
             // Initialize needed variables
             XslCompiledTransform xslt = new XslCompiledTransform();
@@ -140,7 +246,7 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Static methods to build xml report
-        public void CreateAnalysisDataFile(PalletAnalysis analysis, SelSolution sol, string xmlDataFilePath, bool writeNamespace)
+        public void CreateAnalysisDataFile(ReportData inputData, string xmlDataFilePath, bool writeNamespace)
         {
             // instantiate XmlDocument
             XmlDocument xmlDoc = new XmlDocument();
@@ -156,29 +262,30 @@ namespace TreeDim.StackBuilder.Reporting
             xmlDoc.AppendChild(elemDocument);
 
             string ns = xmlDoc.DocumentElement.NamespaceURI;
+            Document doc = inputData.Document;
             // name element
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = analysis.ParentDocument.Name;
+            elemName.InnerText = doc.Name;
             elemDocument.AppendChild(elemName);
             // description element
             XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-            elemDescription.InnerText = analysis.ParentDocument.Description;
+            elemDescription.InnerText = doc.Description;
             elemDocument.AppendChild(elemDescription);
             // author element
             XmlElement elemAuthor = xmlDoc.CreateElement("author", ns);
-            elemAuthor.InnerText = analysis.ParentDocument.Author;
+            elemAuthor.InnerText = doc.Author;
             elemDocument.AppendChild(elemAuthor);
             // date of creation element
             XmlElement elemDateOfCreation = xmlDoc.CreateElement("dateOfCreation", ns);
-            elemDateOfCreation.InnerText = analysis.ParentDocument.DateOfCreation.ToString();
+            elemDateOfCreation.InnerText = doc.DateOfCreation.ToString();
             elemDocument.AppendChild(elemDateOfCreation);
 
             // palletAnalysis
-            AppendPalletAnalysisElement(analysis, sol, elemDocument, xmlDoc);
+            AppendPalletAnalysisElement(inputData.PalletAnalysis, inputData.SelSolution, elemDocument, xmlDoc);
             // truckAnalysis
-            AppendTruckAnalysisElement(analysis, sol, elemDocument, xmlDoc);
+            AppendTruckAnalysisElement(inputData.PalletAnalysis, inputData.SelSolution, elemDocument, xmlDoc);
             // ectAnalysis
-            AppendEctAnalysisElement(analysis, sol, elemDocument, xmlDoc);
+            AppendEctAnalysisElement(inputData.PalletAnalysis, inputData.SelSolution, elemDocument, xmlDoc);
 
             // finally save xml document
             _log.Debug(string.Format("Generating xml data file {0}", xmlDataFilePath));

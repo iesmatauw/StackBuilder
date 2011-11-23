@@ -133,7 +133,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get
             {
-                string[] patternNames = TreeDim.StackBuilder.Engine.Solver.PatternNames;
+                string[] patternNames = TreeDim.StackBuilder.Engine.CaseSolver.PatternNames;
                 List<string> listAllowedPatterns = new List<string>();
                 foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
                 {

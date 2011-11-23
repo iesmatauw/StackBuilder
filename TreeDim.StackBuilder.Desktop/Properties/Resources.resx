@@ -412,4 +412,13 @@ Continue?</value>
   <data name="ID_EDGECRUSHTEST" xml:space="preserve">
     <value>Edge Crush Test Analysis</value>
   </data>
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+    <value>Cannot create case analysis as the constraint set appears to be invalid.</value>
+  </data>
+  <data name="ID_DESELECT" xml:space="preserve">
+    <value>Deselect</value>
+  </data>
+  <data name="ID_SELECT" xml:space="preserve">
+    <value>Select</value>
+  </data>
 </root>

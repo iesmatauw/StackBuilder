@@ -53,8 +53,17 @@ namespace TreeDim.StackBuilder.Desktop
             _caseAnalysis = caseAnalysis;
             _caseAnalysis.AddListener(this);
 
+            _caseAnalysis.SolutionSelected += new Basics.CaseAnalysis.SelectSolution(SolutionSelectionChanged);
+            _caseAnalysis.SolutionSelectionRemoved += new Basics.CaseAnalysis.SelectSolution(SolutionSelectionChanged);
+
             InitializeComponent();
         }
+
+        void SolutionSelectionChanged(CaseAnalysis analysis, SelCaseSolution selSolution)
+        {
+            UpdateSelectButtonText();
+            UpdateGridCheckBoxes();
+         }
         #endregion
 
         #region Form override
@@ -226,8 +235,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _caseAnalysis.SelectSolutionByIndex(iSel);
             else
                 _caseAnalysis.UnselectSolutionByIndex(iSel);
-            UpdateGridCheckBoxes();
-            UpdateSelectButtonText();
         }
         private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
         {
@@ -259,7 +266,7 @@ namespace TreeDim.StackBuilder.Desktop
             int iSel = GetCurrentSolutionIndex();
             btSelectSolution.Enabled = (iSel != -1);
             if (-1 == iSel) return; // no valid selection
-            btSelectSolution.Text = _caseAnalysis.HasSolutionSelected(iSel) ? "Deselect" : "Select";
+            btSelectSolution.Text = _caseAnalysis.HasSolutionSelected(iSel) ? Properties.Resources.ID_DESELECT : Properties.Resources.ID_SELECT;
         }
         private int GetCurrentSolutionIndex()
         {
@@ -345,25 +352,26 @@ namespace TreeDim.StackBuilder.Desktop
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;
+
+                if (toolStripShowPallet.Checked)    // also draws pallet solution
+                {
+                    PalletSolution sol = GetCurrentSolution().PalletSolutionDesc.LoadPalletSolution();
+                    // instantiate graphics
+                    Graphics3DImage graphicsPallet = new Graphics3DImage(pictureBoxPalletSolution.Size);
+                    graphicsPallet.CameraPosition = Graphics3D.Corner_0;
+                    graphicsPallet.Target = new Vector3D(0.0, 0.0, 0.0);
+                    graphicsPallet.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+                    // instantial solution viewer
+                    SolutionViewer svPallet = new SolutionViewer(sol);
+                    svPallet.Draw(graphicsPallet);
+                    // show generated bitmap
+                    pictureBoxPalletSolution.Image = graphicsPallet.Bitmap;
+                }
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
-            }
-            if (toolStripShowPallet.Checked)    // also draws pallet solution
-            {
-                PalletSolution sol = GetCurrentSolution().PalletSolutionDesc.LoadPalletSolution();
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxPalletSolution.Size);
-                graphics.CameraPosition = Graphics3D.Corner_0;
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // instantial solution viewer
-                SolutionViewer sv = new SolutionViewer(sol);
-                sv.Draw(graphics);
-                // show generated bitmap
-                pictureBoxPalletSolution.Image = graphics.Bitmap;
-            }
+            }            
         }
         #endregion
 
@@ -445,6 +453,25 @@ namespace TreeDim.StackBuilder.Desktop
         {
             toolStripShowImages.Checked = !toolStripShowImages.Checked;
             Draw();
+        }
+        #endregion
+
+        #region Event handlers
+        private void btSelectSolution_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int iSel = GetCurrentSolutionIndex();
+                if (-1 == iSel) return;
+                if (!_caseAnalysis.HasSolutionSelected(iSel))
+                    _caseAnalysis.SelectSolutionByIndex(iSel);
+                else
+                    _caseAnalysis.UnselectSolutionByIndex(iSel);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
     }

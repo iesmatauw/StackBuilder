@@ -51,7 +51,7 @@ namespace TreeDim.StackBuilder.Reporting.Test
                 string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
                 string templatePath = @"..\..\..\TreeDim.StackBuilder.Reporting\ReportTemplates\";
                 ReporterMSWord reporter = new ReporterMSWord();
-                reporter.BuildAnalysisReport(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0),templatePath, outputFilePath);
+                reporter.BuildAnalysisReport(new ReportData(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0)), templatePath, outputFilePath);
 
                 Console.WriteLine("Saved report to: {0}", outputFilePath);
 
@@ -88,10 +88,16 @@ namespace TreeDim.StackBuilder.Reporting.Test
             {
                 _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
             }
+            /*
             public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution)
             {
-                _log.Info(string.Format("Selected solution added {0}", selectedSolution.Name));
+                _log.Info(string.Format("Selected solution added : {0}", selectedSolution.Name));
             }
+            public void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution)
+            { 
+                _log.Info(string.Format("Selected case solution added : {0}", selectedSolution.Name));
+            }
+            */ 
             public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }
@@ -107,10 +113,16 @@ namespace TreeDim.StackBuilder.Reporting.Test
             public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
             {
             }
+            /*
             public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution)
             {
                 _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));
             }
+            public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution)
+            {
+                _log.Info(string.Format("Selected solution {0}", selectedSolution.Name));
+            }
+            */ 
             public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }

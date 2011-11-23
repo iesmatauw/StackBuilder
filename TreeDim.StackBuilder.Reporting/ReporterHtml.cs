@@ -15,14 +15,17 @@ namespace TreeDim.StackBuilder.Reporting
 {
     public class ReporterHtml : Reporter
     {
+        #region Constructor
         /// <summary>
         /// ReportHtml : generate html report
         /// </summary>
-        public ReporterHtml(PalletAnalysis analysis, SelSolution selSolution, string templatePath,  string outpuFilePath)
+        public ReporterHtml(ReportData inputData, string templatePath,  string outpuFilePath)
         {
-            BuildAnalysisReport(analysis, selSolution, templatePath, outpuFilePath);
+            BuildAnalysisReport(inputData, templatePath, outpuFilePath);
         }
+        #endregion
 
+        #region Override Reporter
         public override bool RetrieveXsltTemplate(string reportTemplatePath, ref string xsltTemplateFilePath)
         {
             // report template name
@@ -48,5 +51,6 @@ namespace TreeDim.StackBuilder.Reporting
         {
             get { return true; }
         }
+        #endregion
     }
 }

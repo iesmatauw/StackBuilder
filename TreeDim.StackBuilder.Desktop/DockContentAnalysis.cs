@@ -51,10 +51,20 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentAnalysis(IDocument document, PalletAnalysis analysis)
         {
             _document = document;
+
             _analysis = analysis;
             _analysis.AddListener(this);
 
+            _analysis.SolutionSelected += new PalletAnalysis.SelectSolution(onSolutionSelectionChanged);
+            _analysis.SolutionSelectionRemoved += new PalletAnalysis.SelectSolution(onSolutionSelectionChanged);
+
             InitializeComponent();
+        }
+
+        void onSolutionSelectionChanged(PalletAnalysis analysis, SelSolution selSolution)
+        {
+            UpdateSelectButtonText();
+            UpdateGridCheckBoxes();
         }
         #endregion
 
@@ -208,8 +218,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _analysis.SelectSolutionByIndex(iSel);
             else
                 _analysis.UnselectSolutionByIndex(iSel);
-            UpdateGridCheckBoxes();
-            UpdateSelectButtonText();
         }
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
@@ -239,8 +247,6 @@ namespace TreeDim.StackBuilder.Desktop
                     _analysis.SelectSolutionByIndex(iSel);
                 else
                     _analysis.UnselectSolutionByIndex(iSel);
-                UpdateSelectButtonText();
-                UpdateGridCheckBoxes();
             }
             catch (Exception ex)
             {
@@ -273,7 +279,7 @@ namespace TreeDim.StackBuilder.Desktop
             int iSel = GetCurrentSolutionIndex();
             btSelectSolution.Enabled = (iSel != -1);
             if (-1 == iSel) return; // no valid selection
-            btSelectSolution.Text = _analysis.HasSolutionSelected(iSel) ? "Deselect" : "Select";
+            btSelectSolution.Text = _analysis.HasSolutionSelected(iSel) ? Properties.Resources.ID_DESELECT : Properties.Resources.ID_SELECT;
         }
         private int GetCurrentSolutionIndex()
         { 

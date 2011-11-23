@@ -149,10 +149,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_ANALYSISSOL)
             {
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelSolution.Name);
-                contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)) );
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
-                contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)) );
+   
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
             {
@@ -202,11 +199,23 @@ namespace TreeDim.StackBuilder.Desktop
                     if (bProperties.HasInsideDimensions) // BoxProperties must also have inside dimensions
                         contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_SENDTODATABASE, AnalysisTreeView.Database, new EventHandler(onSendSolutionToDatabase)));
                 }
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelSolution.Name);
+                contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)) );
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
+                contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)) );
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_CASEANALYSIS)
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_EDIT, nodeTag.CaseAnalysis.Name), null, new EventHandler(onEditCaseAnalysis)));
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_DELETE, nodeTag.CaseAnalysis.Name), AnalysisTreeView.DELETE, new EventHandler(onDeleteCaseAnalysis)));
+            }
+            if (nodeTag.Type == NodeTag.NodeType.NT_CASESOLUTION)
+            {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCaseAnalysisSolution)));
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelCaseSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelCaseSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord))); 
             }
         }
         #endregion
@@ -422,9 +431,6 @@ namespace TreeDim.StackBuilder.Desktop
                 BoxProperties boxProperties = tag.Analysis.BProperties as BoxProperties;
                 PalletProperties palletProperties = tag.Analysis.PalletProperties;
                 PalletConstraintSet constraintSet = tag.Analysis.ConstraintSet;
-                // instantiate new solution descriptor
-
-
                 // show form and get friendly name
                 FormAppendSolutionToDB form = new FormAppendSolutionToDB();
                 // warn user : keep or replace similar solutions
@@ -478,6 +484,15 @@ namespace TreeDim.StackBuilder.Desktop
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 CancelEventArgs cea = new CancelEventArgs();
                 FormMain.GetInstance().CloseDocument((DocumentSB)tag.Document, cea); ;
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onUnselectCaseAnalysisSolution(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.CaseAnalysis.UnSelectSolution(tag.SelCaseSolution);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -700,7 +715,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _log.Error("AnalysisTreeView.OnNewTypeCreated() -> unknown type!");
                 return;
             }
-
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(parentNodeType, doc));
             if (null == parentNode)
@@ -715,7 +729,6 @@ namespace TreeDim.StackBuilder.Desktop
             // insert
             parentNode.Nodes.Add(nodeItem);
             parentNode.Expand();
-
             // if item is CaseOfBoxesProperties
             if (itemProperties is CaseOfBoxesProperties)
             {
@@ -764,6 +777,10 @@ namespace TreeDim.StackBuilder.Desktop
                 nodeAnalysis.Nodes.Add(subInterlayer);
             }
             nodeAnalysis.Expand();
+
+            // add event handlers for solution selection
+            analysis.SolutionSelected += new PalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelected);
+            analysis.SolutionSelectionRemoved += new PalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelectionRemoved);
         }
         /// <summary>
         /// handles new analysis created
@@ -783,23 +800,10 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode subBoxNode = new TreeNode(caseAnalysis.BoxProperties.Name, 3, 3);
             subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, caseAnalysis, caseAnalysis.BoxProperties);
             nodeAnalysis.Nodes.Add(subBoxNode);
-
-
             nodeAnalysis.Expand();
-        }
-        /// <summary>
-        /// handles new solution added
-        /// </summary>
-        public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selSolution)
-        {
-            // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
-            // insert selected solution node
-            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 11, 11);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution);
-            parentNode.Nodes.Add(nodeSelSolution);
-            // expand tree nodes
-            parentNode.Expand();
+
+            caseAnalysis.SolutionSelected += new Basics.CaseAnalysis.SelectSolution(onCaseAnalysisSolutionSelected);
+            caseAnalysis.SolutionSelectionRemoved += new Basics.CaseAnalysis.SelectSolution(onCaseAnalysisSolutionSelectionRemoved);
         }
         /// <summary>
         /// handles new truck analysis created
@@ -914,19 +918,16 @@ namespace TreeDim.StackBuilder.Desktop
             Nodes.Remove(caseAnalysisNode);
         }
         /// <summary>
-        /// handles solution unselected  : actually removed selected solution node from analysis node
+        /// handles case solution unselected : actually removed selected solution node from case analysis node
         /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="analysis"></param>
-        /// <param name="selSolution"></param>
-        public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution)
+        public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis caseAnalysis, SelCaseSolution selSolution)
         {
             // get node
-            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASESOLUTION, doc, caseAnalysis, selSolution));
             // test
             if (null == selSolutionNode)
             {
-                _log.Warn(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
+                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
                 return;
             }
             // remove node
@@ -973,6 +974,68 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode docNode = FindNode(null, new NodeTag(nodeType, doc));
             // remove node
             Nodes.Remove(docNode);
+        }
+        #endregion
+
+        #region PalletAnalysis/CaseAnalysis solution added/removed Handlers
+        private void onCaseAnalysisSolutionSelectionRemoved(CaseAnalysis caseAnalysis, SelCaseSolution selSolution)
+        {
+            // retrieve parent document
+            Document doc = caseAnalysis.ParentDocument;
+            // get node
+            TreeNode caseAnalysisNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEANALYSIS, doc, caseAnalysis));
+            // test
+            if (null == caseAnalysisNode)
+            {
+                _log.Warn(string.Format("Failed to find a valid tree node for caseAnalysis {0}", caseAnalysis.Name));
+                return;
+            }
+            // remove node
+            Nodes.Remove(caseAnalysisNode);
+        }
+
+        private void onCaseAnalysisSolutionSelected(CaseAnalysis caseAnalysis, SelCaseSolution selSolution)
+        {
+            // retrieve document
+            Document doc = caseAnalysis.ParentDocument;
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEANALYSIS, doc, caseAnalysis));
+            // insert selected solution node
+            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 11, 11);
+            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CASESOLUTION, doc, caseAnalysis, selSolution);
+            parentNode.Nodes.Add(nodeSelSolution);
+            // expand tree node
+            parentNode.Expand();
+        }
+
+        private void onPalletAnalysisSolutionSelected(PalletAnalysis analysis, SelSolution selSolution)
+        {
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSIS, doc, analysis));
+            // insert selected solution node
+            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 11, 11);
+            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution);
+            parentNode.Nodes.Add(nodeSelSolution);
+            // expand tree nodes
+            parentNode.Expand();
+        }
+
+        private void onPalletAnalysisSolutionSelectionRemoved(PalletAnalysis analysis, SelSolution selSolution)
+        {
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get node
+            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_ANALYSISSOL, doc, analysis, selSolution));
+            // test
+            if (null == selSolutionNode)
+            {
+                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
+                return;
+            }
+            // remove node
+            Nodes.Remove(selSolutionNode);
         }
         #endregion
 
@@ -1113,7 +1176,7 @@ namespace TreeDim.StackBuilder.Desktop
         private SelSolution _selSolution;
         private TruckAnalysis _truckAnalysis;
         private CaseAnalysis _caseAnalysis;
-        private CaseSolution _caseSolution;
+        private SelCaseSolution _selCaseSolution;
         private ECTAnalysis _ectAnalysis;
         #endregion
 
@@ -1185,14 +1248,13 @@ namespace TreeDim.StackBuilder.Desktop
             _itemProperties = itemProperties;
             _selSolution = null;
         }
-        public NodeTag(NodeType type, Document document, CaseAnalysis caseAnalysis, CaseSolution caseSolution)
+        public NodeTag(NodeType type, Document document, CaseAnalysis caseAnalysis, SelCaseSolution selCaseSolution)
         {
             _type = type;
             _document = document;
             _caseAnalysis = caseAnalysis;
-            _caseSolution = caseSolution;
+            _selCaseSolution = selCaseSolution;
         }
-
         #endregion
 
         #region Object method overrides
@@ -1248,6 +1310,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public CaseAnalysis CaseAnalysis { get { return _caseAnalysis; } }
         /// <summary>
+        /// returns selected case solution if any
+        /// </summary>
+        public SelCaseSolution SelCaseSolution { get { return _selCaseSolution; } }
+        /// <summary>
         /// returns ECT analysis
         /// </summary>
         public ECTAnalysis ECTAnalysis { get { return _ectAnalysis; } }
@@ -1302,6 +1368,10 @@ namespace TreeDim.StackBuilder.Desktop
         /// Case analysis
         /// </summary>
         public CaseAnalysis CaseAnalysis { get { return _nodeTag.CaseAnalysis; } }
+        /// <summary>
+        /// Selected case solution
+        /// </summary>
+        public SelCaseSolution SelCaseSolution { get { return _nodeTag.SelCaseSolution; } }
         /// <summary>
         /// ECTAnalysis
         /// </summary>

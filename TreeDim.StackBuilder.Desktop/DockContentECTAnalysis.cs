@@ -87,7 +87,7 @@ namespace TreeDim.StackBuilder.Desktop
             cbCardboard.SelectedIndexChanged += new EventHandler(UpdateResults);
 
             UpdateResults(this, null);
-         }
+        }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
@@ -102,10 +102,7 @@ namespace TreeDim.StackBuilder.Desktop
             get { return _ectAnalysis; }
         }
         #endregion
-
-        #region Solution selection
-        #endregion
-
+ 
         #region IItemListener implementation
         public void Update(ItemBase item)
         { 
@@ -173,7 +170,6 @@ namespace TreeDim.StackBuilder.Desktop
             backHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
             viewColumnHeader.Background = backHeader;
             viewColumnHeader.ForeColor = Color.Black;
-            //viewColumnHeader.Font = new Font("Arial", 9, FontStyle.Regular);
             viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
 
             // row header view
@@ -183,7 +179,6 @@ namespace TreeDim.StackBuilder.Desktop
             backRowHeader.Border = DevAge.Drawing.RectangleBorder.NoBorder;
             viewRowHeader.Background = backRowHeader;
             viewRowHeader.ForeColor = Color.Black;
-            //viewRowHeader.Font = new Font("Arial",9, FontStyle.Regular);
 
             // create the grid
             gridDynamicBCT.BorderStyle = BorderStyle.FixedSingle;
@@ -247,6 +242,5 @@ namespace TreeDim.StackBuilder.Desktop
             gridDynamicBCT.Invalidate();
         }
         #endregion
-
     }
 }

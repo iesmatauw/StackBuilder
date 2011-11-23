@@ -159,4 +159,41 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+
+    public class SelCaseSolution : ItemBase
+    {
+        #region Data members
+        private CaseAnalysis _analysis;
+        private CaseSolution _solution;
+        #endregion
+
+        #region Constructor
+        public SelCaseSolution(Document document, CaseAnalysis analysis, CaseSolution sol)
+            : base(document)
+        {
+            _analysis = analysis;
+            _solution = sol;
+            Name = sol.Title;
+        }
+        #endregion
+
+        #region Public properties
+        public CaseAnalysis Analysis
+        {
+            get { return _analysis; }
+        }
+        public CaseSolution Solution
+        {
+            get { return _solution; }
+        }
+        #endregion
+
+        #region ItemBase override
+        protected override void RemoveItselfFromDependancies()
+        {
+            _analysis.RemoveDependancie(this);
+            base.RemoveItselfFromDependancies();
+        }
+        #endregion
+    }
 }

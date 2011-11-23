@@ -252,7 +252,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             SelSolution selSolution = new SelSolution(doc, analysis, sol);
             // generate report
             ReporterMSWord reporter = new ReporterMSWord();
-            reporter.BuildAnalysisReport(analysis, selSolution, rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
+            reporter.BuildAnalysisReport(new ReportData(analysis, selSolution), rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
         }
 
         private Graphics3DImage InitializeImageFromViewParameters(viewParameters vParam)

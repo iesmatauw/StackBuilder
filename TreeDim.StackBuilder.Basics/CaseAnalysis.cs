@@ -14,15 +14,27 @@ namespace TreeDim.StackBuilder.Basics
         private BoxProperties _boxProperties;
         private List<PalletSolutionDesc> _palletSolutionsList = new List<PalletSolutionDesc>();
         private List<CaseSolution> _caseSolutions = new List<CaseSolution>();
+        private List<SelCaseSolution> _selectedSolutions = new List<SelCaseSolution>();
         private CaseConstraintSet _constraintSet;
         private static ICaseAnalysisSolver _solver;
         static readonly ILog _log = LogManager.GetLogger(typeof(CaseAnalysis));
+        #endregion
+
+        #region Delegates
+        public delegate void SelectSolution(CaseAnalysis analysis, SelCaseSolution selSolution);
+        #endregion
+
+        #region Events
+        public event SelectSolution SolutionSelected;
+        public event SelectSolution SolutionSelectionRemoved;
         #endregion
 
         #region Constructor
         public CaseAnalysis(BoxProperties boxProperties, List<PalletSolutionDesc> palletSolutionList, CaseConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
+            if (!constraintSet.IsValid)
+                throw new Exception("Using invalid case constraintset -> Can not instantiate case analysis!");
             _boxProperties = boxProperties;
             boxProperties.AddDependancie(this);
             _palletSolutionsList = palletSolutionList;
@@ -87,19 +99,43 @@ namespace TreeDim.StackBuilder.Basics
         #region Solution selection
         public void SelectSolutionByIndex(int index)
         {
+            if (index < 0 || index >= _caseSolutions.Count)
+                return;
+            if (HasSolutionSelected(index)) return;
+            // instantiate new SelCaseSolution 
+            SelCaseSolution selCaseSolution = new SelCaseSolution(ParentDocument, this, _caseSolutions[index]);
+            // insert in list
+            _selectedSolutions.Add(selCaseSolution);
+            // fire event
+            if (null != SolutionSelected)
+                SolutionSelected(this, selCaseSolution);
+            //  set document modified
             ParentDocument.Modify();
         }
         public void UnselectSolutionByIndex(int index)
         {
-            UnSelectSolution();
+            UnSelectSolution(GetSelCaseSolutionBySolutionIndex(index));
         }
-        public void UnSelectSolution()
+        public void UnSelectSolution(SelCaseSolution selSolution)
         {
+            if (null == selSolution) return; // this solution not selected
+            // remove from list
+            _selectedSolutions.Remove(selSolution);
+            ParentDocument.RemoveItem(selSolution);
+            // fire event
+            if (null != SolutionSelectionRemoved)
+                SolutionSelectionRemoved(this, selSolution);
+            // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
         public bool HasSolutionSelected(int index)
         {
-            return false;
+            return (null != GetSelCaseSolutionBySolutionIndex(index));
+        }
+        public SelCaseSolution GetSelCaseSolutionBySolutionIndex(int index)
+        {
+            if (index < 0 || index > _selectedSolutions.Count) return null;
+            return _selectedSolutions.Find(delegate(SelCaseSolution selSol) { return selSol.Solution == _caseSolutions[index]; });
         }
         #endregion
 
@@ -135,7 +171,6 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
         }
         #endregion
-
     }
     #endregion
 

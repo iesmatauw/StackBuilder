@@ -369,24 +369,23 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
-                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null != eventArg.SelSolution))
-                {
-                    // build output file path
-                    string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
-                    // getting current culture
-                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-                    // build report
-                    ReporterMSWord reporter = new ReporterMSWord();
-                    reporter.BuildAnalysisReport(
-                        eventArg.Analysis
-                        , eventArg.SelSolution
-                        , Settings.Default.ReportTemplatePath
-                        , outputFilePath);
-                    // logging
-                    _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
-                    // open resulting report in Word
-                    Process.Start(new ProcessStartInfo(outputFilePath));
-                }
+                // build output file path
+                string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
+                // getting current culture
+                string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
+                // build report
+                ReporterMSWord reporter = new ReporterMSWord();
+                reporter.BuildAnalysisReport(
+                    new ReportData(
+                        eventArg.Analysis, eventArg.SelSolution
+                        , eventArg.CaseAnalysis, eventArg.SelCaseSolution)
+                    , Settings.Default.ReportTemplatePath
+                    , outputFilePath);
+
+                // logging
+                _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
+                // open resulting report in Word
+                Process.Start(new ProcessStartInfo(outputFilePath));
             }
             catch (Exception ex)
             {
@@ -399,24 +398,22 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
-                if ((null == eventArg.ItemBase) && (null != eventArg.Analysis) && (null != eventArg.SelSolution))
-                { 
-                    // build output file path
-                    string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
-                    // getting current culture
-                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-                    // build report
-                    ReporterHtml reporter = new ReporterHtml(
-                        eventArg.Analysis
-                        , eventArg.SelSolution
-                        , Settings.Default.ReportTemplatePath
-                        , outputFilePath);
-                    // logging
-                    _log.Debug(string.Format("Saved report to {0}", outputFilePath));
-                    // open resulting report
-                    DocumentSB parentDocument = (DocumentSB)eventArg.Analysis.ParentDocument;
-                    DockContentReport dockContent = CreateOrActivateHtmlReport(eventArg.SelSolution, outputFilePath);
-                }
+                // build output file path
+                string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "html");
+                // getting current culture
+                string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
+                // build report
+                ReporterHtml reporter = new ReporterHtml(
+                    new ReportData(
+                        eventArg.Analysis, eventArg.SelSolution
+                        , eventArg.CaseAnalysis, eventArg.SelCaseSolution)
+                    , Settings.Default.ReportTemplatePath
+                    , outputFilePath);
+                // logging
+                _log.Debug(string.Format("Saved report to {0}", outputFilePath));
+                // open resulting report
+                DocumentSB parentDocument = (DocumentSB)eventArg.Analysis.ParentDocument;
+                DockContentReport dockContent = CreateOrActivateHtmlReport(eventArg.SelSolution, outputFilePath);
             }
             catch (Exception ex)
             {
@@ -749,13 +746,15 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
         public void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) {  }
-        public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
+        //public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
+        //public void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution) { }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
         public void OnAnalysisRemoved(Document doc, PalletAnalysis analysis) { }
         public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis) { }
         public void OnCaseAnalysisRemoved(Document doc, PalletAnalysis caseAnalysis) { }
-        public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
+        //public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
+        //public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis caseAnalysis, SelCaseSolution selectedSolution) { }
         public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
         public void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) { }
 
@@ -1112,7 +1111,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
     }
 }

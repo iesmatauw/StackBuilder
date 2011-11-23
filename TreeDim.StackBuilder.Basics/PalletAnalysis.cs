@@ -21,6 +21,15 @@ namespace TreeDim.StackBuilder.Basics
         static readonly ILog _log = LogManager.GetLogger(typeof(PalletAnalysis));
         #endregion
 
+        #region Delegates
+        public delegate void SelectSolution(PalletAnalysis analysis, SelSolution selSolution);
+        #endregion
+
+        #region Events
+        public event SelectSolution SolutionSelected;
+        public event SelectSolution SolutionSelectionRemoved;
+        #endregion
+
         #region Constructor
         public PalletAnalysis(BProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
@@ -112,14 +121,16 @@ namespace TreeDim.StackBuilder.Basics
         #region Solution selection
         public void SelectSolutionByIndex(int index)
         {
-            if (index < 0 || index > _solutions.Count) return;  // no solution with this index
+            if (index < 0 || index > _solutions.Count)
+                return;  // no solution with this index
             if (HasSolutionSelected(index)) return;             // solution already selected
             // instantiate new SelSolution
             SelSolution selSolution = new SelSolution(ParentDocument, this, _solutions[index]);
             // insert in list
             _selectedSolutions.Add(selSolution);
-            // notify document listeners
-            ParentDocument.NotifyOnNewSolutionAdded(this, selSolution);
+            // fire event
+            if (null != SolutionSelected)
+                SolutionSelected(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }
@@ -133,6 +144,9 @@ namespace TreeDim.StackBuilder.Basics
             // remove from list
             _selectedSolutions.Remove(selSolution);
             ParentDocument.RemoveItem(selSolution);
+            // fire event
+            if (null != SolutionSelectionRemoved)
+                SolutionSelectionRemoved(this, selSolution);
             // set document modified (not analysis, otherwise selected solutions are erased)
             ParentDocument.Modify();
         }

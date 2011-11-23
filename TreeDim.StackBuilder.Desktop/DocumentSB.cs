@@ -356,7 +356,8 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
                 constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
                 // patterns
-                constraintSet.AllowedPatternString = form.AllowedPatternsString;
+                foreach (string patternName in form.AllowedPatterns)
+                    constraintSet.SetAllowedPattern(patternName);
                 // allowed axes
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
@@ -376,7 +377,13 @@ namespace TreeDim.StackBuilder.Desktop
                 // number of solutions kept
                 constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
 
-                return CreateNewCaseAnalysis(
+                if (!constraintSet.IsValid)
+                {
+                    MessageBox.Show(string.Format(Properties.Resources.ID_CASEANALYSIS_INVALIDCONSTRAINTSET));
+                    return null; // invalid constraint set -> exit
+                }
+
+                 return CreateNewCaseAnalysis(
                     form.CaseAnalysisName
                     , form.CaseAnalysisDescription
                     , form.SelectedBox

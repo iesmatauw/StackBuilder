@@ -29,8 +29,22 @@ namespace TreeDim.StackBuilder.Basics
         {
             get
             {
+                // stop criterions
                 bool hasValidStopCriterion = true;
-                return hasValidStopCriterion;
+                // allowed otho axis
+                bool allowsAtLeastOneOrthoAxis = false;
+                for (int i = 0; i < 6; ++i)
+                {
+                    if (AllowOrthoAxis((HalfAxis.HAxis)i))
+                    {
+                        allowsAtLeastOneOrthoAxis = true;
+                        break;
+                    }
+                }
+                return hasValidStopCriterion
+                    && allowsAtLeastOneOrthoAxis
+                    && _allowedPatterns.Count > 0
+                    && (!_useNoSolutionsKept || _noSolutionsKept > 0);
             }
         }
         #endregion

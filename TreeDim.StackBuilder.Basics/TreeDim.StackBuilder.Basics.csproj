@@ -104,8 +104,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Basics.cd" />
-    <None Include="Basics.xsd">
+    <None Include="Schema\Basics.cd" />
+    <None Include="Schema\Basics.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

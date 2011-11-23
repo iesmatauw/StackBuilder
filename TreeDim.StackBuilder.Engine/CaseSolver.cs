@@ -17,7 +17,7 @@ namespace TreeDim.StackBuilder.Engine
     public class CaseSolver : ICaseAnalysisSolver
     {
         #region Data members
-        private List<LayerPattern> _patterns = new List<LayerPattern>();
+        private static List<LayerPattern> _patterns = new List<LayerPattern>();
         private BoxProperties _boxProperties;
         private List<PalletSolutionDesc> _palletSolutionList;
         private InterlayerProperties _interlayerProperties;
@@ -28,7 +28,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Constructor
         public CaseSolver()
         {
-            LoadPatterns();
+            CaseSolver.LoadPatterns();
         }
         #endregion
 
@@ -192,14 +192,30 @@ namespace TreeDim.StackBuilder.Engine
             // return list of solutions
             return solutions;
         }
-        private void LoadPatterns()
+        private static void LoadPatterns()
         {
-            _patterns.Add(new LayerPatternColumn());
-            _patterns.Add(new LayerPatternInterlocked());
-            _patterns.Add(new LayerPatternDiagonale());
-            _patterns.Add(new LayerPatternTrilock());
-            _patterns.Add(new LayerPatternSpirale());
-            _patterns.Add(new LayerPatternEnlargedSpirale());
+            if (0 == _patterns.Count)
+            {
+                _patterns.Add(new LayerPatternColumn());
+                _patterns.Add(new LayerPatternInterlocked());
+                _patterns.Add(new LayerPatternDiagonale());
+                _patterns.Add(new LayerPatternTrilock());
+                _patterns.Add(new LayerPatternSpirale());
+                _patterns.Add(new LayerPatternEnlargedSpirale());
+            }
+        }
+
+        public static string[] PatternNames
+        {
+            get
+            {
+                CaseSolver.LoadPatterns();
+                string[] patternNames = new string[_patterns.Count];
+                int i = 0;
+                foreach (LayerPattern p in _patterns)
+                    patternNames[i++] = p.Name;
+                return patternNames;
+            }
         }
         #endregion
 

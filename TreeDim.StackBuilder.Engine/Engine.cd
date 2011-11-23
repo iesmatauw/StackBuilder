@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternColumn">
-    <Position X="5" Y="5" Width="2" />
+    <Position X="5" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
       <FileName>LayerPatternColumn.cs</FileName>
@@ -24,27 +24,27 @@
   <Class Name="TreeDim.StackBuilder.Engine.Solver">
     <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAgAACEEAAgAAAAAAACqCCAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>BAEAAAAAAgAACEEAAhAAAAAAACqCCAAAAAAAAAAAAAE=</HashCode>
       <FileName>Solver.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternInterlocked">
-    <Position X="7.25" Y="5" Width="2" />
+    <Position X="7.25" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
       <FileName>LayerPatternInterlocked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternSpirale">
-    <Position X="9.5" Y="5" Width="2" />
+    <Position X="9.5" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
       <FileName>LayerPatternSpirale.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeDim.StackBuilder.Engine.LayerPatternEnlargedSpirale">
-    <Position X="11.75" Y="5" Width="2.25" />
+    <Position X="11.75" Y="5.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAAAAAEAEAAA=</HashCode>
       <FileName>LayerPatternEnlargedSpirale.cs</FileName>
@@ -87,6 +87,20 @@
     <TypeIdentifier>
       <HashCode>AAACIBAAAAAAAAEkgQIAAAAAAAAAAABAAAAAAAAAAIE=</HashCode>
       <FileName>CaseOptimizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Engine.LayerPatternDiagonale">
+    <Position X="14.25" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQAAAAQAAAAAACAAEAEAAA=</HashCode>
+      <FileName>LayerPatternDiagonale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreeDim.StackBuilder.Engine.LayerPatternTrilock">
+    <Position X="16.5" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAQCAAAQAAAAAACAAEAEAAA=</HashCode>
+      <FileName>LayerPatternTrilock.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

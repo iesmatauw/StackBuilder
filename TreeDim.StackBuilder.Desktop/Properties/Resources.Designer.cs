@@ -312,6 +312,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot create case analysis as the constraint set appears to be invalid..
+        /// </summary>
+        internal static string ID_CASEANALYSIS_INVALIDCONSTRAINTSET {
+            get {
+                return ResourceManager.GetString("ID_CASEANALYSIS_INVALIDCONSTRAINTSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case count.
         /// </summary>
         internal static string ID_CASECOUNT {
@@ -392,6 +401,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_DEPENDINGANALYSES {
             get {
                 return ResourceManager.GetString("ID_DEPENDINGANALYSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deselect.
+        /// </summary>
+        internal static string ID_DESELECT {
+            get {
+                return ResourceManager.GetString("ID_DESELECT", resourceCulture);
             }
         }
         
@@ -716,6 +734,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_SAVEMODIFIEDFILE {
             get {
                 return ResourceManager.GetString("ID_SAVEMODIFIEDFILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        internal static string ID_SELECT {
+            get {
+                return ResourceManager.GetString("ID_SELECT", resourceCulture);
             }
         }
         

@@ -154,6 +154,9 @@
   <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
     <value>Spirale</value>
   </data>
+  <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+    <value>Spirale élargie</value>
+  </data>
   <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
     <value>Patrons de couche autorisés</value>
   </data>

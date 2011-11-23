@@ -29,14 +29,16 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis);
         void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis);
-        void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
+        //void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
+        //void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution);
         void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
         void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, PalletAnalysis analysis);
         void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis);
-        void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
+        //void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution);
+        //void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution);
         void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis);
         void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis);
 
@@ -390,8 +392,6 @@ namespace TreeDim.StackBuilder.Basics
             }
             else if (item.GetType() == typeof(SelSolution))
             {
-                SelSolution selSol = item as SelSolution;
-                NotifyOnSolutionRemoved(selSol.Analysis, selSol);
             }
             else if (item.GetType() == typeof(TruckAnalysis))
             {
@@ -409,6 +409,9 @@ namespace TreeDim.StackBuilder.Basics
             {
                 ECTAnalysis ectAnalysis = item as ECTAnalysis;
                 NotifyOnECTAnalysisRemoved(ectAnalysis.ParentSelSolution, ectAnalysis);
+            }
+            else if (item.GetType() == typeof(SelCaseSolution))
+            {
             }
             else
                 Debug.Assert(false);
@@ -2090,7 +2093,7 @@ namespace TreeDim.StackBuilder.Basics
                     interlayerElt.Attributes.Append(zlowAttribute);
                 }
             }
-
+            /*
             // Is selected ?
             if (sol.Selected)
             {
@@ -2099,6 +2102,7 @@ namespace TreeDim.StackBuilder.Basics
                 selAttribute.Value = "true";
                 solutionElt.Attributes.Append(selAttribute);
             }
+            */
         }
 
         private void SavePalletAnalysis(PalletAnalysis analysis, XmlElement parentElement, XmlDocument xmlDoc)
@@ -2632,11 +2636,19 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewCaseAnalysisCreated(this, caseAnalysis);
         }
+        /*
         internal void NotifyOnNewSolutionAdded(PalletAnalysis analysis, SelSolution selSolution)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewSolutionAdded(this, analysis, selSolution);
         }
+          
+        internal void NotifyOnNewCaseSolutionAdded(CaseAnalysis analysis, SelCaseSolution selCaseSolution)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewCaseSolutionAdded(this, analysis, selCaseSolution);
+        }
+         */
         internal void NotifyOnNewTruckAnalysisCreated(PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)
@@ -2667,23 +2679,30 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnCaseAnalysisRemoved(this, caseAnalysis);
         }
+        /*
         internal void NotifyOnSolutionRemoved(PalletAnalysis analysis, SelSolution selSolution)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnSolutionRemoved(this, analysis, selSolution);
         }
+        */ 
         internal void NotifyOnTruckAnalysisRemoved(SelSolution selSolution, TruckAnalysis truckAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnTruckAnalysisRemoved(this, selSolution.Analysis, selSolution, truckAnalysis);
         }
-
         internal void NotifyOnECTAnalysisRemoved(SelSolution selSolution, ECTAnalysis ectAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnECTAnalysisRemoved(this, selSolution.Analysis, selSolution, ectAnalysis);
         }
- 
+        /*
+        internal void NotifyOnCaseAnalysisSolutionRemoved(CaseAnalysis caseAnalysis, SelCaseSolution selSolution)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnCaseAnalysisSolutionRemoved(this, selSolution.Analysis, selSolution);
+        }
+        */ 
         #endregion
     }
     #endregion

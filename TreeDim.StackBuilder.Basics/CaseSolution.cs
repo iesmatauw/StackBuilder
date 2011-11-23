@@ -13,7 +13,6 @@ namespace TreeDim.StackBuilder.Basics
         private CaseAnalysis _parentCaseAnalysis;
         private PalletSolutionDesc _palletSolutionDesc;
         private bool _hasHomogeneousLayers;
-        private bool _selected = false;
         #endregion
 
         #region Constructor
@@ -112,13 +111,9 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         public double PalletWeight { get { return _palletSolutionDesc.CaseCount * CaseWeight; } }
         /// <summary>
-        /// Selected ?
+        /// PalletSolution loaded from file
         /// </summary>
-        public bool Selected
-        {
-            get { return _selected; }
-            set { _selected = value; }
-        }
+        public PalletSolution AttachedPalletSolution { get { return _palletSolutionDesc.LoadPalletSolution(); } }
         #endregion
 
         #region Adding layer / interlayer

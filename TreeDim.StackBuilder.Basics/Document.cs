@@ -1136,9 +1136,22 @@ namespace TreeDim.StackBuilder.Basics
   
                 // second : solutions
                 List<CaseSolution> caseSolutions = new List<CaseSolution>();
-                foreach (XmlNode palletSolutionDescNode in caseSolutionsElt.ChildNodes)
-                    caseSolutions.Add(LoadCaseSolution(palletSolutionDescNode as XmlElement, caseAnalysis));
+                int indexSol = 0;
+                List<int> selectedIndices = new List<int>();
+                foreach (XmlNode solutionNode in caseSolutionsElt.ChildNodes)
+                {
+                    XmlElement eltSolution = solutionNode as XmlElement;
+                    caseSolutions.Add(LoadCaseSolution(eltSolution, caseAnalysis));
+
+                    // is solution selected ?
+                    if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
+                        selectedIndices.Add(indexSol);
+                    ++indexSol;
+                }
                 caseAnalysis.Solutions = caseSolutions;
+
+                foreach (int index in selectedIndices)
+                    caseAnalysis.SelectSolutionByIndex(index);
             }
         }
 
@@ -1148,10 +1161,29 @@ namespace TreeDim.StackBuilder.Basics
             string overhang = palletSolutionDescriptorElt.Attributes["PalletOverhang"].Value;
             string caseDimensions = palletSolutionDescriptorElt.Attributes["CaseDimensions"].Value;
             string caseInsideDimensions = palletSolutionDescriptorElt.Attributes["CaseInsideDimensions"].Value;
+            string caseWeight = string.Empty;
+            if (palletSolutionDescriptorElt.HasAttribute("CaseWeight"))
+                caseWeight = palletSolutionDescriptorElt.Attributes["CaseWeight"].Value;
+            else
+                caseWeight = "0.0";
+            string palletWeight = string.Empty;
+            if (palletSolutionDescriptorElt.HasAttribute("palletWeight"))
+                palletWeight = palletSolutionDescriptorElt.Attributes["PalletWeight"].Value;
+            else
+                palletWeight = "0.0";
             string caseCount = palletSolutionDescriptorElt.Attributes["CaseCount"].Value;
             string sGuid = palletSolutionDescriptorElt.Attributes["Id"].Value;
             string friendlyName = palletSolutionDescriptorElt.Attributes["FriendlyName"].Value;
-            return new PalletSolutionDesc(PalletSolutionDatabase.Instance, palletDimensions, overhang, caseDimensions, caseInsideDimensions, caseCount, sGuid, friendlyName);
+            return new PalletSolutionDesc(PalletSolutionDatabase.Instance
+                , palletDimensions
+                , overhang
+                , caseDimensions
+                , caseInsideDimensions
+                , caseWeight
+                , palletWeight
+                , caseCount
+                , sGuid
+                , friendlyName);
         }
 
         private CaseConstraintSet LoadCaseConstraintSet(XmlElement eltConstraintSet)
@@ -2011,8 +2043,9 @@ namespace TreeDim.StackBuilder.Basics
             // Solutions
             XmlElement solutionsElt = xmlDoc.CreateElement("CaseSolutions");
             xmlAnalysisElt.AppendChild(solutionsElt);
+            int solIndex = 0;
             foreach (CaseSolution caseSolution in analysis.Solutions)
-                SaveCaseSolution(caseSolution, solutionsElt, xmlDoc);
+                SaveCaseSolution(caseSolution, analysis.GetSelCaseSolutionBySolutionIndex(solIndex++), solutionsElt, xmlDoc);
         }
 
         private void SavePalletSolutionDescriptor(PalletSolutionDesc desc, XmlElement parentElement, XmlDocument xmlDoc)
@@ -2044,6 +2077,14 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute insideDimensionsAttribute = xmlDoc.CreateAttribute("CaseInsideDimensions");
             insideDimensionsAttribute.Value = desc.CaseInsideDimensionsString;
             palletSolutionDescElt.Attributes.Append(insideDimensionsAttribute);
+            // case weight
+            XmlAttribute caseWeightAttribute = xmlDoc.CreateAttribute("CaseWeight");
+            caseWeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", desc.CaseWeight);
+            palletSolutionDescElt.Attributes.Append(caseWeightAttribute);
+            // pallet weight
+            XmlAttribute palletWeightAttribute = xmlDoc.CreateAttribute("PalletWeight");
+            palletWeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", desc.PalletWeight);
+            palletSolutionDescElt.Attributes.Append(palletWeightAttribute);
             // case count
             XmlAttribute caseCountAttribute = xmlDoc.CreateAttribute("CaseCount");
             caseCountAttribute.Value = desc.CaseCount.ToString();
@@ -2054,7 +2095,7 @@ namespace TreeDim.StackBuilder.Basics
             palletSolutionDescElt.Attributes.Append(caseOrientationAttribute);
         }
 
-        private void SaveCaseSolution(CaseSolution sol, XmlElement parentElement, XmlDocument xmlDoc)
+        private void SaveCaseSolution(CaseSolution sol, SelCaseSolution selSolution, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create case solution element
             XmlElement solutionElt = xmlDoc.CreateElement("CaseSolution");
@@ -2093,16 +2134,15 @@ namespace TreeDim.StackBuilder.Basics
                     interlayerElt.Attributes.Append(zlowAttribute);
                 }
             }
-            /*
+
             // Is selected ?
-            if (sol.Selected)
+            if (null != selSolution)
             {
                 // selected attribute
                 XmlAttribute selAttribute = xmlDoc.CreateAttribute("Selected");
                 selAttribute.Value = "true";
                 solutionElt.Attributes.Append(selAttribute);
             }
-            */
         }
 
         private void SavePalletAnalysis(PalletAnalysis analysis, XmlElement parentElement, XmlDocument xmlDoc)

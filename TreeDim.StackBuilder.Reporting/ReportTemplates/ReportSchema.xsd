@@ -7,6 +7,88 @@
         <xs:element name="description" type="xs:string" />
         <xs:element name="author" type="xs:string" />
         <xs:element name="dateOfCreation" type="xs:string" />
+        <xs:element name="caseAnalysis" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="box" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_box_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="caseWithInnerDims" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="innerLength" type="xs:string"/>
+                    <xs:element name="innerWidth" type="xs:string"/>
+                    <xs:element name="innerHeight" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_case_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element> 
+              <xs:element name ="caseConstraintSet" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="allowedPatterns" type="xs:string"/>
+                    <xs:element name="allowedOrthoAxis" type="xs:string"/>
+                    <xs:element name="allowAlignedLayers" type="xs:string"/>
+                    <xs:element name="allowAlternateLayers" type="xs:string"/>
+                    <xs:element name="minimumBoxPerCaseGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="minimumBoxPerCase" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumBoxPerCaseGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumBoxPerCase" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumCaseWeightGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumCaseWeight" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name ="caseSolution" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="homogeneousLayer" type="xs:string"/>
+                    <xs:element name="casePerPalletCount" type="xs:string"/>
+                    <xs:element name="boxPerCaseCount" type="xs:string"/>
+                    <xs:element name="boxPerPalletCount" type="xs:string"/>
+                    <xs:element name="caseEfficiency" type="xs:string"/>
+                    <xs:element name="palletEfficiency" type="xs:string"/>
+                    <xs:element name="caseWeight" type="xs:string"/>
+                    <xs:element name="palletWeight" type="xs:string"/>
+                    <xs:element name="view_caseSolution_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>                
+              </xs:element>              
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="palletAnalysis" minOccurs="1" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>

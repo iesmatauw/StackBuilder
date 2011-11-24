@@ -195,6 +195,9 @@ namespace TreeDim.StackBuilder.Basics
         // value parameters
         private double[] _caseDimensions = new double[3];
         private double[] _insideCaseDimensions = new double[3];
+        private double _caseWeight;
+        private double _palletWeight;
+
         private int _caseCount;
         private Guid _guid;
         private string _friendlyName;
@@ -212,12 +215,16 @@ namespace TreeDim.StackBuilder.Basics
         }
         public PalletSolutionDesc(PalletSolutionDatabase db, string palletDimensions, string overhang
             , string caseDimensions, string caseInsideDimensions
+            , string caseWeight, string palletWeight
             , string caseCount, string sGuid, string friendlyName)
         {
             _key = new PalletSolutionKey(palletDimensions, overhang);
             this.CaseDimensionsString = caseDimensions;
             this.CaseInsideDimensionsString = caseInsideDimensions;
             this.CaseCount = int.Parse(caseCount);
+            CultureInfo ci = new CultureInfo("en-US");
+            this.CaseWeight = double.Parse(caseWeight, ci);
+            this.PalletWeight = double.Parse(palletWeight, ci);
             _guid = new Guid(sGuid);
             _friendlyName = friendlyName;
             _parentDB = db;
@@ -226,6 +233,7 @@ namespace TreeDim.StackBuilder.Basics
             , double overhangX, double overhangY
             , double caseLength, double caseWidth, double caseHeight
             , double insideCaseLength, double insideCaseWidth, double insideCaseHeight
+            , double caseWeight, double palletWeight
             , int caseCount
             , Guid guid
             , string friendlyName)
@@ -233,6 +241,7 @@ namespace TreeDim.StackBuilder.Basics
             _key = new PalletSolutionKey(palletLength, palletWidth, palletHeight, overhangX, overhangY);
             _caseDimensions[0] = caseLength; _caseDimensions[1] = caseWidth; _caseDimensions[2] = caseHeight;
             _insideCaseDimensions[0] = insideCaseLength; _insideCaseDimensions[1] = insideCaseWidth; _insideCaseDimensions[2] = insideCaseHeight;
+            _caseWeight = caseWeight;
             _caseCount = caseCount;
             _guid = guid;
             _friendlyName = friendlyName;
@@ -256,6 +265,9 @@ namespace TreeDim.StackBuilder.Basics
             _insideCaseDimensions[0] = boxProperties.InsideLength;
             _insideCaseDimensions[1] = boxProperties.InsideWidth;
             _insideCaseDimensions[2] = boxProperties.InsideHeight;
+
+            _caseWeight = boxProperties.Weight;
+            _palletWeight = palletProperties.Weight;
 
             _caseOrientation = sol.CaseOrientation;
             _caseCount = sol.CaseCount;
@@ -348,6 +360,22 @@ namespace TreeDim.StackBuilder.Basics
         public double InsideVolume
         {
             get { return _insideCaseDimensions[0] * _insideCaseDimensions[1] * _insideCaseDimensions[2]; }
+        }
+        /// <summary>
+        /// Case weight
+        /// </summary>
+        public double CaseWeight
+        {
+            get { return _caseWeight; }
+            set { _caseWeight = value; }
+        }
+        /// <summary>
+        /// Pallet weight
+        /// </summary>
+        public double PalletWeight
+        {
+            get { return _palletWeight; }
+            set { _palletWeight = value; }
         }
         /// <summary>
         /// Case count
@@ -567,6 +595,8 @@ namespace TreeDim.StackBuilder.Basics
                                 , solutionElt.Attributes["Overhang"].Value
                                 , solutionElt.Attributes["CaseDimensions"].Value
                                 , solutionElt.Attributes["CaseInsideDimensions"].Value
+                                , solutionElt.Attributes["CaseWeight"].Value
+                                , solutionElt.Attributes["PalletWeight"].Value
                                 , solutionElt.Attributes["CaseCount"].Value
                                 , solutionElt.Attributes["Guid"].Value
                                 , solutionElt.Attributes["FriendlyName"].Value));
@@ -619,6 +649,14 @@ namespace TreeDim.StackBuilder.Basics
                 XmlAttribute caseInsideDimensions = xmlDoc.CreateAttribute("CaseInsideDimensions");
                 caseInsideDimensions.Value = desc.CaseInsideDimensionsString;
                 solutionElt.Attributes.Append(caseInsideDimensions);
+                // case weight
+                XmlAttribute caseWeightAttribute = xmlDoc.CreateAttribute("CaseWeight");
+                caseWeightAttribute.Value = string.Format("{0:0.00}", desc.CaseWeight);
+                solutionElt.Attributes.Append(caseWeightAttribute);
+                // palletWeight
+                XmlAttribute palletWeightAttribute = xmlDoc.CreateAttribute("PalletWeight");
+                palletWeightAttribute.Value = string.Format("{0:0.00}", desc.PalletWeight);
+                solutionElt.Attributes.Append(palletWeightAttribute);
                 // case count
                 XmlAttribute caseCount = xmlDoc.CreateAttribute("CaseCount");
                 caseCount.Value = string.Format("{0}", desc.CaseCount);

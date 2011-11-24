@@ -365,7 +365,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
-        void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        private void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try
             {
@@ -394,7 +394,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
-        void DocumentTreeView_SolutionReportHtmlClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        private void DocumentTreeView_SolutionReportHtmlClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try
             {
@@ -403,17 +403,18 @@ namespace TreeDim.StackBuilder.Desktop
                 // getting current culture
                 string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
                 // build report
-                ReporterHtml reporter = new ReporterHtml(
-                    new ReportData(
+                ReportData reportObject = new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.CaseAnalysis, eventArg.SelCaseSolution)
+                        , eventArg.CaseAnalysis, eventArg.SelCaseSolution);
+                ReporterHtml reporter = new ReporterHtml(
+                    reportObject
                     , Settings.Default.ReportTemplatePath
                     , outputFilePath);
                 // logging
                 _log.Debug(string.Format("Saved report to {0}", outputFilePath));
                 // open resulting report
-                DocumentSB parentDocument = (DocumentSB)eventArg.Analysis.ParentDocument;
-                DockContentReport dockContent = CreateOrActivateHtmlReport(eventArg.SelSolution, outputFilePath);
+                DocumentSB parentDocument = eventArg.Document as DocumentSB;
+                DockContentReport dockContent = CreateOrActivateHtmlReport(reportObject, outputFilePath);
             }
             catch (Exception ex)
             {
@@ -1028,7 +1029,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Create or activate report view
         /// </summary>
-        public DockContentReport CreateOrActivateHtmlReport(SelSolution selSolution, string htmlFilePath)
+        public DockContentReport CreateOrActivateHtmlReport(ReportData reportObject, string htmlFilePath)
         { 
             // search among existing views
             foreach (IDocument doc in Documents)
@@ -1036,7 +1037,7 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                     DockContentReport form = view as DockContentReport;
                     if (null == form) continue;
-                    if (selSolution == form.SelSolution)
+                    if (reportObject.Equals(form.ReportObject))
                     {
                         form.Activate();
                         return form;
@@ -1044,8 +1045,8 @@ namespace TreeDim.StackBuilder.Desktop
                 }
             // ---> not found
             // ---> create new form
-            DocumentSB parentDocument = (DocumentSB)selSolution.Analysis.ParentDocument;
-            DockContentReport formReport = parentDocument.CreateReportHtml(selSolution, htmlFilePath);
+            DocumentSB parentDocument = reportObject.Document as DocumentSB;
+            DockContentReport formReport = parentDocument.CreateReportHtml(reportObject, htmlFilePath);
             formReport.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             return formReport;
         }

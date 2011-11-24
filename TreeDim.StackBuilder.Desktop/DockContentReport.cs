@@ -31,7 +31,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Selected solution
         /// </summary>
-        private SelSolution _selSolution;
+        private ReportData _reportObject;
         /// <summary>
         /// Path of html file to show
         /// </summary>
@@ -43,11 +43,11 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public DockContentReport(IDocument document, SelSolution selSolution, string htmlFilePath)
+        public DockContentReport(IDocument document, ReportData reportObject, string htmlFilePath)
         {
             _document = document;
-            _selSolution = selSolution;
-            _selSolution.AddListener(this);
+            _reportObject = reportObject;
+            _reportObject.AddListener(this);
             _htmlFilePath = htmlFilePath;
 
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace TreeDim.StackBuilder.Desktop
         public void Kill(ItemBase item)
         {
             Close();
-            _selSolution.RemoveListener(this);
+            _reportObject.RemoveListener(this);
         }
         #endregion
 
@@ -82,16 +82,16 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Specific properties
-        public SelSolution SelSolution
+        public ReportData ReportObject
         {
-            get { return _selSolution; }
+            get { return _reportObject; }
         }
-         #endregion
+        #endregion
 
         private void DockContentReport_Load(object sender, EventArgs e)
         {
             // form caption
-            this.Text = string.Format("{0} report", _selSolution.Name);
+            this.Text = string.Format("{0} report", _reportObject.Title);
             // display html
             _webBrowser.Navigate(_htmlFilePath, string.Empty, null, string.Empty);
         }

@@ -105,11 +105,11 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Case weight
         /// </summary>
-        public double CaseWeight { get { return _parentCaseAnalysis.BoxProperties.Weight * BoxPerCaseCount; } }
+        public double CaseWeight { get { return _parentCaseAnalysis.BoxProperties.Weight * BoxPerCaseCount + _palletSolutionDesc.CaseWeight; } }
         /// <summary>
         /// Pallet weight
         /// </summary>
-        public double PalletWeight { get { return _palletSolutionDesc.CaseCount * CaseWeight; } }
+        public double PalletWeight { get { return _palletSolutionDesc.CaseCount * CaseWeight + _palletSolutionDesc.PalletWeight; } }
         /// <summary>
         /// PalletSolution loaded from file
         /// </summary>

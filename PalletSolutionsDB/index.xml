@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <Solutions>
-  <Solution PalletDimensions="1200,1000,2600" Overhang="0,0" CaseDimensions="440,280,290" CaseInsideDimensions="434,274,278" CaseCount="72" FriendlyName="Case_440x280x290_on_EUR2" Guid="44c1c155-bd5b-49d7-aefd-e1bc13961418" />
+  <Solution PalletDimensions="1200,1000,2600" Overhang="0,0" CaseDimensions="440,280,290" CaseInsideDimensions="434,274,278" CaseWeight="3.5" PalletWeight="33.0" CaseCount="72" FriendlyName="Case_440x280x290_on_EUR2" Guid="44c1c155-bd5b-49d7-aefd-e1bc13961418" />
 </Solutions>

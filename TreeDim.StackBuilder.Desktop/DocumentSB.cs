@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Engine;
+using TreeDim.StackBuilder.Reporting;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -160,9 +161,9 @@ namespace TreeDim.StackBuilder.Desktop
             return form;
         }
 
-        public DockContentReport CreateReportHtml(SelSolution selSolution, string htmlFilePath)
+        public DockContentReport CreateReportHtml(ReportData reportObject, string htmlFilePath)
         {
-            DockContentReport form = new DockContentReport(this, selSolution, htmlFilePath);
+            DockContentReport form = new DockContentReport(this, reportObject, htmlFilePath);
             AddView(form);
             return form;
         }

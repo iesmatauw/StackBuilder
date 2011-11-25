@@ -184,7 +184,7 @@
   </xsl:template>  
   <!--#### CASE WITH INNER DIMS #### -->
   <xsl:template match="caseWithInnerDims">
-    <h3 style="font-family:arial;color:blue;">Case</h3>
+    <h3 style="font-family:arial;color:blue;">Caisse</h3>
     <table class="style3" cellpadding="4">
       <tr>
         <td class="style2" colspan="1">
@@ -768,7 +768,7 @@
   <xsl:template match="maximumCaseWeightGroup">
     <tr>
       <td class="style2">
-        <b>Maximum case weight (kg)</b>
+        <b>Masse maximal de la caisse (kg)</b>
       </td>
       <td class="style3">
         <xsl:value-of select="maximumCaseWeight"/>
@@ -778,7 +778,7 @@
   <xsl:template match="minimumBoxPerCaseGroup">
     <tr>
       <td class="style2">
-        <b>Minimum number of items</b>
+        <b>Nombre minimum</b>
       </td>
       <td class="style3">
         <xsl:value-of select="minimumBoxPerCase"/>
@@ -788,7 +788,7 @@
   <xsl:template match="maximumBoxPerCaseGroup">
     <tr>
       <td class="style2">
-        <b>Maximum number of items</b>
+        <b>Nombre maximum</b>
       </td>
       <td class="style3">
         <xsl:value-of select="maximumBoxPerCase"/>
@@ -801,7 +801,7 @@
     <table class="style1">
       <tr>
         <td class="style2">
-          <b>Titre:</b>
+          <b>Titre</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="title"/>
@@ -925,7 +925,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1" width="40%">
-          <b>Weight (kg)</b>
+          <b>Masse (kg)</b>
         </td>
         <td class="style3" colspan="2" width="30%">
           <xsl:value-of select="caseWeight"/>
@@ -1067,7 +1067,7 @@
     <table class="style1" cellpadding="3">
       <tr>
         <td class="style2">
-          <b>Nom:</b>
+          <b>Nom</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="name"/>
@@ -1075,7 +1075,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Description:</b>
+          <b>Description</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="description"/>

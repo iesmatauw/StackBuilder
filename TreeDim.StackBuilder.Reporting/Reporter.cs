@@ -1275,7 +1275,7 @@ namespace TreeDim.StackBuilder.Reporting
                 return;
             CaseAnalysis caseAnalysis = inputData.CaseAnalysis;
             SelCaseSolution selSolution = inputData.SelCaseSolution;
-
+            
             // namespace
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // caseAnalysis

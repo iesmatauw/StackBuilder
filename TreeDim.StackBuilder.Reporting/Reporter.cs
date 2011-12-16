@@ -1131,9 +1131,16 @@ namespace TreeDim.StackBuilder.Reporting
                 int indexHumidity = 0;
                 foreach (string humidityKey in TreeDim.EdgeCrushTest.McKeeFormula.HumidityCoefDictionary.Keys)
                 {
+                    // get value of ect for "storage time" + "humidity"
+                    double ectValue = ectDictionary[new KeyValuePair<string, string>(storageKey, humidityKey)];
                     XmlElement elemHumidity = xmlDoc.CreateElement(elementHumidityNames[indexHumidity++], ns);
-                    elemHumidity.InnerText = string.Format("{0:0.00}", ectDictionary[new KeyValuePair<string, string>(storageKey, humidityKey)]);
+                    elemHumidity.InnerText = string.Format("{0:0.00}", ectValue);
                     elemBCTStorage.AppendChild(elemHumidity);
+
+                    // attribute stating if value is correct or below admissible value
+                    XmlAttribute attributeAdmissible = xmlDoc.CreateAttribute("admissible");
+                    attributeAdmissible.Value = selSolution.Solution.AverageLoadOnFirstLayerCase < ectValue ? "true" : "false";
+                    elemHumidity.Attributes.Append(attributeAdmissible);
                 } 
             }
         }

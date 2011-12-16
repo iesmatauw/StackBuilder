@@ -328,6 +328,25 @@ namespace TreeDim.StackBuilder.Basics
                 return new Orientation();
             }
         }
+
+        public double AverageLoadOnFirstLayerCase
+        {
+            get
+            {
+                // first box layer
+                if (0 == this.CaseCount)
+                    return 0.0;
+                // all above first layer(s) weight
+                double totalWeight = 0.0;
+                for (int i = 1; i < this.Count; ++i)
+                {
+                    BoxLayer thisLayer = this[i] as BoxLayer;
+                    totalWeight += thisLayer.Count * Analysis.BProperties.Weight;
+                }
+                BoxLayer boxlayer = this[0] as BoxLayer;
+                return totalWeight / boxlayer.Count;
+            }
+        }
         #endregion
 
         #region Adding layer / interlayer

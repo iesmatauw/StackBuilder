@@ -225,7 +225,7 @@ namespace TreeDim.StackBuilder.Desktop
             // views
             DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
-            CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+            CellColorFromValue viewNormal = new CellColorFromValue(_ectAnalysis.LoadOnFirstLayerCase * 9.81 / 10); // convert mass in kg to load in daN
             viewNormal.Border = cellBorder;
 
             foreach (string keyHumidity in McKeeFormula.HumidityCoefDictionary.Keys)
@@ -233,7 +233,8 @@ namespace TreeDim.StackBuilder.Desktop
                 int indexRow = 1;
                 foreach (string keyStorage in McKeeFormula.StockCoefDictionary.Keys)
                 {
-                    gridDynamicBCT[indexRow, indexCol] = new SourceGrid.Cells.Cell(string.Format("{0:0.00}", dynamicBCTDictionnary[new KeyValuePair<string,string>(keyStorage, keyHumidity)]));
+                    gridDynamicBCT[indexRow, indexCol] = new SourceGrid.Cells.Cell(
+                        string.Format("{0:0.00}", dynamicBCTDictionnary[new KeyValuePair<string,string>(keyStorage, keyHumidity)]));
                     gridDynamicBCT[indexRow, indexCol].View = viewNormal;
                     ++indexRow;
                 }
@@ -243,4 +244,55 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
     }
+
+    #region CellColorFromValue for grid view
+    internal class CellColorFromValue : SourceGrid.Cells.Views.Cell
+    {
+        #region Data members
+        private double _lowestAdmissibleValue;
+        private DevAge.Drawing.VisualElements.IVisualElement mCorrectValueBackground;
+        private DevAge.Drawing.VisualElements.IVisualElement mInsufficientValueBackground;
+        #endregion
+        #region Constructor
+        public CellColorFromValue(double lowestAdmissibleValue)
+        {
+            _lowestAdmissibleValue = lowestAdmissibleValue;
+            correctValueBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(Color.White);
+            insufficientValueBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(Color.Red);
+        }
+        #endregion
+        #region Public properties
+        public DevAge.Drawing.VisualElements.IVisualElement correctValueBackground
+        {
+            get { return mCorrectValueBackground; }
+            set { mCorrectValueBackground = value; }
+        }
+        public DevAge.Drawing.VisualElements.IVisualElement insufficientValueBackground
+        {
+            get { return mInsufficientValueBackground; }
+            set { mInsufficientValueBackground = value; }
+        }
+        #endregion
+        #region SourceGrid.Cells.Views.Cell override
+        protected override void PrepareView(SourceGrid.CellContext context)
+        {
+            base.PrepareView(context);
+            string sText = context.DisplayText;
+            // sTest might not be a number
+            // -> exceptions might be thrown when attempting to parse it
+            try
+            {
+                double doubleValue = double.Parse(sText);
+                if (doubleValue < _lowestAdmissibleValue)
+                    Background = insufficientValueBackground;
+                else
+                    Background = correctValueBackground;
+            }
+            catch (System.Exception /**/)
+            {
+            }
+        }
+        #endregion
+    }
+    #endregion
 }

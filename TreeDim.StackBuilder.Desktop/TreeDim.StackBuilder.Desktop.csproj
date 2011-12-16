@@ -515,10 +515,16 @@
     <EmbeddedResource Include="OptionPanelDebugging.fr-FR.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelDebugging.ja-JP.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelDebugging.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelReporting.fr-FR.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelReporting.ja-JP.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelReporting.resx">

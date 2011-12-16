@@ -120,8 +120,8 @@
   <data name="&gt;&gt;chkShowLogConsole.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;chkShowLogConsole.Name" xml:space="preserve">
-    <value>chkShowLogConsole</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>GLib.Options.OptionsPanel, OptionsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chkShowLogConsole.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -146,14 +146,14 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>OptionPanelDebugging</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>GLib.Options.OptionsPanel, OptionsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="chkShowLogConsole.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Show log console</value>
+  </data>
+  <data name="&gt;&gt;chkShowLogConsole.Name" xml:space="preserve">
+    <value>chkShowLogConsole</value>
   </data>
   <data name="&gt;&gt;chkShowLogConsole.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -162,6 +162,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr-FR</value>
+    <value>ja-JP</value>
   </metadata>
 </root>

@@ -1275,24 +1275,102 @@
           <xsl:value-of select="duration"/>
         </b>
       </td>
-      <td class="style3">
-        <xsl:value-of select="humidity_0_45"/>
-      </td>
-      <td class="style3">
-        <xsl:value-of select="humidity_46_55"/>
-      </td>
-      <td class="style3">
-        <xsl:value-of select="humidity_56_65"/>
-      </td>
-      <td class="style3">
-        <xsl:value-of select="humidity_66_75"/>
-      </td>
-      <td class="style3">
-        <xsl:value-of select="humidity_76_85"/>
-      </td>
-      <td class="style3">
-        <xsl:value-of select="humidity_86_100"/>
-      </td>
+      <xsl:apply-templates select="humidity_0_45"/>
+      <xsl:apply-templates select="humidity_46_55"/>
+      <xsl:apply-templates select="humidity_56_65"/>
+      <xsl:apply-templates select="humidity_66_75"/>
+      <xsl:apply-templates select="humidity_76_85"/>
+      <xsl:apply-templates select="humidity_86_100"/>
     </tr>
+  </xsl:template>
+  <!--humidity_0_45-->
+  <xsl:template match="humidity_0_45">
+    <xsl:choose>
+      <xsl:when test="@admissible='true'">
+        <td class="style3">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:when>
+      <xsl:otherwise>
+        <td class="style4">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!--humidity_46_55-->
+  <xsl:template match="humidity_46_55">
+    <xsl:choose>
+      <xsl:when test="@admissible='true'">
+        <td class="style3">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:when>
+      <xsl:otherwise>
+        <td class="style4">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!--humidity_56_65-->
+  <xsl:template match="humidity_56_65">
+    <xsl:choose>
+      <xsl:when test="@admissible='true'">
+        <td class="style3">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:when>
+      <xsl:otherwise>
+        <td class="style4">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!--humidity_66_75-->
+  <xsl:template match="humidity_66_75">
+    <xsl:choose>
+      <xsl:when test="@admissible='true'">
+        <td class="style3">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:when>
+      <xsl:otherwise>
+        <td class="style4">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!--humidity_76_85-->
+  <xsl:template match="humidity_76_85">
+    <xsl:choose>
+      <xsl:when test="@admissible='true'">
+        <td class="style3">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:when>
+      <xsl:otherwise>
+        <td class="style4">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!--humidity_76_85-->
+  <xsl:template match="humidity_86_100">
+    <xsl:choose>
+      <xsl:when test="@admissible='true'">
+        <td class="style3">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:when>
+      <xsl:otherwise>
+        <td class="style4">
+          <xsl:value-of select="."/>
+        </td>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>

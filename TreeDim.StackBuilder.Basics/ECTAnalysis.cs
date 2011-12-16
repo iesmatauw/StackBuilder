@@ -105,6 +105,15 @@ namespace TreeDim.StackBuilder.Basics
             get { return _printSurface; }
             set { _printSurface = value; }
         }
+
+        public double LoadOnFirstLayerCase
+        {
+            get
+            {
+                PalletSolution palletSolution = _selSolution.Solution;
+                return palletSolution.AverageLoadOnFirstLayerCase;
+            }
+        }
         #endregion
 
         #region Results

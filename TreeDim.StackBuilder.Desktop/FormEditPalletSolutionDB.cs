@@ -128,27 +128,27 @@ namespace TreeDim.StackBuilder.Desktop
             // header
             SourceGrid.Cells.ColumnHeader columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Name");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NAME);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Case dimensions\n(mm*mm*mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS + @"\n(mm*mm*mm)");
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Case inside dimensions\n(mm*mm*mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEINSIDEDIMENSIONS + @"\n(mm*mm*mm)");
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Orientation");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_ORIENTATION);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Case count");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASECOUNT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;

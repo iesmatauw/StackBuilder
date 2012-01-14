@@ -189,4 +189,7 @@
 	<data name="lbPalletDimensions.Text" xml:space="preserve">
 		<value>（寸法）</value>
 	</data>
+	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+		<value>箱は垂直方向のみ使用する</value>
+	</data>
 </root>

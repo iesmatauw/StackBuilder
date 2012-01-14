@@ -366,4 +366,22 @@
 	<data name="cbColor.Items2" xml:space="preserve">
 		<value>カラー</value>
 	</data>
+	<data name="cbTapeColor.Items46" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items50" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="lbTapeColor.Text" xml:space="preserve">
+		<value>テープの色</value>
+	</data>
+	<data name="checkBoxTape.Text" xml:space="preserve">
+		<value>ケース上にテープを表示する</value>
+	</data>
+	<data name="gbTape.Text" xml:space="preserve">
+		<value>テープ</value>
+	</data>
+	<data name="lbTapeWidth.Text" xml:space="preserve">
+		<value>テープ幅</value>
+	</data>
 </root>

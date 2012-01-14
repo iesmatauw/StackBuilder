@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "1.0.0.3" ?>
+<?define Version = "1.0.4.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -127,6 +127,10 @@
                       Value="False"/>
         <!--update config file-->
       </Component>
+      <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
+        <File Id="TreeDim.AutoUpdater.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.AutoUpdater.dll" Checksum="yes"/>
+        <File Id="TreeDim.Update.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.Update.exe" Checksum="yes"/>        
+      </Component>
     </DirectoryRef>
     <DirectoryRef Id="XMLSCHEMAS">
       <Component Id="XmlSchemas" Guid="{A5C4F5DC-49B3-4df8-9FA4-2AD1F4737C3F}">
@@ -237,6 +241,7 @@
       <ComponentRef Id="Samples"/>
       <ComponentRef Id="XmlSchemas"/>
       <ComponentRef Id="CardboardQualityData"/>
+      <ComponentRef Id="AutoUpdater"/>
 		</Feature>
     <!--Upgrade table-->
     <Property Id='PROJECT_UPGRADE' Secure='yes'/>

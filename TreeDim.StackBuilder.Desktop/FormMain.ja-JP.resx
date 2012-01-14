@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,67 +59,67 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ+SURBVDhPjZPZS1RxFMenv6H/oIdexQcFX6KnIB96CUKC
         CixfKqQMDAqJIBJaJbfENFLKYjBLXDKJaTRyIbcccxnHcWa8szmOM84+d66ffr876pQQduFwfufe813O
@@ -134,9 +134,18 @@
         s43msUWdoNNkpWMwF3sjSAeyQWapst/B4LBF//6v2LtvkmBWzDY2bePbjyVMI/N8FuBe084Pc9DN3HVy
         oNI+ot+ZU9MrNtKoEwAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>新</value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>新しいファイルを作成します。</value>
+  </data>
+  <data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGUSURBVDhPtZOxS8NAFMbzJ2R0vD8ho2PG4pTRMU52ETII
         drwxkxy4dDydOp5LqVAhiENBqScoFmsx6uJ4IHT9fHc505RaqIOBD47kfb/vvXskCDZ4pm8f4EKC56Su
@@ -147,9 +156,18 @@
         oUs/2N9brNKuxa5SK7oYEdQq6FxQmuKVZIdBZMyl9/vnywDBU/AOKUuQpQnS3RhJK0a8HSGKGCLGwLZC
         hGEIRvrTj/Tvxd+zmgI5yMmqsQAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>開く</value>
+  </data>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>開いているファイル</value>
+  </data>
+  <data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPrVOhksIwFOQT7hP4hEpkJDISGXkyEhmJrERG
         IiORcce5ypORyMhzj93XQkOPU3ed2WGmze7b3RdWq/940rmKIk04VYkROBbp+wmHIiEA+0E84Qd5zCYx
@@ -159,9 +177,27 @@
         RhfSGSNsfihV3D5gKieTHBcCsBiPuAeTbQqQ7Pe9FJC5fx96vCMxjr+b1gHyaW5kXrOwzqDQrMh5kHzh
         2qwSFdiE2ajL8fn8uCIjC0p6QR5A0yxLgcycOgIOW4G//KNv5kbQ6QovDPwAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="saveAllToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>ファイルを保存</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+    <value>形式で保存...</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>名前を付けて保存...</value>
+  </data>
+  <data name="saveAllToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVDhPtZMhb8MwFIT7U/YTBgcNAw0HPVZoGBg4GDho
         WGhppNKkyT/BcGyGg4Fjtzs3idqk6chW6alSlLvv3Xsvu91//MKhIATWS0HfZ/TPGV3HahO8Z+0TnIvY
@@ -171,48 +207,123 @@
         EWJEyopDw7HlFXk2YJsSW8fsjeXdd9AA41Fku868/Aje3j+xf3qF45C0b61M69KqNO1N8l98yT+wZ6LI
         RnGINAAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="newBoxToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>すべてを保存</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>アクティブなドキュメントを閉じます</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>最近使ったファイル...</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>アプリケーションを終了します</value>
+  </data>
+  <data name="fileToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVDhPY2AY1KCiouI/PozX8SCNM2++wophhuI0AFlz
         wayLKIbA5EA0VgOI0QxyGVYDqKYZ3e/IBuO0GV9owwwkyt+4bMepGRSSFEUZzACyE8ygzgr0cRwASwEb
         i/fMD1oAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="newCaseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいボックス</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVDhPY2AYrOA/0GHEYKzu/+/m5vb//yE+nBjJcAwD
         wJrwGQDSPCfKBuY6FAPgNuIyAKYZmwHE+BdsMwxDvQF3AYokskJkDaMGQKIPZxRiCzj0QMOlGRQVRMUC
         etQhpyKi0gFNMi4Ag7Ul6fq2otoAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="newInterlayerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいケース</value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA1SURBVDhPY2AYBThDwM3N7T8xGKsBII1fn8whiEHqMAwY
         1Yw74LAGGCgEiYkqnJpHswE4BADXnvSZwHtaFgAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="newBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいパッド</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVDhPY2AY+sDNze0/sRirb+/cuQM2AEQTwiB1GIbA
         NJNtCLILyDIE3QWDyxBiYgclUEkNUFD44Y0Vkl0AM43YgMTqAmRDyHYBXTMoAGJohbawRrSiAAAAAElF
         TkSuQmCC
 </value>
-	</data>
-	<data name="newPalletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいバンドル</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPY2AYBcM1BP4f4vv/v47hP5jGw8bqf5iGO3fu
         wDXjYmMYQIrmOVE2/1EMgGmuqKiA24yLDXIRigFUsZkYP2M4G+QHkCCxGGuogzSD/AqThPkPRMPEQPJY
         badGOgYAwLDt8eT57l0AAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="newTruckToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいパレット</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVDhPY2AYBXhDYOrpxP8Np83+z38Z+n/Fx3g4Xv4x
         9v+CdyH/97+b9B9uwP/HZf9fzmYH4/9PasAS3n2c/2NWCf7P3Cb3v+mSyf+ZL73/L/8WBcZz3/n9T1qm
@@ -223,36 +334,75 @@
         //6VHZAABBrg2sr+33caGxzbxcv+NzLT/w+iQeIgvWADQNjExOT/o0ePwDRMDJ3GpgYejRMmTPhvbW39
         H0TjShzEqBmCWQsADMMcGU82sOcAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="newAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいトラック</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 6</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVDhPY2CgBZgTZfMfhIFmg2lcbKx2E6sZaiiGGWBb
         CWEkSxAGEGszzFtQSyAGEKsZFhZIhpBnAIYXiHUBLGywhQHBgEP2O8iA///BgU2eF/5/YvhfUVFBngEw
         zW5ubqQbgGEzzAsgCWIwirOR0yBIghiMM9+BNKP4CU0lSA6n7ZTmZgAnUDfW5c8DCwAAAABJRU5ErkJg
         gg==
 </value>
-	</data>
-	<data name="newAnalysisBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいケース/パレット分析</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVDhP1VNLDsAQEHU6Z3Iwx7FvusV+6jUzplJtTNJN
         JS8E72Pg3NctpURACOHsn8bdt5adBKtkiKtA3qg2YHIVMOoCpZEtznKkLmAhS8IhgSW2FHaowT8TUHZ6
         C9YaMFkFLDUAmW/AngDkGKMS5SFgYQVTMouQ9/4Vbd/d+fKL59F4Azs/ChyDUAwU4z5bRQAAAABJRU5E
         rkJggg==
 </value>
-	</data>
-	<data name="newCaseAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいバンドル/パレット分析</value>
+  </data>
+  <data name="newCaseAnalysisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPY2CgAfhPiZn/50TZgAwAG1JRUfEfH0a3CKwZ
         hkEaZ958BcfY+MgGYGgmZDtIHmYASTbDXAXzJsgQFGcTaTM8nOAGEONnkO0wC5FdADaEWJthgYxhAFQA
         5jSsNHIsYRiALImNjRxWyGkFa0wQMgDddpSYwOUSXIFHkguw2Qw3gJhApCST4dQLANv2YFrzjzlJAAAA
         AElFTkSuQmCC
 </value>
-	</data>
-	<data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>新しいケースの分析</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+    <value>最適なケースの検索</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+    <value>最適なケースの検索</value>
+  </data>
+  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 6</value>
+  </data>
+  <data name="editPaletSolutionsDB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPpdHJSwJhHMZx8V/o3sVTBC149NYhiBaiKILK
         QxSBllZQFy9REW1WRgthWRkVJZhgC4lJQUIQRLaJQUYoWGpJaqYT8TTOa4s4I0EvzOXlnc98f+/weBzL
@@ -263,9 +413,30 @@
         kEUA5wIfluEMzPeKCaBXVdJAMSIJgC11urcOys4ijLQIMd0lgml9EC8BPwE2xioAewko7zjzJc5U5jTL
         2lpWwGYox8NVX/pULuA1HMSxWYOVSSnSpnIB/93/BBeQKlSJ6fg8AAAAAElFTkSuQmCC
 </value>
-	</data>
-	<data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>パレットのソリューションのデータベースを編集...</value>
+  </data>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 6</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 22</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>設定...</value>
+  </data>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>ツール</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIkSURBVDhPbZJNaxNBGMf3I+Qj5BtY8eIxR6FaFg+Sk+Sg
         Uj0FDxIP6kJRUjRllSLFpmaJb6nSsj3EvFTN4mspxW6hsXmxyQZCSZNNOzW12lbz7zMzRRpw4GH+M/x/
@@ -278,9 +449,36 @@
         vHzLmZyDG6NzqGzQW9KpqmaLvnhwzffK9TbOXIri7niu9/e8ypQRHH4LI7OCxXwN63R7jVZH9MTLO01Q
         JGr9/79++rqG+/F5nA9N4eS5hziu6hi4HMNNPYNkrtgDHQCUX/M9CUpi5gAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="toolStripButtonNewFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+    <value>チュートリアル</value>
+  </data>
+  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>StackBuilderについて...</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="toolStripButtonNewFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ+SURBVDhPjZPZS1RxFMenv6H/oIdexQcFX6KnIB96CUKC
         CixfKqQMDAqJIBJaJbfENFLKYjBLXDKJaTRyIbcccxnHcWa8szmOM84+d66ffr876pQQduFwfufe813O
@@ -295,9 +493,15 @@
         s43msUWdoNNkpWMwF3sjSAeyQWapst/B4LBF//6v2LtvkmBWzDY2bePbjyVMI/N8FuBe084Pc9DN3HVy
         oNI+ot+ZU9MrNtKoEwAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonNewFile.Text" xml:space="preserve">
+    <value>新しいファイル</value>
+  </data>
+  <data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
+    <value>新しいファイルを作成します。</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGUSURBVDhPtZOxS8NAFMbzJ2R0vD8ho2PG4pTRMU52ETII
         drwxkxy4dDydOp5LqVAhiENBqScoFmsx6uJ4IHT9fHc505RaqIOBD47kfb/vvXskCDZ4pm8f4EKC56Su
@@ -308,9 +512,15 @@
         oUs/2N9brNKuxa5SK7oYEdQq6FxQmuKVZIdBZMyl9/vnywDBU/AOKUuQpQnS3RhJK0a8HSGKGCLGwLZC
         hGEIRvrTj/Tvxd+zmgI5yMmqsQAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="toolStripButtonFileSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>開いているファイル</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>開いているファイル</value>
+  </data>
+  <data name="toolStripButtonFileSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPrVOhksIwFOQT7hP4hEpkJDISGXkyEhmJrERG
         IiORcce5ypORyMhzj93XQkOPU3ed2WGmze7b3RdWq/940rmKIk04VYkROBbp+wmHIiEA+0E84Qd5zCYx
@@ -320,9 +530,12 @@
         RhfSGSNsfihV3D5gKieTHBcCsBiPuAeTbQqQ7Pe9FJC5fx96vCMxjr+b1gHyaW5kXrOwzqDQrMh5kHzh
         2qwSFdiE2ajL8fn8uCIjC0p6QR5A0yxLgcycOgIOW4G//KNv5kbQ6QovDPwAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="toolStripButtonFileSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonFileSave.Text" xml:space="preserve">
+    <value>ファイルを保存</value>
+  </data>
+  <data name="toolStripButtonFileSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVDhPtZMhb8MwFIT7U/YTBgcNAw0HPVZoGBg4GDho
         WGhppNKkyT/BcGyGg4Fjtzs3idqk6chW6alSlLvv3Xsvu91//MKhIATWS0HfZ/TPGV3HahO8Z+0TnIvY
@@ -332,48 +545,72 @@
         EWJEyopDw7HlFXk2YJsSW8fsjeXdd9AA41Fku868/Aje3j+xf3qF45C0b61M69KqNO1N8l98yT+wZ6LI
         RnGINAAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="toolStripButtonAddNewBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+    <value>すべてのファイル販売</value>
+  </data>
+  <data name="toolStripButtonAddNewBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVDhPY2AY1KCiouI/PozX8SCNM2++wophhuI0AFlz
         wayLKIbA5EA0VgOI0QxyGVYDqKYZ3e/IBuO0GV9owwwkyt+4bMepGRSSFEUZzACyE8ygzgr0cRwASwEb
         i/fMD1oAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="toolStripButtonAddNewCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+    <value>新しいボックスを追加します。</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVDhPY2AYrOA/0GHEYKzu/+/m5vb//yE+nBjJcAwD
         wJrwGQDSPCfKBuY6FAPgNuIyAKYZmwHE+BdsMwxDvQF3AYokskJkDaMGQKIPZxRiCzj0QMOlGRQVRMUC
         etQhpyKi0gFNMi4Ag7Ul6fq2otoAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="toolStripButtonCreateNewBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+    <value>新しいケースを追加...</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVDhPY2AY+sDNze0/sRirb+/cuQM2AEQTwiB1GIbA
         NJNtCLILyDIE3QWDyxBiYgclUEkNUFD44Y0Vkl0AM43YgMTqAmRDyHYBXTMoAGJohbawRrSiAAAAAElF
         TkSuQmCC
 </value>
-	</data>
-	<data name="toolStripButtonCreateNewInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+    <value>新しいバンドルを追加します。</value>
+  </data>
+  <data name="toolStripButtonCreateNewInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA1SURBVDhPY2AYBThDwM3N7T8xGKsBII1fn8whiEHqMAwY
         1Yw74LAGGCgEiYkqnJpHswE4BADXnvSZwHtaFgAAAABJRU5ErkJggg==
 </value>
-	</data>
-	<data name="toolStripButtonAddNewPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
+    <value>新しい層間を追加</value>
+  </data>
+  <data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+    <value>新しい層間を追加</value>
+  </data>
+  <data name="toolStripButtonAddNewPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPY2AYBcM1BP4f4vv/v47hP5jGw8bqf5iGO3fu
         wDXjYmMYQIrmOVE2/1EMgGmuqKiA24yLDXIRigFUsZkYP2M4G+QHkCCxGGuogzSD/AqThPkPRMPEQPJY
         badGOgYAwLDt8eT57l0AAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="toolStripButtonAddNewTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+    <value>新しいパレットを追加します。</value>
+  </data>
+  <data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+    <value>新しいパレットを追加</value>
+  </data>
+  <data name="toolStripButtonAddNewTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVDhPY2AYBXhDYOrpxP8Np83+z38Z+n/Fx3g4Xv4x
         9v+CdyH/97+b9B9uwP/HZf9fzmYH4/9PasAS3n2c/2NWCf7P3Cb3v+mSyf+ZL73/L/8WBcZz3/n9T1qm
@@ -384,53 +621,68 @@
         //6VHZAABBrg2sr+33caGxzbxcv+NzLT/w+iQeIgvWADQNjExOT/o0ePwDRMDJ3GpgYejRMmTPhvbW39
         H0TjShzEqBmCWQsADMMcGU82sOcAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="toolStripButtonCreateNewAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+    <value>新しいトラックを追加します。</value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVDhPY2CgBZgTZfMfhIFmg2lcbKx2E6sZaiiGGWBb
         CWEkSxAGEGszzFtQSyAGEKsZFhZIhpBnAIYXiHUBLGywhQHBgEP2O8iA///BgU2eF/5/YvhfUVFBngEw
         zW5ubqQbgGEzzAsgCWIwirOR0yBIghiMM9+BNKP4CU0lSA6n7ZTmZgAnUDfW5c8DCwAAAABJRU5ErkJg
         gg==
 </value>
-	</data>
-	<data name="toolStripButtonCreateNewBundleAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+    <value>新しい分析を作成する</value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+    <value>新しいパレットの解析を追加</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundleAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVDhP1VNLDsAQEHU6Z3Iwx7FvusV+6jUzplJtTNJN
         JS8E72Pg3NctpURACOHsn8bdt5adBKtkiKtA3qg2YHIVMOoCpZEtznKkLmAhS8IhgSW2FHaowT8TUHZ6
         C9YaMFkFLDUAmW/AngDkGKMS5SFgYQVTMouQ9/4Vbd/d+fKL59F4Azs/ChyDUAwU4z5bRQAAAABJRU5E
         rkJggg==
 </value>
-	</data>
-	<data name="toolStripButtonCreateNewCaseAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+    <value>新しいバンドルの分析を作成します。</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+    <value>新しいバンドルの解析を追加</value>
+  </data>
+  <data name="toolStripButtonCreateNewCaseAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVDhPY2CgAfhPiZn/50TZgAwAG1JRUfEfH0a3CKwZ
         hkEaZ958BcfY+MgGYGgmZDtIHmYASTbDXAXzJsgQFGcTaTM8nOAGEONnkO0wC5FdADaEWJthgYxhAFQA
         5jSsNHIsYRiALImNjRxWyGkFa0wQMgDddpSYwOUSXIFHkguw2Qw3gJhApCST4dQLANv2YFrzjzlJAAAA
         AElFTkSuQmCC
 </value>
-	</data>
-	<data name="toolStripButtonOptimiseCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
+    <value>新しいケースの分析を作成します。</value>
+  </data>
+  <data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="toolStripButtonOptimiseCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABvSURBVDhPY2AYrOA/0GGEME63/38rowLHIIPQ+VDDsRpA
         ULPSRh+YyzAMIEozLgMI+fc/SCMMY/PC//+fGOAYpACdj6YZZCEKIMoAkME4vUDIBTDNgyYMMKOQkBfw
         xT/INIKBiC/1gQ0gAtMm3wIAEVcDtxctSEkAAAAASUVORK5CYII=
 </value>
-	</data>
-	<data name="toolStripStackingStrengthAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVDhP3ZTbDsAgCEP5dP/c2cQabsrc48yIGzaHIslE
-        ktVFxnNepaYUDH6q0ckdpNRQgJ3hGyo1vkpr0n1AwxzfTSFCIBpWTKwcXM4zwhZEt3AEzFYJxR6cbAF0
-        NtvRbhYk63+X04WMk+wevCt8e92PIGEyt3cSABjRDSQFEPJ2zNUv4vP5A5ODwYg6jd2OAAAAAElFTkSu
-        QmCC
-</value>
-	</data>
-	<data name="editPaletSolutionsDBToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+    <value>最適なケースの検索</value>
+  </data>
+  <data name="editPaletSolutionsDBToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPpdHJSwJhHMZx8V/o3sVTBC149NYhiBaiKILK
         QxSBllZQFy9REW1WRgthWRkVJZhgC4lJQUIQRLaJQUYoWGpJaqYT8TTOa4s4I0EvzOXlnc98f+/weBzL
@@ -441,9 +693,33 @@
         kEUA5wIfluEMzPeKCaBXVdJAMSIJgC11urcOys4ijLQIMd0lgml9EC8BPwE2xioAewko7zjzJc5U5jTL
         2lpWwGYox8NVX/pULuA1HMSxWYOVSSnSpnIB/93/BBeQKlSJ6fg8AAAAAElFTkSuQmCC
 </value>
-	</data>
-	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  </data>
+  <data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>パレットのソリューションのデータベースを編集する</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="toolStripStandard.Text" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilderファイル（*. STB）| *. STB |すべてのファイル(*.*)|*.*</value>
+  </data>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>ファイルを開く...</value>
+  </data>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilderファイル（*. STB）| *. STB</value>
+  </data>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>ファイルを保存...</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
@@ -515,206 +791,5 @@
         AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
         AAD//wAA//8AAA==
 </value>
-	</data>
-	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-		<value>開いているファイル</value>
-	</data>
-	<data name="saveFileDialogSB.Title" xml:space="preserve">
-		<value>ファイルを保存...</value>
-	</data>
-	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
-		<value>新しいパレットの解析を追加</value>
-	</data>
-	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
-		<value>新しいパレットを追加します。</value>
-	</data>
-	<data name="menuStripMain.Text" xml:space="preserve">
-		<value>menuStripMain</value>
-	</data>
-	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
-		<value>保存</value>
-	</data>
-	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
-		<value>ファイルを保存</value>
-	</data>
-	<data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
-		<value>新しい層間を追加</value>
-	</data>
-	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-		<value>開いているファイル</value>
-	</data>
-	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
-		<value>すべてを保存</value>
-	</data>
-	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいトラック</value>
-	</data>
-	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
-		<value>ファイル</value>
-	</data>
-	<data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいケースの分析</value>
-	</data>
-	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
-		<value>ヘルプ</value>
-	</data>
-	<data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
-		<value>チュートリアル</value>
-	</data>
-	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
-		<value>新しいパレットを追加</value>
-	</data>
-	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
-		<value>新しいバンドルを追加します。</value>
-	</data>
-	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいボックス</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
-		<value>StackBuilder</value>
-	</data>
-	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいバンドル</value>
-	</data>
-	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいパッド</value>
-	</data>
-	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>パレットのソリューションのデータベースを編集する</value>
-	</data>
-	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
-		<value>すべてのファイル販売</value>
-	</data>
-	<data name="toolStripButtonNewFile.Text" xml:space="preserve">
-		<value>新しいファイル</value>
-	</data>
-	<data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
-		<value>追加</value>
-	</data>
-	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>アプリケーションを終了します</value>
-	</data>
-	<data name="mnuFileMRU.Text" xml:space="preserve">
-		<value>最近使ったファイル...</value>
-	</data>
-	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
-		<value>最適なケースの検索</value>
-	</data>
-	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
-		<value>閉じる</value>
-	</data>
-	<data name="openFileDialogSB.Title" xml:space="preserve">
-		<value>ファイルを開く...</value>
-	</data>
-	<data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
-		<value>新しいファイルを作成します。</value>
-	</data>
-	<data name="openFileDialogSB.Filter" xml:space="preserve">
-		<value>StackBuilderファイル（*. STB）| *. STB |すべてのファイル(*.*)|*.*</value>
-	</data>
-	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
-		<value>新しいケースを追加...</value>
-	</data>
-	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
-		<value>パレットのソリューションのデータベースを編集...</value>
-	</data>
-	<data name="openToolStripMenuItem.Text" xml:space="preserve">
-		<value>開く</value>
-	</data>
-	<data name="newToolStripMenuItem.Text" xml:space="preserve">
-		<value>新</value>
-	</data>
-	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
-		<value>ツール</value>
-	</data>
-	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
-		<value>形式で保存...</value>
-	</data>
-	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>開いているファイル</value>
-	</data>
-	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
-		<value>終了</value>
-	</data>
-	<data name="newStackingStrengthAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しい積込強度解析</value>
-	</data>
-	<data name="newStackingStrengthAnalysisToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>マッキーの式を使用してケースの最大負荷を計算する</value>
-	</data>
-	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>新しいファイルを作成します。</value>
-	</data>
-	<data name="toolStripStackingStrengthAnalysis.ToolTipText" xml:space="preserve">
-		<value>マッキーの公式を使って積込強度を計算する</value>
-	</data>
-	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいケース/パレット分析</value>
-	</data>
-	<data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
-		<value>新しいケースの分析を作成します。</value>
-	</data>
-	<data name="toolStripStackingStrengthAnalysis.Text" xml:space="preserve">
-		<value>ケースの強度解析を追加</value>
-	</data>
-	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-		<value>ヘルプ</value>
-	</data>
-	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
-		<value>最適なケースの検索</value>
-	</data>
-	<data name="toolStripStandard.Text" xml:space="preserve">
-		<value>標準</value>
-	</data>
-	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
-		<value>新しいバンドルの分析を作成します。</value>
-	</data>
-	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-		<value>StackBuilderについて...</value>
-	</data>
-	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>ファイルを保存</value>
-	</data>
-	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
-		<value>新しいボックスを追加します。</value>
-	</data>
-	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-		<value>ヘルプ</value>
-	</data>
-	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいケース</value>
-	</data>
-	<data name="toolStripButtonHelp.Text" xml:space="preserve">
-		<value>ヘルプ</value>
-	</data>
-	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいバンドル/パレット分析</value>
-	</data>
-	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
-		<value>新しい層間を追加</value>
-	</data>
-	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
-		<value>新しいパレット</value>
-	</data>
-	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>アクティブなドキュメントを閉じます</value>
-	</data>
-	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
-		<value>最適なケースの検索</value>
-	</data>
-	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
-		<value>名前を付けて保存...</value>
-	</data>
-	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
-		<value>新しいトラックを追加します。</value>
-	</data>
-	<data name="saveFileDialogSB.Filter" xml:space="preserve">
-		<value>StackBuilderファイル（*. STB）| *. STB</value>
-	</data>
-	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
-		<value>新しい分析を作成する</value>
-	</data>
-	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
-		<value>新しいバンドルの解析を追加</value>
-	</data>
+  </data>
 </root>

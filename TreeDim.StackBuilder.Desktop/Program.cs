@@ -12,6 +12,8 @@ using ExceptionReporting;
 // treeDiM
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Desktop.Properties;
+
+using TreeDim.AutoUpdater;
 #endregion
 
 #region File association
@@ -72,7 +74,11 @@ namespace TreeDim.StackBuilder.Desktop
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);
 
-                Application.Run(new FormMain());
+                // if this application does not need updating,
+                // show main form
+                Updater updater = new Updater();
+                if (!updater.Update())
+                    Application.Run(new FormMain());
 
                 _log.Info("Closing " + Application.ProductName);
             }

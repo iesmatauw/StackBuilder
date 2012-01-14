@@ -312,6 +312,24 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Box/Case count.
+        /// </summary>
+        internal static string ID_BOXCASECOUNT {
+            get {
+                return ResourceManager.GetString("ID_BOXCASECOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case.
+        /// </summary>
+        internal static string ID_CASE {
+            get {
+                return ResourceManager.GetString("ID_CASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot create case analysis as the constraint set appears to be invalid..
         /// </summary>
         internal static string ID_CASEANALYSIS_INVALIDCONSTRAINTSET {
@@ -326,6 +344,33 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_CASECOUNT {
             get {
                 return ResourceManager.GetString("ID_CASECOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case dimensions.
+        /// </summary>
+        internal static string ID_CASEDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_CASEDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case inside dimensions.
+        /// </summary>
+        internal static string ID_CASEINSIDEDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_CASEINSIDEDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case/pallet.
+        /// </summary>
+        internal static string ID_CASEPERPALLET {
+            get {
+                return ResourceManager.GetString("ID_CASEPERPALLET", resourceCulture);
             }
         }
         
@@ -450,6 +495,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Efficiency (%).
+        /// </summary>
+        internal static string ID_EFFICIENCYPERCENTAGE {
+            get {
+                return ResourceManager.GetString("ID_EFFICIENCYPERCENTAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description field is empty.
         /// </summary>
         internal static string ID_FIELDDESCRIPTIONEMPTY {
@@ -567,6 +621,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Layer pattern(s).
+        /// </summary>
+        internal static string ID_LAYERPATTERNS {
+            get {
+                return ResourceManager.GetString("ID_LAYERPATTERNS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layers.
         /// </summary>
         internal static string ID_LAYERS {
@@ -617,6 +680,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_MAXLOWERTHANMIN {
             get {
                 return ResourceManager.GetString("ID_MAXLOWERTHANMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string ID_NAME {
+            get {
+                return ResourceManager.GetString("ID_NAME", resourceCulture);
             }
         }
         
@@ -680,6 +752,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_NODE_TRUCKS {
             get {
                 return ResourceManager.GetString("ID_NODE_TRUCKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orientation.
+        /// </summary>
+        internal static string ID_ORIENTATION {
+            get {
+                return ResourceManager.GetString("ID_ORIENTATION", resourceCulture);
             }
         }
         
@@ -788,6 +869,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_VERSION {
             get {
                 return ResourceManager.GetString("ID_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight (kg).
+        /// </summary>
+        internal static string ID_WEIGHT {
+            get {
+                return ResourceManager.GetString("ID_WEIGHT", resourceCulture);
             }
         }
         

@@ -226,4 +226,7 @@
 	<data name="label1.Text" xml:space="preserve">
 		<value>の名前</value>
 	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>イングランド・スパイラル</value>
+	</data>
 </root>

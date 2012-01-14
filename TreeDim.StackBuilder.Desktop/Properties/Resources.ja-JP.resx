@@ -403,4 +403,25 @@
 	<data name="ID_VERSION" xml:space="preserve">
     <value>バージョン：{0}</value>
   </data>
+	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+		<value>{0} のWord版レポートを作成</value>
+	</data>
+	<data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+		<value>パレット {0} の編集...</value>
+	</data>
+	<data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+		<value>{0} のHTML版レポートを作成</value>
+	</data>
+	<data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+		<value>新規の ECT 解析を追加...</value>
+	</data>
+	<data name="ID_ECT" xml:space="preserve">
+		<value>ECT</value>
+	</data>
+	<data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+		<value>無効な制約があるので分析できません</value>
+	</data>
+	<data name="ID_DESELECT" xml:space="preserve">
+		<value>選択解除</value>
+	</data>
 </root>

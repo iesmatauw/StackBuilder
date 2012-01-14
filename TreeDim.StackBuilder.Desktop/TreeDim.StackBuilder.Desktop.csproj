@@ -551,7 +551,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -628,6 +630,10 @@
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
       <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
       <Name>Sharp3D.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.AutoUpdater\TreeDim.AutoUpdater.csproj">
+      <Project>{0B5CE6C7-757A-45C0-B695-5D4EE4E22336}</Project>
+      <Name>TreeDim.AutoUpdater</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\TreeDim.EdgeCrushTest.csproj">
       <Project>{E4240EE0-60B3-4435-BD09-F81D56C0899A}</Project>

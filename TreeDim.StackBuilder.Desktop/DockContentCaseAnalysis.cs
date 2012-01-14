@@ -115,45 +115,43 @@ namespace TreeDim.StackBuilder.Desktop
             // header
             SourceGrid.Cells.ColumnHeader columnHeader;
             // index
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Index");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_INDEX);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
             // layers
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Layer pattern(s)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_LAYERPATTERNS);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
             // case dimensions
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Case dimensions");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
             // box / case count
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Box/Case count");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_BOXCASECOUNT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
             // efficiency
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Efficiency (%)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_EFFICIENCYPERCENTAGE);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
             // weights
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Weights (kg)\nCase/Pallet");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_WEIGHT + @"\" + Properties.Resources.ID_CASEPERPALLET);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
             // selected
-            columnHeader = new SourceGrid.Cells.ColumnHeader("Selected");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_SELECTED);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 6] = columnHeader;
-
             // handling check box click
             SourceGrid.Cells.Controllers.CustomEvents solCheckboxClickEvent = new SourceGrid.Cells.Controllers.CustomEvents();
             solCheckboxClickEvent.Click += new EventHandler(clickEvent_Click);
-
             // data rows
             int iIndex = 0;
             foreach (CaseSolution sol in _caseAnalysis.Solutions)

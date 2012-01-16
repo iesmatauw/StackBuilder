@@ -82,6 +82,10 @@
                       Value="[StackBuilder]XML Schemas\StackBuilderSchema.xsd"/>
         <!--update config file-->
       </Component>
+      <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
+        <File Id="TreeDim.AutoUpdater.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.AutoUpdater.dll" Checksum="yes"/>
+        <File Id="TreeDim.Update.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.Update.exe" Checksum="yes"/>
+      </Component>
     </DirectoryRef>
     <DirectoryRef Id="XMLSCHEMAS">
       <Component Id="XmlSchemas" Guid="{A5C4F5DC-49B3-4df8-9FA4-2AD1F4737C3F}">
@@ -98,11 +102,17 @@
     <DirectoryRef Id="LOCALIZATION_FR">
       <Component Id="resources_fr_FR" Guid="{C5AF9823-6681-4ac1-872F-AA6873A87D50}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.EdgeCrushTest.resources.dll"/>
+        <File Id="TreeDim.AutoUpdater.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.AutoUpdater.resources.dll"/>
+        <File Id="TreeDim.Update.dll_fr.FR" Source="..\TreeDim.Update\Bin\Release\fr-FR\TreeDim.Update.resources.dll"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_JP">
       <Component Id="resources_ja_JP" Guid="{67FFCA56-36E7-4fc2-B931-3EC0339D274D}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll"/>
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.EdgeCrushTest.resources.dll"/>
+        <File Id="TreeDim.AutoUpdater.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.AutoUpdater.resources.dll"/>
+        <File Id="TreeDim.Update.dll_ja.JP" Source="..\TreeDim.Update\Bin\Release\ja-JP\TreeDim.Update.resources.dll"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">

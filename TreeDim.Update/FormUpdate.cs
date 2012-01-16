@@ -74,7 +74,8 @@ namespace TreeDim.Update
                 _bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
                 _bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
 
-                _bw.RunWorkerAsync();
+                if (!_bw.IsBusy)
+                    _bw.RunWorkerAsync();
             }
         }
 
@@ -82,6 +83,8 @@ namespace TreeDim.Update
         {
             progressBar1.Maximum = 100;
             progressBar1.Value = e.ProgressPercentage;
+            // show downloading message
+            SetLabel(line1, string.Format(Properties.Resources.ID_DOWNLOADINGFILE, downloadFile, e.ProgressPercentage));
         }
 
         void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -90,10 +93,12 @@ namespace TreeDim.Update
             {
                 SetLabel(line1, Properties.Resources.ID_CANCELING);
                 Thread.Sleep(1000);
-                Close();
             }
             else if (e.Error != null)
-            { /* do nothing */  }
+            {
+                SetLabel(line1, Properties.Resources.ID_ERROROCCURRED);
+                Thread.Sleep(1000);
+            }
             else
             {
                 string setupExePath = Path.Combine(destinationFolder, downloadFile);
@@ -104,33 +109,25 @@ namespace TreeDim.Update
                     Thread.Sleep(1000);
                     postDownload();
                 }
-                Close();
             }
+            Close();
         }
 
         private void backgroundWorker(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker bw = sender as BackgroundWorker;
-            preDownload();
-
-
-            if ((bw.CancellationPending == true))
+            try
             {
-                e.Cancel = true;
-                return;
-            }
+                BackgroundWorker bw = sender as BackgroundWorker;
+                preDownload();
 
-
-            if (called)
-            {
-                WindowState = FormWindowState.Normal;
-                Show();
-
-                // killing process
-                SetLabel(line1, "Stopping " + processToEnd);
-                Thread.Sleep(1000);
-                try
+                if (called)
                 {
+                    WindowState = FormWindowState.Normal;
+                    Show();
+
+                    // killing process
+                    SetLabel(line1, string.Format(Properties.Resources.ID_STOPPINGPROCESS, processToEnd));
+                    Thread.Sleep(1000);
 
                     Process[] processes = Process.GetProcesses();
                     foreach (Process process in processes)
@@ -139,13 +136,13 @@ namespace TreeDim.Update
                             process.Kill();
                     }
                 }
-                catch (Exception ex)
-                {
-                }
-                
+
                 // download file
                 webdata.bytesDownloaded += Bytesdownloaded;
-                webdata.downloadFromWeb(URL, downloadFile, destinationFolder);
+                webdata.downloadFromWeb(URL, downloadFile, destinationFolder, sender, e);
+            }
+            catch (Exception /*ex*/)
+            {
             }
         }
 
@@ -212,22 +209,6 @@ namespace TreeDim.Update
         {
             try
             {
-                /*
-                progressBar1.Maximum = e.total;
-
-                if (progressBar1.Value + e.downloaded <= progressBar1.Maximum)
-                {
-                    progressBar1.Value += e.downloaded;
-                    SetLabel(line1, string.Format(Properties.Resources.ID_DOWNLOADINGFILE, downloadFile));
-                }
-                else
-                {
-                    SetLabel(line1, Properties.Resources.ID_DOWNLOADCOMPLETE);
-
-                }
-                progressBar1.Refresh();
-                Invalidate();
-                 */
                 _downloadedBytes += e.downloaded;
                 int percentage = (_downloadedBytes * 100) / e.total;
                 _bw.ReportProgress(percentage < 100 ? percentage : 100);
@@ -241,7 +222,8 @@ namespace TreeDim.Update
 
         private void bnCancel_Click(object sender, EventArgs e)
         {
-
+            if (_bw.WorkerSupportsCancellation)
+                _bw.CancelAsync();
         }
     }
 }

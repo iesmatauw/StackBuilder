@@ -61,7 +61,7 @@ namespace TreeDim.AutoUpdater.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An updated version of {0} exists.
+        ///   Looks up a localized string similar to An updated version of {0} is available.
         ///You are running version {1}.
         ///Would you like to download and install version {2}?.
         /// </summary>

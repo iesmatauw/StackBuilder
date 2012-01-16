@@ -28,65 +28,56 @@ namespace TreeDim.Update
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdate));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.line1 = new System.Windows.Forms.Label();
             this.line2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(3, 43);
+            resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(226, 23);
-            this.progressBar1.TabIndex = 0;
             // 
             // line1
             // 
-            this.line1.AutoSize = true;
+            resources.ApplyResources(this.line1, "line1");
             this.line1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.line1.Location = new System.Drawing.Point(12, 9);
             this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(10, 13);
-            this.line1.TabIndex = 3;
-            this.line1.Text = " ";
             // 
             // line2
             // 
-            this.line2.AutoSize = true;
-            this.line2.Location = new System.Drawing.Point(0, 9);
+            resources.ApplyResources(this.line2, "line2");
             this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(0, 13);
-            this.line2.TabIndex = 4;
             // 
-            // button1
+            // bnCancel
             // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(235, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.bnCancel_Click);
+            resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.ForeColor = System.Drawing.Color.Black;
+            this.bnCancel.Name = "bnCancel";
+            this.bnCancel.UseVisualStyleBackColor = true;
+            this.bnCancel.Click += new System.EventHandler(this.bnCancel_Click);
             // 
             // FormUpdate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(326, 76);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.line2);
             this.Controls.Add(this.line1);
             this.Controls.Add(this.progressBar1);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormUpdate";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TreeDiM Update";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.FormUpdate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,7 +89,7 @@ namespace TreeDim.Update
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label line1;
         private System.Windows.Forms.Label line2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bnCancel;
     }
 }
 

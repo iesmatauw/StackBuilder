@@ -148,12 +148,16 @@
         <Component Id="resources_fr_FR" Guid="{78E448DA-06F6-48D1-B9EB-8C3135623A2B}">
           <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll"/>
           <File Id="TreeDim.EdgeCrushTest.resources.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.EdgeCrushTest.resources.dll"/>
+          <File Id="TreeDim.AutoUpdater.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.AutoUpdater.resources.dll"/>
+          <File Id="TreeDim.Update.dll_fr.FR" Source="..\TreeDim.Update\Bin\Release\fr-FR\TreeDim.Update.resources.dll"/>
         </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_JP">
       <Component Id="resources_ja_JP" Guid="{38DB11A6-D128-441A-A7BF-079B4B23FB74}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll"/>
         <File Id="TreeDim.EdgeCrushTest.resources.dll_ja.JP" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.EdgeCrushTest.resources.dll"/>
+        <File Id="TreeDim.AutoUpdater.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.AutoUpdater.resources.dll"/>
+        <File Id="TreeDim.Update.dll_ja.JP" Source="..\TreeDim.Update\Bin\Release\ja-JP\TreeDim.Update.resources.dll"/>
       </Component> 
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">

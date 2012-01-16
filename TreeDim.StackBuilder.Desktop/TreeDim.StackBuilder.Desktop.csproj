@@ -376,6 +376,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditPalletSolutionDB.fr-FR.resx">
       <DependentUpon>FormEditPalletSolutionDB.cs</DependentUpon>

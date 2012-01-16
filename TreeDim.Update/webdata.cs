@@ -1,12 +1,14 @@
+#region Using directives
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.IO;
+using System.ComponentModel;
+#endregion
 
 namespace TreeDim.Update
 {
-
     public delegate void BytesDownloadedEventHandler(ByteArgs e);
 
     public class ByteArgs : EventArgs
@@ -37,7 +39,6 @@ namespace TreeDim.Update
                 _total = value;
             }
         }
-
     }
 
     class webdata
@@ -45,7 +46,7 @@ namespace TreeDim.Update
 
         public static event BytesDownloadedEventHandler bytesDownloaded;
 
-        public static bool downloadFromWeb(string URL, string file, string targetFolder)
+        public static bool downloadFromWeb(string URL, string file, string targetFolder, object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -73,16 +74,23 @@ namespace TreeDim.Update
                 if (bytesDownloaded != null)
                     bytesDownloaded(byteArgs);
 
+                BackgroundWorker worker = sender as BackgroundWorker;
+
                 //Download the data
                 MemoryStream memoryStream = new MemoryStream();
                 while (true)
                 {
+                    if (worker.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        break;
+                    }
+
                     //Let's try and read the data
                     int bytesFromStream = dataStream.Read(dataBuffer, 0, dataBuffer.Length);
 
                     if (bytesFromStream == 0)
                     {
-
                         byteArgs.downloaded = dataLength;
                         byteArgs.total = dataLength;
                         if (bytesDownloaded != null)

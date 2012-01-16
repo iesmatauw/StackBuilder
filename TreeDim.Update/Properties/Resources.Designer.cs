@@ -79,11 +79,20 @@ namespace TreeDim.Update.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Downloading file {0}....
+        ///   Looks up a localized string similar to Downloading file {0} ({1}%)....
         /// </summary>
         internal static string ID_DOWNLOADINGFILE {
             get {
                 return ResourceManager.GetString("ID_DOWNLOADINGFILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured. Abandoning update....
+        /// </summary>
+        internal static string ID_ERROROCCURRED {
+            get {
+                return ResourceManager.GetString("ID_ERROROCCURRED", resourceCulture);
             }
         }
         

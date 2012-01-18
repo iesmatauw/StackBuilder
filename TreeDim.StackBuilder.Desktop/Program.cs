@@ -69,7 +69,6 @@ namespace TreeDim.StackBuilder.Desktop
                 // initialize database with containing folder
                 PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
 
-
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);

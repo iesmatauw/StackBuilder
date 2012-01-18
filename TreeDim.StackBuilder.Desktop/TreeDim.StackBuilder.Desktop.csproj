@@ -620,6 +620,10 @@
       <Project>{C49896A3-C0DA-45C4-B30E-4D17E548DBF6}</Project>
       <Name>ExceptionReporter.WinForms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MsgBoxCheck\MsgBoxCheck.csproj">
+      <Project>{43D66268-9336-4118-A30E-FC43CED0E62D}</Project>
+      <Name>MsgBoxCheck</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
       <Project>{CAD56B75-481B-4C76-B090-4BC2FF5E5681}</Project>
       <Name>OfficePickers</Name>

@@ -77,6 +77,9 @@
         <File Id ="ExceptionReporter.Winforms.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\ExceptionReporter.Winforms.dll" Checksum="yes"/>
         <File Id ="Win32Mapi.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Win32Mapi.dll" Checksum="yes"/>
         <File Id="OptionsLib.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\OptionsLib.dll" Checksum="yes"/>
+        <File Id="MsgBoxCheck.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\MsgBoxCheck.dll" Checksum="yes"/>
+        <File Id="CbtHook.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CbtHook.dll" Checksum="yes"/>
+        <File Id="WindowsHook.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\WindowsHook.dll" Checksum="yes"/>
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>

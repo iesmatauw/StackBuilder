@@ -572,6 +572,33 @@ namespace TreeDim.StackBuilder.Graphics
                 graphics.AddBox(box);
             }
         }
+
+        // list of boxes
+        public List<Box> BuildListOfBoxes(Vector3D dimensions, Color color, Transform3D t)
+        {
+            List<Box> listPalletLumbers = new List<Box>();
+
+            double coefX = dimensions.X / _defaultDimensions.X;
+            double coefY = dimensions.Y / _defaultDimensions.Y;
+            double coefZ = dimensions.Z / _defaultDimensions.Z;
+            uint pickId = 0;
+            foreach (Position pos in _positions)
+            {
+                double coef0 = coefX, coef1 = coefY, coef2 = coefZ;
+                if (pos.Axis1 == HalfAxis.HAxis.AXIS_X_P && pos.Axis2 == HalfAxis.HAxis.AXIS_Y_P)
+                { coef0 = coefX; coef1 = coefY; }
+                else if (pos.Axis1 == HalfAxis.HAxis.AXIS_Y_P && pos.Axis2 == HalfAxis.HAxis.AXIS_X_N)
+                { coef0 = coefY; coef1 = coefX; }
+                Vector3D dim = _lumbers[pos.Index];
+                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2);
+                box.SetAllFacesColor(color);
+                box.Position = t.transform(new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ));
+                box.LengthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis1, t)); ;
+                box.WidthAxis = Basics.HalfAxis.ToVector3D(HalfAxis.Transform(pos.Axis2, t)); ;
+                listPalletLumbers.Add(box);
+            }
+            return listPalletLumbers;
+        }
         #endregion
     }
     #endregion
@@ -605,7 +632,14 @@ namespace TreeDim.StackBuilder.Graphics
             PalletData palletType = PalletData.GetByName(_typeName);
             if (null != palletType)
                 palletType.Draw(graphics, new Vector3D(_length, _width, _height), _color, t);
+        }
 
+        public List<Box> BuildListOfBoxes()
+        {
+            PalletData palletType = PalletData.GetByName(_typeName);
+            if (_length == 0.0 || _width == 0.0 || _height == 0.0 || null == palletType)
+                return new List<Box>();
+            return palletType.BuildListOfBoxes(new Vector3D(_length, _width, _height), _color, Transform3D.Identity); 
         }
         #endregion
 

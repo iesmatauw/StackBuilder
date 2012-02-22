@@ -218,7 +218,7 @@ namespace TreeDim.StackBuilder.Desktop
             gridDynamicBCT.Columns.StretchToFit();
         }
 
-        private void FillGrid(Dictionary<KeyValuePair<string, string>, double> dynamicBCTDictionnary)
+        private void FillGrid(Dictionary<KeyValuePair<string, string>, double> dynamicBCTDictionary)
         {
             int indexCol = 1;
 
@@ -234,7 +234,7 @@ namespace TreeDim.StackBuilder.Desktop
                 foreach (string keyStorage in McKeeFormula.StockCoefDictionary.Keys)
                 {
                     gridDynamicBCT[indexRow, indexCol] = new SourceGrid.Cells.Cell(
-                        string.Format("{0:0.00}", dynamicBCTDictionnary[new KeyValuePair<string,string>(keyStorage, keyHumidity)]));
+                        string.Format("{0:0.00}", dynamicBCTDictionary[new KeyValuePair<string,string>(keyStorage, keyHumidity)]));
                     gridDynamicBCT[indexRow, indexCol].View = viewNormal;
                     ++indexRow;
                 }

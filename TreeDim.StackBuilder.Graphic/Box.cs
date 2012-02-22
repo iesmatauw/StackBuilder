@@ -55,7 +55,7 @@ namespace TreeDim.StackBuilder.Graphics
             _colors[4] = Color.Blue;
             _colors[5] = Color.Blue;
 
-            for (int i=0; i<6; ++i)
+            for (int i = 0; i < 6; ++i)
                 _textureLists[i] = null;
         }
         public Box(uint pickId, double length, double width, double height, double x, double y, double z)
@@ -185,7 +185,7 @@ namespace TreeDim.StackBuilder.Graphics
             _dim[0] = bundleProperties.Length;
             _dim[1] = bundleProperties.Width;
             _dim[2] = bundleProperties.Height;
-            _colors = new Color[6]; 
+            _colors = new Color[6];
             for (int i = 0; i < 6; ++i)
                 _colors[i] = bundleProperties.Color;
             _noFlats = bundleProperties.NoFlats;
@@ -393,6 +393,97 @@ namespace TreeDim.StackBuilder.Graphics
                 return points;
             }
         }
+        public Vector3D[] Normals
+        {
+            get
+            {
+                Vector3D[] normals = new Vector3D[6];
+                normals[0] = -Vector3D.XAxis;
+                normals[1] = Vector3D.XAxis;
+                normals[2] = -Vector3D.YAxis;
+                normals[3] = Vector3D.YAxis;
+                normals[4] = -Vector3D.ZAxis;
+                normals[5] = Vector3D.ZAxis;
+                return normals;
+            }
+        }
+        public Vector2D[] UVs
+        {
+            get
+            {
+                Vector2D[] uvs = new Vector2D[4];
+                uvs[0] = new Vector2D(0.0, 0.0);
+                uvs[1] = new Vector2D(1.0, 0.0);
+                uvs[2] = new Vector2D(0.0, 1.0);
+                uvs[3] = new Vector2D(1.0, 1.0);
+                return uvs;
+            }
+        }
+
+        public TriangleIndices[] Triangles
+        {
+            get
+            {
+                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                TriangleIndices[] tri = new TriangleIndices[12];
+                ulong n0 = (ulong)HalfAxis.ToHalfAxis(-LengthAxis);
+                tri[0] = new TriangleIndices(0, 4, 3, n0, n0, n0, 1, 3, 0);
+                tri[1] = new TriangleIndices(3, 4, 7, n0, n0, n0, 0, 3, 2);
+                ulong n1 = (ulong)HalfAxis.ToHalfAxis(LengthAxis);
+                tri[2] = new TriangleIndices(1, 2, 5, n1, n1, n1, 0, 1, 2);
+                tri[3] = new TriangleIndices(5, 2, 6, n1, n1, n1, 1, 3, 2);
+                ulong n2 = (ulong)HalfAxis.ToHalfAxis(-WidthAxis);
+                tri[4] = new TriangleIndices(0, 1, 4, n2, n2, n2, 0, 1, 2);
+                tri[5] = new TriangleIndices(4, 1, 5, n2, n2, n2, 2, 1, 3);
+                ulong n3 = (ulong)HalfAxis.ToHalfAxis(WidthAxis);
+                tri[6] = new TriangleIndices(7, 6, 2, n3, n3, n3, 3, 2, 0);
+                tri[7] = new TriangleIndices(7, 2, 3, n3, n3, n3, 3, 0, 1);
+                ulong n4 = (ulong)HalfAxis.ToHalfAxis(-heightAxis);
+                tri[8] = new TriangleIndices(0, 3, 1, n4, n4, n4, 2, 0, 3);
+                tri[9] = new TriangleIndices(1, 3, 2, n4, n4, n4, 3, 0, 1);
+                ulong n5 = (ulong)HalfAxis.ToHalfAxis(heightAxis);
+                tri[10] = new TriangleIndices(4, 5, 7, n5, n5, n5, 0, 1, 2);
+                tri[11] = new TriangleIndices(7, 5, 6, n5, n5, n5, 2, 1, 3);
+                return tri;
+            }
+        }
+        public TriangleIndices[] TrianglesByFace(HalfAxis.HAxis axis)
+        {
+            TriangleIndices[] tri = new TriangleIndices[2];
+            ulong n = (ulong)axis;
+            switch (axis)
+            {
+                case HalfAxis.HAxis.AXIS_X_N:
+                    tri[0] = new TriangleIndices(0, 4, 3, n, n, n, 1, 3, 0);
+                    tri[1] = new TriangleIndices(3, 4, 7, n, n, n, 0, 3, 2);
+                    break;
+                case HalfAxis.HAxis.AXIS_X_P:
+                    tri[0] = new TriangleIndices(1, 2, 5, n, n, n, 0, 1, 2);
+                    tri[1] = new TriangleIndices(5, 2, 6, n, n, n, 1, 3, 2);
+                    break;
+                case HalfAxis.HAxis.AXIS_Y_N:
+                    tri[0] = new TriangleIndices(0, 1, 4, n, n, n, 0, 1, 2);
+                    tri[1] = new TriangleIndices(4, 1, 5, n, n, n, 2, 1, 3);
+                    break;
+                case HalfAxis.HAxis.AXIS_Y_P:
+                    tri[0] = new TriangleIndices(7, 6, 2, n, n, n, 3, 2, 0);
+                    tri[1] = new TriangleIndices(7, 2, 3, n, n, n, 3, 0, 1);
+                    break;
+                case HalfAxis.HAxis.AXIS_Z_N:
+                    tri[0] = new TriangleIndices(0, 3, 1, n, n, n, 2, 0, 3);
+                    tri[1] = new TriangleIndices(1, 3, 2, n, n, n, 3, 0, 1);
+                    break;
+                case HalfAxis.HAxis.AXIS_Z_P:
+                    tri[0] = new TriangleIndices(4, 5, 7, n, n, n, 0, 1, 2);
+                    tri[1] = new TriangleIndices(7, 5, 6, n, n, n, 2, 1, 3);
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+            return tri;
+        }
+
         public Face[] Faces
         {
             get
@@ -405,9 +496,9 @@ namespace TreeDim.StackBuilder.Graphics
                 points[3] = _position + _dim[1] * _widthAxis;
 
                 points[4] = _position + _dim[2] * heightAxis;
-                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis ;
-                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis ;
-                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis ;
+                points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
+                points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
+                points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
 
                 Face[] faces = new Face[6];
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
@@ -424,7 +515,6 @@ namespace TreeDim.StackBuilder.Graphics
                     face.Textures = _textureLists[i];
                     ++i;
                 }
-
                 return faces;
             }
         }
@@ -433,7 +523,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         /// <param name="texture">Texture (bitmap + Vector2D (position) + Vector2D(size) + double(angle))</param>
         /// <returns>array of Vector3D points</returns>
-         public Vector3D[] PointsImage(int faceId, Texture texture)
+        public Vector3D[] PointsImage(int faceId, Texture texture)
         {
             Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
             Vector3D[] points = new Vector3D[8];
@@ -443,19 +533,19 @@ namespace TreeDim.StackBuilder.Graphics
             points[3] = _position + _dim[1] * _widthAxis;
 
             points[4] = _position + _dim[2] * heightAxis;
-            points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis ;
-            points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis ;
-            points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis ;
-            
+            points[5] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis;
+            points[6] = _position + _dim[2] * heightAxis + _dim[0] * _lengthAxis + _dim[1] * _widthAxis;
+            points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
+
             Vector3D vecI = Vector3D.XAxis, vecJ = Vector3D.YAxis, vecO = Vector3D.Zero;
             switch (faceId)
             {
-                case 0: vecI = points[0] - points[3]; vecJ = points[7] - points[3]; vecO = points[3];    break;
-                case 1: vecI = points[2] - points[1]; vecJ = points[5] - points[1]; vecO = points[1];    break;
-                case 2: vecI = points[1] - points[0]; vecJ = points[4] - points[0]; vecO = points[0];    break;
-                case 3: vecI = points[3] - points[2]; vecJ = points[6] - points[2]; vecO = points[2];    break;
-                case 4: vecI = points[0] - points[1]; vecJ = points[2] - points[1]; vecO = points[1];    break;
-                case 5: vecI = points[5] - points[4]; vecJ = points[7] - points[4]; vecO = points[4];    break;
+                case 0: vecI = points[0] - points[3]; vecJ = points[7] - points[3]; vecO = points[3]; break;
+                case 1: vecI = points[2] - points[1]; vecJ = points[5] - points[1]; vecO = points[1]; break;
+                case 2: vecI = points[1] - points[0]; vecJ = points[4] - points[0]; vecO = points[0]; break;
+                case 3: vecI = points[3] - points[2]; vecJ = points[6] - points[2]; vecO = points[2]; break;
+                case 4: vecI = points[0] - points[1]; vecJ = points[2] - points[1]; vecO = points[1]; break;
+                case 5: vecI = points[5] - points[4]; vecJ = points[7] - points[4]; vecO = points[4]; break;
                 default: break;
             }
             vecI.Normalize();
@@ -493,7 +583,7 @@ namespace TreeDim.StackBuilder.Graphics
         public void SetAllFacesColor(Color color)
         {
             for (int i = 0; i < 6; ++i)
-                _colors[i] = color;        
+                _colors[i] = color;
         }
 
         public void SetFaceColor(HalfAxis.HAxis iFace, Color color)
@@ -513,107 +603,37 @@ namespace TreeDim.StackBuilder.Graphics
                 if (face.PointRelativePosition(pt) != -1)
                     return false;
             }
-            return true;            
-        }
-        public bool PointBehind(Vector3D pt, Vector3D viewDir)
-        {
-            const double eps = 1.0E-06;
-            foreach (Face f in Faces)
-            {
-                // is face visible ?
-                if (!f.IsVisible(viewDir))
-                    continue;
-                // if face is top/bottom face -> skip
-                if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                    continue;
-                if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                    continue;
-                // is behind face
-                if (!f.PointIsBehind(pt, viewDir))
-                    return false;
-            }
             return true;
-        }
-
-        public bool PointInFront(Vector3D pt, Vector3D viewDir)
-        {
-            const double eps = 1.0E-06;
-            foreach (Face f in Faces)
-            {
-                // is face visible ?
-                if (!f.IsVisible(viewDir))
-                    continue;
-                // if face is top/bottom face -> skip
-                if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                    continue;
-                if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                    continue;
-                // is behind face
-                if (!f.PointIsInFront(pt, viewDir))
-                    return false;
-            }
-            return true;       
-        }
-
-        /// <summary>
-        /// Box b is behind this,
-        /// if and if only at least one point is behind both visible faces
-        /// </summary>
-        /// <param name="b"></param>
-        /// <param name="viewDir"></param>
-        /// <returns></returns>
-        public bool BoxBehind(Box b, Vector3D viewDir)
-        {
-            const double eps = 0.00001;
-            foreach (Vector3D pt in b.Points)
-            {
-                int iVisibleFaces = 0;
-                int iCountBehind = 0;
-                foreach (Face f in Faces)
-                {
-                    if (!f.IsVisible(viewDir)) continue;
-                    // if face is top/bottom face -> skip
-                    if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                        continue;
-                    if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                        continue;
-                    ++iVisibleFaces;
-                    if (f.PointIsBehind(pt, viewDir))
-                        ++iCountBehind;
-                }
-                if (iVisibleFaces == iCountBehind)
-                    return true;
-            }
-            return false;
-        }
-        // --- Definition:
-        // Box b is in front of this,
-        // if and if only at all its points are in front of both visible faces
-        // ---
-        public bool BoxInFront(Box b, Vector3D viewDir)
-        {
-            foreach (Face f in Faces)
-            {
-                if (!f.IsVisible(viewDir)) continue;
-                const double eps = 0.00001;
-                // if face is top/bottom face -> skip
-                if (Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                    continue;
-                if (Math.Abs(Vector3D.DotProduct(-Vector3D.ZAxis, f.Normal) - 1.0) < eps)
-                    continue; 
-
-                int iCountFront = 0;
-                foreach (Vector3D pt in b.Points)
-                {
-                    if (f.PointIsInFront(pt, viewDir))
-                        ++iCountFront;
-                }
-                if (iCountFront == 8)
-                    return true;
-            }
-            return false;
         }
         #endregion
     }
     #endregion
+
+
+    public class TriangleIndices
+    {
+        #region Constructor
+        public TriangleIndices(ulong v0, ulong v1, ulong v2, ulong n0, ulong n1, ulong n2, ulong uv0, ulong uv1, ulong uv2)
+        {
+            _vertex[0] = v0; _vertex[1] = v1; _vertex[2] = v2;
+            _normal[0] = n0; _normal[1] = n1; _normal[2] = n2;
+            _UV[0] = uv0; _UV[1] = uv1; _UV[2] = uv2;
+        }
+        #endregion
+
+        public string ConvertToString(ulong iTriangleIndex)
+        {
+            return string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} "
+                , _vertex[0] + iTriangleIndex * 8, _normal[0], _UV[0]
+                , _vertex[1] + iTriangleIndex * 8, _normal[1], _UV[1]
+                , _vertex[2] + iTriangleIndex * 8, _normal[2], _UV[2]
+                );
+        }
+
+        #region Data members
+        public ulong[] _vertex = new ulong[3];
+        public ulong[] _normal = new ulong[3];
+        public ulong[] _UV = new ulong[3];
+        #endregion
+    }
 }

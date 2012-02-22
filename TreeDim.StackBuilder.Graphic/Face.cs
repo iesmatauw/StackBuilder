@@ -122,7 +122,6 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-
         /// <summary>
         /// fill color of face
         /// </summary>

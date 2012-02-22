@@ -173,7 +173,7 @@ namespace TreeDim.EdgeCrushTest
         }
         #endregion
 
-        #region Coefficient dictionnary
+        #region Coefficient dictionary
         /// <summary>
         /// Convert to McKeeFormula to string
         /// </summary>
@@ -213,7 +213,7 @@ namespace TreeDim.EdgeCrushTest
             }
         }
         /// <summary>
-        /// Humidity coefficient dictionnary
+        /// Humidity coefficient dictionary
         /// </summary>
         public static Dictionary<string, double> HumidityCoefDictionary
         {
@@ -252,7 +252,7 @@ namespace TreeDim.EdgeCrushTest
             }
         }
         /// <summary>
-        /// Print surface dictionnary
+        /// Print surface dictionary
         /// </summary>
         public static Dictionary<string, double> PrintCoefDictionary
         {

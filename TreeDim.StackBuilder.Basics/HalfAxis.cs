@@ -78,6 +78,22 @@ namespace TreeDim.StackBuilder.Basics
             else if (string.Equals(sAxis, "ZP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_P;
             throw new Exception(string.Format("Invalid HalfAxis value {0}", sAxis));
         }
+
+        public static HAxis[] All
+        {
+            get
+            {
+                return new HAxis[]
+                {
+                    HAxis.AXIS_X_N,
+                    HAxis.AXIS_X_P,
+                    HAxis.AXIS_Y_N,
+                    HAxis.AXIS_Y_P,
+                    HAxis.AXIS_Z_N,
+                    HAxis.AXIS_Z_P
+                };
+            }
+        }
         #endregion
     }
 

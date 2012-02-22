@@ -88,16 +88,6 @@ namespace TreeDim.StackBuilder.Reporting.Test
             {
                 _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
             }
-            /*
-            public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution)
-            {
-                _log.Info(string.Format("Selected solution added : {0}", selectedSolution.Name));
-            }
-            public void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution)
-            { 
-                _log.Info(string.Format("Selected case solution added : {0}", selectedSolution.Name));
-            }
-            */ 
             public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }
@@ -113,16 +103,6 @@ namespace TreeDim.StackBuilder.Reporting.Test
             public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
             {
             }
-            /*
-            public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution)
-            {
-                _log.Info(string.Format("Selected solution removed {0}", selectedSolution.Name));
-            }
-            public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution)
-            {
-                _log.Info(string.Format("Selected solution {0}", selectedSolution.Name));
-            }
-            */ 
             public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }

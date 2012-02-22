@@ -154,6 +154,17 @@ namespace Sharp3D.Math.Core
                     , _mat.M41, _mat.M42, _mat.M43, 1.0);
             }
         }
+        public Vector3D Rotations
+        {
+            get
+            {
+                return new Vector3D(
+                    System.Math.Atan2(_mat.M32, _mat.M33) * 180.0 / System.Math.PI,
+                    System.Math.Asin(-_mat.M31) * 180.0 / System.Math.PI,
+                    System.Math.Atan2(_mat.M21, _mat.M11) * 180.0 / System.Math.PI
+                    );
+            }
+        }
         #endregion
 
         #region Static methods

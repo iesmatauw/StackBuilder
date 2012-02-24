@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - collada</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../build/Three.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<script src="js/Stats.js"></script>
+
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container, stats;
+
+			var camera, scene, renderer, objects;
+			var particleLight, pointLight;
+			var dae, skin;
+
+			var loader = new THREE.ColladaLoader();
+			loader.options.convertUpAxis = true;
+			loader.load( './models/displayunit.dae', function colladaReady( collada ) {
+
+				dae = collada.scene;
+				skin = collada.skins[ 0 ];
+
+				dae.scale.x = dae.scale.y = dae.scale.z = 0.008;
+				dae.rotation.x = Math.PI / 2.0;
+				dae.position.y= -1.0;
+				dae.updateMatrix();
+
+				init();
+				animate();
+
+			} );
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set( 2, 2, 3 );
+				scene.add( camera );
+
+				// Add the COLLADA
+				scene.add( dae );
+
+				// Lights
+
+				scene.add( new THREE.AmbientLight( 0xffffff ) );
+				
+				var directionalLight = new THREE.DirectionalLight(0xffffff);
+				directionalLight.position.x = 1.0;
+				directionalLight.position.y = 1.0;
+				directionalLight.position.z = 1.0;
+				directionalLight.position.normalize();
+				scene.add( directionalLight );
+								
+				pointLight = new THREE.PointLight( 0xffffff, 4 );
+				scene.add( pointLight );
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				container.appendChild( renderer.domElement );
+
+				stats = new Stats();
+				stats.domElement.style.position = 'absolute';
+				stats.domElement.style.top = '0px';
+				container.appendChild( stats.domElement );
+
+			}
+
+			//
+
+			var t = 0;
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				if ( t > 30 ) t = 0;
+
+				if ( skin ) {
+
+					// guess this can be done smarter...
+
+					// (Indeed, there are way more frames than needed and interpolation is not used at all
+					//  could be something like - one morph per each skinning pose keyframe, or even less,
+					//  animation could be resampled, morphing interpolation handles sparse keyframes quite well.
+					//  Simple animation cycles like this look ok with 10-15 frames instead of 100 ;)
+
+					for ( var i = 0; i < skin.morphTargetInfluences.length; i++ ) {
+
+						skin.morphTargetInfluences[ i ] = 0;
+
+					}
+
+					skin.morphTargetInfluences[ Math.floor( t ) ] = 1;
+
+					t += 0.5;
+
+				}
+
+				render();
+				stats.update();
+
+			}
+
+			function render() {
+
+				var timer = Date.now() * 0.0005;
+
+				camera.position.x = Math.cos( timer ) * 10;
+				camera.position.y = 2;
+				camera.position.z = Math.sin( timer ) * 10;
+
+				camera.lookAt( scene.position );
+
+				pointLight.position.x = Math.cos( timer)*3.0;
+				pointLight.position.y = 3;
+				pointLight.position.z = Math.sin( timer)*3.0;
+
+				renderer.render( scene, camera );
+			}
+
+		</script>
+	</body>
+</html>

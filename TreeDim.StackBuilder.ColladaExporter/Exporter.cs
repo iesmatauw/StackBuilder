@@ -187,7 +187,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                                 {
                                     technique_common = new instance_material[]
                                     {
-                                        new instance_material() { symbol="materialCase", target="#material_Case0_ID" },
+                                        new instance_material() { symbol="materialCase0", target="#material_Case0_ID" },
                                         new instance_material() { symbol="materialCase1", target="#material_Case1_ID" },
                                         new instance_material() { symbol="materialCase2", target="#material_Case2_ID" },
                                         new instance_material() { symbol="materialCase3", target="#material_Case3_ID" },
@@ -251,7 +251,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                                 {
                                     ambient = new common_color_or_texture_type()
                                     {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.050000, 0.050000, 0.050000, 1.000000 } }
+                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.300000, 0.300000, 0.300000, 1.000000 } }
                                     },
                                     emission = new common_color_or_texture_type()
                                     {
@@ -263,7 +263,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                                     },
                                     specular = new common_color_or_texture_type()
                                     {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.050000, 0.050000, 0.050000, 1.000000 } }
+                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.900000, 0.900000, 0.900000, 1.000000 } }
                                     },
                                     transparent = new common_transparent_type()
                                     {
@@ -275,7 +275,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                                     },
                                     shininess = new common_float_or_param_type()
                                     {
-                                        Item = new common_float_or_param_typeFloat() { Value = 50.00000 }
+                                        Item = new common_float_or_param_typeFloat() { Value = 25.00000 }
                                     },
                                     transparency = new common_float_or_param_type()
                                     {

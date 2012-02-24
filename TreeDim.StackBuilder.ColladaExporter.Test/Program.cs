@@ -65,8 +65,9 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
                 // open file
                 using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
                 {
-                    proc.StartInfo.FileName = @"C:\Program Files\AssimpView\bin\x64\assimp_view.exe";
-                    proc.StartInfo.Arguments = outputPath;
+                    string chromePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Google\Chrome\Application\chrome.exe");
+                    proc.StartInfo.FileName = chromePath;
+                    proc.StartInfo.Arguments = "/allow-file-access-from-files " + Path.ChangeExtension(filePath, "html");
                     proc.Start();
                 }
             }

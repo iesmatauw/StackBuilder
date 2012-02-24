@@ -101,6 +101,13 @@ namespace TreeDim.StackBuilder.ColladaExporter
             mesh meshCase = CreateCaseMesh(_palletSolution.Analysis.BProperties as BoxProperties);
             geomCase.Item = meshCase;
 
+            // library_animations
+            animation animationMain = new animation() { id="animationMain_ID", name="animationMain" };
+            animations.animation = new animation[] { animationMain };
+
+            List<object> listAnimationSource = new List<object>();
+
+
             // library_visual_scenes
             visual_scene mainScene = new visual_scene() { id = "MainScene", name = "MainScene" };
             scenes.visual_scene = new visual_scene[] { mainScene };
@@ -129,7 +136,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                     }
                 }
             });
-            uint i = 0;
+            uint caseIndex = 0;
             foreach (BoxLayer layer in _palletSolution)
                 foreach (BoxPosition bp in layer)
                 {
@@ -138,8 +145,8 @@ namespace TreeDim.StackBuilder.ColladaExporter
 
                     node caseNode = new node()
                     {
-                        id = string.Format("CaseNode_{0}_ID", i),
-                        name = string.Format("CaseNode_{0}", i),
+                        id = string.Format("CaseNode_{0}_ID", caseIndex),
+                        name = string.Format("CaseNode_{0}", caseIndex),
                         ItemsElementName = new ItemsChoiceType2[]
                         {
                             ItemsChoiceType2.translate,
@@ -152,24 +159,24 @@ namespace TreeDim.StackBuilder.ColladaExporter
                             new TargetableFloat3()
                             {
                                 Values = new double[] { translation.X, translation.Y, translation.Z },
-                                sid = string.Format("NodeCase{0}_trans", i),
+                                sid = "t",
                             },
                             new rotate()
                             {
                                 Values = new double[] { 1.0, 0.0, 0.0, rotations.X },
-                                sid = string.Format("NodeCase{0}_rotateX", i)
+                                sid = "rx"
                             },
                             new rotate()
                             {
                                 Values = new double[] { 0.0, 1.0, 0.0, rotations.Y },
-                                sid = string.Format("NodeCase{0}_rotateY", i)
+                                sid = "ry"
                             },
                             new rotate()
                             {
                                 Values = new double[] { 0.0, 0.0, 1.0, rotations.Z },
-                                sid = string.Format("NodeCase{0}_rotateZ", i)
+                                sid = "rz"
                             } 
-                     },
+                        },
 
                         instance_geometry = new instance_geometry[]
                         {
@@ -193,21 +200,17 @@ namespace TreeDim.StackBuilder.ColladaExporter
                         }
                     };
                     sceneNodes.Add(caseNode);
-                    ++i;
+
+                    // animations
+                    CreateAnimation(caseIndex, (uint)_palletSolution.CaseCount, listAnimationSource, bp);
+
+                    // increment case index
+                    ++caseIndex;
                 }
 
             // add nodes
             mainScene.node = sceneNodes.ToArray();
 
-            // library_animations
-            animation animationMain = new animation() { id="animationMain_ID", name="animationMain",  };
-            animations.animation = new animation[] { animationMain };
-
-            List<object> listAnimationSource = new List<object>();
-            source sTime = new source() { id = "animationTime_ID", name = "animationTime" };
-            sTime.Item = new float_array() { id = "animationTime_floatarray", count = 4, Values = new double[] { 0.0, 0.333333, 0.66666, 1.0 } };
-            sTime.technique_common = new sourceTechnique_common() { };
-            listAnimationSource.Add(sTime);
             animationMain.Items = listAnimationSource.ToArray();
 
             // library_cameras
@@ -224,6 +227,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             colladaScene.instance_visual_scene = new InstanceWithExtra() { url = "#MainScene" };
 
             model.Save(filePath);
+            model.Save(System.IO.Path.ChangeExtension(filePath, "xml"));
         }
         #endregion
 
@@ -294,6 +298,229 @@ namespace TreeDim.StackBuilder.ColladaExporter
                     url = string.Format("#{0}", effectColor.id)
                 }
             };
+        }
+        #endregion
+
+        #region Animations
+        public void CreateAnimation(uint caseIndex, uint caseCount, List<object> listAnimationObjects, BoxPosition bPos)
+        {
+            const int iStep = 5;
+
+            // build list of time
+            List<double> listTime = new List<double>();
+            List<string> listInterp = new List<string>();
+            listTime.Add(0.0);
+            listInterp.Add("LINEAR");
+            for (int i = 0; i < iStep; ++i)
+            {
+                listTime.Add(((double)caseIndex + (double)i / (double)(iStep - 1)) );
+                listInterp.Add("LINEAR");
+            }
+            listTime.Add(caseCount);
+            listInterp.Add("LINEAR");
+
+            BProperties bProperties = _palletSolution.Analysis.BProperties;
+            PalletProperties pProperties = _palletSolution.Analysis.PalletProperties;
+
+
+            double yOffset = 0.5 * (_palletSolution.Analysis.PalletProperties.Width - bProperties.Length);
+            BoxPosition bPosFinal = GetFinalBoxPosition(caseIndex);
+
+
+            List<BoxPosition> listBoxPosition = new List<BoxPosition>();
+            // -1.
+            listBoxPosition.Add(GetInitialBoxPosition(caseIndex));
+            // 0. initialbox position
+            listBoxPosition.Add(GetInitialBoxPosition(caseIndex));
+            // 1. position at out storing area
+            listBoxPosition.Add(new BoxPosition(new Vector3D(_xOffset, yOffset, _zOffset), HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N));
+            // 2. position above pallet
+            listBoxPosition.Add(new BoxPosition(new Vector3D(pProperties.Length * 0.5, pProperties.Width * 0.5, _zOffset), bPosFinal.DirectionLength, bPosFinal.DirectionWidth));
+            // 3. position above final position
+            listBoxPosition.Add(new BoxPosition(new Vector3D(bPosFinal.Position.X, bPosFinal.Position.Y, _zOffset), bPosFinal.DirectionLength, bPosFinal.DirectionWidth));
+            // 4. final position
+            listBoxPosition.Add(bPosFinal);
+            // 5.
+            listBoxPosition.Add(bPosFinal);
+
+            List<double> listX = new List<double>();
+            List<double> listY = new List<double>();
+            List<double> listZ = new List<double>();
+            List<double> listRX = new List<double>();
+            List<double> listRY = new List<double>();
+            List<double> listRZ = new List<double>();
+
+            BoxPosition bPprev0 = listBoxPosition[0];
+            listX.Add(bPprev0.Position.X);
+            listY.Add(bPprev0.Position.Y);
+            listZ.Add(bPprev0.Position.Z);
+            Vector3D vRotPrev0 = bPprev0.Transformation.Rotations;
+            listRX.Add(vRotPrev0.X);
+            listRY.Add(vRotPrev0.Y);
+            listRZ.Add(vRotPrev0.Z);
+
+            for (int i=1; i< listBoxPosition.Count; ++i)
+            {
+                BoxPosition bP = listBoxPosition[i];
+                listX.Add(bP.Position.X);
+                listY.Add(bP.Position.Y);
+                listZ.Add(bP.Position.Z);
+                Vector3D vRot = bP.Transformation.Rotations;
+                listRX.Add(vRot.X);
+                listRY.Add(vRot.Y);
+                listRZ.Add(vRot.Z);
+            }
+
+            // time
+            source sTime = new source()
+            {
+                id = string.Format("sTime_{0}_ID", caseIndex),
+                name = string.Format("sTime_{0}", caseIndex),
+                Item = new float_array()
+                {
+                    id = string.Format("fa_time_{0}_ID", caseIndex),
+                    count = (ulong)listTime.Count,
+                    Values = listTime.ToArray()
+                },
+                technique_common = new sourceTechnique_common()
+                {
+                    accessor = new accessor()
+                    {
+                        source = string.Format("#fa_time_{0}_ID", caseIndex),
+                        count = (ulong)listTime.Count,
+                        stride = 1,
+                        param = new param[]
+                        {
+                            new param() { name="TIME", type="float" }
+                        }
+                    }
+                }
+            };
+            listAnimationObjects.Add(sTime);
+
+            // interp
+            source sInterp = new source()
+            {
+                id = string.Format("sInterp_{0}_ID", caseIndex),
+                name = string.Format("sInterp_{0}", caseIndex),
+                Item = new Name_array()
+                {
+                    id = string.Format("na_interp_{0}_ID", caseIndex),
+                    count = (ulong)listInterp.Count,
+                    Values = listInterp.ToArray()
+                },
+                technique_common = new sourceTechnique_common()
+                {
+                    accessor = new accessor()
+                    {
+                        source = string.Format("#na_interp_{0}_ID", caseIndex),
+                        count = (ulong)listInterp.Count,
+                        stride = 1,
+                        param = new param[]
+                        {
+                            new param() { name="INTERPOLATION", type="name" }
+                        }
+                    }
+                }
+            };
+            listAnimationObjects.Add(sInterp);
+            
+            CreateChannel(listAnimationObjects, caseIndex, "X", "TIME", string.Format("CaseNode_{0}_ID/t.X", caseIndex), listX);
+            CreateChannel(listAnimationObjects, caseIndex, "Y", "TIME", string.Format("CaseNode_{0}_ID/t.Y", caseIndex), listY);
+            CreateChannel(listAnimationObjects, caseIndex, "Z", "TIME", string.Format("CaseNode_{0}_ID/t.Z", caseIndex), listZ);
+            CreateChannel(listAnimationObjects, caseIndex, "RX", "ANGLE", string.Format("CaseNode_{0}_ID/rx.ANGLE", caseIndex), listRX);
+            CreateChannel(listAnimationObjects, caseIndex, "RY", "ANGLE", string.Format("CaseNode_{0}_ID/ry.ANGLE", caseIndex), listRY);
+            CreateChannel(listAnimationObjects, caseIndex, "RZ", "ANGLE", string.Format("CaseNode_{0}_ID/rz.ANGLE", caseIndex), listRZ);
+             
+        }
+
+        protected BoxPosition GetInitialBoxPosition(uint caseIndex)
+        {            
+            uint iLayer = 0, iCounted = 0;
+            foreach (BoxLayer layer in _palletSolution)
+            {
+                if (iCounted + layer.BoxCount > caseIndex)
+                    break;
+                else
+                {
+                    ++iLayer;
+                    iCounted += (uint)layer.Count;
+                }
+            }
+
+            BProperties bProperties = _palletSolution.Analysis.BProperties;
+
+            double yOffset = 0.5 * (_palletSolution.Analysis.PalletProperties.Width - bProperties.Length);
+            Vector3D vPosition = new Vector3D(_xOffset + (caseIndex - iCounted) * bProperties.Width, yOffset, (_palletSolution.Count-1-iLayer) * bProperties.Height);
+            return new BoxPosition(vPosition, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+        }
+
+        protected BoxPosition GetFinalBoxPosition(uint caseIndex)
+        {
+            int iCounted = 0;
+            int iLayer = 0;
+            foreach (BoxLayer layer in _palletSolution)
+            {
+                if (iCounted + layer.BoxCount > caseIndex)
+                    break;
+                else
+                {
+                    ++iLayer;
+                    iCounted += layer.Count;
+                }
+            }
+            BoxLayer layerW = _palletSolution[iLayer] as BoxLayer;
+
+            return layerW[(int)caseIndex - iCounted];
+        }
+
+        protected void CreateChannel(List<object> listAnimationObjects, uint caseIndex, string sData, string sDataType, string sTarget, List<double> lValues)
+        {
+            string sTime = string.Format("sTime_{0}_ID", caseIndex);
+            string sInterp = string.Format("sInterp_{0}_ID", caseIndex);
+
+            // source
+            source source_ = new source()
+            {
+                id = string.Format("sValue_{0}_{1}_ID", caseIndex, sData),
+                name = string.Format("sValue_{0}_{1}", caseIndex, sData),
+                Item = new float_array() { id = string.Format("fa_{0}_{1}_ID", caseIndex, sData), count = (ulong)lValues.Count, Values = lValues.ToArray() },
+                technique_common = new sourceTechnique_common()
+                {
+                    accessor = new accessor()
+                    {
+                        source = string.Format("#fa_{0}_{1}_ID", caseIndex, sData),
+                        count = (ulong)lValues.Count,
+                        stride = 1,
+                        param = new param[]
+                        {
+                            new param() { name=sDataType, type="float" }
+                        }
+                    }
+                }
+            };
+            listAnimationObjects.Add(source_);
+
+            // sampler
+            sampler sampler_ = new sampler()
+            {
+                id = string.Format("sampler_{0}_{1}_ID", caseIndex, sData),
+                input = new InputLocal[]
+                {
+                    new InputLocal() { semantic="INPUT", source="#" + sTime },
+                    new InputLocal() { semantic="OUTPUT", source="#" + source_.id },
+                    new InputLocal() { semantic="INTERPOLATION", source="#" + sInterp }
+                }
+            };
+            listAnimationObjects.Add(sampler_);
+
+            // channel
+            channel channel_ = new channel()
+            {
+                source= "#" + sampler_.id,
+                target = sTarget
+            };
+            listAnimationObjects.Add(channel_);
         }
         #endregion
 
@@ -517,6 +744,8 @@ namespace TreeDim.StackBuilder.ColladaExporter
 
         #region Data members
         private PalletSolution _palletSolution;
+        private double _xOffset = 2000.0;
+        private double _zOffset = 2000.0;
         #endregion
     }
 }

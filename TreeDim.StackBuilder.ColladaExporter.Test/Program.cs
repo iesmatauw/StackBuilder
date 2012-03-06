@@ -59,7 +59,7 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
                 ColladaExporter.Exporter exporter = new Exporter(palletSolution);
                 exporter.Export(outputPath);
 
-                log.Debug(string.Format("Successfully exporter {0} ...", outputPath));
+                log.Debug(string.Format("Successfully exported {0} ...", outputPath));
 
                 // open file in assimp viewer
                 // open file

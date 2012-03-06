@@ -156,7 +156,6 @@ namespace TreeDim.StackBuilder.Graphics
                         outpts.Add(ptI);    outPath.Add(true);
                         inpts.Add(ptI);     inPath.Add(true);
                     }
-                    outpts.Add(ptB); outPath.Add(face._isIntersection[i]);
                 }
                 else if (sideB < 0)
                 {
@@ -171,12 +170,11 @@ namespace TreeDim.StackBuilder.Graphics
                         outpts.Add(ptI);    outPath.Add(true);
                         inpts.Add(ptI);     inPath.Add(true);
                     }
-                    inpts.Add(ptB); inPath.Add(face._isIntersection[i]);
                 }
                 else
                 {
-                    outpts.Add(ptB); outPath.Add(face._isIntersection[i]);
-                    inpts.Add(ptB); inPath.Add(face._isIntersection[i]);
+                    outpts.Add(ptB);
+                    inpts.Add(ptB);
                 }
                 ptA = ptB;
                 sideA = sideB;

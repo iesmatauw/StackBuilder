@@ -393,6 +393,29 @@ namespace TreeDim.StackBuilder.Graphics
                 return points;
             }
         }
+
+        public Vector3D[] PointsSmallOffset
+        {
+            get
+            {
+                const double offset = 3.0;
+                Vector3D heightAxis = Vector3D.CrossProduct(_lengthAxis, _widthAxis);
+                Vector3D[] points = new Vector3D[8];
+                Vector3D origin = new Vector3D(offset, offset, offset);
+                points[0] = origin;
+                points[1] = origin + (_dim[0] - 2.0 * offset) * _lengthAxis;
+                points[2] = origin + (_dim[0] - 2.0 * offset) * _lengthAxis + (_dim[1] - 2.0 * offset) * _widthAxis;
+                points[3] = origin + (_dim[1] - 2.0 * offset) * _widthAxis;
+
+                points[4] = origin + (_dim[2]- 2.0 * offset) * heightAxis;
+                points[5] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * _lengthAxis;
+                points[6] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[0]- 2.0 * offset) * _lengthAxis + (_dim[1]- 2.0 * offset) * _widthAxis;
+                points[7] = origin + (_dim[2]- 2.0 * offset) * heightAxis + (_dim[1]- 2.0 * offset) * _widthAxis;
+
+                return points;
+            }
+        }
+
         public Vector3D[] Normals
         {
             get
@@ -414,8 +437,8 @@ namespace TreeDim.StackBuilder.Graphics
                 Vector2D[] uvs = new Vector2D[4];
                 uvs[0] = new Vector2D(0.0, 0.0);
                 uvs[1] = new Vector2D(1.0, 0.0);
-                uvs[2] = new Vector2D(0.0, 1.0);
-                uvs[3] = new Vector2D(1.0, 1.0);
+                uvs[2] = new Vector2D(1.0, 1.0);
+                uvs[3] = new Vector2D(0.0, 1.0);
                 return uvs;
             }
         }
@@ -454,20 +477,20 @@ namespace TreeDim.StackBuilder.Graphics
             switch (axis)
             {
                 case HalfAxis.HAxis.AXIS_X_N:
-                    tri[0] = new TriangleIndices(0, 4, 3, n, n, n, 1, 3, 0);
-                    tri[1] = new TriangleIndices(3, 4, 7, n, n, n, 0, 3, 2);
+                    tri[0] = new TriangleIndices(0, 4, 3, n, n, n, 1, 2, 0);
+                    tri[1] = new TriangleIndices(3, 4, 7, n, n, n, 0, 2, 3);
                     break;
                 case HalfAxis.HAxis.AXIS_X_P:
-                    tri[0] = new TriangleIndices(1, 2, 5, n, n, n, 0, 1, 2);
-                    tri[1] = new TriangleIndices(5, 2, 6, n, n, n, 1, 3, 2);
+                    tri[0] = new TriangleIndices(1, 2, 5, n, n, n, 0, 1, 3);
+                    tri[1] = new TriangleIndices(5, 2, 6, n, n, n, 3, 1, 2);
                     break;
                 case HalfAxis.HAxis.AXIS_Y_N:
-                    tri[0] = new TriangleIndices(0, 1, 4, n, n, n, 0, 1, 2);
-                    tri[1] = new TriangleIndices(4, 1, 5, n, n, n, 2, 1, 3);
+                    tri[0] = new TriangleIndices(0, 1, 4, n, n, n, 0, 1, 3);
+                    tri[1] = new TriangleIndices(4, 1, 5, n, n, n, 3, 1, 2);
                     break;
                 case HalfAxis.HAxis.AXIS_Y_P:
-                    tri[0] = new TriangleIndices(7, 6, 2, n, n, n, 3, 2, 0);
-                    tri[1] = new TriangleIndices(7, 2, 3, n, n, n, 3, 0, 1);
+                    tri[0] = new TriangleIndices(7, 6, 2, n, n, n, 2, 3, 0);
+                    tri[1] = new TriangleIndices(7, 2, 3, n, n, n, 2, 0, 1);
                     break;
                 case HalfAxis.HAxis.AXIS_Z_N:
                     tri[0] = new TriangleIndices(0, 3, 1, n, n, n, 2, 0, 3);
@@ -563,6 +586,61 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
+        #region Face Bitmaps
+        void ExtractFaceBitmap(int faceId, int bmpWidth, string filename)
+        {
+            double dimX = 0.0, dimY = 0.0;
+
+            switch (faceId)
+            { 
+                case 0: dimX = Width; dimY = Height; break;
+                case 1: dimX = Width; dimY = Height; break;
+                case 2: dimX = Length; dimY = Height; break;
+                case 3: dimX = Length; dimY = Height; break;
+                case 4: dimX = Length; dimY = Width; break;
+                case 5: dimX = Length; dimY = Width; break;
+                default: break;
+            }
+            double aspectRatio = dimY / dimX;
+
+            Face face = Faces[faceId];
+            using (Bitmap bmp = new Bitmap(bmpWidth, (int)(bmpWidth * aspectRatio)))
+            {
+                System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp);
+                g.Clear(face.ColorFill);
+
+                foreach (Texture texture in face.Textures)
+                {
+                    double cosAngle = Math.Cos(texture.Angle * Math.PI / 180.0);
+                    double sinAngle = Math.Sin(texture.Angle * Math.PI / 180.0);
+
+                    Vector2D[] pts = new Vector2D[4];
+                    Vector2D vecO = Vector2D.Zero;
+                    Vector2D vecI = Vector2D.XAxis;
+                    Vector2D vecJ = Vector2D.YAxis;
+
+                    pts[0] = vecO + texture.Position.X * vecI + texture.Position.Y * vecJ;
+                    pts[1] = vecO + (texture.Position.X + texture.Size.X * cosAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle) * vecJ;
+                    pts[2] = vecO + (texture.Position.X + texture.Size.X * cosAngle - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle + texture.Size.Y * cosAngle) * vecJ;
+                    pts[3] = vecO + (texture.Position.X - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.Y * cosAngle) * vecJ;
+
+                    double coefX = bmpWidth / dimX; double coefY = bmpWidth * aspectRatio / dimY;
+                    Point[] ptf = new Point[3];
+                    /*
+                    ptf[0] = new Point((int)(pts[3].X * coefX), (int)(pts[3].Y * coefY));
+                    ptf[1] = new Point((int)(pts[2].X * coefX), (int)(pts[2].Y * coefY));
+                    ptf[2] = new Point((int)(pts[0].X * coefX), (int)(pts[0].Y * coefY));*/
+                    ptf[0] = new Point((int)(pts[0].X * coefX), (int)(pts[0].Y * (1.0- coefY)));
+                    ptf[1] = new Point((int)(pts[1].X * coefX), (int)(pts[1].Y * (1.0 - coefY)));
+                    ptf[2] = new Point((int)(pts[2].X * coefX), (int)(pts[2].Y * (1.0 - coefY)));
+ 
+                    g.DrawImage(texture.Bitmap, ptf);
+                }
+                bmp.Save(filename);
+            }
+        }
+        #endregion
+
         #region Validity
         public bool IsValid
         {
@@ -609,7 +687,7 @@ namespace TreeDim.StackBuilder.Graphics
     }
     #endregion
 
-
+    #region TriangleIndices
     public class TriangleIndices
     {
         #region Constructor
@@ -636,4 +714,5 @@ namespace TreeDim.StackBuilder.Graphics
         public ulong[] _UV = new ulong[3];
         #endregion
     }
+    #endregion
 }

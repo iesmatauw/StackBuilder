@@ -510,11 +510,9 @@ namespace TreeDim.StackBuilder.Graphics
                 // there is a bug here!
                 // -> a polygon that result from first split will lose all edges
                 // when split a second time
-                if (!(face._isIntersection[i - 1] && face._isIntersection[i]))
-                    g.DrawLine(new Pen(brush0, 1.5f), pt[i - 1], pt[i]);
+                g.DrawLine(new Pen(brush0, 1.5f), pt[i - 1], pt[i]);
             }
-            if (!(face._isIntersection[ptCount - 1] && face._isIntersection[0]))
-                g.DrawLine(new Pen(brush0, 1.5f), pt[ptCount - 1], pt[0]);
+            g.DrawLine(new Pen(brush0, 1.5f), pt[ptCount - 1], pt[0]);
         }
 
         internal void Draw(Box box)

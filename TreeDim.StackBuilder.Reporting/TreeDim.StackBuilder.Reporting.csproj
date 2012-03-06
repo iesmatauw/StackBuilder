@@ -96,7 +96,9 @@
     <Content Include="ReportTemplates\ReportTemplateMSWord_ENU.xml" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_FRA.xml" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_JPN.xml" />
-    <Content Include="SampleReportData\SampleReport.xml" />
+    <Content Include="SampleReportData\SampleReport.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReportTemplates\ReportSchema.xsd" />

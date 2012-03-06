@@ -14,6 +14,19 @@ using Collada141;
 
 namespace TreeDim.StackBuilder.ColladaExporter
 {
+    #region Loop
+    public class Loop
+    {
+        public Loop(int i0, int i1, int i2, int i3, int m)
+        { indices[0] = i0; indices[1] = i1; indices[2] = i2; indices[3] = i3; materialId = m; }
+
+        // indices
+        public int[] indices = new int[4];
+        public int materialId;
+    }
+    #endregion
+
+    #region Exporter
     public class Exporter
     {
         #region Constructor
@@ -57,21 +70,62 @@ namespace TreeDim.StackBuilder.ColladaExporter
             // colors and materials
             List<effect> listEffects = new List<effect>();
             List<material> listMaterials = new List<material>();
+            List<image> listImages = new List<image>();
 
             // effects
             effect effectPallet;
             material materialPallet;
-            CreateMaterial(palletProperties.Color, "Pallet", out effectPallet, out materialPallet);
+            CreateMaterial(palletProperties.Color, null, null, "Pallet", out effectPallet, out materialPallet);
             listEffects.Add(effectPallet);
             listMaterials.Add(materialPallet);
 
             Box box = new Box(0, _palletSolution.Analysis.BProperties);
             uint colorIndex = 0;
-            foreach (Color col in box.Colors)
+
+            foreach (Face face in box.Faces)
             {
+                Color col = face.ColorFill;
+                
+                string textureName = null;
+                string textureCoord = null;
+                if (face.HasBitmap)
+                {
+                    textureName = string.Format("textureFace_{0}", colorIndex);
+                    string texturePath = System.IO.Path.Combine(
+                        System.IO.Path.GetDirectoryName(filePath)
+                        , textureName+ ".jpg");
+
+                    double dimX = 0.0, dimY = 0.0;
+
+                    switch (colorIndex)
+                    {
+                        case 0: dimX = box.Width; dimY = box.Height; break;
+                        case 1: dimX = box.Width; dimY = box.Height; break;
+                        case 2: dimX = box.Length; dimY = box.Height; break;
+                        case 3: dimX = box.Length; dimY = box.Height; break;
+                        case 4: dimX = box.Length; dimY = box.Width; break;
+                        case 5: dimX = box.Length; dimY = box.Width; break;
+                        default: break;
+                    }
+                    face.ExtractFaceBitmap(dimX, dimY, 150, texturePath);
+
+                    // create image
+                    image imageTexture = new image()
+                    {
+                        id = textureName + ".jpg",
+                        name = textureName + ".jpg",
+                    };
+                    imageTexture.Item = @".\" + textureName + @".jpg";
+                    listImages.Add(imageTexture);
+
+                    textureCoord = "UVSET0";                
+                }
                 material materialCase;
                 effect effectCase;
-                CreateMaterial(col, string.Format("Case{0}", colorIndex), out effectCase, out materialCase);
+                CreateMaterial(col
+                    , textureName, textureCoord
+                    , string.Format("Case{0}", colorIndex)
+                    , out effectCase, out materialCase);
 
                 listEffects.Add(effectCase);
                 listMaterials.Add(materialCase);
@@ -79,17 +133,17 @@ namespace TreeDim.StackBuilder.ColladaExporter
                 ++colorIndex;
             }
 
+            images.image = listImages.ToArray();
+
             // case lines material
             effect effectCaseLines;
             material materialCaseLines;
-            CreateMaterial(Color.Black, "CaseLines", out effectCaseLines, out materialCaseLines);
+            CreateMaterial(Color.Black, null, null, "CaseLines", out effectCaseLines, out materialCaseLines);
             listEffects.Add(effectCaseLines);
             listMaterials.Add(materialCaseLines);
-
-
             effects.effect = listEffects.ToArray();
             materials.material = listMaterials.ToArray();
-
+            
             // geometries
             geometry geomPallet = new geometry() { id = "palletGeometry", name = "palletGeometry" };
             geometry geomCase = new geometry() { id = "caseGeometry", name = "caseGeometry" };
@@ -100,13 +154,11 @@ namespace TreeDim.StackBuilder.ColladaExporter
             // case
             mesh meshCase = CreateCaseMesh(_palletSolution.Analysis.BProperties as BoxProperties);
             geomCase.Item = meshCase;
-
             // library_animations
             animation animationMain = new animation() { id="animationMain_ID", name="animationMain" };
             animations.animation = new animation[] { animationMain };
 
             List<object> listAnimationSource = new List<object>();
-
 
             // library_visual_scenes
             visual_scene mainScene = new visual_scene() { id = "MainScene", name = "MainScene" };
@@ -232,62 +284,92 @@ namespace TreeDim.StackBuilder.ColladaExporter
         #endregion
 
         #region Material
-        protected void CreateMaterial(Color color, string material, out effect effectColor, out material materialColor)
+        protected void CreateMaterial(Color color, string textureName, string textureCoord, string material, out effect effectColor, out material materialColor)
         {
             string effect_ID = string.Format("effect_{0}_ID", material);
             string effectName = string.Format("effect_{0}", material);
-            string materialID = string.Empty;
+
+            common_color_or_texture_type diffuseColorOrTexture = new common_color_or_texture_type();
+            if (string.IsNullOrEmpty(textureName))
+                diffuseColorOrTexture.Item = new common_color_or_texture_typeColor() { Values = new double[] { (double)color.R / 255.0, (double)color.G / 255.0, (double)color.B / 255.0, 1.000000 } };
+            else
+                diffuseColorOrTexture.Item = new common_color_or_texture_typeTexture() { texture = "sampler_" + textureName, texcoord = textureCoord };
+ 
+            effectFx_profile_abstractProfile_COMMON effectFx_prof = new effectFx_profile_abstractProfile_COMMON()
+            {
+                technique = new effectFx_profile_abstractProfile_COMMONTechnique()
+                {
+                    Item = new effectFx_profile_abstractProfile_COMMONTechniquePhong()
+                    {
+                        ambient = new common_color_or_texture_type()
+                        {
+                            Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.300000, 0.300000, 0.300000, 1.000000 } }
+                        },
+                        emission = new common_color_or_texture_type()
+                        {
+                            Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.050000, 0.050000, 0.050000, 1.000000 } }
+                        },
+                        diffuse = diffuseColorOrTexture,
+                        specular = new common_color_or_texture_type()
+                        {
+                            Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.500000, 0.500000, 0.500000, 1.000000 } }
+                        },
+                        transparent = new common_transparent_type()
+                        {
+                            Item = new common_color_or_texture_typeColor() { Values = new double[] { 1.000000, 1.000000, 1.000000, 1.000000 } }
+                        },
+                        reflectivity = new common_float_or_param_type()
+                        {
+                            Item = new common_float_or_param_typeFloat() { Value = 0.000000 }
+                        },
+                        shininess = new common_float_or_param_type()
+                        {
+                            Item = new common_float_or_param_typeFloat() { Value = 25.00000 }
+                        },
+                        transparency = new common_float_or_param_type()
+                        {
+                            Item = new common_float_or_param_typeFloat() { Value = 0.000000 }
+                        }
+                    }
+                }
+            };
+            if (!string.IsNullOrEmpty(textureName))
+            {
+                effectFx_prof.Items = new object[]
+                {
+                    new common_newparam_type()
+                    {
+                        sid = "surf_" + textureName,
+                        Item = new fx_surface_common()
+                        {
+                            type = fx_surface_type_enum.Item2D,
+                            init_from = new fx_surface_init_from_common[]
+                            {
+                                new fx_surface_init_from_common() { Value = textureName + ".jpg" }
+                            },
+                            mipmap_generate = false,
+                            mipmap_generateSpecified = true
+                        },
+                        ItemElementName = ItemChoiceType.surface
+                    },
+                    new common_newparam_type()
+                    {
+                        sid = "sampler_" + textureName,
+                        Item = new fx_sampler2D_common()
+                        {
+                            source = "surf_"+ textureName
+                        },
+                        ItemElementName = ItemChoiceType.sampler2D
+                    } 
+                };
+            }
+            // effect color
             effectColor = new effect()
             {
                 id = string.Format("effect_{0}_ID", material),
                 name = string.Format("effect_{0}", material),
-                Items = new effectFx_profile_abstractProfile_COMMON[]
-                    {
-                        new effectFx_profile_abstractProfile_COMMON()
-                        {
-                            technique = new effectFx_profile_abstractProfile_COMMONTechnique()
-                            {
-                                Item = new effectFx_profile_abstractProfile_COMMONTechniquePhong()
-                                {
-                                    ambient = new common_color_or_texture_type()
-                                    {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.300000, 0.300000, 0.300000, 1.000000 } }
-                                    },
-                                    emission = new common_color_or_texture_type()
-                                    {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.050000, 0.050000, 0.050000, 1.000000 } }
-                                    },
-                                    diffuse = new common_color_or_texture_type()
-                                    {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { (double)color.R / 255.0, (double)color.G / 255.0, (double)color.B / 255.0, 1.000000 } }
-                                    },
-                                    specular = new common_color_or_texture_type()
-                                    {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 0.900000, 0.900000, 0.900000, 1.000000 } }
-                                    },
-                                    transparent = new common_transparent_type()
-                                    {
-                                        Item = new common_color_or_texture_typeColor() { Values = new double[] { 1.000000, 1.000000, 1.000000, 1.000000 } }
-                                    },
-                                    reflectivity = new common_float_or_param_type()
-                                    {
-                                        Item = new common_float_or_param_typeFloat() { Value = 0.000000 }
-                                    },
-                                    shininess = new common_float_or_param_type()
-                                    {
-                                        Item = new common_float_or_param_typeFloat() { Value = 25.00000 }
-                                    },
-                                    transparency = new common_float_or_param_type()
-                                    {
-                                        Item = new common_float_or_param_typeFloat() { Value = 0.000000 }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                Items =  new effectFx_profile_abstractProfile_COMMON[] { effectFx_prof }
             };
-
-
             // materials
             materialColor = new material()
             {
@@ -305,6 +387,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
         public void CreateAnimation(uint caseIndex, uint caseCount, List<object> listAnimationObjects, BoxPosition bPos)
         {
             const int iStep = 5;
+            _zOffset = _palletSolution.PalletHeight + 100.0;
 
             // build list of time
             List<double> listTime = new List<double>();
@@ -321,12 +404,10 @@ namespace TreeDim.StackBuilder.ColladaExporter
 
             BProperties bProperties = _palletSolution.Analysis.BProperties;
             PalletProperties pProperties = _palletSolution.Analysis.PalletProperties;
-
-
+            
             double yOffset = 0.5 * (_palletSolution.Analysis.PalletProperties.Width - bProperties.Length);
             BoxPosition bPosFinal = GetFinalBoxPosition(caseIndex);
-
-
+            
             List<BoxPosition> listBoxPosition = new List<BoxPosition>();
             // -1.
             listBoxPosition.Add(GetInitialBoxPosition(caseIndex));
@@ -525,6 +606,41 @@ namespace TreeDim.StackBuilder.ColladaExporter
         #endregion
 
         #region Case meshes
+        protected mesh CreateComplexCaseMesh(BoxProperties caseProperties)
+        { 
+            // build box
+            Box box = new Box(0, caseProperties);
+            // build list of vertex
+            double ct = 5.0;
+            Vector3D[] vertices = new Vector3D[16];
+            // 1st layer
+            vertices[0] = new Vector3D(ct, ct, 0.0);
+            vertices[1] = new Vector3D(box.Length - ct, ct, 0.0);
+            vertices[2] = new Vector3D(box.Length - ct, box.Width - ct, 0.0);
+            vertices[3] = new Vector3D(ct, box.Width - ct, 0.0);
+            // 2nd layer (8)
+            vertices[4] = new Vector3D(0.0,         0.0,        ct);
+            vertices[5] = new Vector3D(box.Length,  0.0,        ct);
+            vertices[6] = new Vector3D(box.Length,  box.Width,  ct);
+            vertices[7] = new Vector3D(0.0,         box.Width,  ct);
+            // 3rd later (8)
+            vertices[8] = new Vector3D(0.0,         0.0,        box.Height - ct);
+            vertices[9] = new Vector3D(box.Length,  0.0,        box.Height - ct);
+            vertices[10] = new Vector3D(box.Length, box.Width,  box.Height - ct);
+            vertices[11] = new Vector3D(0.0,        box.Width,  box.Height - ct);
+            // 4th layer
+            vertices[12] = new Vector3D(ct, ct, box.Height);
+            vertices[13] = new Vector3D(box.Length - ct, ct, box.Height);
+            vertices[14] = new Vector3D(box.Length - ct, box.Width - ct, box.Height);
+            vertices[15] = new Vector3D(ct, box.Width - ct, box.Height);
+
+            // build list of loops
+            Loop[] loops = new Loop[14];
+
+            mesh caseMesh = new mesh();
+            return caseMesh;
+        }
+
         protected mesh CreateCaseMesh(BoxProperties caseProperties)
         {
             // build box
@@ -532,7 +648,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             // build list of vertices / normals / UVs
             ulong vertexCount = 0, normalCount = 0, uvCount = 0;
             List<double> doubleArrayPosition = new List<double>(), doubleArrayNormal = new List<double>(), doubleArrayUV = new List<double>();
-            foreach (Vector3D p in box.Points)
+            foreach (Vector3D p in box.PointsSmallOffset)
             {
                 doubleArrayPosition.Add(p.X); doubleArrayPosition.Add(p.Y); doubleArrayPosition.Add(p.Z);
                 ++vertexCount;
@@ -745,7 +861,8 @@ namespace TreeDim.StackBuilder.ColladaExporter
         #region Data members
         private PalletSolution _palletSolution;
         private double _xOffset = 2000.0;
-        private double _zOffset = 2000.0;
+        private double _zOffset = 1500.0;
         #endregion
     }
+    #endregion
 }

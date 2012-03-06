@@ -60,7 +60,6 @@ namespace TreeDim.StackBuilder.Graphics
         #region Private members
         private uint _pickingId = 0;
         private Vector3D[] _points;
-        public bool[] _isIntersection;
         /// <summary>
         /// colors
         /// </summary>
@@ -76,8 +75,6 @@ namespace TreeDim.StackBuilder.Graphics
         public Face(uint pickId, Vector3D[] vertices)
         {
             _points = vertices;
-            _isIntersection = new bool[vertices.Length];
-            for (int i = 0; i < vertices.Length; ++i) _isIntersection[i] = false;
             if (_points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
@@ -85,19 +82,15 @@ namespace TreeDim.StackBuilder.Graphics
         public Face(uint pickId, Vector3D[] vertices, Color colorFill, Color colorPath)
         {
             _points = vertices;
-            _isIntersection = new bool[vertices.Length];
-            for (int i = 0; i < vertices.Length; ++i) _isIntersection[i] = false;
             if (_points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
             _colorFill = colorFill;
             _colorPath = colorPath;
         }
-
         public Face(uint pickId, Vector3D[] vertices, bool[] isInter)
         {
             _points = vertices;
-            _isIntersection = isInter;
             if (_points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
@@ -194,6 +187,42 @@ namespace TreeDim.StackBuilder.Graphics
         {
             set { _textureList = value; }
             get { return _textureList; }
+        }
+
+        public void ExtractFaceBitmap(double dimX, double dimY, int bmpWidth, string filename)
+        {
+            // extract bitmap
+            double aspectRatio = dimY / dimX;
+            using (Bitmap bmp = new Bitmap(bmpWidth, (int)(bmpWidth * aspectRatio)))
+            {
+                System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp);
+                g.Clear(ColorFill);
+
+                foreach (Texture texture in Textures)
+                {
+                    double cosAngle = Math.Cos(texture.Angle * Math.PI / 180.0);
+                    double sinAngle = Math.Sin(texture.Angle * Math.PI / 180.0);
+
+                    Vector2D[] pts = new Vector2D[4];
+                    Vector2D vecO = Vector2D.Zero;
+                    Vector2D vecI = Vector2D.XAxis;
+                    Vector2D vecJ = Vector2D.YAxis;
+
+                    pts[0] = vecO + texture.Position.X * vecI + texture.Position.Y * vecJ;
+                    pts[1] = vecO + (texture.Position.X + texture.Size.X * cosAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle) * vecJ;
+                    pts[2] = vecO + (texture.Position.X + texture.Size.X * cosAngle - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle + texture.Size.Y * cosAngle) * vecJ;
+                    pts[3] = vecO + (texture.Position.X - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.Y * cosAngle) * vecJ;
+
+                    double coefX = bmpWidth / dimX; double coefY = bmpWidth * aspectRatio / dimY;
+                    Point[] ptf = new Point[3];
+                    ptf[0] = new Point((int)(pts[0].X * coefX), (int)(pts[0].Y * coefY));
+                    ptf[1] = new Point((int)(pts[1].X * coefX), (int)(pts[1].Y * coefY));
+                    ptf[2] = new Point((int)(pts[3].X * coefX), (int)(pts[3].Y * coefY));
+
+                    g.DrawImage(texture.Bitmap, ptf);
+                }
+                bmp.Save(filename);
+            }
         }
         #endregion
 

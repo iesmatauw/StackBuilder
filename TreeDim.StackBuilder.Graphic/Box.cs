@@ -586,61 +586,6 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
-        #region Face Bitmaps
-        void ExtractFaceBitmap(int faceId, int bmpWidth, string filename)
-        {
-            double dimX = 0.0, dimY = 0.0;
-
-            switch (faceId)
-            { 
-                case 0: dimX = Width; dimY = Height; break;
-                case 1: dimX = Width; dimY = Height; break;
-                case 2: dimX = Length; dimY = Height; break;
-                case 3: dimX = Length; dimY = Height; break;
-                case 4: dimX = Length; dimY = Width; break;
-                case 5: dimX = Length; dimY = Width; break;
-                default: break;
-            }
-            double aspectRatio = dimY / dimX;
-
-            Face face = Faces[faceId];
-            using (Bitmap bmp = new Bitmap(bmpWidth, (int)(bmpWidth * aspectRatio)))
-            {
-                System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp);
-                g.Clear(face.ColorFill);
-
-                foreach (Texture texture in face.Textures)
-                {
-                    double cosAngle = Math.Cos(texture.Angle * Math.PI / 180.0);
-                    double sinAngle = Math.Sin(texture.Angle * Math.PI / 180.0);
-
-                    Vector2D[] pts = new Vector2D[4];
-                    Vector2D vecO = Vector2D.Zero;
-                    Vector2D vecI = Vector2D.XAxis;
-                    Vector2D vecJ = Vector2D.YAxis;
-
-                    pts[0] = vecO + texture.Position.X * vecI + texture.Position.Y * vecJ;
-                    pts[1] = vecO + (texture.Position.X + texture.Size.X * cosAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle) * vecJ;
-                    pts[2] = vecO + (texture.Position.X + texture.Size.X * cosAngle - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle + texture.Size.Y * cosAngle) * vecJ;
-                    pts[3] = vecO + (texture.Position.X - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.Y * cosAngle) * vecJ;
-
-                    double coefX = bmpWidth / dimX; double coefY = bmpWidth * aspectRatio / dimY;
-                    Point[] ptf = new Point[3];
-                    /*
-                    ptf[0] = new Point((int)(pts[3].X * coefX), (int)(pts[3].Y * coefY));
-                    ptf[1] = new Point((int)(pts[2].X * coefX), (int)(pts[2].Y * coefY));
-                    ptf[2] = new Point((int)(pts[0].X * coefX), (int)(pts[0].Y * coefY));*/
-                    ptf[0] = new Point((int)(pts[0].X * coefX), (int)(pts[0].Y * (1.0- coefY)));
-                    ptf[1] = new Point((int)(pts[1].X * coefX), (int)(pts[1].Y * (1.0 - coefY)));
-                    ptf[2] = new Point((int)(pts[2].X * coefX), (int)(pts[2].Y * (1.0 - coefY)));
- 
-                    g.DrawImage(texture.Bitmap, ptf);
-                }
-                bmp.Save(filename);
-            }
-        }
-        #endregion
-
         #region Validity
         public bool IsValid
         {

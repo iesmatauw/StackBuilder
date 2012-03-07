@@ -20,6 +20,7 @@ using TreeDim.StackBuilder.Engine;
 using TreeDim.StackBuilder.Reporting;
 
 using TreeDim.StackBuilder.Desktop.Properties;
+using TreeDim.StackBuilder.ColladaExporter;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -103,8 +104,11 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportMSWordClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
+            _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             LogConsole();
         }
+
+
 
         public void LogConsole()
         { 
@@ -436,6 +440,26 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
                 Program.ReportException(ex);
+            }
+        }
+
+        void DocumentTreeView_SolutionColladaExportClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+            try
+            {
+                DocumentSB doc = eventArg.Document as DocumentSB;
+                string colladaFilePath = Path.ChangeExtension(doc.FilePath, "dae");
+                Exporter exporter = new ColladaExporter.Exporter( eventArg.SelSolution.Solution );
+                exporter.Export(colladaFilePath);
+
+                if (ColladaExporter.Exporter.ChromeInstalled)
+                    ColladaExporter.Exporter.BrowseWithGoogleChrome(colladaFilePath);
+                else
+                    MessageBox.Show(Resources.ID_CHROMEISNOTINSTALLED, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
             }
         }
 

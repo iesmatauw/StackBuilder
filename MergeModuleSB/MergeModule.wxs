@@ -5,7 +5,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      >
-  <Module Id="MergeModuleSB" Language="1033" Version="1.0.4.0">
+  <Module Id="MergeModuleSB" Language="1033" Version="1.0.5.0">
     <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c" Manufacturer="MergeModuleSB" InstallerVersion="200" />
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="MergeRedirectFolder">
@@ -17,6 +17,9 @@
           <Directory Id="SAMPLES" Name="Samples"/>
           <Directory Id="XMLSCHEMAS" Name="XML Schemas"/>
           <Directory Id="CARDBOARDQUALITYDATA" Name="CardboardQualityData"/>
+          <Directory Id="WEBGL" Name="WebGL">
+            <Directory Id="GLGE" Name="GLGE"/>
+          </Directory>
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder" Name="Programs" ShortName="PMenu">
@@ -62,6 +65,7 @@
         <File Id="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe.config" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.ColladaExporter.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ColladaExporter.dll" Checksum="yes"/>
         <File Id="Plossum_CommandLine.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes"/>
         <File Id="C5.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes"/>
         <!--update config file-->
@@ -80,6 +84,16 @@
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value"
                       Value="[StackBuilder]XML Schemas\StackBuilderSchema.xsd"/>
+        <util:XmlFile Id="SetGLGELibPath"
+                      File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='GLGEFilePath'[\]]/value"
+                      Value="[StackBuilder]WebGL\GLGE\glge-compiled-min.js"/>
+        <util:XmlFile Id="SetGLGEHTMLPath"
+                     File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
+                     Action="setValue"
+                     ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='HTMLFilePath'[\]]/value"
+                     Value="[StackBuilder]WebGL\GLGE\glge.html"/>
         <!--update config file-->
       </Component>
       <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
@@ -140,6 +154,12 @@
           <Permission User="Everyone" GenericAll="yes"/>
         </File>
       </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="GLGE">
+      <Component Id="WEBGL_GLGE" Guid="{246C8AE8-BB09-41BC-A642-6C83C6585E56}">
+        <File Id="glge_compiled_min.js" Name="glge-compiled-min.js" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge-compiled-min.js" Checksum="yes" KeyPath="yes"/>
+        <File Id="glge.html" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge.html" Checksum="yes"/>
+      </Component> 
     </DirectoryRef>
     <DirectoryRef Id="SAMPLES">
       <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">

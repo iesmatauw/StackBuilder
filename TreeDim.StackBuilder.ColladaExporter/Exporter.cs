@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.IO;
 
 using Sharp3D.Math.Core;
 
@@ -10,6 +11,8 @@ using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 
 using Collada141;
+
+using TreeDim.StackBuilder.ColladaExporter.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.ColladaExporter
@@ -35,6 +38,14 @@ namespace TreeDim.StackBuilder.ColladaExporter
             _palletSolution = palletSolution;
         }
         #endregion
+
+        #region Public properties
+        public int ImageFileSize
+        {
+            get { return _bmpWidth; }
+            set { _bmpWidth = value; }
+        }
+        #endregion 
 
         #region Export
         public void Export(string filePath)
@@ -80,24 +91,23 @@ namespace TreeDim.StackBuilder.ColladaExporter
             listMaterials.Add(materialPallet);
 
             Box box = new Box(0, _palletSolution.Analysis.BProperties);
-            uint colorIndex = 0;
 
+            // build list of effects / materials / images
+            uint faceIndex = 0;
             foreach (Face face in box.Faces)
             {
-                Color col = face.ColorFill;
-                
+                // build texture image if any
                 string textureName = null;
-                string textureCoord = null;
                 if (face.HasBitmap)
                 {
-                    textureName = string.Format("textureFace_{0}", colorIndex);
+                    textureName = string.Format("textureFace_{0}", faceIndex);
                     string texturePath = System.IO.Path.Combine(
                         System.IO.Path.GetDirectoryName(filePath)
                         , textureName+ ".jpg");
 
                     double dimX = 0.0, dimY = 0.0;
 
-                    switch (colorIndex)
+                    switch (faceIndex)
                     {
                         case 0: dimX = box.Width; dimY = box.Height; break;
                         case 1: dimX = box.Width; dimY = box.Height; break;
@@ -107,32 +117,27 @@ namespace TreeDim.StackBuilder.ColladaExporter
                         case 5: dimX = box.Length; dimY = box.Width; break;
                         default: break;
                     }
-                    face.ExtractFaceBitmap(dimX, dimY, 150, texturePath);
-
+                    face.ExtractFaceBitmap(dimX, dimY, _bmpWidth, texturePath);
                     // create image
-                    image imageTexture = new image()
-                    {
-                        id = textureName + ".jpg",
-                        name = textureName + ".jpg",
-                    };
-                    imageTexture.Item = @".\" + textureName + @".jpg";
-                    listImages.Add(imageTexture);
-
-                    textureCoord = "UVSET0";                
+                    listImages.Add(
+                        new image()
+                        {
+                            id = textureName + ".jpg",
+                            name = textureName + ".jpg",
+                            Item = @".\" + textureName + @".jpg"
+                        }
+                    );
                 }
                 material materialCase;
                 effect effectCase;
-                CreateMaterial(col
-                    , textureName, textureCoord
-                    , string.Format("Case{0}", colorIndex)
-                    , out effectCase, out materialCase);
-
+                CreateMaterial(face.ColorFill, textureName, "0", string.Format("Case{0}", faceIndex), out effectCase, out materialCase);
                 listEffects.Add(effectCase);
                 listMaterials.Add(materialCase);
 
-                ++colorIndex;
+                ++faceIndex;
             }
 
+            // add to image list
             images.image = listImages.ToArray();
 
             // case lines material
@@ -858,10 +863,82 @@ namespace TreeDim.StackBuilder.ColladaExporter
         }
         #endregion
 
+        #region Browsing
+        public static bool ChromeInstalled
+        {
+            get
+            {
+                return File.Exists(GoogleChromePath);
+            }
+        }
+        public static bool BrowseWithGoogleChrome(string filePath)
+        {
+            try
+            {
+                // get directory
+                string dir = Path.GetDirectoryName(filePath);
+                string fileNameWOExtension = Path.GetFileNameWithoutExtension(filePath);
+                // copy glge-compiled-min.js
+                string glgeFilePath = Settings.Default.GLGEFilePath;
+                string glgeFileName = Path.GetFileName(glgeFilePath);
+                File.Copy(glgeFilePath, Path.Combine(dir, glgeFileName), true);
+                // generate html file
+                string filePathHTML = Path.ChangeExtension(filePath, "html");
+                using (StreamWriter sw = new StreamWriter(filePathHTML, false))
+                {
+                    using (StreamReader sr = File.OpenText(HTMLFilePath))
+                    {
+                        string line = string.Empty;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            if (line.Contains("collada.dae"))
+                                line = line.Replace("collada.dae", fileNameWOExtension + ".dae");
+                            sw.WriteLine(line);
+                        }
+                        sr.Close();
+                    }
+                    sw.Close();
+                }
+                // open file
+                using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
+                {
+                    proc.StartInfo.FileName = GoogleChromePath;
+                    proc.StartInfo.Arguments = "/allow-file-access-from-files " + filePathHTML;
+                    proc.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.ToString();
+                return false;
+            }
+            return true;
+        }
+
+        private static string GLGEFilePath
+        {
+            get { return Settings.Default.GLGEFilePath; }
+        }
+
+        private static string HTMLFilePath
+        {
+            get { return Settings.Default.HTMLFilePath; }
+        }
+
+        private static string GoogleChromePath
+        {
+            get
+            {
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Google\Chrome\Application\chrome.exe"); 
+            }
+        }
+        #endregion
+
         #region Data members
         private PalletSolution _palletSolution;
         private double _xOffset = 2000.0;
         private double _zOffset = 1500.0;
+        private int _bmpWidth = 150;
         #endregion
     }
     #endregion

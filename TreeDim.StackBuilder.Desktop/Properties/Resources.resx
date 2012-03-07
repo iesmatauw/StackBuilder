@@ -451,4 +451,7 @@ Continue?</value>
   <data name="ID_WEIGHT" xml:space="preserve">
     <value>Weight (kg)</value>
   </data>
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+    <value>The Google Chrome browser needs to be installed to visualize collada/webGL animations.</value>
+  </data>
 </root>

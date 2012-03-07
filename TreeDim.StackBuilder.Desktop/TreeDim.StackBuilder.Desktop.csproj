@@ -558,6 +558,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\Resources.fr-FR.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -647,6 +648,10 @@
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>TreeDim.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.ColladaExporter\TreeDim.StackBuilder.ColladaExporter.csproj">
+      <Project>{785A5666-FE91-4796-A720-13C9A727BA5C}</Project>
+      <Name>TreeDim.StackBuilder.ColladaExporter</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
       <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
@@ -742,6 +747,7 @@
     <None Include="Resources\Help.bmp" />
     <None Include="Resources\CaseOfBoxes.bmp" />
     <None Include="Resources\IE-icon.png" />
+    <None Include="Resources\Chrome.bmp" />
     <Content Include="Resources\Image.bmp" />
     <None Include="Resources\OptimalCase.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />

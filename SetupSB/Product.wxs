@@ -38,7 +38,10 @@
               <Directory Id="SAMPLES" Name="Samples"/>
               <Directory Id="XMLSCHEMAS" Name="XML Schemas"/>
               <Directory Id="CARDBOARDQUALITYDATA" Name="CardboardQualityData"/>
-             </Directory>
+              <Directory Id="WEBGL" Name="WebGL">
+                <Directory Id="GLGE" Name="GLGE"/>
+              </Directory>
+            </Directory>
           </Directory>
         </Directory>
 			</Directory>
@@ -100,6 +103,7 @@
         <File Id="TreeDim.StackBuilder.Desktop.chm" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes"/>
         <File Id="TreeDim.StackBuilder.XmlFileProcessor.exe.config" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes"/>
+        <File Id="TreeDim.StackBuilder.ColladaExporter.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ColladaExporter.dll" Checksum="yes"/>
         <File Id="Plossum_CommandLine.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes"/>
         <File Id="C5.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes"/>
         <!--update config file-->
@@ -123,11 +127,22 @@
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.EdgeCrushTest.Properties.Settings/setting[\[]@name='CardboardQualityDBFile'[\]]/value"
                       Value="[INSTALLLOCATION]CardboardQualityData\CardboardQualityData.xml"/>
+        <util:XmlFile Id="SetGLGELibPath"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='GLGEFilePath'[\]]/value"
+                      Value="[GLGE]glge-compiled-min.js"/>
+        <util:XmlFile Id="SetGLGEHTMLPath"
+                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='HTMLFilePath'[\]]/value"
+                      Value="[GLGE]glge.html"/>
         <util:XmlFile Id="SetShowLogConsole"
                       File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ShowLogConsole'[\]]/value"
                       Value="False"/>
+
         <!--update config file-->
       </Component>
       <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
@@ -189,6 +204,12 @@
         </File>
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="GLGE">
+      <Component Id="WEBGL_GLGE" Guid="{246C8AE8-BB09-41BC-A642-6C83C6585E56}">
+        <File Id="glge_compiled_min.js" Name="glge-compiled-min.js" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge-compiled-min.js" Checksum="yes" KeyPath="yes"/>
+        <File Id="glge.html" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge.html" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
     <DirectoryRef Id="SAMPLES">
       <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">
         <File Id="Matches.stb" Source="..\Samples\Matches.stb"/>
@@ -248,6 +269,7 @@
       <ComponentRef Id="Samples"/>
       <ComponentRef Id="XmlSchemas"/>
       <ComponentRef Id="CardboardQualityData"/>
+      <ComponentRef Id="WEBGL_GLGE"/>
       <ComponentRef Id="AutoUpdater"/>
 		</Feature>
     <!--Upgrade table-->

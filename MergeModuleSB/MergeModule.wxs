@@ -79,21 +79,21 @@
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value"
                       Value="[PALLETSOLUTIONSDB]"/>
+        <util:XmlFile Id="SetGLGELibPath"
+                      File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='GLGEFilePath'[\]]/value"
+                      Value="[GLGE]glge-compiled-min.js"/>
+        <util:XmlFile Id="SetGLGEHTMLPath"
+                      File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
+                      Action="setValue"
+                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='HTMLFilePath'[\]]/value"
+                      Value="[GLGE]glge.html"/>
         <util:XmlFile Id="SetStackBuilderSchemaPath"
                       File="[StackBuilder]TreeDim.StackBuilder.XmlFileProcessor.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value"
                       Value="[StackBuilder]XML Schemas\StackBuilderSchema.xsd"/>
-        <util:XmlFile Id="SetGLGELibPath"
-                      File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
-                      Action="setValue"
-                      ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='GLGEFilePath'[\]]/value"
-                      Value="[StackBuilder]WebGL\GLGE\glge-compiled-min.js"/>
-        <util:XmlFile Id="SetGLGEHTMLPath"
-                     File="[StackBuilder]TreeDim.StackBuilder.Desktop.exe.config"
-                     Action="setValue"
-                     ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='HTMLFilePath'[\]]/value"
-                     Value="[StackBuilder]WebGL\GLGE\glge.html"/>
         <!--update config file-->
       </Component>
       <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
@@ -159,7 +159,7 @@
       <Component Id="WEBGL_GLGE" Guid="{246C8AE8-BB09-41BC-A642-6C83C6585E56}">
         <File Id="glge_compiled_min.js" Name="glge-compiled-min.js" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge-compiled-min.js" Checksum="yes" KeyPath="yes"/>
         <File Id="glge.html" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge.html" Checksum="yes"/>
-      </Component> 
+      </Component>
     </DirectoryRef>
     <DirectoryRef Id="SAMPLES">
       <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">

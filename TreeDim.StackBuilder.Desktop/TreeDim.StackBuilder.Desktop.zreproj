@@ -64,8 +64,14 @@ Kind regards</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23</globalSetting>
     <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1</globalSetting>
     <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory">D:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop</globalSetting>
-    <globalSetting name="sendFileToTranslator.exportCompletelyEmptyRowsCheckEdit.Checked">True</globalSetting>
-    <userSetting name="François@TREEDIM_PC2.filesInitialDir">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop</userSetting>
+    <globalSetting name="sendFileToTranslator.exportCompletelyEmptyRowsCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="AddNewFileGroupForm.destinationLanguagesListBox">
+    </globalSetting>
+    <globalSetting name="AddNewFileGroupForm.baseFolderTextEdit.Text">
+    </globalSetting>
+    <globalSetting name="AddNewFileGroupForm.baseFileNameTextEdit.Text">
+    </globalSetting>
+    <userSetting name="François@TREEDIM_PC2.filesInitialDir">K:\Codeplex\StackBuilder\TreeDim.Update</userSetting>
     <userSetting name="François@TREEDIM_PC2.FindText">
     </userSetting>
     <userSetting name="François@TREEDIM_PC2.RecentFiles">
@@ -169,7 +175,6 @@ Kind regards</globalSetting>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="130" ignoreDuringExportAndImport="False" uniqueID="421579f9-ce54-4938-bf0c-b40753c8e4d0">
       <file filePath="DockContentLogConsole.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentLogConsole.resx" uniqueID="5e57fc9b-bdbf-4509-bd53-9b638214a8d0" />
-      <file filePath="DockContentLogConsole.de-DE.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\DockContentLogConsole.de-DE.resx" uniqueID="b27260a5-dbe4-4ff3-ae30-2345e892b400" />
       <remarks>
       </remarks>
     </fileGroup>
@@ -309,19 +314,19 @@ Kind regards</globalSetting>
       <remarks>
       </remarks>
     </fileGroup>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="129" ignoreDuringExportAndImport="False" uniqueID="3c8209d5-0667-4bc6-b800-d2df72862099">
-      <file filePath="Properties\Resources.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.resx" uniqueID="50b3f36a-8ab0-4fd9-a174-1448091bb383" />
-      <file filePath="Properties\Resources.de-DE.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.de-DE.resx" uniqueID="4fb5ee62-a285-47fd-886e-ec8684eedcb0" />
-      <file filePath="Properties\Resources.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.fr-FR.resx" uniqueID="df3bb641-990c-4600-b28d-1a76fc4a5f87" />
-      <file filePath="Properties\Resources.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.ja-JP.resx" uniqueID="8d5ec13a-efd8-4cf0-b169-925ed1137679" />
-      <remarks>
-      </remarks>
-    </fileGroup>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="106" ignoreDuringExportAndImport="False" uniqueID="e894e208-f0f2-41d9-b5c0-daf48822766b">
       <file filePath="Properties\Resources.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.resx" uniqueID="13ca6b6c-03c5-4b51-b5bf-71adddd9f390" />
       <file filePath="Properties\Resources.de-DE.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.de-DE.resx" uniqueID="64ba29db-33c1-491a-9512-8a3cf66591e5" />
       <file filePath="Properties\Resources.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.fr-FR.resx" uniqueID="ff3315ad-cd79-4682-ae60-71d25a551222" />
       <file filePath="Properties\Resources.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.ja-JP.resx" uniqueID="e067b3ca-9630-4abd-bdf2-210fbd53337b" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="129" ignoreDuringExportAndImport="False" uniqueID="3c8209d5-0667-4bc6-b800-d2df72862099">
+      <file filePath="Properties\Resources.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.resx" uniqueID="50b3f36a-8ab0-4fd9-a174-1448091bb383" />
+      <file filePath="Properties\Resources.de-DE.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.de-DE.resx" uniqueID="4fb5ee62-a285-47fd-886e-ec8684eedcb0" />
+      <file filePath="Properties\Resources.fr-FR.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.fr-FR.resx" uniqueID="df3bb641-990c-4600-b28d-1a76fc4a5f87" />
+      <file filePath="Properties\Resources.ja-JP.resx" absoluteFilePath="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Desktop\Properties\Resources.ja-JP.resx" uniqueID="8d5ec13a-efd8-4cf0-b169-925ed1137679" />
       <remarks>
       </remarks>
     </fileGroup>

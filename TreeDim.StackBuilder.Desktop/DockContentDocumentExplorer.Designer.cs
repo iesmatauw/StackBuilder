@@ -36,6 +36,7 @@
             this.TabbedDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoHideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._documentTreeView = new TreeDim.StackBuilder.Desktop.AnalysisTreeView();
             this.ContextMenuDock.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,13 +49,15 @@
             this.AutoHideToolStripMenuItem,
             this.HideToolStripMenuItem});
             this.ContextMenuDock.Name = "ContextMenuStrip1";
-            resources.ApplyResources(this.ContextMenuDock, "ContextMenuDock");
+            this.ContextMenuDock.Size = new System.Drawing.Size(174, 114);
+            this.ContextMenuDock.Text = "Window Position";
             // 
             // FloatingToolStripMenuItem
             // 
             this.FloatingToolStripMenuItem.CheckOnClick = true;
             this.FloatingToolStripMenuItem.Name = "FloatingToolStripMenuItem";
-            resources.ApplyResources(this.FloatingToolStripMenuItem, "FloatingToolStripMenuItem");
+            this.FloatingToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.FloatingToolStripMenuItem.Text = "Floating";
             this.FloatingToolStripMenuItem.Click += new System.EventHandler(this.FloatingToolStripMenuItem_Click);
             // 
             // DockableToolStripMenuItem
@@ -63,46 +66,65 @@
             this.DockableToolStripMenuItem.CheckOnClick = true;
             this.DockableToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DockableToolStripMenuItem.Name = "DockableToolStripMenuItem";
-            resources.ApplyResources(this.DockableToolStripMenuItem, "DockableToolStripMenuItem");
+            this.DockableToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.DockableToolStripMenuItem.Text = "Dockable";
             this.DockableToolStripMenuItem.Click += new System.EventHandler(this.DockableToolStripMenuItem_Click);
             // 
             // TabbedDocumentToolStripMenuItem
             // 
             this.TabbedDocumentToolStripMenuItem.CheckOnClick = true;
             this.TabbedDocumentToolStripMenuItem.Name = "TabbedDocumentToolStripMenuItem";
-            resources.ApplyResources(this.TabbedDocumentToolStripMenuItem, "TabbedDocumentToolStripMenuItem");
+            this.TabbedDocumentToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.TabbedDocumentToolStripMenuItem.Text = "Tabbed Document";
             this.TabbedDocumentToolStripMenuItem.Click += new System.EventHandler(this.TabbedDocumentToolStripMenuItem_Click);
             // 
             // AutoHideToolStripMenuItem
             // 
             this.AutoHideToolStripMenuItem.CheckOnClick = true;
             this.AutoHideToolStripMenuItem.Name = "AutoHideToolStripMenuItem";
-            resources.ApplyResources(this.AutoHideToolStripMenuItem, "AutoHideToolStripMenuItem");
+            this.AutoHideToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.AutoHideToolStripMenuItem.Text = "Auto Hide";
             this.AutoHideToolStripMenuItem.Click += new System.EventHandler(this.AutoHideToolStripMenuItem_Click);
             // 
             // HideToolStripMenuItem
             // 
             this.HideToolStripMenuItem.CheckOnClick = true;
             this.HideToolStripMenuItem.Name = "HideToolStripMenuItem";
-            resources.ApplyResources(this.HideToolStripMenuItem, "HideToolStripMenuItem");
+            this.HideToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.HideToolStripMenuItem.Text = "Hide";
+            // 
+            // _documentTreeView
+            // 
+            this._documentTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._documentTreeView.ImageIndex = 0;
+            this._documentTreeView.Location = new System.Drawing.Point(0, 0);
+            this._documentTreeView.Name = "_documentTreeView";
+            this._documentTreeView.SelectedImageIndex = 0;
+            this._documentTreeView.Size = new System.Drawing.Size(284, 549);
+            this._documentTreeView.TabIndex = 1;
             // 
             // DockContentDocumentExplorer
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 549);
             this.CloseButton = false;
             this.CloseButtonVisible = false;
             this.ControlBox = false;
+            this.Controls.Add(this._documentTreeView);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft)
                         | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)
                         | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop)
                         | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DockContentDocumentExplorer";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockLeft;
             this.ShowInTaskbar = false;
             this.TabPageContextMenuStrip = this.ContextMenuDock;
+            this.Text = "Document explorer";
             this.ContextMenuDock.ResumeLayout(false);
             this.ResumeLayout(false);
 

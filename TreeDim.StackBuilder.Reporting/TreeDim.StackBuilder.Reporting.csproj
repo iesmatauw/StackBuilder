@@ -86,6 +86,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReportTemplates\ReportTemplateHtml_DEU.xsl" />
     <Content Include="ReportTemplates\ReportTemplateHtml_ENU.xsl">
       <SubType>Designer</SubType>
     </Content>
@@ -93,6 +94,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ReportTemplates\ReportTemplateHtml_JPN.xsl" />
+    <Content Include="ReportTemplates\ReportTemplateMSWord_DEU.xml" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_ENU.xml" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_FRA.xml" />
     <Content Include="ReportTemplates\ReportTemplateMSWord_JPN.xml" />

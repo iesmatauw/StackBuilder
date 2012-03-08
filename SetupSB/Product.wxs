@@ -277,6 +277,7 @@
       <ComponentRef Id="PalletSolutionsDB"/>
       <ComponentRef Id="resources_fr_FR"/>
       <ComponentRef Id="resources_ja_JP"/>
+      <ComponentRef Id="resources_fr_FR"/>
       <ComponentRef Id="Samples"/>
       <ComponentRef Id="XmlSchemas"/>
       <ComponentRef Id="CardboardQualityData"/>

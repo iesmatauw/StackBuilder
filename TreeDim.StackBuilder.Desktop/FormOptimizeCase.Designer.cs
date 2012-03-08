@@ -34,6 +34,7 @@
             this.pbPallet = new System.Windows.Forms.PictureBox();
             this.btClose = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.chkVerticalOrientationOnly = new System.Windows.Forms.CheckBox();
             this.nudNumber = new System.Windows.Forms.NumericUpDown();
             this.lbNumber = new System.Windows.Forms.Label();
             this.lbBoxDimensions = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.btAddSolution = new System.Windows.Forms.Button();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkVerticalOrientationOnly = new System.Windows.Forms.CheckBox();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
             this.splitContainerCasePallet.SuspendLayout();
@@ -138,6 +138,12 @@
             this.groupBox.Controls.Add(this.lbBox);
             this.groupBox.Name = "groupBox";
             this.groupBox.TabStop = false;
+            // 
+            // chkVerticalOrientationOnly
+            // 
+            resources.ApplyResources(this.chkVerticalOrientationOnly, "chkVerticalOrientationOnly");
+            this.chkVerticalOrientationOnly.Name = "chkVerticalOrientationOnly";
+            this.chkVerticalOrientationOnly.UseVisualStyleBackColor = true;
             // 
             // nudNumber
             // 
@@ -460,12 +466,6 @@
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
-            // chkVerticalOrientationOnly
-            // 
-            resources.ApplyResources(this.chkVerticalOrientationOnly, "chkVerticalOrientationOnly");
-            this.chkVerticalOrientationOnly.Name = "chkVerticalOrientationOnly";
-            this.chkVerticalOrientationOnly.UseVisualStyleBackColor = true;
-            // 
             // FormOptimizeCase
             // 
             resources.ApplyResources(this, "$this");
@@ -484,8 +484,8 @@
             this.Name = "FormOptimizeCase";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Load += new System.EventHandler(this.FormOptimizeCase_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormOptimizeCase_FormClosing);
+            this.Load += new System.EventHandler(this.FormOptimizeCase_Load);
             this.splitContainerCasePallet.Panel1.ResumeLayout(false);
             this.splitContainerCasePallet.Panel2.ResumeLayout(false);
             this.splitContainerCasePallet.ResumeLayout(false);

@@ -283,4 +283,7 @@
 	<data name="lbKg1.Text" xml:space="preserve">
 		<value>kg</value>
 	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Spirale élargie</value>
+	</data>
 </root>

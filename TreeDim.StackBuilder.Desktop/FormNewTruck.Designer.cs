@@ -234,7 +234,10 @@
             resources.GetString("cbColor.Items20"),
             resources.GetString("cbColor.Items21"),
             resources.GetString("cbColor.Items22"),
-            resources.GetString("cbColor.Items23")});
+            resources.GetString("cbColor.Items23"),
+            resources.GetString("cbColor.Items24"),
+            resources.GetString("cbColor.Items25"),
+            resources.GetString("cbColor.Items26")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -272,16 +275,16 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewTruck
             // 
@@ -319,8 +322,8 @@
             this.Name = "FormNewTruck";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Load += new System.EventHandler(this.FormNewTruck_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewTruck_FormClosing);
+            this.Load += new System.EventHandler(this.FormNewTruck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();

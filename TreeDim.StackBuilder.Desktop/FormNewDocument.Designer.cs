@@ -46,103 +46,63 @@
             // 
             // lbName
             // 
-            this.lbName.AccessibleDescription = null;
-            this.lbName.AccessibleName = null;
             resources.ApplyResources(this.lbName, "lbName");
-            this.lbName.Font = null;
             this.lbName.Name = "lbName";
             // 
             // lbDescription
             // 
-            this.lbDescription.AccessibleDescription = null;
-            this.lbDescription.AccessibleName = null;
             resources.ApplyResources(this.lbDescription, "lbDescription");
-            this.lbDescription.Font = null;
             this.lbDescription.Name = "lbDescription";
             // 
             // tbName
             // 
-            this.tbName.AccessibleDescription = null;
-            this.tbName.AccessibleName = null;
             resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.BackgroundImage = null;
-            this.tbName.Font = null;
             this.tbName.Name = "tbName";
             this.tbName.TextChanged += new System.EventHandler(this.onDocumentNameChanged);
             // 
             // tbDescription
             // 
-            this.tbDescription.AccessibleDescription = null;
-            this.tbDescription.AccessibleName = null;
             resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.BackgroundImage = null;
-            this.tbDescription.Font = null;
             this.tbDescription.Name = "tbDescription";
             // 
             // bnOk
             // 
-            this.bnOk.AccessibleDescription = null;
-            this.bnOk.AccessibleName = null;
             resources.ApplyResources(this.bnOk, "bnOk");
-            this.bnOk.BackgroundImage = null;
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Font = null;
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.AccessibleDescription = null;
-            this.bnCancel.AccessibleName = null;
             resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.BackgroundImage = null;
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Font = null;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // lbAuthor
             // 
-            this.lbAuthor.AccessibleDescription = null;
-            this.lbAuthor.AccessibleName = null;
             resources.ApplyResources(this.lbAuthor, "lbAuthor");
-            this.lbAuthor.Font = null;
             this.lbAuthor.Name = "lbAuthor";
             // 
             // tbAuthor
             // 
-            this.tbAuthor.AccessibleDescription = null;
-            this.tbAuthor.AccessibleName = null;
             resources.ApplyResources(this.tbAuthor, "tbAuthor");
-            this.tbAuthor.BackgroundImage = null;
-            this.tbAuthor.Font = null;
             this.tbAuthor.Name = "tbAuthor";
             // 
             // lbDateCreated
             // 
-            this.lbDateCreated.AccessibleDescription = null;
-            this.lbDateCreated.AccessibleName = null;
             resources.ApplyResources(this.lbDateCreated, "lbDateCreated");
-            this.lbDateCreated.Font = null;
             this.lbDateCreated.Name = "lbDateCreated";
             // 
             // tbDateCreated
             // 
-            this.tbDateCreated.AccessibleDescription = null;
-            this.tbDateCreated.AccessibleName = null;
             resources.ApplyResources(this.tbDateCreated, "tbDateCreated");
-            this.tbDateCreated.BackgroundImage = null;
-            this.tbDateCreated.Font = null;
             this.tbDateCreated.Name = "tbDateCreated";
             this.tbDateCreated.ReadOnly = true;
             // 
             // statusStripDef
             // 
-            this.statusStripDef.AccessibleDescription = null;
-            this.statusStripDef.AccessibleName = null;
             resources.ApplyResources(this.statusStripDef, "statusStripDef");
-            this.statusStripDef.BackgroundImage = null;
-            this.statusStripDef.Font = null;
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
             this.statusStripDef.Name = "statusStripDef";
@@ -150,21 +110,15 @@
             // 
             // toolStripStatusLabelDef
             // 
-            this.toolStripStatusLabelDef.AccessibleDescription = null;
-            this.toolStripStatusLabelDef.AccessibleName = null;
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
-            this.toolStripStatusLabelDef.BackgroundImage = null;
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             // 
             // FormNewDocument
             // 
             this.AcceptButton = this.bnOk;
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.tbDateCreated);
@@ -177,15 +131,13 @@
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
-            this.Font = null;
-            this.Icon = null;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewDocument";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Load += new System.EventHandler(this.FormNewDocument_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewDocument_FormClosing);
+            this.Load += new System.EventHandler(this.FormNewDocument_Load);
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);

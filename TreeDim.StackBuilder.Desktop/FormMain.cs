@@ -448,10 +448,30 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 DocumentSB doc = eventArg.Document as DocumentSB;
-                string colladaFilePath = Path.ChangeExtension(doc.FilePath, "dae");
-                Exporter exporter = new ColladaExporter.Exporter( eventArg.SelSolution.Solution );
-                exporter.Export(colladaFilePath);
+                string htmlFilePath = Path.ChangeExtension(doc.FilePath, "html");
 
+                // get file path
+                saveFileDialogWebGL.InitialDirectory = Path.GetDirectoryName(htmlFilePath);
+                saveFileDialogWebGL.FileName = htmlFilePath;
+                if (DialogResult.OK != saveFileDialogWebGL.ShowDialog())
+                    return;
+                htmlFilePath = saveFileDialogWebGL.FileName;
+
+                // export collada file
+                string colladaFilePath = Path.ChangeExtension(htmlFilePath, "dae");
+                try
+                {
+                    Exporter exporter = new ColladaExporter.Exporter(eventArg.SelSolution.Solution);
+                    exporter.Export(colladaFilePath);
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                    Program.ReportException(ex);
+                    return;
+                }
+
+                // browse with google chrome
                 if (ColladaExporter.Exporter.ChromeInstalled)
                     ColladaExporter.Exporter.BrowseWithGoogleChrome(colladaFilePath);
                 else
@@ -460,6 +480,7 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
+                Program.ReportException(ex);
             }
         }
 

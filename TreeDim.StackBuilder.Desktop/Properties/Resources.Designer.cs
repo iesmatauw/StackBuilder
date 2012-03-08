@@ -540,6 +540,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate COLLADA/WebGL animation file for {0}.
+        /// </summary>
+        internal static string ID_GENERATECOLLADA {
+            get {
+                return ResourceManager.GetString("ID_GENERATECOLLADA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate HTML report for {0}.
         /// </summary>
         internal static string ID_GENERATEREPORTHTML {

@@ -73,10 +73,12 @@
             // 
             // splitContainerHoriz.Panel1
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerHorizInside);
             // 
             // splitContainerHoriz.Panel2
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
             // 
             // splitContainerHorizInside
@@ -87,10 +89,12 @@
             // 
             // splitContainerHorizInside.Panel1
             // 
+            resources.ApplyResources(this.splitContainerHorizInside.Panel1, "splitContainerHorizInside.Panel1");
             this.splitContainerHorizInside.Panel1.Controls.Add(this.splitContainerVertInside);
             // 
             // splitContainerHorizInside.Panel2
             // 
+            resources.ApplyResources(this.splitContainerHorizInside.Panel2, "splitContainerHorizInside.Panel2");
             this.splitContainerHorizInside.Panel2.Controls.Add(this.trackBarAngleVert);
             this.splitContainerHorizInside.Panel2.Controls.Add(this.trackBarAngleHoriz);
             // 
@@ -101,10 +105,12 @@
             // 
             // splitContainerVertInside.Panel1
             // 
+            resources.ApplyResources(this.splitContainerVertInside.Panel1, "splitContainerVertInside.Panel1");
             this.splitContainerVertInside.Panel1.Controls.Add(this.pictureBoxCase);
             // 
             // splitContainerVertInside.Panel2
             // 
+            resources.ApplyResources(this.splitContainerVertInside.Panel2, "splitContainerVertInside.Panel2");
             this.splitContainerVertInside.Panel2.Controls.Add(this.pictureBoxPallet);
             // 
             // pictureBoxCase
@@ -157,6 +163,7 @@
             // 
             // toolStrip_view
             // 
+            resources.ApplyResources(this.toolStrip_view, "toolStrip_view");
             this.toolStrip_view.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripCornerView_0,
             this.toolStripCornerView_90,
@@ -170,96 +177,95 @@
             this.toolStripTopView,
             this.toolStripSeparator2,
             this.toolStripShowImages});
-            resources.ApplyResources(this.toolStrip_view, "toolStrip_view");
             this.toolStrip_view.Name = "toolStrip_view";
             // 
             // toolStripCornerView_0
             // 
+            resources.ApplyResources(this.toolStripCornerView_0, "toolStripCornerView_0");
             this.toolStripCornerView_0.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripCornerView_0.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View0;
-            resources.ApplyResources(this.toolStripCornerView_0, "toolStripCornerView_0");
             this.toolStripCornerView_0.Name = "toolStripCornerView_0";
             this.toolStripCornerView_0.Click += new System.EventHandler(this.onViewCorner_0);
             // 
             // toolStripCornerView_90
             // 
+            resources.ApplyResources(this.toolStripCornerView_90, "toolStripCornerView_90");
             this.toolStripCornerView_90.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripCornerView_90.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View90;
-            resources.ApplyResources(this.toolStripCornerView_90, "toolStripCornerView_90");
             this.toolStripCornerView_90.Name = "toolStripCornerView_90";
             this.toolStripCornerView_90.Click += new System.EventHandler(this.onViewCorner_90);
             // 
             // toolStripCornerView_180
             // 
+            resources.ApplyResources(this.toolStripCornerView_180, "toolStripCornerView_180");
             this.toolStripCornerView_180.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripCornerView_180.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View180;
-            resources.ApplyResources(this.toolStripCornerView_180, "toolStripCornerView_180");
             this.toolStripCornerView_180.Name = "toolStripCornerView_180";
             this.toolStripCornerView_180.Click += new System.EventHandler(this.onViewCorner_180);
             // 
             // toolStripCornerView_270
             // 
+            resources.ApplyResources(this.toolStripCornerView_270, "toolStripCornerView_270");
             this.toolStripCornerView_270.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripCornerView_270.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View270;
-            resources.ApplyResources(this.toolStripCornerView_270, "toolStripCornerView_270");
             this.toolStripCornerView_270.Name = "toolStripCornerView_270";
             this.toolStripCornerView_270.Click += new System.EventHandler(this.onViewCorner_270);
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
             // 
             // toolStripFrontView
             // 
+            resources.ApplyResources(this.toolStripFrontView, "toolStripFrontView");
             this.toolStripFrontView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripFrontView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_1;
-            resources.ApplyResources(this.toolStripFrontView, "toolStripFrontView");
             this.toolStripFrontView.Name = "toolStripFrontView";
             this.toolStripFrontView.Click += new System.EventHandler(this.onViewSideFront);
             // 
             // toolStripRightView
             // 
+            resources.ApplyResources(this.toolStripRightView, "toolStripRightView");
             this.toolStripRightView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripRightView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_2;
-            resources.ApplyResources(this.toolStripRightView, "toolStripRightView");
             this.toolStripRightView.Name = "toolStripRightView";
             this.toolStripRightView.Click += new System.EventHandler(this.onViewSideRight);
             // 
             // toolStripBackView
             // 
+            resources.ApplyResources(this.toolStripBackView, "toolStripBackView");
             this.toolStripBackView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripBackView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_3;
-            resources.ApplyResources(this.toolStripBackView, "toolStripBackView");
             this.toolStripBackView.Name = "toolStripBackView";
             this.toolStripBackView.Click += new System.EventHandler(this.onViewSideRear);
             // 
             // toolStripLeftView
             // 
+            resources.ApplyResources(this.toolStripLeftView, "toolStripLeftView");
             this.toolStripLeftView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripLeftView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_4;
-            resources.ApplyResources(this.toolStripLeftView, "toolStripLeftView");
             this.toolStripLeftView.Name = "toolStripLeftView";
             this.toolStripLeftView.Click += new System.EventHandler(this.onViewSideLeft);
             // 
             // toolStripTopView
             // 
+            resources.ApplyResources(this.toolStripTopView, "toolStripTopView");
             this.toolStripTopView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripTopView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
-            resources.ApplyResources(this.toolStripTopView, "toolStripTopView");
             this.toolStripTopView.Name = "toolStripTopView";
             this.toolStripTopView.Click += new System.EventHandler(this.onViewTop);
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
             // 
             // toolStripShowImages
             // 
+            resources.ApplyResources(this.toolStripShowImages, "toolStripShowImages");
             this.toolStripShowImages.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripShowImages.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Image;
-            resources.ApplyResources(this.toolStripShowImages, "toolStripShowImages");
             this.toolStripShowImages.Name = "toolStripShowImages";
             this.toolStripShowImages.Click += new System.EventHandler(this.toolStripShowImages_Click);
             // 

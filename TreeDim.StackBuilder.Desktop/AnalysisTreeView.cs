@@ -204,7 +204,10 @@ namespace TreeDim.StackBuilder.Desktop
                 message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
                 contextMenuStrip.Items.Add( new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)) );
                 if (nodeTag.Analysis.IsBoxAnalysis)
+                {
+                    message = string.Format(Resources.ID_GENERATECOLLADA, nodeTag.SelSolution.Name);
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.COLLADAWEBGL, new EventHandler(onAnalysisExportCollada)));
+                }
             }
             if (nodeTag.Type == NodeTag.NodeType.NT_CASEANALYSIS)
             {
@@ -283,7 +286,6 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 SolutionColladaExportClicked(this, new AnalysisTreeViewEventArgs(tag));
-
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }

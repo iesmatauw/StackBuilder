@@ -101,6 +101,7 @@
             this.toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -549,6 +550,11 @@
             // 
             resources.ApplyResources(this.saveFileDialogSB, "saveFileDialogSB");
             // 
+            // saveFileDialogWebGL
+            // 
+            this.saveFileDialogWebGL.DefaultExt = "html";
+            resources.ApplyResources(this.saveFileDialogWebGL, "saveFileDialogWebGL");
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -627,5 +633,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogWebGL;
     }
 }

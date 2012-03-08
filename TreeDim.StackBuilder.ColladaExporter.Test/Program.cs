@@ -56,20 +56,14 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
                 }
 
                 PalletSolution palletSolution = analysis.Solutions[0];
+                // export collada file
                 ColladaExporter.Exporter exporter = new Exporter(palletSolution);
                 exporter.Export(outputPath);
-
                 log.Debug(string.Format("Successfully exported {0} ...", outputPath));
 
-                // open file in assimp viewer
-                // open file
-                using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
-                {
-                    string chromePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Google\Chrome\Application\chrome.exe");
-                    proc.StartInfo.FileName = chromePath;
-                    proc.StartInfo.Arguments = "/allow-file-access-from-files " + Path.ChangeExtension(filePath, "html");
-                    proc.Start();
-                }
+                // browse file
+                Exporter.BrowseWithGoogleChrome(outputPath);
+
             }
             catch (Exception ex)
             {

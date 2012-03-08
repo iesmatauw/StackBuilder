@@ -266,9 +266,6 @@
   <data name="lbColor.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Couleur</value>
-  </data>
   <data name="cbColor.Items3" xml:space="preserve">
     <value>Couleur</value>
   </data>
@@ -278,10 +275,10 @@
   <data name="cbColor.Items5" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items6" xml:space="preserve">
+  <data name="cbColor.Items7" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items7" xml:space="preserve">
+  <data name="cbColor.Items8" xml:space="preserve">
     <value>Couleur</value>
   </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">

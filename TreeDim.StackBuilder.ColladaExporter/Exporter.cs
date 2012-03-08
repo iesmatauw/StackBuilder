@@ -11,6 +11,7 @@ using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
 
 using Collada141;
+using log4net;
 
 using TreeDim.StackBuilder.ColladaExporter.Properties;
 #endregion
@@ -45,7 +46,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             get { return _bmpWidth; }
             set { _bmpWidth = value; }
         }
-        #endregion 
+        #endregion
 
         #region Export
         public void Export(string filePath)
@@ -103,7 +104,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                     textureName = string.Format("textureFace_{0}", faceIndex);
                     string texturePath = System.IO.Path.Combine(
                         System.IO.Path.GetDirectoryName(filePath)
-                        , textureName+ ".jpg");
+                        , textureName + ".jpg");
 
                     double dimX = 0.0, dimY = 0.0;
 
@@ -148,7 +149,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             listMaterials.Add(materialCaseLines);
             effects.effect = listEffects.ToArray();
             materials.material = listMaterials.ToArray();
-            
+
             // geometries
             geometry geomPallet = new geometry() { id = "palletGeometry", name = "palletGeometry" };
             geometry geomCase = new geometry() { id = "caseGeometry", name = "caseGeometry" };
@@ -160,7 +161,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             mesh meshCase = CreateCaseMesh(_palletSolution.Analysis.BProperties as BoxProperties);
             geomCase.Item = meshCase;
             // library_animations
-            animation animationMain = new animation() { id="animationMain_ID", name="animationMain" };
+            animation animationMain = new animation() { id = "animationMain_ID", name = "animationMain" };
             animations.animation = new animation[] { animationMain };
 
             List<object> listAnimationSource = new List<object>();
@@ -299,7 +300,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                 diffuseColorOrTexture.Item = new common_color_or_texture_typeColor() { Values = new double[] { (double)color.R / 255.0, (double)color.G / 255.0, (double)color.B / 255.0, 1.000000 } };
             else
                 diffuseColorOrTexture.Item = new common_color_or_texture_typeTexture() { texture = "sampler_" + textureName, texcoord = textureCoord };
- 
+
             effectFx_profile_abstractProfile_COMMON effectFx_prof = new effectFx_profile_abstractProfile_COMMON()
             {
                 technique = new effectFx_profile_abstractProfile_COMMONTechnique()
@@ -373,7 +374,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             {
                 id = string.Format("effect_{0}_ID", material),
                 name = string.Format("effect_{0}", material),
-                Items =  new effectFx_profile_abstractProfile_COMMON[] { effectFx_prof }
+                Items = new effectFx_profile_abstractProfile_COMMON[] { effectFx_prof }
             };
             // materials
             materialColor = new material()
@@ -401,7 +402,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             listInterp.Add("LINEAR");
             for (int i = 0; i < iStep; ++i)
             {
-                listTime.Add(((double)caseIndex + (double)i / (double)(iStep - 1)) );
+                listTime.Add(((double)caseIndex + (double)i / (double)(iStep - 1)));
                 listInterp.Add("LINEAR");
             }
             listTime.Add(caseCount);
@@ -409,10 +410,10 @@ namespace TreeDim.StackBuilder.ColladaExporter
 
             BProperties bProperties = _palletSolution.Analysis.BProperties;
             PalletProperties pProperties = _palletSolution.Analysis.PalletProperties;
-            
+
             double yOffset = 0.5 * (_palletSolution.Analysis.PalletProperties.Width - bProperties.Length);
             BoxPosition bPosFinal = GetFinalBoxPosition(caseIndex);
-            
+
             List<BoxPosition> listBoxPosition = new List<BoxPosition>();
             // -1.
             listBoxPosition.Add(GetInitialBoxPosition(caseIndex));
@@ -445,7 +446,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             listRY.Add(vRotPrev0.Y);
             listRZ.Add(vRotPrev0.Z);
 
-            for (int i=1; i< listBoxPosition.Count; ++i)
+            for (int i = 1; i < listBoxPosition.Count; ++i)
             {
                 BoxPosition bP = listBoxPosition[i];
                 listX.Add(bP.Position.X);
@@ -510,18 +511,18 @@ namespace TreeDim.StackBuilder.ColladaExporter
                 }
             };
             listAnimationObjects.Add(sInterp);
-            
+
             CreateChannel(listAnimationObjects, caseIndex, "X", "TIME", string.Format("CaseNode_{0}_ID/t.X", caseIndex), listX);
             CreateChannel(listAnimationObjects, caseIndex, "Y", "TIME", string.Format("CaseNode_{0}_ID/t.Y", caseIndex), listY);
             CreateChannel(listAnimationObjects, caseIndex, "Z", "TIME", string.Format("CaseNode_{0}_ID/t.Z", caseIndex), listZ);
             CreateChannel(listAnimationObjects, caseIndex, "RX", "ANGLE", string.Format("CaseNode_{0}_ID/rx.ANGLE", caseIndex), listRX);
             CreateChannel(listAnimationObjects, caseIndex, "RY", "ANGLE", string.Format("CaseNode_{0}_ID/ry.ANGLE", caseIndex), listRY);
             CreateChannel(listAnimationObjects, caseIndex, "RZ", "ANGLE", string.Format("CaseNode_{0}_ID/rz.ANGLE", caseIndex), listRZ);
-             
+
         }
 
         protected BoxPosition GetInitialBoxPosition(uint caseIndex)
-        {            
+        {
             uint iLayer = 0, iCounted = 0;
             foreach (BoxLayer layer in _palletSolution)
             {
@@ -537,7 +538,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             BProperties bProperties = _palletSolution.Analysis.BProperties;
 
             double yOffset = 0.5 * (_palletSolution.Analysis.PalletProperties.Width - bProperties.Length);
-            Vector3D vPosition = new Vector3D(_xOffset + (caseIndex - iCounted) * bProperties.Width, yOffset, (_palletSolution.Count-1-iLayer) * bProperties.Height);
+            Vector3D vPosition = new Vector3D(_xOffset + (caseIndex - iCounted) * bProperties.Width, yOffset, (_palletSolution.Count - 1 - iLayer) * bProperties.Height);
             return new BoxPosition(vPosition, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
         }
 
@@ -603,7 +604,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             // channel
             channel channel_ = new channel()
             {
-                source= "#" + sampler_.id,
+                source = "#" + sampler_.id,
                 target = sTarget
             };
             listAnimationObjects.Add(channel_);
@@ -612,7 +613,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
 
         #region Case meshes
         protected mesh CreateComplexCaseMesh(BoxProperties caseProperties)
-        { 
+        {
             // build box
             Box box = new Box(0, caseProperties);
             // build list of vertex
@@ -624,15 +625,15 @@ namespace TreeDim.StackBuilder.ColladaExporter
             vertices[2] = new Vector3D(box.Length - ct, box.Width - ct, 0.0);
             vertices[3] = new Vector3D(ct, box.Width - ct, 0.0);
             // 2nd layer (8)
-            vertices[4] = new Vector3D(0.0,         0.0,        ct);
-            vertices[5] = new Vector3D(box.Length,  0.0,        ct);
-            vertices[6] = new Vector3D(box.Length,  box.Width,  ct);
-            vertices[7] = new Vector3D(0.0,         box.Width,  ct);
+            vertices[4] = new Vector3D(0.0, 0.0, ct);
+            vertices[5] = new Vector3D(box.Length, 0.0, ct);
+            vertices[6] = new Vector3D(box.Length, box.Width, ct);
+            vertices[7] = new Vector3D(0.0, box.Width, ct);
             // 3rd later (8)
-            vertices[8] = new Vector3D(0.0,         0.0,        box.Height - ct);
-            vertices[9] = new Vector3D(box.Length,  0.0,        box.Height - ct);
-            vertices[10] = new Vector3D(box.Length, box.Width,  box.Height - ct);
-            vertices[11] = new Vector3D(0.0,        box.Width,  box.Height - ct);
+            vertices[8] = new Vector3D(0.0, 0.0, box.Height - ct);
+            vertices[9] = new Vector3D(box.Length, 0.0, box.Height - ct);
+            vertices[10] = new Vector3D(box.Length, box.Width, box.Height - ct);
+            vertices[11] = new Vector3D(0.0, box.Width, box.Height - ct);
             // 4th layer
             vertices[12] = new Vector3D(ct, ct, box.Height);
             vertices[13] = new Vector3D(box.Length - ct, ct, box.Height);
@@ -871,48 +872,39 @@ namespace TreeDim.StackBuilder.ColladaExporter
                 return File.Exists(GoogleChromePath);
             }
         }
-        public static bool BrowseWithGoogleChrome(string filePath)
+        public static void BrowseWithGoogleChrome(string filePath)
         {
-            try
+            // get directory
+            string dir = Path.GetDirectoryName(filePath);
+            string fileNameWOExtension = Path.GetFileNameWithoutExtension(filePath);
+            // copy glge-compiled-min.js
+            string glgeFilePath = Settings.Default.GLGEFilePath;
+            string glgeFileName = Path.GetFileName(glgeFilePath);
+            File.Copy(glgeFilePath, Path.Combine(dir, glgeFileName), true);
+            // generate html file
+            string filePathHTML = Path.ChangeExtension(filePath, "html");
+            using (StreamWriter sw = new StreamWriter(filePathHTML, false))
             {
-                // get directory
-                string dir = Path.GetDirectoryName(filePath);
-                string fileNameWOExtension = Path.GetFileNameWithoutExtension(filePath);
-                // copy glge-compiled-min.js
-                string glgeFilePath = Settings.Default.GLGEFilePath;
-                string glgeFileName = Path.GetFileName(glgeFilePath);
-                File.Copy(glgeFilePath, Path.Combine(dir, glgeFileName), true);
-                // generate html file
-                string filePathHTML = Path.ChangeExtension(filePath, "html");
-                using (StreamWriter sw = new StreamWriter(filePathHTML, false))
+                using (StreamReader sr = File.OpenText(HTMLFilePath))
                 {
-                    using (StreamReader sr = File.OpenText(HTMLFilePath))
+                    string line = string.Empty;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        string line = string.Empty;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            if (line.Contains("collada.dae"))
-                                line = line.Replace("collada.dae", fileNameWOExtension + ".dae");
-                            sw.WriteLine(line);
-                        }
-                        sr.Close();
+                        if (line.Contains("collada.dae"))
+                            line = line.Replace("collada.dae", fileNameWOExtension + ".dae");
+                        sw.WriteLine(line);
                     }
-                    sw.Close();
+                    sr.Close();
                 }
-                // open file
-                using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
-                {
-                    proc.StartInfo.FileName = GoogleChromePath;
-                    proc.StartInfo.Arguments = "/allow-file-access-from-files " + filePathHTML;
-                    proc.Start();
-                }
+                sw.Close();
             }
-            catch (Exception ex)
+            // open file
+            using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
             {
-                string message = ex.ToString();
-                return false;
+                proc.StartInfo.FileName = GoogleChromePath;
+                proc.StartInfo.Arguments = "/allow-file-access-from-files " + filePathHTML;
+                proc.Start();
             }
-            return true;
         }
 
         private static string GLGEFilePath
@@ -929,7 +921,9 @@ namespace TreeDim.StackBuilder.ColladaExporter
         {
             get
             {
-                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Google\Chrome\Application\chrome.exe"); 
+                return Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    @"Google\Chrome\Application\chrome.exe");
             }
         }
         #endregion
@@ -939,6 +933,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
         private double _xOffset = 2000.0;
         private double _zOffset = 1500.0;
         private int _bmpWidth = 150;
+        static readonly ILog _log = LogManager.GetLogger(typeof(Exporter));
         #endregion
     }
     #endregion

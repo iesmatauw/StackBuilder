@@ -85,6 +85,7 @@
             // 
             // cbFace
             // 
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -94,7 +95,6 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
@@ -254,8 +254,8 @@
             // 
             // listBoxTextures
             // 
-            this.listBoxTextures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             resources.ApplyResources(this.listBoxTextures, "listBoxTextures");
+            this.listBoxTextures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listBoxTextures.Name = "listBoxTextures";
             this.listBoxTextures.SelectedIndexChanged += new System.EventHandler(this.onSelectedTextureChanged);
             // 
@@ -299,8 +299,8 @@
             this.MinimizeBox = false;
             this.Name = "FormEditBitmaps";
             this.ShowIcon = false;
-            this.Load += new System.EventHandler(this.FormEditBitmaps_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditBitmaps_FormClosing);
+            this.Load += new System.EventHandler(this.FormEditBitmaps_Load);
             this.Resize += new System.EventHandler(this.FormEditBitmaps_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();

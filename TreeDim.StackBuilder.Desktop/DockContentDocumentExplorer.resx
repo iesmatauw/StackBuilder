@@ -117,9 +117,66 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ContextMenuDock.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="ContextMenuDock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="FloatingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Floating</value>
+  </data>
+  <data name="DockableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dockable</value>
+  </data>
+  <data name="TabbedDocumentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tabbed Document</value>
+  </data>
+  <data name="AutoHideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto Hide</value>
+  </data>
+  <data name="HideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="ContextMenuDock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 114</value>
+  </data>
+  <data name="ContextMenuDock.Text" xml:space="preserve">
+    <value>Window Position</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuDock.Name" xml:space="preserve">
+    <value>ContextMenuDock</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuDock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>de-DE</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>284, 549</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2822,5 +2879,44 @@
         3gHX19kFV1hcEDtEWm8mJyshHh4fAwAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAMAAAADAAAAAgAAAAIAA
         AAAAAAAAAAAAAAABAAAAAQAAAAMAAAADAAAABwAAAAcAAOAPAAD8DwAA
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Document explorer</value>
+  </data>
+  <data name="&gt;&gt;FloatingToolStripMenuItem.Name" xml:space="preserve">
+    <value>FloatingToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FloatingToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DockableToolStripMenuItem.Name" xml:space="preserve">
+    <value>DockableToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DockableToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabbedDocumentToolStripMenuItem.Name" xml:space="preserve">
+    <value>TabbedDocumentToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;TabbedDocumentToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoHideToolStripMenuItem.Name" xml:space="preserve">
+    <value>AutoHideToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AutoHideToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HideToolStripMenuItem.Name" xml:space="preserve">
+    <value>HideToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;HideToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DockContentDocumentExplorer</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

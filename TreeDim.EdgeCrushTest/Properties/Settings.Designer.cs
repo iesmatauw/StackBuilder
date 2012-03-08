@@ -25,8 +25,7 @@ namespace TreeDim.EdgeCrushTest.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\TreeDim.EdgeCrushTest\\CardboardQualityData\\CardboardQual" +
-            "ityData.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Wpicador\\StackBuilder\\CardboardQualityData\\CardboardQualityData.xml")]
         public string CardboardQualityDBFile {
             get {
                 return ((string)(this["CardboardQualityDBFile"]));

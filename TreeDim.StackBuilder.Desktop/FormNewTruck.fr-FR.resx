@@ -295,4 +295,13 @@
 	<data name="statusStripDef.Text" xml:space="preserve">
 		<value>statusStripDef</value>
 	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
 </root>

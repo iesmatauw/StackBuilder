@@ -293,4 +293,28 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle liasse...</value>
   </data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="lbUnitWeight.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbUnitThickness.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitWidth.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitLength.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
 </root>

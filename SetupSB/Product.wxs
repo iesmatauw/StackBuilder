@@ -5,7 +5,7 @@
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
-<?define Manufacturer="treeDim"?>
+<?define Manufacturer="treeDiM"?>
 <!-- Opensource-->
 <?define opensource="true"?>
 <!--Serial number-->

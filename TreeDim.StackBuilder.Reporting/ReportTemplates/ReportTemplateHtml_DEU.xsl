@@ -27,7 +27,7 @@
         <table border="0" cellpadding="3">
           <tr>
             <td class="style2">
-              <b>Document</b>
+              <b>Dokument</b>
             </td>
             <td class="style3" colspan="2">
               <xsl:value-of select="name"/>
@@ -35,7 +35,7 @@
           </tr>
           <tr>
             <td class="style2">
-              <b>Description</b>
+              <b>Beschreibung</b>
             </td>
             <td class="style3" colspan="2">
               <xsl:value-of select="description"/>
@@ -43,13 +43,13 @@
           </tr>
           <tr>
             <td class="style2">
-              <b>Date</b>
+              <b>Datum</b>
             </td>
             <td class="style3" colspan="1">
               <xsl:value-of select="dateOfCreation"/>
             </td>
             <td class="style2">
-              <b>Author</b>
+              <b>Autor</b>
             </td>
             <td class="style3" colspan="1">
               <xsl:value-of select="author"/>
@@ -64,14 +64,14 @@
     </html>
   </xsl:template>
   <xsl:template match="caseAnalysis">
-    <h2 style="font-family:arial;color:red;">Case analysis</h2>
+    <h2 style="font-family:arial;color:red;">Umverpackungs Analyse</h2>
     <xsl:apply-templates select="box"/>
     <xsl:apply-templates select="caseWithInnerDims"/>
     <xsl:apply-templates select="caseConstraintSet"/>
     <xsl:apply-templates select="caseSolution"/>
   </xsl:template>
   <xsl:template match="palletAnalysis">
-    <h2 style="font-family:arial;color:red;">Pallet analysis</h2>
+    <h2 style="font-family:arial;color:red;">Paletten Analyse</h2>
     <xsl:apply-templates select="case"/>
     <xsl:apply-templates select="bundle"/>
     <xsl:apply-templates select="box"/>
@@ -83,7 +83,7 @@
     <xsl:apply-templates select="palletSolution"/>
   </xsl:template>
   <xsl:template match="truckAnalysis">
-    <h2 style="font-familly:arial;color:red;">Truck analysis</h2>
+    <h2 style="font-familly:arial;color:red;">LKW Analyse</h2>
     <xsl:apply-templates select="truck"/>
     <xsl:apply-templates select="truckSolution"/>
   </xsl:template>
@@ -96,10 +96,10 @@
           <b>Case type</b>
         </td>
         <td class ="style2">
-          <b>Printed surface</b>
+          <b>Gedruckt oberfläche</b>
         </td>
         <td class="style2">
-          <b>Formule de Mc Kee</b>
+          <b>Mc Kee Formel</b>
         </td>
       </tr>
       <tr>
@@ -131,7 +131,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="description"/>
@@ -139,7 +139,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Length (mm)</b>
+          <b>Länge (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="length"/>
@@ -150,7 +150,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="width"/>
@@ -158,7 +158,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Height (mm)</b>
+          <b>Höhe (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="height"/>
@@ -166,7 +166,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="weight"/>
@@ -174,7 +174,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Admissible load on top (kg)</b>
+          <b>Erlaubtes Gewicht oben (kg)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="admissibleLoad"/>
@@ -197,7 +197,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="description"/>
@@ -247,7 +247,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="weight"/>
@@ -272,7 +272,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="description"/>
@@ -280,7 +280,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Length (mm)</b>
+          <b>Länge (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="length"/>
@@ -291,7 +291,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="width"/>
@@ -299,7 +299,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Height (mm)</b>
+          <b>Höhe (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="height"/>
@@ -307,7 +307,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="weight"/>
@@ -337,7 +337,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="description"/>
@@ -345,7 +345,7 @@
       </tr>
       <tr>
         <td  class="style2" colspan="1">
-          <b>Length (mm)</b>
+          <b>Länge (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="length"/>
@@ -356,7 +356,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="width"/>
@@ -364,7 +364,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Height (mm)</b>
+          <b>Höhe (mm)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="height"/>
@@ -372,7 +372,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3" colspan="1">
           <xsl:value-of select="weight"/>
@@ -382,7 +382,7 @@
   </xsl:template>
   <!--#### INTERLAYER ####-->
   <xsl:template match="interlayer">
-    <h3 style="font-family:arial;color:blue;">Interlayer</h3>
+    <h3 style="font-family:arial;color:blue;">Lagen</h3>
     <table class="style1">
       <tr>
         <td  class="style2">
@@ -394,7 +394,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="description"/>
@@ -402,7 +402,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Length (mm)</b>
+          <b>Länge (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="length"/>
@@ -413,7 +413,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="width"/>
@@ -421,7 +421,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Thickness (mm)</b>
+          <b>Dicke (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="thickness"/>
@@ -429,7 +429,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="weight"/>
@@ -451,7 +451,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td colspan="2">
           <xsl:value-of select="description"/>
@@ -459,7 +459,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <strong>Length (mm)</strong>
+          <strong>Länge (mm)</strong>
         </td>
         <td class="style3">
           <xsl:value-of select="length"/>
@@ -470,7 +470,7 @@
       </tr>
       <tr>
         <td  class="style2">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="width"/>
@@ -532,7 +532,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1" width="25%">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="3" width="75%">
           <xsl:value-of select="description"/>
@@ -540,13 +540,13 @@
       </tr>
       <tr>
         <td class="style2" width="25%">
-          <b>Length (mm)</b>
+          <b>Länge (mm)</b>
         </td>
         <td class="style3" width="25%">
           <xsl:value-of select="outerlength"/>
         </td>
         <td class="style2" width="25%">
-          <b>Inner length (mm)</b>
+          <b>Innenlänge (mm)</b>
         </td>
         <td class="style3" width="25%">
           <xsl:value-of select="innerLength"/>
@@ -554,13 +554,13 @@
       </tr>
       <tr>
         <td class="style2"  width="25%">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3"  width="25%">
           <xsl:value-of select="outerWidth"/>
         </td>
         <td class="style2"  width="25%">
-          <b>Inner width (mm)</b>
+          <b>Innenbreite (mm)</b>
         </td>
         <td class="style3"  width="25%">
           <xsl:value-of select="innerWidth"/>
@@ -568,13 +568,13 @@
       </tr>
       <tr>
         <td class="style2"  width="25%">
-          <b>Height (mm)</b>
+          <b>Höhe (mm)</b>
         </td>
         <td class="style3"  width="25%">
           <xsl:value-of select="outerHeight"/>
         </td>
         <td class="style2"  width="25%">
-          <b>Inner height (mm)</b>
+          <b>Innenhöhe (mm)</b>
         </td>
         <td class="style3"  width="25%">
           <xsl:value-of select="innerHeight"/>
@@ -582,7 +582,7 @@
       </tr>
       <tr>
         <td class="style2"  width="25%">
-          <b>Volume (l)</b>
+          <b>Volumen (l)</b>
         </td>
         <td class="style3"  width="25%">
           <xsl:value-of select="outerVolume"/>
@@ -602,7 +602,7 @@
           <xsl:value-of select="emptyWeight"/>
         </td>
         <td class="style2"  width="25%">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3"  width="25%">
           <xsl:value-of select="weight"/>
@@ -610,7 +610,7 @@
       </tr>
       <tr>
         <td class="style2" width="25%">
-          <b>Number of boxes</b>
+          <b>Anzahl Schachteln</b>
         </td>
         <td class="style3" width="25%">
           <xsl:value-of select="numberOfBoxes"/>
@@ -652,7 +652,7 @@
     <table class="style1">
       <tr>
         <td class="style2" width="20%">
-          <b>Overhang (mm)</b>
+          <b>Überstand (mm)</b>
         </td>
         <td class="style2">
           <b>X</b>
@@ -677,7 +677,7 @@
       </xsl:apply-templates>
       <tr>
         <td class="style2">
-          <b>Allowed patterns</b>
+          <b>Erlaubter muster</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="allowedPatterns"/>
@@ -685,7 +685,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Allowed ortho axes</b>
+          <b>Erlaubt ortho achsen</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="allowedOrthoAxis"/>
@@ -693,7 +693,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Allow aligned layers</b>
+          <b>Erlaube ausgerichtete Lagen</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="allowAlignedLayers"/>
@@ -701,7 +701,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Allow alternate layers</b>
+          <b>Erlaube alternierende Lagen</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="allowAlternateLayers"/>
@@ -717,7 +717,7 @@
     <table class="style1" cellpadding="2">
       <tr>
         <td class="style2">
-          <b>Wall thickness (mm)</b>
+          <b>Wandstärke (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="wallThickness"/>
@@ -779,7 +779,7 @@
   <xsl:template match="minimumBoxPerCaseGroup">
     <tr>
       <td class="style2">
-        <b>Minimum number of items</b>
+        <b>Minimal anzahl</b>
       </td>
       <td class="style3">
         <xsl:value-of select="minimumBoxPerCase"/>
@@ -789,7 +789,7 @@
   <xsl:template match="maximumBoxPerCaseGroup">
     <tr>
       <td class="style2">
-        <b>Maximum number of items</b>
+        <b>Maximal anzahl</b>
       </td>
       <td class="style3">
         <xsl:value-of select="maximumBoxPerCase"/>
@@ -802,7 +802,7 @@
     <table class="style1">
       <tr>
         <td class="style2">
-          <b>Title</b>
+          <b>Titel</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="title"/>
@@ -842,7 +842,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Efficiency (%)</b>
+          <b>Nutzungsgrad (%)</b>
         </td>
         <td class="style3" colspan="3">
           <xsl:value-of select="efficiency"/>
@@ -879,7 +879,7 @@
     <table class="style1" cellpadding="5">
       <tr>
         <td class="style2" colspan="1" width="40%">
-          <b>Title</b>
+          <b>Titel</b>
         </td>
         <td class="style3" colspan="4" width="60%">
           <xsl:value-of select="title"/>
@@ -896,15 +896,15 @@
       <tr>
         <td class="style3" colspan="1" width="40%"></td>
         <td class="style2" colspan="2" width="30%">
-          <b>Case</b>
+          <b>Umverpackung</b>
         </td>
         <td class="style2" colspan="2" width="30%">
-          <b>Pallet</b>
+          <b>Palette</b>
         </td>
       </tr>
       <tr>
         <td class="style2" colspan="1" width="40%">
-          <b>Number of box</b>
+          <b>Number of boxes</b>
         </td>
         <td class="style3" colspan="2" width="30%">
           <xsl:value-of select="boxPerCaseCount"/>
@@ -915,7 +915,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1" width="40%">
-          <b>Efficiency (%)</b>
+          <b>Nutzungsgrad (%)</b>
         </td>
         <td class="style3" colspan="2" width="30%">
           <xsl:value-of select="caseEfficiency"/>
@@ -926,7 +926,7 @@
       </tr>
       <tr>
         <td class="style2" colspan="1" width="40%">
-          <b>Weight (kg)</b>
+          <b>Gewicht (kg)</b>
         </td>
         <td class="style3" colspan="2" width="30%">
           <xsl:value-of select="caseWeight"/>
@@ -1076,7 +1076,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Description</b>
+          <b>Beschreibung</b>
         </td>
         <td class="style3" colspan="2">
           <xsl:value-of select="description"/>
@@ -1084,7 +1084,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Length (mm)</b>          
+          <b>Länge (mm)</b>          
         </td>
         <td class="style3">
           <xsl:value-of select="length"/>
@@ -1095,7 +1095,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Width (mm)</b>
+          <b>Breite (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="width"/>
@@ -1103,7 +1103,7 @@
       </tr>
       <tr>
         <td class="style2">
-          <b>Height (mm)</b>
+          <b>Höhe (mm)</b>
         </td>
         <td class="style3">
           <xsl:value-of select="height"/>
@@ -1125,7 +1125,7 @@
     <table class="style1" cellpadding="2">
       <tr>
         <td class="style2" width="50%">
-          <b>Title</b>
+          <b>Titel</b>
         </td>
         <td class="style3" width="50%">
           <xsl:value-of select="title"/>
@@ -1193,16 +1193,16 @@
           <b>Name</b>
         </td>
         <td class="style2">
-          <b>Thickness (mm)</b>
+          <b>Dicke (mm)</b>
         </td>
         <td class="style2">
           <b>ECT (N.m)</b>
         </td>
         <td class="style2">
-          <b>StiffnessX (N/m)</b>
+          <b>Biegesteifigkeit X (N/m)</b>
         </td>
         <td class="style2">
-          <b>StiffnessY (N/m)</b>
+          <b>Biegesteifigkeit Y (N/m)</b>
         </td>
       </tr>
       <tr>

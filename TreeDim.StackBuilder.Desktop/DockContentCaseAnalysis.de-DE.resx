@@ -610,4 +610,55 @@
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
   </data>
+	<data name="toolStripShowPallet.Text" xml:space="preserve">
+		<value>Palette anzeigen</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Umverpackungs Analyse…</value>
+	</data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+		<value>Ansicht von rechts</value>
+	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+		<value>Ansicht von rechts</value>
+	</data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+		<value>Rückansicht</value>
+	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+		<value>Rückansicht</value>
+	</data>
+	<data name="toolStripCornerView0.Text" xml:space="preserve">
+		<value>Seiten Ansicht 0°</value>
+	</data>
+	<data name="toolStripCornerView90.Text" xml:space="preserve">
+		<value>Seiten Ansicht 90°</value>
+	</data>
+	<data name="toolStripCornerView180.Text" xml:space="preserve">
+		<value>Seiten Ansicht 180°</value>
+	</data>
+	<data name="toolStripCornerView270.Text" xml:space="preserve">
+		<value>Seiten Ansicht 270°</value>
+	</data>
+	<data name="btSelectSolution.Text" xml:space="preserve">
+		<value>Auswählen</value>
+	</data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+		<value>Vorderansicht</value>
+	</data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+		<value>Ansicht von links</value>
+	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+		<value>Ansicht von links</value>
+	</data>
+	<data name="toolStripButtonTopView.Text" xml:space="preserve">
+		<value>Draufsicht</value>
+	</data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+		<value>Bilder anzeigen</value>
+	</data>
+	<data name="toolStrip_view.Text" xml:space="preserve">
+		<value>Ansichten</value>
+	</data>
 </root>

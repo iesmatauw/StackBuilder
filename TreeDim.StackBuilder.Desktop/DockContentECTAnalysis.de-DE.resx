@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,67 +59,67 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAABAAEAEBAQAAAABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAABAA
         AAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAgICAAMDAwAAAAP8AAP8AAAD//wD/AAAA/wD/AP//
         AAD///8AAzMzMzMzAAADu7u7u7MwAAO7u7u7s7MAA7u7u7uzuzADu7u7u7O7swO7u7u7s7uzA7u7u7uz
@@ -127,5 +127,92 @@
         CQAAAACQAAAJAAAAAJCADwAAgAcAAIADAACAAQAAgAAAAIAAAACAAAAAgAAAAMAAAACAAAAA0AAAANgA
         AADR6AAA2+0AAPv9AAD7/QAA
 </value>
-  </data>
+	</data>
+	<data name="lbStaticBCT.Text" xml:space="preserve">
+		<value>Fester BCT</value>
+	</data>
+	<data name="lbValueStiffnessY.Text" xml:space="preserve">
+		<value>Biegesteifigkeit Y</value>
+	</data>
+	<data name="btReportTemplateDir.Text" xml:space="preserve">
+		<value>…</value>
+	</data>
+	<data name="lbStiffnessYUnit.Text" xml:space="preserve">
+		<value>N.m</value>
+	</data>
+	<data name="chkShowLogConsole.Text" xml:space="preserve">
+		<value>Zeige Log-Konsole</value>
+	</data>
+	<data name="rbFormula1.Text" xml:space="preserve">
+		<value>Klassik ( benutzt bei ECT Koeffizient)</value>
+	</data>
+	<data name="lbPrintedSurface.Text" xml:space="preserve">
+		<value>Bedruckte Fläche</value>
+	</data>
+	<data name="gbFormula.Text" xml:space="preserve">
+		<value>McKee Formel</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Biegesteifigkeit X</value>
+	</data>
+	<data name="label5.Text" xml:space="preserve">
+		<value>daN</value>
+	</data>
+	<data name="gbResults.Text" xml:space="preserve">
+		<value>Ergebnisse</value>
+	</data>
+	<data name="lbECTCoefficient.Text" xml:space="preserve">
+		<value>ECT Koeffizient</value>
+	</data>
+	<data name="lbECTCoefUnit.Text" xml:space="preserve">
+		<value>kN/m</value>
+	</data>
+	<data name="lbValueThickness.Text" xml:space="preserve">
+		<value>lbValueThickness</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Materialtyp</value>
+	</data>
+	<data name="gbCardboardProperties.Text" xml:space="preserve">
+		<value>Material</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Dicke</value>
+	</data>
+	<data name="rbFormula2.Text" xml:space="preserve">
+		<value>Erweitert (benutzt Material Steifigkeit)</value>
+	</data>
+	<data name="lbThicknessUnit.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+		<value>Umverpackung</value>
+	</data>
+	<data name="lbReportTemplatesDir.Text" xml:space="preserve">
+		<value>Report Vorlagen Ordner</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Kantenstauchtest Analyse</value>
+	</data>
+	<data name="lbCaseType.Text" xml:space="preserve">
+		<value>Umverpackungs Typ</value>
+	</data>
+	<data name="lbStiffnessY.Text" xml:space="preserve">
+		<value>Biegesteifigkeit Y</value>
+	</data>
+	<data name="lbValueStiffnessX.Text" xml:space="preserve">
+		<value>Biegesteifigkeit X</value>
+	</data>
+	<data name="lbDynamicBCT.Text" xml:space="preserve">
+		<value>Dynamischer BCT (dsN) (Feuchte / Lager Dauer)</value>
+	</data>
+	<data name="lbEctCoef.Text" xml:space="preserve">
+		<value>ECT Koeffizient</value>
+	</data>
+	<data name="lbStiffnessXUnit.Text" xml:space="preserve">
+		<value>N.m</value>
+	</data>
+	<data name="lbStaticBCTValue.Text" xml:space="preserve">
+		<value>lbStaticBCTValue</value>
+	</data>
 </root>

@@ -202,4 +202,7 @@
 	<data name="btReportTemplateDir.Text" xml:space="preserve">
 		<value>...</value>
 	</data>
+	<data name="lbStiffnessXUnit.Text" xml:space="preserve">
+		<value>N.m</value>
+	</data>
 </root>

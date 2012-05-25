@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Diagnostics;
+using System.Globalization;
+using System.Collections.ObjectModel;
+using System.Resources;
+
 // log4net
 using log4net;
 using log4net.Config;
@@ -91,6 +95,61 @@ namespace TreeDim.StackBuilder.Desktop
         static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             Program.ReportException("Uncaught exception", e.Exception);
+        }
+        #endregion
+
+        #region Culture
+        public static bool IsCurrentCultureSupported()
+        {
+            // get list of available cultures
+            ReadOnlyCollection<CultureInfo> listOfAvailableCultures = GetAvailableCultures();
+            // check if current culture belongs to available cultures
+            return listOfAvailableCultures.Contains(Thread.CurrentThread.CurrentUICulture);
+        }
+
+        private static ReadOnlyCollection<CultureInfo> GetAvailableCultures()
+        {
+            List<CultureInfo> list = new List<CultureInfo>();
+
+            string startupDir = Application.StartupPath;
+            Assembly asm = Assembly.GetEntryAssembly();
+
+            CultureInfo neutralCulture = CultureInfo.InvariantCulture;
+            if (asm != null)
+            {
+                NeutralResourcesLanguageAttribute attr = Attribute.GetCustomAttribute(asm, typeof(NeutralResourcesLanguageAttribute)) as NeutralResourcesLanguageAttribute;
+                if (attr != null)
+                    neutralCulture = CultureInfo.GetCultureInfo(attr.CultureName);
+            }
+            list.Add(neutralCulture);
+
+            if (asm != null)
+            {
+                string baseName = asm.GetName().Name;
+                foreach (string dir in Directory.GetDirectories(startupDir))
+                {
+                    // Check that the directory name is a valid culture
+                    DirectoryInfo dirinfo = new DirectoryInfo(dir);
+                    CultureInfo tCulture = null;
+                    try
+                    {
+                        tCulture = CultureInfo.GetCultureInfo(dirinfo.Name);
+                    }
+                    // Not a valid culture : skip that directory
+                    catch (ArgumentException)
+                    {
+                        continue;
+                    }
+
+                    // Check that the directory contains satellite assemblies
+                    if (dirinfo.GetFiles(baseName + ".resources.dll").Length > 0)
+                    {
+                        list.Add(tCulture);
+                    }
+
+                }
+            }
+            return list.AsReadOnly();
         }
         #endregion
 

@@ -373,4 +373,7 @@ Souhaitez-vous continuer?</value>
 	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
 		<value>Google Chrome doit être installé afin de pouvoir visualiser les animations 3D </value>
 	</data>
+	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+		<value>Générer un rapport pour {0}</value>
+	</data>
 </root>

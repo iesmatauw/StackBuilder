@@ -401,4 +401,31 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Créer une analyse caisse/palette...</value>
   </data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="checkBoxPositionX.Text" xml:space="preserve">
+		<value>X</value>
+	</data>
+	<data name="checkBoxPositionZ.Text" xml:space="preserve">
+		<value>Z</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Spirale élargie</value>
+	</data>
+	<data name="checkBoxPositionY.Text" xml:space="preserve">
+		<value>Y</value>
+	</data>
+	<data name="lbMm.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbKg2.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
 </root>

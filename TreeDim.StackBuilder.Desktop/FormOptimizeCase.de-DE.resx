@@ -1188,4 +1188,73 @@
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+		<value>Erlaube nur vertikale Schachtel Anordnung</value>
+	</data>
+	<data name="lbNumber.Text" xml:space="preserve">
+		<value>Anzahl Schachteln pro Umverpackung</value>
+	</data>
+	<data name="lbBoxDimensions.Text" xml:space="preserve">
+		<value>Umverpackung und Paletten Analyse erzeugen</value>
+	</data>
+	<data name="groupBox.Text" xml:space="preserve">
+		<value>Schachtel (Inneres Produkt)</value>
+	</data>
+	<data name="btSetMaximum.Text" xml:space="preserve">
+		<value>Setze Maximum</value>
+	</data>
+	<data name="btSetMinimum.Text" xml:space="preserve">
+		<value>Setze Minimum</value>
+	</data>
+	<data name="lbWallThickness.Text" xml:space="preserve">
+		<value>Wandstärke (mm)</value>
+	</data>
+	<data name="lbWalls.Text" xml:space="preserve">
+		<value>Anzahl der Wände</value>
+	</data>
+	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+		<value>Max. Masse Umverpackung (mm)</value>
+	</data>
+	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
+		<value>Min. Masse Umverpackung (mm)</value>
+	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+		<value>Bedingungen Umverpackung</value>
+	</data>
+	<data name="lbPalletHeight.Text" xml:space="preserve">
+		<value>Maximale Paletten Höhe (mm)</value>
+	</data>
+	<data name="btOptimize.Text" xml:space="preserve">
+		<value>Optimiere</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Optimiere Masse Umverpackung…</value>
+	</data>
+	<data name="btClose.Text" xml:space="preserve">
+		<value>Schließen</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Schachtel</value>
+	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(Masse)</value>
+	</data>
+	<data name="btAddSolution.Text" xml:space="preserve">
+		<value>Umverpackung und Paletten Analyse erzeugen</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+		<value>Höhe</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Breite</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+		<value>Länge</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palette</value>
+	</data>
+	<data name="gbPallet.Text" xml:space="preserve">
+		<value>Palette</value>
+	</data>
 </root>

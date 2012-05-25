@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="splitContainerCasePallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Bottom, Left, Right</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="splitContainerCasePallet.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 496</value>
+	</data>
+	<data name="pbBoxesLayout.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="pbBoxesLayout.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="pbBoxesLayout.Size" type="System.Drawing.Size, System.Drawing">
+		<value>292, 159</value>
+	</data>
+	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="pbBoxesLayout.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;pbBoxesLayout.Name" xml:space="preserve">
+    <value>pbBoxesLayout</value>
+  </data>
+	<data name="&gt;&gt;pbBoxesLayout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;pbBoxesLayout.Parent" xml:space="preserve">
+    <value>splitContainerCasePallet.Panel1</value>
+  </data>
+	<data name="&gt;&gt;pbBoxesLayout.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel1.Name" xml:space="preserve">
+    <value>splitContainerCasePallet.Panel1</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerCasePallet</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="pbPallet.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="pbPallet.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="pbPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>288, 159</value>
+	</data>
+	<data name="pbPallet.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;pbPallet.Name" xml:space="preserve">
+    <value>pbPallet</value>
+  </data>
+	<data name="&gt;&gt;pbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;pbPallet.Parent" xml:space="preserve">
+    <value>splitContainerCasePallet.Panel2</value>
+  </data>
+	<data name="&gt;&gt;pbPallet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel2.Name" xml:space="preserve">
+    <value>splitContainerCasePallet.Panel2</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerCasePallet</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="splitContainerCasePallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>584, 159</value>
+	</data>
+	<data name="splitContainerCasePallet.SplitterDistance" type="System.Int32, mscorlib">
+		<value>292</value>
+	</data>
+	<data name="splitContainerCasePallet.TabIndex" type="System.Int32, mscorlib">
+		<value>10</value>
+	</data>
+	<data name="&gt;&gt;splitContainerCasePallet.Name" xml:space="preserve">
+    <value>splitContainerCasePallet</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCasePallet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="btClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Right</value>
+	</data>
+	<data name="btClose.Location" type="System.Drawing.Point, System.Drawing">
+		<value>502, 6</value>
+	</data>
+	<data name="btClose.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 23</value>
+	</data>
+	<data name="btClose.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;btClose.Name" xml:space="preserve">
+    <value>btClose</value>
+  </data>
+	<data name="&gt;&gt;btClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btClose.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btClose.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+	<data name="groupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Left, Right</value>
+	</data>
+	<data name="chkVerticalOrientationOnly.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="chkVerticalOrientationOnly.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="chkVerticalOrientationOnly.Location" type="System.Drawing.Point, System.Drawing">
+		<value>16, 109</value>
+	</data>
+	<data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
+		<value>183, 17</value>
+	</data>
+	<data name="chkVerticalOrientationOnly.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="&gt;&gt;chkVerticalOrientationOnly.Name" xml:space="preserve">
+    <value>chkVerticalOrientationOnly</value>
+  </data>
+	<data name="&gt;&gt;chkVerticalOrientationOnly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;chkVerticalOrientationOnly.Parent" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;chkVerticalOrientationOnly.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="nudNumber.Location" type="System.Drawing.Point, System.Drawing">
+		<value>191, 78</value>
+	</data>
+	<data name="nudNumber.Size" type="System.Drawing.Size, System.Drawing">
+		<value>66, 20</value>
+	</data>
+	<data name="nudNumber.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;nudNumber.Name" xml:space="preserve">
+    <value>nudNumber</value>
+  </data>
+	<data name="&gt;&gt;nudNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudNumber.Parent" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;nudNumber.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="lbNumber.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbNumber.Location" type="System.Drawing.Point, System.Drawing">
+		<value>13, 78</value>
+	</data>
+	<data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
+		<value>131, 13</value>
+	</data>
+	<data name="lbNumber.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="&gt;&gt;lbNumber.Name" xml:space="preserve">
+    <value>lbNumber</value>
+  </data>
+	<data name="&gt;&gt;lbNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbNumber.Parent" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;lbNumber.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<data name="lbBoxDimensions.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbBoxDimensions.Location" type="System.Drawing.Point, System.Drawing">
+		<value>71, 44</value>
+	</data>
+	<data name="lbBoxDimensions.Size" type="System.Drawing.Size, System.Drawing">
+		<value>153, 13</value>
+	</data>
+	<data name="lbBoxDimensions.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;lbBoxDimensions.Name" xml:space="preserve">
+    <value>lbBoxDimensions</value>
+  </data>
+	<data name="&gt;&gt;lbBoxDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbBoxDimensions.Parent" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;lbBoxDimensions.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="cbBoxes.Location" type="System.Drawing.Point, System.Drawing">
+		<value>71, 20</value>
+	</data>
+	<data name="cbBoxes.Size" type="System.Drawing.Size, System.Drawing">
+		<value>186, 21</value>
+	</data>
+	<data name="cbBoxes.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="&gt;&gt;cbBoxes.Name" xml:space="preserve">
+    <value>cbBoxes</value>
+  </data>
+	<data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;cbBoxes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbBox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>15, 20</value>
+	</data>
+	<data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>25, 13</value>
+	</data>
+	<data name="lbBox.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;lbBox.Name" xml:space="preserve">
+    <value>lbBox</value>
+  </data>
+	<data name="&gt;&gt;lbBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+	<data name="groupBox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>4, 27</value>
+	</data>
+	<data name="groupBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>285, 132</value>
+	</data>
+	<data name="groupBox.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="&gt;&gt;groupBox.Name" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+	<data name="&gt;&gt;groupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;groupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;groupBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+	<data name="gbCase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Left, Right</value>
+	</data>
+	<data name="btSetMaximum.Location" type="System.Drawing.Point, System.Drawing">
+		<value>390, 57</value>
+	</data>
+	<data name="btSetMaximum.Size" type="System.Drawing.Size, System.Drawing">
+		<value>112, 21</value>
+	</data>
+	<data name="btSetMaximum.TabIndex" type="System.Int32, mscorlib">
+		<value>18</value>
+	</data>
+	<data name="&gt;&gt;btSetMaximum.Name" xml:space="preserve">
+    <value>btSetMaximum</value>
+  </data>
+	<data name="&gt;&gt;btSetMaximum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btSetMaximum.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;btSetMaximum.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="btSetMinimum.Location" type="System.Drawing.Point, System.Drawing">
+		<value>389, 33</value>
+	</data>
+	<data name="btSetMinimum.Size" type="System.Drawing.Size, System.Drawing">
+		<value>112, 21</value>
+	</data>
+	<data name="btSetMinimum.TabIndex" type="System.Int32, mscorlib">
+		<value>17</value>
+	</data>
+	<data name="&gt;&gt;btSetMinimum.Name" xml:space="preserve">
+    <value>btSetMinimum</value>
+  </data>
+	<data name="&gt;&gt;btSetMinimum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btSetMinimum.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;btSetMinimum.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="nudWallThickness.Location" type="System.Drawing.Point, System.Drawing">
+		<value>176, 108</value>
+	</data>
+	<data name="nudWallThickness.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudWallThickness.TabIndex" type="System.Int32, mscorlib">
+		<value>16</value>
+	</data>
+	<data name="&gt;&gt;nudWallThickness.Name" xml:space="preserve">
+    <value>nudWallThickness</value>
+  </data>
+	<data name="&gt;&gt;nudWallThickness.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudWallThickness.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudWallThickness.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<data name="lbWallThickness.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbWallThickness.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 108</value>
+	</data>
+	<data name="lbWallThickness.Size" type="System.Drawing.Size, System.Drawing">
+		<value>101, 13</value>
+	</data>
+	<data name="lbWallThickness.TabIndex" type="System.Int32, mscorlib">
+		<value>15</value>
+	</data>
+	<data name="&gt;&gt;lbWallThickness.Name" xml:space="preserve">
+    <value>lbWallThickness</value>
+  </data>
+	<data name="&gt;&gt;lbWallThickness.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbWallThickness.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbWallThickness.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="nudWallsHeightDir.Location" type="System.Drawing.Point, System.Drawing">
+		<value>317, 82</value>
+	</data>
+	<data name="nudWallsHeightDir.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudWallsHeightDir.TabIndex" type="System.Int32, mscorlib">
+		<value>14</value>
+	</data>
+	<data name="&gt;&gt;nudWallsHeightDir.Name" xml:space="preserve">
+    <value>nudWallsHeightDir</value>
+  </data>
+	<data name="&gt;&gt;nudWallsHeightDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudWallsHeightDir.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudWallsHeightDir.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="nudWallsWidthDir.Location" type="System.Drawing.Point, System.Drawing">
+		<value>246, 82</value>
+	</data>
+	<data name="nudWallsWidthDir.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudWallsWidthDir.TabIndex" type="System.Int32, mscorlib">
+		<value>13</value>
+	</data>
+	<data name="&gt;&gt;nudWallsWidthDir.Name" xml:space="preserve">
+    <value>nudWallsWidthDir</value>
+  </data>
+	<data name="&gt;&gt;nudWallsWidthDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudWallsWidthDir.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudWallsWidthDir.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+	<data name="nudWallsLengthDir.Location" type="System.Drawing.Point, System.Drawing">
+		<value>176, 82</value>
+	</data>
+	<data name="nudWallsLengthDir.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudWallsLengthDir.TabIndex" type="System.Int32, mscorlib">
+		<value>12</value>
+	</data>
+	<data name="&gt;&gt;nudWallsLengthDir.Name" xml:space="preserve">
+    <value>nudWallsLengthDir</value>
+  </data>
+	<data name="&gt;&gt;nudWallsLengthDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudWallsLengthDir.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudWallsLengthDir.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+	<data name="nudMaxCaseHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>317, 57</value>
+	</data>
+	<data name="nudMaxCaseHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudMaxCaseHeight.TabIndex" type="System.Int32, mscorlib">
+		<value>11</value>
+	</data>
+	<data name="&gt;&gt;nudMaxCaseHeight.Name" xml:space="preserve">
+    <value>nudMaxCaseHeight</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseHeight.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseHeight.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+	<data name="nudMaxCaseWidth.Location" type="System.Drawing.Point, System.Drawing">
+		<value>246, 57</value>
+	</data>
+	<data name="nudMaxCaseWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudMaxCaseWidth.TabIndex" type="System.Int32, mscorlib">
+		<value>10</value>
+	</data>
+	<data name="&gt;&gt;nudMaxCaseWidth.Name" xml:space="preserve">
+    <value>nudMaxCaseWidth</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseWidth.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseWidth.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+	<data name="nudMaxCaseLength.Location" type="System.Drawing.Point, System.Drawing">
+		<value>176, 57</value>
+	</data>
+	<data name="nudMaxCaseLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudMaxCaseLength.TabIndex" type="System.Int32, mscorlib">
+		<value>9</value>
+	</data>
+	<data name="&gt;&gt;nudMaxCaseLength.Name" xml:space="preserve">
+    <value>nudMaxCaseLength</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseLength.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudMaxCaseLength.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+	<data name="nudMinCaseHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>317, 33</value>
+	</data>
+	<data name="nudMinCaseHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudMinCaseHeight.TabIndex" type="System.Int32, mscorlib">
+		<value>8</value>
+	</data>
+	<data name="&gt;&gt;nudMinCaseHeight.Name" xml:space="preserve">
+    <value>nudMinCaseHeight</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseHeight.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseHeight.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+	<data name="nudMinCaseWidth.Location" type="System.Drawing.Point, System.Drawing">
+		<value>246, 33</value>
+	</data>
+	<data name="nudMinCaseWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudMinCaseWidth.TabIndex" type="System.Int32, mscorlib">
+		<value>7</value>
+	</data>
+	<data name="&gt;&gt;nudMinCaseWidth.Name" xml:space="preserve">
+    <value>nudMinCaseWidth</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseWidth.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseWidth.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+	<data name="nudMinCaseLength.Location" type="System.Drawing.Point, System.Drawing">
+		<value>176, 33</value>
+	</data>
+	<data name="nudMinCaseLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudMinCaseLength.TabIndex" type="System.Int32, mscorlib">
+		<value>6</value>
+	</data>
+	<data name="&gt;&gt;nudMinCaseLength.Name" xml:space="preserve">
+    <value>nudMinCaseLength</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseLength.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudMinCaseLength.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+	<data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>317, 14</value>
+	</data>
+	<data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>38, 13</value>
+	</data>
+	<data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
+    <value>lbHeight</value>
+  </data>
+	<data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+	<data name="label3.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+		<value>246, 13</value>
+	</data>
+	<data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+		<value>35, 13</value>
+	</data>
+	<data name="label3.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+	<data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+	<data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
+		<value>176, 13</value>
+	</data>
+	<data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>40, 13</value>
+	</data>
+	<data name="lbLength.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="&gt;&gt;lbLength.Name" xml:space="preserve">
+    <value>lbLength</value>
+  </data>
+	<data name="&gt;&gt;lbLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+	<data name="lbWalls.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbWalls.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 82</value>
+	</data>
+	<data name="lbWalls.Size" type="System.Drawing.Size, System.Drawing">
+		<value>82, 13</value>
+	</data>
+	<data name="lbWalls.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;lbWalls.Name" xml:space="preserve">
+    <value>lbWalls</value>
+  </data>
+	<data name="&gt;&gt;lbWalls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbWalls.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbWalls.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+	<data name="lbMaxCaseDimensions.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbMaxCaseDimensions.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 57</value>
+	</data>
+	<data name="lbMaxCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+		<value>136, 13</value>
+	</data>
+	<data name="lbMaxCaseDimensions.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="&gt;&gt;lbMaxCaseDimensions.Name" xml:space="preserve">
+    <value>lbMaxCaseDimensions</value>
+  </data>
+	<data name="&gt;&gt;lbMaxCaseDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbMaxCaseDimensions.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbMaxCaseDimensions.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+	<data name="lbMinCaseDimensions.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbMinCaseDimensions.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 33</value>
+	</data>
+	<data name="lbMinCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
+		<value>133, 13</value>
+	</data>
+	<data name="lbMinCaseDimensions.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;lbMinCaseDimensions.Name" xml:space="preserve">
+    <value>lbMinCaseDimensions</value>
+  </data>
+	<data name="&gt;&gt;lbMinCaseDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbMinCaseDimensions.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbMinCaseDimensions.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+	<data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
+		<value>4, 163</value>
+	</data>
+	<data name="gbCase.Size" type="System.Drawing.Size, System.Drawing">
+		<value>574, 133</value>
+	</data>
+	<data name="gbCase.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;gbCase.Name" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;gbCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;gbCase.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;gbCase.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+	<data name="gbPallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Left, Right</value>
+	</data>
+	<data name="nudPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>194, 77</value>
+	</data>
+	<data name="nudPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudPalletHeight.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;nudPalletHeight.Name" xml:space="preserve">
+    <value>nudPalletHeight</value>
+  </data>
+	<data name="&gt;&gt;nudPalletHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudPalletHeight.Parent" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;nudPalletHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="lbPalletHeight.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 77</value>
+	</data>
+	<data name="lbPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>136, 13</value>
+	</data>
+	<data name="lbPalletHeight.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="&gt;&gt;lbPalletHeight.Name" xml:space="preserve">
+    <value>lbPalletHeight</value>
+  </data>
+	<data name="&gt;&gt;lbPalletHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbPalletHeight.Parent" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;lbPalletHeight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="lbPalletDimensions.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbPalletDimensions.Location" type="System.Drawing.Point, System.Drawing">
+		<value>70, 44</value>
+	</data>
+	<data name="lbPalletDimensions.Size" type="System.Drawing.Size, System.Drawing">
+		<value>65, 13</value>
+	</data>
+	<data name="lbPalletDimensions.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;lbPalletDimensions.Name" xml:space="preserve">
+    <value>lbPalletDimensions</value>
+  </data>
+	<data name="&gt;&gt;lbPalletDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbPalletDimensions.Parent" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;lbPalletDimensions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<data name="cbPallet.Location" type="System.Drawing.Point, System.Drawing">
+		<value>70, 19</value>
+	</data>
+	<data name="cbPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>186, 21</value>
+	</data>
+	<data name="cbPallet.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="&gt;&gt;cbPallet.Name" xml:space="preserve">
+    <value>cbPallet</value>
+  </data>
+	<data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;cbPallet.Parent" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbPallet.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 19</value>
+	</data>
+	<data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>33, 13</value>
+	</data>
+	<data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
+    <value>lbPallet</value>
+  </data>
+	<data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="gbPallet.Location" type="System.Drawing.Point, System.Drawing">
+		<value>295, 28</value>
+	</data>
+	<data name="gbPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>283, 131</value>
+	</data>
+	<data name="gbPallet.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="&gt;&gt;gbPallet.Name" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;gbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;gbPallet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;gbPallet.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+	<data name="btOptimize.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Right</value>
+	</data>
+	<data name="btOptimize.Location" type="System.Drawing.Point, System.Drawing">
+		<value>504, 299</value>
+	</data>
+	<data name="btOptimize.Size" type="System.Drawing.Size, System.Drawing">
+		<value>74, 23</value>
+	</data>
+	<data name="btOptimize.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;btOptimize.Name" xml:space="preserve">
+    <value>btOptimize</value>
+  </data>
+	<data name="&gt;&gt;btOptimize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btOptimize.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btOptimize.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="gridSolutions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Bottom, Left, Right</value>
+	</data>
+	<data name="gridSolutions.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+		<value>GrowAndShrink</value>
+	</data>
+	<data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 328</value>
+	</data>
+	<data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+		<value>584, 162</value>
+	</data>
+	<data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
+    <value>gridSolutions</value>
+  </data>
+	<data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.3918.24227, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+	<data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="btAddSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Bottom, Right</value>
+	</data>
+	<data name="btAddSolution.Location" type="System.Drawing.Point, System.Drawing">
+		<value>295, 661</value>
+	</data>
+	<data name="btAddSolution.Size" type="System.Drawing.Size, System.Drawing">
+		<value>283, 25</value>
+	</data>
+	<data name="btAddSolution.TabIndex" type="System.Int32, mscorlib">
+		<value>6</value>
+	</data>
+	<data name="&gt;&gt;btAddSolution.Name" xml:space="preserve">
+    <value>btAddSolution</value>
+  </data>
+	<data name="&gt;&gt;btAddSolution.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btAddSolution.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btAddSolution.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>0, 689</value>
+	</metadata>
+	<data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+		<value>130, 17</value>
+	</data>
+	<data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 689</value>
+	</data>
+	<data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
+		<value>584, 22</value>
+	</data>
+	<data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
+		<value>7</value>
+	</data>
+	<data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+	<data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>de-DE</value>
+	</metadata>
+	<metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>42</value>
+	</metadata>
+	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+		<value>6, 13</value>
+	</data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>584, 711</value>
+	</data>
+	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+	<data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormOptimizeCase</value>
+  </data>
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

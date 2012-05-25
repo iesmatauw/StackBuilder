@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,238 +59,268 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnAccept.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnCancel.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="bnAccept.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
-  <data name="lbName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 304</value>
-  </data>
-  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
-  </data>
-  <data name="lbName.Text" xml:space="preserve">
+	<data name="lbName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 304</value>
+	</data>
+	<data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+		<value>29, 13</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="lbDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 335</value>
-  </data>
-  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 332</value>
-  </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 304</value>
-  </data>
-  <data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 361</value>
-  </data>
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
-  </data>
-  <data name="lbLength.Text" xml:space="preserve">
+	<data name="lbDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbDescription.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 335</value>
+	</data>
+	<data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+		<value>129, 332</value>
+	</data>
+	<data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+		<value>129, 304</value>
+	</data>
+	<data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 361</value>
+	</data>
+	<data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>52, 13</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
-  <data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 387</value>
-  </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbWidth.Text" xml:space="preserve">
+	<data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 387</value>
+	</data>
+	<data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>43, 13</value>
+	</data>
+	<data name="lbWidth.Text" xml:space="preserve">
     <value>Largeur</value>
   </data>
-  <data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 413</value>
-  </data>
-  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="lbHeight.Text" xml:space="preserve">
+	<data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 413</value>
+	</data>
+	<data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>45, 13</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
     <value>Hauteur</value>
   </data>
-  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 361</value>
-  </data>
-  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 387</value>
-  </data>
-  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 413</value>
-  </data>
-  <data name="lbWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 361</value>
-  </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
-  </data>
-  <data name="lbWeight.Text" xml:space="preserve">
+	<data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+		<value>129, 361</value>
+	</data>
+	<data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
+		<value>129, 387</value>
+	</data>
+	<data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>129, 413</value>
+	</data>
+	<data name="lbWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>263, 361</value>
+	</data>
+	<data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>28, 13</value>
+	</data>
+	<data name="lbWeight.Text" xml:space="preserve">
     <value>Poid</value>
   </data>
-  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 361</value>
-  </data>
-  <data name="nudWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="lbMm1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbMm1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>202, 361</value>
-  </data>
-  <data name="lbMm2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbMm2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>202, 387</value>
-  </data>
-  <data name="lbMm3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbMm3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>202, 413</value>
-  </data>
-  <data name="lbKg1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbKg1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 361</value>
-  </data>
-  <data name="lbType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 271</value>
-  </data>
-  <data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 271</value>
-  </data>
-  <data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 218</value>
-  </data>
-  <data name="lbColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>344, 271</value>
-  </data>
-  <data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbColor.Text" xml:space="preserve">
+	<data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>339, 361</value>
+	</data>
+	<data name="nudWeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 20</value>
+	</data>
+	<data name="lbMm1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbMm1.Location" type="System.Drawing.Point, System.Drawing">
+		<value>202, 361</value>
+	</data>
+	<data name="lbMm2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbMm2.Location" type="System.Drawing.Point, System.Drawing">
+		<value>202, 387</value>
+	</data>
+	<data name="lbMm3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbMm3.Location" type="System.Drawing.Point, System.Drawing">
+		<value>202, 413</value>
+	</data>
+	<data name="lbKg1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbKg1.Location" type="System.Drawing.Point, System.Drawing">
+		<value>427, 361</value>
+	</data>
+	<data name="lbType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbType.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 271</value>
+	</data>
+	<data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
+		<value>129, 271</value>
+	</data>
+	<data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
+		<value>11, 218</value>
+	</data>
+	<data name="lbColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbColor.Location" type="System.Drawing.Point, System.Drawing">
+		<value>344, 271</value>
+	</data>
+	<data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
+		<value>43, 13</value>
+	</data>
+	<data name="lbColor.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items3" xml:space="preserve">
+	<data name="cbColor.Items3" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items4" xml:space="preserve">
+	<data name="cbColor.Items4" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items5" xml:space="preserve">
+	<data name="cbColor.Items5" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
+	<data name="cbColor.Items7" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>393, 271</value>
+	<data name="cbColor.Items8" xml:space="preserve">
+    <value>Couleur</value>
   </data>
-  <data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 204</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+		<value>393, 271</value>
+	</data>
+	<data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>380, 204</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
     <value>Créer une nouvelle palette...</value>
   </data>
+	<data name="cbColor.Items2" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items6" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items9" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items10" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbMm3.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
 </root>

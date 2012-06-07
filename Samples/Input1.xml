@@ -82,13 +82,13 @@
     </analyses>
   </data>
   <output>
-    <analysisSolutionList path=".\XmlFileProcessorOutput\palletAnalysisSolutionList.xml"
+    <analysisSolutionList path=".\Output1\palletAnalysisSolutionList.xml"
                       analysisId="_4BEFC735-276A-430f-BDFF-C2C790D1AE4B"
                       maxNumberOfSolutions="20"/>
     <viewItem itemId="_19AA39B9-AC36-447b-B187-FDF922F57370">
       <viewParameters
         imageSize="512 512"
-        path=".\XmlFileProcessorOutput\case_440_280_290.bmp"
+        path=".\Output1\case_440_280_290.bmp"
         format="BMP"
         showDimensions="true"
         predefinedPointOfView="CORNER0"/>
@@ -96,7 +96,7 @@
     <viewItem itemId="_CEAA9FC4-66C9-4497-BFD2-88511E1C7C29">
       <viewParameters
          imageSize="1024 1024"
-         path=".\XmlFileProcessorOutput\pallet_EUR2.bmp"
+         path=".\Output1\pallet_EUR2.bmp"
          format="BMP"
          showDimensions="true"
          predefinedPointOfView="CORNER0"/>
@@ -104,25 +104,17 @@
     <viewItem itemId="_94902708-7355-4df0-9340-6526662A7A3E">
       <viewParameters
          imageSize="512 512"
-         path=".\XmlFileProcessorOutput\interlayer_1200_1000.bmp"
+         path=".\Output1\interlayer_1200_1000.bmp"
          format="BMP"
          showDimensions="true"
          predefinedPointOfView="CORNER0"/>      
     </viewItem>
-    <viewItem itemId="_043B6C23-DBE0-4691-BCC7-94F8FB3093E6">
-     <viewParameters
-         imageSize="512 512"
-         path=".\XmlFileProcessorOutput\bundle.bmp"
-         format="BMP"
-         showDimensions="true"
-         predefinedPointOfView="CORNER0"/>       
-    </viewItem>
     <viewSolution>
       <solutionRef analysisId="_4BEFC735-276A-430f-BDFF-C2C790D1AE4B" index="0"/>
       <viewParameters
         imageSize="1024 1024"
         format="BMP"
-        path=".\XmlFileProcessorOutput\solution_0_FRONT.bmp"
+        path=".\Output1\solution_0_FRONT.bmp"
         showDimensions="true"
         predefinedPointOfView="FRONT"/>
     </viewSolution>
@@ -131,7 +123,7 @@
       <viewParameters
         imageSize="1024 1024"
         format="BMP"
-        path=".\XmlFileProcessorOutput\solution_0_CORNER0.bmp"
+        path=".\Output1\solution_0_CORNER0.bmp"
         showDimensions="true"
         predefinedPointOfView="CORNER0"/>
     </viewSolution>
@@ -140,7 +132,7 @@
       <viewParameters
         imageSize="1024 1024"
         format="BMP"
-        path=".\XmlFileProcessorOutput\solution_1_FRONT.bmp"
+        path=".\Output1\solution_1_FRONT.bmp"
         showDimensions="true"
         predefinedPointOfView="FRONT"/>
     </viewSolution>
@@ -149,7 +141,7 @@
       <viewParameters
         imageSize="1024 1024"
         format="BMP"
-        path=".\XmlFileProcessorOutput\solution_1_CORNER0.bmp"
+        path=".\Output1\solution_1_CORNER0.bmp"
         showDimensions="true"
         predefinedPointOfView="CORNER0"/>
     </viewSolution>
@@ -158,7 +150,7 @@
       <viewParameters
         imageSize="1024 1024"
         format="BMP"
-        path=".\XmlFileProcessorOutput\solution_2_FRONT.bmp"
+        path=".\Output1\solution_2_FRONT.bmp"
         showDimensions="true"
         predefinedPointOfView="FRONT"/>
     </viewSolution>
@@ -167,22 +159,15 @@
       <viewParameters
         imageSize="1024 1024"
         format="BMP"
-        path=".\XmlFileProcessorOutput\solution_2_CORNER0.bmp"
+        path=".\Output1\solution_2_CORNER0.bmp"
         showDimensions="true"
         predefinedPointOfView="CORNER0"/>
     </viewSolution>
     <reportSolution>
       <solutionRef analysisId="_4BEFC735-276A-430f-BDFF-C2C790D1AE4B" index="0"/>
       <reportParameters name="Case 440x280x290" description="Case 440x280x290 / Pallet EUR2 -> best solution" author="treeDiM"
-                        templateDir="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\"
-                        outputPath=".\XmlFileProcessorOutput\case_0_report.doc"
-                        format="WORDML"/>
-    </reportSolution>
-    <reportSolution>
-      <solutionRef analysisId="_1B96FAAB-985B-46a7-B4D3-BAFD46BA3320" index="0"/>
-      <reportParameters name="Bundle" description="Bundle" author="treeDiM"
-                        templateDir="K:\Codeplex\StackBuilder\TreeDim.StackBuilder.ReportingMSWord\ReportTemplates\"
-                        outputPath=".\XmlFileProcessorOutput\bundle_0_report.doc"
+                        templateDir="..\ReportTemplates\"
+                        outputPath=".\Output1\case_0_report.doc"
                         format="WORDML"/>
     </reportSolution>
   </output>

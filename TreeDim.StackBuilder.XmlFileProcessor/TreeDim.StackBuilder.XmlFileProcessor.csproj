@@ -79,7 +79,9 @@
     <Compile Include="XmlFileProcessorException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,6 +115,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme\Readme.txt" />
+    <Content Include="Samples\Input1.xml" />
+    <Content Include="Samples\Input2.xml" />
+    <Content Include="Samples\XmlFileProcessorInput.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

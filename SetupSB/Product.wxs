@@ -31,9 +31,11 @@
         <Directory Id="CompanyDir" Name="$(var.Manufacturer)">
           <Directory Id="PLMPackDir" Name="PLMPack">
             <Directory Id="INSTALLLOCATION" Name="StackBuilder">
-              <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
-              <Directory Id="LOCALIZATION_JP" Name="ja-JP"/>
-              <Directory Id="LOCALIZATION_DE" Name="de-DE"/>
+              <Directory Id="Bin" Name="Bin">
+                <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
+                <Directory Id="LOCALIZATION_JP" Name="ja-JP"/>
+                <Directory Id="LOCALIZATION_DE" Name="de-DE"/>
+              </Directory>
               <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
               <Directory Id="SAMPLES" Name="Samples"/>
@@ -70,7 +72,7 @@
     <!--Icon-->
     <Icon Id="_treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
     <!-- Add files to installer package -->
-    <DirectoryRef Id="INSTALLLOCATION">
+    <DirectoryRef Id="BIN">
       <Component Id="References" Guid="{F464B17D-D223-4c7a-BDDD-A0647B7D7430}">
         <File Id="log4net.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\log4net.dll" KeyPath="yes" Checksum="yes"/>
         <File Id ="WeifenLuo.WinFormsUI.Docking.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes"/>
@@ -227,7 +229,9 @@
         <File Id="Matches.doc" Source="..\Samples\Matches.doc"/>
         <File Id="Case_44_28_29.stb" Source="..\Samples\Case_44_28_29.stb"/>
         <File Id="Case_44_28_29.doc" Source="..\Samples\Case_44_28_29.doc"/>
-        <File Id="XmlFileProcessorInput.xml" Source="..\Samples\XmlFileProcessorInput.xml"/>
+        <!-- Xml file processor samples -->
+        <File Id="Input1.xml" Source="..\Samples\Input1.xml"/>
+        <File Id="Input2.xml" Source="..\Samples\Input2.xml"/>
         <File Id="TestXmlFileProcessor.bat" Source="..\Samples\TestXmlFileProcessor.bat"/>
       </Component>
     </DirectoryRef>

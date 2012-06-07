@@ -31,10 +31,11 @@
         <Directory Id="CompanyDir" Name="$(var.Manufacturer)">
           <Directory Id="PLMPackDir" Name="PLMPack">
             <Directory Id="INSTALLLOCATION" Name="StackBuilder">
-              <Directory Id="Bin" Name="Bin">
+              <Directory Id="BIN" Name="Bin">
                 <Directory Id="LOCALIZATION_FR" Name="fr-FR"/>
                 <Directory Id="LOCALIZATION_JP" Name="ja-JP"/>
                 <Directory Id="LOCALIZATION_DE" Name="de-DE"/>
+                
               </Directory>
               <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
@@ -111,37 +112,37 @@
         <File Id="C5.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetInitialReportTemplatePath"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value"
                       Value="[REPORTTEMPLATES]"/>
         <util:XmlFile Id="SetPalletSolutionsDBPath"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value"
                       Value="[PALLETSOLUTIONSDB]"/>
         <util:XmlFile Id="SetStackBuilderSchemaPath"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.XmlFileProcessor.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.XmlFileProcessor.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value"
-                      Value="[INSTALLLOCATION]XML Schemas\StackBuilderSchema.xsd"/>
+                      Value="[XMLSCHEMAS]StackBuilderSchema.xsd"/>
         <util:XmlFile Id="SetCardboardQualityDBFile"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.EdgeCrushTest.Properties.Settings/setting[\[]@name='CardboardQualityDBFile'[\]]/value"
-                      Value="[INSTALLLOCATION]CardboardQualityData\CardboardQualityData.xml"/>
+                      Value="[CARDBOARDQUALITYDATA]CardboardQualityData.xml"/>
         <util:XmlFile Id="SetGLGELibPath"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='GLGEFilePath'[\]]/value"
                       Value="[GLGE]glge-compiled-min.js"/>
         <util:XmlFile Id="SetGLGEHTMLPath"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='HTMLFilePath'[\]]/value"
                       Value="[GLGE]glge.html"/>
         <util:XmlFile Id="SetShowLogConsole"
-                      File="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe.config"
+                      File="[BIN]TreeDim.StackBuilder.Desktop.exe.config"
                       Action="setValue"
                       ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ShowLogConsole'[\]]/value"
                       Value="False"/>
@@ -241,7 +242,7 @@
         <Shortcut Id="ProgramMenuShortcut"
                   Name="PLMPack Stackbuilder"
                   Description="PLMPack StackBuilder palettization application"
-                  Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
+                  Target="[BIN]TreeDim.StackBuilder.Desktop.exe"
                   Icon="_treeDim.ico"/>
         <Shortcut Id="UninstallProduct"  Name="Uninstall PLMPack StackBuilder"
                   Description="Uninstalls PLMPack StackBuilder"
@@ -261,7 +262,7 @@
         <Shortcut Id="DesktopShortCut"
                   Name="PLMPack Stackbuilder"
                   Description="PLMPack StackBuilder palettization application"
-                  Target="[INSTALLLOCATION]TreeDim.StackBuilder.Desktop.exe"
+                  Target="[BIN]TreeDim.StackBuilder.Desktop.exe"
                   Icon="_treeDim.ico"/>
         <RegistryValue Root="HKCU"
                 Key="$(var.Manufacturer)\PLMPack StackBuilder"

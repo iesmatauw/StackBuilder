@@ -2823,4 +2823,25 @@
         AAAAAAAAAAAAAAABAAAAAQAAAAMAAAADAAAABwAAAAcAAOAPAAD8DwAA
 </value>
 	</data>
+	<data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
+		<value>Fließend</value>
+	</data>
+	<data name="DockableToolStripMenuItem.Text" xml:space="preserve">
+		<value>Verankerbar</value>
+	</data>
+	<data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
+		<value>Registerkarten Dokument</value>
+	</data>
+	<data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
+		<value>Automatisches ausblenden</value>
+	</data>
+	<data name="HideToolStripMenuItem.Text" xml:space="preserve">
+		<value>Ausblenden</value>
+	</data>
+	<data name="ContextMenuDock.Text" xml:space="preserve">
+		<value>Fenster Position</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Dokumenten Explorer</value>
+	</data>
 </root>

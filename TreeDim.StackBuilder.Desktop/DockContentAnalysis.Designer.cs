@@ -125,19 +125,6 @@
             // toolStrip_view
             // 
             resources.ApplyResources(this.toolStrip_view, "toolStrip_view");
-            this.toolStrip_view.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripCornerView0,
-            this.toolStripCornerView90,
-            this.toolStripCornerView180,
-            this.toolStripCornerView270,
-            this.toolStripSeparator1,
-            this.toolStripFrontView,
-            this.toolStripRightView,
-            this.toolStripBackView,
-            this.toolStripLeftView,
-            this.toolStripTopView,
-            this.toolStripSeparator2,
-            this.toolStripShowImages});
             this.toolStrip_view.Name = "toolStrip_view";
             // 
             // toolStripCornerView0

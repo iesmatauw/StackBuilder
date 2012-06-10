@@ -124,39 +124,21 @@
 	<data name="FloatingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
-	<data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Floating</value>
-  <comment></comment></data>
 	<data name="DockableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
-	<data name="DockableToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dockable</value>
-  <comment></comment></data>
 	<data name="TabbedDocumentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
-	<data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tabbed Document</value>
-  <comment></comment></data>
 	<data name="AutoHideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
-	<data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Auto Hide</value>
-  <comment></comment></data>
 	<data name="HideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
-	<data name="HideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hide</value>
-  <comment></comment></data>
 	<data name="ContextMenuDock.Size" type="System.Drawing.Size, System.Drawing">
 		<value>174, 114</value>
 	</data>
-	<data name="ContextMenuDock.Text" xml:space="preserve">
-    <value>Window Position</value>
-  <comment></comment></data>
 	<data name="&gt;&gt;ContextMenuDock.Name" xml:space="preserve">
     <value>ContextMenuDock</value>
   </data>
@@ -2880,9 +2862,6 @@
         AAAAAAAAAAAAAAABAAAAAQAAAAMAAAADAAAABwAAAAcAAOAPAAD8DwAA
 </value>
 	</data>
-	<data name="$this.Text" xml:space="preserve">
-    <value>Document explorer</value>
-  <comment></comment></data>
 	<data name="&gt;&gt;FloatingToolStripMenuItem.Name" xml:space="preserve">
     <value>FloatingToolStripMenuItem</value>
   </data>

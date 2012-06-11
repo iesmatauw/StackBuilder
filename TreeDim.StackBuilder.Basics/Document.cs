@@ -198,6 +198,15 @@ namespace TreeDim.StackBuilder.Basics
             return bundle;
         }
 
+        public void AddType(ItemBase item)
+        {
+            // insert in list
+            _typeList.Add(item);
+            // notify listeners
+            NotifyOnNewTypeCreated(item);
+            Modify();
+        }
+
         public InterlayerProperties CreateNewInterlayer(
             string name, string description
             , double length, double width, double thickness

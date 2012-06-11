@@ -6,6 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using System.Drawing;
+using System.Diagnostics;
 
 // logging
 using log4net;
@@ -128,6 +129,11 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             foreach (reportSolution rSolution in _root.output.reportSolution)
             {
                 try { ProcessReportSolution(rSolution); }
+                catch (Exception ex) { _log.Error(ex.ToString()); }
+            }
+            foreach (genDocument doc in _root.output.genDocument)
+            {
+                try { ProcessDocument(doc); }
                 catch (Exception ex) { _log.Error(ex.ToString()); }
             }
         }
@@ -255,6 +261,35 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             reporter.BuildAnalysisReport(new ReportData(analysis, selSolution), rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
         }
 
+        private void ProcessDocument(genDocument genDoc)
+        { 
+            // create document
+            Document document = new Document(genDoc.name, genDoc.description, genDoc.author, DateTime.Now, null);
+
+            foreach (analysisRef aRef in genDoc.analysisRef)
+            {
+                // get analysis
+                PalletAnalysis analysis = LoadPalletAnalysis(document, aRef.analysisId);
+                // load case if any
+                // load bundle if any
+                // load pallet
+                // load interlayer if any
+                // load pallet analysis
+            }
+            // save document
+            document.Write(genDoc.path);
+            // open generated document using TreeDim.StackBuilder.Desktop
+            if (genDoc.open)
+            { 
+                // build start info
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "TreeDim.StackBuilder.Desktop.exe");
+                startInfo.Arguments = genDoc.path;
+                System.Diagnostics.Process.Start(startInfo);
+
+            }
+        }
+
         private Graphics3DImage InitializeImageFromViewParameters(viewParameters vParam)
         {
             long[] iSize = vParam.imageSize.ToArray();
@@ -325,6 +360,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 // face textures
                 // weight
                 bProperties.Weight = caseItem.weight;
+                // insert in list
+                if (null != doc)
+                    doc.AddType(bProperties);
                 return bProperties;
             }
         }
@@ -343,6 +381,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     , bundleDim[0], bundleDim[1], bundleDim[2]
                     , bundleItem.flatWeight, (int)bundleItem.numberFlats
                     , System.Drawing.Color.FromArgb((int)bundleItem.color[0], (int)bundleItem.color[1], (int)bundleItem.color[2]));
+                // insert in list
+                if (null != doc)
+                    doc.AddType(bundleProperties);
                 return bundleProperties;
             }
         }
@@ -380,6 +421,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 palletProperties.Color = System.Drawing.Color.FromArgb((int)palletItem.color[0], (int)palletItem.color[1], (int)palletItem.color[2], (int)palletItem.color[3]);
                 // weight
                 palletProperties.Weight = palletItem.weight;
+                // insert in list
+                if (null != doc)
+                    doc.AddType(palletProperties);
 
                 return palletProperties;
             }
@@ -403,6 +447,10 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     , interlayerItem.weight
                     , Color.FromArgb((int)interlayerItem.color[0], (int)interlayerItem.color[1], (int)interlayerItem.color[2], (int)interlayerItem.color[3])
                     );
+                // insert in list
+                if (null != doc)
+                    doc.AddType(interlayerProperties);
+
                 return interlayerProperties;
             }
         }

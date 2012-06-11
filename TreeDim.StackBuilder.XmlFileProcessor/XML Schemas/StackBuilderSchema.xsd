@@ -500,6 +500,17 @@
       <xs:attribute name="index" type="int" use="required"/>
     </xs:complexType>
   </xs:element>
+  <xs:element name="analysisRef">
+    <xs:annotation>
+      <xs:documentation>
+        Refers to a pallet analysis.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="analysisId" type="xs:NCName" use="required"/>
+      <xs:attribute name="selectedSolutionIndex" type="int" use="optional"/>
+    </xs:complexType>
+  </xs:element>
   <!--viewSolution-->
   <xs:element name="viewSolution">
     <xs:annotation>
@@ -518,7 +529,7 @@
   <xs:element name="reportSolution">
     <xs:annotation>
       <xs:documentation>
-        Specifies a pallet soltion report
+        Specifies a pallet solution report
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -541,6 +552,24 @@
       <xs:attribute name="analysisId" type="xs:NCName" use="required"/>
       <xs:attribute name="maxNumberOfSolutions" type="int" use="optional"/>
     </xs:complexType>
+  </xs:element>
+  <!-- Document -->
+  <xs:element name="genDocument">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies a project file to be generated and opened
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="analysisRef" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="description" type="xs:string" use="required"/>
+      <xs:attribute name="path" type="xs:string" use="required"/>
+      <xs:attribute name="author" type="xs:string" use="optional"/>
+      <xs:attribute name="open" type="xs:boolean" use="optional"/>
+     </xs:complexType>
   </xs:element>
   <!-- Root element-->
   <xs:element name="STACKBUILDER">
@@ -597,6 +626,7 @@
               <xs:element ref="viewItem" minOccurs="0" maxOccurs="unbounded"/>
               <xs:element ref="viewSolution" minOccurs="0" maxOccurs="unbounded"/>
               <xs:element ref="reportSolution" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element ref="genDocument" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -37,6 +37,8 @@
                 <Directory Id="LOCALIZATION_DE" Name="de-DE"/>
                 
               </Directory>
+              <Directory Id="LOCALIZATION_CA" Name="ca-ES"/>
+              <Directory Id="LOCALIZATION_ES" Name="es-ES"/>
               <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB"/>
               <Directory Id="SAMPLES" Name="Samples"/>
@@ -190,6 +192,22 @@
         <File Id="TreeDim.Update.dll_de.DE" Source="..\TreeDim.Update\Bin\Release\de-DE\TreeDim.Update.resources.dll"/>
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_ES">
+      <Component Id="resources_es_ES" Guid="{17A7F347-A84E-448C-89D9-91E6CCFD5F27}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_es.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.StackBuilder.Desktop.resources.dll"/>
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_es.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.EdgeCrushTest.resources.dll"/>
+        <File Id="TreeDim.AutoUpdater.dll_es.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.AutoUpdater.resources.dll"/>
+        <File Id="TreeDim.Update.dll_es.ES" Source="..\TreeDim.Update\Bin\Release\es-ES\TreeDim.Update.resources.dll"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_CA">
+      <Component Id="resources_ca_ES" Guid="{17A7F347-A84E-448C-89D9-91E6CCFD5F27}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ca.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.StackBuilder.Desktop.resources.dll"/>
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_ca.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.EdgeCrushTest.resources.dll"/>
+        <File Id="TreeDim.AutoUpdater.dll_ca.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.AutoUpdater.resources.dll"/>
+        <File Id="TreeDim.Update.dll_ca.ES" Source="..\TreeDim.Update\Bin\Release\ca-ES\TreeDim.Update.resources.dll"/>
+      </Component>
+    </DirectoryRef>   
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
         <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>

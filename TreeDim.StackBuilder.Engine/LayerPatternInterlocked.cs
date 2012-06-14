@@ -73,20 +73,36 @@ namespace TreeDim.StackBuilder.Engine
         }
 
         private void GetSizeXY(double boxLength, double boxWidth, double palletLength, double palletWidth,
-            out int maxSizeXLength, out int maxSizeXWidth, out int maxSizeYLength, out int maxSizeYWidth)
+            out int optSizeXLength, out int optSizeXWidth, out int optSizeYLength, out int optSizeYWidth)
         {
+            int optFound = 0;
+            optSizeXLength = 0; optSizeXWidth = 0; optSizeYLength = 0; optSizeYWidth = 0;
             // get maximum number of box in length
-            maxSizeXLength = (int)Math.Floor(palletLength / boxLength);
+            int sizeXLength = (int)Math.Floor(palletLength / boxLength);
             // make sure that we can actually add one column of turned boxes
-            while (boxWidth > palletLength - maxSizeXLength * boxLength)
-                --maxSizeXLength;
-            // get number of column of turned boxes
-            maxSizeXWidth = (int)Math.Floor((palletLength - maxSizeXLength * boxLength) / boxWidth);
-            // get maximum number in width
-            // for boxes with length aligned with pallet length
-            maxSizeYLength = (int)Math.Floor(palletWidth / boxWidth);
-            // for turned boxes
-            maxSizeYWidth = (int)Math.Floor(palletWidth / boxLength);
+            --sizeXLength;
+            while (sizeXLength >= 1)
+            {
+                // get number of column of turned boxes
+                int sizeXWidth = (int)Math.Floor((palletLength - sizeXLength * boxLength) / boxWidth);
+                // get maximum number in width
+                // for boxes with length aligned with pallet length
+                int sizeYLength = (int)Math.Floor(palletWidth / boxWidth);
+                // for turned boxes
+                int sizeYWidth = (int)Math.Floor(palletWidth / boxLength);
+
+                int countLayer = sizeXLength * sizeYLength + sizeXWidth * sizeYWidth;
+
+                if (countLayer > optFound)
+                {
+                    optFound = countLayer;
+                    optSizeXLength = sizeXLength;
+                    optSizeXWidth = sizeXWidth;
+                    optSizeYLength = sizeYLength;
+                    optSizeYWidth = sizeYWidth;
+                }
+                --sizeXLength;
+            }
         }
         public override int GetNumberOfVariants(Layer layer)
         {

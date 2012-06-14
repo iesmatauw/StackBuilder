@@ -161,6 +161,7 @@ namespace TreeDim.StackBuilder.Engine
                                 bool innerLoopStop = false;
                                 double zLayer = _palletProperties.Height;
                                 int iInterlayer = 0;
+                                int iCount = 0;
 
                                 while (
                                     !innerLoopStop
@@ -185,7 +186,7 @@ namespace TreeDim.StackBuilder.Engine
 
                                     foreach (LayerPosition layerPos in currentLayer)
                                     {
-                                        int iCount = sol.Count + 1;
+                                        ++iCount;
                                         innerLoopStop =
 											(_constraintSet.UseMaximumPalletWeight
 											&& (iCount * _bProperties.Weight + _palletProperties.Weight)> _constraintSet.MaximumPalletWeight)

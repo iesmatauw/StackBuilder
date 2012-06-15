@@ -69,6 +69,8 @@
     <EmbeddedResource Include="Properties\Resource.fr-FR.resx" />
     <EmbeddedResource Include="Properties\Resource.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resource.de-DE.resx" />
+    <EmbeddedResource Include="Properties\Resource.ca-ES.resx" />
+    <EmbeddedResource Include="Properties\Resource.es-ES.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

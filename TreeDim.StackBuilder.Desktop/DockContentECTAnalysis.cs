@@ -288,10 +288,15 @@ namespace TreeDim.StackBuilder.Desktop
                 else
                     Background = correctValueBackground;
             }
-            catch (System.Exception /**/)
+            catch (System.Exception ex)
             {
+                _log.Error(ex.ToString());
             }
         }
+        #endregion
+
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(CellColorFromValue));
         #endregion
     }
     #endregion

@@ -84,7 +84,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormEditCardboardQualityData.ca-ES.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.de-DE.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.es-ES.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.fr-FR.resx">

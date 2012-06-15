@@ -158,16 +158,15 @@ namespace TreeDim.StackBuilder.Engine
 
                                 PalletSolution sol = new PalletSolution(null, title, layer1T == layer2T);
                                 int iLayerIndex = 0;
-                                bool innerLoopStop = false;
                                 double zLayer = _palletProperties.Height;
                                 int iInterlayer = 0;
                                 int iCount = 0;
 
-                                while (
-                                    !innerLoopStop
-                                    &&
-                                    (!_constraintSet.UseMaximumHeight || (zLayer + _bProperties.Dimension(axisOrtho1) < _constraintSet.MaximumHeight))
-                                    )
+                                bool maxWeightReached = _constraintSet.UseMaximumPalletWeight && (_palletProperties.Weight + _bProperties.Weight > _constraintSet.MaximumPalletWeight);
+                                bool maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + _bProperties.Dimension(axisOrtho1) > _constraintSet.MaximumHeight);
+                                bool maxNumberReached = false;
+
+                                while (!maxWeightReached && !maxHeightReached && !maxNumberReached)
                                 {
                                     if (_constraintSet.HasInterlayer)
                                     {
@@ -187,13 +186,11 @@ namespace TreeDim.StackBuilder.Engine
                                     foreach (LayerPosition layerPos in currentLayer)
                                     {
                                         ++iCount;
-                                        innerLoopStop =
-											(_constraintSet.UseMaximumPalletWeight
-											&& (iCount * _bProperties.Weight + _palletProperties.Weight)> _constraintSet.MaximumPalletWeight)
-	                                        || (_constraintSet.UseMaximumNumberOfCases
-											&& (iCount > _constraintSet.MaximumNumberOfItems));
 
-                                        if (!innerLoopStop)
+                                        maxWeightReached = _constraintSet.UseMaximumPalletWeight && ((iCount * _bProperties.Weight + _palletProperties.Weight)> _constraintSet.MaximumPalletWeight);
+                                        maxNumberReached = _constraintSet.UseMaximumNumberOfCases && (iCount > _constraintSet.MaximumNumberOfItems);
+
+                                        if (!maxWeightReached && !maxNumberReached)
                                         {
                                             LayerPosition layerPosTemp = layerPos;
 
@@ -239,7 +236,16 @@ namespace TreeDim.StackBuilder.Engine
                                     // increment layer index
                                     ++iLayerIndex;
                                     zLayer += currentLayer.BoxHeight;
+
+                                    // check height
+                                    maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + _bProperties.Dimension(axisOrtho1) > _constraintSet.MaximumHeight);
                                 }
+
+                                // set maximum criterion
+                                if (maxNumberReached) sol.LimitReached = PalletSolution.Limit.LIMIT_MAXNUMBERREACHED;
+                                else if (maxWeightReached) sol.LimitReached = PalletSolution.Limit.LIMIT_MAXWEIGHTREACHED;
+                                else if (maxHeightReached) sol.LimitReached = PalletSolution.Limit.LIMIT_MAXHEIGHTREACHED;
+
                                 // insert solution
                                 if (sol.Count > 0)
                                     solutions.Add(sol);

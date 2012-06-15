@@ -81,14 +81,25 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public methods
+        /// <summary>
+        /// adds a case position
+        /// </summary>
+        /// <param name="vPosition">Box 'origin' position (origin: lower left corner)</param>
+        /// <param name="dirLength">Length axis direction</param>
+        /// <param name="dirWidth">Width axis direction</param>
         public void AddPosition(Vector3D vPosition, HalfAxis.HAxis dirLength, HalfAxis.HAxis dirWidth)
         {
             Add(new BoxPosition(vPosition, dirLength, dirWidth));
         }
-        public void BoundingBox(BProperties bProperties, out double xmin, out double ymin, out double xmax, out double ymax)
+        /// <summary>
+        /// Compute layer bouding box
+        /// </summary>
+        /// <param name="bProperties">Case properties</param>
+        /// <returns>bounding box</returns>
+        public BBox3D BoundingBox(BProperties bProperties)
         {
-            xmin = ymin = double.MaxValue;
-            xmax = ymax = double.MinValue;
+            BBox3D bbox = new BBox3D();
+
             foreach (BoxPosition bpos in this)
             {
                 Vector3D[] pts = new Vector3D[8];
@@ -105,14 +116,12 @@ namespace TreeDim.StackBuilder.Basics
                 pts[7] = bpos.Position + HalfAxis.ToVector3D(bpos.DirectionLength) * bProperties.Length + HalfAxis.ToVector3D(bpos.DirectionWidth) * bProperties.Width;
 
                 foreach (Vector3D pt in pts)
-                {
-                    xmin = Math.Min(xmin, pt.X);
-                    xmax = Math.Max(xmax, pt.X);
-                    ymin = Math.Min(ymin, pt.Y);
-                    ymax = Math.Max(ymax, pt.Y);
-                }
+                    bbox.Extend(pt);
             }
+
+            return bbox;
         }
+
         public double Thickness(BProperties bProperties)
         {
             if (Count == 0) return 0.0;
@@ -130,12 +139,24 @@ namespace TreeDim.StackBuilder.Basics
     /// <summary>
     /// A set of box position and orientation that represent a valid solution
     /// </summary>
-    public class PalletSolution : List<ILayer>, IComparable  
+    public class PalletSolution : List<ILayer>, IComparable
     {
+        #region Limit enum : the different reasons the stacking process might be stopped
+        public enum Limit
+        {
+            LIMIT_MAXHEIGHTREACHED
+            , LIMIT_MAXWEIGHTREACHED
+            , LIMIT_MAXNUMBERREACHED
+            , LIMIT_UNKNOWN
+        };
+        #endregion
+
         #region Data members
         private string _title;
         private bool _homogeneousLayer = false;
         private PalletAnalysis _parentAnalysis = null;
+        private Limit _limitReached = Limit.LIMIT_UNKNOWN;
+        private BBox3D _bbox = new BBox3D();
         #endregion
 
         #region Constructor
@@ -189,10 +210,58 @@ namespace TreeDim.StackBuilder.Basics
                 return iCount;
             }
         }
+
+        /// <summary>
+        /// Case per layer count
+        /// </summary>
+        public int CasePerLayerCount
+        {
+            get
+            {
+                if (Count == 0) return 0;
+                return this[0].BoxCount;
+            }
+        }
+
+        public int CaseLayersCount
+        {
+            get
+            {
+                int caseLayerCount = 0;
+                foreach (ILayer layer in this)
+                    if (layer is BoxLayer)
+                        ++caseLayerCount;
+                return caseLayerCount;
+            }
+        }
+
+        public bool HasSameCountLayers
+        {
+            get
+            {
+                bool first = true;
+                int count1 = 0;
+                foreach (ILayer layer in this)
+                {
+                    if (layer is BoxLayer)
+                    {
+                        if (first)
+                        {
+                            count1 = layer.BoxCount;
+                            first = false;
+                        }
+                        else
+                            return (count1 == layer.BoxCount);
+                    }
+                }
+                return false;
+            }
+        }
+
         /// <summary>
         /// Efficiency percentage
         /// </summary>
-        public double Efficiency
+        public double VolumeEfficiencyCases
         {
             get
             {
@@ -206,9 +275,9 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
         /// <summary>
-        /// Box efficiency percentage
+        /// Volume efficiency (percentage)
         /// </summary>
-        public double BoxEfficiency
+        public double VolumeEfficiencyBoxes
         {
             get
             {
@@ -225,6 +294,18 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
         /// <summary>
+        /// Weight efficiency (percentage)
+        /// </summary>
+        public double WeightEfficiency
+        {
+            get
+            {
+                return 100 * CaseCount * Analysis.BProperties.Weight
+                    /
+                    (Analysis.ConstraintSet.MaximumPalletWeight - Analysis.PalletProperties.Weight);
+            }
+        }
+        /// <summary>
         /// Pallet weight
         /// </summary>
         public double PalletWeight
@@ -234,66 +315,44 @@ namespace TreeDim.StackBuilder.Basics
                 return Analysis.PalletProperties.Weight + CaseCount * Analysis.BProperties.Weight;
             }
         }
+        public BBox3D LoadBoundingBox
+        {
+            get
+            {
+                if (!_bbox.IsValid)
+                    _bbox = ComputeLoadBBox3D();
+                return _bbox;
+            }
+        }
+
+        public BBox3D BoundingBox
+        {
+            get
+            {
+                BBox3D bbox = new BBox3D();
+                // --- extend
+                // pallet
+                bbox.Extend(Vector3D.Zero);
+                bbox.Extend(new Vector3D(Analysis.PalletProperties.Length, Analysis.PalletProperties.Width, Analysis.PalletProperties.Height));
+                // load
+                bbox.Extend(LoadBoundingBox);
+                // --- extend
+                return bbox;
+            }
+        }
+
         public double PalletLength
         {
             get
             {
-                double xmin = double.MaxValue, ymin = double.MaxValue;
-                double xmax = double.MinValue, ymax = double.MinValue;
-
-                int iLayer = 0, iLayerCount = 0;
-                while (iLayer < Count && iLayerCount < 2)
-                {
-                    ILayer layer = this[iLayer];
-                    BoxLayer blayer = layer as BoxLayer;
-                    if (null != blayer)
-                    {
-                        double xminLayer = double.MaxValue, yminLayer = double.MaxValue;
-                        double xmaxLayer = double.MinValue, ymaxLayer = double.MinValue;
-
-                        blayer.BoundingBox(Analysis.BProperties, out xminLayer, out yminLayer, out xmaxLayer, out ymaxLayer);
-
-                        xmin = Math.Min(xmin, xminLayer);
-                        ymin = Math.Min(ymin, yminLayer);
-                        xmax = Math.Max(xmax, xmaxLayer);
-                        ymax = Math.Max(ymax, ymaxLayer);
-
-                        ++iLayerCount;
-                    }
-                    ++iLayer;
-                }
-                return Math.Max(Analysis.PalletProperties.Length, xmax - xmin);
+                return BoundingBox.Length;
             }
         }
         public double PalletWidth
         {
             get
             {
-                double xmin = double.MaxValue, ymin = double.MaxValue;
-                double xmax = double.MinValue, ymax = double.MinValue;
-
-                int iLayer = 0, iLayerCount = 0;
-                while (iLayer < Count && iLayerCount < 2)
-                {
-                    ILayer layer = this[iLayer];
-                    BoxLayer blayer = layer as BoxLayer;
-                    if (null != blayer)
-                    {
-                        double xminLayer = double.MinValue, yminLayer = double.MinValue;
-                        double xmaxLayer = double.MaxValue, ymaxLayer = double.MaxValue;
-
-                        blayer.BoundingBox(Analysis.BProperties, out xminLayer, out yminLayer, out xmaxLayer, out ymaxLayer);
-
-                        xmin = Math.Min(xmin, xminLayer);
-                        ymin = Math.Min(ymin, yminLayer);
-                        xmax = Math.Max(xmax, xmaxLayer);
-                        ymax = Math.Max(ymax, ymaxLayer);
-
-                        ++iLayerCount;
-                    }
-                    ++iLayer;
-                }
-                return Math.Max(Analysis.PalletProperties.Width, ymax - ymin);
+                return BoundingBox.Width;
             }
         }
         public double PalletHeight
@@ -304,6 +363,22 @@ namespace TreeDim.StackBuilder.Basics
                 return this[Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(Analysis.BProperties) : 0.0);
             }
         }
+
+        private BBox3D ComputeLoadBBox3D()
+        {
+            BBox3D bbox = new BBox3D();
+            int iLayer = 0;
+            while (iLayer < Count)
+            {
+                ILayer layer = this[iLayer];
+                BoxLayer blayer = layer as BoxLayer;
+                if (null != blayer)
+                    bbox.Extend(blayer.BoundingBox(Analysis.BProperties));
+                ++iLayer;
+            }
+            return bbox;
+        }
+
         public bool HasHomogeneousLayers
         {
             get { return _homogeneousLayer; }
@@ -346,6 +421,14 @@ namespace TreeDim.StackBuilder.Basics
                 BoxLayer boxlayer = this[0] as BoxLayer;
                 return totalWeight / boxlayer.Count;
             }
+        }
+        #endregion
+
+        #region Limit reached
+        public Limit LimitReached
+        {
+            get { return _limitReached; }
+            set { _limitReached = value; }
         }
         #endregion
 

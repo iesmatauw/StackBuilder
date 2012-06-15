@@ -5749,9 +5749,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
         private bool azimuthFieldSpecified;
 
-        private double eleationField;
+        private double elevationField;
 
-        private bool eleationFieldSpecified;
+        private bool elevationFieldSpecified;
 
         private static System.Xml.Serialization.XmlSerializer serializer;
 
@@ -5878,28 +5878,28 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         }
 
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public double eleation
+        public double elevation
         {
             get
             {
-                return this.eleationField;
+                return this.elevationField;
             }
             set
             {
-                this.eleationField = value;
+                this.elevationField = value;
             }
         }
 
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eleationSpecified
+        public bool elevationSpecified
         {
             get
             {
-                return this.eleationFieldSpecified;
+                return this.elevationFieldSpecified;
             }
             set
             {
-                this.eleationFieldSpecified = value;
+                this.elevationFieldSpecified = value;
             }
         }
 

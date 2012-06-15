@@ -225,7 +225,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 palletSolution xmlPalletSol = new palletSolution();
                 xmlPalletSol.title = sol.Title;
                 xmlPalletSol.caseCount = sol.CaseCount;
-                xmlPalletSol.efficiency = sol.Efficiency;
+                xmlPalletSol.efficiency = sol.VolumeEfficiencyCases;
                 xmlPalletSol.weight = sol.PalletWeight;
                 xmlPalletSol.palletDimensions.Add(sol.PalletLength);
                 xmlPalletSol.palletDimensions.Add(sol.PalletWidth);

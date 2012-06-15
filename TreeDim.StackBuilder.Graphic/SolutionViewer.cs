@@ -81,7 +81,8 @@ namespace TreeDim.StackBuilder.Graphics
 
             if (_showDimensions)
             {
-                graphics.AddDimensions(new DimensionCube(_solution.PalletLength, _solution.PalletWidth, _solution.PalletHeight));
+                graphics.AddDimensions(new DimensionCube(_solution.BoundingBox, Color.Black, false));
+                graphics.AddDimensions(new DimensionCube(_solution.LoadBoundingBox, Color.Red, true));
             }
 
             // flush
@@ -126,7 +127,10 @@ namespace TreeDim.StackBuilder.Graphics
             BoxLayer bLayer = solution[solution.Count - 1] as BoxLayer;
             double palletHeight = solution[solution.Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(boxProperties) : 0.0);
 
-            graphics.AddDimensions(new DimensionCube(palletProperties.Length, palletProperties.Width, palletHeight));
+            // show dimensions
+            graphics.AddDimensions(new DimensionCube(solution.BoundingBox, Color.Black, false));
+            graphics.AddDimensions(new DimensionCube(solution.LoadBoundingBox, Color.Red, true));
+
             // flush
             graphics.Flush();
         }
@@ -138,6 +142,8 @@ namespace TreeDim.StackBuilder.Graphics
         {
             if (null == _solution || _solution.Count == 0)
                 return;
+
+            bool showAxis = false;
 
             if (_solution.HasHomogeneousLayers)
             {
@@ -153,10 +159,15 @@ namespace TreeDim.StackBuilder.Graphics
                     uint pickId = 0;
                     foreach (BoxPosition bPosition in blayer)
                         graphics.DrawBox(new Box(pickId++, _analysis.BProperties, bPosition));
-                    // draw axis X
-                    graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
-                    // draw axis Y
-                    graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+
+                    // draw axes
+                    if (showAxis)
+                    {
+                        // draw axis X
+                        graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
+                        // draw axis Y
+                        graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                    }
                 }
             }
             else
@@ -174,10 +185,15 @@ namespace TreeDim.StackBuilder.Graphics
                     uint pickId = 0;
                     foreach (BoxPosition bPosition in blayer0)
                         graphics.DrawBox(new Box(pickId++, _analysis.BProperties, bPosition));
-                    // draw axis X
-                    graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
-                    // draw axis Y
-                    graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+
+                    // show axes
+                    if (showAxis)
+                    {
+                        // draw axis X
+                        graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
+                        // draw axis Y
+                        graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                    }
                 }
 
                 // get second box layer
@@ -192,10 +208,14 @@ namespace TreeDim.StackBuilder.Graphics
                     uint pickId = 0;
                     foreach (BoxPosition bPosition in blayer1)
                         graphics.DrawBox(new Box(pickId++, _analysis.BProperties, bPosition));
-                    // draw axis X
-                    graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
-                    // draw axis Y
-                    graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                    // show axes
+                    if (showAxis)
+                    {
+                        // draw axis X
+                        graphics.DrawLine(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, 0.0), Color.Red);
+                        // draw axis Y
+                        graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _analysis.PalletProperties.Width), Color.Green);
+                    }
                 }
             }
         }

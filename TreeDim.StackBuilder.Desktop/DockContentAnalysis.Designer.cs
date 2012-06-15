@@ -54,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
-            this.toolStrip_view.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerHoriz
@@ -123,7 +122,20 @@
             this.gridSolutions.ToolTipText = "";
             // 
             // toolStrip_view
-            // 
+            //
+            this.toolStrip_view.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripCornerView0,
+            this.toolStripCornerView90,
+            this.toolStripCornerView180,
+            this.toolStripCornerView270,
+            this.toolStripSeparator1,
+            this.toolStripFrontView,
+            this.toolStripRightView,
+            this.toolStripBackView,
+            this.toolStripLeftView,
+            this.toolStripTopView,
+            this.toolStripSeparator2,
+            this.toolStripShowImages});
             resources.ApplyResources(this.toolStrip_view, "toolStrip_view");
             this.toolStrip_view.Name = "toolStrip_view";
             // 
@@ -236,8 +248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
-            this.toolStrip_view.ResumeLayout(false);
-            this.toolStrip_view.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1316,6 +1316,12 @@ namespace TreeDim.StackBuilder.Basics
             }
             else
                 sol.HasHomogeneousLayers = false;
+            // limit reached
+            if (eltSolution.HasAttribute("LimitReached"))
+            {
+                string sLimitReached = eltSolution.Attributes["LimitReached"].Value;
+                sol.LimitReached = (PalletSolution.Limit)(int.Parse(sLimitReached));
+            }
             // layers
             XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
             foreach (XmlNode nodeLayer in eltLayers.ChildNodes)
@@ -2389,6 +2395,10 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute homogeneousLayersAttribute = xmlDoc.CreateAttribute("HomogeneousLayers");
             homogeneousLayersAttribute.Value = sol.HasHomogeneousLayers ? "true" : "false";
             solutionElt.Attributes.Append(homogeneousLayersAttribute);
+            // limit
+            XmlAttribute limitReached = xmlDoc.CreateAttribute("LimitReached");
+            limitReached.Value = string.Format("{0}", (int)sol.LimitReached);
+            solutionElt.Attributes.Append(limitReached);
             // layers
             XmlElement layersElt = xmlDoc.CreateElement("Layers");
             solutionElt.AppendChild(layersElt);

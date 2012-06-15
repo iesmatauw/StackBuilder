@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BBox3D.cs" />
     <Compile Include="CaseOfBoxesProperties.cs" />
     <Compile Include="CaseOptimAnalysis.cs" />
     <Compile Include="ECTAnalysis.cs" />

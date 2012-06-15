@@ -38,6 +38,15 @@ namespace TreeDim.StackBuilder.Graphics
             for (int i = 0; i < 3; ++i) _showArrow[i] = true;
             BuildPoints();
         }
+        public DimensionCube(Basics.BBox3D bbox, Color color, bool above)
+        {
+            _position = bbox.PtMin;
+            _dim[0] = bbox.Length; _dim[1] = bbox.Width; _dim[2] = bbox.Height;
+            _color = color;
+            _above = above;
+            for (int i = 0; i < 3; ++i) _showArrow[i] = true;
+            BuildPoints();
+        }
         #endregion
 
         #region Public properties
@@ -106,7 +115,7 @@ namespace TreeDim.StackBuilder.Graphics
             if (dim.X < 0) { pos.X += dim.X; dim.X = -dim.X; }
             if (dim.Y < 0) { pos.Y += dim.Y; dim.Y = -dim.Y; }
             if (dim.Z < 0) { pos.Z += dim.Z; dim.Z = -dim.Z; }
-            return new DimensionCube(pos, dim.X, dim.Y, dim.Z, dimCube.Color, dimCube._above); ;
+            return new DimensionCube(pos, dim.X, dim.Y, dim.Z, dimCube.Color, dimCube._above);
         }
         #endregion
 

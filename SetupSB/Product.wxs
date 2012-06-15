@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "1.0.6.0" ?>
+<?define Version = "1.0.7.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -192,7 +192,7 @@
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_ES">
-      <Component Id="resources_es_ES" Guid="{17A7F347-A84E-448C-89D9-91E6CCFD5F27}">
+      <Component Id="resources_es_ES" Guid="{5C08FECD-64D4-4C4C-AAF2-306AD5756370}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_es.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.StackBuilder.Desktop.resources.dll"/>
         <File Id="TreeDim.EdgeCrushTest.resources.dll_es.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.EdgeCrushTest.resources.dll"/>
         <File Id="TreeDim.AutoUpdater.dll_es.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.AutoUpdater.resources.dll"/>
@@ -200,7 +200,7 @@
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_CA">
-      <Component Id="resources_ca_ES" Guid="{17A7F347-A84E-448C-89D9-91E6CCFD5F27}">
+      <Component Id="resources_ca_ES" Guid="{CDFD4E5D-4FD4-47D9-9BA1-9F1CF20A6E1B}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ca.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.StackBuilder.Desktop.resources.dll"/>
         <File Id="TreeDim.EdgeCrushTest.resources.dll_ca.ES" Source ="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.EdgeCrushTest.resources.dll"/>
         <File Id="TreeDim.AutoUpdater.dll_ca.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.AutoUpdater.resources.dll"/>
@@ -304,6 +304,8 @@
       <ComponentRef Id="resources_fr_FR"/>
       <ComponentRef Id="resources_ja_JP"/>
       <ComponentRef Id="resources_de_DE"/>
+      <ComponentRef Id="resources_es_ES"/>
+      <ComponentRef Id="resources_ca_ES"/>
       <ComponentRef Id="Samples"/>
       <ComponentRef Id="XmlSchemas"/>
       <ComponentRef Id="CardboardQualityData"/>

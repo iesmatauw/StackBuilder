@@ -176,6 +176,10 @@ namespace TreeDim.StackBuilder.Reporting
             }
             return false;
         }
+        public override int GetHashCode()
+        {
+            return _selSolution.GetHashCode() ^ _selCaseSolution.GetHashCode();
+        }
         #endregion
 
         #region PalletSolution
@@ -906,7 +910,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemSolution.AppendChild(elemHomogeneousLayer);
             // efficiency
             XmlElement elemEfficiency = xmlDoc.CreateElement("efficiency", ns);
-            elemEfficiency.InnerText = string.Format("{0:F}", sol.Efficiency);
+            elemEfficiency.InnerText = string.Format("{0:F}", sol.VolumeEfficiencyCases);
             elemSolution.AppendChild(elemEfficiency);
             // palletWeight
             XmlElement elemPalletWeight = xmlDoc.CreateElement("palletWeight", ns);
@@ -928,7 +932,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemBoxCount.InnerText = string.Format("{0:F}", caseOfBoxes.NumberOfBoxes);
                 elemSolution.AppendChild(elemBoxCount);
                 XmlElement elemBoxEfficiency = xmlDoc.CreateElement("boxEfficiency", ns);
-                elemBoxEfficiency.InnerText = string.Format("{0:F}", sol.Efficiency);
+                elemBoxEfficiency.InnerText = string.Format("{0:F}", sol.VolumeEfficiencyCases);
             }
             // interlayer count
             if (sol.Analysis.ConstraintSet.HasInterlayer)

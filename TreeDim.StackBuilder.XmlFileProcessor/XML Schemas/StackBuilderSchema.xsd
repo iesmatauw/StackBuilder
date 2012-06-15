@@ -10,7 +10,7 @@
   <xs:annotation>
     <xs:documentation>
       PLMPack STACKBUILDER input Schema
-      Version 1.0.6.0 (September, 2011)
+      Version 1.0.7.0 (September, 2011)
 
       Note that this software document is distributed on an "AS IS" basis, with ALL EXPRESS AND
       IMPLIED WARRANTIES AND CONDITIONS DISCLAIMED, INCLUDING, WITHOUT LIMITATION, ANY IMPLIED
@@ -381,21 +381,41 @@
   </xs:element>
   <!--Stop stacking criterions-->
   <xs:element name="stopMaxHeight">
+    <xs:annotation>
+      <xs:documentation>
+        Stops palletization when maximum pallet height is reached.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="maxHeight" type="float"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="stopMaxWeight">
+    <xs:annotation>
+      <xs:documentation>
+        Stops palletization when maximum pallet weight is reached.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="maxWeight" type="float"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="stopMaxNumber">
+    <xs:annotation>
+      <xs:documentation>
+        Stops palletization when maximum number of cases / bundles is reached.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="maxNumber" type="int"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="stopMaxWeightOnCase">
+    <xs:annotation>
+      <xs:documentation>
+        Stops palletization when maximum weight on lower cases is reached.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="maxWeightOnCase" type="float"/>
     </xs:complexType>
@@ -456,14 +476,63 @@
   </xs:element>
   <!-- Output -->
   <xs:element name="viewParameters">
+    <xs:annotation>
+      <xs:documentation>
+        Defines output image properties
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
-      <xs:attribute name="imageSize" type="int2" use="required"/>
-      <xs:attribute name="path" type="xs:string" use="required"/>
-      <xs:attribute name="format" type="imageFormat" use="required"/>
-      <xs:attribute name="showDimensions" type="bool" use="optional"/>
-      <xs:attribute name="predefinedPointOfView" type="pointOfViewValue" use="optional"/>
-      <xs:attribute name="azimuth" type="float" use="optional"/>
-      <xs:attribute name="eleation" type="float" use="optional"/>
+      <xs:attribute name="imageSize" type="int2" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates output image size (e.g. '1024 1024')
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="path" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates output image path.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="format" type="imageFormat" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the output image format (e.g. BMP, JPG, GIF)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="showDimensions" type="bool" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            If true, dimensions (pallet/case lenght+width+height) are shown.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="predefinedPointOfView" type="pointOfViewValue" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Might be FRONT, BACK, LEFT, RIGHT, TOP, CORNER0, CORNER1, CORNER2, CORNER3
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="azimuth" type="float" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Azimuth angle
+            Use only and if only predefinedPointOfView is NOT defined.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="elevation" type="float" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Elevation angle
+            Use only and if only predefinedPointOfView is NOT defined.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="reportParameters">
@@ -557,18 +626,48 @@
   <xs:element name="genDocument">
     <xs:annotation>
       <xs:documentation>
-        Specifies a project file to be generated and opened
+        Outputs a project file that might be opened by "TreeDim.StackBuilder.Desktop.exe"
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="analysisRef" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
-      <xs:attribute name="name" type="xs:string" use="required"/>
-      <xs:attribute name="description" type="xs:string" use="required"/>
-      <xs:attribute name="path" type="xs:string" use="required"/>
-      <xs:attribute name="author" type="xs:string" use="optional"/>
-      <xs:attribute name="open" type="xs:boolean" use="optional"/>
+      <xs:attribute name="name" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines project name
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="description" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Describes project
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="path" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines .stb file output path
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="author" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Defines project author
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="open" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates whether UI excutable (TreeDim.StackBuilder.Desktop.exe) should be called with output file path as argument
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
      </xs:complexType>
   </xs:element>
   <!-- Root element-->

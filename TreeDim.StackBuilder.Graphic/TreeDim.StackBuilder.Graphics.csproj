@@ -73,7 +73,7 @@
     <Compile Include="CaseSolutionViewer.cs" />
     <Compile Include="Drawable.cs" />
     <Compile Include="Face.cs" />
-    <Compile Include="Graphic3D.cs" />
+    <Compile Include="Graphics3D.cs" />
     <Compile Include="Graphics2D.cs" />
     <Compile Include="Graphics2DImage.cs" />
     <Compile Include="Graphics3DImage.cs" />

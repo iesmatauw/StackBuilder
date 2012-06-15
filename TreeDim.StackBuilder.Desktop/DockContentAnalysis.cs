@@ -122,7 +122,7 @@ namespace TreeDim.StackBuilder.Desktop
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
-            gridSolutions.ColumnsCount = 7;
+            gridSolutions.ColumnsCount = 8;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
 
@@ -159,22 +159,35 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_SELECTED);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETLIMIT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 6] = columnHeader;
 
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_SELECTED);
+            columnHeader.AutomaticSortEnabled = false;
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 7] = columnHeader;
+
             // handling check box click
             SourceGrid.Cells.Controllers.CustomEvents solCheckboxClickEvent = new SourceGrid.Cells.Controllers.CustomEvents();
             solCheckboxClickEvent.Click += new EventHandler(clickEvent_Click);
-
-
+            
             // data rows
             int iIndex = 0;
             foreach (PalletSolution sol in _analysis.Solutions)
             {
-                ++iIndex;
-                gridSolutions.Rows.Insert(iIndex);
+                // build case count string
+                string sCaseCount = string.Empty;
+                if (sol.HasSameCountLayers && sol.LimitReached == PalletSolution.Limit.LIMIT_MAXHEIGHTREACHED)
+                    sCaseCount = string.Format("{0}\n({1} * {2})", sol.CaseCount, sol.CasePerLayerCount, sol.CaseLayersCount);
+                else
+                    sCaseCount = string.Format("{0}", sol.CaseCount);
+
+                // insert row
+                gridSolutions.Rows.Insert(++iIndex);
+
+                // filling columns
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
                 {
                     Graphics2DImage graphics = new Graphics2DImage(new Size(100, 50));
@@ -182,11 +195,12 @@ namespace TreeDim.StackBuilder.Desktop
                     sv.Draw(graphics);
                     gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);
                 }
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.CaseCount));
-                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(sCaseCount);
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.VolumeEfficiencyCases));
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight));
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight));
-                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, _analysis.HasSolutionSelected(iIndex-1));
+                gridSolutions[iIndex, 6] = new SourceGrid.Cells.Cell(PalletSolutionLimitToString(sol.LimitReached));
+                gridSolutions[iIndex, 7] = new SourceGrid.Cells.CheckBox(null, _analysis.HasSolutionSelected(iIndex-1));
 
                 gridSolutions[iIndex, 0].View = viewNormal;
                 gridSolutions[iIndex, 1].View = viewNormal;
@@ -194,9 +208,10 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 3].View = viewNormal;
                 gridSolutions[iIndex, 4].View = viewNormal;
                 gridSolutions[iIndex, 5].View = viewNormal;
-                gridSolutions[iIndex, 6].View = viewNormalCheck;
+                gridSolutions[iIndex, 6].View = viewNormal;
+                gridSolutions[iIndex, 7].View = viewNormalCheck;
 
-                gridSolutions[iIndex, 6].AddController(solCheckboxClickEvent);
+                gridSolutions[iIndex, 7].AddController(solCheckboxClickEvent);
              }
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.AutoSizeCells();
@@ -205,6 +220,19 @@ namespace TreeDim.StackBuilder.Desktop
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
             Draw();
+        }
+        #endregion
+
+        #region Helpers
+        private string PalletSolutionLimitToString(PalletSolution.Limit limit)
+        { 
+            switch (limit)
+            {
+                case PalletSolution.Limit.LIMIT_MAXHEIGHTREACHED: return Resources.ID_PALLETMAXHEIGHT;
+                case PalletSolution.Limit.LIMIT_MAXWEIGHTREACHED: return Resources.ID_PALLETMAXWEIGHT;
+                case PalletSolution.Limit.LIMIT_MAXNUMBERREACHED: return Resources.ID_PALLETMAXNUMBER;
+                default: return string.Empty;
+            }
         }
         #endregion
 
@@ -270,8 +298,9 @@ namespace TreeDim.StackBuilder.Desktop
             foreach (PalletSolution sol in _analysis.Solutions)
             {
                 ++iRow;
-                SourceGrid.Cells.CheckBox checkBox = gridSolutions[iRow, 6] as SourceGrid.Cells.CheckBox;
-                checkBox.Checked = _analysis.HasSolutionSelected(iRow - 1);                
+                SourceGrid.Cells.CheckBox checkBox = gridSolutions[iRow, 7] as SourceGrid.Cells.CheckBox;
+                if (null != checkBox)
+                    checkBox.Checked = _analysis.HasSolutionSelected(iRow - 1);
             }
         }
         private void UpdateSelectButtonText()

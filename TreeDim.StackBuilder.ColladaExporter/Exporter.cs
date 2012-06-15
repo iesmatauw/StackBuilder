@@ -195,8 +195,12 @@ namespace TreeDim.StackBuilder.ColladaExporter
                 }
             });
             uint caseIndex = 0;
-            foreach (BoxLayer layer in _palletSolution)
-                foreach (BoxPosition bp in layer)
+            foreach (ILayer layer in _palletSolution)
+            {
+                BoxLayer bLayer = layer as BoxLayer;
+                if (null == bLayer) continue;
+
+                foreach (BoxPosition bp in bLayer)
                 {
                     Vector3D translation = bp.Position;
                     Vector3D rotations = bp.Transformation.Rotations;
@@ -265,6 +269,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
                     // increment case index
                     ++caseIndex;
                 }
+            }
 
             // add nodes
             mainScene.node = sceneNodes.ToArray();
@@ -524,15 +529,17 @@ namespace TreeDim.StackBuilder.ColladaExporter
         protected BoxPosition GetInitialBoxPosition(uint caseIndex)
         {
             uint iLayer = 0, iCounted = 0;
-            foreach (BoxLayer layer in _palletSolution)
+            foreach (ILayer layer in _palletSolution)
             {
-                if (iCounted + layer.BoxCount > caseIndex)
-                    break;
-                else
+                BoxLayer bLayer = layer as BoxLayer;
+                if (null != bLayer)
                 {
-                    ++iLayer;
-                    iCounted += (uint)layer.Count;
+                    if (iCounted + bLayer.BoxCount > caseIndex)
+                        break;
+                    else
+                        iCounted += (uint)bLayer.Count;
                 }
+                ++iLayer;
             }
 
             BProperties bProperties = _palletSolution.Analysis.BProperties;
@@ -546,16 +553,20 @@ namespace TreeDim.StackBuilder.ColladaExporter
         {
             int iCounted = 0;
             int iLayer = 0;
-            foreach (BoxLayer layer in _palletSolution)
+            foreach (ILayer layer in _palletSolution)
             {
-                if (iCounted + layer.BoxCount > caseIndex)
-                    break;
-                else
+                BoxLayer bLayer = layer as BoxLayer;
+                if (null != bLayer)
                 {
-                    ++iLayer;
-                    iCounted += layer.Count;
+                    if (iCounted + bLayer.BoxCount > caseIndex)
+                        break;
+                    else
+                    {
+                        iCounted += bLayer.Count;
+                    }
                 }
-            }
+                ++iLayer;
+           }
             BoxLayer layerW = _palletSolution[iLayer] as BoxLayer;
 
             return layerW[(int)caseIndex - iCounted];
@@ -902,7 +913,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
             using (System.Diagnostics.Process proc = new System.Diagnostics.Process())
             {
                 proc.StartInfo.FileName = GoogleChromePath;
-                proc.StartInfo.Arguments = "/allow-file-access-from-files " + filePathHTML;
+                proc.StartInfo.Arguments = "/allow-file-access-from-files \"" + filePathHTML + "\"";
                 proc.Start();
             }
         }

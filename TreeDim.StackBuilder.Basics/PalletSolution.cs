@@ -235,6 +235,38 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
+        public BoxLayer CaseLayerFirst
+        {
+            get
+            {
+                foreach (ILayer layer in this)
+                {
+                    if (layer is BoxLayer)
+                        return layer as BoxLayer;
+                }
+                return null;
+            }
+        }
+
+        public BoxLayer CaseLayerSecond
+        {
+            get
+            {
+                bool first = true;
+                foreach (ILayer layer in this)
+                {
+                    if (layer is BoxLayer)
+                    {
+                        if (first)
+                            first = false;
+                        else
+                            return layer as BoxLayer;
+                    }
+                }
+                return null;
+             }
+       }
+
         public bool HasSameCountLayers
         {
             get

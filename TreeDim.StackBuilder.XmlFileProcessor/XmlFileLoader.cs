@@ -284,9 +284,8 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 // build start info
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "TreeDim.StackBuilder.Desktop.exe");
-                startInfo.Arguments = genDoc.path;
+                startInfo.Arguments = "\"" + genDoc.path + "\"";
                 System.Diagnostics.Process.Start(startInfo);
-
             }
         }
 

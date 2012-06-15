@@ -204,7 +204,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;listBoxTextures.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Desktop.ListBoxImages, TreeDim.StackBuilder.Desktop, Version=1.0.7.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Desktop.ListBoxImages, TreeDim.StackBuilder.Desktop, Version=1.0.8.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 	<data name="&gt;&gt;cbFace.Name" xml:space="preserve">
     <value>cbFace</value>

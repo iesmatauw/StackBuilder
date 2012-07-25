@@ -423,4 +423,31 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="lbAuthor.Text" xml:space="preserve">
+		<value>Autor</value>
+	</data>
+	<data name="lbDateCreated.Text" xml:space="preserve">
+		<value>Data de creació</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Crear un nou document…</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Descripció</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancel·la</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Nom</value>
+	</data>
 </root>

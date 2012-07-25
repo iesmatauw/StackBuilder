@@ -319,4 +319,10 @@
 	<data name="checkBoxPositionX.Text" xml:space="preserve">
 		<value>X</value>
 	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
 </root>

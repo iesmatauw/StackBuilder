@@ -1263,4 +1263,454 @@
 	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>True</value>
 	</metadata>
+	<data name="cbColor.Items6" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Definir un nuevo caso de caja/embalaje</value>
+	</data>
+	<data name="lbInsideHeight.Text" xml:space="preserve">
+		<value>altura interior</value>
+	</data>
+	<data name="gbDimensions.Text" xml:space="preserve">
+		<value>Medidas</value>
+	</data>
+	<data name="btBitmaps.Text" xml:space="preserve">
+		<value>Mapa de bits…</value>
+	</data>
+	<data name="lbInsideLength.Text" xml:space="preserve">
+		<value>longitud interior</value>
+	</data>
+	<data name="lbTapeColor.Text" xml:space="preserve">
+		<value>Color de la cinta</value>
+	</data>
+	<data name="gbFaceColor.Text" xml:space="preserve">
+		<value>color de la cara</value>
+	</data>
+	<data name="lbWeight.Text" xml:space="preserve">
+		<value>Peso</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+		<value>Altura</value>
+	</data>
+	<data name="lbInsideWidth.Text" xml:space="preserve">
+		<value>Anchura interior</value>
+	</data>
+	<data name="chkAllFaces.Text" xml:space="preserve">
+		<value>Todas las caras del mismo color</value>
+	</data>
+	<data name="lbWeightOnTop.Text" xml:space="preserve">
+		<value>Peso admitido encima</value>
+	</data>
+	<data name="checkBoxTape.Text" xml:space="preserve">
+		<value>Mostrar la cinta sobre el empalaje</value>
+	</data>
+	<data name="gbTape.Text" xml:space="preserve">
+		<value>Cinta</value>
+	</data>
+	<data name="lbTapeWidth.Text" xml:space="preserve">
+		<value>Ancho de la cinta</value>
+	</data>
+	<data name="cbTapeColor.Items47" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbUnitWeight.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="cbTapeColor.Items26" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items42" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbUnitLengthInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="cbColor.Items48" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items46" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items4" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items22" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items53" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items7" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items17" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items49" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items16" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items14" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items38" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items27" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items11" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items31" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items12" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbUnitHeightInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitLength.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="cbTapeColor.Items23" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items54" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items15" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items41" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items49" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbUnitWidthInside.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items45" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items21" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items2" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items47" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items14" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items8" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items51" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items36" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items51" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items19" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items43" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items2" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items22" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items44" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items17" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items52" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items39" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items20" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items10" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items35" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="gbWeight.Text" xml:space="preserve">
+		<value>Peso</value>
+	</data>
+	<data name="cbTapeColor.Items1" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items5" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items46" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items21" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbFace.Items1" xml:space="preserve">
+		<value>Frontal</value>
+	</data>
+	<data name="cbColor.Items33" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items50" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items11" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items15" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items29" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
+		<value>Descripción</value>
+	</data>
+	<data name="cbColor.Items39" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items54" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items42" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items25" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items19" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items30" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items37" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items30" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items28" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items43" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items45" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items38" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items34" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items50" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items18" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items33" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items32" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items5" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items34" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items13" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items9" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items31" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items16" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items8" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items23" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items13" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items40" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items12" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items29" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items44" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items37" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items53" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items3" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items32" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items55" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items35" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items3" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items52" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items20" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items41" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items6" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items10" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items9" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items7" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items48" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items36" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items18" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items24" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbTapeColor.Items40" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items4" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbFace.Items2" xml:space="preserve">
+		<value>Derecha</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="cbFace.Items" xml:space="preserve">
+		<value>Trasera</value>
+	</data>
+	<data name="lbWidth.Text" xml:space="preserve">
+		<value>Ancho</value>
+	</data>
+	<data name="cbFace.Items3" xml:space="preserve">
+		<value>Izquierda</value>
+	</data>
+	<data name="lbUnitHeight.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitWidth.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lblName.Text" xml:space="preserve">
+		<value>Nombre</value>
+	</data>
+	<data name="lbFace.Text" xml:space="preserve">
+		<value>Cara</value>
+	</data>
+	<data name="lbUnitWeightOnTop.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+		<value>Longitud</value>
+	</data>
+	<data name="cbFace.Items5" xml:space="preserve">
+		<value>Superior</value>
+	</data>
+	<data name="cbFace.Items4" xml:space="preserve">
+		<value>Inferior</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
 </root>

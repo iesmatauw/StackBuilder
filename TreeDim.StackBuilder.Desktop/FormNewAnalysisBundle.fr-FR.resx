@@ -194,7 +194,7 @@
 		<value>128, 17</value>
 	</data>
 	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
-    <value>Garder seulement les </value>
+    <value>qui sont parmis les</value>
   </data>
 	<data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
 		<value>42, 13</value>

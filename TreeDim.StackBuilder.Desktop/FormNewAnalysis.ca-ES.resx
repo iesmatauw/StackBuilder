@@ -1398,4 +1398,139 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Crear nou anàlisi d'embalatge/palet</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Espiral</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Capsa</value>
+	</data>
+	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
+		<value>Mostrar el nombre de palets que cal apilar</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Patrons de capes permesos</value>
+	</data>
+	<data name="checkBoxInterlayer.Text" xml:space="preserve">
+		<value>Separador</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>permetre capa aliniada</value>
+	</data>
+	<data name="gbAdditionalData.Text" xml:space="preserve">
+		<value>Dades adicionals</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>quan el nombre de capses arribi a</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palet</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>millor solució(ns)</value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>capses</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+		<value>Posicions de capses permeses</value>
+	</data>
+	<data name="checkBoxPositionX.Text" xml:space="preserve">
+		<value>X</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Nom</value>
+	</data>
+	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
+		<value>Sobresortit/endarrerit del palet</value>
+	</data>
+	<data name="checkBoxPositionZ.Text" xml:space="preserve">
+		<value>Z</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+		<value>quan l'alçada del palet arribi a</value>
+	</data>
+	<data name="gbLayerAlignment.Text" xml:space="preserve">
+		<value>Alineació de capes</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>Diagonal</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Interlocked</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Espiral ampliat</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>Condició adicional d'atura d'apilat</value>
+	</data>
+	<data name="lbKg2.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+		<value>quan el pes total del palet arribi a</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>permetre capes alternes</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Columna</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
+		<value>cada</value>
+	</data>
+	<data name="checkBoxPositionY.Text" xml:space="preserve">
+		<value>Y</value>
+	</data>
+	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
+		<value>Llargada</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+		<value>Ample</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>Fi apilonament:</value>
+	</data>
+	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
+		<value>capes</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
+		<value>quan la càrrega sobre les capses inferiors arribi a</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>que es troben entre els</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancel·la</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Descripció</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbMm.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
 </root>

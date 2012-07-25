@@ -271,4 +271,19 @@
 	<data name="lbUnitThickness.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="gbDimensions.Text" xml:space="preserve">
+		<value>Dimensions</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
 </root>

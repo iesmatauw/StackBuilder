@@ -216,4 +216,7 @@
 	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
 		<value>Breite</value>
 	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>die unter den</value>
+	</data>
 </root>

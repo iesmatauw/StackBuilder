@@ -241,4 +241,19 @@
 	<data name="lbKg1.Text" xml:space="preserve">
 		<value>kg</value>
 	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
 </root>

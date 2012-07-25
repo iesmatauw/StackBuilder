@@ -207,4 +207,13 @@
 	<data name="lbStopStacking.Text" xml:space="preserve">
 		<value>Stapel Endbedingung:</value>
 	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>die unter den</value>
+	</data>
 </root>

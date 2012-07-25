@@ -1119,4 +1119,79 @@
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+		<value>Solo permitir la orientación vertical de las cajas</value>
+	</data>
+	<data name="lbNumber.Text" xml:space="preserve">
+		<value>Número de cajas por embalaje</value>
+	</data>
+	<data name="lbBoxDimensions.Text" xml:space="preserve">
+		<value>Crear un análisis de embalaje y palet</value>
+	</data>
+	<data name="groupBox.Text" xml:space="preserve">
+		<value>Caja (producto interior)</value>
+	</data>
+	<data name="btSetMaximum.Text" xml:space="preserve">
+		<value>Asigna el máximo</value>
+	</data>
+	<data name="btSetMinimum.Text" xml:space="preserve">
+		<value>Asigna el mínimo</value>
+	</data>
+	<data name="lbWallThickness.Text" xml:space="preserve">
+		<value>Grueso de la pared (mm)</value>
+	</data>
+	<data name="lbWalls.Text" xml:space="preserve">
+		<value>Número de paredes</value>
+	</data>
+	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+		<value>Medidas máximas del embalaje (mm)</value>
+	</data>
+	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
+		<value>Medidas mínimas del embalaje (mm)</value>
+	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+		<value>Limitaciones del embalaje</value>
+	</data>
+	<data name="lbPalletHeight.Text" xml:space="preserve">
+		<value>Altura máxima del palet (mm)</value>
+	</data>
+	<data name="btOptimize.Text" xml:space="preserve">
+		<value>Optimizar</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Optimizar las medidas del embalaje…</value>
+	</data>
+	<data name="btClose.Text" xml:space="preserve">
+		<value>Cerrar</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Ancho</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+		<value>Altura</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+		<value>Longitud</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palet</value>
+	</data>
+	<data name="gbPallet.Text" xml:space="preserve">
+		<value>Palet</value>
+	</data>
+	<data name="btAddSolution.Text" xml:space="preserve">
+		<value>Crear un análisis de embalaje y palet</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Caja</value>
+	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(medidas)</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
 </root>

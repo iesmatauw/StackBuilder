@@ -427,4 +427,52 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Anàsili de camió/contenidor</value>
+	</data>
+	<data name="toolStripCornerView0.Text" xml:space="preserve">
+		<value>Vista cantonada 0º</value>
+	</data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+		<value>Vista frontal</value>
+	</data>
+	<data name="toolStripCornerView1.Text" xml:space="preserve">
+		<value>Vista cantonada 90º</value>
+	</data>
+	<data name="toolStripCornerView2.Text" xml:space="preserve">
+		<value>Vista cantonada 180º</value>
+	</data>
+	<data name="toolStripCornerView3.Text" xml:space="preserve">
+		<value>Vista cantonada 270º</value>
+	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+		<value>Vista esquerra</value>
+	</data>
+	<data name="toolStripTopView.Text" xml:space="preserve">
+		<value>Vista superior</value>
+	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+		<value>Vista Dreta</value>
+	</data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+		<value>Vista darrera</value>
+	</data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+		<value>Mostrar imatges</value>
+	</data>
+	<data name="toolStripViews.Text" xml:space="preserve">
+		<value>Vistes</value>
+	</data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+		<value>Vista Dreta</value>
+	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+		<value>Vista posterior</value>
+	</data>
+	<data name="btSelectSolution.Text" xml:space="preserve">
+		<value>Sel·leccionar</value>
+	</data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+		<value>Vista posterior</value>
+	</data>
 </root>

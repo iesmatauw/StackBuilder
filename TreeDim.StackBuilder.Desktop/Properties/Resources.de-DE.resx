@@ -341,7 +341,7 @@
 		<value>Auswählen</value>
 	</data>
 	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
-		<value>Efficiency (%)</value>
+		<value>Nutzungsgrad (%)</value>
 	</data>
 	<data name="ID_NAME" xml:space="preserve">
 		<value>Name</value>
@@ -350,5 +350,14 @@
 		<value>{0} has some depending analyses.
 If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
 Continue?</value>
+	</data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+		<value>Gewicht</value>
+	</data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+		<value>Anzahl</value>
+	</data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+		<value>Höhe</value>
 	</data>
 </root>

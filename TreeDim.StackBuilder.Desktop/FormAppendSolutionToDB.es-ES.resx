@@ -336,4 +336,31 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="rbKeepReplace2.Text" xml:space="preserve">
+		<value>Substituir todas las soluciones existentes</value>
+	</data>
+	<data name="labelQuestion.Text" xml:space="preserve">
+		<value>La base de datos ya contiene alguna(s) solución para un embalaje con estas dimensiones:</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
+	<data name="rbKeepReplace1.Text" xml:space="preserve">
+		<value>Mantiene cualquier solución existente y tambien guarda esta</value>
+	</data>
+	<data name="lbFriendlyName.Text" xml:space="preserve">
+		<value>Nombre amigable</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Añadir la solución a la base de datos</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
 </root>

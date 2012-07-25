@@ -138,4 +138,10 @@
 	<data name="bnOk.Text" xml:space="preserve">
 		<value>OK</value>
 	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
 </root>

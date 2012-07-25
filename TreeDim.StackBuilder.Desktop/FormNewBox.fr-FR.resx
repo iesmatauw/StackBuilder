@@ -498,7 +498,7 @@
 		<value>0, 396</value>
 	</data>
 	<data name="cbTapeColor.Items51" xml:space="preserve">
-    <value>Color</value>
+    <value>Couleur</value>
   </data>
 	<data name="cbTapeColor.Items52" xml:space="preserve">
     <value>Couleur</value>
@@ -751,5 +751,17 @@
 	</data>
 	<data name="lbUnitLengthInside.Text" xml:space="preserve">
 		<value>mm</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
+		<value>Description</value>
 	</data>
 </root>

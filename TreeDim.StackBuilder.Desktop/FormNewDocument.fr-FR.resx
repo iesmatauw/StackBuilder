@@ -139,4 +139,16 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Créer un nouveau document</value>
   </data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
 </root>

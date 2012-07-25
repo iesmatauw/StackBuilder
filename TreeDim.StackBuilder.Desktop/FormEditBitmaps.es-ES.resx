@@ -765,4 +765,76 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="bnAdd.Text" xml:space="preserve">
+		<value>Añadir textura…</value>
+	</data>
+	<data name="lbAngle.Text" xml:space="preserve">
+		<value>Angulo</value>
+	</data>
+	<data name="openImageFileDialog.Filter" xml:space="preserve">
+		<value>Archivos de imagen (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Editar imágenes de las caras</value>
+	</data>
+	<data name="lbUnitAngle.Text" xml:space="preserve">
+		<value>°</value>
+	</data>
+	<data name="lbImage.Text" xml:space="preserve">
+		<value>Imágenes</value>
+	</data>
+	<data name="bnRemove.Text" xml:space="preserve">
+		<value>Quitar</value>
+	</data>
+	<data name="lbOrigin.Text" xml:space="preserve">
+		<value>Origen</value>
+	</data>
+	<data name="lbSize.Text" xml:space="preserve">
+		<value>Medida</value>
+	</data>
+	<data name="cbFace.Items4" xml:space="preserve">
+		<value>Inferior</value>
+	</data>
+	<data name="cbFace.Items5" xml:space="preserve">
+		<value>Superior</value>
+	</data>
+	<data name="cbFace.Items3" xml:space="preserve">
+		<value>Izquierda</value>
+	</data>
+	<data name="cbFace.Items2" xml:space="preserve">
+		<value>Derecha</value>
+	</data>
+	<data name="cbFace.Items1" xml:space="preserve">
+		<value>Frontal</value>
+	</data>
+	<data name="cbFace.Items" xml:space="preserve">
+		<value>Trasera</value>
+	</data>
+	<data name="bnMoveUp.Text" xml:space="preserve">
+		<value>Mover arriba</value>
+	</data>
+	<data name="labelFace.Text" xml:space="preserve">
+		<value>Cara</value>
+	</data>
+	<data name="bnMoveDown.Text" xml:space="preserve">
+		<value>Mover abajo</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbUnitOriginY.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitSizeX.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitSizeY.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitOriginX.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
 </root>

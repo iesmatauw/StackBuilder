@@ -610,4 +610,55 @@
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
   </data>
+	<data name="toolStripShowPallet.Text" xml:space="preserve">
+		<value>Mostrar pal·let</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Anàlisi d'embalatge</value>
+	</data>
+	<data name="toolStripCornerView0.Text" xml:space="preserve">
+		<value>Vista cantonada 0º</value>
+	</data>
+	<data name="toolStripCornerView90.Text" xml:space="preserve">
+		<value>Vista cantonada 90º</value>
+	</data>
+	<data name="toolStripCornerView180.Text" xml:space="preserve">
+		<value>Vista cantonada 180º</value>
+	</data>
+	<data name="toolStripCornerView270.Text" xml:space="preserve">
+		<value>Vista cantonada 270º</value>
+	</data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+		<value>Vista frontal</value>
+	</data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+		<value>Vista esquerra</value>
+	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+		<value>Vista esquerra</value>
+	</data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+		<value>Vista Dreta</value>
+	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+		<value>Vista Dreta</value>
+	</data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+		<value>Vista darrera</value>
+	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+		<value>Vista darrera</value>
+	</data>
+	<data name="toolStripButtonTopView.Text" xml:space="preserve">
+		<value>Vista superior</value>
+	</data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+		<value>Mostrar imatges</value>
+	</data>
+	<data name="toolStrip_view.Text" xml:space="preserve">
+		<value>Vistes</value>
+	</data>
+	<data name="btSelectSolution.Text" xml:space="preserve">
+		<value>Sel·leccionar</value>
+	</data>
 </root>

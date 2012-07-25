@@ -240,4 +240,16 @@
 	<data name="lbMm.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Enlarged spiral</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>die unter den</value>
+	</data>
 </root>

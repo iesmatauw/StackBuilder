@@ -282,4 +282,13 @@
 	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>True</value>
 	</metadata>
+	<data name="btClose.Text" xml:space="preserve">
+		<value>Tancar</value>
+	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(mides)</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Editar base de dades de solucions de paletitzacions…</value>
+	</data>
 </root>

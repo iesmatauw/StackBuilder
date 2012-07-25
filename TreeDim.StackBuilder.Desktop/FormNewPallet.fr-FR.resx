@@ -323,4 +323,19 @@
 	<data name="lbMm2.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
+	<data name="bnAccept.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="lbType.Text" xml:space="preserve">
+		<value>Type</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
 </root>

@@ -127,4 +127,7 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Editer la base de données de solutions...</value>
   </data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(dimensions)</value>
+	</data>
 </root>

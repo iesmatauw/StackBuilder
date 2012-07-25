@@ -1199,4 +1199,196 @@
 	<metadata name="saveFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
 		<value>427, 17</value>
 	</metadata>
+	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+		<value>Añadir nuevo analisis de bulto</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+		<value>Añadir nuevo palet</value>
+	</data>
+	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
+		<value>Salir</value>
+	</data>
+	<data name="toolStripStandard.Text" xml:space="preserve">
+		<value>Estándar</value>
+	</data>
+	<data name="openToolStripMenuItem.Text" xml:space="preserve">
+		<value>Abrir</value>
+	</data>
+	<data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo analisis de embalaje</value>
+	</data>
+	<data name="toolStripButtonNewFile.Text" xml:space="preserve">
+		<value>Nuevo fichero</value>
+	</data>
+	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Salir de la aplicación</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>StackBuilder</value>
+	</data>
+	<data name="toolStripButtonHelp.Text" xml:space="preserve">
+		<value>Ayuda</value>
+	</data>
+	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Editar base de datos de soluciones de paletización</value>
+	</data>
+	<data name="newToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo</value>
+	</data>
+	<data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+		<value>Tutorial</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo analisis de embalaje/palet</value>
+	</data>
+	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+		<value>Guardar todos los archivos</value>
+	</data>
+	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nueva caja</value>
+	</data>
+	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo analisis de bulto/palet</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+		<value>Crear un analisis nuevo </value>
+	</data>
+	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+		<value>Añadir un camión nuevo</value>
+	</data>
+	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+		<value>Guardar todo</value>
+	</data>
+	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo separador</value>
+	</data>
+	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo embalaje</value>
+	</data>
+	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
+		<value>Archivo</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
+		<value>Añadir</value>
+	</data>
+	<data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+		<value>archivo Htlm (*.html)|*.html</value>
+	</data>
+	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+		<value>Abrir archivo</value>
+	</data>
+	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
+		<value>&amp;Editar base de datos de soluciones de palet...</value>
+	</data>
+	<data name="openFileDialogSB.Title" xml:space="preserve">
+		<value>Abrir archivo…</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+		<value>Buscar el embalaje óptimo</value>
+	</data>
+	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+		<value>Añadir caja nueva</value>
+	</data>
+	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo bulto</value>
+	</data>
+	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo camión</value>
+	</data>
+	<data name="saveFileDialogSB.Title" xml:space="preserve">
+		<value>Guardar archivo…</value>
+	</data>
+	<data name="menuStripMain.Text" xml:space="preserve">
+		<value>Menú principal</value>
+	</data>
+	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
+		<value>Herramientas</value>
+	</data>
+	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+		<value>Añadir nuevo análisis de palet</value>
+	</data>
+	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
+		<value>Guardar archivo</value>
+	</data>
+	<data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+		<value>Configuración…</value>
+	</data>
+	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
+		<value>Añadir nuevo separador</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+		<value>Crear un analisis nuevo de bulto</value>
+	</data>
+	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
+		<value>Guarda</value>
+	</data>
+	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nuevo palet</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Guardar como…</value>
+	</data>
+	<data name="mnuFileMRU.Text" xml:space="preserve">
+		<value>Archivos recientes…</value>
+	</data>
+	<data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
+		<value>Crear nuevo archivo</value>
+	</data>
+	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Cierra el documento activo</value>
+	</data>
+	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+		<value>Añadir nuevo embalaje…</value>
+	</data>
+	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+		<value>Añadir nuevo bulto</value>
+	</data>
+	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+		<value>Añadir nuevo palet</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+		<value>Guardar como…</value>
+	</data>
+	<data name="openFileDialogSB.Filter" xml:space="preserve">
+		<value>Archivos StackBuilder (*.stb)|*.stb|Todos (*.*)|*.*</value>
+	</data>
+	<data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
+		<value>Crear nuevo análisis de embalaje</value>
+	</data>
+	<data name="saveFileDialogSB.Filter" xml:space="preserve">
+		<value>Archivos StackBuilder (*.stb)|*.stb</value>
+	</data>
+	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
+		<value>Cerrar</value>
+	</data>
+	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Abrir archivo</value>
+	</data>
+	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+		<value>Abrir archivo</value>
+	</data>
+	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+		<value>Ayuda</value>
+	</data>
+	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
+		<value>Ayuda</value>
+	</data>
+	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+		<value>Ayuda</value>
+	</data>
+	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Crear nuevo archivoCrear nuevo archivo</value>
+	</data>
+	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+		<value>Acerca de StackBuilder</value>
+	</data>
+	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+		<value>Guardar archivo</value>
+	</data>
+	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+		<value>Buscar el embalaje óptimo</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+		<value>Buscar el embalaje óptimo</value>
+	</data>
 </root>

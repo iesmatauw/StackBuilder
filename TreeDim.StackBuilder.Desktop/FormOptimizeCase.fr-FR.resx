@@ -214,4 +214,16 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Recherche des dimensions de caisses optimales...</value>
   </data>
+	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+		<value>Autoriser seulement l'orientation verticale de l'étui</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+		<value>(dimensions)</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
 </root>

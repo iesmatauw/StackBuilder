@@ -403,7 +403,7 @@
 		<value>6, 13</value>
 	</data>
 	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
-    <value>Sale All Files</value>
+    <value>Save All Files</value>
   <comment></comment></data>
 	<data name="&gt;&gt;helpToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

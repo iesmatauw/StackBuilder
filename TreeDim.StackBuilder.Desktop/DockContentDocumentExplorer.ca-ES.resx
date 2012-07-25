@@ -2898,4 +2898,25 @@
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
   </data>
+	<data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
+		<value>Surant</value>
+	</data>
+	<data name="DockableToolStripMenuItem.Text" xml:space="preserve">
+		<value>Acopable</value>
+	</data>
+	<data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
+		<value>Document en pestanyes</value>
+	</data>
+	<data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
+		<value>Auto ocultar</value>
+	</data>
+	<data name="HideToolStripMenuItem.Text" xml:space="preserve">
+		<value>Ocultar</value>
+	</data>
+	<data name="ContextMenuDock.Text" xml:space="preserve">
+		<value>Posició de finestra</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Explorador de documents</value>
+	</data>
 </root>

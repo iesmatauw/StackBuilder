@@ -1059,4 +1059,103 @@
 	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>True</value>
 	</metadata>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Crear un nou anàlisi d'embalatge…</value>
+	</data>
+	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
+		<value>quan el pes total del embalatge arribi a</value>
+	</data>
+	<data name="lbFilterSolutions.Text" xml:space="preserve">
+		<value>Mantenir solucions:</value>
+	</data>
+	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
+		<value>quan l'embalatge contingui com a minim</value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>capsa(es)</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Columna</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancel·la</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Descripció</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>Diagonal</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Espiral ampliat</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>quan el nombre de capses arribi a</value>
+	</data>
+	<data name="checkBoxPositionX.Text" xml:space="preserve">
+		<value>X</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Espiral</value>
+	</data>
+	<data name="checkBoxPositionY.Text" xml:space="preserve">
+		<value>Y</value>
+	</data>
+	<data name="checkBoxPositionZ.Text" xml:space="preserve">
+		<value>Z</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>Fi apilonament:</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>que es troben entre els</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Nom</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palet</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Interlocked</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Patrons de capes permesos</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Capsa</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>permetre capa aliniada</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>millor solució(ns)</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+		<value>Posicions de capses permeses</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>Condició adicional d'atura d'apilat</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>permetre capes alternes</value>
+	</data>
+	<data name="gbSolutionFiltering.Text" xml:space="preserve">
+		<value>Dades adicionals</value>
+	</data>
 </root>

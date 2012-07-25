@@ -849,4 +849,139 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Crear un nou camió/contenidor…</value>
+	</data>
+	<data name="radioButtonTruck2.Text" xml:space="preserve">
+		<value>Crear un camió nou</value>
+	</data>
+	<data name="radioButtonTruck1.Text" xml:space="preserve">
+		<value>Afegir un camió de la base de dades</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Pes de càrrega permès</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancel·la</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Descripció</value>
+	</data>
+	<data name="lbWidth.Text" xml:space="preserve">
+		<value>Ample</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="cbColor.Items6" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items18" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items22" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items11" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items4" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items7" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbKg.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="cbColor.Items20" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items21" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items8" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items10" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbColor.Text" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items15" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+		<value>Llargada</value>
+	</data>
+	<data name="cbColor.Items5" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items9" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbMm3.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="cbColor.Items19" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items16" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items12" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items13" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items14" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+		<value>Alçada</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Nom</value>
+	</data>
+	<data name="cbColor.Items3" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items2" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items17" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="cbColor.Items23" xml:space="preserve">
+		<value>Color</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
 </root>

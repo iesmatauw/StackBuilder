@@ -434,4 +434,37 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
+		<value>Permitir orientación de palet ortogonal</value>
+	</data>
+	<data name="labelTruck.Text" xml:space="preserve">
+		<value>Camión</value>
+	</data>
+	<data name="checkBoxAllowSeveralLayers.Text" xml:space="preserve">
+		<value>Permitir varias capas de palets</value>
+	</data>
+	<data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
+		<value>Distancia mínima palet/techo del camión</value>
+	</data>
+	<data name="checkBoxAllowPalletOrientationX.Text" xml:space="preserve">
+		<value>Permitir la orientación por defecto de palet</value>
+	</data>
+	<data name="labelMinimalDistPalletWall.Text" xml:space="preserve">
+		<value>Distancia mínima entre el palet y las paredes del camión</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Crear un nuevo análisis de camión/contenedor</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbUnitDistPalletWalls.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbUnitDistPalletRoof.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
 </root>

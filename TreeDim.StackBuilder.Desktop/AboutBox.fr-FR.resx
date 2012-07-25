@@ -985,4 +985,13 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>A propos de StackBuilder...</value>
   </data>
+	<data name="okButton.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="textBoxDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="labelVersion.Text" xml:space="preserve">
+		<value>Version</value>
+	</data>
 </root>

@@ -243,4 +243,10 @@
 	<data name="$this.Text" xml:space="preserve">
 		<value>新しいトラック/コンテナを作成します...</value>
 	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>カラー</value>
+	</data>
 </root>

@@ -334,4 +334,16 @@
 	<data name="lbFace.Text" xml:space="preserve">
 		<value>Face</value>
 	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
 </root>

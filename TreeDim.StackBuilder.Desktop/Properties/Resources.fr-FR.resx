@@ -365,7 +365,7 @@ Souhaitez-vous continuer?</value>
 		<value>Caisse/pallette</value>
 	</data>
 	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
-		<value>Efficacité</value>
+		<value>Efficacité (%)</value>
 	</data>
 	<data name="ID_LAYERPATTERNS" xml:space="preserve">
 		<value>Patron(s) de couches</value>
@@ -375,5 +375,14 @@ Souhaitez-vous continuer?</value>
 	</data>
 	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
 		<value>Générer un rapport pour {0}</value>
+	</data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+		<value>Poid</value>
+	</data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+		<value>Nombre</value>
+	</data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+		<value>Hauteur</value>
 	</data>
 </root>

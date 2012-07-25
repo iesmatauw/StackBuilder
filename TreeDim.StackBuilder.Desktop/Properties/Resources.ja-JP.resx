@@ -424,4 +424,13 @@
 	<data name="ID_DESELECT" xml:space="preserve">
 		<value>選択解除</value>
 	</data>
+	<data name="ID_BOXCASECOUNT" xml:space="preserve">
+		<value>ボックス</value>
+	</data>
+	<data name="ID_CASE" xml:space="preserve">
+		<value>ケース</value>
+	</data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+		<value>重さ</value>
+	</data>
 </root>

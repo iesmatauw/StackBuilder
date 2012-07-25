@@ -317,4 +317,16 @@
 	<data name="lbUnitLength.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+		<value>statusStripDef</value>
+	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+		<value>toolStripStatusLabelDef</value>
+	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
 </root>

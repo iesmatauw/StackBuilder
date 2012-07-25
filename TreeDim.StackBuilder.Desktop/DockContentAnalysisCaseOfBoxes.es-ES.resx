@@ -588,4 +588,52 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Analizar Caja/Embalaje/Palet</value>
+	</data>
+	<data name="toolStripCornerView_0.Text" xml:space="preserve">
+		<value>Vista esquina 0º</value>
+	</data>
+	<data name="toolStripCornerView_180.Text" xml:space="preserve">
+		<value>Vista esquina 180º</value>
+	</data>
+	<data name="toolStripCornerView_90.ToolTipText" xml:space="preserve">
+		<value>Vista esquina 90º</value>
+	</data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+		<value>Vista frontal</value>
+	</data>
+	<data name="toolStripCornerView_270.Text" xml:space="preserve">
+		<value>Vista esquina 270º</value>
+	</data>
+	<data name="toolStripCornerView_90.Text" xml:space="preserve">
+		<value>Vista esquina 90º</value>
+	</data>
+	<data name="toolStripTopView.Text" xml:space="preserve">
+		<value>Vista superior</value>
+	</data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+		<value>Vista trasera</value>
+	</data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+		<value>Vista derecha</value>
+	</data>
+	<data name="toolStrip_view.Text" xml:space="preserve">
+		<value>Vistas</value>
+	</data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+		<value>Mostrar imágenes</value>
+	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+		<value>Vista derecha</value>
+	</data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+		<value>Vista izquierda</value>
+	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+		<value>Vista izquierda</value>
+	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+		<value>Vista posterior</value>
+	</data>
 </root>

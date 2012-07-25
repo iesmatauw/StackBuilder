@@ -169,4 +169,7 @@
 	<data name="lbUnitDistPalletRoof.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
 </root>

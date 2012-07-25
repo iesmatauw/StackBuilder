@@ -823,4 +823,91 @@
 	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>de-DE</value>
 	</metadata>
+	<data name="lbStaticBCT.Text" xml:space="preserve">
+		<value>BCT estàtic</value>
+	</data>
+	<data name="lbValueStiffnessY.Text" xml:space="preserve">
+		<value>RigidesaY</value>
+	</data>
+	<data name="btReportTemplateDir.Text" xml:space="preserve">
+		<value>…</value>
+	</data>
+	<data name="lbStiffnessYUnit.Text" xml:space="preserve">
+		<value>N.m</value>
+	</data>
+	<data name="lbThicknessUnit.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="chkShowLogConsole.Text" xml:space="preserve">
+		<value>Mostrar registre</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Gruix</value>
+	</data>
+	<data name="lbPrintedSurface.Text" xml:space="preserve">
+		<value>Superficie impresa</value>
+	</data>
+	<data name="gbFormula.Text" xml:space="preserve">
+		<value>Formula McKee</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>RigidesaX</value>
+	</data>
+	<data name="label5.Text" xml:space="preserve">
+		<value>daN</value>
+	</data>
+	<data name="lbCaseType.Text" xml:space="preserve">
+		<value>Tipus d'embalatge</value>
+	</data>
+	<data name="lbECTCoefficient.Text" xml:space="preserve">
+		<value>Coeficient ECT</value>
+	</data>
+	<data name="lbValueThickness.Text" xml:space="preserve">
+		<value>lbValueThickness</value>
+	</data>
+	<data name="gbResults.Text" xml:space="preserve">
+		<value>Resultats</value>
+	</data>
+	<data name="gbCardboardProperties.Text" xml:space="preserve">
+		<value>Cartró</value>
+	</data>
+	<data name="lbECTCoefUnit.Text" xml:space="preserve">
+		<value>kN/m</value>
+	</data>
+	<data name="rbFormula2.Text" xml:space="preserve">
+		<value>Millorat (utilitza la rigidesa del cartró)</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Tipus de cartró</value>
+	</data>
+	<data name="lbStaticBCTValue.Text" xml:space="preserve">
+		<value>lbStaticBCTValue</value>
+	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+		<value>Embalatge</value>
+	</data>
+	<data name="lbReportTemplatesDir.Text" xml:space="preserve">
+		<value>Directori de plantilles d'informe</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Anàlisi d'aixafament de cantonades</value>
+	</data>
+	<data name="lbStiffnessY.Text" xml:space="preserve">
+		<value>Rigidesa Y</value>
+	</data>
+	<data name="lbValueStiffnessX.Text" xml:space="preserve">
+		<value>Rigidesa X</value>
+	</data>
+	<data name="rbFormula1.Text" xml:space="preserve">
+		<value>Clàssica (utilitza coeficient ECT)</value>
+	</data>
+	<data name="lbDynamicBCT.Text" xml:space="preserve">
+		<value>BTC dinàmic (daN) (rati humitat / temps d'emmagatzematge</value>
+	</data>
+	<data name="lbStiffnessXUnit.Text" xml:space="preserve">
+		<value>N.m</value>
+	</data>
+	<data name="lbEctCoef.Text" xml:space="preserve">
+		<value>Coeficient ECT</value>
+	</data>
 </root>

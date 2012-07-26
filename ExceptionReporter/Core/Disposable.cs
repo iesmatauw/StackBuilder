@@ -14,6 +14,9 @@ namespace ExceptionReporting.Core
     {
         private int disposed;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         protected Disposable()
         {
             disposed = 0;

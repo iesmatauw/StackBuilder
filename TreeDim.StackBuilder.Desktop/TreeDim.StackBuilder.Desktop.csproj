@@ -458,12 +458,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.ca-ES.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.de-DE.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.es-ES.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBitmaps.fr-FR.resx">
       <DependentUpon>FormEditBitmaps.cs</DependentUpon>

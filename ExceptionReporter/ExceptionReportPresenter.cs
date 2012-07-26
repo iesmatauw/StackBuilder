@@ -20,6 +20,9 @@ namespace ExceptionReporting
         private readonly IExceptionReportView _view;
         private readonly ExceptionReportGenerator _reportGenerator;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public ExceptionReportPresenter(IExceptionReportView view, ExceptionReportInfo info)
         {
             _view = view;
@@ -34,7 +37,9 @@ namespace ExceptionReporting
         {
             get { return ReportInfo.AppAssembly; }
         }
-
+        /// <summary>
+        /// Access Exception report information 
+        /// </summary>
         public ExceptionReportInfo ReportInfo { get; private set; }
 
 		/// <summary>

@@ -7,6 +7,11 @@ namespace ExceptionReporting.Mail
     /// </summary>
     public class EmailTextBuilder
     {
+        /// <summary>
+        /// create message stating what will be done
+        /// </summary>
+        /// <param name="takeScreenshot"></param>
+        /// <returns></returns>
         public string CreateIntro(bool takeScreenshot)
         {
             var s = new StringBuilder()

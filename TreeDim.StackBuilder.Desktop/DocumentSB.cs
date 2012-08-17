@@ -193,6 +193,17 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.InsideLength, form.InsideWidth, form.InsideHeight
                     , form.Weight, form.Colors);
         }
+
+        public void CreateNewCylinderUI()
+        {
+            FormNewCylinder form = new FormNewCylinder(this);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewCylinder(
+                    form.CylinderName, form.Description
+                    , form.Radius, form.CylinderHeight, form.Weight
+                    , form.ColorTop, form.ColorWall);
+
+        }
         /// <summary>
         /// Creates a new BundleProperties object
         /// </summary>

@@ -198,6 +198,22 @@ namespace TreeDim.StackBuilder.Basics
             return bundle;
         }
 
+        public CylinderProperties CreateNewCylinder(
+            string name, string description
+            , double radius, double height
+            , double weight
+            , Color colorTop
+            , Color colorWall)
+        {
+            CylinderProperties cylinder = new CylinderProperties(this, name, description, radius, height, weight, colorTop, colorWall);
+            // insert in list
+            _typeList.Add(cylinder);
+            // notify listeners
+            NotifyOnNewTypeCreated(cylinder);
+            Modify();
+            return cylinder;        
+        }
+
         public void AddType(ItemBase item)
         {
             // insert in list

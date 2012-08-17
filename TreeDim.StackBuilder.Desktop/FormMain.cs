@@ -551,6 +551,9 @@ namespace TreeDim.StackBuilder.Desktop
             // new case
             newCaseToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewCase.Enabled = (null != doc);
+            // new cylinder
+            newCylinderToolStripMenuItem.Enabled = (null != doc);
+            toolStripButtonAddNewCylinder.Enabled = (null != doc);
             // new pallet
             newPalletToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewPallet.Enabled = (null != doc);
@@ -881,7 +884,12 @@ namespace TreeDim.StackBuilder.Desktop
             try { ((DocumentSB)ActiveDocument).CreateNewBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-
+        private void toolAddNewCylinder(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewCylinderUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+ 
+        }
         private void toolAddNewInterlayer(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
@@ -1034,7 +1042,7 @@ namespace TreeDim.StackBuilder.Desktop
             formTruckAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
         /// <summary>
-        /// 
+        /// ECT analysis view
         /// </summary>
         public void CreateOrActivateViewECTAnalysis(ECTAnalysis analysis)
         { 
@@ -1169,5 +1177,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

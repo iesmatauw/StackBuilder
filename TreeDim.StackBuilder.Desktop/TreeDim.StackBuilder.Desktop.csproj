@@ -208,17 +208,48 @@
     <Compile Include="FormNewCaseOfBoxes.Designer.cs">
       <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewCylinder.Designer.cs">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewDocument.ca-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewDocument.ca-ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="FormNewDocument.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewDocument.Designer.cs">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewDocument.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewDocument.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewInterlayer.ca-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewInterlayer.ca-ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="FormNewInterlayer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewInterlayer.Designer.cs">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewInterlayer.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewInterlayer.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPallet.ca-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewPallet.ca-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="FormNewPallet.cs">
       <SubType>Form</SubType>
@@ -232,11 +263,26 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewPallet.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewPallet.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewTruck.ca-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewTruck.ca-ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="FormNewTruck.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewTruck.Designer.cs">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewTruck.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormNewTruck.es-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="FormNewTruckAnalysis.cs">
       <SubType>Form</SubType>
@@ -244,11 +290,21 @@
     <Compile Include="FormNewTruckAnalysis.Designer.cs">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOptimizeCase.ca-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormOptimizeCase.ca-ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="FormOptimizeCase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormOptimizeCase.Designer.cs">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizeCase.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormOptimizeCase.es-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="IDocument.cs" />
     <Compile Include="IDocumentFactory.cs" />
@@ -624,11 +680,20 @@
     <EmbeddedResource Include="FormNewCaseOfBoxes.resx">
       <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewDocument.ca-ES.resx" />
+    <EmbeddedResource Include="FormNewCylinder.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewDocument.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.de-DE.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewDocument.es-ES.resx" />
+    <EmbeddedResource Include="FormNewDocument.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewDocument.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewDocument.fr-FR.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
@@ -639,11 +704,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewInterlayer.ca-ES.resx" />
+    <EmbeddedResource Include="FormNewInterlayer.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewInterlayer.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.de-DE.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewInterlayer.es-ES.resx" />
+    <EmbeddedResource Include="FormNewInterlayer.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewInterlayer.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.fr-FR.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
@@ -654,11 +725,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewPallet.ca-ES.resx" />
+    <EmbeddedResource Include="FormNewPallet.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewPallet.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.de-DE.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewPallet.es-ES.resx" />
+    <EmbeddedResource Include="FormNewPallet.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewPallet.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.fr-FR.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
@@ -673,11 +750,17 @@
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruck.ca-ES.resx" />
+    <EmbeddedResource Include="FormNewTruck.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewTruck.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.de-DE.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewTruck.es-ES.resx" />
+    <EmbeddedResource Include="FormNewTruck.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormNewTruck.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.fr-FR.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -705,8 +788,14 @@
     <EmbeddedResource Include="FormNewTruckAnalysis.resx">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptimizeCase.ca-ES.resx" />
-    <EmbeddedResource Include="FormOptimizeCase.es-ES.resx" />
+    <EmbeddedResource Include="FormOptimizeCase.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormOptimizeCase.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormOptimizeCase.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -767,8 +856,14 @@
     <EmbeddedResource Include="Properties\Resources.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen.ca-ES.resx" />
-    <EmbeddedResource Include="SplashScreen.es-ES.resx" />
+    <EmbeddedResource Include="SplashScreen.ca-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SplashScreen.ca-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SplashScreen.es-ES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -807,11 +902,21 @@
     </Compile>
     <Compile Include="RichTextBoxAppender.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SplashScreen.ca-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SplashScreen.ca-ES.resx</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.es-ES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SplashScreen.es-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
   </ItemGroup>
@@ -983,6 +1088,7 @@
     <None Include="Resources\CaseOfBoxes.bmp" />
     <None Include="Resources\IE-icon.png" />
     <None Include="Resources\Chrome.bmp" />
+    <None Include="Resources\Cylinder.bmp" />
     <Content Include="Resources\Image.bmp" />
     <None Include="Resources\OptimalCase.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />

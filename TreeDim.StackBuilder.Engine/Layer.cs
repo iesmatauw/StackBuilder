@@ -95,7 +95,7 @@ namespace TreeDim.StackBuilder.Engine
         private double _boxLength = 0.0, _boxWidth = 0.0, _boxHeight = 0.0;
         private double _palletLength = 0.0, _palletWidth = 0.0;
         private Vector3D _vecTransf = Vector3D.Zero;
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerPattern));
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(Layer));
         #endregion
 
         #region Constructor

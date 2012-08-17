@@ -71,6 +71,7 @@
     <Compile Include="Case.cs" />
     <Compile Include="CaseDefinitionViewer.cs" />
     <Compile Include="CaseSolutionViewer.cs" />
+    <Compile Include="Cylinder.cs" />
     <Compile Include="Drawable.cs" />
     <Compile Include="Face.cs" />
     <Compile Include="Graphics3D.cs" />

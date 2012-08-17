@@ -59,6 +59,10 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summay>
         private List<Box> _boxes = new List<Box>();
         /// <summary>
+        /// cylinder buffer used for drawing
+        /// </summary>
+        private List<Cylinder> _cylinders = new List<Cylinder>();
+        /// <summary>
         /// segments
         /// </summary>
         private List<Segment> _segments = new List<Segment>();
@@ -267,6 +271,11 @@ namespace TreeDim.StackBuilder.Graphics
             _boxes.Add(box);
         }
 
+        public void AddCylinder(Cylinder cylinder)
+        {
+            _cylinders.Add(cylinder);
+        }
+
         public void AddDimensions(DimensionCube dimensionCube)
         {
             _dimensions.Add(dimensionCube);
@@ -328,6 +337,10 @@ namespace TreeDim.StackBuilder.Graphics
                 foreach (Box box in _boxes)
                     Draw(box);
 
+                // draw all cylinders
+                foreach (Cylinder cyl in _cylinders)
+                    Draw(cyl);
+
                 // draw segment list
                 foreach (Segment seg in _segments)
                     Draw(seg);
@@ -375,7 +388,30 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
                             vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
-
+                    // cylinders
+                    foreach (Cylinder cyl in _cylinders)
+                    {
+                        foreach (Vector3D pt in cyl.BottomPoints)
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                        }
+                        foreach (Vector3D pt in cyl.TopPoints)
+                        {
+                            Vector3D ptT = world2eye.transform(pt);
+                            vecMin.X = Math.Min(vecMin.X, ptT.X);
+                            vecMin.Y = Math.Min(vecMin.Y, ptT.Y);
+                            vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
+                            vecMax.X = Math.Max(vecMax.X, ptT.X);
+                            vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
+                        }
+                    }
                     // faces
                     foreach (Face face in _faces)
                         foreach (Vector3D pt in face.Points)
@@ -615,6 +651,51 @@ namespace TreeDim.StackBuilder.Graphics
                     , StringFormat.GenericDefault);
             }
             ++_boxDrawingCounter;
+        }
+        #endregion
+
+        #region Draw cylinder
+        internal void Draw(Cylinder cyl)
+        {
+            System.Drawing.Graphics g = Graphics;
+
+            // build pen path
+            Brush brushPath = new SolidBrush(cyl.ColorPath);
+            Pen penPathThick = new Pen(brushPath, 1.5f);
+
+            // bottom (draw only path)
+            Point[] ptsBottom = TransformPoint(GetCurrentTransformation(), cyl.BottomPoints);
+            g.DrawPolygon(penPathThick, ptsBottom);
+
+            // wall
+            Face[] faces = cyl.Faces;
+            foreach (Face face in faces)
+            {
+                Vector3D normal = face.Normal;
+
+                // visible ?
+                if (!face.IsVisible(_vTarget - _vCameraPos))
+                    continue;
+
+                // color
+                face.ColorFill = cyl.ColorWall;
+                double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
+                Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
+                // brush
+                Brush brush = new SolidBrush(color);
+                // draw polygon
+                Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
+                g.FillPolygon(brush, ptsFace);
+            }
+            // top
+            double cosTop = System.Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, _vLight));
+            Color colorTop = Color.FromArgb((int)(cyl.ColorTop.R * cosTop), (int)(cyl.ColorTop.G * cosTop), (int)(cyl.ColorTop.B * cosTop));
+            Brush brushTop = new SolidBrush(colorTop);
+            Point[] ptsTop = TransformPoint(GetCurrentTransformation(), cyl.TopPoints);
+            g.FillPolygon(brushTop, ptsTop);
+            g.DrawPolygon(penPathThick, ptsTop);
+
+            ++_boxDrawingCounter;        
         }
         #endregion
     }

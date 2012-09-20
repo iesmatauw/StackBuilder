@@ -463,4 +463,7 @@
 	<data name="ID_CASE" xml:space="preserve">
 		<value>Embalaje</value>
 	</data>
+	<data name="ID_ADDNEWCASE" xml:space="preserve">
+		<value>Añadir nuevo embalaje…</value>
+	</data>
 </root>

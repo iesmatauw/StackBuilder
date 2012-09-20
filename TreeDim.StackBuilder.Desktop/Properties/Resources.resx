@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,421 +59,421 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_NODE_CASES" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_NODE_CASES" xml:space="preserve">
     <value>Cases</value>
   </data>
-  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+	<data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
     <value>Allow aligned and/or alternate layers</value>
   </data>
-  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
     <value>Description field is empty</value>
   </data>
-  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
+	<data name="ID_CASEDIMENSIONS" xml:space="preserve">
     <value>Case dimensions</value>
   </data>
-  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
     <value>Generate Word report for {0}</value>
   </data>
-  <data name="ID_LAYOUT" xml:space="preserve">
+	<data name="ID_LAYOUT" xml:space="preserve">
     <value>Layout</value>
   </data>
-  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+	<data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
     <value>Case inside dimensions</value>
   </data>
-  <data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_EDIT" xml:space="preserve">
+	<data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_EDIT" xml:space="preserve">
     <value>Edit {0}...</value>
   </data>
-  <data name="ID_ADDNEWPALLET" xml:space="preserve">
+	<data name="ID_ADDNEWPALLET" xml:space="preserve">
     <value>Add new pallet...</value>
   </data>
-  <data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+	<data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
     <value>Maximum volume is insufficient to pack {0} {1} .</value>
   </data>
-  <data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_NODE_BOXES" xml:space="preserve">
+	<data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_NODE_BOXES" xml:space="preserve">
     <value>Boxes</value>
   </data>
-  <data name="ID_INVALIDNAME" xml:space="preserve">
+	<data name="ID_INVALIDNAME" xml:space="preserve">
     <value>Given name ({0}) is invalid</value>
   </data>
-  <data name="ID_PALLETLIMIT" xml:space="preserve">
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
     <value>Limit reached</value>
   </data>
-  <data name="ID_EFFICIENCY" xml:space="preserve">
+	<data name="ID_EFFICIENCY" xml:space="preserve">
     <value>Efficiency (%)</value>
   </data>
-  <data name="ID_GENERATECOLLADA" xml:space="preserve">
+	<data name="ID_GENERATECOLLADA" xml:space="preserve">
     <value>Generate 3D animation file for {0}</value>
   </data>
-  <data name="ID_GENERATEREPORT" xml:space="preserve">
+	<data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>Generate a report for {0}</value>
   </data>
-  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
     <value>Define at least one vertical axis</value>
   </data>
-  <data name="ID_LOADHEIGHT" xml:space="preserve">
+	<data name="ID_LOADHEIGHT" xml:space="preserve">
     <value>Load height (mm)</value>
   </data>
-  <data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+	<data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
     <value>Add new interlayer...</value>
   </data>
-  <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+	<data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>Define at least one stop stacking criterion</value>
   </data>
-  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>Save file {0}?</value>
   </data>
-  <data name="ID_DELETE" xml:space="preserve">
+	<data name="ID_DELETE" xml:space="preserve">
     <value>Delete {0}</value>
   </data>
-  <data name="ID_DESELECT" xml:space="preserve">
+	<data name="ID_DESELECT" xml:space="preserve">
     <value>Deselect</value>
   </data>
-  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+	<data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
   </data>
-  <data name="ID_ECT" xml:space="preserve">
+	<data name="ID_ECT" xml:space="preserve">
     <value>ECT</value>
   </data>
-  <data name="ID_CASEPERPALLET" xml:space="preserve">
+	<data name="ID_CASEPERPALLET" xml:space="preserve">
     <value>Case/pallet</value>
   </data>
-  <data name="ID_CASESPALLET" xml:space="preserve">
+	<data name="ID_CASESPALLET" xml:space="preserve">
     <value>Cases/Pallet</value>
   </data>
-  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>Add new bundle...</value>
   </data>
-  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Inconsistency:Maximum {0} is lower than minimum {1}.</value>
   </data>
-  <data name="ID_HEIGHT" xml:space="preserve">
+	<data name="ID_HEIGHT" xml:space="preserve">
     <value>Height</value>
   </data>
-  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
     <value>Inside length ({0}) ought to be lower than length ({1})</value>
   </data>
-  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>Add new bundle analysis...</value>
   </data>
-  <data name="ID_DATABASEEMPTY" xml:space="preserve">
+	<data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>Pallet solution database is empty.
 Closing form...</value>
   </data>
-  <data name="ID_LAYERPATTERN" xml:space="preserve">
+	<data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Layer pattern</value>
   </data>
-  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
     <value>The Google Chrome browser needs to be installed to visualize collada/webGL animations.</value>
   </data>
-  <data name="ID_NODE_PALLETS" xml:space="preserve">
+	<data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallets</value>
   </data>
-  <data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+	<data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
     <value>{0} has some depending analyses.
 If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
 Continue?</value>
   </data>
-  <data name="ID_CLOSE" xml:space="preserve">
+	<data name="ID_CLOSE" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="ID_A2" xml:space="preserve">
+	<data name="ID_A2" xml:space="preserve">
     <value>A2</value>
   </data>
-  <data name="ID_NAME" xml:space="preserve">
+	<data name="ID_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="ID_CASESLAYER" xml:space="preserve">
+	<data name="ID_CASESLAYER" xml:space="preserve">
     <value>Cases/Layer</value>
   </data>
-  <data name="ID_FILENOTFOUND" xml:space="preserve">
+	<data name="ID_FILENOTFOUND" xml:space="preserve">
     <value>File {0} could not be found</value>
   </data>
-  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
     <value>Define at least one stacking pattern</value>
   </data>
-  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+	<data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
     <value>Cannot create case analysis as the constraint set appears to be invalid.</value>
   </data>
-  <data name="ID_WIDTH" xml:space="preserve">
+	<data name="ID_WIDTH" xml:space="preserve">
     <value>Width</value>
   </data>
-  <data name="ID_NODE_TRUCKS" xml:space="preserve">
+	<data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Trucks</value>
   </data>
-  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+	<data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
     <value>Weight</value>
   </data>
-  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_SENDTODATABASE" xml:space="preserve">
+	<data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_SENDTODATABASE" xml:space="preserve">
     <value>Send to database</value>
   </data>
-  <data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+	<data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
     <value>Inside height ({0}) ought to be lower than height ({1})</value>
   </data>
-  <data name="ID_VERSION" xml:space="preserve">
+	<data name="ID_VERSION" xml:space="preserve">
     <value>Version : {0}</value>
   </data>
-  <data name="ID_ORIENTATION" xml:space="preserve">
+	<data name="ID_ORIENTATION" xml:space="preserve">
     <value>Orientation</value>
   </data>
-  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+	<data name="ID_EDGECRUSHTEST" xml:space="preserve">
     <value>Edge Crush Test Analysis</value>
   </data>
-  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
     <value>Unselect solution {0}</value>
   </data>
-  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+	<data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
     <value>Number</value>
   </data>
-  <data name="ID_A3" xml:space="preserve">
+	<data name="ID_A3" xml:space="preserve">
     <value>A3</value>
   </data>
-  <data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_NODE_BUNDLES" xml:space="preserve">
+	<data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>Bundles</value>
   </data>
-  <data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_LOADWEIGHT" xml:space="preserve">
+	<data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_LOADWEIGHT" xml:space="preserve">
     <value>Load (kg)</value>
   </data>
-  <data name="ID_BOXCASECOUNT" xml:space="preserve">
+	<data name="ID_BOXCASECOUNT" xml:space="preserve">
     <value>Box/Case count</value>
   </data>
-  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+	<data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Pallet weight (kg)</value>
   </data>
-  <data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+	<data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
     <value>Add new case analysis...</value>
   </data>
-  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
     <value>Inside width ({0}) ought to be lower than width ({1})</value>
   </data>
-  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+	<data name="ID_GENERATEREPORTHTML" xml:space="preserve">
     <value>Generate HTML report for {0}</value>
   </data>
-  <data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+	<data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
     <value>Edit pallet {0}...</value>
   </data>
-  <data name="ID_SELECTED" xml:space="preserve">
+	<data name="ID_SELECTED" xml:space="preserve">
     <value>Selected</value>
   </data>
-  <data name="ID_INDEX" xml:space="preserve">
+	<data name="ID_INDEX" xml:space="preserve">
     <value>Index</value>
   </data>
-  <data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_READY" xml:space="preserve">
+	<data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_READY" xml:space="preserve">
     <value>Ready</value>
   </data>
-  <data name="ID_AREA" xml:space="preserve">
+	<data name="ID_AREA" xml:space="preserve">
     <value>Area</value>
   </data>
-  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
     <value>Height</value>
   </data>
-  <data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_ADDNEWCASE" xml:space="preserve">
+	<data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="Analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_ADDNEWCASE" xml:space="preserve">
     <value>Add new case...</value>
   </data>
-  <data name="ID_CASECOUNT" xml:space="preserve">
+	<data name="ID_CASECOUNT" xml:space="preserve">
     <value>Case count</value>
   </data>
-  <data name="ID_A1" xml:space="preserve">
+	<data name="ID_A1" xml:space="preserve">
     <value>A1</value>
   </data>
-  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
     <value>Add new truck analysis...</value>
   </data>
-  <data name="ID_WEIGHT" xml:space="preserve">
+	<data name="ID_WEIGHT" xml:space="preserve">
     <value>Weight (kg)</value>
   </data>
-  <data name="ID_CASE" xml:space="preserve">
+	<data name="ID_CASE" xml:space="preserve">
     <value>Case</value>
   </data>
-  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
     <value>Efficiency (%)</value>
   </data>
-  <data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+	<data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
     <value>Add new ECT analysis...</value>
   </data>
-  <data name="ID_LENGTH" xml:space="preserve">
+	<data name="ID_LENGTH" xml:space="preserve">
     <value>Length</value>
   </data>
-  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
+	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>Add new truck...</value>
   </data>
-  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
     <value>Add new analysis...</value>
   </data>
-  <data name="ID_SELECT" xml:space="preserve">
+	<data name="ID_SELECT" xml:space="preserve">
     <value>Select</value>
   </data>
-  <data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+	<data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet height (mm)</value>
   </data>
-  <data name="ID_ADDNEWBOX" xml:space="preserve">
+	<data name="ID_ADDNEWBOX" xml:space="preserve">
     <value>Add new box...</value>
   </data>
-  <data name="ID_ABOUT" xml:space="preserve">
+	<data name="ID_ABOUT" xml:space="preserve">
     <value>About {0}</value>
   </data>
-  <data name="ID_LAYERS" xml:space="preserve">
+	<data name="ID_LAYERS" xml:space="preserve">
     <value>Layers</value>
   </data>
-  <data name="ID_PALLETCOUNT" xml:space="preserve">
+	<data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>Pallet count</value>
   </data>
-  <data name="ID_LAYERPATTERNS" xml:space="preserve">
+	<data name="ID_LAYERPATTERNS" xml:space="preserve">
     <value>Layer pattern(s)</value>
   </data>
-  <data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+	<data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
     <value>Name field is empty</value>
   </data>
-  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>Interlayers</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\Cylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
 </root>

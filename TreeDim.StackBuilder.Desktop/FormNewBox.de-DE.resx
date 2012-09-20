@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,510 +59,510 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="bnCancel.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="bnCancel.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
-  </data>
-  <data name="lbFace.Text" xml:space="preserve">
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
+		<value>39, 13</value>
+	</data>
+	<data name="lbFace.Text" xml:space="preserve">
     <value>Fläche</value>
   </data>
-  <data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
-  </data>
-  <data name="lbInsideHeight.Text" xml:space="preserve">
+	<data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>87, 13</value>
+	</data>
+	<data name="lbInsideHeight.Text" xml:space="preserve">
     <value>Innenmass Höhe</value>
   </data>
-  <data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
-  </data>
-  <data name="lbInsideWidth.Text" xml:space="preserve">
+	<data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>88, 13</value>
+	</data>
+	<data name="lbInsideWidth.Text" xml:space="preserve">
     <value>Innenmass Breite</value>
   </data>
-  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 13</value>
-  </data>
-  <data name="lbInsideLength.Text" xml:space="preserve">
+	<data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>91, 13</value>
+	</data>
+	<data name="lbInsideLength.Text" xml:space="preserve">
     <value>Innenmass Länge</value>
   </data>
-  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
-  </data>
-  <data name="lbHeight.Text" xml:space="preserve">
+	<data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>33, 13</value>
+	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
     <value>Höhe</value>
   </data>
-  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="lbWidth.Text" xml:space="preserve">
+	<data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>34, 13</value>
+	</data>
+	<data name="lbWidth.Text" xml:space="preserve">
     <value>Breite</value>
   </data>
-  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
-  </data>
-  <data name="lbLength.Text" xml:space="preserve">
+	<data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>37, 13</value>
+	</data>
+	<data name="lbLength.Text" xml:space="preserve">
     <value>Länge</value>
   </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
+	<data name="gbDimensions.Text" xml:space="preserve">
     <value>Masse</value>
   </data>
-  <data name="cbFace.Items" xml:space="preserve">
+	<data name="cbFace.Items" xml:space="preserve">
     <value>Rückseite</value>
   </data>
-  <data name="cbFace.Items2" xml:space="preserve">
+	<data name="cbFace.Items2" xml:space="preserve">
     <value>Rechts</value>
   </data>
-  <data name="cbFace.Items3" xml:space="preserve">
+	<data name="cbFace.Items3" xml:space="preserve">
     <value>Links</value>
   </data>
-  <data name="cbFace.Items4" xml:space="preserve">
+	<data name="cbFace.Items4" xml:space="preserve">
     <value>Unten</value>
   </data>
-  <data name="cbFace.Items5" xml:space="preserve">
+	<data name="cbFace.Items5" xml:space="preserve">
     <value>Oben</value>
   </data>
-  <data name="cbColor.Items1" xml:space="preserve">
+	<data name="cbColor.Items1" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items2" xml:space="preserve">
+	<data name="cbColor.Items2" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items3" xml:space="preserve">
+	<data name="cbColor.Items3" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items4" xml:space="preserve">
+	<data name="cbColor.Items4" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items5" xml:space="preserve">
+	<data name="cbColor.Items5" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items6" xml:space="preserve">
+	<data name="cbColor.Items6" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items7" xml:space="preserve">
+	<data name="cbColor.Items7" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items8" xml:space="preserve">
+	<data name="cbColor.Items8" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items9" xml:space="preserve">
+	<data name="cbColor.Items9" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items10" xml:space="preserve">
+	<data name="cbColor.Items10" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items11" xml:space="preserve">
+	<data name="cbColor.Items11" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items12" xml:space="preserve">
+	<data name="cbColor.Items12" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items13" xml:space="preserve">
+	<data name="cbColor.Items13" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items14" xml:space="preserve">
+	<data name="cbColor.Items14" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items15" xml:space="preserve">
+	<data name="cbColor.Items15" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items16" xml:space="preserve">
+	<data name="cbColor.Items16" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items17" xml:space="preserve">
+	<data name="cbColor.Items17" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items18" xml:space="preserve">
+	<data name="cbColor.Items18" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items19" xml:space="preserve">
+	<data name="cbColor.Items19" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items20" xml:space="preserve">
+	<data name="cbColor.Items20" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items21" xml:space="preserve">
+	<data name="cbColor.Items21" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items22" xml:space="preserve">
+	<data name="cbColor.Items22" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items23" xml:space="preserve">
+	<data name="cbColor.Items23" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items24" xml:space="preserve">
+	<data name="cbColor.Items24" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items25" xml:space="preserve">
+	<data name="cbColor.Items25" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items26" xml:space="preserve">
+	<data name="cbColor.Items26" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items27" xml:space="preserve">
+	<data name="cbColor.Items27" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items28" xml:space="preserve">
+	<data name="cbColor.Items28" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items29" xml:space="preserve">
+	<data name="cbColor.Items29" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items30" xml:space="preserve">
+	<data name="cbColor.Items30" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items31" xml:space="preserve">
+	<data name="cbColor.Items31" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items32" xml:space="preserve">
+	<data name="cbColor.Items32" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items33" xml:space="preserve">
+	<data name="cbColor.Items33" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items34" xml:space="preserve">
+	<data name="cbColor.Items34" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items35" xml:space="preserve">
+	<data name="cbColor.Items35" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items36" xml:space="preserve">
+	<data name="cbColor.Items36" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items37" xml:space="preserve">
+	<data name="cbColor.Items37" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items38" xml:space="preserve">
+	<data name="cbColor.Items38" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items39" xml:space="preserve">
+	<data name="cbColor.Items39" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items40" xml:space="preserve">
+	<data name="cbColor.Items40" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items41" xml:space="preserve">
+	<data name="cbColor.Items41" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items42" xml:space="preserve">
+	<data name="cbColor.Items42" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items43" xml:space="preserve">
+	<data name="cbColor.Items43" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items44" xml:space="preserve">
+	<data name="cbColor.Items44" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items45" xml:space="preserve">
+	<data name="cbColor.Items45" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items46" xml:space="preserve">
+	<data name="cbColor.Items46" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items47" xml:space="preserve">
+	<data name="cbColor.Items47" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items48" xml:space="preserve">
+	<data name="cbColor.Items48" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items49" xml:space="preserve">
+	<data name="cbColor.Items49" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items50" xml:space="preserve">
+	<data name="cbColor.Items50" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items51" xml:space="preserve">
+	<data name="cbColor.Items51" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items52" xml:space="preserve">
+	<data name="cbColor.Items52" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items53" xml:space="preserve">
+	<data name="cbColor.Items53" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items54" xml:space="preserve">
+	<data name="cbColor.Items54" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColor.Items55" xml:space="preserve">
+	<data name="cbColor.Items55" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 17</value>
-  </data>
-  <data name="chkAllFaces.Text" xml:space="preserve">
+	<data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
+		<value>201, 17</value>
+	</data>
+	<data name="chkAllFaces.Text" xml:space="preserve">
     <value>Alle Flächen haben die gleiche Farbe</value>
   </data>
-  <data name="gbFaceColor.Text" xml:space="preserve">
+	<data name="gbFaceColor.Text" xml:space="preserve">
     <value>Flächen Farbe</value>
   </data>
-  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="lbWeight.Text" xml:space="preserve">
+	<data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>46, 13</value>
+	</data>
+	<data name="lbWeight.Text" xml:space="preserve">
     <value>Gewicht</value>
   </data>
-  <data name="lbWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
-  </data>
-  <data name="lbWeightOnTop.Text" xml:space="preserve">
+	<data name="lbWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
+		<value>120, 13</value>
+	</data>
+	<data name="lbWeightOnTop.Text" xml:space="preserve">
     <value>Erlaubtes Gewicht oben</value>
   </data>
-  <data name="gbWeight.Text" xml:space="preserve">
+	<data name="gbWeight.Text" xml:space="preserve">
     <value>Gewicht</value>
   </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
-  </data>
-  <data name="lblDescription.Text" xml:space="preserve">
+	<data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
+		<value>72, 13</value>
+	</data>
+	<data name="lblDescription.Text" xml:space="preserve">
     <value>Beschreibung</value>
   </data>
-  <data name="cbTapeColor.Items1" xml:space="preserve">
+	<data name="cbTapeColor.Items1" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items2" xml:space="preserve">
+	<data name="cbTapeColor.Items2" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items3" xml:space="preserve">
+	<data name="cbTapeColor.Items3" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items4" xml:space="preserve">
+	<data name="cbTapeColor.Items4" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items5" xml:space="preserve">
+	<data name="cbTapeColor.Items5" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items6" xml:space="preserve">
+	<data name="cbTapeColor.Items6" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items7" xml:space="preserve">
+	<data name="cbTapeColor.Items7" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items8" xml:space="preserve">
+	<data name="cbTapeColor.Items8" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items9" xml:space="preserve">
+	<data name="cbTapeColor.Items9" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items10" xml:space="preserve">
+	<data name="cbTapeColor.Items10" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items11" xml:space="preserve">
+	<data name="cbTapeColor.Items11" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items12" xml:space="preserve">
+	<data name="cbTapeColor.Items12" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items13" xml:space="preserve">
+	<data name="cbTapeColor.Items13" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items14" xml:space="preserve">
+	<data name="cbTapeColor.Items14" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items15" xml:space="preserve">
+	<data name="cbTapeColor.Items15" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items16" xml:space="preserve">
+	<data name="cbTapeColor.Items16" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items17" xml:space="preserve">
+	<data name="cbTapeColor.Items17" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items18" xml:space="preserve">
+	<data name="cbTapeColor.Items18" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items19" xml:space="preserve">
+	<data name="cbTapeColor.Items19" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items20" xml:space="preserve">
+	<data name="cbTapeColor.Items20" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items21" xml:space="preserve">
+	<data name="cbTapeColor.Items21" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items22" xml:space="preserve">
+	<data name="cbTapeColor.Items22" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items23" xml:space="preserve">
+	<data name="cbTapeColor.Items23" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items24" xml:space="preserve">
+	<data name="cbTapeColor.Items24" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items25" xml:space="preserve">
+	<data name="cbTapeColor.Items25" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items26" xml:space="preserve">
+	<data name="cbTapeColor.Items26" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items27" xml:space="preserve">
+	<data name="cbTapeColor.Items27" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items28" xml:space="preserve">
+	<data name="cbTapeColor.Items28" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items29" xml:space="preserve">
+	<data name="cbTapeColor.Items29" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items30" xml:space="preserve">
+	<data name="cbTapeColor.Items30" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items31" xml:space="preserve">
+	<data name="cbTapeColor.Items31" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items32" xml:space="preserve">
+	<data name="cbTapeColor.Items32" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items33" xml:space="preserve">
+	<data name="cbTapeColor.Items33" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items34" xml:space="preserve">
+	<data name="cbTapeColor.Items34" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items35" xml:space="preserve">
+	<data name="cbTapeColor.Items35" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items36" xml:space="preserve">
+	<data name="cbTapeColor.Items36" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items37" xml:space="preserve">
+	<data name="cbTapeColor.Items37" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items38" xml:space="preserve">
+	<data name="cbTapeColor.Items38" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items39" xml:space="preserve">
+	<data name="cbTapeColor.Items39" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items40" xml:space="preserve">
+	<data name="cbTapeColor.Items40" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items41" xml:space="preserve">
+	<data name="cbTapeColor.Items41" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items42" xml:space="preserve">
+	<data name="cbTapeColor.Items42" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items43" xml:space="preserve">
+	<data name="cbTapeColor.Items43" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items44" xml:space="preserve">
+	<data name="cbTapeColor.Items44" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items45" xml:space="preserve">
+	<data name="cbTapeColor.Items45" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items46" xml:space="preserve">
+	<data name="cbTapeColor.Items46" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items47" xml:space="preserve">
+	<data name="cbTapeColor.Items47" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items48" xml:space="preserve">
+	<data name="cbTapeColor.Items48" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items49" xml:space="preserve">
+	<data name="cbTapeColor.Items49" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items50" xml:space="preserve">
+	<data name="cbTapeColor.Items50" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items51" xml:space="preserve">
+	<data name="cbTapeColor.Items51" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items52" xml:space="preserve">
+	<data name="cbTapeColor.Items52" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items53" xml:space="preserve">
+	<data name="cbTapeColor.Items53" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items54" xml:space="preserve">
+	<data name="cbTapeColor.Items54" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items55" xml:space="preserve">
+	<data name="cbTapeColor.Items55" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbTapeColor.Items56" xml:space="preserve">
+	<data name="cbTapeColor.Items56" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
-  </data>
-  <data name="lbTapeColor.Text" xml:space="preserve">
+	<data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 13</value>
+	</data>
+	<data name="lbTapeColor.Text" xml:space="preserve">
     <value>Tape Farbe</value>
   </data>
-  <data name="lbTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
-  </data>
-  <data name="lbTapeWidth.Text" xml:space="preserve">
+	<data name="lbTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 13</value>
+	</data>
+	<data name="lbTapeWidth.Text" xml:space="preserve">
     <value>Tape Breite</value>
   </data>
-  <data name="checkBoxTape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 17</value>
-  </data>
-  <data name="checkBoxTape.Text" xml:space="preserve">
+	<data name="checkBoxTape.Size" type="System.Drawing.Size, System.Drawing">
+		<value>220, 17</value>
+	</data>
+	<data name="checkBoxTape.Text" xml:space="preserve">
     <value>Zeige Tape oben auf der Umverpackung</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="$this.Text" xml:space="preserve">
     <value>Definiere eine neue Schachtel/Umverpackung…</value>
   </data>
 </root>

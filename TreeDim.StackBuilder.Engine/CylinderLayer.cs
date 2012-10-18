@@ -11,7 +11,7 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Engine
 {
-    public class CylinderLayer : List<Vector3D>
+    public class CylinderLayer : List<Vector2D>
     {
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(CylinderLayer));
@@ -48,6 +48,22 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public properties
+        public double PalletLength
+        {
+            get { return _palletLength; }
+        }
+        public double PalletWidth
+        {
+            get { return _palletWidth; }
+        }
+        public double CylinderRadius
+        {
+            get { return _cylinderRadius; }
+        }
+        public double CylinderHeight
+        {
+            get { return _cylinderHeight; }
+        }
         #endregion
     }
 }

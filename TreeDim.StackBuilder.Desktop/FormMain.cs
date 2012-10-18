@@ -918,6 +918,11 @@ namespace TreeDim.StackBuilder.Desktop
             try { PalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
+        private void toolAddNewAnalysisCylinder(object sender, EventArgs e)
+        {
+            try { PalletAnalysisCylinder analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletCylinderUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+        }
         private void toolAddNewCaseAnalysis(object sender, EventArgs e)
         {
             try { CaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI(); }
@@ -1177,7 +1182,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
     }
 }

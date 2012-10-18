@@ -65,6 +65,9 @@
     <Compile Include="CaseSolver.cs" />
     <Compile Include="CylinderLayer.cs" />
     <Compile Include="CylinderLayerPattern.cs" />
+    <Compile Include="CylinderLayerPatternAligned.cs" />
+    <Compile Include="CylinderLayerPatternStaggered.cs" />
+    <Compile Include="CylinderSolver.cs" />
     <Compile Include="EngineException.cs" />
     <Compile Include="Eratosthenes.cs" />
     <Compile Include="Layer.cs" />

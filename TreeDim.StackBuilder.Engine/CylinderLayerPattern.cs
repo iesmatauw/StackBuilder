@@ -1,6 +1,8 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.Text;
+#endregion
 
 namespace TreeDim.StackBuilder.Engine
 {
@@ -8,7 +10,8 @@ namespace TreeDim.StackBuilder.Engine
     {
         #region Abstract methods
         abstract public string Name { get; }
-        abstract public void GenerateLayer(CylinderLayer layer, out double actualLength, out double actualWidth);
+        abstract public void GetLayerDimensions(CylinderLayer layer, out double length, out double width); 
+        abstract public void GenerateLayer(CylinderLayer layer, double actualLength, double actualWidth);
         #endregion
 
         #region Public properties

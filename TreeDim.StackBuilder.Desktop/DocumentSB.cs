@@ -353,6 +353,17 @@ namespace TreeDim.StackBuilder.Desktop
             return null;
         }
 
+        public PalletAnalysisCylinder CreateNewAnalysisPalletCylinderUI()
+        {
+            FormNewAnalysisCylinder form = new FormNewAnalysisCylinder();
+            form.Cylinders = Cylinders.ToArray();
+            form.Pallets = Pallets.ToArray();
+            if (DialogResult.OK == form.ShowDialog())
+            {
+            }
+            return null;
+        }
+
         /// <summary>
         /// Creates a new case analysis
         /// </summary>

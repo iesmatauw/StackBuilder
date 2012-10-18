@@ -74,6 +74,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap AnalysisCylinder {
+            get {
+                object obj = ResourceManager.GetObject("AnalysisCylinder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap AnalysisStackingStrength {
             get {
                 object obj = ResourceManager.GetObject("AnalysisStackingStrength", resourceCulture);
@@ -759,6 +766,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_NODE_CASES {
             get {
                 return ResourceManager.GetString("ID_NODE_CASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinders.
+        /// </summary>
+        internal static string ID_NODE_CYLINDERS {
+            get {
+                return ResourceManager.GetString("ID_NODE_CYLINDERS", resourceCulture);
             }
         }
         

@@ -66,6 +66,7 @@
     <Compile Include="BBox3D.cs" />
     <Compile Include="CaseOfBoxesProperties.cs" />
     <Compile Include="CaseOptimAnalysis.cs" />
+    <Compile Include="PalletAnalysisCylinder.cs" />
     <Compile Include="CylinderProperties.cs" />
     <Compile Include="ECTAnalysis.cs" />
     <Compile Include="PalletAnalysis.cs" />

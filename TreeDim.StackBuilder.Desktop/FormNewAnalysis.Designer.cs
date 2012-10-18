@@ -180,13 +180,13 @@
             // 
             // gbAllowedBoxPositions
             // 
-            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionX);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionX);
+            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Name = "gbAllowedBoxPositions";
             this.gbAllowedBoxPositions.TabStop = false;
             // 
@@ -202,22 +202,21 @@
             // 
             // cbBox
             // 
-            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBox.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.Name = "cbBox";
             this.cbBox.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             // 
             // checkedListBoxPatterns
             // 
-            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.CheckOnClick = true;
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
@@ -227,12 +226,13 @@
             resources.GetString("checkedListBoxPatterns.Items3"),
             resources.GetString("checkedListBoxPatterns.Items4"),
             resources.GetString("checkedListBoxPatterns.Items5")});
+            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             // 
             // gbAllowedLayerPatterns
             // 
-            resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
             this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
+            resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
             this.gbAllowedLayerPatterns.Name = "gbAllowedLayerPatterns";
             this.gbAllowedLayerPatterns.TabStop = false;
             // 
@@ -291,8 +291,8 @@
             // 
             // nudMaximumPalletWeight
             // 
-            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -302,8 +302,8 @@
             // 
             // nudMaximumLoadOnBox
             // 
-            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -335,9 +335,9 @@
             // 
             // cbInterlayer
             // 
-            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
+            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.Name = "cbInterlayer";
             // 
             // lbInterlayerFreq1
@@ -407,13 +407,13 @@
             // 
             // gbOverhangUnderhang
             // 
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Controls.Add(this.lbMm2);
             this.gbOverhangUnderhang.Controls.Add(this.lbMm1);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
@@ -443,15 +443,14 @@
             // 
             // gbLayerAlignment
             // 
-            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlternateLayer);
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlignedLayer);
+            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Name = "gbLayerAlignment";
             this.gbLayerAlignment.TabStop = false;
             // 
             // gbStopStackingCondition
             // 
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Controls.Add(this.lbMm);
             this.gbStopStackingCondition.Controls.Add(this.lbKg1);
             this.gbStopStackingCondition.Controls.Add(this.lbKg2);
@@ -464,6 +463,7 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
@@ -490,13 +490,13 @@
             // 
             // gbAdditionalData
             // 
-            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
             this.gbAdditionalData.Controls.Add(this.lbSolutions);
             this.gbAdditionalData.Controls.Add(this.nudSolutions);
             this.gbAdditionalData.Controls.Add(this.checkBoxKeepSolutions);
             this.gbAdditionalData.Controls.Add(this.lbBoxes);
             this.gbAdditionalData.Controls.Add(this.nudNumberOfBoxes);
             this.gbAdditionalData.Controls.Add(this.checkBoxNumberOfPallets);
+            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
             this.gbAdditionalData.Name = "gbAdditionalData";
             this.gbAdditionalData.TabStop = false;
             // 
@@ -534,17 +534,17 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewAnalysis
             // 

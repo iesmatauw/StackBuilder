@@ -133,6 +133,77 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+
+    /// <summary>
+    /// A layer of cylinders
+    /// </summary>
+    public class CylinderLayer : List<Vector3D>, ILayer
+    {
+        #region Data members
+        double _zLower;
+        #endregion
+
+        #region Constructor
+        public CylinderLayer(double zLow)
+        {
+            _zLower = zLow;
+        }
+        #endregion
+
+        #region Public properties
+        public double ZLow
+        {
+            get { return _zLower; }
+        }
+        public int BoxCount
+        {
+            get { return Count; }
+        }
+
+        public int InterlayerCount
+        {
+            get { return 0; }
+        }
+        #endregion
+
+        #region Public methods
+        /// <summary>
+        /// Compute layer bouding box
+        /// </summary>
+        /// <param name="bProperties">Case properties</param>
+        /// <returns>bounding box</returns>
+        public BBox3D BoundingBox(CylinderProperties cylProperties)
+        {
+            BBox3D bbox = new BBox3D();
+
+            double radius = cylProperties.Radius;
+            double height = cylProperties.Height;
+
+            foreach (Vector3D pos in this)
+            {
+                Vector3D[] pts = new Vector3D[8];
+                pts[0] = pos - radius * Vector3D.XAxis - radius * Vector3D.YAxis;
+                pts[1] = pos + radius * Vector3D.XAxis - radius * Vector3D.YAxis;
+                pts[2] = pos + radius * Vector3D.XAxis + radius * Vector3D.YAxis;
+                pts[3] = pos - radius * Vector3D.XAxis + radius * Vector3D.YAxis;
+                pts[4] = pos - radius * Vector3D.XAxis - radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                pts[5] = pos + radius * Vector3D.XAxis - radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                pts[6] = pos + radius * Vector3D.XAxis + radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+                pts[7] = pos - radius * Vector3D.XAxis + radius * Vector3D.YAxis + height * Vector3D.ZAxis;
+
+                foreach (Vector3D pt in pts)
+                    bbox.Extend(pt);
+            }
+            return bbox;
+        }
+
+        public double Thickness(CylinderProperties cylProperties)
+        {
+            if (Count == 0) return 0.0;
+            return cylProperties.Height;
+        }
+        #endregion
+    }
     #endregion
 
     #region PalletSolution

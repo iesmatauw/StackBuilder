@@ -110,6 +110,12 @@
     <Compile Include="DockContentAnalysisCaseOfBoxes.Designer.cs">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentAnalysisCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinder.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentCaseAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,12 @@
     </Compile>
     <Compile Include="FormNewAnalysisBundle.Designer.cs">
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinder.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewBox.cs">
       <SubType>Form</SubType>
@@ -605,6 +617,9 @@
     <EmbeddedResource Include="FormNewAnalysisBundle.resx">
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.ca-ES.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
@@ -1079,6 +1094,7 @@
     <None Include="Resources\Solution.bmp" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
+    <None Include="Resources\AnalysisCylinder.bmp" />
     <Content Include="Resources\AnalysisStackingStrength.ico" />
     <None Include="Resources\AnalysisStackingStrength.png" />
     <Content Include="Resources\CaseAnalysis.bmp" />

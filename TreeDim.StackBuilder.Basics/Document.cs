@@ -559,6 +559,23 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
         /// <summary>
+        /// Builds and return a list of cylinders
+        /// </summary>
+        public List<CylinderProperties> Cylinders
+        {
+            get
+            {
+                List<CylinderProperties> cylinderList = new List<CylinderProperties>();
+                foreach (ItemBase item in _typeList)
+                {
+                    CylinderProperties cylinderProperties = item as CylinderProperties;
+                    if (null != cylinderProperties)
+                        cylinderList.Add(cylinderProperties);
+                }
+                return cylinderList;
+            }
+        }
+        /// <summary>
         /// Builds and returns a list of pallets
         /// </summary>
         public List<PalletProperties> Pallets

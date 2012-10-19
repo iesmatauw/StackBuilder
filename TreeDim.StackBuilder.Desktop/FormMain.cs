@@ -920,7 +920,7 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void toolAddNewAnalysisCylinder(object sender, EventArgs e)
         {
-            try { PalletAnalysisCylinder analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletCylinderUI(); }
+            try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletCylinderUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
         private void toolAddNewCaseAnalysis(object sender, EventArgs e)

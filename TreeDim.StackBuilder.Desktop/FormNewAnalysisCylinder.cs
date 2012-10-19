@@ -19,7 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
         private CylinderProperties[] _cylinderProperties;
         private PalletProperties[] _palletProperties;
         private Document _document;
-        private PalletAnalysisCylinder _analysis;
+        private CylinderPalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinder));
         #endregion
 
@@ -75,7 +75,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Constructor used while browsing/editing existing analysis
         /// </summary>
-        public FormNewAnalysisCylinder(Document document, PalletAnalysisCylinder analysis)
+        public FormNewAnalysisCylinder(Document document, CylinderPalletAnalysis analysis)
         {
             InitializeComponent();
             // save document reference

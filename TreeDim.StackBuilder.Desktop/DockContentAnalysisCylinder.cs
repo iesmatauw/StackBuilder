@@ -21,12 +21,12 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private IDocument _document;
-        private PalletAnalysisCylinder _analysis;
+        private CylinderPalletAnalysis _analysis;
         private PalletSolution _sol; 
         #endregion
 
         #region Constructor
-        public DockContentAnalysisCylinder(IDocument document, PalletAnalysisCylinder analysis)
+        public DockContentAnalysisCylinder(IDocument document, CylinderPalletAnalysis analysis)
         {
             _document = document;
 

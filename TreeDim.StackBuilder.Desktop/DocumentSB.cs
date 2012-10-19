@@ -353,7 +353,7 @@ namespace TreeDim.StackBuilder.Desktop
             return null;
         }
 
-        public PalletAnalysisCylinder CreateNewAnalysisPalletCylinderUI()
+        public CylinderPalletAnalysis CreateNewAnalysisPalletCylinderUI()
         {
             FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this);
             form.Cylinders = Cylinders.ToArray();

@@ -51,8 +51,8 @@ namespace TreeDim.StackBuilder.Desktop
             // set static instance
             _instance = this;
             // set analysis solver
-            PalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.Solver();
-            CaseAnalysis.Solver = new TreeDim.StackBuilder.Engine.CaseSolver();
+            CasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.CasePalletSolver();
+            BoxCasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCasePalletSolver();
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
 
@@ -362,7 +362,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else if ((null == eventArg.ItemBase) && (null != eventArg.CaseAnalysis))
             {
-                CaseAnalysis caseAnalysis = eventArg.CaseAnalysis;
+                BoxCasePalletAnalysis caseAnalysis = eventArg.CaseAnalysis;
                 if (null != caseAnalysis)
                     CreateOrActivateViewCaseAnalysis(caseAnalysis);
 
@@ -793,7 +793,7 @@ namespace TreeDim.StackBuilder.Desktop
         // new
         public void OnNewDocument(Document doc) {}
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
-        public void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis)
+        public void OnNewAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
             CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
             if (null != caseOfBoxes)
@@ -801,23 +801,23 @@ namespace TreeDim.StackBuilder.Desktop
             else
                 CreateOrActivateViewPalletAnalysis(analysis); 
         }
-        public void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis)
+        public void OnNewCaseAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
             CreateOrActivateViewCaseAnalysis(caseAnalysis); 
         }
-        public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
-        public void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) {  }
+        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
+        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) {  }
         //public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         //public void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution) { }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
-        public void OnAnalysisRemoved(Document doc, PalletAnalysis analysis) { }
-        public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis) { }
-        public void OnCaseAnalysisRemoved(Document doc, PalletAnalysis caseAnalysis) { }
+        public void OnAnalysisRemoved(Document doc, CasePalletAnalysis analysis) { }
+        public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis) { }
+        public void OnCaseAnalysisRemoved(Document doc, CasePalletAnalysis caseAnalysis) { }
         //public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         //public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis caseAnalysis, SelCaseSolution selectedSolution) { }
-        public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
-        public void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) { }
+        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
+        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) { }
 
         // close
         public void OnDocumentClosed(Document doc) { }
@@ -910,12 +910,12 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void toolAddNewAnalysis(object sender, EventArgs e)
         {
-            try { PalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI(); }
+            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
         private void toolAddNewAnalysisBundle(object sender, EventArgs e)
         {
-            try { PalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
+            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
         private void toolAddNewAnalysisCylinder(object sender, EventArgs e)
@@ -925,7 +925,7 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void toolAddNewCaseAnalysis(object sender, EventArgs e)
         {
-            try { CaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI(); }
+            try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
         private void toolEditPalletSolutionsDB(object sender, EventArgs e)
@@ -973,7 +973,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Creates or activate a pallet analysis view
         /// </summary>
-        public void CreateOrActivateViewPalletAnalysis(PalletAnalysis analysis)
+        public void CreateOrActivateViewPalletAnalysis(CasePalletAnalysis analysis)
         {
             // ---> search among existing views
             // ---> activate if found
@@ -997,7 +997,7 @@ namespace TreeDim.StackBuilder.Desktop
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
 
-        public void CreateOrActivateViewPalletAnalysisWithBox(PalletAnalysis analysis)
+        public void CreateOrActivateViewPalletAnalysisWithBox(CasePalletAnalysis analysis)
         {
             // ---> search among existing views
             // ---> activate if found
@@ -1075,7 +1075,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Creates or activate a case analysis view
         /// </summary>
-        public void CreateOrActivateViewCaseAnalysis(CaseAnalysis caseAnalysis)
+        public void CreateOrActivateViewCaseAnalysis(BoxCasePalletAnalysis caseAnalysis)
         {
             // search ammong existing views
             foreach (IDocument doc in Documents)

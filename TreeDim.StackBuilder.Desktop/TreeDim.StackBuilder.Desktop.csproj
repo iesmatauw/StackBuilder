@@ -226,42 +226,17 @@
     <Compile Include="FormNewCylinder.Designer.cs">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewDocument.ca-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewDocument.ca-ES.resx</DependentUpon>
-    </Compile>
     <Compile Include="FormNewDocument.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewDocument.Designer.cs">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewDocument.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewDocument.es-ES.resx</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewInterlayer.ca-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewInterlayer.ca-ES.resx</DependentUpon>
-    </Compile>
     <Compile Include="FormNewInterlayer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewInterlayer.Designer.cs">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewInterlayer.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewInterlayer.es-ES.resx</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewPallet.ca-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewPallet.ca-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="FormNewPallet.cs">
       <SubType>Form</SubType>
@@ -275,37 +250,17 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewPallet.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewPallet.es-ES.resx</DependentUpon>
-    </Compile>
-    <Compile Include="FormNewTruck.ca-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewTruck.ca-ES.resx</DependentUpon>
-    </Compile>
     <Compile Include="FormNewTruck.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewTruck.Designer.cs">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewTruck.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormNewTruck.es-ES.resx</DependentUpon>
-    </Compile>
     <Compile Include="FormNewTruckAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewTruckAnalysis.Designer.cs">
       <DependentUpon>FormNewTruckAnalysis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormOptimizeCase.ca-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormOptimizeCase.ca-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="FormOptimizeCase.cs">
       <SubType>Form</SubType>
@@ -917,21 +872,11 @@
     </Compile>
     <Compile Include="RichTextBoxAppender.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="SplashScreen.ca-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SplashScreen.ca-ES.resx</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SplashScreen.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SplashScreen.es-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
   </ItemGroup>

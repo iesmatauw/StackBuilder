@@ -13,9 +13,9 @@ using log4net;
 namespace TreeDim.StackBuilder.Engine
 {
     /// <summary>
-    /// Solver
+    /// CasePalletSolver
     /// </summary>
-    public class Solver : IAnalysisSolver
+    public class CasePalletSolver : ICasePalletAnalysisSolver
     {
         #region Data members
         private static List<LayerPattern> _patterns = new List<LayerPattern>();
@@ -23,29 +23,29 @@ namespace TreeDim.StackBuilder.Engine
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
         private PalletConstraintSet _constraintSet;
-        static readonly ILog _log = LogManager.GetLogger(typeof(Solver));
+        static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
         #endregion
 
         #region Constructor
-        public Solver()
+        public CasePalletSolver()
         {
-            Solver.LoadPatterns();
+            CasePalletSolver.LoadPatterns();
         }
         #endregion
 
         #region Public methods
         /// <summary>
-        /// Process pallet analysis
+        /// Process case/pallet analysis
         /// </summary>
         /// <param name="analysis">Pallet analysis to process</param>
-        public void ProcessAnalysis(PalletAnalysis analysis)
+        public void ProcessAnalysis(CasePalletAnalysis analysis)
         {
             _bProperties = analysis.BProperties;
             _palletProperties = analysis.PalletProperties;
             _interlayerProperties = analysis.InterlayerProperties;
             _constraintSet = analysis.ConstraintSet;
             if (!_constraintSet.IsValid)
-                throw new Exception("Constraint set is invalid!");
+                throw new EngineException("Constraint set is invalid!");
 
             analysis.Solutions = GenerateSolutions();
         }
@@ -297,7 +297,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get
             {
-                Solver.LoadPatterns();
+                CasePalletSolver.LoadPatterns();
                 string[] patternNames = new string[_patterns.Count];
                 int i=0;
                 foreach (LayerPattern p in _patterns)
@@ -309,7 +309,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get
             {
-                Solver.LoadPatterns();
+                CasePalletSolver.LoadPatterns();
                 List<string> patternNameList = new List<string>();
                 foreach (LayerPattern p in _patterns)
                     patternNameList.Add( p.Name );

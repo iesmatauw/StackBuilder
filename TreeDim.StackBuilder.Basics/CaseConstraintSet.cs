@@ -197,7 +197,7 @@ namespace TreeDim.StackBuilder.Basics
 
         #region Number of solutions kept
         /// <summary>
-        /// Use 
+        /// Use number of solutions kept
         /// </summary>
         public bool UseNumberOfSolutionsKept
         {

@@ -42,13 +42,13 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
                 // load document
                 Document doc = new Document(filePath, new DocumentListenerLog());
                 // get first analysis
-                List<PalletAnalysis> analyses = doc.Analyses;
+                List<CasePalletAnalysis> analyses = doc.Analyses;
                 if (analyses.Count == 0)
                 {
                     log.Info("Document has no analysis -> Exiting...");
                     return;
                 }
-                PalletAnalysis analysis = analyses[0];
+                CasePalletAnalysis analysis = analyses[0];
                 if (analysis.Solutions.Count == 0)
                 {
                     log.Info("Analysis has no solution -> Exiting...");
@@ -89,33 +89,33 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
         {
             _log.Info(string.Format("Loaded item {0}", itemBase.Name));
         }
-        public void OnNewAnalysisCreated(Document doc, PalletAnalysis analysis)
+        public void OnNewAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
             _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
         }
-        public void OnNewCaseAnalysisCreated(Document doc, CaseAnalysis caseAnalysis)
+        public void OnNewCaseAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
             _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
         }
-        public void OnNewTruckAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
         {
         }
-        public void OnNewECTAnalysisCreated(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
+        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
         {
         }
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
         }
-        public void OnAnalysisRemoved(Document doc, PalletAnalysis analysis)
+        public void OnAnalysisRemoved(Document doc, CasePalletAnalysis analysis)
         {
         }
-        public void OnCaseAnalysisRemoved(Document doc, CaseAnalysis caseAnalysis)
+        public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
         }
-        public void OnTruckAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
         {
         }
-        public void OnECTAnalysisRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
+        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
         {
         }
         public void OnDocumentClosed(Document doc)

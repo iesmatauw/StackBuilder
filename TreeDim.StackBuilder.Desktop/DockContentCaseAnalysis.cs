@@ -30,7 +30,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Case analysis
         /// </summary>
-        CaseAnalysis _caseAnalysis;
+        BoxCasePalletAnalysis _caseAnalysis;
         /// <summary>
         /// view parameters
         /// </summary>
@@ -47,19 +47,19 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="document">Document to which the case analysis begins</param>
         /// <param name="caseAnalysis">Case analysis browsed</param>
-        public DockContentCaseAnalysis(IDocument document, CaseAnalysis caseAnalysis)
+        public DockContentCaseAnalysis(IDocument document, BoxCasePalletAnalysis caseAnalysis)
         {
             _document = document;
             _caseAnalysis = caseAnalysis;
             _caseAnalysis.AddListener(this);
 
-            _caseAnalysis.SolutionSelected += new Basics.CaseAnalysis.SelectSolution(SolutionSelectionChanged);
-            _caseAnalysis.SolutionSelectionRemoved += new Basics.CaseAnalysis.SelectSolution(SolutionSelectionChanged);
+            _caseAnalysis.SolutionSelected += new Basics.BoxCasePalletAnalysis.SelectSolution(SolutionSelectionChanged);
+            _caseAnalysis.SolutionSelectionRemoved += new Basics.BoxCasePalletAnalysis.SelectSolution(SolutionSelectionChanged);
 
             InitializeComponent();
         }
 
-        void SolutionSelectionChanged(CaseAnalysis analysis, SelCaseSolution selSolution)
+        void SolutionSelectionChanged(BoxCasePalletAnalysis analysis, SelCaseSolution selSolution)
         {
             UpdateSelectButtonText();
             UpdateGridCheckBoxes();
@@ -200,7 +200,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public CaseAnalysis CaseAnalysis
+        public BoxCasePalletAnalysis CaseAnalysis
         {
             get { return _caseAnalysis; }
             set { _caseAnalysis = value; }

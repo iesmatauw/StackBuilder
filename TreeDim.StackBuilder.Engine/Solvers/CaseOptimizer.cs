@@ -86,7 +86,7 @@ namespace TreeDim.StackBuilder.Engine
                 Vector3D outerDimensions = caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
                 BoxProperties bProperties = new BoxProperties(null, outerDimensions.X, outerDimensions.Y, outerDimensions.Z);
 
-                Solver solver = new Solver();
+                CasePalletSolver solver = new CasePalletSolver();
                 List<PalletSolution> palletSolutions = solver.Process(bProperties, _palletProperties, null, _palletConstraintSet);
                 if (palletSolutions.Count > 0)
                 {

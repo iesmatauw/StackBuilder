@@ -22,7 +22,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private BoxProperties[] _boxes;
         private Document _document;
-        private CaseAnalysis _caseAnalysis;
+        private BoxCasePalletAnalysis _caseAnalysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewCaseAnalysis));
         #endregion
 
@@ -61,7 +61,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="document">Document</param>
         /// <param name="caseAnalysis">Case analysis</param>
-        public FormNewCaseAnalysis(Document document, CaseAnalysis caseAnalysis)
+        public FormNewCaseAnalysis(Document document, BoxCasePalletAnalysis caseAnalysis)
         {
             InitializeComponent();
 
@@ -133,7 +133,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get
             {
-                string[] patternNames = TreeDim.StackBuilder.Engine.CaseSolver.PatternNames;
+                string[] patternNames = TreeDim.StackBuilder.Engine.BoxCasePalletSolver.PatternNames;
                 List<string> listAllowedPatterns = new List<string>();
                 foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
                 {
@@ -152,7 +152,7 @@ namespace TreeDim.StackBuilder.Desktop
             set
             {
                 // get list of existing patterns
-                List<string> patternNameList = TreeDim.StackBuilder.Engine.Solver.PatternNameList;
+                List<string> patternNameList = TreeDim.StackBuilder.Engine.CasePalletSolver.PatternNameList;
                 string allowedPatterns = value;
                 int iCountAllowedPatterns = 0;
                 string[] vPatternNames = value.Split(',');
@@ -569,7 +569,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (document.Analyses.Count != 1)
                 throw new Exception("Failed to load analysis.");
             // get analysis and solution
-            PalletAnalysis analysis = document.Analyses[0];
+            CasePalletAnalysis analysis = document.Analyses[0];
             Graphics3DImage graphics = new Graphics3DImage(new Size(50,50));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;

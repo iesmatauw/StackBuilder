@@ -14,7 +14,7 @@ namespace TreeDim.StackBuilder.Basics
     public class ECTAnalysis : ItemBase
     {
         #region Data members
-        private PalletAnalysis _analysis;
+        private CasePalletAnalysis _analysis;
         private SelSolution _selSolution;
         private TreeDim.EdgeCrushTest.McKeeFormula.QualityData _qualityData;
         private McKeeFormula.FormulaType _mcKeeFormula;
@@ -28,7 +28,7 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         public ECTAnalysis(
             Document document
-            , PalletAnalysis analysis
+            , CasePalletAnalysis analysis
             , SelSolution selSolution)
             : base(document)
         {

@@ -28,7 +28,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// analysis
         /// </summary>
-        private PalletAnalysis _analysis;
+        private CasePalletAnalysis _analysis;
         /// <summary>
         /// view parameters
         /// </summary>
@@ -45,7 +45,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public DockContentAnalysisCaseOfBoxes(IDocument document, PalletAnalysis analysis)
+        public DockContentAnalysisCaseOfBoxes(IDocument document, CasePalletAnalysis analysis)
         {
             _document = document;
             _analysis = analysis;
@@ -192,7 +192,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public PalletAnalysis Analysis
+        public CasePalletAnalysis Analysis
         {
             get { return _analysis; }
         }

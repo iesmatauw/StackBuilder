@@ -10,7 +10,7 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private string _title;
-        private CaseAnalysis _parentCaseAnalysis;
+        private BoxCasePalletAnalysis _parentCaseAnalysis;
         private PalletSolutionDesc _palletSolutionDesc;
         private bool _hasHomogeneousLayers;
         #endregion
@@ -21,7 +21,7 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         /// <param name="title"></param>
         /// <param name="caseAnalysis">Parent case analysis reference</param>
-        public CaseSolution(CaseAnalysis caseAnalysis, string title, PalletSolutionDesc palletSolutionDesc, bool hasHomogeneousLayers)
+        public CaseSolution(BoxCasePalletAnalysis caseAnalysis, string title, PalletSolutionDesc palletSolutionDesc, bool hasHomogeneousLayers)
         {
             _title = title;
             _parentCaseAnalysis = caseAnalysis;
@@ -34,7 +34,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent analysis
         /// </summary>
-        public CaseAnalysis ParentCaseAnalysis
+        public BoxCasePalletAnalysis ParentCaseAnalysis
         {
             set { _parentCaseAnalysis = value; }
             get { return _parentCaseAnalysis; }
@@ -85,7 +85,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent case analysis
         /// </summary>
-        public CaseAnalysis ParentAnalysis  { get { return _parentCaseAnalysis; } }
+        public BoxCasePalletAnalysis ParentAnalysis  { get { return _parentCaseAnalysis; } }
         /// <summary>
         /// Does solution have homogeneous layers?
         /// </summary>

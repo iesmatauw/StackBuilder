@@ -225,13 +225,13 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private string _title;
         private bool _homogeneousLayer = false;
-        private PalletAnalysis _parentAnalysis = null;
+        private CasePalletAnalysis _parentAnalysis = null;
         private Limit _limitReached = Limit.LIMIT_UNKNOWN;
         private BBox3D _bbox = new BBox3D();
         #endregion
 
         #region Constructor
-        public PalletSolution(PalletAnalysis analysis, string title, bool homogenousLayer)
+        public PalletSolution(CasePalletAnalysis analysis, string title, bool homogenousLayer)
         {
             _parentAnalysis = analysis;
             _title = title;
@@ -250,7 +250,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent analysis
         /// </summary>
-        public PalletAnalysis Analysis
+        public CasePalletAnalysis Analysis
         {
             get { return _parentAnalysis; }
             set { _parentAnalysis = value; }

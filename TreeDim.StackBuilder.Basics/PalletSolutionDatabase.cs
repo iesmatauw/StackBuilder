@@ -760,7 +760,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             Document document = selSolution.Analysis.ParentDocument;
             PalletSolution sol = selSolution.Solution;
-            PalletAnalysis analysis = sol.Analysis;
+            CasePalletAnalysis analysis = sol.Analysis;
             // instantiate new descriptor
             PalletSolutionDesc desc = new PalletSolutionDesc(this, sol, name);
             // remove similar solutions

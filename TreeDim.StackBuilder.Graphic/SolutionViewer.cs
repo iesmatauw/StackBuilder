@@ -18,7 +18,7 @@ namespace TreeDim.StackBuilder.Graphics
     {
         #region Data members
         private PalletSolution _solution;
-        private PalletAnalysis _analysis;
+        private CasePalletAnalysis _analysis;
         private bool _showDimensions = true;
         #endregion
 

@@ -112,7 +112,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="analysis"></param>
         /// <returns></returns>
-        public DockContentAnalysis CreateAnalysisView(PalletAnalysis analysis)
+        public DockContentAnalysis CreateAnalysisView(CasePalletAnalysis analysis)
         {
             DockContentAnalysis form = new DockContentAnalysis(this, analysis);
             AddView(form);
@@ -123,7 +123,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="analysis"></param>
         /// <returns></returns>
-        public DockContentAnalysisCaseOfBoxes CreateAnalysisViewCaseOfBoxes(PalletAnalysis analysis)
+        public DockContentAnalysisCaseOfBoxes CreateAnalysisViewCaseOfBoxes(CasePalletAnalysis analysis)
         {
             DockContentAnalysisCaseOfBoxes form = new DockContentAnalysisCaseOfBoxes(this, analysis);
             AddView(form);
@@ -154,7 +154,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="analysis"></param>
         /// <returns></returns>
-        public DockContentCaseAnalysis CreateCaseAnalysisView(CaseAnalysis analysis)
+        public DockContentCaseAnalysis CreateCaseAnalysisView(BoxCasePalletAnalysis analysis)
         {
             DockContentCaseAnalysis form = new DockContentCaseAnalysis(this, analysis);
             AddView(form);
@@ -258,7 +258,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Creates a new palet analysis
         /// </summary>
         /// <returns>created palet analysis</returns>
-        public PalletAnalysis CreateNewAnalysisUI()
+        public CasePalletAnalysis CreateNewAnalysisUI()
         {
             if (!CanCreatePalletAnalysis) return null;
 
@@ -307,7 +307,7 @@ namespace TreeDim.StackBuilder.Desktop
                     form.AnalysisName, form.AnalysisDescription,
                     form.SelectedBox, form.SelectedPallet, form.SelectedInterlayer
                     , constraintSet
-                    , new Solver());
+                    , new CasePalletSolver());
             }
             return null;
         }
@@ -315,7 +315,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Creates a new bundle analysis
         /// </summary>
         /// <returns>created bundle analysis</returns>
-        public PalletAnalysis CreateNewAnalysisBundleUI()
+        public CasePalletAnalysis CreateNewAnalysisBundleUI()
         {
             FormNewAnalysisBundle form = new FormNewAnalysisBundle(this);
             form.Boxes = Bundles.ToArray();
@@ -348,14 +348,14 @@ namespace TreeDim.StackBuilder.Desktop
                 return CreateNewAnalysis(form.AnalysisName, form.AnalysisDescription,
                     form.SelectedBundle, form.SelectedPallet, null
                     , constraintSet
-                    , new Solver());
+                    , new CasePalletSolver());
             }                
             return null;
         }
 
         public PalletAnalysisCylinder CreateNewAnalysisPalletCylinderUI()
         {
-            FormNewAnalysisCylinder form = new FormNewAnalysisCylinder();
+            FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this);
             form.Cylinders = Cylinders.ToArray();
             form.Pallets = Pallets.ToArray();
             if (DialogResult.OK == form.ShowDialog())
@@ -368,7 +368,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Creates a new case analysis
         /// </summary>
         /// <returns>created case analysis</returns>
-        public CaseAnalysis CreateNewCaseAnalysisUI()
+        public BoxCasePalletAnalysis CreateNewCaseAnalysisUI()
         {
             FormNewCaseAnalysis form = new FormNewCaseAnalysis(this);
             form.Boxes = Boxes.ToArray();
@@ -412,7 +412,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.SelectedBox
                     , constraintSet
                     , form.PalletSolutionList
-                    , new CaseSolver());
+                    , new BoxCasePalletSolver());
             }
             return null;
         }
@@ -423,7 +423,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Edit specified pallet analysis
         /// </summary>
         /// <param name="analysis"></param>
-        public void EditPalletAnalysis(PalletAnalysis analysis)
+        public void EditPalletAnalysis(CasePalletAnalysis analysis)
         {
             // do we need to recompute analysis
             bool recomputeRequired = false;
@@ -526,7 +526,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// Edit given case analysis
         /// </summary>
         /// <param name="caseAnalysis"></param>
-        public void EditCaseAnalysis(CaseAnalysis caseAnalysis)
+        public void EditCaseAnalysis(BoxCasePalletAnalysis caseAnalysis)
         {
             // do we need to recompute analysis
             bool recomputeRequired = false;

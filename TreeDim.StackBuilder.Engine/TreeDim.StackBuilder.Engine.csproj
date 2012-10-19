@@ -61,26 +61,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CaseOptimizer.cs" />
-    <Compile Include="CaseSolver.cs" />
+    <Compile Include="Solvers\CylinderSolver.cs" />
+    <Compile Include="Solvers\BoxCaseSolver.cs" />
+    <Compile Include="Solvers\CaseOptimizer.cs" />
+    <Compile Include="Solvers\BoxCasePalletSolver.cs" />
     <Compile Include="CylinderLayer.cs" />
-    <Compile Include="CylinderLayerPattern.cs" />
-    <Compile Include="CylinderLayerPatternAligned.cs" />
-    <Compile Include="CylinderLayerPatternStaggered.cs" />
-    <Compile Include="CylinderSolver.cs" />
-    <Compile Include="EngineException.cs" />
-    <Compile Include="Eratosthenes.cs" />
+    <Compile Include="LayerPatterns\CylinderLayerPattern.cs" />
+    <Compile Include="LayerPatterns\CylinderLayerPatternAligned.cs" />
+    <Compile Include="LayerPatterns\CylinderLayerPatternStaggered.cs" />
+    <Compile Include="Helpers\EngineException.cs" />
+    <Compile Include="Helpers\Eratosthenes.cs" />
     <Compile Include="Layer.cs" />
-    <Compile Include="LayerPattern.cs" />
-    <Compile Include="LayerPatternColumn.cs" />
-    <Compile Include="LayerPatternDiagonale.cs" />
-    <Compile Include="LayerPatternEnlargedSpirale.cs" />
-    <Compile Include="LayerPatternInterlocked.cs" />
-    <Compile Include="LayerPatternSpirale.cs" />
-    <Compile Include="LayerPatternTrilock.cs" />
+    <Compile Include="LayerPatterns\LayerPattern.cs" />
+    <Compile Include="LayerPatterns\LayerPatternColumn.cs" />
+    <Compile Include="LayerPatterns\LayerPatternDiagonale.cs" />
+    <Compile Include="LayerPatterns\LayerPatternEnlargedSpirale.cs" />
+    <Compile Include="LayerPatterns\LayerPatternInterlocked.cs" />
+    <Compile Include="LayerPatterns\LayerPatternSpirale.cs" />
+    <Compile Include="LayerPatterns\LayerPatternTrilock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Solver.cs" />
-    <Compile Include="TruckSolver.cs" />
+    <Compile Include="Solvers\CasePalletSolver.cs" />
+    <Compile Include="Solvers\TruckSolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine.cd" />

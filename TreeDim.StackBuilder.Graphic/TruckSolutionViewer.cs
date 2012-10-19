@@ -43,7 +43,7 @@ namespace TreeDim.StackBuilder.Graphics
             truck.DrawEnd(graphics);
 
             // get pallet height
-            PalletAnalysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
+            CasePalletAnalysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
             double palletLength = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength;
             double palletWidth = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth;
             double palletHeight = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight;
@@ -112,7 +112,7 @@ namespace TreeDim.StackBuilder.Graphics
                 throw new Exception("No trucksolution defined!");
 
             // get analysis
-            PalletAnalysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
+            CasePalletAnalysis analysis = _truckSolution.ParentTruckAnalysis.ParentAnalysis;
             double length = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletLength;
             double width = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletWidth;
             double height = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight;

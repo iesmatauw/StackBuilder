@@ -77,10 +77,10 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine(constraintSet.ToString());
 
                 // initialize analysis
-                PalletAnalysis analysis = new PalletAnalysis(boxProperties, palletProperties, interlayerProperties, constraintSet);
+                CasePalletAnalysis analysis = new CasePalletAnalysis(boxProperties, palletProperties, interlayerProperties, constraintSet);
 
                 // initialize solver
-                Solver solver = new Solver();
+                CasePalletSolver solver = new CasePalletSolver();
                 solver.ProcessAnalysis(analysis);
 
                 Console.WriteLine("=== Solutions ===");

@@ -9,14 +9,14 @@ namespace TreeDim.StackBuilder.Basics
     public class SelSolution : ItemBase
     {
         #region Data members
-        private PalletAnalysis _analysis;
+        private CasePalletAnalysis _analysis;
         private PalletSolution _solution;
         private List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
         private List<ECTAnalysis> _ectAnalyses = new List<ECTAnalysis>();
         #endregion
 
         #region Constructor
-        public SelSolution(Document document, PalletAnalysis analysis, PalletSolution sol)
+        public SelSolution(Document document, CasePalletAnalysis analysis, PalletSolution sol)
             : base(document)
         {
             _analysis = analysis;
@@ -138,7 +138,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent analysis
         /// </summary>
-        public PalletAnalysis Analysis
+        public CasePalletAnalysis Analysis
         {
             get { return _analysis; }
         }
@@ -163,12 +163,12 @@ namespace TreeDim.StackBuilder.Basics
     public class SelCaseSolution : ItemBase
     {
         #region Data members
-        private CaseAnalysis _analysis;
+        private BoxCasePalletAnalysis _analysis;
         private CaseSolution _solution;
         #endregion
 
         #region Constructor
-        public SelCaseSolution(Document document, CaseAnalysis analysis, CaseSolution sol)
+        public SelCaseSolution(Document document, BoxCasePalletAnalysis analysis, CaseSolution sol)
             : base(document)
         {
             _analysis = analysis;
@@ -178,7 +178,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public CaseAnalysis Analysis
+        public BoxCasePalletAnalysis Analysis
         {
             get { return _analysis; }
         }

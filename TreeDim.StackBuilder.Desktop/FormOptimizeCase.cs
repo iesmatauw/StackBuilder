@@ -275,7 +275,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , palletProperties.Name);
                 List<PalletSolution> palletSolutionList = new List<PalletSolution>();
                 palletSolutionList.Add(sol.PalletSolution);
-                PalletAnalysis analysis = _document.CreateNewAnalysis(
+                CasePalletAnalysis analysis = _document.CreateNewAnalysis(
                     analysisName
                     , analysisDescription
                     , caseProperties

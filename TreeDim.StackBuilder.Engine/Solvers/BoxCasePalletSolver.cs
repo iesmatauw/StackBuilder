@@ -14,7 +14,7 @@ namespace TreeDim.StackBuilder.Engine
     /// <summary>
     /// Solves CaseAnalysis
     /// </summary>
-    public class CaseSolver : ICaseAnalysisSolver
+    public class BoxCasePalletSolver : IBoxCasePalletAnalysisSolver
     {
         #region Data members
         private static List<LayerPattern> _patterns = new List<LayerPattern>();
@@ -22,13 +22,13 @@ namespace TreeDim.StackBuilder.Engine
         private List<PalletSolutionDesc> _palletSolutionList;
         private InterlayerProperties _interlayerProperties;
         private CaseConstraintSet _constraintSet;
-        static readonly ILog _log = LogManager.GetLogger(typeof(Solver));
+        static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
         #endregion
 
         #region Constructor
-        public CaseSolver()
+        public BoxCasePalletSolver()
         {
-            CaseSolver.LoadPatterns();
+            BoxCasePalletSolver.LoadPatterns();
         }
         #endregion
 
@@ -185,8 +185,8 @@ namespace TreeDim.StackBuilder.Engine
                             }
                         }// loop through all vertical axes
                     }// loop through all swap positions (if layer can be swaped)
-                } // loop through all patterns
-            }
+                }// loop through all patterns
+            }// loop through all pallet solutions
             // sort solutions
             solutions.Sort();
             // return list of solutions
@@ -209,7 +209,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get
             {
-                CaseSolver.LoadPatterns();
+                BoxCasePalletSolver.LoadPatterns();
                 string[] patternNames = new string[_patterns.Count];
                 int i = 0;
                 foreach (LayerPattern p in _patterns)
@@ -220,7 +220,7 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region ICaseAnalysisSolver implementation
-        public void ProcessAnalysis(CaseAnalysis analysis)
+        public void ProcessAnalysis(BoxCasePalletAnalysis analysis)
         {
             _boxProperties = analysis.BoxProperties;
             _interlayerProperties = analysis.InterlayerProperties;

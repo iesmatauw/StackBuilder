@@ -64,28 +64,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BBox3D.cs" />
-    <Compile Include="CaseOfBoxesProperties.cs" />
+    <Compile Include="BoxCaseAnalysis.cs" />
+    <Compile Include="BoxCaseConstraintSet.cs" />
+    <Compile Include="BoxCaseSolution.cs" />
     <Compile Include="CaseOptimAnalysis.cs" />
-    <Compile Include="PalletAnalysisCylinder.cs" />
-    <Compile Include="CylinderProperties.cs" />
     <Compile Include="ECTAnalysis.cs" />
-    <Compile Include="PalletAnalysis.cs" />
-    <Compile Include="BoxPosition.cs" />
-    <Compile Include="BoxProperties.cs" />
-    <Compile Include="BProperties.cs" />
-    <Compile Include="BundleProperties.cs" />
-    <Compile Include="CaseAnalysis.cs" />
+    <Compile Include="Helpers\BoxPosition.cs" />
+    <Compile Include="Containers\CylinderProperties.cs" />
+    <Compile Include="Containers\BoxProperties.cs" />
+    <Compile Include="Containers\CaseOfBoxesProperties.cs" />
+    <Compile Include="Containers\BProperties.cs" />
+    <Compile Include="Containers\BundleProperties.cs" />
+    <Compile Include="Containers\PalletProperties.cs" />
+    <Compile Include="Containers\TruckProperties.cs" />
+    <Compile Include="BoxCasePalletAnalysis.cs" />
+    <Compile Include="CasePalletAnalysis.cs" />
     <Compile Include="CaseConstraintSet.cs" />
     <Compile Include="CaseOptimSolution.cs" />
     <Compile Include="CaseSolution.cs" />
+    <Compile Include="PalletAnalysisCylinder.cs" />
     <Compile Include="PalletConstraintSet.cs" />
     <Compile Include="PalletConstraintSetBox.cs" />
     <Compile Include="PalletConstraintSetBundle.cs" />
     <Compile Include="Document.cs" />
-    <Compile Include="HalfAxis.cs" />
+    <Compile Include="Helpers\HalfAxis.cs" />
     <Compile Include="InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
-    <Compile Include="PalletProperties.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
     <Compile Include="SelSolution.cs" />
     <Compile Include="PalletSolution.cs" />
@@ -93,7 +97,6 @@
     <Compile Include="Texture.cs" />
     <Compile Include="TruckAnalysis.cs" />
     <Compile Include="TruckConstraintSet.cs" />
-    <Compile Include="TruckProperties.cs" />
     <Compile Include="TruckSolution.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,8 +110,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Schema\Basics.cd" />
-    <None Include="Schema\Basics.xsd">
+    <None Include="Schemas\Basics.cd" />
+    <None Include="Schemas\Basics.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

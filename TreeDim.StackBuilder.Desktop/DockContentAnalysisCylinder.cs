@@ -22,7 +22,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private IDocument _document;
         private PalletAnalysisCylinder _analysis;
-        private PalletSolution _solution; 
+        private PalletSolution _sol; 
         #endregion
 
         #region Constructor
@@ -40,6 +40,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Fill grid
+        private void FillGrid()
+        { 
+        }
         #endregion
 
         #region Helpers
@@ -52,15 +55,43 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region IItemListener implementation
+        /// <summary>
+        /// overrides IItemListener.Update
+        /// </summary>
+        /// <param name="item"></param>
+        public void Update(ItemBase item)
+        {
+            // update grid
+            FillGrid();
+            // draw
+            Draw();
+        }
+        /// <summary>
+        /// overrides IItemListener.Kill
+        /// handles analysis removal for any reason (deletion/document closing)
+        /// </summary>
+        /// <param name="item"></param>
+        public void Kill(ItemBase item)
+        {
+            Close();
+            _analysis.RemoveListener(this);
+        }
         #endregion
 
         #region IView implementation
+        public IDocument Document
+        {
+            get { return _document; }
+        }
         #endregion
 
         #region Public properties
         #endregion
 
         #region Drawing
+        private void Draw()
+        { 
+        }
         #endregion
 
         #region Handlers to define point of view

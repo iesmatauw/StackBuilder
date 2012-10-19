@@ -27,7 +27,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// analysis
         /// </summary>
-        private PalletAnalysis _analysis;
+        private CasePalletAnalysis _analysis;
         /// <summary>
         /// view parameters
         /// </summary>
@@ -48,20 +48,20 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="document">object implementing the IDocument interface</param>
         /// <param name="analysis">viewed analysis</param>
-        public DockContentAnalysis(IDocument document, PalletAnalysis analysis)
+        public DockContentAnalysis(IDocument document, CasePalletAnalysis analysis)
         {
             _document = document;
 
             _analysis = analysis;
             _analysis.AddListener(this);
 
-            _analysis.SolutionSelected += new PalletAnalysis.SelectSolution(onSolutionSelectionChanged);
-            _analysis.SolutionSelectionRemoved += new PalletAnalysis.SelectSolution(onSolutionSelectionChanged);
+            _analysis.SolutionSelected += new CasePalletAnalysis.SelectSolution(onSolutionSelectionChanged);
+            _analysis.SolutionSelectionRemoved += new CasePalletAnalysis.SelectSolution(onSolutionSelectionChanged);
 
             InitializeComponent();
         }
 
-        void onSolutionSelectionChanged(PalletAnalysis analysis, SelSolution selSolution)
+        void onSolutionSelectionChanged(CasePalletAnalysis analysis, SelSolution selSolution)
         {
             UpdateSelectButtonText();
             UpdateGridCheckBoxes();
@@ -364,7 +364,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public PalletAnalysis Analysis
+        public CasePalletAnalysis Analysis
         {
             get { return _analysis; }
         }

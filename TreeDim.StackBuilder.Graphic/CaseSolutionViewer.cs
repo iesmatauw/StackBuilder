@@ -41,7 +41,7 @@ namespace TreeDim.StackBuilder.Graphics
                 caseProperties = new BoxProperties(null, _caseSolution.CaseLength, _caseSolution.CaseWidth, _caseSolution.CaseHeight);
             else
             {
-                PalletAnalysis palletAnalysis = palletSolution.Analysis;
+                CasePalletAnalysis palletAnalysis = palletSolution.Analysis;
                 // retrieve case properties 
                 caseProperties = palletAnalysis.BProperties as BoxProperties;
             }
@@ -50,7 +50,7 @@ namespace TreeDim.StackBuilder.Graphics
             case_.DrawBegin(graphics);
 
             // get case analysis
-            CaseAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
+            BoxCasePalletAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
 
             // draw solution
             uint pickId = 0;
@@ -92,7 +92,7 @@ namespace TreeDim.StackBuilder.Graphics
             if (null == _caseSolution)
                 throw new Exception("No case solution defined!");
 
-            CaseAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
+            BoxCasePalletAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
 
             if (_caseSolution.HasHomogeneousLayers)
             {
@@ -149,7 +149,7 @@ namespace TreeDim.StackBuilder.Graphics
         {
             if (null == _caseSolution)
                 throw new Exception("No solution defined!");
-            CaseAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
+            BoxCasePalletAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
 
             // draw solution
             uint pickId = 0;

@@ -14,16 +14,16 @@ namespace TreeDim.StackBuilder.Graphics
     /// <summary>
     /// This class displays a computed solution using a gdi+ graphics from a control, a memory bitmap....
     /// </summary>
-    public class SolutionViewer
+    public class CasePalletSolutionViewer
     {
         #region Data members
-        private PalletSolution _solution;
+        private CasePalletSolution _solution;
         private CasePalletAnalysis _analysis;
         private bool _showDimensions = true;
         #endregion
 
         #region Constructor
-        public SolutionViewer(PalletSolution solution)
+        public CasePalletSolutionViewer(CasePalletSolution solution)
         {
             _analysis = null != solution ? solution.Analysis : null;
             _solution = solution;
@@ -92,7 +92,7 @@ namespace TreeDim.StackBuilder.Graphics
         ///  Use this method when solution does not refer an analysis (e.g. when displaying CaseOptimizer result)
         /// </summary>
         public static void Draw(Graphics3D graphics
-            , PalletSolution solution
+            , CasePalletSolution solution
             , BoxProperties boxProperties, InterlayerProperties interlayerProperties, PalletProperties palletProperties)
         {
             // draw pallet
@@ -255,7 +255,7 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public PalletSolution Solution
+        public CasePalletSolution Solution
         {
             get { return _solution; }
             set { _solution = value; }

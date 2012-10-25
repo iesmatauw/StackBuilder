@@ -49,7 +49,7 @@ namespace TreeDim.StackBuilder.Graphics
             double palletHeight = _truckSolution.ParentTruckAnalysis.ParentSolution.PalletHeight;
 
             // get parent pallet solution
-            PalletSolution sol = _truckSolution.ParentTruckAnalysis.ParentSolution;
+            CasePalletSolution sol = _truckSolution.ParentTruckAnalysis.ParentSolution;
 
             // draw solution
             uint pickIdGlobal = 0;

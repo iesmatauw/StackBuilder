@@ -63,15 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Box.cs" />
+    <Compile Include="Types\Box.cs" />
+    <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />
     <Compile Include="BoxComparer.cs" />
     <Compile Include="BoxelOrderer.cs" />
+    <Compile Include="BoxToPictureBox.cs" />
     <Compile Include="BSPNode.cs" />
     <Compile Include="BSPTree.cs" />
-    <Compile Include="Case.cs" />
-    <Compile Include="CaseDefinitionViewer.cs" />
-    <Compile Include="CaseSolutionViewer.cs" />
-    <Compile Include="Cylinder.cs" />
+    <Compile Include="Types\Case.cs" />
+    <Compile Include="SolutionViewers\CaseDefinitionViewer.cs" />
+    <Compile Include="SolutionViewers\BoxCasePalletSolutionViewer.cs" />
+    <Compile Include="Types\Cylinder.cs" />
     <Compile Include="Drawable.cs" />
     <Compile Include="Face.cs" />
     <Compile Include="Graphics3D.cs" />
@@ -79,13 +81,13 @@
     <Compile Include="Graphics2DImage.cs" />
     <Compile Include="Graphics3DImage.cs" />
     <Compile Include="GraphicsException.cs" />
-    <Compile Include="Interlayer.cs" />
-    <Compile Include="Pallet.cs" />
+    <Compile Include="Types\Interlayer.cs" />
+    <Compile Include="Types\Pallet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DimensionCube.cs" />
-    <Compile Include="SolutionViewer.cs" />
-    <Compile Include="Truck.cs" />
-    <Compile Include="TruckSolutionViewer.cs" />
+    <Compile Include="SolutionViewers\CasePalletSolutionViewer.cs" />
+    <Compile Include="Types\Truck.cs" />
+    <Compile Include="SolutionViewers\TruckSolutionViewer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
@@ -124,6 +126,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

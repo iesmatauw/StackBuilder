@@ -10,15 +10,15 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Graphics
 {
-    public class CaseSolutionViewer
+    public class BoxCasePalletSolutionViewer
     {
         #region Data members
-        private CaseSolution _caseSolution;
+        private BoxCasePalletSolution _caseSolution;
         private bool _showDimensions = true;
         #endregion
 
         #region Constructor
-        public CaseSolutionViewer(CaseSolution caseSolution)
+        public BoxCasePalletSolutionViewer(BoxCasePalletSolution caseSolution)
         {
             _caseSolution = caseSolution;
         }
@@ -36,7 +36,7 @@ namespace TreeDim.StackBuilder.Graphics
             // load pallet solution
             BoxProperties caseProperties;
 
-            PalletSolution palletSolution = _caseSolution.PalletSolutionDesc.LoadPalletSolution();
+            CasePalletSolution palletSolution = _caseSolution.PalletSolutionDesc.LoadPalletSolution();
             if (null == palletSolution)
                 caseProperties = new BoxProperties(null, _caseSolution.CaseLength, _caseSolution.CaseWidth, _caseSolution.CaseHeight);
             else

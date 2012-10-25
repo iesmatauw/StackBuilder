@@ -87,7 +87,7 @@ namespace TreeDim.StackBuilder.Engine
                 BoxProperties bProperties = new BoxProperties(null, outerDimensions.X, outerDimensions.Y, outerDimensions.Z);
 
                 CasePalletSolver solver = new CasePalletSolver();
-                List<PalletSolution> palletSolutions = solver.Process(bProperties, _palletProperties, null, _palletConstraintSet);
+                List<CasePalletSolution> palletSolutions = solver.Process(bProperties, _palletProperties, null, _palletConstraintSet);
                 if (palletSolutions.Count > 0)
                 {
                     int maxCaseCount = palletSolutions[0].CaseCount;

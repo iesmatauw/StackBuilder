@@ -50,7 +50,7 @@ namespace TreeDim.StackBuilder.Engine
             analysis.Solutions = GenerateSolutions();
         }
 
-        public List<PalletSolution> Process(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
+        public List<CasePalletSolution> Process(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
         {
             _bProperties = boxProperties;
             _palletProperties = palletProperties;
@@ -63,9 +63,9 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Private methods
-        private List<PalletSolution> GenerateSolutions()
+        private List<CasePalletSolution> GenerateSolutions()
         {
-            List<PalletSolution> solutions = new List<PalletSolution>();
+            List<CasePalletSolution> solutions = new List<CasePalletSolution>();
 
             // loop through all patterns
             foreach (LayerPattern pattern in _patterns)
@@ -156,7 +156,7 @@ namespace TreeDim.StackBuilder.Engine
                                 }
                                 string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swaped" : "");
 
-                                PalletSolution sol = new PalletSolution(null, title, layer1T == layer2T);
+                                CasePalletSolution sol = new CasePalletSolution(null, title, layer1T == layer2T);
                                 int iLayerIndex = 0;
                                 double zLayer = _palletProperties.Height;
                                 int iInterlayer = 0;
@@ -242,9 +242,9 @@ namespace TreeDim.StackBuilder.Engine
                                 }
 
                                 // set maximum criterion
-                                if (maxNumberReached) sol.LimitReached = PalletSolution.Limit.LIMIT_MAXNUMBERREACHED;
-                                else if (maxWeightReached) sol.LimitReached = PalletSolution.Limit.LIMIT_MAXWEIGHTREACHED;
-                                else if (maxHeightReached) sol.LimitReached = PalletSolution.Limit.LIMIT_MAXHEIGHTREACHED;
+                                if (maxNumberReached) sol.LimitReached = CasePalletSolution.Limit.LIMIT_MAXNUMBERREACHED;
+                                else if (maxWeightReached) sol.LimitReached = CasePalletSolution.Limit.LIMIT_MAXWEIGHTREACHED;
+                                else if (maxHeightReached) sol.LimitReached = CasePalletSolution.Limit.LIMIT_MAXHEIGHTREACHED;
 
                                 // insert solution
                                 if (sol.Count > 0)

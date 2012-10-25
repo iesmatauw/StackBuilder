@@ -21,7 +21,7 @@ namespace TreeDim.StackBuilder.Engine
         private BoxProperties _boxProperties;
         private List<PalletSolutionDesc> _palletSolutionList;
         private InterlayerProperties _interlayerProperties;
-        private CaseConstraintSet _constraintSet;
+        private BoxCasePalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
         #endregion
 
@@ -33,14 +33,14 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public methods
-        private List<CaseSolution> GenerateSolutions()
+        private List<BoxCasePalletSolution> GenerateSolutions()
         {
-            List<CaseSolution> solutions = new List<CaseSolution>();
+            List<BoxCasePalletSolution> solutions = new List<BoxCasePalletSolution>();
 
             // loop through all pallet solutions
             foreach (PalletSolutionDesc desc in _palletSolutionList)
             {
-                PalletSolution palletSolution = desc.LoadPalletSolution();
+                CasePalletSolution palletSolution = desc.LoadPalletSolution();
                 BoxProperties caseProperties = palletSolution.Analysis.BProperties as BoxProperties;
 
                 // loop through all patterns
@@ -116,7 +116,7 @@ namespace TreeDim.StackBuilder.Engine
                                     }
                                     string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swaped" : "");
 
-                                    CaseSolution sol = new CaseSolution(null, title, desc, layer1T == layer2T);
+                                    BoxCasePalletSolution sol = new BoxCasePalletSolution(null, title, desc, layer1T == layer2T);
                                     int iLayerIndex = 0;
                                     bool innerLoopStop = false;
                                     double zLayer = 0.0; // caseProperties.Height;

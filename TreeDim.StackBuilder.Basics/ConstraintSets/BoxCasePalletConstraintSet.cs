@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class CaseConstraintSet
+    public class BoxCasePalletConstraintSet
     {
         #region Data members
         private bool _allowAlternateLayers = true;
@@ -19,7 +19,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public CaseConstraintSet()
+        public BoxCasePalletConstraintSet()
         { 
         }
         #endregion

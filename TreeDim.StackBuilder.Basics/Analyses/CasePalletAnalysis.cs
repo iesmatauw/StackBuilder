@@ -15,14 +15,14 @@ namespace TreeDim.StackBuilder.Basics
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties;
         private PalletConstraintSet _constraintSet;
-        private List<PalletSolution> _solutions;
-        private List<SelSolution> _selectedSolutions = new List<SelSolution>();
+        private List<CasePalletSolution> _solutions;
+        private List<SelCasePalletSolution> _selectedSolutions = new List<SelCasePalletSolution>();
         private static ICasePalletAnalysisSolver _solver;
         static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletAnalysis));
         #endregion
 
         #region Delegates
-        public delegate void SelectSolution(CasePalletAnalysis analysis, SelSolution selSolution);
+        public delegate void SelectSolution(CasePalletAnalysis analysis, SelCasePalletSolution selSolution);
         #endregion
 
         #region Events
@@ -38,8 +38,8 @@ namespace TreeDim.StackBuilder.Basics
             if (palletProperties.ParentDocument != ParentDocument
                 || (interlayerProperties != null && interlayerProperties.ParentDocument != ParentDocument))
                 throw new Exception("box, pallet, interlayer do not belong to the same document");
-            if ((boxProperties is BoxProperties && constraintSet is PalletConstraintSetBundle)
-                || (boxProperties is BundleProperties && constraintSet is PalletConstraintSetBox))
+            if ((boxProperties is BoxProperties && constraintSet is BundlePalletConstraintSet)
+                || (boxProperties is BundleProperties && constraintSet is CasePalletConstraintSet))
                 throw new Exception("Invalid analysis: either BoxProperties with ConstraintSetBundle or BundleProperties with ConstraintSetBox");
             // has interlayer ?
             constraintSet.HasInterlayer = null != interlayerProperties;
@@ -52,12 +52,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public List<PalletSolution> Solutions
+        public List<CasePalletSolution> Solutions
         {
             set
             {
                 _solutions = value;
-                foreach (PalletSolution sol in _solutions)
+                foreach (CasePalletSolution sol in _solutions)
                     sol.Analysis = this;
 
             }
@@ -113,9 +113,7 @@ namespace TreeDim.StackBuilder.Basics
         }
 
         public static ICasePalletAnalysisSolver Solver
-        {
-            set { _solver = value; }
-        }
+        {   set { _solver = value; } }
         #endregion
 
         #region Solution selection
@@ -125,7 +123,7 @@ namespace TreeDim.StackBuilder.Basics
                 return;  // no solution with this index
             if (HasSolutionSelected(index)) return;             // solution already selected
             // instantiate new SelSolution
-            SelSolution selSolution = new SelSolution(ParentDocument, this, _solutions[index]);
+            SelCasePalletSolution selSolution = new SelCasePalletSolution(ParentDocument, this, _solutions[index]);
             // insert in list
             _selectedSolutions.Add(selSolution);
             // fire event
@@ -138,7 +136,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             UnSelectSolution( GetSelSolutionBySolutionIndex(index) );
         }
-        public void UnSelectSolution(SelSolution selSolution)
+        public void UnSelectSolution(SelCasePalletSolution selSolution)
         {
             if (null == selSolution) return; // this solution not selected
             // remove from list
@@ -154,10 +152,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             return (null != GetSelSolutionBySolutionIndex(index));
         }
-        public SelSolution GetSelSolutionBySolutionIndex(int index)
+        public SelCasePalletSolution GetSelSolutionBySolutionIndex(int index)
         {
             if (index < 0 || index > _solutions.Count) return null;  // no solution with this index
-            return _selectedSolutions.Find(delegate(SelSolution selSol) { return selSol.Solution == _solutions[index]; });
+            return _selectedSolutions.Find(delegate(SelCasePalletSolution selSol) { return selSol.Solution == _solutions[index]; });
         }
         public bool IsBundleAnalysis { get { return _bProperties is BundleProperties; } }
         public bool IsBoxAnalysis { get { return _bProperties is BoxProperties; } }

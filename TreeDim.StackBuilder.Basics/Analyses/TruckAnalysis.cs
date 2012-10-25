@@ -10,7 +10,7 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private CasePalletAnalysis _analysis;
-        private SelSolution _selSolution;
+        private SelCasePalletSolution _selSolution;
         private TruckProperties _truckProperties;
         private TruckConstraintSet _constraintSet;
         private List<TruckSolution> _truckSolutions = new List<TruckSolution>();
@@ -29,7 +29,7 @@ namespace TreeDim.StackBuilder.Basics
         public TruckAnalysis(
             Document document
             , CasePalletAnalysis analysis
-            , SelSolution selSolution
+            , SelCasePalletSolution selSolution
             , TruckProperties truckProperties
             , TruckConstraintSet constraintSet)
             : base(document)
@@ -64,11 +64,11 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Parent solution (from pallet analysis)
         /// </summary>
-        public PalletSolution ParentSolution { get { return _selSolution.Solution; } }
+        public CasePalletSolution ParentSolution { get { return _selSolution.Solution; } }
         /// <summary>
         /// Parent selected solution (from pallet analysis)
         /// </summary>
-        public SelSolution ParentSelSolution { get { return _selSolution; } }
+        public SelCasePalletSolution ParentSelSolution { get { return _selSolution; } }
         public List<TruckSolution> Solutions
         {
             get { return _truckSolutions; }

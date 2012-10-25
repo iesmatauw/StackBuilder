@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class PalletConstraintSetBundle : PalletConstraintSet
+    public class BundlePalletConstraintSet : PalletConstraintSet
     {
         #region Interlayer
         public override bool HasInterlayer

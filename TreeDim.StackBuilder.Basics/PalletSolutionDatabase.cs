@@ -205,7 +205,7 @@ namespace TreeDim.StackBuilder.Basics
         // parent database
         private PalletSolutionDatabase _parentDB;
         // cached pallet solution
-        private PalletSolution _palletSolution;
+        private CasePalletSolution _palletSolution;
         #endregion
 
         #region Constructors
@@ -247,7 +247,7 @@ namespace TreeDim.StackBuilder.Basics
             _friendlyName = friendlyName;
             _parentDB = db;
         }
-        public PalletSolutionDesc(PalletSolutionDatabase db, PalletSolution sol, string friendlyName)
+        public PalletSolutionDesc(PalletSolutionDatabase db, CasePalletSolution sol, string friendlyName)
         {
             BoxProperties boxProperties = sol.Analysis.BProperties as BoxProperties;
             PalletProperties palletProperties = sol.Analysis.PalletProperties;
@@ -421,7 +421,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Loads pallet solution from database file
         /// </summary>
-        public PalletSolution LoadPalletSolution()
+        public CasePalletSolution LoadPalletSolution()
         {
             if (null == _palletSolution)
             {
@@ -742,7 +742,7 @@ namespace TreeDim.StackBuilder.Basics
         /// Check if database already contains a similar pallet solution for a specific case
         /// </summary>
         /// <returns>true if a solution with same pallet + case dimensions exists</returns>
-        public bool AlreadyHasSimilarSolution(SelSolution selSolution)
+        public bool AlreadyHasSimilarSolution(SelCasePalletSolution selSolution)
         {
             List<PalletSolutionDesc> similarDescList = _palletSolutionList.FindAll(
                 delegate(PalletSolutionDesc desc) { return desc.MatchesKeyAndCaseDimensions(new PalletSolutionDesc(this, selSolution.Solution, "")); }
@@ -756,10 +756,10 @@ namespace TreeDim.StackBuilder.Basics
         /// Append new solution descriptor
         /// </summary>
         /// <param name="desc"></param>
-        public void Append(SelSolution selSolution, string name, bool keepSimilarSolutions)
+        public void Append(SelCasePalletSolution selSolution, string name, bool keepSimilarSolutions)
         {
             Document document = selSolution.Analysis.ParentDocument;
-            PalletSolution sol = selSolution.Solution;
+            CasePalletSolution sol = selSolution.Solution;
             CasePalletAnalysis analysis = sol.Analysis;
             // instantiate new descriptor
             PalletSolutionDesc desc = new PalletSolutionDesc(this, sol, name);

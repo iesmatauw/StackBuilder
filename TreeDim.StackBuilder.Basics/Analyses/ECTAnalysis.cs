@@ -15,7 +15,7 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private CasePalletAnalysis _analysis;
-        private SelSolution _selSolution;
+        private SelCasePalletSolution _selSolution;
         private TreeDim.EdgeCrushTest.McKeeFormula.QualityData _qualityData;
         private McKeeFormula.FormulaType _mcKeeFormula;
         private string _caseType;
@@ -29,7 +29,7 @@ namespace TreeDim.StackBuilder.Basics
         public ECTAnalysis(
             Document document
             , CasePalletAnalysis analysis
-            , SelSolution selSolution)
+            , SelCasePalletSolution selSolution)
             : base(document)
         {
             _analysis = analysis;
@@ -63,7 +63,7 @@ namespace TreeDim.StackBuilder.Basics
             get { return _qualityData; }
             set { _qualityData = value; }
         }
-        public SelSolution ParentSelSolution  
+        public SelCasePalletSolution ParentSelSolution  
         {
             get { return _selSolution; }
             set { _selSolution = value; }
@@ -110,7 +110,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             get
             {
-                PalletSolution palletSolution = _selSolution.Solution;
+                CasePalletSolution palletSolution = _selSolution.Solution;
                 return palletSolution.AverageLoadOnFirstLayerCase;
             }
         }

@@ -6,17 +6,17 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class SelSolution : ItemBase
+    public class SelCasePalletSolution : ItemBase
     {
         #region Data members
         private CasePalletAnalysis _analysis;
-        private PalletSolution _solution;
+        private CasePalletSolution _solution;
         private List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
         private List<ECTAnalysis> _ectAnalyses = new List<ECTAnalysis>();
         #endregion
 
         #region Constructor
-        public SelSolution(Document document, CasePalletAnalysis analysis, PalletSolution sol)
+        public SelCasePalletSolution(Document document, CasePalletAnalysis analysis, CasePalletSolution sol)
             : base(document)
         {
             _analysis = analysis;
@@ -131,7 +131,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Encapsulated solution
         /// </summary>
-        public PalletSolution Solution
+        public CasePalletSolution Solution
         {
             get { return _solution; }
         }
@@ -160,15 +160,45 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
     }
 
-    public class SelCaseSolution : ItemBase
+    public class SelBoxCaseSolution : ItemBase
     {
         #region Data members
-        private BoxCasePalletAnalysis _analysis;
-        private CaseSolution _solution;
+        private BoxCaseAnalysis _analysis;
+        private BoxCaseSolution _solution;
         #endregion
 
         #region Constructor
-        public SelCaseSolution(Document document, BoxCasePalletAnalysis analysis, CaseSolution sol)
+        public SelBoxCaseSolution(Document document, BoxCaseAnalysis analysis, BoxCaseSolution sol)
+            : base(document)
+        {
+            _analysis = analysis;
+            _analysis.AddDependancie(this);
+
+            _solution = sol;
+            Name = sol.Title;
+        }
+        #endregion
+
+        #region Public properties
+        public BoxCaseSolution Solution
+        {
+            get { return _solution; }
+        }
+        #endregion
+
+        #region ItemBase override
+        #endregion
+    }
+
+    public class SelBoxCasePalletSolution : ItemBase
+    {
+        #region Data members
+        private BoxCasePalletAnalysis _analysis;
+        private BoxCasePalletSolution _solution;
+        #endregion
+
+        #region Constructor
+        public SelBoxCasePalletSolution(Document document, BoxCasePalletAnalysis analysis, BoxCasePalletSolution sol)
             : base(document)
         {
             _analysis = analysis;
@@ -182,7 +212,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _analysis; }
         }
-        public CaseSolution Solution
+        public BoxCasePalletSolution Solution
         {
             get { return _solution; }
         }

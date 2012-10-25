@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class CaseSolution : List<ILayer>, IComparable
+    public class BoxCasePalletSolution : List<ILayer>, IComparable
     {
         #region Data members
         private string _title;
@@ -21,7 +21,7 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         /// <param name="title"></param>
         /// <param name="caseAnalysis">Parent case analysis reference</param>
-        public CaseSolution(BoxCasePalletAnalysis caseAnalysis, string title, PalletSolutionDesc palletSolutionDesc, bool hasHomogeneousLayers)
+        public BoxCasePalletSolution(BoxCasePalletAnalysis caseAnalysis, string title, PalletSolutionDesc palletSolutionDesc, bool hasHomogeneousLayers)
         {
             _title = title;
             _parentCaseAnalysis = caseAnalysis;
@@ -74,7 +74,7 @@ namespace TreeDim.StackBuilder.Basics
         public double PalletEfficiency {
             get
             {
-                PalletSolution sol = _palletSolutionDesc.LoadPalletSolution();
+                CasePalletSolution sol = _palletSolutionDesc.LoadPalletSolution();
                 return (100.0 * _parentCaseAnalysis.BoxProperties.Volume * BoxPerPalletCount) / (sol.PalletLength * sol.PalletWidth * sol.PalletHeight); 
             } 
         }
@@ -113,7 +113,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// PalletSolution loaded from file
         /// </summary>
-        public PalletSolution AttachedPalletSolution { get { return _palletSolutionDesc.LoadPalletSolution(); } }
+        public CasePalletSolution AttachedPalletSolution { get { return _palletSolutionDesc.LoadPalletSolution(); } }
         #endregion
 
         #region Adding layer / interlayer
@@ -134,7 +134,7 @@ namespace TreeDim.StackBuilder.Basics
         #region IComparable
         public int CompareTo(object obj)
         {
-            CaseSolution sol = (CaseSolution)obj;
+            BoxCasePalletSolution sol = (BoxCasePalletSolution)obj;
             if (this.BoxPerPalletCount > sol.BoxPerPalletCount)
                 return -1;
             else if (this.BoxPerPalletCount == sol.BoxPerPalletCount)

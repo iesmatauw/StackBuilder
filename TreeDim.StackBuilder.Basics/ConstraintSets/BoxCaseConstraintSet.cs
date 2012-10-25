@@ -26,6 +26,11 @@ namespace TreeDim.StackBuilder.Basics
         private bool _useCaseMaximumWeight;
         private double _maximumCaseWeight;
         /// <summary>
+        /// maximum number of boxes
+        /// </summary>
+        private bool _useMaximumNumberOfBoxes;
+        private int _maximumNumberOfBoxes;
+        /// <summary>
         /// logger
         /// </summary>
         static readonly ILog _log = LogManager.GetLogger(typeof(BoxCaseConstraintSet));
@@ -100,6 +105,22 @@ namespace TreeDim.StackBuilder.Basics
         {
             set { _maximumCaseWeight = value; }
             get { return _maximumCaseWeight; }
+        }
+        /// <summary>
+        /// Use maximum number of boxes
+        /// </summary>
+        public bool UseMaximumNumberOfBoxes
+        {
+            set { _useMaximumNumberOfBoxes = value; }
+            get { return _useMaximumNumberOfBoxes; }
+        }
+        /// <summary>
+        /// Maximum number of boxes
+        /// </summary>
+        public int MaximumNumberOfBoxes
+        {
+            set { _maximumNumberOfBoxes = value; }
+            get { return _maximumNumberOfBoxes; }
         }
         #endregion
 

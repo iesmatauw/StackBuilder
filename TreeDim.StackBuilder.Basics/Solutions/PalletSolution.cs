@@ -210,7 +210,7 @@ namespace TreeDim.StackBuilder.Basics
     /// <summary>
     /// A set of box position and orientation that represent a valid solution
     /// </summary>
-    public class PalletSolution : List<ILayer>, IComparable
+    public class CasePalletSolution : List<ILayer>, IComparable
     {
         #region Limit enum : the different reasons the stacking process might be stopped
         public enum Limit
@@ -231,7 +231,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public PalletSolution(CasePalletAnalysis analysis, string title, bool homogenousLayer)
+        public CasePalletSolution(CasePalletAnalysis analysis, string title, bool homogenousLayer)
         {
             _parentAnalysis = analysis;
             _title = title;
@@ -553,7 +553,7 @@ namespace TreeDim.StackBuilder.Basics
         #region IComparable
         public int CompareTo(object obj)
         {
-            PalletSolution sol = (PalletSolution)obj;
+            CasePalletSolution sol = (CasePalletSolution)obj;
             if (this.CaseCount > sol.CaseCount)
                 return -1;
             else if (this.CaseCount == sol.CaseCount)

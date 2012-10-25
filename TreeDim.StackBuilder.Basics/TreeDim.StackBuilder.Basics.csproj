@@ -63,12 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BBox3D.cs" />
-    <Compile Include="BoxCaseAnalysis.cs" />
-    <Compile Include="BoxCaseConstraintSet.cs" />
-    <Compile Include="BoxCaseSolution.cs" />
-    <Compile Include="CaseOptimAnalysis.cs" />
-    <Compile Include="ECTAnalysis.cs" />
+    <Compile Include="Helpers\BBox3D.cs" />
+    <Compile Include="Analyses\BoxCaseAnalysis.cs" />
+    <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
+    <Compile Include="Solutions\BoxCaseSolution.cs" />
+    <Compile Include="Analyses\CaseOptimAnalysis.cs" />
+    <Compile Include="Analyses\ECTAnalysis.cs" />
     <Compile Include="Helpers\BoxPosition.cs" />
     <Compile Include="Containers\CylinderProperties.cs" />
     <Compile Include="Containers\BoxProperties.cs" />
@@ -77,27 +77,27 @@
     <Compile Include="Containers\BundleProperties.cs" />
     <Compile Include="Containers\PalletProperties.cs" />
     <Compile Include="Containers\TruckProperties.cs" />
-    <Compile Include="BoxCasePalletAnalysis.cs" />
-    <Compile Include="CasePalletAnalysis.cs" />
-    <Compile Include="CaseConstraintSet.cs" />
-    <Compile Include="CaseOptimSolution.cs" />
-    <Compile Include="CaseSolution.cs" />
-    <Compile Include="PalletAnalysisCylinder.cs" />
-    <Compile Include="PalletConstraintSet.cs" />
-    <Compile Include="PalletConstraintSetBox.cs" />
-    <Compile Include="PalletConstraintSetBundle.cs" />
+    <Compile Include="Analyses\BoxCasePalletAnalysis.cs" />
+    <Compile Include="Analyses\CasePalletAnalysis.cs" />
+    <Compile Include="ConstraintSets\BoxCasePalletConstraintSet.cs" />
+    <Compile Include="Solutions\CaseOptimSolution.cs" />
+    <Compile Include="Solutions\CaseSolution.cs" />
+    <Compile Include="Analyses\CylinderPalletAnalysis.cs" />
+    <Compile Include="ConstraintSets\PalletConstraintSet.cs" />
+    <Compile Include="ConstraintSets\CasePalletConstraintSet.cs" />
+    <Compile Include="ConstraintSets\BundlePalletConstraintSet.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Helpers\HalfAxis.cs" />
-    <Compile Include="InterlayerProperties.cs" />
+    <Compile Include="Containers\InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
-    <Compile Include="SelSolution.cs" />
-    <Compile Include="PalletSolution.cs" />
+    <Compile Include="Solutions\SelSolution.cs" />
+    <Compile Include="Solutions\PalletSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Texture.cs" />
-    <Compile Include="TruckAnalysis.cs" />
-    <Compile Include="TruckConstraintSet.cs" />
-    <Compile Include="TruckSolution.cs" />
+    <Compile Include="Helpers\Texture.cs" />
+    <Compile Include="Analyses\TruckAnalysis.cs" />
+    <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
+    <Compile Include="Solutions\TruckSolution.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">

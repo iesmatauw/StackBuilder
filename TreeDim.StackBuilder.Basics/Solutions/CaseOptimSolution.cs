@@ -251,11 +251,11 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private CaseDefinition _caseDefinition;
-        private PalletSolution _palletSolution;
+        private CasePalletSolution _palletSolution;
         #endregion
 
         #region Constructor
-        public CaseOptimSolution(CaseDefinition caseDefinition, PalletSolution palletSolution)
+        public CaseOptimSolution(CaseDefinition caseDefinition, CasePalletSolution palletSolution)
         {
             _caseDefinition = caseDefinition;
             _palletSolution = palletSolution;
@@ -263,7 +263,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public PalletSolution PalletSolution
+        public CasePalletSolution PalletSolution
         {  get { return _palletSolution; }  }
         public CaseDefinition CaseDefinition
         { get { return _caseDefinition; } }

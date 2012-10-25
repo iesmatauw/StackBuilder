@@ -13,15 +13,15 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private BoxProperties _boxProperties;
         private List<PalletSolutionDesc> _palletSolutionsList = new List<PalletSolutionDesc>();
-        private List<CaseSolution> _caseSolutions = new List<CaseSolution>();
-        private List<SelCaseSolution> _selectedSolutions = new List<SelCaseSolution>();
-        private CaseConstraintSet _constraintSet;
+        private List<BoxCasePalletSolution> _caseSolutions = new List<BoxCasePalletSolution>();
+        private List<SelBoxCasePalletSolution> _selectedSolutions = new List<SelBoxCasePalletSolution>();
+        private BoxCasePalletConstraintSet _constraintSet;
         private static IBoxCasePalletAnalysisSolver _solver;
         static readonly ILog _log = LogManager.GetLogger(typeof(BoxCasePalletAnalysis));
         #endregion
 
         #region Delegates
-        public delegate void SelectSolution(BoxCasePalletAnalysis analysis, SelCaseSolution selSolution);
+        public delegate void SelectSolution(BoxCasePalletAnalysis analysis, SelBoxCasePalletSolution selSolution);
         #endregion
 
         #region Events
@@ -30,7 +30,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public BoxCasePalletAnalysis(BoxProperties boxProperties, List<PalletSolutionDesc> palletSolutionList, CaseConstraintSet constraintSet)
+        public BoxCasePalletAnalysis(BoxProperties boxProperties, List<PalletSolutionDesc> palletSolutionList, BoxCasePalletConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
             if (!constraintSet.IsValid)
@@ -72,20 +72,20 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// List of solutions
         /// </summary>
-        public List<CaseSolution> Solutions
+        public List<BoxCasePalletSolution> Solutions
         {
             get { return _caseSolutions; }
             set
             {
                 _caseSolutions = value;
-                foreach (CaseSolution caseSolution in _caseSolutions)
+                foreach (BoxCasePalletSolution caseSolution in _caseSolutions)
                     caseSolution.ParentCaseAnalysis = this;
             }
         }
         /// <summary>
         /// Case analysis contraint set
         /// </summary>
-        public CaseConstraintSet ConstraintSet
+        public BoxCasePalletConstraintSet ConstraintSet
         {
             get { return _constraintSet; }
         }
@@ -103,7 +103,7 @@ namespace TreeDim.StackBuilder.Basics
                 return;
             if (HasSolutionSelected(index)) return;
             // instantiate new SelCaseSolution 
-            SelCaseSolution selCaseSolution = new SelCaseSolution(ParentDocument, this, _caseSolutions[index]);
+            SelBoxCasePalletSolution selCaseSolution = new SelBoxCasePalletSolution(ParentDocument, this, _caseSolutions[index]);
             // insert in list
             _selectedSolutions.Add(selCaseSolution);
             // fire event
@@ -116,7 +116,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             UnSelectSolution(GetSelCaseSolutionBySolutionIndex(index));
         }
-        public void UnSelectSolution(SelCaseSolution selSolution)
+        public void UnSelectSolution(SelBoxCasePalletSolution selSolution)
         {
             if (null == selSolution) return; // this solution not selected
             // remove from list
@@ -132,10 +132,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             return (null != GetSelCaseSolutionBySolutionIndex(index));
         }
-        public SelCaseSolution GetSelCaseSolutionBySolutionIndex(int index)
+        public SelBoxCasePalletSolution GetSelCaseSolutionBySolutionIndex(int index)
         {
             if (index < 0 || index > _selectedSolutions.Count) return null;
-            return _selectedSolutions.Find(delegate(SelCaseSolution selSol) { return selSol.Solution == _caseSolutions[index]; });
+            return _selectedSolutions.Find(delegate(SelBoxCasePalletSolution selSol) { return selSol.Solution == _caseSolutions[index]; });
         }
         #endregion
 

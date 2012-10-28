@@ -148,6 +148,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _title; }
         }
+        public string PatternName
+        { get { return _patternName; } }
+        public HalfAxis.HAxis OrthoAxis
+        { get { return _orthoAxis; } }
         #endregion
 
         #region Adding layer / interlayer

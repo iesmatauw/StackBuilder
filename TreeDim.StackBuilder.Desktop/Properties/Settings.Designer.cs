@@ -348,15 +348,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\PalletSolutionsDB\\")]
-        public string PalletSolutionsPath {
-            get {
-                return ((string)(this["PalletSolutionsPath"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::TreeDim.StackBuilder.Desktop.WindowSettings FormNewCaseAnalysisPosition {
@@ -652,10 +643,40 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\PalletSolutionsDB\\")]
+        public string PalletSolutionsPath {
+            get {
+                return ((string)(this["PalletSolutionsPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\")]
         public string ReportTemplatePath {
             get {
                 return ((string)(this["ReportTemplatePath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm")]
+        public string StartPageUrl {
+            get {
+                return ((string)(this["StartPageUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowStartPage {
+            get {
+                return ((bool)(this["ShowStartPage"]));
+            }
+            set {
+                this["ShowStartPage"] = value;
             }
         }
     }

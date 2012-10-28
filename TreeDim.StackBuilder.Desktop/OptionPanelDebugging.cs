@@ -25,7 +25,7 @@ namespace TreeDim.StackBuilder.Desktop
             Settings.Default.ShowLogConsole = chkShowLogConsole.Checked;
             // show or hide log console
             FormMain form = FormMain.GetInstance();
-            form.LogConsole();
+            form.ShowLogConsole();
         }
     }
 }

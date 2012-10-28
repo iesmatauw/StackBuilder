@@ -33,6 +33,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         private DockContentDocumentExplorer _documentExplorer = new DockContentDocumentExplorer();
         private DockContentLogConsole _logConsole = new DockContentLogConsole();
+        DockContentStartPage _dockStartPage = new DockContentStartPage();
         private ToolStripProfessionalRenderer _defaultRenderer = new ToolStripProfessionalRenderer(new PropertyGridEx.CustomColorScheme());
         private DeserializeDockContent _deserializeDockContent;
         /// <summary>
@@ -101,7 +102,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region SplashScreen
         public void DoSplash()
         {
-            using (SplashScreen sp = new SplashScreen(this))
+            using (FormSplashScreen sp = new FormSplashScreen(this))
             {
                 sp.TimerInterval = 2000;
                 sp.ShowDialog();
@@ -117,12 +118,11 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.SolutionReportMSWordClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
-            LogConsole();
+            ShowLogConsole();
+            ShowStartPage();
         }
 
-
-
-        public void LogConsole()
+        public void ShowLogConsole()
         { 
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
@@ -131,6 +131,36 @@ namespace TreeDim.StackBuilder.Desktop
                 _logConsole.Hide();
         }
 
+        public bool IsWebSiteReachable
+        {
+            get
+            {
+                try
+                {
+                    System.Uri uri = new System.Uri(Settings.Default.StartPageUrl);
+                    System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                    return false;
+                }
+            }
+        }
+
+        public void ShowStartPage()
+        {
+            if (!IsWebSiteReachable)
+                return;
+            _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            _dockStartPage.Url = new System.Uri(Settings.Default.StartPageUrl);
+        }
+        private void CloseStartPage()
+        {
+            _dockStartPage.Close();
+            _dockStartPage = null;
+        }
 
         private IDockContent ReloadContent(string persistString)
         {
@@ -154,8 +184,8 @@ namespace TreeDim.StackBuilder.Desktop
              string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
             // Apply a gray professional renderer as a default renderer
-             ToolStripManager.Renderer = _defaultRenderer;
-            _defaultRenderer.RoundedEdges = false;
+            ToolStripManager.Renderer = _defaultRenderer;
+            _defaultRenderer.RoundedEdges = true;
 
             // Set DockPanel properties
             dockPanel.ActiveAutoHideContent = null;
@@ -360,12 +390,17 @@ namespace TreeDim.StackBuilder.Desktop
                 else
                     Debug.Assert(false);
             }
-            else if ((null == eventArg.ItemBase) && (null != eventArg.CaseAnalysis))
+            else if ((null == eventArg.ItemBase) && (null != eventArg.BoxCasePalletAnalysis))
             {
-                BoxCasePalletAnalysis caseAnalysis = eventArg.CaseAnalysis;
+                BoxCasePalletAnalysis caseAnalysis = eventArg.BoxCasePalletAnalysis;
                 if (null != caseAnalysis)
                     CreateOrActivateViewCaseAnalysis(caseAnalysis);
-
+            }
+            else if (null != eventArg.BoxCaseAnalysis)
+            {
+                BoxCaseAnalysis boxCaseAnalysis = eventArg.BoxCaseAnalysis;
+                if (null != boxCaseAnalysis)
+                    CreateOrActivateViewBoxCaseAnalysis(boxCaseAnalysis);
             }
             else if (null != eventArg.TruckAnalysis)
             {
@@ -394,7 +429,7 @@ namespace TreeDim.StackBuilder.Desktop
                 reporter.BuildAnalysisReport(
                     new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.CaseAnalysis, eventArg.SelCaseSolution)
+                        , eventArg.BoxCasePalletAnalysis, eventArg.SelCaseSolution)
                     , Settings.Default.ReportTemplatePath
                     , outputFilePath);
 
@@ -421,7 +456,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // build report
                 ReportData reportObject = new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.CaseAnalysis, eventArg.SelCaseSolution);
+                        , eventArg.BoxCasePalletAnalysis, eventArg.SelCaseSolution);
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
                     , Settings.Default.ReportTemplatePath
@@ -502,7 +537,7 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 DocumentSB doc = eventArg.Document as DocumentSB;
                 if ((null != doc) && (null != eventArg.Analysis))
-                    doc.EditPalletAnalysis(eventArg.Analysis);
+                    doc.EditCasePalletAnalysis(eventArg.Analysis);
                 CreateOrActivateViewPalletAnalysis(eventArg.Analysis);
             }
             catch (Exception ex)
@@ -566,15 +601,21 @@ namespace TreeDim.StackBuilder.Desktop
             // new truck
             newTruckToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewTruck.Enabled = (null != doc);
-            // new analysis
-            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreatePalletAnalysis;
-            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreatePalletAnalysis;
-            // new case analysis
-            newCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
-            toolStripButtonCreateNewCaseAnalysis.Enabled = (null != doc) && doc.CanCreateCaseAnalysis;
+            // new case/pallet analysis
+            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
+            toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
+            // new cylinder/pallet analysis
+            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            toolStripButtonCreateNewAnalysisCylinder.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            // new box/case analysis
+            newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
+            toolStripButtonCreateNewBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
+            // new box/case/pallet analysis
+            newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
+            toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
             // new analysis bundle
-            newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
-            toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundleAnalysis;
+            newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
+            toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
@@ -793,7 +834,7 @@ namespace TreeDim.StackBuilder.Desktop
         // new
         public void OnNewDocument(Document doc) {}
         public void OnNewTypeCreated(Document doc, ItemBase itemBase) { }
-        public void OnNewAnalysisCreated(Document doc, CasePalletAnalysis analysis)
+        public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
             CaseOfBoxesProperties caseOfBoxes = analysis.BProperties as CaseOfBoxesProperties;
             if (null != caseOfBoxes)
@@ -801,23 +842,32 @@ namespace TreeDim.StackBuilder.Desktop
             else
                 CreateOrActivateViewPalletAnalysis(analysis); 
         }
-        public void OnNewCaseAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
+        public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
             CreateOrActivateViewCaseAnalysis(caseAnalysis); 
         }
-        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
-        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) {  }
+        public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis boxCaseAnalysis)
+        {
+            CreateOrActivateViewBoxCaseAnalysis(boxCaseAnalysis);
+        }
+
+        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis) { CreateOrActivateViewTruckAnalysis(truckAnalysis); }
+        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) {  }
         //public void OnNewSolutionAdded(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         //public void OnNewCaseSolutionAdded(Document doc, CaseAnalysis analysis, SelCaseSolution selectedSolution) { }
         // remove
         public void OnTypeRemoved(Document doc, ItemBase itemBase) { }
-        public void OnAnalysisRemoved(Document doc, CasePalletAnalysis analysis) { }
+        public void OnAnalysisRemoved(Document doc, ItemBase itemBase) { }
+/*
+        public void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis) { }
+        public void OnBoxCaseAnalysisRemoved(Document doc, BoxCaseAnalysis boxCaseAnalysis) { }
         public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis) { }
         public void OnCaseAnalysisRemoved(Document doc, CasePalletAnalysis caseAnalysis) { }
+*/ 
         //public void OnSolutionRemoved(Document doc, PalletAnalysis analysis, SelSolution selectedSolution) { }
         //public void OnCaseAnalysisSolutionRemoved(Document doc, CaseAnalysis caseAnalysis, SelCaseSolution selectedSolution) { }
-        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, TruckAnalysis truckAnalysis) { }
-        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selSolution, ECTAnalysis ectAnalysis) { }
+        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis) { }
+        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis) { }
 
         // close
         public void OnDocumentClosed(Document doc) { }
@@ -841,11 +891,13 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void fileNew(object sender, EventArgs e)
         {
+            CloseStartPage();
             NewDocument();
         }
 
         private void fileOpen(object sender, EventArgs e)
         {
+            CloseStartPage();
             if (DialogResult.OK == openFileDialogSB.ShowDialog())
                 foreach(string fileName in openFileDialogSB.FileNames)
                     OpenDocument(fileName);            
@@ -863,7 +915,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public void OpenMRUFile(string filePath)
         {
-            // open file e.FileName
+            CloseStartPage();
+            // open file
             OpenDocument(filePath); // -> exception handled in OpenDocument
         }
         #endregion
@@ -888,44 +941,45 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try { ((DocumentSB)ActiveDocument).CreateNewCylinderUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
- 
-        }
+         }
         private void toolAddNewInterlayer(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-
         private void toolAddNewPallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-
         private void toolAddNewTruck(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-
-        private void toolAddNewAnalysis(object sender, EventArgs e)
+        private void toolAddNewCasePalletAnalysis(object sender, EventArgs e)
         {
-            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisUI(); }
+            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCasePalletAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-        private void toolAddNewAnalysisBundle(object sender, EventArgs e)
+        private void toolAddNewBundlePalletAnalysis(object sender, EventArgs e)
         {
-            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisBundleUI(); }
+            try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBundlePalletAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-        private void toolAddNewAnalysisCylinder(object sender, EventArgs e)
+        private void toolAddNewBoxCaseAnalysis(object sender, EventArgs e)
         {
-            try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewAnalysisPalletCylinderUI(); }
+            try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-        private void toolAddNewCaseAnalysis(object sender, EventArgs e)
+        private void toolAddNewCylinderPalletAnalysis(object sender, EventArgs e)
         {
-            try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCaseAnalysisUI(); }
+            try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+        }
+        private void toolAddNewBoxCasePalletAnalysis(object sender, EventArgs e)
+        {
+            try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
         private void toolEditPalletSolutionsDB(object sender, EventArgs e)
@@ -955,7 +1009,7 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 // show OptionsFormSettings
-                OptionsFormSettings form = new OptionsFormSettings();
+                FormOptionsSettings form = new FormOptionsSettings();
                 form.ShowDialog();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
@@ -980,7 +1034,7 @@ namespace TreeDim.StackBuilder.Desktop
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
-                    DockContentAnalysis form = view as DockContentAnalysis;
+                    DockContentCasePalletAnalysis form = view as DockContentCasePalletAnalysis;
                     if (null == form) continue;
                     if (analysis == form.Analysis)
                     {
@@ -993,7 +1047,7 @@ namespace TreeDim.StackBuilder.Desktop
             // ---> create new form
             // get document
             DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
-            DockContentAnalysis formAnalysis = parentDocument.CreateAnalysisView(analysis);
+            DockContentCasePalletAnalysis formAnalysis = parentDocument.CreateAnalysisView(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
 
@@ -1081,7 +1135,7 @@ namespace TreeDim.StackBuilder.Desktop
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
-                    DockContentCaseAnalysis form = view as DockContentCaseAnalysis;
+                    DockContentBoxCasePalletAnalysis form = view as DockContentBoxCasePalletAnalysis;
                     if (null == form) continue;
                     if (caseAnalysis == form.CaseAnalysis)
                     {
@@ -1092,8 +1146,29 @@ namespace TreeDim.StackBuilder.Desktop
             // ---> not found
             // ---> create new form
             DocumentSB parentDocument = (DocumentSB)caseAnalysis.ParentDocument;
-            DockContentCaseAnalysis formCaseAnalysis = parentDocument.CreateCaseAnalysisView(caseAnalysis);
+            DockContentBoxCasePalletAnalysis formCaseAnalysis = parentDocument.CreateCaseAnalysisView(caseAnalysis);
             formCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+        }
+
+        public void CreateOrActivateViewBoxCaseAnalysis(BoxCaseAnalysis boxCaseAnalysis)
+        { 
+            // search among existing views
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentBoxCaseAnalysis form = view as DockContentBoxCaseAnalysis;
+                    if (null == form) continue;
+                    if (boxCaseAnalysis == form.Analysis)
+                    {
+                        form.Activate();
+                        return;                        
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            DocumentSB parentDocument = (DocumentSB)boxCaseAnalysis.ParentDocument;
+            DockContentBoxCaseAnalysis formBoxCaseAnalysis = parentDocument.CreateNewBoxCaseAnalysisView(boxCaseAnalysis);
+            formBoxCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
 
         /// <summary>

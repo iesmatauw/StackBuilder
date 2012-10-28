@@ -15,14 +15,19 @@ namespace TreeDim.StackBuilder.Desktop
 {
     public partial class DockContentStartPage : DockContent
     {
+        #region constructor
         public DockContentStartPage()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void DockContentStartPage_Load(object sender, EventArgs e)
+        #region Public properties
+        public System.Uri Url
         {
-
+            get { return webBrowserStartPage.Url; }
+            set { webBrowserStartPage.Url = value; }
         }
+        #endregion
     }
 }

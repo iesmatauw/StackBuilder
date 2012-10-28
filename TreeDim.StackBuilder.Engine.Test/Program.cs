@@ -54,7 +54,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                 InterlayerProperties interlayerProperties = null;
 
                 // define constraints
-                PalletConstraintSetBox constraintSet = new PalletConstraintSetBox();
+                CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);
@@ -85,7 +85,7 @@ namespace TreeDim.StackBuilder.Engine.Test
 
                 Console.WriteLine("=== Solutions ===");
                 int solIndex = 0;
-                foreach (PalletSolution sol in analysis.Solutions)
+                foreach (CasePalletSolution sol in analysis.Solutions)
                 {
                     // instantiate graphics
                     Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));
@@ -94,7 +94,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                     graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                     // instantiate solution viewer
-                    SolutionViewer sv = new SolutionViewer(sol);
+                    CasePalletSolutionViewer sv = new CasePalletSolutionViewer(sol);
                     sv.Draw(graphics);
                     // save
                     string fileName = string.Format("Pallet_{0}.bmp", solIndex++);

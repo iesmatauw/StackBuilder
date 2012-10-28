@@ -39,7 +39,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// logger
         /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysis));
+        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentCasePalletAnalysis));
         #endregion
 
         #region Constructor

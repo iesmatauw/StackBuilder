@@ -86,9 +86,6 @@
     <Setting Name="MinDistancePalletTruckRoof" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="PalletSolutionsPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">K:\Codeplex\StackBuilder\PalletSolutionsDB\</Value>
-    </Setting>
     <Setting Name="FormNewCaseAnalysisPosition" Type="TreeDim.StackBuilder.Desktop.WindowSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -164,8 +161,17 @@
     <Setting Name="PalletTypeName" Type="System.String" Scope="User">
       <Value Profile="(Default)">EUR</Value>
     </Setting>
+    <Setting Name="PalletSolutionsPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">..\..\..\PalletSolutionsDB\</Value>
+    </Setting>
     <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates\</Value>
+      <Value Profile="(Default)">..\..\..\TreeDim.StackBuilder.Reporting\ReportTemplates\</Value>
+    </Setting>
+    <Setting Name="StartPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm</Value>
+    </Setting>
+    <Setting Name="ShowStartPage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

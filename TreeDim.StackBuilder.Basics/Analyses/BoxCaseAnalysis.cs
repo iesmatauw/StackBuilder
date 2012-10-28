@@ -56,10 +56,16 @@ namespace TreeDim.StackBuilder.Basics
 
         #region Public properties
         public BoxProperties BoxProperties
-        { get { return _boxProperties; } }
+        {
+            get { return _boxProperties; }
+            set { _boxProperties = value; }
+        }
 
         public BoxProperties CaseProperties
-        { get { return _caseProperties; } }
+        {
+            get { return _caseProperties; }
+            set { _caseProperties = value; }
+        }
 
         public BoxCaseConstraintSet ConstraintSet
         { get { return _constraintSet; } }

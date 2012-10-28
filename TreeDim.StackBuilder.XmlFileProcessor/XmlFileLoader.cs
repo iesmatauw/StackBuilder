@@ -198,12 +198,12 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             TreeDim.StackBuilder.Engine.CasePalletSolver solver = new TreeDim.StackBuilder.Engine.CasePalletSolver();
             solver.ProcessAnalysis(analysis);
             // retrieve wanted solution
-            List<Basics.PalletSolution> solutions = analysis.Solutions;
+            List<Basics.CasePalletSolution> solutions = analysis.Solutions;
             if (vSol.solutionRef.index >= solutions.Count)
                 throw new Exception(string.Format("Analysis {0} has no solution with index {1}", analysis.Name, vSol.solutionRef.index));
-            Basics.PalletSolution sol = solutions[(int)vSol.solutionRef.index];
+            Basics.CasePalletSolution sol = solutions[(int)vSol.solutionRef.index];
             // display solution
-            SolutionViewer solViewer = new SolutionViewer(sol);
+            CasePalletSolutionViewer solViewer = new CasePalletSolutionViewer(sol);
             solViewer.Draw(graphics);
             FinalizeImageFromViewParameters(vSol.viewParameters, graphics);
         }
@@ -220,7 +220,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // instantiate pallet solution list
             PALLETSOLUTIONLIST palletSolutionList = new PALLETSOLUTIONLIST();
             // saves solutions to list
-            foreach (PalletSolution sol in analysis.Solutions)
+            foreach (CasePalletSolution sol in analysis.Solutions)
             {
                 palletSolution xmlPalletSol = new palletSolution();
                 xmlPalletSol.title = sol.Title;
@@ -250,12 +250,12 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             TreeDim.StackBuilder.Engine.CasePalletSolver solver = new TreeDim.StackBuilder.Engine.CasePalletSolver();
             solver.ProcessAnalysis(analysis);
             // retrieve wanted solution
-            List<Basics.PalletSolution> solutions = analysis.Solutions;
+            List<Basics.CasePalletSolution> solutions = analysis.Solutions;
             if (rSol.solutionRef.index >= solutions.Count)
                 throw new Exception(string.Format("Analysis {0} has no solution with index {1}", analysis.Name, rSol.solutionRef.index));
-            Basics.PalletSolution sol = solutions[(int)rSol.solutionRef.index];
+            Basics.CasePalletSolution sol = solutions[(int)rSol.solutionRef.index];
             // selected solution
-            SelSolution selSolution = new SelSolution(doc, analysis, sol);
+            SelCasePalletSolution selSolution = new SelCasePalletSolution(doc, analysis, sol);
             // generate report
             ReporterMSWord reporter = new ReporterMSWord();
             reporter.BuildAnalysisReport(new ReportData(analysis, selSolution), rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
@@ -470,7 +470,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
             if (null != caseProperties)
             {
-                PalletConstraintSetBox caseConstraintSet = new PalletConstraintSetBox();
+                CasePalletConstraintSet caseConstraintSet = new CasePalletConstraintSet();
                 // interlayer
                 caseConstraintSet.HasInterlayer = xmlAnalysis.interlayerPeriodSpecified;
  
@@ -490,7 +490,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             }
             else if (null != bundleProperties)
             {
-                PalletConstraintSetBundle bundleConstraintSet = new PalletConstraintSetBundle();
+                BundlePalletConstraintSet bundleConstraintSet = new BundlePalletConstraintSet();
 
                 bProperties = bundleProperties;
                 constraintSet = bundleConstraintSet;
@@ -563,7 +563,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
             if (null != doc)
             {
-                analysis = doc.CreateNewAnalysis(xmlAnalysis.name, xmlAnalysis.description
+                analysis = doc.CreateNewCasePalletAnalysis(xmlAnalysis.name, xmlAnalysis.description
                     , bProperties
                     , LoadPalletById(doc, _root.data.items.library_pallets, xmlAnalysis.palletId)
                     , LoadInterlayerById(doc, _root.data.items.library_interlayers, xmlAnalysis.interlayerId)

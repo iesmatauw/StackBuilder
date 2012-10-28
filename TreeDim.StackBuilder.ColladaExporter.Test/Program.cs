@@ -55,7 +55,7 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
                     return;
                 }
 
-                PalletSolution palletSolution = analysis.Solutions[0];
+                CasePalletSolution palletSolution = analysis.Solutions[0];
                 // export collada file
                 ColladaExporter.Exporter exporter = new Exporter(palletSolution);
                 exporter.Export(outputPath);
@@ -89,33 +89,44 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
         {
             _log.Info(string.Format("Loaded item {0}", itemBase.Name));
         }
-        public void OnNewAnalysisCreated(Document doc, CasePalletAnalysis analysis)
+        public void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis)
         {
             _log.Info(string.Format("Loaded analysis {0}", analysis.Name));
         }
-        public void OnNewCaseAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
+        public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
+        {
+            _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
+        }
+        public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
             _log.Info(string.Format("Loaded case analysis {0}", caseAnalysis.Name));
         }
-        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+        public void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
         {
         }
-        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
+        public void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, ECTAnalysis ectAnalysis)
         {
         }
         public void OnTypeRemoved(Document doc, ItemBase itemBase)
         {
         }
-        public void OnAnalysisRemoved(Document doc, CasePalletAnalysis analysis)
+        /*
+        public void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis)
         {
         }
+         */
+        public void OnAnalysisRemoved(Document doc, ItemBase itemBase)
+        { 
+        }
+        /*
         public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
         }
-        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, TruckAnalysis truckAnalysis)
+         */ 
+        public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
         {
         }
-        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelSolution selectedSolution, ECTAnalysis ectAnalysis)
+        public void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, ECTAnalysis ectAnalysis)
         {
         }
         public void OnDocumentClosed(Document doc)

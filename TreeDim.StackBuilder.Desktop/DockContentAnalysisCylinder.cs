@@ -22,7 +22,6 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private IDocument _document;
         private CylinderPalletAnalysis _analysis;
-        private PalletSolution _sol; 
         #endregion
 
         #region Constructor

@@ -1,6 +1,6 @@
 ﻿namespace TreeDim.StackBuilder.Desktop
 {
-    partial class DockContentStartPage
+    partial class FormOptionsSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,27 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentStartPage));
-            this.webBrowserStartPage = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // webBrowserStartPage
+            // OptionsFormSettings
             // 
-            resources.ApplyResources(this.webBrowserStartPage, "webBrowserStartPage");
-            this.webBrowserStartPage.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowserStartPage.Name = "webBrowserStartPage";
-            // 
-            // DockContentStartPage
-            // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.webBrowserStartPage);
-            this.Name = "DockContentStartPage";
-            this.ShowInTaskbar = false;
+            this.ClientSize = new System.Drawing.Size(480, 379);
+            this.Name = "OptionsFormSettings";
+            this.ShowCategoryDescription = true;
+            this.ShowCategoryHeader = true;
+            this.ShowOptionsPanelPath = true;
+            this.Text = "Settings...";
             this.ResumeLayout(false);
-        }
-        #endregion
 
-        private System.Windows.Forms.WebBrowser webBrowserStartPage;
+        }
+
+        #endregion
     }
 }

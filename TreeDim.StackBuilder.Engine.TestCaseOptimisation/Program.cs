@@ -18,7 +18,7 @@ namespace TreeDim.StackBuilder.Engine.TestCaseOptimisation
             // define pallet properties
             PalletProperties palletProperties = new PalletProperties(null, "Block", 1200, 1000, 150);
             // define pallet constraintSet
-            PalletConstraintSetBox constraintSet = new PalletConstraintSetBox();
+            CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
             constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
             constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
             constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);

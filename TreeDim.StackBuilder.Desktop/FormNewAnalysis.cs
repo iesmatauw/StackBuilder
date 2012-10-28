@@ -28,66 +28,6 @@ namespace TreeDim.StackBuilder.Desktop
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
         #endregion
 
-        #region Combo box item private classes
-        private class BoxItem
-        {
-            private BProperties _boxProperties;
-
-            public BoxItem(BProperties boxProperties)
-            {
-                _boxProperties = boxProperties;
-            }
-
-            public BProperties Item
-            {
-                get { return _boxProperties; }
-            }
-
-            public override string ToString()
-            {
-                return _boxProperties.Name;
-            }
-        }
-        private class PalletItem
-        { 
-            private PalletProperties _palletProperties;
-
-            public PalletItem(PalletProperties palletProperties)
-            {
-                _palletProperties = palletProperties;
-            }
-
-            public PalletProperties Item
-            {
-                get { return _palletProperties; }
-            }
-
-            public override string ToString()
-            {
-                return _palletProperties.Name;
-            }       
-        }
-        private class InterlayerItem
-        {
-            private InterlayerProperties _interlayerProperties;
-
-            public InterlayerItem(InterlayerProperties interlayerProperties)
-            {
-                _interlayerProperties = interlayerProperties;
-            }
-
-            public InterlayerProperties Item
-            {
-                get { return _interlayerProperties; }
-            }
-
-            public override string ToString()
-            {
-                return _interlayerProperties.Name;
-            }
-        }
-        #endregion
-
         #region Constructor
         /// <summary>
         /// Default constructor
@@ -626,7 +566,7 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
-        private void onNameDescriptionChanged(object sender, EventArgs e)
+        private void onFormContentChanged(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
         }
@@ -675,44 +615,9 @@ namespace TreeDim.StackBuilder.Desktop
         { 
             // get current boxProperties
             BProperties selectedBox = SelectedBox;
-            DrawBoxPosition(selectedBox, HalfAxis.HAxis.AXIS_X_P, pictureBoxPositionX);
-            DrawBoxPosition(selectedBox, HalfAxis.HAxis.AXIS_Y_P, pictureBoxPositionY);
-            DrawBoxPosition(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
-        }
-        private void DrawBoxPosition(BProperties boxProperties, HalfAxis.HAxis axis, PictureBox pictureBox)
-        {
-            // get horizontal angle
-            double angle = 45;
-            // instantiate graphics
-            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-            graphics.CameraPosition = new Vector3D(
-                Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , 10000.0);
-            graphics.Target = Vector3D.Zero;
-            graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-            // draw
-            Box box = new Box(0, boxProperties);
-
-            // set axes
-            HalfAxis.HAxis lengthAxis = HalfAxis.HAxis.AXIS_X_P;
-            HalfAxis.HAxis widthAxis = HalfAxis.HAxis.AXIS_Y_P;
-            switch (axis)
-            {
-                case HalfAxis.HAxis.AXIS_X_P: lengthAxis = HalfAxis.HAxis.AXIS_Z_P; widthAxis = HalfAxis.HAxis.AXIS_X_P; break;
-                case HalfAxis.HAxis.AXIS_Y_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Z_N; break;
-                case HalfAxis.HAxis.AXIS_Z_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Y_P; break;
-                default: break;
-            }
-            box.LengthAxis = TreeDim.StackBuilder.Basics.HalfAxis.ToVector3D(lengthAxis);
-            box.WidthAxis = TreeDim.StackBuilder.Basics.HalfAxis.ToVector3D(widthAxis);
-
-            // draw box
-            graphics.AddBox(box);
-            graphics.Flush();
-            // set to picture box
-            pictureBox.Image = graphics.Bitmap;
+            BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_X_P, pictureBoxPositionX);
+            BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Y_P, pictureBoxPositionY);
+            BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
         }
         #endregion
     }

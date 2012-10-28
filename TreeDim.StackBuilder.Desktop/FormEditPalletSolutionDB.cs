@@ -268,7 +268,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 graphics.Target = Vector3D.Zero;
                 // instantiate solution viewer
-                SolutionViewer sv = new SolutionViewer(analysis.Solutions[0]);
+                CasePalletSolutionViewer sv = new CasePalletSolutionViewer(analysis.Solutions[0]);
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;

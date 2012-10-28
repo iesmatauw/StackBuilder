@@ -1,6 +1,6 @@
 ﻿namespace TreeDim.StackBuilder.Desktop
 {
-    partial class DockContentAnalysis
+    partial class DockContentBoxCasePalletAnalysis
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentAnalysis));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockContentBoxCasePalletAnalysis));
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
+            this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
-            this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
             this.btSelectSolution = new System.Windows.Forms.Button();
             this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
+            this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
+            this.pictureBoxPalletSolution = new System.Windows.Forms.PictureBox();
             this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip_view = new System.Windows.Forms.ToolStrip();
             this.toolStripCornerView0 = new System.Windows.Forms.ToolStripButton();
@@ -45,15 +47,21 @@
             this.toolStripRightView = new System.Windows.Forms.ToolStripButton();
             this.toolStripBackView = new System.Windows.Forms.ToolStripButton();
             this.toolStripLeftView = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTopView = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonTopView = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripShowImages = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripShowPallet = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
+            this.splitContainerVert.Panel1.SuspendLayout();
+            this.splitContainerVert.Panel2.SuspendLayout();
+            this.splitContainerVert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalletSolution)).BeginInit();
             this.toolStrip_view.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,14 +72,27 @@
             // 
             // splitContainerHoriz.Panel1
             // 
-            this.splitContainerHoriz.Panel1.Controls.Add(this.pictureBoxSolution);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleHoriz);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.btSelectSolution);
-            this.splitContainerHoriz.Panel1.Controls.Add(this.trackBarAngleVert);
+            this.splitContainerHoriz.Panel1.Controls.Add(this.splitContainerVert);
             // 
             // splitContainerHoriz.Panel2
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
+            // 
+            // splitContainerVert
+            // 
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
+            this.splitContainerVert.Name = "splitContainerVert";
+            // 
+            // splitContainerVert.Panel1
+            // 
+            this.splitContainerVert.Panel1.Controls.Add(this.pictureBoxSolution);
+            this.splitContainerVert.Panel1.Controls.Add(this.btSelectSolution);
+            this.splitContainerVert.Panel1.Controls.Add(this.trackBarAngleVert);
+            this.splitContainerVert.Panel1.Controls.Add(this.trackBarAngleHoriz);
+            // 
+            // splitContainerVert.Panel2
+            // 
+            this.splitContainerVert.Panel2.Controls.Add(this.pictureBoxPalletSolution);
             // 
             // pictureBoxSolution
             // 
@@ -79,17 +100,6 @@
             this.pictureBoxSolution.Name = "pictureBoxSolution";
             this.pictureBoxSolution.TabStop = false;
             this.pictureBoxSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
-            // 
-            // trackBarAngleHoriz
-            // 
-            resources.ApplyResources(this.trackBarAngleHoriz, "trackBarAngleHoriz");
-            this.trackBarAngleHoriz.LargeChange = 45;
-            this.trackBarAngleHoriz.Maximum = 360;
-            this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
-            this.trackBarAngleHoriz.SmallChange = 45;
-            this.trackBarAngleHoriz.TickFrequency = 90;
-            this.trackBarAngleHoriz.Value = 225;
-            this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
             // 
             // btSelectSolution
             // 
@@ -107,6 +117,24 @@
             this.trackBarAngleVert.TickFrequency = 15;
             this.trackBarAngleVert.Value = 45;
             this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
+            // 
+            // trackBarAngleHoriz
+            // 
+            resources.ApplyResources(this.trackBarAngleHoriz, "trackBarAngleHoriz");
+            this.trackBarAngleHoriz.LargeChange = 45;
+            this.trackBarAngleHoriz.Maximum = 360;
+            this.trackBarAngleHoriz.Name = "trackBarAngleHoriz";
+            this.trackBarAngleHoriz.SmallChange = 45;
+            this.trackBarAngleHoriz.TickFrequency = 90;
+            this.trackBarAngleHoriz.Value = 225;
+            this.trackBarAngleHoriz.ValueChanged += new System.EventHandler(this.onAngleHorizChanged);
+            // 
+            // pictureBoxPalletSolution
+            // 
+            resources.ApplyResources(this.pictureBoxPalletSolution, "pictureBoxPalletSolution");
+            this.pictureBoxPalletSolution.Name = "pictureBoxPalletSolution";
+            this.pictureBoxPalletSolution.TabStop = false;
+            this.pictureBoxPalletSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
             // 
             // gridSolutions
             // 
@@ -132,9 +160,11 @@
             this.toolStripRightView,
             this.toolStripBackView,
             this.toolStripLeftView,
-            this.toolStripTopView,
+            this.toolStripButtonTopView,
+            this.toolStripSeparator3,
+            this.toolStripShowImages,
             this.toolStripSeparator2,
-            this.toolStripShowImages});
+            this.toolStripShowPallet});
             resources.ApplyResources(this.toolStrip_view, "toolStrip_view");
             this.toolStrip_view.Name = "toolStrip_view";
             // 
@@ -207,59 +237,67 @@
             this.toolStripLeftView.Name = "toolStripLeftView";
             this.toolStripLeftView.Click += new System.EventHandler(this.onViewSideLeft);
             // 
-            // toolStripTopView
+            // toolStripButtonTopView
             // 
-            this.toolStripTopView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripTopView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
-            resources.ApplyResources(this.toolStripTopView, "toolStripTopView");
-            this.toolStripTopView.Name = "toolStripTopView";
-            this.toolStripTopView.Click += new System.EventHandler(this.onViewTop);
+            this.toolStripButtonTopView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonTopView.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.View_Top;
+            resources.ApplyResources(this.toolStripButtonTopView, "toolStripButtonTopView");
+            this.toolStripButtonTopView.Name = "toolStripButtonTopView";
+            this.toolStripButtonTopView.Click += new System.EventHandler(this.onViewTop);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // toolStripShowImages
+            // 
+            this.toolStripShowImages.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripShowImages.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Image;
+            resources.ApplyResources(this.toolStripShowImages, "toolStripShowImages");
+            this.toolStripShowImages.Name = "toolStripShowImages";
+            this.toolStripShowImages.Click += new System.EventHandler(this.toolStripShowImages_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
-            // toolStripShowImages
+            // toolStripShowPallet
             // 
-            this.toolStripShowImages.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripShowImages.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Image;
-            this.toolStripShowImages.Name = "toolStripShowImages";
-            resources.ApplyResources(this.toolStripShowImages, "toolStripShowImages");
-            this.toolStripShowImages.Click += new System.EventHandler(this.toolStripShowImages_Click);
+            this.toolStripShowPallet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripShowPallet.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Analysis;
+            resources.ApplyResources(this.toolStripShowPallet, "toolStripShowPallet");
+            this.toolStripShowPallet.Name = "toolStripShowPallet";
+            this.toolStripShowPallet.Click += new System.EventHandler(this.toolStripShowPallet_Click);
             // 
-            // DockContentAnalysis
+            // DockContentCaseAnalysis
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerHoriz);
             this.Controls.Add(this.toolStrip_view);
-            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
-            this.HideOnClose = true;
-            this.Name = "DockContentAnalysis";
-            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
+            this.Name = "DockContentCaseAnalysis";
             this.ShowInTaskbar = false;
-            this.Load += new System.EventHandler(this.DockContentAnalysis_Load);
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
-            this.splitContainerHoriz.Panel1.PerformLayout();
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
             this.splitContainerHoriz.ResumeLayout(false);
+            this.splitContainerVert.Panel1.ResumeLayout(false);
+            this.splitContainerVert.Panel1.PerformLayout();
+            this.splitContainerVert.Panel2.ResumeLayout(false);
+            this.splitContainerVert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPalletSolution)).EndInit();
             this.toolStrip_view.ResumeLayout(false);
             this.toolStrip_view.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxSolution;
-        private System.Windows.Forms.TrackBar trackBarAngleHoriz;
-        private System.Windows.Forms.TrackBar trackBarAngleVert;
-        private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.ToolStrip toolStrip_view;
         private System.Windows.Forms.ToolStripButton toolStripCornerView0;
         private System.Windows.Forms.ToolStripButton toolStripCornerView90;
@@ -270,10 +308,18 @@
         private System.Windows.Forms.ToolStripButton toolStripRightView;
         private System.Windows.Forms.ToolStripButton toolStripBackView;
         private System.Windows.Forms.ToolStripButton toolStripLeftView;
-        private System.Windows.Forms.ToolStripButton toolStripTopView;
+        private System.Windows.Forms.ToolStripButton toolStripButtonTopView;
         private System.Windows.Forms.Button btSelectSolution;
-        private System.Windows.Forms.SplitContainer splitContainerHoriz;
+        private System.Windows.Forms.TrackBar trackBarAngleVert;
+        private System.Windows.Forms.TrackBar trackBarAngleHoriz;
+        private SourceGrid.Grid gridSolutions;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripShowPallet;
+        private System.Windows.Forms.PictureBox pictureBoxSolution;
+        private System.Windows.Forms.PictureBox pictureBoxPalletSolution;
+        private System.Windows.Forms.SplitContainer splitContainerHoriz;
+        private System.Windows.Forms.SplitContainer splitContainerVert;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripShowImages;
     }
 }

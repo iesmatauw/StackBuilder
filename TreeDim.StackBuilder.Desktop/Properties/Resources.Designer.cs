@@ -95,6 +95,13 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BoxCaseAnalysis {
+            get {
+                object obj = ResourceManager.GetObject("BoxCaseAnalysis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Bundle {
             get {
                 object obj = ResourceManager.GetObject("Bundle", resourceCulture);
@@ -227,6 +234,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new box/case analysis....
+        /// </summary>
+        internal static string ID_ADDNEWBOXCASEANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWBOXCASEANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new bundle....
         /// </summary>
         internal static string ID_ADDNEWBUNDLE {
@@ -259,6 +275,24 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_ADDNEWCASEANALYSIS {
             get {
                 return ResourceManager.GetString("ID_ADDNEWCASEANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new cylinder....
+        /// </summary>
+        internal static string ID_ADDNEWCYLINDER {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWCYLINDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new cylinder analysis....
+        /// </summary>
+        internal static string ID_ADDNEWCYLINDERANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWCYLINDERANALYSIS", resourceCulture);
             }
         }
         
@@ -335,6 +369,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Box/Case.
+        /// </summary>
+        internal static string ID_BOXCOUNT {
+            get {
+                return ResourceManager.GetString("ID_BOXCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case.
         /// </summary>
         internal static string ID_CASE {
@@ -380,6 +423,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Limit reached.
+        /// </summary>
+        internal static string ID_CASELIMIT {
+            get {
+                return ResourceManager.GetString("ID_CASELIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case/pallet.
         /// </summary>
         internal static string ID_CASEPERPALLET {
@@ -403,6 +455,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_CASESPALLET {
             get {
                 return ResourceManager.GetString("ID_CASESPALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case weight (kg).
+        /// </summary>
+        internal static string ID_CASEWEIGHT {
+            get {
+                return ResourceManager.GetString("ID_CASEWEIGHT", resourceCulture);
             }
         }
         
@@ -505,15 +566,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_EDIT {
             get {
                 return ResourceManager.GetString("ID_EDIT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Efficiency (%).
-        /// </summary>
-        internal static string ID_EFFICIENCY {
-            get {
-                return ResourceManager.GetString("ID_EFFICIENCY", resourceCulture);
             }
         }
         
@@ -712,6 +764,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_LOADWEIGHT {
             get {
                 return ResourceManager.GetString("ID_LOADWEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum case weight should exceed {0} kg..
+        /// </summary>
+        internal static string ID_MAXIMUMCASEWEIGHTSHOULDEXCEED {
+            get {
+                return ResourceManager.GetString("ID_MAXIMUMCASEWEIGHTSHOULDEXCEED", resourceCulture);
             }
         }
         
@@ -955,6 +1016,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_VERSION {
             get {
                 return ResourceManager.GetString("ID_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Efficiency (%).
+        /// </summary>
+        internal static string ID_VOLUMEEFFICIENCY {
+            get {
+                return ResourceManager.GetString("ID_VOLUMEEFFICIENCY", resourceCulture);
             }
         }
         

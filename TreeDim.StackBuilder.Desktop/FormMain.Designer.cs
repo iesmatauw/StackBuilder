@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin3 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin3 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient7 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient15 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin3 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient16 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient8 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient17 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient18 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient19 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient9 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient20 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient21 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +69,8 @@
             this.newAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAnalysisBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCylinderPalletAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newBoxCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newBoxCasePalletOptimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseOptimisationToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +97,9 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCreateNewBundleAnalysis = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonCreateNewCaseAnalysis = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCreateNewAnalysisCylinder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCreateNewBoxCasePalletOptimization = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCreateNewBoxCaseAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOptimiseCase = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.editPaletSolutionsDBToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
@@ -105,7 +108,6 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripButtonCreateNewAnalysisCylinder = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -116,52 +118,52 @@
             resources.ApplyResources(this.dockPanel, "dockPanel");
             this.dockPanel.DockBackColor = System.Drawing.SystemColors.Control;
             this.dockPanel.Name = "dockPanel";
-            dockPanelGradient7.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient7.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin3.DockStripGradient = dockPanelGradient7;
-            tabGradient15.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient15.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient15.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin3.TabGradient = tabGradient15;
-            autoHideStripSkin3.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            dockPanelSkin3.AutoHideStripSkin = autoHideStripSkin3;
-            tabGradient16.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient16.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient16.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient3.ActiveTabGradient = tabGradient16;
-            dockPanelGradient8.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient8.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient3.DockStripGradient = dockPanelGradient8;
-            tabGradient17.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient17.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient17.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient3.InactiveTabGradient = tabGradient17;
-            dockPaneStripSkin3.DocumentGradient = dockPaneStripGradient3;
-            dockPaneStripSkin3.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            tabGradient18.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient18.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient18.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient18.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient3.ActiveCaptionGradient = tabGradient18;
-            tabGradient19.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient19.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient19.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient3.ActiveTabGradient = tabGradient19;
-            dockPanelGradient9.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient9.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient3.DockStripGradient = dockPanelGradient9;
-            tabGradient20.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient20.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient20.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient20.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient3.InactiveCaptionGradient = tabGradient20;
-            tabGradient21.EndColor = System.Drawing.Color.Transparent;
-            tabGradient21.StartColor = System.Drawing.Color.Transparent;
-            tabGradient21.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient3.InactiveTabGradient = tabGradient21;
-            dockPaneStripSkin3.ToolWindowGradient = dockPaneStripToolWindowGradient3;
-            dockPanelSkin3.DockPaneStripSkin = dockPaneStripSkin3;
-            this.dockPanel.Skin = dockPanelSkin3;
+            dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
+            tabGradient1.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient1.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin1.TabGradient = tabGradient1;
+            autoHideStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
+            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
+            dockPanelGradient2.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient2.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
+            tabGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
+            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
+            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
+            tabGradient5.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient5.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
+            dockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
+            tabGradient6.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
+            tabGradient7.EndColor = System.Drawing.Color.Transparent;
+            tabGradient7.StartColor = System.Drawing.Color.Transparent;
+            tabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
+            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
+            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
+            this.dockPanel.Skin = dockPanelSkin1;
             // 
             // menuStripMain
             // 
@@ -260,7 +262,8 @@
             this.newAnalysisToolStripMenuItem,
             this.newAnalysisBundleToolStripMenuItem,
             this.newCylinderPalletAnalysisToolStripMenuItem,
-            this.newCaseAnalysisToolStripMenuItem,
+            this.newBoxCaseAnalysisToolStripMenuItem,
+            this.newBoxCasePalletOptimizationToolStripMenuItem,
             this.caseOptimisationToolStripMenu,
             this.toolStripSeparator7,
             this.editPaletSolutionsDB,
@@ -284,8 +287,8 @@
             // newCylinderToolStripMenuItem
             // 
             this.newCylinderToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Cylinder;
-            this.newCylinderToolStripMenuItem.Name = "newCylinderToolStripMenuItem";
             resources.ApplyResources(this.newCylinderToolStripMenuItem, "newCylinderToolStripMenuItem");
+            this.newCylinderToolStripMenuItem.Name = "newCylinderToolStripMenuItem";
             this.newCylinderToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCylinder);
             // 
             // newInterlayerToolStripMenuItem
@@ -321,26 +324,32 @@
             // 
             resources.ApplyResources(this.newAnalysisToolStripMenuItem, "newAnalysisToolStripMenuItem");
             this.newAnalysisToolStripMenuItem.Name = "newAnalysisToolStripMenuItem";
-            this.newAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewAnalysis);
+            this.newAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCasePalletAnalysis);
             // 
             // newAnalysisBundleToolStripMenuItem
             // 
             resources.ApplyResources(this.newAnalysisBundleToolStripMenuItem, "newAnalysisBundleToolStripMenuItem");
             this.newAnalysisBundleToolStripMenuItem.Name = "newAnalysisBundleToolStripMenuItem";
-            this.newAnalysisBundleToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
+            this.newAnalysisBundleToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundlePalletAnalysis);
             // 
             // newCylinderPalletAnalysisToolStripMenuItem
             // 
             this.newCylinderPalletAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisCylinder;
             this.newCylinderPalletAnalysisToolStripMenuItem.Name = "newCylinderPalletAnalysisToolStripMenuItem";
             resources.ApplyResources(this.newCylinderPalletAnalysisToolStripMenuItem, "newCylinderPalletAnalysisToolStripMenuItem");
-            this.newCylinderPalletAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewAnalysisCylinder);
+            this.newCylinderPalletAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
+            // 
+            // newBoxCaseAnalysisToolStripMenuItem
+            // 
+            this.newBoxCaseAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.BoxCaseAnalysis;
+            this.newBoxCaseAnalysisToolStripMenuItem.Name = "newBoxCaseAnalysisToolStripMenuItem";
+            resources.ApplyResources(this.newBoxCaseAnalysisToolStripMenuItem, "newBoxCaseAnalysisToolStripMenuItem");
             // 
             // newCaseAnalysisToolStripMenuItem
             // 
-            resources.ApplyResources(this.newCaseAnalysisToolStripMenuItem, "newCaseAnalysisToolStripMenuItem");
-            this.newCaseAnalysisToolStripMenuItem.Name = "newCaseAnalysisToolStripMenuItem";
-            this.newCaseAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
+            resources.ApplyResources(this.newBoxCasePalletOptimizationToolStripMenuItem, "newCaseAnalysisToolStripMenuItem");
+            this.newBoxCasePalletOptimizationToolStripMenuItem.Name = "newCaseAnalysisToolStripMenuItem";
+            this.newBoxCasePalletOptimizationToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBoxCasePalletAnalysis);
             // 
             // caseOptimisationToolStripMenu
             // 
@@ -423,7 +432,8 @@
             this.toolStripButtonCreateNewAnalysis,
             this.toolStripButtonCreateNewBundleAnalysis,
             this.toolStripButtonCreateNewAnalysisCylinder,
-            this.toolStripButtonCreateNewCaseAnalysis,
+            this.toolStripButtonCreateNewBoxCasePalletOptimization,
+            this.toolStripButtonCreateNewBoxCaseAnalysis,
             this.toolStripButtonOptimiseCase,
             this.toolStripSeparator10,
             this.editPaletSolutionsDBToolStripMenuItem,
@@ -524,21 +534,37 @@
             this.toolStripButtonCreateNewAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonCreateNewAnalysis, "toolStripButtonCreateNewAnalysis");
             this.toolStripButtonCreateNewAnalysis.Name = "toolStripButtonCreateNewAnalysis";
-            this.toolStripButtonCreateNewAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysis);
+            this.toolStripButtonCreateNewAnalysis.Click += new System.EventHandler(this.toolAddNewCasePalletAnalysis);
             // 
             // toolStripButtonCreateNewBundleAnalysis
             // 
             this.toolStripButtonCreateNewBundleAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.toolStripButtonCreateNewBundleAnalysis, "toolStripButtonCreateNewBundleAnalysis");
             this.toolStripButtonCreateNewBundleAnalysis.Name = "toolStripButtonCreateNewBundleAnalysis";
-            this.toolStripButtonCreateNewBundleAnalysis.Click += new System.EventHandler(this.toolAddNewAnalysisBundle);
+            this.toolStripButtonCreateNewBundleAnalysis.Click += new System.EventHandler(this.toolAddNewBundlePalletAnalysis);
+            // 
+            // toolStripButtonCreateNewAnalysisCylinder
+            // 
+            this.toolStripButtonCreateNewAnalysisCylinder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCreateNewAnalysisCylinder.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisCylinder;
+            resources.ApplyResources(this.toolStripButtonCreateNewAnalysisCylinder, "toolStripButtonCreateNewAnalysisCylinder");
+            this.toolStripButtonCreateNewAnalysisCylinder.Name = "toolStripButtonCreateNewAnalysisCylinder";
+            this.toolStripButtonCreateNewAnalysisCylinder.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
             // 
             // toolStripButtonCreateNewCaseAnalysis
             // 
-            this.toolStripButtonCreateNewCaseAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonCreateNewCaseAnalysis, "toolStripButtonCreateNewCaseAnalysis");
-            this.toolStripButtonCreateNewCaseAnalysis.Name = "toolStripButtonCreateNewCaseAnalysis";
-            this.toolStripButtonCreateNewCaseAnalysis.Click += new System.EventHandler(this.toolAddNewCaseAnalysis);
+            this.toolStripButtonCreateNewBoxCasePalletOptimization.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonCreateNewBoxCasePalletOptimization, "toolStripButtonCreateNewCaseAnalysis");
+            this.toolStripButtonCreateNewBoxCasePalletOptimization.Name = "toolStripButtonCreateNewCaseAnalysis";
+            this.toolStripButtonCreateNewBoxCasePalletOptimization.Click += new System.EventHandler(this.toolAddNewBoxCasePalletAnalysis);
+            // 
+            // toolStripButtonCreateNewBoxCaseAnalysis
+            // 
+            this.toolStripButtonCreateNewBoxCaseAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCreateNewBoxCaseAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.BoxCaseAnalysis;
+            resources.ApplyResources(this.toolStripButtonCreateNewBoxCaseAnalysis, "toolStripButtonCreateNewBoxCaseAnalysis");
+            this.toolStripButtonCreateNewBoxCaseAnalysis.Name = "toolStripButtonCreateNewBoxCaseAnalysis";
+            this.toolStripButtonCreateNewBoxCaseAnalysis.Click += new System.EventHandler(toolAddNewBoxCaseAnalysis);
             // 
             // toolStripButtonOptimiseCase
             // 
@@ -584,14 +610,6 @@
             // 
             this.saveFileDialogWebGL.DefaultExt = "html";
             resources.ApplyResources(this.saveFileDialogWebGL, "saveFileDialogWebGL");
-            // 
-            // toolStripButtonCreateNewAnalysisCylinder
-            // 
-            this.toolStripButtonCreateNewAnalysisCylinder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewAnalysisCylinder.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisCylinder;
-            resources.ApplyResources(this.toolStripButtonCreateNewAnalysisCylinder, "toolStripButtonCreateNewAnalysisCylinder");
-            this.toolStripButtonCreateNewAnalysisCylinder.Name = "toolStripButtonCreateNewAnalysisCylinder";
-            this.toolStripButtonCreateNewAnalysisCylinder.Click += new System.EventHandler(this.toolAddNewAnalysisCylinder);
             // 
             // FormMain
             // 
@@ -654,9 +672,9 @@
         private System.Windows.Forms.ToolStripMenuItem newTruckToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileMRU;
-        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewCaseAnalysis;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewBoxCasePalletOptimization;
         private System.Windows.Forms.ToolStripMenuItem newAnalysisBundleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newCaseAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newBoxCasePalletOptimizationToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton editPaletSolutionsDBToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem editPaletSolutionsDB;
@@ -676,5 +694,7 @@
         private System.Windows.Forms.ToolStripMenuItem newCylinderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newCylinderPalletAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewAnalysisCylinder;
+        private System.Windows.Forms.ToolStripMenuItem newBoxCaseAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewBoxCaseAnalysis;
     }
 }

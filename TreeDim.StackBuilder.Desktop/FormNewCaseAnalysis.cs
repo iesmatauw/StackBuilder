@@ -326,7 +326,7 @@ namespace TreeDim.StackBuilder.Desktop
                     AllowAlignedLayers = _caseAnalysis.ConstraintSet.AllowAlignedLayers;
                     AllowAlternateLayers = _caseAnalysis.ConstraintSet.AllowAlternateLayers;
 
-                    CaseConstraintSet constraintSet = _caseAnalysis.ConstraintSet;
+                    BoxCasePalletConstraintSet constraintSet = _caseAnalysis.ConstraintSet;
                     AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
                     AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
                     AllowVerticalZ = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P);

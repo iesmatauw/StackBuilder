@@ -40,7 +40,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// logger
         /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysis));
+        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentCasePalletAnalysis));
         #endregion
 
         #region Constructor
@@ -126,7 +126,7 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader; 
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_EFFICIENCY);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_VOLUMEEFFICIENCY);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;

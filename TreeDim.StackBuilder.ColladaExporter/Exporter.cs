@@ -34,7 +34,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
     public class Exporter
     {
         #region Constructor
-        public Exporter(PalletSolution palletSolution)
+        public Exporter(CasePalletSolution palletSolution)
         {
             _palletSolution = palletSolution;
         }
@@ -940,7 +940,7 @@ namespace TreeDim.StackBuilder.ColladaExporter
         #endregion
 
         #region Data members
-        private PalletSolution _palletSolution;
+        private CasePalletSolution _palletSolution;
         private double _xOffset = 2000.0;
         private double _zOffset = 1500.0;
         private int _bmpWidth = 150;

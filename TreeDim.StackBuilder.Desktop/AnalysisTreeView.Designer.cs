@@ -220,5 +220,21 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap BoxCaseAnalysis
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("BoxCaseAnalysis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap CylinderPalletAnalysis
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("AnalysisCylinder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

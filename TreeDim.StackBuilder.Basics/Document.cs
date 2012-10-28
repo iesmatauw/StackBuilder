@@ -34,9 +34,12 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewECTAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
+        void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
+        /*
         void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis);
         void OnBoxCaseAnalysisRemoved(Document doc, BoxCaseAnalysis analysis);
         void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis);
+         */ 
         void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis);
         void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
         // close
@@ -325,14 +328,14 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Creates a new analysis without generating solutions
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
-        /// <param name="box"></param>
-        /// <param name="pallet"></param>
-        /// <param name="interlayer"></param>
-        /// <param name="constraintSet"></param>
-        /// <param name="solutions"></param>
-        /// <returns></returns>
+        /// <param name="name">Name of analysis</param>
+        /// <param name="description">Description</param>
+        /// <param name="box">Case</param>
+        /// <param name="pallet">Pallet</param>
+        /// <param name="interlayer">Interlayer</param>
+        /// <param name="constraintSet">PalletConstraintSet</param>
+        /// <param name="solutions">Solutions</param>
+        /// <returns>CasePalletAnalysis generated using input parameters</returns>
         public CasePalletAnalysis CreateNewCasePalletAnalysis(
             string name, string description
             , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
@@ -458,6 +461,12 @@ namespace TreeDim.StackBuilder.Basics
                 if (!_casePalletAnalyses.Remove(item as CasePalletAnalysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
+            else if (item.GetType() == typeof(BoxCaseAnalysis))
+            {
+                NotifyOnAnalysisRemoved(item as BoxCaseAnalysis);
+                if (!_boxCaseAnalyses.Remove(item as BoxCaseAnalysis))
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
+            }
             else if (item.GetType() == typeof(SelCasePalletSolution))
             {
             }
@@ -469,7 +478,7 @@ namespace TreeDim.StackBuilder.Basics
             else if (item.GetType() == typeof(BoxCasePalletAnalysis))
             {
                 BoxCasePalletAnalysis caseAnalysis = item as BoxCasePalletAnalysis;
-                NotifyOnCaseAnalysisRemoved(caseAnalysis);
+                NotifyOnAnalysisRemoved(caseAnalysis);
                 if (!_boxCasePalletOptimizations.Remove(caseAnalysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
@@ -1111,9 +1120,9 @@ namespace TreeDim.StackBuilder.Basics
                 {
                     // load constraint set
                     if (string.Equals(node.Name, "ConstraintSetBox", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetBox(node as XmlElement);
+                        constraintSet = LoadCasePalletConstraintSet_Box(node as XmlElement);
                     else if (string.Equals(node.Name, "ConstraintSetBundle", StringComparison.CurrentCultureIgnoreCase))
-                        constraintSet = LoadConstraintSetBundle(node as XmlElement);
+                        constraintSet = LoadCasePalletConstraintSet_Bundle(node as XmlElement);
                     // load solutions
                     else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
                     {
@@ -1121,7 +1130,7 @@ namespace TreeDim.StackBuilder.Basics
                         foreach (XmlNode solutionNode in node.ChildNodes)
                         {
                             XmlElement eltSolution = solutionNode as XmlElement;
-                            solutions.Add(LoadSolution(eltSolution));
+                            solutions.Add(LoadCasePalletSolution(eltSolution));
                             // is solution selected ?
                             if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
                                 selectedIndices.Add(indexSol);
@@ -1191,14 +1200,12 @@ namespace TreeDim.StackBuilder.Basics
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCase", StringComparison.CurrentCultureIgnoreCase))
             {
-                //string sCaseId = eltAnalysis.Attributes["CaseId"].Value;
-
                 // load constraint set / pallet solutions descriptors / solution list
                 BoxCasePalletConstraintSet constraintSet = null;
                 List<PalletSolutionDesc> palletSolutionDescriptors = new List<PalletSolutionDesc>();
                 XmlElement caseSolutionsElt = null;
 
-                // first
+                // first load ConstraintSetCase / PalletSolutionDescriptors / CaseSolutions
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
                 {
                     // load constraint set
@@ -1234,7 +1241,7 @@ namespace TreeDim.StackBuilder.Basics
                 foreach (XmlNode solutionNode in caseSolutionsElt.ChildNodes)
                 {
                     XmlElement eltSolution = solutionNode as XmlElement;
-                    caseSolutions.Add(LoadCaseSolution(eltSolution, caseAnalysis));
+                    caseSolutions.Add(LoadBoxCasePalletSolution(eltSolution, caseAnalysis));
 
                     // is solution selected ?
                     if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
@@ -1245,6 +1252,51 @@ namespace TreeDim.StackBuilder.Basics
 
                 foreach (int index in selectedIndices)
                     caseAnalysis.SelectSolutionByIndex(index);
+            }
+            else if (string.Equals(eltAnalysis.Name, "AnalysisBoxCase", StringComparison.CurrentCultureIgnoreCase))
+            {
+                // load caseId
+                string sCaseId = eltAnalysis.Attributes["CaseId"].Value;
+
+                // load constraint set / solution list
+                BoxCaseConstraintSet constraintSet = null;
+                List<BoxCaseSolution> solutions = new List<BoxCaseSolution>();
+                List<int> selectedIndices = new List<int>();
+
+                // first load BoxCaseConstraintSet / BoxCaseSolution(s)
+                XmlElement boxCaseSolutionsElt = null;
+                foreach (XmlNode node in eltAnalysis.ChildNodes)
+                {
+                    // load constraint set
+                    if (string.Equals(node.Name, "ConstraintSetCase", StringComparison.CurrentCultureIgnoreCase))
+                        constraintSet = LoadBoxCaseConstraintSet(node as XmlElement);
+                    // load solutions
+                    else if (string.Equals(node.Name, "Solutions", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        boxCaseSolutionsElt = node as XmlElement;
+
+                        int indexSol = 0;
+                        foreach (XmlNode solutionNode in boxCaseSolutionsElt.ChildNodes)
+                        {
+                            XmlElement eltSolution = solutionNode as XmlElement;
+                            solutions.Add(LoadBoxCaseSolution(eltSolution));
+                            // is solution selected ?
+                            if (null != eltSolution.Attributes["Selected"] && "true" == eltSolution.Attributes["Selected"].Value)
+                                selectedIndices.Add(indexSol);
+                            ++indexSol;
+                        }
+                    }
+                }
+                 
+                // instantiate box/case analysis
+                BoxCaseAnalysis analysis = CreateNewBoxCaseAnalysis(
+                    sName
+                    , sDescription
+                    , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
+                    , GetTypeByGuid(new Guid(sCaseId)) as BoxProperties
+                    , constraintSet
+                    , solutions
+                    );
             }
         }
 
@@ -1297,7 +1349,7 @@ namespace TreeDim.StackBuilder.Basics
             // stop criterions
             if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            // maximum 
+            // maximum case weight
             if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
                 constraints.MaximumCaseWeight = double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value);
             // number of solutions to keep
@@ -1312,7 +1364,30 @@ namespace TreeDim.StackBuilder.Basics
             return constraints;
         }
 
-        private PalletConstraintSet LoadConstraintSetBox(XmlElement eltConstraintSet)
+        private BoxCaseConstraintSet LoadBoxCaseConstraintSet(XmlElement eltConstraintSet)
+        {
+            BoxCaseConstraintSet constraints = new BoxCaseConstraintSet();
+            // allowed orthogonal axes
+            if (eltConstraintSet.HasAttribute("AllowedBoxPositions"))
+                constraints.AllowOrthoAxisString = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
+            // maximum case weight
+            if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
+                constraints.MaximumCaseWeight = double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value);
+            // allowed patterns
+            if (constraints.UseMaximumNumberOfBoxes = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
+                constraints.MaximumNumberOfBoxes = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
+            // number of solutions to keep
+            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
+                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
+            // sanity check
+            if (!constraints.IsValid)
+                throw new Exception("Invalid constraint set");
+            return constraints;
+        }
+
+
+
+        private PalletConstraintSet LoadCasePalletConstraintSet_Box(XmlElement eltConstraintSet)
         {
             CasePalletConstraintSet constraints = new CasePalletConstraintSet();
             // align layers allowed
@@ -1354,7 +1429,7 @@ namespace TreeDim.StackBuilder.Basics
                 throw new Exception("Invalid constraint set");
             return constraints;
         }
-        PalletConstraintSet LoadConstraintSetBundle(XmlElement eltConstraintSet)
+        PalletConstraintSet LoadCasePalletConstraintSet_Bundle(XmlElement eltConstraintSet)
         {
             BundlePalletConstraintSet constraints = new BundlePalletConstraintSet();
             // align layers alowed
@@ -1386,8 +1461,7 @@ namespace TreeDim.StackBuilder.Basics
                 throw new Exception("Invalid constraint set");
             return constraints;
         }
-
-        private CasePalletSolution LoadSolution(XmlElement eltSolution)
+        private CasePalletSolution LoadCasePalletSolution(XmlElement eltSolution)
         {
             // title -> instantiation
             string stitle = eltSolution.Attributes["Title"].Value;
@@ -1412,8 +1486,30 @@ namespace TreeDim.StackBuilder.Basics
                 sol.Add( LoadLayer(nodeLayer as XmlElement));
             return sol;
         }
-
-        private BoxCasePalletSolution LoadCaseSolution(XmlElement eltSolution, BoxCasePalletAnalysis analysis)
+        private BoxCaseSolution LoadBoxCaseSolution(XmlElement eltSolution)
+        {
+            // pattern
+            string patternName = eltSolution.Attributes["Pattern"].Value;
+            // orientation
+            HalfAxis.HAxis orthoAxis = HalfAxis.Parse(eltSolution.Attributes["OrthoAxis"].Value);
+            // instantiate box case solution
+            BoxCaseSolution sol = new BoxCaseSolution(null, orthoAxis, patternName);
+            // limit reached
+            if (eltSolution.HasAttribute("LimitReached"))
+            {
+                string sLimitReached = eltSolution.Attributes["LimitReached"].Value;
+                sol.LimitReached = (BoxCaseSolution.Limit)(int.Parse(sLimitReached));
+            }
+            // layers
+            XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
+            foreach (XmlNode nodeLayer in eltLayers.ChildNodes)
+            {
+                BoxLayer boxLayer = LoadLayer(nodeLayer as XmlElement) as BoxLayer;
+                sol.Add(boxLayer);
+            }
+            return sol;
+        }
+        private BoxCasePalletSolution LoadBoxCasePalletSolution(XmlElement eltSolution, BoxCasePalletAnalysis analysis)
         {
             // title
             string stitle = eltSolution.Attributes["Title"].Value;
@@ -1429,7 +1525,6 @@ namespace TreeDim.StackBuilder.Basics
                 sol.Add(LoadLayer(nodeLayer as XmlElement));
             return sol;
         }
-
         private ILayer LoadLayer(XmlElement eltLayer)
         {
             ILayer layer = null;
@@ -1631,6 +1726,8 @@ namespace TreeDim.StackBuilder.Basics
                 xmlRootElement.AppendChild(xmlAnalysesElt);
                 foreach (CasePalletAnalysis analysis in _casePalletAnalyses)
                     SavePalletAnalysis(analysis, xmlAnalysesElt, xmlDoc);
+                foreach (BoxCaseAnalysis analysis in _boxCaseAnalyses)
+                    SaveBoxCaseAnalysis(analysis, xmlAnalysesElt, xmlDoc);
                 foreach (BoxCasePalletAnalysis analysis in _boxCasePalletOptimizations)
                     SaveCaseAnalysis(analysis, xmlAnalysesElt, xmlDoc);
 
@@ -1701,7 +1798,7 @@ namespace TreeDim.StackBuilder.Basics
                 // create Analyses element
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
-                Save(sol.Analysis, sol, selSolution, xmlAnalysesElt, xmlDoc);
+                SaveCasePalletAnalysis(sol.Analysis, sol, selSolution, xmlAnalysesElt, xmlDoc);
                 // finally save XmlDocument
                 xmlDoc.Save(filePath);
             }
@@ -2349,7 +2446,7 @@ namespace TreeDim.StackBuilder.Basics
             xmlAnalysisElt.AppendChild(solutionsElt);
             foreach (CasePalletSolution sol in analysis.Solutions)
             {
-                SaveSolution(
+                SaveCasePalletSolution(
                     analysis
                     , sol
                     , analysis.GetSelSolutionBySolutionIndex(solIndex) // null if not selected
@@ -2360,7 +2457,110 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
-        public void Save(CasePalletAnalysis analysis, CasePalletSolution sol, SelCasePalletSolution selSolution, XmlElement parentElement, XmlDocument xmlDoc)
+        public void SaveBoxCaseAnalysis(BoxCaseAnalysis analysis, XmlElement parentElement, XmlDocument xmlDoc)
+        { 
+            // create analysis element
+            XmlElement xmlAnalysisElt = xmlDoc.CreateElement("AnalysisBoxCase");
+            parentElement.AppendChild(xmlAnalysisElt);
+            // Name
+            XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
+            analysisNameAttribute.Value = analysis.Name;
+            xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
+            // Description
+            XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
+            analysisDescriptionAttribute.Value = analysis.Description;
+            xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
+            // BoxId
+            XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
+            boxIdAttribute.Value = string.Format("{0}", analysis.BoxProperties.Guid);
+            xmlAnalysisElt.Attributes.Append(boxIdAttribute);
+            // PalletId
+            XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("CaseId");
+            palletIdAttribute.Value = string.Format("{0}", analysis.CaseProperties.Guid);
+            xmlAnalysisElt.Attributes.Append(palletIdAttribute);
+            // ###
+            // ConstraintSet
+            XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSetCase");
+            xmlAnalysisElt.AppendChild(constraintSetElement);
+            // allowed box positions
+            XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
+            constraintSetElement.Attributes.Append(allowedAxisAttribute);
+            allowedAxisAttribute.Value = analysis.ConstraintSet.AllowOrthoAxisString;
+            // stop criterions
+            // 1. maximum number of boxes
+            if (analysis.ConstraintSet.UseMaximumNumberOfBoxes)
+            {
+                XmlAttribute maximumNumberOfBoxes = xmlDoc.CreateAttribute("ManimumNumberOfBoxes");
+                maximumNumberOfBoxes.Value = string.Format("{0}", analysis.ConstraintSet.MaximumNumberOfBoxes);
+                constraintSetElement.Attributes.Append(maximumNumberOfBoxes);
+            }
+            // 2. maximum case weight
+            if (analysis.ConstraintSet.UseMaximumCaseWeight)
+            {
+                XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumCaseWeight");
+                maximumPalletWeight.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumCaseWeight);
+                constraintSetElement.Attributes.Append(maximumPalletWeight);
+            }
+            // number of solutions to keep
+            if (analysis.ConstraintSet.UseNumberOfSolutionsKept)
+            {
+                XmlAttribute numberOfSolutionsKept = xmlDoc.CreateAttribute("NumberOfSolutions");
+                numberOfSolutionsKept.Value = string.Format("{0}", analysis.ConstraintSet.NumberOfSolutionsKept);
+                constraintSetElement.Attributes.Append(numberOfSolutionsKept);
+            }
+            xmlAnalysisElt.AppendChild(constraintSetElement);
+
+            // Solutions
+            int solIndex = 0;
+            XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
+            xmlAnalysisElt.AppendChild(solutionsElt);
+            foreach (BoxCaseSolution sol in analysis.Solutions)
+            {
+                SaveBoxCaseSolution(
+                    analysis
+                    , sol
+                    , analysis.GetSelSolutionBySolutionIndex(solIndex) // null if not selected
+                    , solutionsElt
+                    , xmlDoc);
+                ++solIndex;
+            }
+        }
+
+        public void SaveBoxCaseSolution(BoxCaseAnalysis analysis, BoxCaseSolution sol, SelBoxCaseSolution selSolution, XmlElement solutionsElt, XmlDocument xmlDoc)
+        {
+            // Solution
+            XmlElement solutionElt = xmlDoc.CreateElement("Solution");
+            solutionsElt.AppendChild(solutionElt);
+            // Pattern name
+            XmlAttribute patternNameAttribute = xmlDoc.CreateAttribute("Pattern");
+            patternNameAttribute.Value = sol.PatternName;
+            solutionElt.Attributes.Append(patternNameAttribute);
+            // ortho axis
+            XmlAttribute orthoAxisAttribute = xmlDoc.CreateAttribute("OrthoAxis");
+            orthoAxisAttribute.Value = HalfAxis.ToString(sol.OrthoAxis);
+            solutionElt.Attributes.Append(orthoAxisAttribute);
+            // limit
+            XmlAttribute limitReached = xmlDoc.CreateAttribute("LimitReached");
+            limitReached.Value = string.Format("{0}", (int)sol.LimitReached);
+            solutionElt.Attributes.Append(limitReached);
+            // layers
+            XmlElement layersElt = xmlDoc.CreateElement("Layers");
+            solutionElt.AppendChild(layersElt);
+
+            foreach (BoxLayer boxLayer in sol)
+                Save(boxLayer, layersElt, xmlDoc);
+
+            // Is selected ?
+            if (null != selSolution)
+            {
+                // selected attribute
+                XmlAttribute selAttribute = xmlDoc.CreateAttribute("Selected");
+                selAttribute.Value = "true";
+                solutionElt.Attributes.Append(selAttribute);
+            }
+        }
+
+        public void SaveCasePalletAnalysis(CasePalletAnalysis analysis, CasePalletSolution sol, SelCasePalletSolution selSolution, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create analysis element
             XmlElement xmlAnalysisElt = xmlDoc.CreateElement("AnalysisPallet");
@@ -2463,10 +2663,10 @@ namespace TreeDim.StackBuilder.Basics
             // Solutions
             XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
             xmlAnalysisElt.AppendChild(solutionsElt);
-            SaveSolution(analysis, sol, selSolution, true /* unique */, solutionsElt, xmlDoc );
+            SaveCasePalletSolution(analysis, sol, selSolution, true /* unique */, solutionsElt, xmlDoc );
         }
 
-        public void SaveSolution(CasePalletAnalysis analysis, CasePalletSolution sol, SelCasePalletSolution selSolution, bool unique, XmlElement solutionsElt, XmlDocument xmlDoc)
+        public void SaveCasePalletSolution(CasePalletAnalysis analysis, CasePalletSolution sol, SelCasePalletSolution selSolution, bool unique, XmlElement solutionsElt, XmlDocument xmlDoc)
         {
             // Solution
             XmlElement solutionElt = xmlDoc.CreateElement("Solution");
@@ -2804,16 +3004,28 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnTypeRemoved(this, item);
         }
+        private void NotifyOnAnalysisRemoved(ItemBase analysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnAnalysisRemoved(this, analysis);
+        }
+/*
         private void NotifyOnAnalysisRemoved(CasePalletAnalysis analysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnCasePalletAnalysisRemoved(this, analysis);
+        }
+        private void NotifyOnAnalysisRemoved(BoxCaseAnalysis analysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnBoxCaseAnalysisRemoved(this, analysis);
         }
         private void NotifyOnCaseAnalysisRemoved(BoxCasePalletAnalysis caseAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnCaseAnalysisRemoved(this, caseAnalysis);
         }
+*/ 
         internal void NotifyOnTruckAnalysisRemoved(SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)

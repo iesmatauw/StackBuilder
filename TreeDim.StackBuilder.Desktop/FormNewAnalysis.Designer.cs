@@ -134,13 +134,13 @@
             // 
             resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.Validated += new System.EventHandler(this.onNameDescriptionChanged);
+            this.tbName.Validated += new System.EventHandler(this.onFormContentChanged);
             // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
+            this.tbDescription.TextChanged += new System.EventHandler(this.onFormContentChanged);
             // 
             // pictureBoxPositionX
             // 
@@ -165,18 +165,21 @@
             resources.ApplyResources(this.checkBoxPositionX, "checkBoxPositionX");
             this.checkBoxPositionX.Name = "checkBoxPositionX";
             this.checkBoxPositionX.UseVisualStyleBackColor = true;
+            this.checkBoxPositionX.CheckedChanged += new System.EventHandler(this.onFormContentChanged);
             // 
             // checkBoxPositionY
             // 
             resources.ApplyResources(this.checkBoxPositionY, "checkBoxPositionY");
             this.checkBoxPositionY.Name = "checkBoxPositionY";
             this.checkBoxPositionY.UseVisualStyleBackColor = true;
+            this.checkBoxPositionY.CheckedChanged += new System.EventHandler(this.onFormContentChanged);
             // 
             // checkBoxPositionZ
             // 
             resources.ApplyResources(this.checkBoxPositionZ, "checkBoxPositionZ");
             this.checkBoxPositionZ.Name = "checkBoxPositionZ";
             this.checkBoxPositionZ.UseVisualStyleBackColor = true;
+            this.checkBoxPositionZ.CheckedChanged += new System.EventHandler(this.onCriterionCheckChanged);
             // 
             // gbAllowedBoxPositions
             // 

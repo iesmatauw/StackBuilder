@@ -36,6 +36,8 @@ namespace TreeDim.StackBuilder.Reporting
         private BoxCasePalletAnalysis _caseAnalysis;
         private SelBoxCasePalletSolution _selCaseSolution;
 
+        private BoxCaseAnalysis _boxCaseAnalysis;
+        private SelBoxCaseSolution _selBoxCaseSolution;
         #endregion
 
         #region Constructors
@@ -49,12 +51,22 @@ namespace TreeDim.StackBuilder.Reporting
             _caseAnalysis = caseAnalysis;
             _selCaseSolution = selCaseSolution;
         }
-        public ReportData(CasePalletAnalysis palletAnalysis, SelCasePalletSolution selSolution, BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selCaseSolution)
+        public ReportData(BoxCaseAnalysis boxCaseAnalysis, SelBoxCaseSolution selBoxCaseSolution)
+        {
+            _boxCaseAnalysis = boxCaseAnalysis;
+            _selBoxCaseSolution = selBoxCaseSolution;
+        }
+        public ReportData(CasePalletAnalysis palletAnalysis, SelCasePalletSolution selSolution
+            , BoxCaseAnalysis boxCaseAnalysis, SelBoxCaseSolution selBoxCaseSolution
+            , BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selCaseSolution
+            )
         {
             _palletAnalysis = palletAnalysis;
             _selSolution = selSolution;
             _caseAnalysis = caseAnalysis;
             _selCaseSolution = selCaseSolution;
+            _boxCaseAnalysis = boxCaseAnalysis;
+            _selBoxCaseSolution = selBoxCaseSolution;
         }
         #endregion
 
@@ -67,6 +79,8 @@ namespace TreeDim.StackBuilder.Reporting
                     return _palletAnalysis.ParentDocument;
                 if (null != _caseAnalysis)
                     return _caseAnalysis.ParentDocument;
+                if (null != _boxCaseAnalysis)
+                    return _boxCaseAnalysis.ParentDocument;
                 return null;
             }
         }
@@ -79,6 +93,8 @@ namespace TreeDim.StackBuilder.Reporting
                     return _selSolution.Name;
                 else if (null != _selCaseSolution)
                     return _selCaseSolution.Name;
+                else if (null != _selBoxCaseSolution)
+                    return _selBoxCaseSolution.Name;
                 return null;
             }
         }
@@ -115,20 +131,21 @@ namespace TreeDim.StackBuilder.Reporting
 
         public BoxCasePalletAnalysis CaseAnalysis
         { get { return _caseAnalysis; } }
-
-        public bool IsCaseAnalysis
-        { get { return (null != _caseAnalysis) && (null != _selCaseSolution); } }
-        public bool IsPalletAnalysis
+        public bool IsBoxCaseAnalysis
+        { get { return (null != _boxCaseAnalysis) && (null != _selBoxCaseSolution);} }
+        public bool IsCasePalletAnalysis
         { get { return (null != _palletAnalysis) && (null != _selSolution);} }
+        public bool IsBoxCasePalletAnalysis
+        { get { return (null != _caseAnalysis) && (null != _selCaseSolution); } }
         public bool IsValid
-        { get { return IsCaseAnalysis ^ IsPalletAnalysis; } }
+        { get { return IsBoxCasePalletAnalysis ^ IsBoxCaseAnalysis ^ IsCasePalletAnalysis; } }
         public double ActualCaseWeight
         {
             get
             {
-                if (IsPalletAnalysis)
+                if (IsCasePalletAnalysis)
                     return _palletAnalysis.BProperties.Weight;
-                else if (IsCaseAnalysis)
+                else if (IsBoxCasePalletAnalysis)
                     return _selCaseSolution.Solution.CaseWeight;
                 else
                     return 0.0; // invalid
@@ -138,9 +155,9 @@ namespace TreeDim.StackBuilder.Reporting
         {
             get
             {
-                if (IsPalletAnalysis)
+                if (IsCasePalletAnalysis)
                     return _selSolution.Solution.PalletWeight;
-                else if (IsCaseAnalysis)
+                else if (IsBoxCasePalletAnalysis)
                     return _selCaseSolution.Solution.PalletWeight;
                 else
                     return 0.0; // invalid
@@ -199,6 +216,35 @@ namespace TreeDim.StackBuilder.Reporting
                 else if (null != _palletAnalysis)
                     return _selSolution.Solution;
                 // error!
+                else
+                    return null;
+            }
+        }
+        #endregion
+
+        #region BoxCaseAnalysis
+        /// <summary>
+        /// BoxCaseAnalysis
+        /// </summary>
+        public BoxCaseAnalysis BoxCaseAnalysis
+        {
+            get
+            {
+                if (IsBoxCaseAnalysis)
+                    return _boxCaseAnalysis;
+                else
+                    return null;
+            }
+        }
+        /// <summary>
+        /// SelBoxCaseSolution
+        /// </summary>
+        public SelBoxCaseSolution SelBoxCaseSolution
+        {
+            get
+            {
+                if (IsBoxCaseAnalysis)
+                    return _selBoxCaseSolution;
                 else
                     return null;
             }
@@ -364,6 +410,8 @@ namespace TreeDim.StackBuilder.Reporting
 
             // case analysis
             AppendCaseAnalysisElement(inputData, elemDocument, xmlDoc);
+            // box/case analysis
+            AppendBoxCaseAnalysisElement(inputData, elemDocument, xmlDoc);
             // palletAnalysis
             AppendPalletAnalysisElement(inputData, elemDocument, xmlDoc);
             // truckAnalysis
@@ -379,6 +427,8 @@ namespace TreeDim.StackBuilder.Reporting
 
         private void AppendPalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
+            if (!inputData.IsCasePalletAnalysis)
+                return;
             string ns = xmlDoc.DocumentElement.NamespaceURI;
 
             CasePalletAnalysis analysis = inputData.PalletAnalysis;
@@ -403,7 +453,7 @@ namespace TreeDim.StackBuilder.Reporting
                 AppendInsideBoxElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
                 AppendCaseOfBoxesElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             }
-            else if (analysis.BProperties is BoxProperties && inputData.IsPalletAnalysis)
+            else if (analysis.BProperties is BoxProperties && inputData.IsCasePalletAnalysis)
                 AppendCaseElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             else if (analysis.BProperties is BundleProperties)
                 AppendBundleElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
@@ -1027,6 +1077,7 @@ namespace TreeDim.StackBuilder.Reporting
         }
         private void AppendTruckAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
+            if (!inputData.IsCasePalletAnalysis) return;
             CasePalletAnalysis analysis = inputData.PalletAnalysis;
             SelCasePalletSolution selSolution = inputData.SelSolution;
 
@@ -1055,6 +1106,8 @@ namespace TreeDim.StackBuilder.Reporting
 
         private void AppendEctAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
+            if (!inputData.IsCasePalletAnalysis)
+                return;
             CasePalletAnalysis analysis = inputData.PalletAnalysis;
             SelCasePalletSolution selSolution = inputData.SelSolution;
 
@@ -1279,11 +1332,10 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Case analysis
-
         private void AppendCaseAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             // check if case analysis
-            if (!inputData.IsCaseAnalysis)
+            if (!inputData.IsBoxCasePalletAnalysis)
                 return;
             BoxCasePalletAnalysis caseAnalysis = inputData.CaseAnalysis;
             SelBoxCasePalletSolution selSolution = inputData.SelCaseSolution;
@@ -1302,7 +1354,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemDescription.InnerText = caseAnalysis.Description;
             elemCaseAnalysis.AppendChild(elemDescription);
             // box
-            AppendBoxElement(caseAnalysis, elemCaseAnalysis, xmlDoc);
+            AppendBoxElement(caseAnalysis.BoxProperties, elemCaseAnalysis, xmlDoc);
             // case
             AppendCaseElement(selSolution, elemCaseAnalysis, xmlDoc);
             // constraint set
@@ -1311,10 +1363,42 @@ namespace TreeDim.StackBuilder.Reporting
             AppendCaseSolutionElement(selSolution, elemCaseAnalysis, xmlDoc);
         }
 
-        private void AppendBoxElement(BoxCasePalletAnalysis caseAnalysis, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
+        private void AppendBoxCaseAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            // check if case analysis
+            if (!inputData.IsBoxCaseAnalysis)
+                return;
+            BoxCaseAnalysis boxCaseAnalysis = inputData.BoxCaseAnalysis;
+            SelBoxCaseSolution selBoxCaseSolution = inputData.SelBoxCaseSolution;
+            // namespace
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // caseAnalysis
+            XmlElement elemBoxCaseAnalysis = xmlDoc.CreateElement("boxCaseAnalysis", ns);
+            elemDocument.AppendChild(elemBoxCaseAnalysis);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = boxCaseAnalysis.Name;
+            elemBoxCaseAnalysis.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = boxCaseAnalysis.Description;
+            elemBoxCaseAnalysis.AppendChild(elemDescription);
+            // box
+            AppendBoxElement(boxCaseAnalysis.BoxProperties, elemBoxCaseAnalysis, xmlDoc);
+            // case
+            AppendCaseElement(boxCaseAnalysis.CaseProperties, elemBoxCaseAnalysis, xmlDoc);
+            // constraint set
+            // solution
+        }
+
+        private void AppendCaseElement(BoxProperties caseProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
+        { 
+        
+        }
+
+        private void AppendBoxElement(BoxProperties boxProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
-            BoxProperties boxProperties = caseAnalysis.BoxProperties;
             // box element
             XmlElement elemBox = CreateElement("box", null, elemCaseAnalysis, xmlDoc, ns);
             // name

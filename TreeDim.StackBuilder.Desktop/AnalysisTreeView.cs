@@ -224,6 +224,14 @@ namespace TreeDim.StackBuilder.Desktop
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.COLLADAWEBGL, new EventHandler(onAnalysisExportCollada)));
                 }
             }
+            else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION)
+            {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCaseAnalysisSolution)));
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCaseSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCaseSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
+            }
             else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS)
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_EDIT, nodeTag.CaseAnalysis.Name), null, new EventHandler(onEditCaseAnalysis)));
@@ -231,10 +239,10 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_CASESOLUTION)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCaseAnalysisSolution)));
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelCaseSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCaseAnalysisSolution)));
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCaseSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelCaseSolution.Name);
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCaseSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
             }
         }
@@ -565,7 +573,7 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.CaseAnalysis.UnSelectSolution(tag.SelCaseSolution);
+                tag.CaseAnalysis.UnSelectSolution(tag.SelBoxCasePalletSolution);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -1122,7 +1130,7 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis));
             // insert selected solution node
             TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 12, 12);
-            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION, doc, analysis, selSolution);
+            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION, doc, analysis, selSolution);
             parentNode.Nodes.Add(nodeSelSolution);
             // expand tree nodes
             parentNode.Expand();
@@ -1323,7 +1331,7 @@ namespace TreeDim.StackBuilder.Desktop
         private SelBoxCaseSolution _selBoxCaseSolution;
         private TruckAnalysis _truckAnalysis;
         private BoxCasePalletAnalysis _boxCasePalletAnalysis;
-        private SelBoxCasePalletSolution _selCaseSolution;
+        private SelBoxCasePalletSolution _selBoxCasePalletSolution;
         private ECTAnalysis _ectAnalysis;
         #endregion
 
@@ -1413,12 +1421,12 @@ namespace TreeDim.StackBuilder.Desktop
             _itemProperties = itemProperties;
             _selSolution = null;
         }
-        public NodeTag(NodeType type, Document document, BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selCaseSolution)
+        public NodeTag(NodeType type, Document document, BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selBoxCasePalletSolution)
         {
             _type = type;
             _document = document;
             _boxCasePalletAnalysis = caseAnalysis;
-            _selCaseSolution = selCaseSolution;
+            _selBoxCasePalletSolution = selBoxCasePalletSolution;
         }
         #endregion
 
@@ -1475,13 +1483,17 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public BoxCaseAnalysis BoxCaseAnalysis { get { return _boxCaseAnalysis; } }
         /// <summary>
+        /// return selected box/case solution
+        /// </summary>
+        public SelBoxCaseSolution SelBoxCaseSolution { get { return _selBoxCaseSolution; } }
+        /// <summary>
         /// returns case analysis
         /// </summary>
         public BoxCasePalletAnalysis CaseAnalysis { get { return _boxCasePalletAnalysis; } }
         /// <summary>
         /// returns selected case solution if any
         /// </summary>
-        public SelBoxCasePalletSolution SelCaseSolution { get { return _selCaseSolution; } }
+        public SelBoxCasePalletSolution SelBoxCasePalletSolution { get { return _selBoxCasePalletSolution; } }
         /// <summary>
         /// returns ECT analysis
         /// </summary>
@@ -1538,13 +1550,14 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public BoxCasePalletAnalysis BoxCasePalletAnalysis { get { return _nodeTag.CaseAnalysis; } }
         /// <summary>
+        /// Selected box/case/pallet solution
+        /// </summary>
+        public SelBoxCasePalletSolution SelBoxCasePalletSolution { get { return _nodeTag.SelBoxCasePalletSolution; } }
+        /// <summary>
         /// Box/Case analysis
         /// </summary>
         public BoxCaseAnalysis BoxCaseAnalysis { get { return _nodeTag.BoxCaseAnalysis; } }
-        /// <summary>
-        /// Selected case solution
-        /// </summary>
-        public SelBoxCasePalletSolution SelCaseSolution { get { return _nodeTag.SelCaseSolution; } }
+        public SelBoxCaseSolution SelBoxCaseSolution { get { return _nodeTag.SelBoxCaseSolution;  } }
         /// <summary>
         /// ECTAnalysis
         /// </summary>

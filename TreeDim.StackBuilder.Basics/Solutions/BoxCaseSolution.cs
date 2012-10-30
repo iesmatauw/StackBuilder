@@ -25,7 +25,6 @@ namespace TreeDim.StackBuilder.Basics
         private string _patternName;
         private HalfAxis.HAxis _orthoAxis;
         private BoxCaseAnalysis _boxCaseAnalysis;
-        private string _title;
         private Limit _limitReached = Limit.LIMIT_UNKNOWN;
         private BBox3D _bbox = new BBox3D();
         #endregion
@@ -146,7 +145,14 @@ namespace TreeDim.StackBuilder.Basics
         }
         public string Title
         {
-            get { return _title; }
+            get
+            {
+                StringBuilder sBuilderTitle = new StringBuilder();
+                sBuilderTitle.Append(_patternName);
+                sBuilderTitle.Append("_");
+                sBuilderTitle.Append(HalfAxis.ToString(_orthoAxis));
+                return sBuilderTitle.ToString();
+            }
         }
         public string PatternName
         { get { return _patternName; } }

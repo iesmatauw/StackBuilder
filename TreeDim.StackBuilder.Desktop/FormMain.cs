@@ -227,6 +227,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region DocumentTreeView event handlers
+        // ### AnalysisNodeClicked
         void DocumentTreeView_NodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             if ((null == eventArg.ItemBase) && (null != eventArg.Analysis)
@@ -429,7 +430,9 @@ namespace TreeDim.StackBuilder.Desktop
                 reporter.BuildAnalysisReport(
                     new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.BoxCasePalletAnalysis, eventArg.SelCaseSolution)
+                        , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
+                        , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
+                        )
                     , Settings.Default.ReportTemplatePath
                     , outputFilePath);
 
@@ -441,7 +444,6 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
-                Program.ReportException(ex);
             }
         }
 
@@ -456,7 +458,9 @@ namespace TreeDim.StackBuilder.Desktop
                 // build report
                 ReportData reportObject = new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.BoxCasePalletAnalysis, eventArg.SelCaseSolution);
+                        , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
+                        , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
+                        );
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
                     , Settings.Default.ReportTemplatePath
@@ -977,7 +981,7 @@ namespace TreeDim.StackBuilder.Desktop
             try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
         }
-        private void toolAddNewBoxCasePalletAnalysis(object sender, EventArgs e)
+        private void toolAddNewBoxCasePalletOptimization(object sender, EventArgs e)
         {
             try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
@@ -1257,5 +1261,6 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
     }
 }

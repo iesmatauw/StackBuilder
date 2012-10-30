@@ -17,7 +17,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class DockContentBoxCaseAnalysis : DockContent, IView, IItemListener
+    public partial class DockContentCasePalletAnalysis : DockContent, IView, IItemListener
     {
         #region Data members
         /// <summary>
@@ -27,7 +27,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// analysis
         /// </summary>
-        private BoxCaseAnalysis _analysis;
+        private CasePalletAnalysis _analysis;
         /// <summary>
         /// view parameters
         /// </summary>
@@ -35,27 +35,33 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Currently selected solution
         /// </summary>
-        private BoxCaseSolution _sol;
+        private CasePalletSolution _sol;
         /// <summary>
         /// logger
         /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentBoxCaseAnalysis));
+        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentCasePalletAnalysis));
         #endregion
 
         #region Constructor
-        public DockContentBoxCaseAnalysis(IDocument document, BoxCaseAnalysis analysis)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="document">object implementing the IDocument interface</param>
+        /// <param name="analysis">viewed analysis</param>
+        public DockContentCasePalletAnalysis(IDocument document, CasePalletAnalysis analysis)
         {
             _document = document;
+
             _analysis = analysis;
             _analysis.AddListener(this);
 
-            _analysis.SolutionSelected += new BoxCaseAnalysis.SelectSolution(onSolutionSelectionChanged);
-            _analysis.SolutionSelectionRemoved += new BoxCaseAnalysis.SelectSolution(onSolutionSelectionChanged);
+            _analysis.SolutionSelected += new CasePalletAnalysis.SelectSolution(onSolutionSelectionChanged);
+            _analysis.SolutionSelectionRemoved += new CasePalletAnalysis.SelectSolution(onSolutionSelectionChanged);
 
             InitializeComponent();
         }
 
-        void onSolutionSelectionChanged(BoxCaseAnalysis analysis, SelBoxCaseSolution selSolution)
+        void onSolutionSelectionChanged(CasePalletAnalysis analysis, SelCasePalletSolution selSolution)
         {
             UpdateSelectButtonText();
             UpdateGridCheckBoxes();
@@ -63,8 +69,13 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form override
-        private void DockContentBoxCaseAnalysis_Load(object sender, EventArgs e)
+        private void DockContentAnalysis_Load(object sender, EventArgs e)
         {
+
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
             // initialize toolStripShowImages
             toolStripShowImages.Checked = Settings.Default.ShowImagesPallet;
             // set window caption
@@ -74,9 +85,9 @@ namespace TreeDim.StackBuilder.Desktop
 
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
-
-        private void DockContentBoxCaseAnalysis_FormClosing(object sender, FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+            base.OnClosing(e);
             // save settings
             Settings.Default.ShowImagesPallet = toolStripShowImages.Checked;
         }
@@ -84,11 +95,11 @@ namespace TreeDim.StackBuilder.Desktop
 
         #region Fill grid
         private void FillGrid()
-        { 
-            // fill grid solutions
+        {
+            // fill grid solution
             gridSolutions.Rows.Clear();
 
-            // border
+             // border
             DevAge.Drawing.BorderLine border = new DevAge.Drawing.BorderLine(Color.DarkBlue, 1);
             DevAge.Drawing.RectangleBorder cellBorder = new DevAge.Drawing.RectangleBorder(border, border);
 
@@ -107,11 +118,11 @@ namespace TreeDim.StackBuilder.Desktop
             viewColumnHeader.ForeColor = Color.White;
             viewColumnHeader.Font = new Font("Arial", 10, FontStyle.Bold);
             viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
-
+ 
             // create the grid
             gridSolutions.BorderStyle = BorderStyle.FixedSingle;
 
-            gridSolutions.ColumnsCount = 7;
+            gridSolutions.ColumnsCount = 8;
             gridSolutions.FixedRows = 1;
             gridSolutions.Rows.Insert(0);
 
@@ -128,7 +139,7 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_BOXCOUNT);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASECOUNT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
@@ -138,51 +149,70 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASEWEIGHT);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETWEIGHT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_CASELIMIT);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETHEIGHT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_SELECTED);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETLIMIT);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 6] = columnHeader;
 
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_SELECTED);
+            columnHeader.AutomaticSortEnabled = false;
+            columnHeader.View = viewColumnHeader;
+            gridSolutions[0, 7] = columnHeader;
+
             // handling check box click
             SourceGrid.Cells.Controllers.CustomEvents solCheckboxClickEvent = new SourceGrid.Cells.Controllers.CustomEvents();
             solCheckboxClickEvent.Click += new EventHandler(clickEvent_Click);
-
+            
             // data rows
             int iIndex = 0;
-            foreach (BoxCaseSolution sol in _analysis.Solutions)
+            foreach (CasePalletSolution sol in _analysis.Solutions)
             {
                 // build case count string
-                string sBoxCount = string.Empty;
-                sBoxCount = string.Format("{0}\n({1} * {2})", sol.BoxPerCaseCount, sol.BoxPerLayerCount, sol.Count);
+                string sCaseCount = string.Empty;
+                if (sol.HasSameCountLayers && sol.LimitReached == CasePalletSolution.Limit.LIMIT_MAXHEIGHTREACHED)
+                    sCaseCount = string.Format("{0}\n({1} * {2})", sol.CaseCount, sol.CasePerLayerCount, sol.CaseLayersCount);
+                else
+                    sCaseCount = string.Format("{0}", sol.CaseCount);
+
                 // insert row
                 gridSolutions.Rows.Insert(++iIndex);
+
                 // filling columns
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
                 {
-                    Graphics2DImage graphics = new Graphics2DImage(new Size(50, 50));
-                    BoxCaseSolutionViewer sv = new BoxCaseSolutionViewer(sol);
+                    Graphics2DImage graphics = new Graphics2DImage(new Size(100, 50));
+                    CasePalletSolutionViewer sv = new CasePalletSolutionViewer(sol);
                     sv.Draw(graphics);
                     gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);
                 }
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(sBoxCount);
-                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.VolumeEfficiencyBoxes));
-                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.CaseWeight));
-                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(BoxCaseSolutionLimitToString(sol.LimitReached));
-                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, _analysis.HasSolutionSelected(iIndex - 1));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(sCaseCount);
+                gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.VolumeEfficiencyCases));
+                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletWeight));
+                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.PalletHeight));
+                gridSolutions[iIndex, 6] = new SourceGrid.Cells.Cell(PalletSolutionLimitToString(sol.LimitReached));
+                gridSolutions[iIndex, 7] = new SourceGrid.Cells.CheckBox(null, _analysis.HasSolutionSelected(iIndex-1));
 
-                gridSolutions[iIndex, 6].AddController(solCheckboxClickEvent);
-            }
+                gridSolutions[iIndex, 0].View = viewNormal;
+                gridSolutions[iIndex, 1].View = viewNormal;
+                gridSolutions[iIndex, 2].View = viewNormal;
+                gridSolutions[iIndex, 3].View = viewNormal;
+                gridSolutions[iIndex, 4].View = viewNormal;
+                gridSolutions[iIndex, 5].View = viewNormal;
+                gridSolutions[iIndex, 6].View = viewNormal;
+                gridSolutions[iIndex, 7].View = viewNormalCheck;
 
+                gridSolutions[iIndex, 7].AddController(solCheckboxClickEvent);
+             }
             gridSolutions.AutoStretchColumnsToFitWidth = true;
             gridSolutions.AutoSizeCells();
             gridSolutions.Columns.StretchToFit();
@@ -190,27 +220,24 @@ namespace TreeDim.StackBuilder.Desktop
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
             Draw();
-
         }
         #endregion
 
         #region Helpers
-        private string BoxCaseSolutionLimitToString(BoxCaseSolution.Limit limit)
-        {
+        private string PalletSolutionLimitToString(CasePalletSolution.Limit limit)
+        { 
             switch (limit)
             {
-                case BoxCaseSolution.Limit.LIMIT_MAXHEIGHTREACHED: return Resources.ID_PALLETMAXHEIGHT;
-                case BoxCaseSolution.Limit.LIMIT_MAXWEIGHTREACHED: return Resources.ID_PALLETMAXWEIGHT;
-                case BoxCaseSolution.Limit.LIMIT_MAXNUMBERREACHED: return Resources.ID_PALLETMAXNUMBER;
+                case CasePalletSolution.Limit.LIMIT_MAXHEIGHTREACHED: return Resources.ID_PALLETMAXHEIGHT;
+                case CasePalletSolution.Limit.LIMIT_MAXWEIGHTREACHED: return Resources.ID_PALLETMAXWEIGHT;
+                case CasePalletSolution.Limit.LIMIT_MAXNUMBERREACHED: return Resources.ID_PALLETMAXNUMBER;
                 default: return string.Empty;
             }
         }
         #endregion
 
         #region Event handlers
-        /// <summary>
-        /// checkbox event handler
-        /// </summary>
+        // checkbox event handler
         private void clickEvent_Click(object sender, EventArgs e)
         {
             SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
@@ -236,7 +263,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
         {
             // redraw
-            Draw(); 
+            Draw();
         }
         private void btSelectSolution_Click(object sender, EventArgs e)
         {
@@ -252,7 +279,15 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
-            } 
+            }
+        }
+
+        private void toolStripShowImages_Click(object sender, EventArgs e)
+        {
+            // change state
+            toolStripShowImages.Checked = !toolStripShowImages.Checked;
+            // redraw
+            Draw();
         }
         #endregion
 
@@ -260,7 +295,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void UpdateGridCheckBoxes()
         {
             int iRow = 0;
-            foreach (BoxCaseSolution sol in _analysis.Solutions)
+            foreach (CasePalletSolution sol in _analysis.Solutions)
             {
                 ++iRow;
                 SourceGrid.Cells.CheckBox checkBox = gridSolutions[iRow, 7] as SourceGrid.Cells.CheckBox;
@@ -276,15 +311,15 @@ namespace TreeDim.StackBuilder.Desktop
             btSelectSolution.Text = _analysis.HasSolutionSelected(iSel) ? Properties.Resources.ID_DESELECT : Properties.Resources.ID_SELECT;
         }
         private int GetCurrentSolutionIndex()
-        {
+        { 
             SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
             int[] indexes = region.GetRowsIndex();
             // no selection -> exit
             if (indexes.Length == 0) return -1;
             // return index
-            return indexes[0] - 1;
+            return indexes[0]-1;            
         }
-        private BoxCaseSolution GetCurrentSolution()
+        private CasePalletSolution GetCurrentSolution()
         {
             int iIndexSol = GetCurrentSolutionIndex();
             if (-1 == iIndexSol) return null;
@@ -293,6 +328,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region IItemListener implementation
+        /// <summary>
+        /// overrides IItemListener.Update
+        /// </summary>
+        /// <param name="item"></param>
         public void Update(ItemBase item)
         {
             // update grid
@@ -305,6 +344,11 @@ namespace TreeDim.StackBuilder.Desktop
             // draw
             Draw();
         }
+        /// <summary>
+        /// overrides IItemListener.Kill
+        /// handles analysis removal for any reason (deletion/document closing)
+        /// </summary>
+        /// <param name="item"></param>
         public void Kill(ItemBase item)
         {
             Close();
@@ -320,7 +364,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public BoxCaseAnalysis Analysis
+        public CasePalletAnalysis Analysis
         {
             get { return _analysis; }
         }
@@ -352,7 +396,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // show images
                 graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
-                BoxCaseSolutionViewer sv = new BoxCaseSolutionViewer(GetCurrentSolution());
+                CasePalletSolutionViewer sv = new CasePalletSolutionViewer(GetCurrentSolution());
                 sv.Draw(graphics);
 
                 // show generated bitmap on picture box control
@@ -360,7 +404,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
+                _log.Error(ex.ToString()); Program.ReportException(ex);
             }
         }
         #endregion
@@ -439,4 +483,72 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
     }
+
+    #region CellBackColorAlternate and CellBackColorAlternateCheck
+    internal class CellBackColorAlternate : SourceGrid.Cells.Views.Cell
+    {
+        public CellBackColorAlternate(Color firstColor, Color secondColor)
+        {
+            FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
+            SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
+        {
+            get { return mFirstBackground; }
+            set { mFirstBackground = value; }
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
+        {
+            get { return mSecondBackground; }
+            set { mSecondBackground = value; }
+        }
+
+        protected override void PrepareView(SourceGrid.CellContext context)
+        {
+            base.PrepareView(context);
+
+            if (Math.IEEERemainder(context.Position.Row, 2) == 0)
+                Background = FirstBackground;
+            else
+                Background = SecondBackground;
+        }
+    }
+
+    internal class CheckboxBackColorAlternate : SourceGrid.Cells.Views.CheckBox
+    {
+        public CheckboxBackColorAlternate(Color firstColor, Color secondColor)
+        {
+            FirstBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(firstColor);
+            SecondBackground = new DevAge.Drawing.VisualElements.BackgroundSolid(secondColor);
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mFirstBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement FirstBackground
+        {
+            get { return mFirstBackground; }
+            set { mFirstBackground = value; }
+        }
+
+        private DevAge.Drawing.VisualElements.IVisualElement mSecondBackground;
+        public DevAge.Drawing.VisualElements.IVisualElement SecondBackground
+        {
+            get { return mSecondBackground; }
+            set { mSecondBackground = value; }
+        }
+
+        protected override void PrepareView(SourceGrid.CellContext context)
+        {
+            base.PrepareView(context);
+
+            if (Math.IEEERemainder(context.Position.Row, 2) == 0)
+                Background = FirstBackground;
+            else
+                Background = SecondBackground;
+        }
+    }
+    #endregion
 }

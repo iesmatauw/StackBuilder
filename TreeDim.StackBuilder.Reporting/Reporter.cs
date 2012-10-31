@@ -424,7 +424,6 @@ namespace TreeDim.StackBuilder.Reporting
             xmlDoc.Save(xmlDataFilePath);
         }
 
-
         private void AppendPalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             if (!inputData.IsCasePalletAnalysis)
@@ -1362,7 +1361,7 @@ namespace TreeDim.StackBuilder.Reporting
             // case solution
             AppendCaseSolutionElement(selSolution, elemCaseAnalysis, xmlDoc);
         }
-
+        #region BoxCaseAnalysis
         private void AppendBoxCaseAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
         {
             // check if case analysis
@@ -1388,12 +1387,49 @@ namespace TreeDim.StackBuilder.Reporting
             // case
             AppendCaseElement(boxCaseAnalysis.CaseProperties, elemBoxCaseAnalysis, xmlDoc);
             // constraint set
+            AppendBoxCaseConstraintSet(boxCaseAnalysis.ConstraintSet, elemBoxCaseAnalysis, xmlDoc);
             // solution
+            AppendBoxCaseSolutionElement(selBoxCaseSolution.Solution, elemBoxCaseAnalysis, xmlDoc);
         }
 
         private void AppendCaseElement(BoxProperties caseProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
-        { 
-        
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // case element
+            XmlElement elemCase = CreateElement("caseWithInnerDims", null, elemCaseAnalysis, xmlDoc, ns);
+            // name
+            CreateElement("name", caseProperties.Name, elemCase, xmlDoc, ns);
+            // description
+            CreateElement("description", caseProperties.Description, elemCase, xmlDoc, ns);
+            // length / width /height
+            CreateElement("length", caseProperties.Length, elemCase, xmlDoc, ns);
+            CreateElement("width", caseProperties.Width, elemCase, xmlDoc, ns);
+            CreateElement("height", caseProperties.Height, elemCase, xmlDoc, ns);
+            // innerLength / innerWidth / innerHeight
+            CreateElement("innerLength", caseProperties.InsideLength, elemCase, xmlDoc, ns);
+            CreateElement("innerWidth", caseProperties.InsideWidth, elemCase, xmlDoc, ns);
+            CreateElement("innerHeight", caseProperties.InsideHeight, elemCase, xmlDoc, ns);
+            // weight
+            CreateElement("weight", caseProperties.Weight, elemCase, xmlDoc, ns);
+            // --- build image
+            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            graphics.CameraPosition = Graphics3D.Corner_0;
+            graphics.Target = Vector3D.Zero;
+            Box box = new Box(0, caseProperties);
+            graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+            graphics.Flush();
+            // ---
+            // view_case_iso
+            XmlElement elemImage = xmlDoc.CreateElement("view_case_iso", ns);
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
+            elemImage.Attributes.Append(styleAttribute);
+            elemCase.AppendChild(elemImage);
+            // save image
+            SaveImageAs(graphics.Bitmap, "view_case_iso.gif");
         }
 
         private void AppendBoxElement(BoxProperties boxProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
@@ -1473,6 +1509,117 @@ namespace TreeDim.StackBuilder.Reporting
             // save image
             SaveImageAs(graphics.Bitmap, "view_case_iso.gif");
         }
+
+        private void AppendBoxCaseConstraintSet(BoxCaseConstraintSet boxCaseConstraintSet, XmlElement elemDocument, XmlDocument xmlDoc)
+        { 
+           string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // caseConstraintSet element
+           XmlElement elemCaseConstraintSet = CreateElement("boxCaseConstraintSet", null, elemDocument, xmlDoc, ns);
+           // allowedOrthoAxis
+           CreateElement("allowedOrthoAxis", boxCaseConstraintSet.AllowOrthoAxisString, elemCaseConstraintSet, xmlDoc, ns);
+            // maximumCaseWeightGroup
+           if (boxCaseConstraintSet.UseMaximumCaseWeight)
+            {
+                XmlElement maximumCaseWeightGroup = CreateElement("maximumCaseWeightGroup", null, elemCaseConstraintSet, xmlDoc, ns);
+                CreateElement("maximumCaseWeight", boxCaseConstraintSet.MaximumCaseWeight, maximumCaseWeightGroup, xmlDoc, ns);
+            }
+            // minimumBoxPerCaseGroup
+           if (boxCaseConstraintSet.UseMaximumNumberOfBoxes)
+            {
+                XmlElement minimumBoxPerCaseGroup = CreateElement("MaximumNumberOfBoxes", null, elemCaseConstraintSet, xmlDoc, ns);
+                CreateElement("minimumBoxPerCase", boxCaseConstraintSet.MaximumNumberOfBoxes, minimumBoxPerCaseGroup, xmlDoc, ns);
+            }
+        }
+
+        private void AppendBoxCaseSolutionElement(BoxCaseSolution solution, XmlElement elemBoxCaseAnalysis, XmlDocument xmlDoc)
+        {
+            BoxCaseAnalysis analysis = solution.Analysis;
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // solution
+            XmlElement elemSolution = xmlDoc.CreateElement("boxCaseSolution", ns);
+            elemBoxCaseAnalysis.AppendChild(elemSolution);
+            // title
+            XmlElement elemTitle = xmlDoc.CreateElement("title", ns);
+            elemTitle.InnerText = solution.Title;
+            elemSolution.AppendChild(elemTitle);
+            // boxPerLayerCount
+            XmlElement elemBoxPerLayerCount = xmlDoc.CreateElement("boxPerLayerCount", ns);
+            elemBoxPerLayerCount.InnerText = solution.BoxPerLayerCount.ToString();
+            elemSolution.AppendChild(elemBoxPerLayerCount);
+            // boxPerCaseCount
+            XmlElement elemBoxPerCaseCount = xmlDoc.CreateElement("boxPerCaseCount", ns);
+            elemBoxPerCaseCount.InnerText = solution.BoxPerCaseCount.ToString();
+            elemSolution.AppendChild(elemBoxPerCaseCount);
+            // BoxLayersCount
+            XmlElement elemBoxLayersCount = xmlDoc.CreateElement("BoxLayersCount", ns);
+            elemBoxLayersCount.InnerText = solution.BoxLayersCount.ToString();
+            elemSolution.AppendChild(elemBoxLayersCount);
+            // LoadWeight
+            XmlElement elemLoadWeight = xmlDoc.CreateElement("LoadWeight", ns);
+            elemLoadWeight.InnerText = string.Format("{0:F}", solution.BoxPerCaseCount * analysis.BoxProperties.Weight);
+            elemSolution.AppendChild(elemLoadWeight);
+            // CaseWeight
+            XmlElement elemCaseWeight = xmlDoc.CreateElement("CaseWeight", ns);
+            elemCaseWeight.InnerText = string.Format("{0:F}", solution.CaseWeight);
+            elemSolution.AppendChild(elemCaseWeight);
+            // EfficiencyWeight
+            XmlElement elemEfficiencyWeight = xmlDoc.CreateElement("EfficiencyWeight", ns);
+            elemEfficiencyWeight.InnerText = string.Format("{0:F}", solution.EfficiencyWeight);
+            elemSolution.AppendChild(elemEfficiencyWeight);
+            // EfficiencyVolume
+            XmlElement elemEfficiencyVolume = xmlDoc.CreateElement("EfficiencyVolume", ns);
+            elemEfficiencyVolume.InnerText = string.Format("{0:F}", solution.EfficiencyVolume);
+            elemSolution.AppendChild(elemEfficiencyVolume);
+            // LimitReached
+            string limitReached = string.Empty;
+            switch (solution.LimitReached)
+            {
+                case BoxCaseSolution.Limit.LIMIT_MAXHEIGHTREACHED: limitReached="Maximum height"; break;
+                case BoxCaseSolution.Limit.LIMIT_MAXNUMBERREACHED: limitReached="Maximum number"; break;
+                case BoxCaseSolution.Limit.LIMIT_MAXWEIGHTREACHED: limitReached="Maximum weight"; break;
+                default: break;
+            }
+            XmlElement elemLimitReached = xmlDoc.CreateElement("LimitReached", ns);
+            elemLimitReached.InnerText = limitReached; 
+            elemSolution.AppendChild(elemLimitReached);
+            // --- case images
+            for (int i = 0; i < 5; ++i)
+            {
+                // initialize drawing values
+                string viewName = string.Empty;
+                Vector3D cameraPos = Vector3D.Zero;
+                int imageWidth = 256;
+                bool showDimensions = false;
+                switch (i)
+                {
+                    case 0:  viewName = "view_casesolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256; break;
+                    case 1:  viewName = "view_casesolution_left"; cameraPos = Graphics3D.Left; imageWidth = 256; break;
+                    case 2:  viewName = "view_casesolution_right"; cameraPos = Graphics3D.Right; imageWidth = 256; break;
+                    case 3:  viewName = "view_casesolution_back"; cameraPos = Graphics3D.Back; imageWidth = 256; break;
+                    case 4:  viewName = "view_casesolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; showDimensions = true; break;
+                    default: break;
+                }
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
+                // set camera position 
+                graphics.CameraPosition = cameraPos;
+                // instantiate solution viewer
+                BoxCaseSolutionViewer sv = new BoxCaseSolutionViewer(solution);
+                sv.ShowDimensions = showDimensions;
+                sv.Draw(graphics);
+                // ---
+                XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+                elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
+                elemImage.Attributes.Append(styleAttribute);
+                elemSolution.AppendChild(elemImage);
+                // Save image ?
+                SaveImageAs(graphics.Bitmap, viewName + ".gif");
+            }
+        }
+        #endregion // BoxCaseAnalysis
 
         private void AppendCaseConstraintSet(BoxCasePalletAnalysis caseAnalysis, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
         {

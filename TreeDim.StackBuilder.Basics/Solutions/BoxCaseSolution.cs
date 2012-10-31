@@ -127,12 +127,11 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double VolumeEfficiencyBoxes
         {
-            get
-            {
-                return 100.0 * BoxPerCaseCount * Analysis.BoxProperties.Volume
-                    / Analysis.CaseProperties.InsideVolume; 
-            }
+            get { return 100.0 * BoxPerCaseCount * Analysis.BoxProperties.Volume
+                    / Analysis.CaseProperties.InsideVolume; }
         }
+        public double LoadWeight
+        {   get { return BoxPerCaseCount * _boxCaseAnalysis.BoxProperties.Weight; } }
         public double CaseWeight
         {
             get { return _boxCaseAnalysis.CaseProperties.Weight
@@ -142,6 +141,13 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _limitReached; }
             set { _limitReached = value; }
+        }
+        public double EfficiencyWeight
+        {   get { return 100.0 * LoadWeight / CaseWeight; } }
+        public double EfficiencyVolume
+        {
+            get { return 100.0 * BoxPerCaseCount * Analysis.BoxProperties.Volume
+                    / Analysis.CaseProperties.InsideVolume; }
         }
         public string Title
         {

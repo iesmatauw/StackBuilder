@@ -40,7 +40,7 @@
                     <xs:element name="view_case_iso" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
-              </xs:element> 
+              </xs:element>
               <xs:element name ="caseConstraintSet" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>
@@ -86,12 +86,90 @@
                     <xs:element name="palletWeight" type="xs:string"/>
                     <xs:element name="view_caseSolution_iso" type="xs:string"/>
                   </xs:sequence>
-                </xs:complexType>                
-              </xs:element>              
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="palletAnalysis" minOccurs="1" maxOccurs="1">
+        <xs:element name="boxCaseAnalysis" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="box" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_box_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="caseWithInnerDims" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="innerLength" type="xs:string"/>
+                    <xs:element name="innerWidth" type="xs:string"/>
+                    <xs:element name="innerHeight" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_case_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="boxCaseConstraintSet" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="allowedOrthoAxis" type="xs:string"/>
+                    <xs:element name="maximumCaseWeightGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumPalletWeight" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumNumberOfItemsGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumNumberOfItems" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="boxCaseSolution" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="boxPerLayerCount" type="xs:string"/>
+                    <xs:element name="boxPerCaseCount" type="xs:string"/>
+                    <xs:element name="BoxLayersCount" type="xs:string"/>
+                    <xs:element name="LoadWeight" type="xs:string"/>
+                    <xs:element name="CaseWeight" type="xs:string"/>
+                    <xs:element name="EfficiencyWeight" type="xs:string"/>
+                    <xs:element name="EfficiencyVolume" type="xs:string"/>
+                    <xs:element name="LimitReached" type="xs:string"/>
+                    <xs:element name="view_casesolution_front" type="xs:string"/>
+                    <xs:element name="view_casesolution_left" type="xs:string"/>
+                    <xs:element name="view_casesolution_right" type="xs:string"/>
+                    <xs:element name="view_casesolution_back" type="xs:string"/>
+                    <xs:element name="view_casesolution_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="palletAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" type="xs:string"/>
@@ -149,7 +227,7 @@
                     <xs:element name="caseLimitMax" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
-              </xs:element> 
+              </xs:element>
               <xs:element name="caseOfBoxes" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>
@@ -249,7 +327,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                  </xs:sequence>                  
+                  </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element name ="palletSolution" minOccurs="1" maxOccurs="1">
@@ -359,7 +437,7 @@
                           <xs:element name="humidity_56_65" type="xs:string"/>
                           <xs:element name="humidity_66_75" type="xs:string"/>
                           <xs:element name="humidity_76_85" type="xs:string"/>
-                          <xs:element name="humidity_86_100" type="xs:string"/>                          
+                          <xs:element name="humidity_86_100" type="xs:string"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>

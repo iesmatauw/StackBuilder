@@ -467,9 +467,6 @@ namespace TreeDim.StackBuilder.Basics
                 if (!_boxCaseAnalyses.Remove(item as BoxCaseAnalysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
-            else if (item.GetType() == typeof(SelCasePalletSolution))
-            {
-            }
             else if (item.GetType() == typeof(TruckAnalysis))
             {
                 TruckAnalysis truckAnalysis = item as TruckAnalysis;
@@ -487,9 +484,9 @@ namespace TreeDim.StackBuilder.Basics
                 ECTAnalysis ectAnalysis = item as ECTAnalysis;
                 NotifyOnECTAnalysisRemoved(ectAnalysis.ParentSelSolution, ectAnalysis);
             }
-            else if (item.GetType() == typeof(SelBoxCasePalletSolution))
-            {
-            }
+            else if (item.GetType() == typeof(SelCasePalletSolution))            {}
+            else if (item.GetType() == typeof(SelBoxCasePalletSolution))         {}
+            else if (item.GetType() == typeof(SelBoxCaseSolution))               {}
             else
                 Debug.Assert(false);
             Modify();
@@ -810,6 +807,7 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
         }
+        #region Load containers / basics element
         private void LoadBoxProperties(XmlElement eltBoxProperties)
         {
             string sid = eltBoxProperties.Attributes["Id"].Value;
@@ -994,14 +992,6 @@ namespace TreeDim.StackBuilder.Basics
                 , iOrientation[0]
                 , iOrientation[1]);
         }
-
-        private void LoadOptimConstraintSet(XmlElement eltConstraintSet, out CaseOptimConstraintSet constraintSet)
-        {
-            string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
-            int[] iNoWalls = ParseInt3(sNoWalls);
-            double wallThickness = Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value);
-            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero, false); 
-        }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
             string sid = eltPalletProperties.Attributes["Id"].Value;
@@ -1096,8 +1086,20 @@ namespace TreeDim.StackBuilder.Basics
                 , Convert.ToDouble(sadmissibleLoadWeight)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
             truckProperties.Guid = new Guid(sid);
-
         }
+        #endregion
+
+        #region Load case optimisation
+        private void LoadOptimConstraintSet(XmlElement eltConstraintSet, out CaseOptimConstraintSet constraintSet)
+        {
+            string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
+            int[] iNoWalls = ParseInt3(sNoWalls);
+            double wallThickness = Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value);
+            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero, false); 
+        }
+        #endregion
+
+        #region Load analysis
         private void LoadAnalysis(XmlElement eltAnalysis)
         {
             string sName = eltAnalysis.Attributes["Name"].Value;
@@ -1297,6 +1299,10 @@ namespace TreeDim.StackBuilder.Basics
                     , constraintSet
                     , solutions
                     );
+
+                // save selected solutions
+                foreach (int indexSol in selectedIndices)
+                    analysis.SelectSolutionByIndex(indexSol);
             }
         }
 
@@ -1384,8 +1390,6 @@ namespace TreeDim.StackBuilder.Basics
                 throw new Exception("Invalid constraint set");
             return constraints;
         }
-
-
 
         private PalletConstraintSet LoadCasePalletConstraintSet_Box(XmlElement eltConstraintSet)
         {
@@ -1548,7 +1552,9 @@ namespace TreeDim.StackBuilder.Basics
 
             return layer;
         }
+        #endregion
 
+        #region TruckAnalysis
         private TruckAnalysis LoadTruckAnalysis(XmlElement eltTruckAnalysis, SelCasePalletSolution selSolution)
         {
             string sName = eltTruckAnalysis.Attributes["Name"].Value;
@@ -1626,7 +1632,9 @@ namespace TreeDim.StackBuilder.Basics
             sol.Layer = LoadLayer(eltLayer) as BoxLayer;
             return sol;
         }
+        #endregion // Load truck analysis
 
+        #region Load ECT analysis
         private ECTAnalysis LoadECTAnalysis(XmlElement eltEctAnalysis, SelCasePalletSolution selSolution)
         {
             string name = eltEctAnalysis.Attributes["Name"].Value;
@@ -1665,7 +1673,8 @@ namespace TreeDim.StackBuilder.Basics
                 ectAnalysis.McKeeFormulaText = eltEctAnalysis.Attributes["McKeeFormulaMode"].Value;
             return ectAnalysis;
         }
-        #endregion
+        #endregion // load ECT analysis
+        #endregion // load methods
 
         #region Save methods
         public void Write(string filePath)

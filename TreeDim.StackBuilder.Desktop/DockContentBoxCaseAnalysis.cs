@@ -190,7 +190,6 @@ namespace TreeDim.StackBuilder.Desktop
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
             Draw();
-
         }
         #endregion
 

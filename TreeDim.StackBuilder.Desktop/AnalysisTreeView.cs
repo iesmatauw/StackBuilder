@@ -203,7 +203,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectAnalysisSolution)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCasePalletAnalysisSolution)));
                 if (nodeTag.Document.Trucks.Count > 0 && !nodeTag.SelSolution.HasDependingAnalyses)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCKANALYSIS, AnalysisTreeView.TruckAnalysis, new EventHandler(onCreateNewTruckAnalysis)));
                 if (!nodeTag.SelSolution.HasECTAnalyses)
@@ -226,7 +226,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCaseAnalysisSolution)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCaseAnalysisSolution)));
                 string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCaseSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
                 message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCaseSolution.Name);
@@ -239,7 +239,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_CASESOLUTION)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectCaseAnalysisSolution)));
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCasePalletAnalysisSolution)));
                 string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCaseSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
                 message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCaseSolution.Name);
@@ -549,12 +549,30 @@ namespace TreeDim.StackBuilder.Desktop
             NodeTag tag = SelectedNode.Tag as NodeTag;
             ((DocumentSB)tag.Document).CreateNewBoxCasePalletOptimizationUI(); 
         }
-        private void onUnselectAnalysisSolution(object sender, EventArgs e)
+        private void onUnselectCasePalletAnalysisSolution(object sender, EventArgs e)
         {
             try
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 tag.CasePalletAnalysis.UnSelectSolution(tag.SelSolution);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onUnselectBoxCaseAnalysisSolution(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.BoxCaseAnalysis.UnSelectSolution(tag.SelBoxCaseSolution);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onUnselectBoxCasePalletAnalysisSolution(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.CaseAnalysis.UnSelectSolution(tag.SelBoxCasePalletSolution);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -565,15 +583,6 @@ namespace TreeDim.StackBuilder.Desktop
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 CancelEventArgs cea = new CancelEventArgs();
                 FormMain.GetInstance().CloseDocument((DocumentSB)tag.Document, cea); ;
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void onUnselectCaseAnalysisSolution(object sender, EventArgs e)
-        {
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                tag.CaseAnalysis.UnSelectSolution(tag.SelBoxCasePalletSolution);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }

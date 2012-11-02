@@ -609,8 +609,8 @@ namespace TreeDim.StackBuilder.Desktop
             newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
             // new cylinder/pallet analysis
-            newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
-            toolStripButtonCreateNewAnalysisCylinder.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            //newAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            //toolStripButtonCreateNewAnalysisCylinder.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
             // new box/case analysis
             newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             toolStripButtonCreateNewBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;

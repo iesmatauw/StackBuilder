@@ -147,36 +147,6 @@
   <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
-  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 24</value>
-  </data>
-  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
-    <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
   <data name="newToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -324,11 +294,11 @@
   <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Exit the application</value>
   </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
   </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Tools</value>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
   </data>
   <data name="newBoxToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -560,11 +530,11 @@
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings...</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
   </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Tools</value>
   </data>
   <data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -604,6 +574,36 @@
   </data>
   <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>About StackBuilder...</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>784, 24</value>
+  </data>
+  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 24</value>
@@ -885,12 +885,6 @@
   <data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
     <value>Add a new bundle analysis</value>
   </data>
-  <data name="toolStripButtonCreateNewAnalysisCylinder.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonCreateNewAnalysisCylinder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonCreateNewBoxCaseAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
@@ -903,7 +897,7 @@
   <data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
-  <data name="toolStripButtonBoxCasePalletOptimisation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="toolStripButtonCreateNewBoxCasePalletOptimization.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACSSURBVDhPY2AYEeA/0Jf4MN5A+F8waR8YgwyBsWF8qME4
@@ -912,13 +906,13 @@
         0wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="toolStripButtonBoxCasePalletOptimisation.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="toolStripButtonCreateNewBoxCasePalletOptimization.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonBoxCasePalletOptimisation.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStripButtonCreateNewBoxCasePalletOptimization.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="toolStripButtonBoxCasePalletOptimisation.Text" xml:space="preserve">
+  <data name="toolStripButtonCreateNewBoxCasePalletOptimization.Text" xml:space="preserve">
     <value>Create new box/case/pallet optimization</value>
   </data>
   <data name="toolStripButtonOptimiseCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1412,12 +1406,6 @@
   <data name="&gt;&gt;toolStripButtonCreateNewBundleAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewAnalysisCylinder.Name" xml:space="preserve">
-    <value>toolStripButtonCreateNewAnalysisCylinder</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonCreateNewAnalysisCylinder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripButtonCreateNewBoxCaseAnalysis.Name" xml:space="preserve">
     <value>toolStripButtonCreateNewBoxCaseAnalysis</value>
   </data>
@@ -1429,6 +1417,12 @@
   </data>
   <data name="&gt;&gt;toolStripSeparator11.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonCreateNewBoxCasePalletOptimization.Name" xml:space="preserve">
+    <value>toolStripButtonCreateNewBoxCasePalletOptimization</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonCreateNewBoxCasePalletOptimization.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripButtonOptimiseCase.Name" xml:space="preserve">
     <value>toolStripButtonOptimiseCase</value>
@@ -1477,12 +1471,6 @@
   </data>
   <data name="&gt;&gt;saveFileDialogWebGL.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonBoxCasePalletOptimisation.Name" xml:space="preserve">
-    <value>toolStripButtonBoxCasePalletOptimisation</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonBoxCasePalletOptimisation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

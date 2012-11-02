@@ -64,13 +64,11 @@
     <Property Id="SERIALNUMBER" Value="    -    -    -    "/>
     <Property Id="ALLUSERS" Value="1"/>
     <!--Property references-->
-    <PropertyRef Id="NETFRAMEWORK20"/>
+    <!--PropertyRef Id="NETFRAMEWORK20"/-->
     <!-- Conditions-->
     <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
     <Condition Message="This application is only supported on Windows XP, Windows Vista, Windows 7 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
-    <Condition Message="This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again.">
-      <![CDATA[Installed OR NETFRAMEWORK20]]>
-    </Condition>
+    <!--Condition Message="This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again."><![CDATA[Installed OR NETFRAMEWORK20]]></Condition-->
     <!--Icon-->
     <Icon Id="_treeDim.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico"/>
     <!-- Add files to installer package -->

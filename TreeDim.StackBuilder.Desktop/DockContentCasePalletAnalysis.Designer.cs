@@ -48,6 +48,7 @@
             this.toolStripTopView = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripShowImages = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
@@ -228,7 +229,7 @@
             resources.ApplyResources(this.toolStripShowImages, "toolStripShowImages");
             this.toolStripShowImages.Click += new System.EventHandler(this.toolStripShowImages_Click);
             // 
-            // DockContentAnalysis
+            // DockContentCasePalletAnalysis
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -236,13 +237,14 @@
             this.Controls.Add(this.toolStrip_view);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
             this.HideOnClose = true;
-            this.Name = "DockContentAnalysis";
+            this.Name = "DockContentCasePalletAnalysis";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.DockContentAnalysis_Load);
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel1.PerformLayout();
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();

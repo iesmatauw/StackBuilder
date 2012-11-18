@@ -50,8 +50,7 @@ namespace TreeDim.StackBuilder.Basics
                         break;
                     }
                 }
-                return allowsAtLeastOneOrthoAxis
-                    && (!_useNoSolutionsKept || _noSolutionsKept > 0); 
+                return allowsAtLeastOneOrthoAxis;
             }
         }
         #endregion

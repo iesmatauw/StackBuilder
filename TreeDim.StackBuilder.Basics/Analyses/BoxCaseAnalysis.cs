@@ -156,6 +156,24 @@ namespace TreeDim.StackBuilder.Basics
             // set modified / propagate modifications
             Modify();
         }
+
+        public override void OnEndUpdate(ItemBase updatedAttribute)
+        {
+            // get default analysis solver
+            if (null != _solver)
+            {
+                // clear solutions
+                _solutions.Clear();
+                _solver.ProcessAnalysis(this);
+            }
+            else
+                _log.Error("_solver == null : solver was not set");
+
+            if (_solutions.Count == 0)
+                _log.Debug("Recomputed analysis has no solutions");
+            // set modified / propagate modifications
+            Modify();
+        }
         #endregion
     }
     #endregion

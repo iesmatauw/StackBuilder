@@ -549,7 +549,7 @@
             this.toolStripButtonCreateNewBoxCaseAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.BoxCaseAnalysis;
             resources.ApplyResources(this.toolStripButtonCreateNewBoxCaseAnalysis, "toolStripButtonCreateNewBoxCaseAnalysis");
             this.toolStripButtonCreateNewBoxCaseAnalysis.Name = "toolStripButtonCreateNewBoxCaseAnalysis";
-            this.toolStripButtonCreateNewBoxCaseAnalysis.Click += new System.EventHandler(this.toolAddNewBoxCasePalletOptimization);
+            this.toolStripButtonCreateNewBoxCaseAnalysis.Click += new System.EventHandler(this.toolAddNewBoxCaseAnalysis);
             // 
             // toolStripSeparator11
             // 

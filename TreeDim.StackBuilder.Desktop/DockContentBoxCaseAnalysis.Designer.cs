@@ -49,6 +49,7 @@
             this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip_view.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -212,8 +213,8 @@
             // 
             // trackBarAngleHoriz
             // 
-            this.trackBarAngleHoriz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarAngleHoriz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarAngleHoriz.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.trackBarAngleHoriz.LargeChange = 45;
             this.trackBarAngleHoriz.Location = new System.Drawing.Point(2, 461);
@@ -256,11 +257,11 @@
             // 
             // pictureBoxSolution
             // 
-            this.pictureBoxSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSolution.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBoxSolution.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxSolution.Location = new System.Drawing.Point(6, 3);
             this.pictureBoxSolution.Name = "pictureBoxSolution";
             this.pictureBoxSolution.Size = new System.Drawing.Size(598, 455);
             this.pictureBoxSolution.TabIndex = 3;
@@ -290,9 +291,13 @@
             this.ClientSize = new System.Drawing.Size(604, 651);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip_view);
+            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DockContentBoxCaseAnalysis";
+            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
+            this.ShowInTaskbar = false;
             this.Text = "Box/Case analysis...";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DockContentBoxCaseAnalysis_FormClosing);
             this.Load += new System.EventHandler(this.DockContentBoxCaseAnalysis_Load);
@@ -301,6 +306,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();

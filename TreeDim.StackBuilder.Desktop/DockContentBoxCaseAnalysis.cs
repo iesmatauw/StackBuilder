@@ -65,6 +65,11 @@ namespace TreeDim.StackBuilder.Desktop
         #region Form override
         private void DockContentBoxCaseAnalysis_Load(object sender, EventArgs e)
         {
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
             // initialize toolStripShowImages
             toolStripShowImages.Checked = Settings.Default.ShowImagesPallet;
             // set window caption
@@ -77,6 +82,13 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void DockContentBoxCaseAnalysis_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // save settings
+            Settings.Default.ShowImagesPallet = toolStripShowImages.Checked;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
             // save settings
             Settings.Default.ShowImagesPallet = toolStripShowImages.Checked;
         }
@@ -437,5 +449,6 @@ namespace TreeDim.StackBuilder.Desktop
             Draw();
         }
         #endregion
+
     }
 }

@@ -54,6 +54,7 @@ namespace TreeDim.StackBuilder.Desktop
             // set analysis solver
             CasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.CasePalletSolver();
             BoxCasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCasePalletSolver();
+            BoxCaseAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCaseSolver();
             // load content
             _deserializeDockContent = new DeserializeDockContent(ReloadContent);
 

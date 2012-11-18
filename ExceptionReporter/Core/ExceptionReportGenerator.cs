@@ -81,7 +81,9 @@ namespace ExceptionReporting.Core
 			              };
 			return results;
 		}
-
+        /// <summary>
+        /// DisposeManagedResources
+        /// </summary>
 		protected override void DisposeManagedResources()
 		{
 			_reportInfo.Dispose();

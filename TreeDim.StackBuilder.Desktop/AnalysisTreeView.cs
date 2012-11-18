@@ -1354,6 +1354,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _type = type;
             _document = document;
+            _itemProperties = itemProperties;
             if (_type == NodeType.NT_CASEPALLETANALYSIS && itemProperties is CasePalletAnalysis)
             {
                 _casePalletAnalysis = itemProperties as CasePalletAnalysis;

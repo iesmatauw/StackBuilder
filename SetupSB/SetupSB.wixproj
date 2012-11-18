@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,9 +56,9 @@
 	</Target>
 	-->
   <Target Name="AfterBuild">
-    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="My Application Name" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v6.0A\Bootstrapper\" />
+    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="My Application Name" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v7.0A\Bootstrapper\" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>"$(DevEnvDir)..\..\..\Windows Installer XML v3.5\bin\setupbld.exe" -out $(TargetDir)SBSetup.exe -ms "$(TargetPath)" -setup "$(ProjectDir)setup.exe" -title $(SolutionName)</PostBuildEvent>
+    <PostBuildEvent>"$(DevEnvDir)..\..\..\WiX Toolset v3.6\bin\setupbld.exe" -out $(TargetDir)SBSetup.exe -ms "$(TargetPath)" -setup "$(ProjectDir)setup.exe" -title $(SolutionName)</PostBuildEvent>
   </PropertyGroup>
 </Project>

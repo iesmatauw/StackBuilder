@@ -598,8 +598,9 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
                 // use number of solutions
                 constraintSet.UseNumberOfSolutionsKept = false;
-                constraintSet.NumberOfSolutionsKept = 0;
             }
+            if (recomputeRequired)
+                boxCaseAnalysis.OnEndUpdate(null);
          }
         /// <summary>
         /// Edit given box/case/pallet analysis

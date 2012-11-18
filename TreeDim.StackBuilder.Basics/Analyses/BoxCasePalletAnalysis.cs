@@ -154,7 +154,6 @@ namespace TreeDim.StackBuilder.Basics
         {
             // clear solutions
             _caseSolutions.Clear();
-
         }
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {

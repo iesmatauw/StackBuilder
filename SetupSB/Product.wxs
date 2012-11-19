@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "1.0.10.0" ?>
+<?define Version = "1.0.11.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -25,6 +25,14 @@
              Manufacturer="$(var.Manufacturer)"
              InstallerVersion="300" Compressed="yes" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <!-- ADD/REMOVE Programs icon -->
+    <Icon Id="Stackbuilder.ico" SourceFile="Stackbuilder.ico" />
+    <Property Id="ARPPRODUCTICON" Value="Stackbuilder.ico" />
+    <Property Id="ARPHELPLINK" Value="http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm" />
+    <!-- Installer images -->
+    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf"/>
     <!-- define the directory structure-->
     <Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
@@ -335,10 +343,6 @@
             Event="DoAction"
             Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
     </UI>
-    <!--UI-->
-    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp"/>
-    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp"/>
-    <WixVariable Id="WixUILicenseRtf" Value="License.rtf"/>
     <!-- Include 'Start' custom action-->
     <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
     <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
@@ -347,10 +351,9 @@
     <!-- Install execute sequence -->
     <InstallExecuteSequence>
       <LaunchConditions After="AppSearch"></LaunchConditions>
+      <RemoveExistingProducts Before="InstallInitialize"/>
       <Custom Action="NoDownGrade" After="FindRelatedProducts"><![CDATA[PROJECT_DOWNGRADE]]></Custom>
-      <RemoveExistingProducts After="InstallFinalize"/>
     </InstallExecuteSequence>
     <!---->
-    <Property Id="ARPPRODUCTICON" Value="treeDim.ico" />
 	</Product>
 </Wix>

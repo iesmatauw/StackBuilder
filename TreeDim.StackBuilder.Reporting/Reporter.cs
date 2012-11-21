@@ -1564,7 +1564,10 @@ namespace TreeDim.StackBuilder.Reporting
             elemSolution.AppendChild(elemCaseWeight);
             // EfficiencyWeight
             XmlElement elemEfficiencyWeight = xmlDoc.CreateElement("EfficiencyWeight", ns);
-            elemEfficiencyWeight.InnerText = string.Format("{0:F}", solution.EfficiencyWeight);
+            if (solution.CaseWeight > 0)
+                elemEfficiencyWeight.InnerText = string.Format("{0:F}", solution.EfficiencyWeight);
+            else
+                elemEfficiencyWeight.InnerText = string.Empty;
             elemSolution.AppendChild(elemEfficiencyWeight);
             // EfficiencyVolume
             XmlElement elemEfficiencyVolume = xmlDoc.CreateElement("EfficiencyVolume", ns);

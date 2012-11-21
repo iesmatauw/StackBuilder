@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Globalization;
 using ExceptionReporting.Extensions;
 using ExceptionReporting.Core;
+using System;
 
 namespace ExceptionReporting.Config
 {
@@ -48,10 +49,16 @@ namespace ExceptionReporting.Config
 
         private static string GetConfigSetting(string sectionName, string configName)
         {
-            var sections = ConfigurationManager.GetSection(@"ExceptionReporter/" + sectionName) as NameValueCollection;
-            if (sections == null) return string.Empty;
-
-            return sections[configName];
+            try
+            {
+                var sections = ConfigurationManager.GetSection(@"ExceptionReporter/" + sectionName) as NameValueCollection;
+                if (sections == null) return string.Empty;
+                return sections[configName];
+            }
+            catch (Exception /*ex*/)
+            {
+                return string.Empty;
+            }
         }
 
         /// <summary>Read all settings from the application config file</summary>

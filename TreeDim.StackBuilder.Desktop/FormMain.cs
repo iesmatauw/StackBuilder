@@ -111,6 +111,39 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        #region Start page
+        public bool IsWebSiteReachable
+        {
+            get
+            {
+                try
+                {
+                    System.Uri uri = new System.Uri(Settings.Default.StartPageUrl);
+                    System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                    return false;
+                }
+            }
+        }
+        public void ShowStartPage()
+        {
+            if (!IsWebSiteReachable || null == _dockStartPage)
+                return;
+            _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+            _dockStartPage.Url = new System.Uri(Settings.Default.StartPageUrl);
+        }
+        private void CloseStartPage()
+        {
+            if (null != _dockStartPage)
+                _dockStartPage.Close();
+            _dockStartPage = null;
+        }
+        #endregion
+
         #region Docking
         private void CreateBasicLayout()
         {
@@ -130,37 +163,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
             else
                 _logConsole.Hide();
-        }
-
-        public bool IsWebSiteReachable
-        {
-            get
-            {
-                try
-                {
-                    System.Uri uri = new System.Uri(Settings.Default.StartPageUrl);
-                    System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    _log.Error(ex.ToString());
-                    return false;
-                }
-            }
-        }
-
-        public void ShowStartPage()
-        {
-            if (!IsWebSiteReachable)
-                return;
-            _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            _dockStartPage.Url = new System.Uri(Settings.Default.StartPageUrl);
-        }
-        private void CloseStartPage()
-        {
-            _dockStartPage.Close();
-            _dockStartPage = null;
         }
 
         private IDockContent ReloadContent(string persistString)

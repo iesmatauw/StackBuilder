@@ -159,9 +159,6 @@ namespace TreeDim.StackBuilder.Desktop
                 message = string.Format(Resources.ID_DELETE, nodeTag.BoxCaseAnalysis.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBoxCaseAnalysis))); 
             }
-            else if (nodeTag.Type == NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION)
-            {
-            }
             else if (nodeTag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
             {
                 string message = string.Format(Resources.ID_EDIT, nodeTag.TruckAnalysis.Name);

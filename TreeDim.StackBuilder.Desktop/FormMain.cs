@@ -64,7 +64,10 @@ namespace TreeDim.StackBuilder.Desktop
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length >= 2)
             {
-                OpenDocument(args[1]);
+                if (File.Exists(args[1]))
+                    OpenDocument(args[1]);
+                else if (File.Exists(string.Join(" ", args)))
+                    OpenDocument(string.Join(" ", args));
             }
             // or show splash sceen 
             else
@@ -649,7 +652,9 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 if (!File.Exists(filePath))
                 {
-                    _mruManager.Remove(filePath);
+                    // update mruFileManager as we failed to load file
+                    if (null != _mruManager)
+                        _mruManager.Remove(filePath);
                     MessageBox.Show(string.Format(Resources.ID_FILENOTFOUND, filePath));
                     return;
                 }

@@ -122,7 +122,8 @@ namespace TreeDim.StackBuilder.Basics
         }
         public void SetAllowedPattern(string patternName)
         {
-            if (patternName == string.Empty)  return;
+            if ( patternName == string.Empty 
+                || _allowedPatterns.Contains(patternName) )  return;
             _allowedPatterns.Add(patternName);
         }
         public bool AllowPattern(string patternName)

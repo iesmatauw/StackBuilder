@@ -137,6 +137,17 @@ namespace TreeDim.StackBuilder.Desktop
                         }
                     }
                 }
+                // overhang
+                if (null == _analysis)
+                {
+                    OverhangX = Settings.Default.OverhangX;
+                    OverhangY = Settings.Default.OverhangY;
+                }
+                else
+                {
+                    OverhangX = _analysis.ConstraintSet.OverhangX;
+                    OverhangY = _analysis.ConstraintSet.OverhangY;
+                }
 
                 // alternate / aligned layers
                 if (null == _analysis)
@@ -162,7 +173,7 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumPalletHeight = _analysis.ConstraintSet.MaximumHeight;
                     MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
                 }
-
+                /*
                 // check all patterns
                 string allowedPatterns = Settings.Default.AllowedPatterns;
                 int iCountAllowedPatterns = 0;
@@ -177,6 +188,12 @@ namespace TreeDim.StackBuilder.Desktop
                 if (iCountAllowedPatterns == 0)
                     for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
                         checkedListBoxPatterns.SetItemChecked(i, true);
+                */
+                if (null == _analysis)
+                    AllowedPatternsString = Settings.Default.AllowedPatterns;
+                else
+                    AllowedPatternsString = _analysis.ConstraintSet.AllowedPatternString;
+
 
                 // keep best solutions
                 if (null == _analysis)
@@ -302,23 +319,59 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get
             {
+                string[] patternNames = TreeDim.StackBuilder.Engine.CasePalletSolver.PatternNames;
                 List<string> listAllowedPatterns = new List<string>();
                 foreach (object itemChecked in checkedListBoxPatterns.CheckedItems)
                 {
                     // use the IndexOf method to get the index of an item
                     if (checkedListBoxPatterns.GetItemCheckState(checkedListBoxPatterns.Items.IndexOf(itemChecked)) == CheckState.Checked)
-                        listAllowedPatterns.Add(itemChecked.ToString());
+                        listAllowedPatterns.Add(patternNames[checkedListBoxPatterns.Items.IndexOf(itemChecked)]);
                 }
                 return listAllowedPatterns;
+            }
+        }
+                /// <summary>
+        /// Allowed patterns as a string
+        /// </summary>
+        public string AllowedPatternsString
+        {
+            set
+            {
+                // get list of existing patterns
+                List<string> patternNameList = TreeDim.StackBuilder.Engine.CasePalletSolver.PatternNameList;
+                int iCountAllowedPatterns = 0;
+                string[] vPatternNames = value.Split(',');
+                foreach (string patternName in vPatternNames)
+                {
+                    int index = patternNameList.FindIndex(delegate(string s) { return s == patternName; });
+                    if (-1 != index)
+                    {
+                        checkedListBoxPatterns.SetItemChecked(index, true);
+                        ++iCountAllowedPatterns;
+                    }
+                }
+                if (iCountAllowedPatterns == 0)
+                    for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                        checkedListBoxPatterns.SetItemChecked(i, true);
+            }
+            get
+            {
+                string allowedPatterns = string.Empty;
+                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
+                    if (checkedListBoxPatterns.GetItemChecked(i))
+                        allowedPatterns += checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]) + ";";
+                return allowedPatterns;
             }
         }
         public double OverhangX
         {
             get { return (double)nudPalletOverhangX.Value; }
+            set { nudPalletOverhangX.Value = (decimal)value; }
         }
         public double OverhangY
         {
             get { return (double)nudPalletOverhangY.Value; }
+            set { nudPalletOverhangY.Value = (decimal)value; }
         }
         public bool UseNumberOfSolutionsKept
         {

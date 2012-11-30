@@ -290,6 +290,7 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
                 // allowed patterns
+                constraintSet.ClearAllowedPatterns();
                 foreach (string s in form.AllowedPatterns)
                     constraintSet.SetAllowedPattern(s);
                 // allow alternate layer
@@ -542,6 +543,7 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.OverhangX = form.OverhangX;
                     constraintSet.OverhangY = form.OverhangY;
                     // allowed patterns
+                    constraintSet.ClearAllowedPatterns();
                     foreach (string s in form.AllowedPatterns)
                         constraintSet.SetAllowedPattern(s);
                     // allow aligned / alternate layer

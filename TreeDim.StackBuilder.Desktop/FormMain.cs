@@ -83,18 +83,6 @@ namespace TreeDim.StackBuilder.Desktop
                 else
                     DoSplash();
             }
-
-            if (!Program.IsCurrentCultureSupported())
-            {
-                MsgBoxCheck.MessageBox msb = new MsgBoxCheck.MessageBox();
-                msb.Show("Warnings", "UnsupportedCulture", DialogResult.OK
-                    , "Do not show again"
-                    , "It appears that your language is not supported by Stackbuilder yet.\n" +
-                    " If you would like to help us translate Stackbuilder in your language, please contact us at treedim@gmail.com"
-                    , "Unsupported culture"
-                    , MessageBoxButtons.OK
-                    , MessageBoxIcon.Information);
-            }
         }
 
         void PalletSolutionDBModified(object sender, PalletSolutionEventArgs eventArg)

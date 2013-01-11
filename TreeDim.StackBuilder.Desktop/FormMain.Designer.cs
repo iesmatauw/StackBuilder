@@ -415,6 +415,7 @@
             // 
             // toolStripStandard
             // 
+            this.toolStripStandard.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripStandard.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNewFile,
             this.toolStripButtonFileOpen,

@@ -60,8 +60,15 @@ namespace TreeDim.StackBuilder.Desktop
                 string specifiedCulture = TreeDim.StackBuilder.Desktop.Properties.Settings.Default.CultureToUse;
                 if (!string.IsNullOrEmpty(specifiedCulture))
                 {
-                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(specifiedCulture);
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(specifiedCulture);
+                    try
+                    {
+                        Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(specifiedCulture);
+                        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(specifiedCulture);
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Error(string.Format("Specified culture in config file ({0}) appears to be invalid: {1}", specifiedCulture, ex.Message));
+                    }
                 }
 
                 // get current culture

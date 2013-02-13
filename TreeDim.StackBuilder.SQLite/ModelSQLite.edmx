@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StackBuilderModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="StackBuilderModelStoreContainer">
+          <EntitySet Name="Pallets" EntityType="StackBuilderModel.Store.Pallets" store:Type="Tables" />
+          <EntitySet Name="UserID_PalletID" EntityType="StackBuilderModel.Store.UserID_PalletID" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="StackBuilderModel.Store.Users" store:Type="Tables" />
+          <AssociationSet Name="FK_UserID_PalletID_0_0" Association="StackBuilderModel.Store.FK_UserID_PalletID_0_0">
+            <End Role="Pallets" EntitySet="Pallets" />
+            <End Role="UserID_PalletID" EntitySet="UserID_PalletID" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserID_PalletID_1_0" Association="StackBuilderModel.Store.FK_UserID_PalletID_1_0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserID_PalletID" EntitySet="UserID_PalletID" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pallets">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="Length" Type="float" Nullable="false" />
+          <Property Name="Width" Type="float" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="MaxLoad" Type="float" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Color" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserID_PalletID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="integer" Nullable="false" />
+          <Property Name="PalletID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="E-mail" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UserID_PalletID_0_0">
+          <End Role="Pallets" Type="StackBuilderModel.Store.Pallets" Multiplicity="1" />
+          <End Role="UserID_PalletID" Type="StackBuilderModel.Store.UserID_PalletID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pallets">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserID_PalletID">
+              <PropertyRef Name="PalletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserID_PalletID_1_0">
+          <End Role="Users" Type="StackBuilderModel.Store.Users" Multiplicity="1" />
+          <End Role="UserID_PalletID" Type="StackBuilderModel.Store.UserID_PalletID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserID_PalletID">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StackBuilderModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="StackBuilderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pallets" EntityType="StackBuilderModel.Pallets" />
+          <EntitySet Name="UserID_PalletID" EntityType="StackBuilderModel.UserID_PalletID" />
+          <EntitySet Name="Users" EntityType="StackBuilderModel.Users" />
+          <AssociationSet Name="FK_UserID_PalletID_0_0" Association="StackBuilderModel.FK_UserID_PalletID_0_0">
+            <End Role="Pallets" EntitySet="Pallets" />
+            <End Role="UserID_PalletID" EntitySet="UserID_PalletID" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserID_PalletID_1_0" Association="StackBuilderModel.FK_UserID_PalletID_1_0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserID_PalletID" EntitySet="UserID_PalletID" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pallets">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="GUID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Length" Nullable="false" />
+          <Property Type="Double" Name="Width" Nullable="false" />
+          <Property Type="Double" Name="Height" Nullable="false" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="Double" Name="MaxLoad" Nullable="false" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Color" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+          <Property Type="DateTime" Name="DateModified" Nullable="false" />
+          <NavigationProperty Name="UserID_PalletID" Relationship="StackBuilderModel.FK_UserID_PalletID_0_0" FromRole="Pallets" ToRole="UserID_PalletID" />
+        </EntityType>
+        <EntityType Name="UserID_PalletID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="UserID" Nullable="false" />
+          <Property Type="Int64" Name="PalletID" Nullable="false" />
+          <NavigationProperty Name="Pallets" Relationship="StackBuilderModel.FK_UserID_PalletID_0_0" FromRole="UserID_PalletID" ToRole="Pallets" />
+          <NavigationProperty Name="Users" Relationship="StackBuilderModel.FK_UserID_PalletID_1_0" FromRole="UserID_PalletID" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="E_mail" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+          <Property Type="DateTime" Name="DateModified" Nullable="false" />
+          <NavigationProperty Name="UserID_PalletID" Relationship="StackBuilderModel.FK_UserID_PalletID_1_0" FromRole="Users" ToRole="UserID_PalletID" />
+        </EntityType>
+        <Association Name="FK_UserID_PalletID_0_0">
+          <End Type="StackBuilderModel.Pallets" Role="Pallets" Multiplicity="1" />
+          <End Type="StackBuilderModel.UserID_PalletID" Role="UserID_PalletID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pallets">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserID_PalletID">
+              <PropertyRef Name="PalletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserID_PalletID_1_0">
+          <End Type="StackBuilderModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="StackBuilderModel.UserID_PalletID" Role="UserID_PalletID" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserID_PalletID">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StackBuilderModelStoreContainer" CdmEntityContainer="StackBuilderEntities">
+          <EntitySetMapping Name="Pallets">
+            <EntityTypeMapping TypeName="StackBuilderModel.Pallets">
+              <MappingFragment StoreEntitySet="Pallets">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="MaxLoad" ColumnName="MaxLoad" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserID_PalletID">
+            <EntityTypeMapping TypeName="StackBuilderModel.UserID_PalletID">
+              <MappingFragment StoreEntitySet="UserID_PalletID">
+                <ScalarProperty Name="PalletID" ColumnName="PalletID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StackBuilderModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ModelSQLite">
+        <EntityTypeShape EntityType="StackBuilderModel.Pallets" Width="1.5" PointX="0.75" PointY="1" Height="3.7109993489583313" />
+        <EntityTypeShape EntityType="StackBuilderModel.UserID_PalletID" Width="1.5" PointX="3" PointY="1.875" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="StackBuilderModel.Users" Width="1.5" PointX="0.75" PointY="6" Height="3.7109993489583317" />
+        <AssociationConnector Association="StackBuilderModel.FK_UserID_PalletID_0_0" >
+          <ConnectorPoint PointX="2.25" PointY="2.8651432291666663" />
+          <ConnectorPoint PointX="3" PointY="2.8651432291666663" />
+        </AssociationConnector>
+        <AssociationConnector Association="StackBuilderModel.FK_UserID_PalletID_1_0" >
+          <ConnectorPoint PointX="2.25" PointY="7.8554996744791659" />
+          <ConnectorPoint PointX="3.75" PointY="7.8554996744791659" />
+          <ConnectorPoint PointX="3.75" PointY="3.8552864583333326" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

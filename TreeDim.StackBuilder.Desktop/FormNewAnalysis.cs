@@ -533,7 +533,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void onBoxChanged(object sender, EventArgs e)
         {
-            DrawBoxPositions();
+            DrawCasePositions();
         }
 
         private void UpdateButtonOkStatus()
@@ -611,7 +611,7 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Box position drawings
-        private void DrawBoxPositions()
+        private void DrawCasePositions()
         { 
             // get current boxProperties
             BProperties selectedBox = SelectedBox;

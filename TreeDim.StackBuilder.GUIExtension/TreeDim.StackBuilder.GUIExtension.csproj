@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E335B93B-F816-44E9-B4BB-612FF1673637}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TreeDim.StackBuilder.GUIExtension</RootNamespace>
+    <AssemblyName>TreeDim.StackBuilder.GUIExtension</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComboBoxItems.cs" />
+    <Compile Include="FormDefineAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefineAnalysis.Designer.cs">
+      <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectSolution.Designer.cs">
+      <DependentUpon>FormSelectSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Palletization.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
+      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Name>TreeDim.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
+      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
+      <Name>TreeDim.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj">
+      <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
+      <Name>TreeDim.StackBuilder.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\TreeDim.StackBuilder.Reporting.csproj">
+      <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
+      <Name>TreeDim.StackBuilder.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.SQLite\TreeDim.StackBuilder.SQLite.csproj">
+      <Project>{7F2C7280-F996-4548-A856-D2DFBF37489E}</Project>
+      <Name>TreeDim.StackBuilder.SQLite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormDefineAnalysis.resx">
+      <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

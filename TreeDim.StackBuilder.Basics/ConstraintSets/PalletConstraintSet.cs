@@ -83,9 +83,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         public bool UseMaximumHeight
         {
-            set {
-                _useMaximumHeight = value; 
-            }
+            set { _useMaximumHeight = value; }
             get { return _useMaximumHeight; }
         }
         public bool UseMaximumPalletWeight

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDefineAnalysis));
             this.bnOK = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
             this.nudCaseLength = new System.Windows.Forms.NumericUpDown();
@@ -44,6 +45,10 @@
             this.chkY = new System.Windows.Forms.CheckBox();
             this.chkZ = new System.Windows.Forms.CheckBox();
             this.gbCase = new System.Windows.Forms.GroupBox();
+            this.bnCaseColors = new System.Windows.Forms.Button();
+            this.lbCaseWeight = new System.Windows.Forms.Label();
+            this.nudCaseWeight = new System.Windows.Forms.NumericUpDown();
+            this.lbWeight = new System.Windows.Forms.Label();
             this.bnRevertZ = new System.Windows.Forms.Button();
             this.bnRevertY = new System.Windows.Forms.Button();
             this.bnRevertX = new System.Windows.Forms.Button();
@@ -68,10 +73,6 @@
             this.lbOverhangWidth = new System.Windows.Forms.Label();
             this.lbOverhangLength = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbWeight = new System.Windows.Forms.Label();
-            this.nudCaseWeight = new System.Windows.Forms.NumericUpDown();
-            this.lbCaseWeight = new System.Windows.Forms.Label();
-            this.bnCaseColors = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudCaseLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCaseWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCaseHeight)).BeginInit();
@@ -79,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCaseY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCaseZ)).BeginInit();
             this.gbCase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).BeginInit();
             this.gbPallet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPallet)).BeginInit();
             this.gbConstraints.SuspendLayout();
@@ -86,33 +88,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOK
             // 
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Location = new System.Drawing.Point(457, 10);
             this.bnOK.Name = "bnOK";
-            this.bnOK.Size = new System.Drawing.Size(75, 23);
-            this.bnOK.TabIndex = 0;
-            this.bnOK.Text = "OK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(456, 39);
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 1;
-            this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // nudCaseLength
             // 
+            resources.ApplyResources(this.nudCaseLength, "nudCaseLength");
             this.nudCaseLength.DecimalPlaces = 1;
-            this.nudCaseLength.Location = new System.Drawing.Point(73, 12);
             this.nudCaseLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -124,36 +119,27 @@
             0,
             0});
             this.nudCaseLength.Name = "nudCaseLength";
-            this.nudCaseLength.Size = new System.Drawing.Size(75, 20);
-            this.nudCaseLength.TabIndex = 2;
             this.nudCaseLength.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
+            this.nudCaseLength.ValueChanged += new System.EventHandler(this.CaseDimensionChanged);
             // 
             // lbCaseLength
             // 
-            this.lbCaseLength.AutoSize = true;
-            this.lbCaseLength.Location = new System.Drawing.Point(26, 16);
+            resources.ApplyResources(this.lbCaseLength, "lbCaseLength");
             this.lbCaseLength.Name = "lbCaseLength";
-            this.lbCaseLength.Size = new System.Drawing.Size(40, 13);
-            this.lbCaseLength.TabIndex = 3;
-            this.lbCaseLength.Text = "Length";
             // 
             // lbCaseWidth
             // 
-            this.lbCaseWidth.AutoSize = true;
-            this.lbCaseWidth.Location = new System.Drawing.Point(177, 16);
+            resources.ApplyResources(this.lbCaseWidth, "lbCaseWidth");
             this.lbCaseWidth.Name = "lbCaseWidth";
-            this.lbCaseWidth.Size = new System.Drawing.Size(35, 13);
-            this.lbCaseWidth.TabIndex = 4;
-            this.lbCaseWidth.Text = "Width";
             // 
             // nudCaseWidth
             // 
+            resources.ApplyResources(this.nudCaseWidth, "nudCaseWidth");
             this.nudCaseWidth.DecimalPlaces = 1;
-            this.nudCaseWidth.Location = new System.Drawing.Point(218, 12);
             this.nudCaseWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -165,8 +151,6 @@
             0,
             0});
             this.nudCaseWidth.Name = "nudCaseWidth";
-            this.nudCaseWidth.Size = new System.Drawing.Size(72, 20);
-            this.nudCaseWidth.TabIndex = 5;
             this.nudCaseWidth.Value = new decimal(new int[] {
             10,
             0,
@@ -175,17 +159,13 @@
             // 
             // lbCaseHeight
             // 
-            this.lbCaseHeight.AutoSize = true;
-            this.lbCaseHeight.Location = new System.Drawing.Point(318, 16);
+            resources.ApplyResources(this.lbCaseHeight, "lbCaseHeight");
             this.lbCaseHeight.Name = "lbCaseHeight";
-            this.lbCaseHeight.Size = new System.Drawing.Size(38, 13);
-            this.lbCaseHeight.TabIndex = 6;
-            this.lbCaseHeight.Text = "Height";
             // 
             // nudCaseHeight
             // 
+            resources.ApplyResources(this.nudCaseHeight, "nudCaseHeight");
             this.nudCaseHeight.DecimalPlaces = 1;
-            this.nudCaseHeight.Location = new System.Drawing.Point(362, 12);
             this.nudCaseHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -197,8 +177,6 @@
             0,
             0});
             this.nudCaseHeight.Name = "nudCaseHeight";
-            this.nudCaseHeight.Size = new System.Drawing.Size(72, 20);
-            this.nudCaseHeight.TabIndex = 7;
             this.nudCaseHeight.Value = new decimal(new int[] {
             10,
             0,
@@ -207,69 +185,48 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 68);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Allowed orientations";
             // 
             // pbCaseX
             // 
-            this.pbCaseX.Location = new System.Drawing.Point(30, 84);
+            resources.ApplyResources(this.pbCaseX, "pbCaseX");
             this.pbCaseX.Name = "pbCaseX";
-            this.pbCaseX.Size = new System.Drawing.Size(118, 90);
-            this.pbCaseX.TabIndex = 9;
             this.pbCaseX.TabStop = false;
             // 
             // pbCaseY
             // 
-            this.pbCaseY.Location = new System.Drawing.Point(172, 84);
+            resources.ApplyResources(this.pbCaseY, "pbCaseY");
             this.pbCaseY.Name = "pbCaseY";
-            this.pbCaseY.Size = new System.Drawing.Size(118, 90);
-            this.pbCaseY.TabIndex = 10;
             this.pbCaseY.TabStop = false;
             // 
             // pbCaseZ
             // 
-            this.pbCaseZ.Location = new System.Drawing.Point(317, 84);
+            resources.ApplyResources(this.pbCaseZ, "pbCaseZ");
             this.pbCaseZ.Name = "pbCaseZ";
-            this.pbCaseZ.Size = new System.Drawing.Size(118, 90);
-            this.pbCaseZ.TabIndex = 11;
             this.pbCaseZ.TabStop = false;
             // 
             // chkX
             // 
-            this.chkX.AutoSize = true;
-            this.chkX.Location = new System.Drawing.Point(30, 181);
+            resources.ApplyResources(this.chkX, "chkX");
             this.chkX.Name = "chkX";
-            this.chkX.Size = new System.Drawing.Size(33, 17);
-            this.chkX.TabIndex = 12;
-            this.chkX.Text = "X";
             this.chkX.UseVisualStyleBackColor = true;
             // 
             // chkY
             // 
-            this.chkY.AutoSize = true;
-            this.chkY.Location = new System.Drawing.Point(172, 181);
+            resources.ApplyResources(this.chkY, "chkY");
             this.chkY.Name = "chkY";
-            this.chkY.Size = new System.Drawing.Size(33, 17);
-            this.chkY.TabIndex = 13;
-            this.chkY.Text = "Y";
             this.chkY.UseVisualStyleBackColor = true;
             // 
             // chkZ
             // 
-            this.chkZ.AutoSize = true;
-            this.chkZ.Location = new System.Drawing.Point(317, 181);
+            resources.ApplyResources(this.chkZ, "chkZ");
             this.chkZ.Name = "chkZ";
-            this.chkZ.Size = new System.Drawing.Size(33, 17);
-            this.chkZ.TabIndex = 14;
-            this.chkZ.Text = "Z";
             this.chkZ.UseVisualStyleBackColor = true;
             // 
             // gbCase
             // 
+            resources.ApplyResources(this.gbCase, "gbCase");
             this.gbCase.Controls.Add(this.bnCaseColors);
             this.gbCase.Controls.Add(this.lbCaseWeight);
             this.gbCase.Controls.Add(this.nudCaseWeight);
@@ -290,114 +247,107 @@
             this.gbCase.Controls.Add(this.pbCaseZ);
             this.gbCase.Controls.Add(this.label4);
             this.gbCase.Controls.Add(this.pbCaseX);
-            this.gbCase.Location = new System.Drawing.Point(7, 4);
             this.gbCase.Name = "gbCase";
-            this.gbCase.Size = new System.Drawing.Size(443, 206);
-            this.gbCase.TabIndex = 15;
             this.gbCase.TabStop = false;
-            this.gbCase.Text = "Case";
+            // 
+            // bnCaseColors
+            // 
+            resources.ApplyResources(this.bnCaseColors, "bnCaseColors");
+            this.bnCaseColors.Name = "bnCaseColors";
+            this.bnCaseColors.UseVisualStyleBackColor = true;
+            // 
+            // lbCaseWeight
+            // 
+            resources.ApplyResources(this.lbCaseWeight, "lbCaseWeight");
+            this.lbCaseWeight.Name = "lbCaseWeight";
+            // 
+            // nudCaseWeight
+            // 
+            resources.ApplyResources(this.nudCaseWeight, "nudCaseWeight");
+            this.nudCaseWeight.DecimalPlaces = 2;
+            this.nudCaseWeight.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudCaseWeight.Name = "nudCaseWeight";
+            // 
+            // lbWeight
+            // 
+            resources.ApplyResources(this.lbWeight, "lbWeight");
+            this.lbWeight.Name = "lbWeight";
             // 
             // bnRevertZ
             // 
-            this.bnRevertZ.Location = new System.Drawing.Point(378, 180);
+            resources.ApplyResources(this.bnRevertZ, "bnRevertZ");
             this.bnRevertZ.Name = "bnRevertZ";
-            this.bnRevertZ.Size = new System.Drawing.Size(57, 19);
-            this.bnRevertZ.TabIndex = 18;
-            this.bnRevertZ.Text = "Revert";
             this.bnRevertZ.UseVisualStyleBackColor = true;
             // 
             // bnRevertY
             // 
-            this.bnRevertY.Location = new System.Drawing.Point(233, 180);
+            resources.ApplyResources(this.bnRevertY, "bnRevertY");
             this.bnRevertY.Name = "bnRevertY";
-            this.bnRevertY.Size = new System.Drawing.Size(57, 19);
-            this.bnRevertY.TabIndex = 17;
-            this.bnRevertY.Text = "Revert";
             this.bnRevertY.UseVisualStyleBackColor = true;
             // 
             // bnRevertX
             // 
-            this.bnRevertX.Location = new System.Drawing.Point(90, 180);
+            resources.ApplyResources(this.bnRevertX, "bnRevertX");
             this.bnRevertX.Name = "bnRevertX";
-            this.bnRevertX.Size = new System.Drawing.Size(57, 19);
-            this.bnRevertX.TabIndex = 16;
-            this.bnRevertX.Text = "Revert";
             this.bnRevertX.UseVisualStyleBackColor = true;
             this.bnRevertX.Click += new System.EventHandler(this.bnRevertX_Click);
             // 
             // gbPallet
             // 
+            resources.ApplyResources(this.gbPallet, "gbPallet");
             this.gbPallet.Controls.Add(this.lbDescription);
             this.gbPallet.Controls.Add(this.bnEditPalletList);
             this.gbPallet.Controls.Add(this.lbPalletDescription);
             this.gbPallet.Controls.Add(this.pbPallet);
             this.gbPallet.Controls.Add(this.cbPallet);
             this.gbPallet.Controls.Add(this.lbPallet);
-            this.gbPallet.Location = new System.Drawing.Point(7, 216);
             this.gbPallet.Name = "gbPallet";
-            this.gbPallet.Size = new System.Drawing.Size(525, 105);
-            this.gbPallet.TabIndex = 16;
             this.gbPallet.TabStop = false;
-            this.gbPallet.Text = "Pallet";
             // 
             // lbDescription
             // 
-            this.lbDescription.AutoSize = true;
-            this.lbDescription.Location = new System.Drawing.Point(13, 51);
+            resources.ApplyResources(this.lbDescription, "lbDescription");
             this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(63, 13);
-            this.lbDescription.TabIndex = 5;
-            this.lbDescription.Text = "Description:";
             // 
             // bnEditPalletList
             // 
-            this.bnEditPalletList.Location = new System.Drawing.Point(303, 19);
+            resources.ApplyResources(this.bnEditPalletList, "bnEditPalletList");
             this.bnEditPalletList.Name = "bnEditPalletList";
-            this.bnEditPalletList.Size = new System.Drawing.Size(53, 21);
-            this.bnEditPalletList.TabIndex = 4;
-            this.bnEditPalletList.Text = "Edit...";
             this.bnEditPalletList.UseVisualStyleBackColor = true;
             this.bnEditPalletList.Click += new System.EventHandler(this.bnEditPalletList_Click);
             // 
             // lbPalletDescription
             // 
-            this.lbPalletDescription.AutoSize = true;
-            this.lbPalletDescription.Location = new System.Drawing.Point(87, 51);
+            resources.ApplyResources(this.lbPalletDescription, "lbPalletDescription");
             this.lbPalletDescription.Name = "lbPalletDescription";
-            this.lbPalletDescription.Size = new System.Drawing.Size(94, 13);
-            this.lbPalletDescription.TabIndex = 3;
-            this.lbPalletDescription.Text = "lbPalletDescription";
             // 
             // pbPallet
             // 
-            this.pbPallet.Location = new System.Drawing.Point(362, 12);
+            resources.ApplyResources(this.pbPallet, "pbPallet");
             this.pbPallet.Name = "pbPallet";
-            this.pbPallet.Size = new System.Drawing.Size(157, 87);
-            this.pbPallet.TabIndex = 2;
             this.pbPallet.TabStop = false;
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.AllowDrop = true;
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            this.cbPallet.Location = new System.Drawing.Point(73, 19);
             this.cbPallet.Name = "cbPallet";
-            this.cbPallet.Size = new System.Drawing.Size(224, 21);
-            this.cbPallet.TabIndex = 1;
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
             // lbPallet
             // 
-            this.lbPallet.AutoSize = true;
-            this.lbPallet.Location = new System.Drawing.Point(12, 21);
+            resources.ApplyResources(this.lbPallet, "lbPallet");
             this.lbPallet.Name = "lbPallet";
-            this.lbPallet.Size = new System.Drawing.Size(33, 13);
-            this.lbPallet.TabIndex = 0;
-            this.lbPallet.Text = "Pallet";
             // 
             // gbConstraints
             // 
+            resources.ApplyResources(this.gbConstraints, "gbConstraints");
             this.gbConstraints.Controls.Add(this.label7);
             this.gbConstraints.Controls.Add(this.label6);
             this.gbConstraints.Controls.Add(this.label5);
@@ -411,75 +361,49 @@
             this.gbConstraints.Controls.Add(this.lbOverhangWidth);
             this.gbConstraints.Controls.Add(this.lbOverhangLength);
             this.gbConstraints.Controls.Add(this.label1);
-            this.gbConstraints.Location = new System.Drawing.Point(6, 327);
             this.gbConstraints.Name = "gbConstraints";
-            this.gbConstraints.Size = new System.Drawing.Size(525, 91);
-            this.gbConstraints.TabIndex = 17;
             this.gbConstraints.TabStop = false;
-            this.gbConstraints.Text = "Constraints";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(454, 18);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(23, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "mm";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(265, 18);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "mm";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(265, 69);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "kg";
             // 
             // nudMaxPalletWeight
             // 
-            this.nudMaxPalletWeight.Location = new System.Drawing.Point(183, 65);
+            resources.ApplyResources(this.nudMaxPalletWeight, "nudMaxPalletWeight");
             this.nudMaxPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudMaxPalletWeight.Name = "nudMaxPalletWeight";
-            this.nudMaxPalletWeight.Size = new System.Drawing.Size(73, 20);
-            this.nudMaxPalletWeight.TabIndex = 9;
             // 
             // chkMaxPalletWeight
             // 
-            this.chkMaxPalletWeight.AutoSize = true;
-            this.chkMaxPalletWeight.Location = new System.Drawing.Point(6, 67);
+            resources.ApplyResources(this.chkMaxPalletWeight, "chkMaxPalletWeight");
             this.chkMaxPalletWeight.Name = "chkMaxPalletWeight";
-            this.chkMaxPalletWeight.Size = new System.Drawing.Size(132, 17);
-            this.chkMaxPalletWeight.TabIndex = 8;
-            this.chkMaxPalletWeight.Text = "Maximum pallet weight";
             this.chkMaxPalletWeight.UseVisualStyleBackColor = true;
             this.chkMaxPalletWeight.CheckedChanged += new System.EventHandler(this.chkMaxPalletWeight_CheckedChanged);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(265, 43);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "mm";
             // 
             // nudMaxPalletHeight
             // 
-            this.nudMaxPalletHeight.Location = new System.Drawing.Point(183, 39);
+            resources.ApplyResources(this.nudMaxPalletHeight, "nudMaxPalletHeight");
             this.nudMaxPalletHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -491,8 +415,6 @@
             0,
             0});
             this.nudMaxPalletHeight.Name = "nudMaxPalletHeight";
-            this.nudMaxPalletHeight.Size = new System.Drawing.Size(73, 20);
-            this.nudMaxPalletHeight.TabIndex = 6;
             this.nudMaxPalletHeight.Value = new decimal(new int[] {
             10,
             0,
@@ -501,8 +423,8 @@
             // 
             // nudOverhangY
             // 
+            resources.ApplyResources(this.nudOverhangY, "nudOverhangY");
             this.nudOverhangY.DecimalPlaces = 1;
-            this.nudOverhangY.Location = new System.Drawing.Point(377, 14);
             this.nudOverhangY.Maximum = new decimal(new int[] {
             500,
             0,
@@ -514,99 +436,44 @@
             0,
             -2147483648});
             this.nudOverhangY.Name = "nudOverhangY";
-            this.nudOverhangY.Size = new System.Drawing.Size(70, 20);
-            this.nudOverhangY.TabIndex = 5;
             // 
             // nudOverhangX
             // 
+            resources.ApplyResources(this.nudOverhangX, "nudOverhangX");
             this.nudOverhangX.DecimalPlaces = 1;
-            this.nudOverhangX.Location = new System.Drawing.Point(183, 14);
             this.nudOverhangX.Minimum = new decimal(new int[] {
             500,
             0,
             0,
             -2147483648});
             this.nudOverhangX.Name = "nudOverhangX";
-            this.nudOverhangX.Size = new System.Drawing.Size(73, 20);
-            this.nudOverhangX.TabIndex = 4;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 43);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Maximum pallet height";
             // 
             // lbOverhangWidth
             // 
-            this.lbOverhangWidth.AutoSize = true;
-            this.lbOverhangWidth.Location = new System.Drawing.Point(315, 18);
+            resources.ApplyResources(this.lbOverhangWidth, "lbOverhangWidth");
             this.lbOverhangWidth.Name = "lbOverhangWidth";
-            this.lbOverhangWidth.Size = new System.Drawing.Size(35, 13);
-            this.lbOverhangWidth.TabIndex = 2;
-            this.lbOverhangWidth.Text = "Width";
             // 
             // lbOverhangLength
             // 
-            this.lbOverhangLength.AutoSize = true;
-            this.lbOverhangLength.Location = new System.Drawing.Point(127, 18);
+            resources.ApplyResources(this.lbOverhangLength, "lbOverhangLength");
             this.lbOverhangLength.Name = "lbOverhangLength";
-            this.lbOverhangLength.Size = new System.Drawing.Size(40, 13);
-            this.lbOverhangLength.TabIndex = 1;
-            this.lbOverhangLength.Text = "Length";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Overhang";
-            // 
-            // lbWeight
-            // 
-            this.lbWeight.AutoSize = true;
-            this.lbWeight.Location = new System.Drawing.Point(26, 40);
-            this.lbWeight.Name = "lbWeight";
-            this.lbWeight.Size = new System.Drawing.Size(41, 13);
-            this.lbWeight.TabIndex = 19;
-            this.lbWeight.Text = "Weight";
-            // 
-            // nudCaseWeight
-            // 
-            this.nudCaseWeight.Location = new System.Drawing.Point(73, 37);
-            this.nudCaseWeight.Name = "nudCaseWeight";
-            this.nudCaseWeight.Size = new System.Drawing.Size(75, 20);
-            this.nudCaseWeight.TabIndex = 20;
-            // 
-            // lbCaseWeight
-            // 
-            this.lbCaseWeight.AutoSize = true;
-            this.lbCaseWeight.Location = new System.Drawing.Point(152, 40);
-            this.lbCaseWeight.Name = "lbCaseWeight";
-            this.lbCaseWeight.Size = new System.Drawing.Size(19, 13);
-            this.lbCaseWeight.TabIndex = 21;
-            this.lbCaseWeight.Text = "kg";
-            // 
-            // bnCaseColors
-            // 
-            this.bnCaseColors.Location = new System.Drawing.Point(362, 37);
-            this.bnCaseColors.Name = "bnCaseColors";
-            this.bnCaseColors.Size = new System.Drawing.Size(72, 20);
-            this.bnCaseColors.TabIndex = 22;
-            this.bnCaseColors.Text = "Colors...";
-            this.bnCaseColors.UseVisualStyleBackColor = true;
             // 
             // FormDefineAnalysis
             // 
             this.AcceptButton = this.bnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(544, 425);
             this.Controls.Add(this.gbConstraints);
             this.Controls.Add(this.gbPallet);
             this.Controls.Add(this.gbCase);
@@ -617,7 +484,6 @@
             this.Name = "FormDefineAnalysis";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Define pallet analysis...";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDefineAnalysis_FormClosing);
             this.Load += new System.EventHandler(this.FormDefineAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCaseLength)).EndInit();
@@ -628,6 +494,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCaseZ)).EndInit();
             this.gbCase.ResumeLayout(false);
             this.gbCase.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).EndInit();
             this.gbPallet.ResumeLayout(false);
             this.gbPallet.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPallet)).EndInit();
@@ -637,7 +504,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCaseWeight)).EndInit();
             this.ResumeLayout(false);
 
         }

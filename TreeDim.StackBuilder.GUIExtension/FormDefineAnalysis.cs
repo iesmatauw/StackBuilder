@@ -80,11 +80,16 @@ namespace TreeDim.StackBuilder.GUIExtension
                 constraintSet.SetAllowedOrthoAxis(_revertZ ? HalfAxis.HAxis.AXIS_Z_N : HalfAxis.HAxis.AXIS_Z_P, chkZ.Checked);
                 constraintSet.OverhangX = (double)nudOverhangX.Value;
                 constraintSet.OverhangY = (double)nudOverhangY.Value;
+                constraintSet.UseMaximumHeight = true;
+                constraintSet.MaximumHeight = (double)nudMaxPalletHeight.Value;
+                constraintSet.UseMaximumPalletWeight = chkMaxPalletWeight.Checked;
+                constraintSet.MaximumPalletWeight = (double)nudMaxPalletWeight.Value;
+                constraintSet.AllowedPatternString = "Column,Diagonale,Interlocked,Trilock,Spirale,Enlarged spiral";
+
                 return constraintSet;
             }
         }
         #endregion
-
 
         #region Load / close 
         private void FormDefineAnalysis_Load(object sender, EventArgs e)
@@ -144,6 +149,11 @@ namespace TreeDim.StackBuilder.GUIExtension
         private void bnEditPalletList_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CaseDimensionChanged(object sender, EventArgs e)
+        {
+            DrawBoxPositions();
         }
 
         private void chkMaxPalletWeight_CheckedChanged(object sender, EventArgs e)

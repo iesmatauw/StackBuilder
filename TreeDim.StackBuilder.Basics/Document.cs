@@ -164,6 +164,27 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return boxProperties;
         }
+        public BoxProperties CreateNewCase(BoxProperties boxProp)
+        {
+            // instantiate and initialize
+            BoxProperties boxPropClone = new BoxProperties(this
+                , boxProp.Length
+                , boxProp.Width
+                , boxProp.Height
+                , boxProp.InsideLength
+                , boxProp.InsideWidth
+                , boxProp.InsideHeight);
+            boxPropClone.Weight = boxProp.Weight;
+            boxPropClone.Name = boxProp.Name;
+            boxPropClone.Description = boxProp.Description;
+            boxPropClone.SetAllColors(boxProp.Colors);
+            // insert in list
+            _typeList.Add(boxPropClone);
+            // notify listeners
+            NotifyOnNewTypeCreated(boxPropClone);
+            Modify();
+            return boxPropClone;
+        }
 
         public CaseOfBoxesProperties CreateNewCaseOfBoxes(
             string name, string description
@@ -242,7 +263,21 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return interlayer;
         }
-
+        public InterlayerProperties CreateNewInterlayer(InterlayerProperties interlayerProp)
+        {
+            // instantiate and intialize
+            InterlayerProperties interlayerClone = new InterlayerProperties(
+                this, interlayerProp.Name, interlayerProp.Description
+                , interlayerProp.Length, interlayerProp.Width, interlayerProp.Thickness
+                , interlayerProp.Weight
+                , interlayerProp.Color);
+            // insert in list
+            _typeList.Add(interlayerClone);
+            // notify listeners
+            NotifyOnNewTypeCreated(interlayerClone);
+            Modify();
+            return interlayerClone;       
+        }
         public PalletProperties CreateNewPallet(
             string name, string description
             , string typeName
@@ -260,6 +295,23 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return palletProperties;
         }
+
+        public PalletProperties CreateNewPallet(PalletProperties palletProp)
+        {
+            PalletProperties palletPropClone = new PalletProperties(this, palletProp.TypeName, palletProp.Length, palletProp.Width, palletProp.Height);
+            palletPropClone.Name = palletProp.Name;
+            palletPropClone.Description = palletProp.Description;
+            palletPropClone.Weight = palletProp.Weight;
+            palletPropClone.Color = palletProp.Color;
+            palletPropClone.AdmissibleLoadWeight = palletProp.AdmissibleLoadWeight;
+            // insert in list
+            _typeList.Add(palletPropClone);
+            // notify listeners
+            NotifyOnNewTypeCreated(palletPropClone);
+            Modify();
+            return palletPropClone;           
+        }
+
         /// <summary>
         /// Creates a new truck in this document
         /// </summary>

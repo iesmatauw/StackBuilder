@@ -32,5 +32,17 @@
     <Setting Name="MaximumPalletWeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
+    <Setting Name="DefaultDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">K:\Codeplex\StackBuilder\Samples\</Value>
+    </Setting>
+    <Setting Name="ReportTypeIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="OpenGeneratedFile" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -12,13 +12,13 @@
     <AssemblyName>TreeDim.StackBuilder.Desktop</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <StartupObject>TreeDim.StackBuilder.Desktop.Program</StartupObject>
     <ApplicationIcon>treeDim.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,10 +30,9 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.12.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -378,6 +377,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentCasePalletAnalysis.resx">
       <DependentUpon>DockContentCasePalletAnalysis.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCaseOfBoxes.ca-ES.resx">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
@@ -945,10 +945,6 @@
     <ProjectReference Include="..\OptionsLib\OptionsLib.csproj">
       <Project>{5035348F-344F-4822-823E-6CB4D79D80D7}</Project>
       <Name>OptionsLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
-      <Name>Sharp3D.Math</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.AutoUpdater\TreeDim.AutoUpdater.csproj">
       <Project>{0B5CE6C7-757A-45C0-B695-5D4EE4E22336}</Project>

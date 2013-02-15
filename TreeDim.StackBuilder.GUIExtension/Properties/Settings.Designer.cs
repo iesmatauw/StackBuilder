@@ -142,5 +142,50 @@ namespace TreeDim.StackBuilder.GUIExtension.Properties {
                 this["MaximumPalletWeight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\Samples\\")]
+        public string DefaultDirectory {
+            get {
+                return ((string)(this["DefaultDirectory"]));
+            }
+            set {
+                this["DefaultDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ReportTypeIndex {
+            get {
+                return ((int)(this["ReportTypeIndex"]));
+            }
+            set {
+                this["ReportTypeIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OpenGeneratedFile {
+            get {
+                return ((bool)(this["OpenGeneratedFile"]));
+            }
+            set {
+                this["OpenGeneratedFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\TreeDim.StackBuilder.Reporting\\ReportTemplates")]
+        public string ReportTemplatePath {
+            get {
+                return ((string)(this["ReportTemplatePath"]));
+            }
+        }
     }
 }

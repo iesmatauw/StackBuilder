@@ -26,7 +26,7 @@ namespace TreeDim.StackBuilder.GUIExtension
 
         public override string ToString()
         {
-            return string.Format("{0} ({1}x{2}x{3})"
+            return string.Format("{0}      ({1} x {2} x {3})"
                 , _boxProperties.Name, _boxProperties.Length, _boxProperties.Width, _boxProperties.Height);
         }
     }
@@ -46,7 +46,8 @@ namespace TreeDim.StackBuilder.GUIExtension
 
         public override string ToString()
         {
-            return _palletProperties.Name;
+            return string.Format("{0}      ({1} x {2} x {3})"
+                , _palletProperties.Name, _palletProperties.Length, _palletProperties.Width, _palletProperties.Height);
         }
     }
     public class InterlayerItem

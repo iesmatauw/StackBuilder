@@ -146,6 +146,9 @@
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="lbCaseWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;nudCaseWidth.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
@@ -344,9 +347,6 @@
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
   <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
     <value>gbPallet</value>
   </data>
@@ -397,6 +397,9 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkMaxPalletWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -452,9 +455,6 @@
   <data name="chkZ.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 4</value>
-  </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Allowed orientations</value>
   </data>
@@ -467,9 +467,6 @@
   <data name="&gt;&gt;lbWeight.Name" xml:space="preserve">
     <value>lbWeight</value>
   </data>
-  <data name="&gt;&gt;lbCaseWeight.Parent" xml:space="preserve">
-    <value>gbCase</value>
-  </data>
   <data name="lbPallet.Text" xml:space="preserve">
     <value>Pallet</value>
   </data>
@@ -478,6 +475,9 @@
   </data>
   <data name="&gt;&gt;pbCaseY.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="lbCaseWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;bnRevertY.Parent" xml:space="preserve">
     <value>gbCase</value>
@@ -488,14 +488,14 @@
   <data name="chkZ.Text" xml:space="preserve">
     <value>Z</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
   <data name="&gt;&gt;bnCaseColors.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 13</value>
+  </data>
+  <data name="bnEditPalletList.Text" xml:space="preserve">
+    <value>Edit...</value>
   </data>
   <data name="chkX.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 17</value>
@@ -539,6 +539,9 @@
   <data name="chkY.Text" xml:space="preserve">
     <value>Y</value>
   </data>
+  <data name="&gt;&gt;nudOverhangX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>gbConstraints</value>
   </data>
@@ -547,9 +550,6 @@
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
-  </data>
-  <data name="&gt;&gt;pbCaseX.ZOrder" xml:space="preserve">
-    <value>19</value>
   </data>
   <data name="chkMaxPalletWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -562,6 +562,9 @@
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbCaseHeight.Text" xml:space="preserve">
+    <value>Height</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -584,6 +587,9 @@
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
   </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
   <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -592,9 +598,6 @@
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;bnCaseColors.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="lbPalletDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 13</value>
@@ -611,8 +614,8 @@
   <data name="chkMaxPalletWeight.Text" xml:space="preserve">
     <value>Maximum pallet weight</value>
   </data>
-  <data name="bnEditPalletList.Text" xml:space="preserve">
-    <value>Edit...</value>
+  <data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
@@ -662,8 +665,8 @@
   <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
     <value>lbPallet</value>
   </data>
-  <data name="lbCaseWidth.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;lbCaseWeight.Parent" xml:space="preserve">
+    <value>gbCase</value>
   </data>
   <data name="&gt;&gt;bnRevertX.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -683,8 +686,8 @@
   <data name="chkX.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="bnCaseColors.Text" xml:space="preserve">
-    <value>Colors...</value>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;lbWeight.Parent" xml:space="preserve">
     <value>gbCase</value>
@@ -733,9 +736,6 @@
   </data>
   <data name="&gt;&gt;nudCaseWeight.Name" xml:space="preserve">
     <value>nudCaseWeight</value>
-  </data>
-  <data name="pbCaseY.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
   </data>
   <data name="gbPallet.Text" xml:space="preserve">
     <value>Pallet</value>
@@ -854,8 +854,8 @@
   <data name="gbConstraints.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 327</value>
   </data>
-  <data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="bnRevertX.Location" type="System.Drawing.Point, System.Drawing">
     <value>90, 180</value>
@@ -875,8 +875,8 @@
   <data name="&gt;&gt;gbConstraints.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="bnCaseColors.Text" xml:space="preserve">
+    <value>Colors...</value>
   </data>
   <data name="&gt;&gt;nudMaxPalletWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -886,6 +886,9 @@
   </data>
   <data name="gbConstraints.Size" type="System.Drawing.Size, System.Drawing">
     <value>525, 91</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -998,8 +1001,8 @@
   <data name="&gt;&gt;lbCaseWidth.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbCaseWidth.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;pbCaseX.ZOrder" xml:space="preserve">
+    <value>19</value>
   </data>
   <data name="&gt;&gt;nudOverhangY.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1009,9 +1012,6 @@
   </data>
   <data name="lbCaseLength.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="nudMaxPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 65</value>
   </data>
   <data name="&gt;&gt;nudOverhangX.Parent" xml:space="preserve">
     <value>gbConstraints</value>
@@ -1052,8 +1052,8 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbCaseHeight.Text" xml:space="preserve">
-    <value>Height</value>
+  <data name="nudMaxPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 65</value>
   </data>
   <data name="lbDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1076,17 +1076,17 @@
   <data name="&gt;&gt;bnRevertX.Name" xml:space="preserve">
     <value>bnRevertX</value>
   </data>
+  <data name="chkMaxPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 17</value>
+  </data>
   <data name="&gt;&gt;lbCaseWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudCaseLength.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
-  <data name="&gt;&gt;chkMaxPalletWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="pbCaseY.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1106,8 +1106,8 @@
   <data name="pbCaseY.Location" type="System.Drawing.Point, System.Drawing">
     <value>172, 84</value>
   </data>
-  <data name="&gt;&gt;nudOverhangX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 4</value>
   </data>
   <data name="gbConstraints.Text" xml:space="preserve">
     <value>Constraints</value>
@@ -1193,8 +1193,8 @@
   <data name="bnRevertY.Text" xml:space="preserve">
     <value>Revert</value>
   </data>
-  <data name="chkMaxPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 17</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>gbConstraints</value>
@@ -1202,8 +1202,8 @@
   <data name="nudOverhangX.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 20</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="&gt;&gt;bnCaseColors.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;lbOverhangLength.Parent" xml:space="preserve">
     <value>gbConstraints</value>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using log4net;
 
 
 using Sharp3D.Math.Core;
@@ -251,8 +252,10 @@ namespace TreeDim.StackBuilder.GUIExtension
                 if (formReport.OpenGeneratedFile)
                     Process.Start(new ProcessStartInfo(formReport.FilePath));
             }
-            catch (Exception /*ex*/)
-            {}    
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }    
         }
         private void ToolsGenerateStackBuilderProject(object sender, EventArgs e)
         {
@@ -269,8 +272,10 @@ namespace TreeDim.StackBuilder.GUIExtension
                     Process.Start(new ProcessStartInfo(saveFileDialogAsStb.FileName));
                 }
             }
-            catch (Exception /*ex*/)
-            {}
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
 
@@ -313,8 +318,9 @@ namespace TreeDim.StackBuilder.GUIExtension
                 // show generated bitmap on picture box control
                 pictureBoxSolution.Image = graphics.Bitmap;
             }
-            catch (Exception /*ex*/)
+            catch (Exception ex)
             {
+                _log.Error(ex.ToString());
             }
         }
         #endregion
@@ -326,6 +332,10 @@ namespace TreeDim.StackBuilder.GUIExtension
         /// view parameters
         /// </summary>
         private const double _cameraDistance = 10000.0;
+        /// <summary>
+        /// log4net
+        /// </summary>
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormSelectSolution));
         #endregion
     }
 

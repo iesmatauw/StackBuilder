@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using Sharp3D.Math.Core;
 using System.Drawing;
-using TreeDim.StackBuilder.Basics;
-
 using System.Diagnostics;
+
+using TreeDim.StackBuilder.Basics;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics

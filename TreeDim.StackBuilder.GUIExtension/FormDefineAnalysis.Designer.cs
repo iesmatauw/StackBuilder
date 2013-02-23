@@ -156,6 +156,7 @@
             0,
             0,
             0});
+            this.nudCaseWidth.ValueChanged += new System.EventHandler(this.CaseDimensionChanged);
             // 
             // lbCaseHeight
             // 
@@ -182,6 +183,7 @@
             0,
             0,
             0});
+            this.nudCaseHeight.ValueChanged += new System.EventHandler(this.CaseDimensionChanged);
             // 
             // label4
             // 

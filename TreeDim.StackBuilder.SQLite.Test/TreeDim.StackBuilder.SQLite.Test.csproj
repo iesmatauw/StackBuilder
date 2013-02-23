@@ -5,18 +5,18 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{58436B36-D49F-4C14-92E7-EF083858003C}</ProjectGuid>
+    <ProjectGuid>{62F4E02B-4CBD-4DBA-9A19-C307C0DF3993}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TreeDim.StackBuilder.ColladaExporter.Test</RootNamespace>
-    <AssemblyName>TreeDim.StackBuilder.ColladaExporter.Test</AssemblyName>
+    <RootNamespace>TreeDim.StackBuilder.SQLite.Test</RootNamespace>
+    <AssemblyName>TreeDim.StackBuilder.SQLite.Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,7 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,12 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -48,33 +48,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExceptionReporter\ExceptionReporter.WinForms.csproj">
-      <Project>{C49896A3-C0DA-45C4-B30E-4D17E548DBF6}</Project>
-      <Name>ExceptionReporter.WinForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
-      <Name>Sharp3D.Math</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>TreeDim.StackBuilder.Basics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.ColladaExporter\TreeDim.StackBuilder.ColladaExporter.csproj">
-      <Project>{785A5666-FE91-4796-A720-13C9A727BA5C}</Project>
-      <Name>TreeDim.StackBuilder.ColladaExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
-      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
-      <Name>TreeDim.StackBuilder.Engine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\TreeDim.StackBuilder.Graphics.csproj">
-      <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
-      <Name>TreeDim.StackBuilder.Graphics</Name>
+    <ProjectReference Include="..\TreeDim.StackBuilder.SQLite\TreeDim.StackBuilder.SQLite.csproj">
+      <Project>{7F2C7280-F996-4548-A856-D2DFBF37489E}</Project>
+      <Name>TreeDim.StackBuilder.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

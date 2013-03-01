@@ -21,6 +21,7 @@
           <Component Id="StackBuilderDB" Guid="{5BC03203-E2EA-450B-A902-2592A9572272}">
             <File KeyPath="yes" Source="..\TreeDim.StackBuilder.SQLite\StackBuilder.db"/>
           </Component>
+          <!-- need condition 
           <Component Id="TreeDim.StackBuilder.GUIExtension.dll.config" Guid="{0B74133F-7DA0-424A-BBD2-F28FFCF9F415}">
             <File KeyPath="yes" Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.GUIExtension.dll.config"/>
             <util:XmlFile Id="SetDatabasePath"
@@ -40,6 +41,7 @@
                           ElementPath="/configuration/userSettings/TreeDim.StackBuilder.GUIExtension.Properties.Settings/setting[\[]@name='DefaultDirectory'[\]]/value"
                           Value="[SAMPLES]"/>
           </Component>
+          -->
         </Directory>
       </Directory>
       <Directory Id="REPORTTEMPLATES" Name="ReportTemplates">

@@ -101,8 +101,8 @@
     <Compile Include="Solutions\TruckSolution.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
-      <Project>{87F1FC0B-C544-4D99-9BF7-21F2CB09A596}</Project>
+    <ProjectReference Include="..\..\Sharp3D.Math\Sharp3D.Math\Main\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
       <Name>Sharp3D.Math</Name>
     </ProjectReference>
     <ProjectReference Include="..\TreeDim.EdgeCrushTest\TreeDim.EdgeCrushTest.csproj">

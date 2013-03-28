@@ -145,7 +145,7 @@ namespace TreeDim.StackBuilder.GUIExtension.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\Codeplex\\StackBuilder\\Samples\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DefaultDirectory {
             get {
                 return ((string)(this["DefaultDirectory"]));

@@ -731,9 +731,7 @@ namespace TreeDim.StackBuilder.Basics
         /// Get list of analyses
         /// </summary>
         public List<CasePalletAnalysis> Analyses
-        {
-            get { return _casePalletAnalyses; }
-        }
+        {    get { return _casePalletAnalyses; }    }
         /// <summary>
         /// Returns true if pallet analysis can be created i.e. if documents contains at list a case and a pallet
         /// </summary>
@@ -1590,12 +1588,19 @@ namespace TreeDim.StackBuilder.Basics
                 BoxLayer boxLayer = new BoxLayer(zLow);
                 foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
                 {
-
                     XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;
                     string sPosition = eltBoxPosition.Attributes["Position"].Value;
                     string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
                     string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
-                    boxLayer.AddPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
+                    try
+                    {
+                        boxLayer.AddPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
+                    }
+                    catch (Exception /*ex*/)
+                    {
+                        _log.Error(string.Format("Exception thrown: Position = {0} | AxisLength = {1} | AxisWidth = {2}",
+                            sPosition, sAxisLength, sAxisWidth ));
+                    }
                 }
                 layer = boxLayer;
             }

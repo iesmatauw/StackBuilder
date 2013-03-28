@@ -110,6 +110,8 @@ namespace TreeDim.StackBuilder.GUIExtension
         {
             get
             { 
+                if (string.IsNullOrEmpty(Settings.Default.DefaultDirectory) || !Directory.Exists(Settings.Default.DefaultDirectory))
+                    Settings.Default.DefaultDirectory = Path.GetTempPath();
                 // get directory path
                 string path = Path.Combine(Settings.Default.DefaultDirectory, _projName);
                 return Path.ChangeExtension(path, FileExtension);

@@ -68,7 +68,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.newAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAnalysisBundleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newCylinderPalletAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItemCylinderPalletAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxCasePalletOptimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseOptimisationToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,6 +97,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCreateNewBundleAnalysis = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCreateNewCylinderPalletAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCreateNewBoxCaseAnalysis = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewBoxCasePalletOptimization = new System.Windows.Forms.ToolStripButton();
@@ -261,7 +262,7 @@
             this.toolStripSeparator5,
             this.newAnalysisToolStripMenuItem,
             this.newAnalysisBundleToolStripMenuItem,
-            this.newCylinderPalletAnalysisToolStripMenuItem,
+            this.newToolStripMenuItemCylinderPalletAnalysis,
             this.newBoxCaseAnalysisToolStripMenuItem,
             this.newBoxCasePalletOptimizationToolStripMenuItem,
             this.caseOptimisationToolStripMenu,
@@ -334,10 +335,10 @@
             // 
             // newCylinderPalletAnalysisToolStripMenuItem
             // 
-            this.newCylinderPalletAnalysisToolStripMenuItem.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisCylinder;
-            this.newCylinderPalletAnalysisToolStripMenuItem.Name = "newCylinderPalletAnalysisToolStripMenuItem";
-            resources.ApplyResources(this.newCylinderPalletAnalysisToolStripMenuItem, "newCylinderPalletAnalysisToolStripMenuItem");
-            this.newCylinderPalletAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
+            this.newToolStripMenuItemCylinderPalletAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisCylinder;
+            this.newToolStripMenuItemCylinderPalletAnalysis.Name = "newCylinderPalletAnalysisToolStripMenuItem";
+            resources.ApplyResources(this.newToolStripMenuItemCylinderPalletAnalysis, "newCylinderPalletAnalysisToolStripMenuItem");
+            this.newToolStripMenuItemCylinderPalletAnalysis.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
             // 
             // newBoxCaseAnalysisToolStripMenuItem
             // 
@@ -432,6 +433,7 @@
             this.toolStripSeparator4,
             this.toolStripButtonCreateNewAnalysis,
             this.toolStripButtonCreateNewBundleAnalysis,
+            this.toolStripButtonCreateNewCylinderPalletAnalysis,
             this.toolStripButtonCreateNewBoxCaseAnalysis,
             this.toolStripSeparator11,
             this.toolStripButtonCreateNewBoxCasePalletOptimization,
@@ -543,6 +545,13 @@
             resources.ApplyResources(this.toolStripButtonCreateNewBundleAnalysis, "toolStripButtonCreateNewBundleAnalysis");
             this.toolStripButtonCreateNewBundleAnalysis.Name = "toolStripButtonCreateNewBundleAnalysis";
             this.toolStripButtonCreateNewBundleAnalysis.Click += new System.EventHandler(this.toolAddNewBundlePalletAnalysis);
+            // 
+            // toolStripButtonCreateNewCylinderPalletAnalysis
+            // 
+            this.toolStripButtonCreateNewCylinderPalletAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonCreateNewCylinderPalletAnalysis, "toolStripButtonCreateNewCylinderPalletAnalysis");
+            this.toolStripButtonCreateNewCylinderPalletAnalysis.Name = "toolStripButtonCreateNewCylinderPalletAnalysis";
+            this.toolStripButtonCreateNewCylinderPalletAnalysis.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
             // 
             // toolStripButtonCreateNewBoxCaseAnalysis
             // 
@@ -687,10 +696,11 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialogWebGL;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddNewCylinder;
         private System.Windows.Forms.ToolStripMenuItem newCylinderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newCylinderPalletAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItemCylinderPalletAnalysis;
         private System.Windows.Forms.ToolStripMenuItem newBoxCaseAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewBoxCaseAnalysis;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewBoxCasePalletOptimization;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewCylinderPalletAnalysis;
     }
 }

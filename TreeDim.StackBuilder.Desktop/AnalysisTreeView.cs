@@ -236,10 +236,10 @@ namespace TreeDim.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_CASESOLUTION)
             {
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCasePalletAnalysisSolution)));
-                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCaseSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCasePalletSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCasePalletAnalysisSolution)));
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelBoxCasePalletSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
-                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCaseSolution.Name);
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelBoxCasePalletSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
             }
         }

@@ -101,6 +101,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
+            _log.Error(e.Exception.ToString());
             Program.ReportException("Uncaught exception", e.Exception);
         }
         #endregion

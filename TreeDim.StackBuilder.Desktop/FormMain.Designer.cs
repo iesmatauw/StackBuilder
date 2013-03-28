@@ -547,7 +547,6 @@
             // toolStripButtonCreateNewBoxCaseAnalysis
             // 
             this.toolStripButtonCreateNewBoxCaseAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCreateNewBoxCaseAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.BoxCaseAnalysis;
             resources.ApplyResources(this.toolStripButtonCreateNewBoxCaseAnalysis, "toolStripButtonCreateNewBoxCaseAnalysis");
             this.toolStripButtonCreateNewBoxCaseAnalysis.Name = "toolStripButtonCreateNewBoxCaseAnalysis";
             this.toolStripButtonCreateNewBoxCaseAnalysis.Click += new System.EventHandler(this.toolAddNewBoxCaseAnalysis);
@@ -591,7 +590,6 @@
             // toolStripButtonHelp
             // 
             this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonHelp.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.Help;
             resources.ApplyResources(this.toolStripButtonHelp, "toolStripButtonHelp");
             this.toolStripButtonHelp.Name = "toolStripButtonHelp";
             this.toolStripButtonHelp.Click += new System.EventHandler(this.helpToolStripMenuItemHelp_Click);

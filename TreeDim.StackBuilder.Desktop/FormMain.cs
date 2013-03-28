@@ -468,7 +468,6 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
-                Program.ReportException(ex);
             }
         }
 

@@ -13,6 +13,8 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private CylinderProperties _cylinderProperties;
         private PalletProperties _palletProperties;
+        private CylinderPalletConstraintSet _constraintSet;
+        private List<CylinderPalletSolution> _solutions = new List<CylinderPalletSolution>();
         static readonly ILog _log = LogManager.GetLogger(typeof(CylinderPalletAnalysis));
         #endregion
 
@@ -34,6 +36,16 @@ namespace TreeDim.StackBuilder.Basics
         public PalletProperties PalletProperties
         {
             get { return _palletProperties; }
+        }
+        public CylinderPalletConstraintSet ConstraintSet
+        {
+            set { _constraintSet = value; }
+            get { return _constraintSet; }
+        }
+        public List<CylinderPalletSolution> Solutions
+        {
+            get { return _solutions; }
+            set { _solutions = value; }
         }
         #endregion
 

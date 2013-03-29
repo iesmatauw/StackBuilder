@@ -119,19 +119,19 @@ namespace TreeDim.StackBuilder.Desktop
                 }
                 // fill pallet combo
                 foreach (PalletProperties pallet in _palletProperties)
-                    cbPallet.Items.Add(new PalletItem(pallet));
-                if (cbPallet.Items.Count > 0)
+                    cbPallets.Items.Add(new PalletItem(pallet));
+                if (cbPallets.Items.Count > 0)
                 {
                     if (null == _analysis)
-                        cbPallet.SelectedIndex = 0;
+                        cbPallets.SelectedIndex = 0;
                     else
                     {
-                        for (int i = 0; i < cbPallet.Items.Count; ++i)
+                        for (int i = 0; i < cbPallets.Items.Count; ++i)
                         {
-                            PalletItem palletItem = cbPallet.Items[i] as PalletItem;
+                            PalletItem palletItem = cbPallets.Items[i] as PalletItem;
                             if (palletItem.Item == _analysis.PalletProperties)
                             {
-                                cbPallet.SelectedIndex = i;
+                                cbPallets.SelectedIndex = i;
                                 break;
                             }
                         }
@@ -156,21 +156,53 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Analysis name
+        /// </summary>
+        public string AnalysisName
+        {
+            get { return tbName.Text; }
+            set { tbName.Text = value; }
+        }
+        /// <summary>
+        /// Analysis description
+        /// </summary>
+        public string AnalysisDescription
+        {
+            get { return tbDescription.Text; }
+            set { tbDescription.Text = value; }
+        }
+        /// <summary>
+        /// List of pallets
+        /// </summary>
         public PalletProperties[] Pallets
         {
             get { return _palletProperties; }
             set { _palletProperties = value; }
         }
+        /// <summary>
+        /// List of cylinders
+        /// </summary>
         public CylinderProperties[] Cylinders
         {
             get { return _cylinderProperties; }
             set { _cylinderProperties = value; }
         }
+        /// <summary>
+        /// Selected cylinder
+        /// </summary>
+        public CylinderProperties SelectedCylinder
+        {
+            get { return _cylinderProperties[cbCylinders.SelectedIndex]; }
+        }
+        /// <summary>
+        /// Selected pallet
+        /// </summary>
+        public PalletProperties SelectedPallet
+        {
+            get { return _palletProperties[cbPallets.SelectedIndex]; }
+        }
         #endregion
-
-
-
-
 
         #region Handlers
         #endregion

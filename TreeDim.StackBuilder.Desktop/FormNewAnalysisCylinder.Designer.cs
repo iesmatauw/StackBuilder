@@ -30,7 +30,7 @@
         {
             this.bnOK = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
-            this.cbPallet = new System.Windows.Forms.ComboBox();
+            this.cbPallets = new System.Windows.Forms.ComboBox();
             this.lbPallet = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -93,12 +93,12 @@
             // 
             // cbPallet
             // 
-            this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPallet.FormattingEnabled = true;
-            this.cbPallet.Location = new System.Drawing.Point(355, 66);
-            this.cbPallet.Name = "cbPallet";
-            this.cbPallet.Size = new System.Drawing.Size(136, 21);
-            this.cbPallet.TabIndex = 22;
+            this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPallets.FormattingEnabled = true;
+            this.cbPallets.Location = new System.Drawing.Point(355, 66);
+            this.cbPallets.Name = "cbPallet";
+            this.cbPallets.Size = new System.Drawing.Size(136, 21);
+            this.cbPallets.TabIndex = 22;
             // 
             // lbPallet
             // 
@@ -441,7 +441,7 @@
             this.Controls.Add(this.gbStopStackingCondition);
             this.Controls.Add(this.gbOverhangUnderhang);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbPallet);
+            this.Controls.Add(this.cbPallets);
             this.Controls.Add(this.lbPallet);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbName);
@@ -477,7 +477,7 @@
 
         private System.Windows.Forms.Button bnOK;
         private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.ComboBox cbPallet;
+        private System.Windows.Forms.ComboBox cbPallets;
         private System.Windows.Forms.Label lbPallet;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.TextBox tbName;

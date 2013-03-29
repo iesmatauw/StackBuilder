@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstraintSets\CylinderPalletConstraintSet.cs" />
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="Analyses\BoxCaseAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Containers\InterlayerProperties.cs" />
     <Compile Include="ItemBase.cs" />
     <Compile Include="PalletSolutionDatabase.cs" />
+    <Compile Include="Solutions\CylinderPalletSolution.cs" />
     <Compile Include="Solutions\SelSolution.cs" />
     <Compile Include="Solutions\PalletSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

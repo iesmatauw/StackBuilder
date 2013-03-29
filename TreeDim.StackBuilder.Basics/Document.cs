@@ -59,6 +59,7 @@ namespace TreeDim.StackBuilder.Basics
         private DateTime _dateCreated;
         private List<ItemBase> _typeList = new List<ItemBase>();
         private List<CasePalletAnalysis> _casePalletAnalyses = new List<CasePalletAnalysis>();
+        private List<CylinderPalletAnalysis> _cylinderPalletAnalyses = new List<CylinderPalletAnalysis>();
         private List<BoxCaseAnalysis> _boxCaseAnalyses = new List<BoxCaseAnalysis>();
         private List<BoxCasePalletAnalysis> _boxCasePalletOptimizations = new List<BoxCasePalletAnalysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
@@ -409,6 +410,26 @@ namespace TreeDim.StackBuilder.Basics
             return analysis;
         }
 
+        public CylinderPalletAnalysis CreateNewCylinderPalletAnalysis(
+            string name, string description
+            , CylinderProperties cylinder, PalletProperties pallet, InterlayerProperties interlayer
+            , CylinderPalletConstraintSet constraintSet
+            , ICylinderAnalysisSolver solver)
+        {
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet);
+            return analysis;
+        }
+
+        public CylinderPalletAnalysis CreateNewCylinderPalletAnalysis(
+            string name, string description
+            , CylinderProperties cylinder, PalletProperties pallet, InterlayerProperties interlayer
+            , CylinderPalletConstraintSet constraintSet
+            , List<CylinderPalletSolution> solutions)
+        {
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet);
+            return analysis;
+        }
+
         public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
             string name, string description
             , BoxProperties boxProperties, BoxProperties caseProperties
@@ -501,7 +522,8 @@ namespace TreeDim.StackBuilder.Basics
                 || item.GetType() == typeof(CaseOfBoxesProperties)
                 || item.GetType() == typeof(PalletProperties)
                 || item.GetType() == typeof(InterlayerProperties)
-                || item.GetType() == typeof(TruckProperties))
+                || item.GetType() == typeof(TruckProperties)
+                || item.GetType() == typeof(CylinderProperties))
             {
                 NotifyOnTypeRemoved(item);
                 if (!_typeList.Remove(item))
@@ -517,6 +539,12 @@ namespace TreeDim.StackBuilder.Basics
             {
                 NotifyOnAnalysisRemoved(item as BoxCaseAnalysis);
                 if (!_boxCaseAnalyses.Remove(item as BoxCaseAnalysis))
+                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
+            }
+            else if (item.GetType() == typeof(CylinderPalletAnalysis))
+            {
+                NotifyOnAnalysisRemoved(item as CylinderPalletAnalysis);
+                if (!_cylinderPalletAnalyses.Remove(item as CylinderPalletAnalysis))
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.Name));
             }
             else if (item.GetType() == typeof(TruckAnalysis))

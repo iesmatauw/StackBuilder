@@ -400,8 +400,15 @@ namespace TreeDim.StackBuilder.Desktop
             FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this);
             form.Cylinders = Cylinders.ToArray();
             form.Pallets = Pallets.ToArray();
+            // maximum cylinder weight
+            // 
             if (DialogResult.OK == form.ShowDialog())
             {
+                CylinderPalletConstraintSet constraintSet = new CylinderPalletConstraintSet();
+                return CreateNewCylinderPalletAnalysis(form.AnalysisName, form.AnalysisDescription
+                    , form.SelectedCylinder, form.SelectedPallet, null
+                    , constraintSet
+                    , new CylinderSolver());
             }
             return null;
         }

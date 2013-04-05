@@ -11,19 +11,19 @@ using TreeDim.StackBuilder.Basics;
 
 namespace TreeDim.StackBuilder.Engine
 {
-    public class CylinderLayer : List<Vector2D>
+    public class LayerCyl : List<Vector2D>
     {
         #region Data members
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(CylinderLayer));
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(LayerCyl));
         private double _palletLength = 0.0, _palletWidth = 0.0;
         private double _cylinderRadius = 0.0, _cylinderHeight = 0.0;
         #endregion
 
         #region Constructor
-        public CylinderLayer(CylinderProperties cylProperties, PalletProperties palletProperties)
+        public LayerCyl(CylinderProperties cylProperties, PalletProperties palletProperties, CylinderPalletConstraintSet constraintSet)
         {
-            _palletLength = palletProperties.Length;
-            _palletWidth = palletProperties.Width;
+            _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
+            _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
             Initialize(cylProperties);
         }
         #endregion
@@ -39,11 +39,21 @@ namespace TreeDim.StackBuilder.Engine
         #region Public methods
         public bool IsValidPosition(Vector2D vPosition)
         {
+            if (vPosition.X - _cylinderRadius < 0
+                || vPosition.X + _cylinderRadius > _palletLength
+                || vPosition.Y - _cylinderRadius < 0
+                || vPosition.Y + _cylinderRadius > _palletWidth)
+                return false;
             return true;
         }
         public bool IntersectWithContent(Vector2D vPosition)
         {
-            return false;
+            foreach (Vector2D v in this)
+            {
+                if ((v - vPosition).GetLength() < _cylinderRadius)
+                    return true; // new position intersect current content
+            }
+            return false; // no intersection with current content
         }
         #endregion
 

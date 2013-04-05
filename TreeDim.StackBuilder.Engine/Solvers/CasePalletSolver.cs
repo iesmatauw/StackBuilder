@@ -44,9 +44,10 @@ namespace TreeDim.StackBuilder.Engine
             _palletProperties = analysis.PalletProperties;
             _interlayerProperties = analysis.InterlayerProperties;
             _constraintSet = analysis.ConstraintSet;
+            // check contraint set validity
             if (!_constraintSet.IsValid)
                 throw new EngineException("Constraint set is invalid!");
-
+            // generate solutions
             analysis.Solutions = GenerateSolutions();
         }
 
@@ -56,8 +57,10 @@ namespace TreeDim.StackBuilder.Engine
             _palletProperties = palletProperties;
             _interlayerProperties = interlayerProperties;
             _constraintSet = constraintSet;
+            // check constraint set validity
             if (!_constraintSet.IsValid)
                 throw new EngineException("Constraint set is invalid!");
+            // generate solutions
             return GenerateSolutions();            
         }
         #endregion

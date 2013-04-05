@@ -332,6 +332,9 @@ namespace TreeDim.StackBuilder.Graphics
                 }
                 else
                     _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+
+                // sort cylinder list
+                _cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                
                 // draw all boxes
                 foreach (Box box in _boxes)

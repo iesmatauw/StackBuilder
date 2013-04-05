@@ -416,7 +416,7 @@ namespace TreeDim.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet
             , ICylinderAnalysisSolver solver)
         {
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet);
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer);
             return analysis;
         }
 
@@ -426,7 +426,7 @@ namespace TreeDim.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet
             , List<CylinderPalletSolution> solutions)
         {
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet);
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer);
             return analysis;
         }
 

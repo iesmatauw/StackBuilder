@@ -62,11 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LayerPatterns\CylinderLayerPatternExpanded.cs" />
+    <Compile Include="LayerPatterns\CylinderLayerPatternMixed12.cs" />
+    <Compile Include="LayerPatterns\CylinderLayerPatternMixed121.cs" />
+    <Compile Include="LayerPatterns\CylinderLayerPatternMixed212.cs" />
     <Compile Include="Solvers\CylinderSolver.cs" />
     <Compile Include="Solvers\BoxCaseSolver.cs" />
     <Compile Include="Solvers\CaseOptimizer.cs" />
     <Compile Include="Solvers\BoxCasePalletSolver.cs" />
-    <Compile Include="CylinderLayer.cs" />
+    <Compile Include="LayerCyl.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPattern.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternAligned.cs" />
     <Compile Include="LayerPatterns\CylinderLayerPatternStaggered.cs" />

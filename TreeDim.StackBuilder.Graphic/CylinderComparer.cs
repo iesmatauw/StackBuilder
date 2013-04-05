@@ -9,25 +9,25 @@ using Sharp3D.Math.Core;
 namespace TreeDim.StackBuilder.Graphics
 {
     #region Box comparison
-    public class BoxComparerSimplifiedPainterAlgo : IComparer<Box>
+    public class CylinderComparerSimplifiedPainterAlgo : IComparer<Cylinder>
     {
         #region Constructor
-        public BoxComparerSimplifiedPainterAlgo(Transform3D transform)
+        public CylinderComparerSimplifiedPainterAlgo(Transform3D transform)
         {
             _transform = transform;
         }
         #endregion
 
         #region Implementation IComparer
-        public int Compare(Box b1, Box b2)
+        public int Compare(Cylinder c1, Cylinder c2)
         {
-            if (b1.Center.Z > b2.Center.Z)
+            if (c1.Position.Z > c2.Position.Z)
                 return 1;
-            else if (b1.Center.Z == b2.Center.Z)
+            else if (c1.Position.Z == c2.Position.Z)
             {
-                if (_transform.transform(b1.Center).Z < _transform.transform(b2.Center).Z)
+                if (_transform.transform(c1.Position).Z < _transform.transform(c2.Position).Z)
                     return 1;
-                else if (_transform.transform(b1.Center).Z == _transform.transform(b2.Center).Z)
+                else if (_transform.transform(c1.Position).Z == _transform.transform(c2.Position).Z)
                     return 0;
                 else
                     return -1;

@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CylinderComparer.cs" />
+    <Compile Include="SolutionViewers\CylinderPalletSolutionViewer.cs" />
     <Compile Include="Types\Box.cs" />
     <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />
     <Compile Include="BoxComparer.cs" />

@@ -37,9 +37,23 @@ namespace TreeDim.StackBuilder.Graphics
             _colorTop = cylProperties.TopColor;
             _colorWall = cylProperties.WallColor;
         }
+        public Cylinder(uint pickId, CylinderProperties cylProperties, Vector3D position)
+        {
+            _pickId = pickId;
+            _radius = cylProperties.Radius;
+            _height = cylProperties.Height;
+            _colorTop = cylProperties.TopColor;
+            _colorWall = cylProperties.WallColor;
+
+            _position = position;
+        }
         #endregion
 
         #region Public properties
+        public Vector3D Position
+        {
+            get { return _position; }
+        }
         public Face[] Faces
         {
             get

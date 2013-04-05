@@ -2,8 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Sharp3D.Math.Core;
 using System.Drawing;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace TreeDim.StackBuilder.Basics
@@ -16,6 +17,7 @@ namespace TreeDim.StackBuilder.Basics
     {
         double ZLow { get; }
         int BoxCount { get; }
+        int CylinderCount { get; }
         int InterlayerCount { get; }
     }
 
@@ -37,14 +39,9 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _zLower; }
         }
-        public int BoxCount
-        {
-            get { return 0; }
-        }
-        public int InterlayerCount
-        {
-            get { return 1; }
-        }
+        public int BoxCount { get { return 0; } }
+        public int InterlayerCount {  get { return 1; } }
+        public int CylinderCount {  get { return 0; } }
         #endregion
     }
 
@@ -69,15 +66,9 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _zLower; }
         }
-        public int BoxCount
-        {
-            get { return Count; }
-        }
-
-        public int InterlayerCount
-        {
-            get { return 0; }
-        }
+        public int BoxCount { get { return Count; } }
+        public int InterlayerCount { get { return 0; } }
+        public int CylinderCount { get { return 0; } }
         #endregion
 
         #region Public methods
@@ -129,7 +120,7 @@ namespace TreeDim.StackBuilder.Basics
             Vector3D diagonale = bProperties.Length * HalfAxis.ToVector3D(bPos.DirectionLength)
                                 + bProperties.Width * HalfAxis.ToVector3D(bPos.DirectionWidth)
                                 + bProperties.Height * Vector3D.CrossProduct(HalfAxis.ToVector3D(bPos.DirectionLength), HalfAxis.ToVector3D(bPos.DirectionWidth));
-            return Math.Abs(diagonale.Z);            
+            return Math.Abs(diagonale.Z);
         }
         #endregion
     }
@@ -155,15 +146,9 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _zLower; }
         }
-        public int BoxCount
-        {
-            get { return Count; }
-        }
-
-        public int InterlayerCount
-        {
-            get { return 0; }
-        }
+        public int BoxCount { get { return 0; } }
+        public int InterlayerCount { get { return 0; } }
+        public int CylinderCount { get { return Count; } }
         #endregion
 
         #region Public methods
@@ -335,8 +320,8 @@ namespace TreeDim.StackBuilder.Basics
                     }
                 }
                 return null;
-             }
-       }
+            }
+        }
 
         public bool HasSameCountLayers
         {

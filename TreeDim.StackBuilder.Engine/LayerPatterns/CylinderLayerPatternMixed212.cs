@@ -16,7 +16,10 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Mixed212"; }
         }
-
+        public override bool CanBeSwaped
+        {
+            get { return true; }
+        }
         public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
         {
             double palletLength = layer.PalletLength;

@@ -333,11 +333,11 @@
             this.newAnalysisBundleToolStripMenuItem.Name = "newAnalysisBundleToolStripMenuItem";
             this.newAnalysisBundleToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundlePalletAnalysis);
             // 
-            // newCylinderPalletAnalysisToolStripMenuItem
+            // newToolStripMenuItemCylinderPalletAnalysis
             // 
             this.newToolStripMenuItemCylinderPalletAnalysis.Image = global::TreeDim.StackBuilder.Desktop.Properties.Resources.AnalysisCylinder;
-            this.newToolStripMenuItemCylinderPalletAnalysis.Name = "newCylinderPalletAnalysisToolStripMenuItem";
-            resources.ApplyResources(this.newToolStripMenuItemCylinderPalletAnalysis, "newCylinderPalletAnalysisToolStripMenuItem");
+            this.newToolStripMenuItemCylinderPalletAnalysis.Name = "newToolStripMenuItemCylinderPalletAnalysis";
+            resources.ApplyResources(this.newToolStripMenuItemCylinderPalletAnalysis, "newToolStripMenuItemCylinderPalletAnalysis");
             this.newToolStripMenuItemCylinderPalletAnalysis.Click += new System.EventHandler(this.toolAddNewCylinderPalletAnalysis);
             // 
             // newBoxCaseAnalysisToolStripMenuItem

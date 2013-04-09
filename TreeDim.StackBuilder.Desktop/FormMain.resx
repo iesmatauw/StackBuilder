@@ -453,10 +453,10 @@
   <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>New Bundle/Pallet Analysis</value>
   </data>
-  <data name="newCylinderPalletAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 22</value>
   </data>
-  <data name="newCylinderPalletAnalysisToolStripMenuItem.Text" xml:space="preserve">
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
     <value>New Cylinder/Pallet Analysis</value>
   </data>
   <data name="newBoxCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -1038,15 +1038,22 @@
   </data>
   <data name="editPaletSolutionsDBToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        AABJRU5ErkJggg==
 </value>
   </data>
   <data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -1360,10 +1367,10 @@
   <data name="&gt;&gt;newAnalysisBundleToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;newCylinderPalletAnalysisToolStripMenuItem.Name" xml:space="preserve">
-    <value>newCylinderPalletAnalysisToolStripMenuItem</value>
+  <data name="&gt;&gt;newToolStripMenuItemCylinderPalletAnalysis.Name" xml:space="preserve">
+    <value>newToolStripMenuItemCylinderPalletAnalysis</value>
   </data>
-  <data name="&gt;&gt;newCylinderPalletAnalysisToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;newToolStripMenuItemCylinderPalletAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;newBoxCaseAnalysisToolStripMenuItem.Name" xml:space="preserve">

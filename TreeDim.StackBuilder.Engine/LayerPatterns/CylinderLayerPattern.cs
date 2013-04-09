@@ -15,6 +15,7 @@ namespace TreeDim.StackBuilder.Engine
         abstract public string Name { get; }
         abstract public void GetLayerDimensions(LayerCyl layer, out double length, out double width); 
         abstract public void GenerateLayer(LayerCyl layer, double actualLength, double actualWidth);
+        abstract public bool CanBeSwaped { get; }
         #endregion
 
         #region Public properties

@@ -15,6 +15,10 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Aligned"; }
         }
+        public override bool CanBeSwaped
+        {
+            get { return false; }
+        }
         public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
         {
             double palletLength = GetPalletLength(layer);
@@ -42,8 +46,8 @@ namespace TreeDim.StackBuilder.Engine
             double spaceX = sizeX > 1 ? (actualLength - sizeX * diameter) / (sizeX - 1) : 0.0;
             double spaceY = sizeY > 1 ? (actualWidth - sizeY * diameter) / (sizeY - 1) : 0.0;
 
-            for (int i=0; i<sizeX; ++i)
-                for (int j=0; j<sizeY; ++j)
+            for (int j=0; j<sizeY; ++j)
+                for (int i=0; i<sizeX; ++i)
                     AddPosition( layer, new Vector2D(
                         radius + offsetX + i * (diameter + spaceX)
                         , radius + offsetY + j * (diameter + spaceY)

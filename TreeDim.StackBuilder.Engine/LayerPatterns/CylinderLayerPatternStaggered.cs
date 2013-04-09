@@ -16,7 +16,10 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Staggered"; }
         }
-
+        public override bool CanBeSwaped
+        {
+            get { return true; }
+        }
         public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
         {
             int firstRowLength = 0; int secondRowLength = 0; int rowNumber = 0;
@@ -43,7 +46,6 @@ namespace TreeDim.StackBuilder.Engine
             for (int i = 0; i < rowNumber; ++i)
             {
                 double y = (offsetY + radius) + i * radius * Math.Sqrt(3.0);
-
                 for (int j = 0; j < (i % 2 == 0 ? firstRowLength : secondRowLength); ++j)
                     AddPosition(layer, new Vector2D(offsetX + ((i % 2 == 0) ? 0.0 : radius) + j * 2.0 * radius + radius, y));
             }
@@ -63,7 +65,7 @@ namespace TreeDim.StackBuilder.Engine
             // initialize out parameters
             firstRowLength = 0; secondRowLength = 0; rowNumber = 0;
             actualLength = 0.0; actualWidth = 0.0;
-
+            // sanity check
             if (diameter > palletLength || diameter > palletWidth)
                 return false;
             // first row number

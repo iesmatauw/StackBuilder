@@ -664,7 +664,8 @@ namespace TreeDim.StackBuilder.Graphics
 
             // build pen path
             Brush brushPath = new SolidBrush(cyl.ColorPath);
-            Pen penPathThick = new Pen(brushPath, 1.5f);
+            Pen penPathThick = new Pen(brushPath, 1.8f);
+            Pen penPathThin = new Pen(brushPath, 1.5f);
 
             // bottom (draw only path)
             Point[] ptsBottom = TransformPoint(GetCurrentTransformation(), cyl.BottomPoints);
@@ -696,7 +697,7 @@ namespace TreeDim.StackBuilder.Graphics
             Brush brushTop = new SolidBrush(colorTop);
             Point[] ptsTop = TransformPoint(GetCurrentTransformation(), cyl.TopPoints);
             g.FillPolygon(brushTop, ptsTop);
-            g.DrawPolygon(penPathThick, ptsTop);
+            g.DrawPolygon(penPathThin, ptsTop);
 
             ++_boxDrawingCounter;        
         }

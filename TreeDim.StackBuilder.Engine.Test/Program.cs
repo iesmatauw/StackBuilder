@@ -30,11 +30,12 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Document doc = new Document("Test", "Test", "fga", DateTime.Now, null);
 
                 // define pallet properties
-                PalletProperties palletProperties = new PalletProperties(doc, "Block", 1000, 800, 150);
+                PalletProperties palletProperties = new PalletProperties(doc, "EUR2", 1200, 1000, 150);
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
-                if (false)
+                bool testCylinder = true;
+                if (!testCylinder)
                 {
                     // define box properties
                     BoxProperties boxProperties = new BoxProperties(doc, 162, 210, 125);
@@ -111,13 +112,13 @@ namespace TreeDim.StackBuilder.Engine.Test
                 {
                     // cylinder
                     Console.WriteLine("=== Cylinder properties ===");
-                    CylinderProperties cylProperties = new CylinderProperties(doc, "Cylinder", "Default cylinder", 70, 100, 1.5, Color.Gray, Color.Goldenrod);
+                    CylinderProperties cylProperties = new CylinderProperties(doc, "Cylinder", "Default cylinder", 90, 100, 1.5, Color.Gray, Color.SkyBlue);
                     Console.WriteLine(cylProperties.ToString());
                     // constraint set
                     Console.WriteLine("=== Constraint set ===");
                     CylinderPalletConstraintSet constraintSet = new CylinderPalletConstraintSet();
                     constraintSet.UseMaximumHeight = true;
-                    constraintSet.MaximumHeight = 400.0;
+                    constraintSet.MaximumHeight = 1200.0;
                     constraintSet.UseMaximumPalletWeight = true;
                     constraintSet.MaximumPalletWeight = 2000;
                     constraintSet.UseMaximumNumberOfItems = true;
@@ -134,7 +135,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     foreach (CylinderPalletSolution sol in analysis.Solutions)
                     {
                         // instantiate graphics
-                        Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));
+                        Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));
                         graphics.CameraPosition = new Vector3D(10000.0, 10000.0, 10000.0);
                         graphics.Target = new Vector3D(0.0, 0.0, 0.0);
                         graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
@@ -142,7 +143,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                         // instantiate solution viewer
                         CylinderPalletSolutionViewer sv = new CylinderPalletSolutionViewer(sol);
                         sv.Draw(graphics);
-                        string fileName = string.Format("Pallet_{0}.bmp", solIndex++);
+                        string fileName = string.Format("Pallet_{0}.jpg", solIndex++);
                         string filePath = Path.Combine(Path.GetTempPath(), fileName);
                         Console.WriteLine("Saving file " + filePath + "...");
                         graphics.SaveAs(filePath);

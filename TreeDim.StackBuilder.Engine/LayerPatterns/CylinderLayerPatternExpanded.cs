@@ -12,7 +12,10 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Expanded"; }
         }
-
+        public override bool CanBeSwaped
+        {
+            get { return true; }
+        }
         public override void GetLayerDimensions(LayerCyl layer, out double actualLength, out double actualWidth)
         {
             double palletLength = layer.PalletLength;
@@ -28,5 +31,6 @@ namespace TreeDim.StackBuilder.Engine
             throw new NotImplementedException();
         }
         #endregion
+
     }
 }

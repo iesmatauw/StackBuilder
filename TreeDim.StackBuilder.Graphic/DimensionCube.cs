@@ -205,7 +205,7 @@ namespace TreeDim.StackBuilder.Graphics
             Vector3D pt1_ = pt1 + (pt1 - _pts[arrow[3]]) * offsetPerc;
             Vector3D pt11_ = pt1 + (pt1 - _pts[arrow[3]]) * offsetPerc * 1.1;
 
-            string text = string.Format("{0}", (pt1-pt0).GetLength());
+            string text = string.Format("{0:0}", (pt1-pt0).GetLength());
             graphics.Draw(text, 0.5 * (pt1_ + pt0_), _color, _fontSize);
             graphics.Draw(new Segment(pt0_, pt0_ + (pt1 - pt0) * (2.0 / 5.0), _color));
             graphics.Draw(new Segment(pt0_ + (pt1 - pt0) * (3.0 / 5.0), pt1_, _color));

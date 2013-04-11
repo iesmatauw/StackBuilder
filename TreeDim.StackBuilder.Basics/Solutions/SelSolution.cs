@@ -6,6 +6,7 @@ using System.Text;
 
 namespace TreeDim.StackBuilder.Basics
 {
+    #region Case / pallet selected solution
     public class SelCasePalletSolution : ItemBase
     {
         #region Data members
@@ -159,7 +160,67 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 
+    #region Cylinder / pallet selected solution
+    public class SelCylinderPalletSolution : ItemBase
+    {
+        #region Data members
+        private CylinderPalletAnalysis _analysis;
+        private CylinderPalletSolution _solution;
+        private List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
+        #endregion
+
+        #region Constructor
+        public SelCylinderPalletSolution(Document document, CylinderPalletAnalysis analysis, CylinderPalletSolution sol)
+            : base(document)
+        {
+            _analysis = analysis;
+            _analysis.AddDependancie(this);
+
+            _solution = sol;
+            Name = sol.Title;
+        }
+        #endregion
+
+        #region Truck analyses
+        #endregion
+
+        #region Public properties
+        /// <summary>
+        /// Encapsulated solution
+        /// </summary>
+        public CylinderPalletSolution Solution
+        {
+            get { return _solution; }
+        }
+        /// <summary>
+        /// Parent analysis
+        /// </summary>
+        public CylinderPalletAnalysis Analysis
+        {
+            get { return _analysis; }
+        }
+        /// <summary>
+        /// List of depending truck analyses
+        /// </summary>
+        public List<TruckAnalysis> TruckAnalyses
+        {
+            get { return _truckAnalyses; }
+        }
+        #endregion
+
+        #region ItemBase override
+        protected override void RemoveItselfFromDependancies()
+        {
+            _analysis.RemoveDependancie(this);
+            base.RemoveItselfFromDependancies();
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Box / case selected solution
     public class SelBoxCaseSolution : ItemBase
     {
         #region Data members
@@ -189,7 +250,9 @@ namespace TreeDim.StackBuilder.Basics
         #region ItemBase override
         #endregion
     }
+    #endregion
 
+    #region Box / Case / Pallet solution
     public class SelBoxCasePalletSolution : ItemBase
     {
         #region Data members
@@ -226,4 +289,5 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
 }

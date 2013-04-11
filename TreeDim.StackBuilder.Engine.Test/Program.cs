@@ -117,8 +117,8 @@ namespace TreeDim.StackBuilder.Engine.Test
                     // constraint set
                     Console.WriteLine("=== Constraint set ===");
                     CylinderPalletConstraintSet constraintSet = new CylinderPalletConstraintSet();
-                    constraintSet.UseMaximumHeight = true;
-                    constraintSet.MaximumHeight = 1200.0;
+                    constraintSet.UseMaximumPalletHeight = true;
+                    constraintSet.MaximumPalletHeight = 1200.0;
                     constraintSet.UseMaximumPalletWeight = true;
                     constraintSet.MaximumPalletWeight = 2000;
                     constraintSet.UseMaximumNumberOfItems = true;

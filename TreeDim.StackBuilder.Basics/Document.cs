@@ -28,6 +28,7 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewDocument(Document doc);
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis);
+        void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis);
         void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis);
         void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis);
         void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis);
@@ -35,11 +36,6 @@ namespace TreeDim.StackBuilder.Basics
         // remove
         void OnTypeRemoved(Document doc, ItemBase itemBase);
         void OnAnalysisRemoved(Document doc, ItemBase itemBase); 
-        /*
-        void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis);
-        void OnBoxCaseAnalysisRemoved(Document doc, BoxCaseAnalysis analysis);
-        void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis);
-         */ 
         void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis);
         void OnECTAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, ECTAnalysis ectAnalysis);
         // close
@@ -374,7 +370,7 @@ namespace TreeDim.StackBuilder.Basics
                 return null;
             }
             // notify listeners
-            NotifyOnNewAnalysisCreated(analysis);
+            NotifyOnNewCasePalletAnalysisCreated(analysis);
             Modify();
             return analysis;
         }
@@ -403,23 +399,57 @@ namespace TreeDim.StackBuilder.Basics
             // set solutions
             analysis.Solutions = solutions;
             // notify listeners
-            NotifyOnNewAnalysisCreated(analysis);
+            NotifyOnNewCasePalletAnalysisCreated(analysis);
             // set solution selected if it is unique
             if (solutions.Count == 1)
                 analysis.SelectSolutionByIndex(0);
             return analysis;
         }
-
+        /// <summary>
+        /// Creates a new cylinder analysis in this document + compute solutions
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="description">Description</param>
+        /// <param name="cylinder">Cylinder</param>
+        /// <param name="pallet">Pallet</param>
+        /// <param name="interlayer">Interlayer or null</param>
+        /// <param name="constraintSet">Cylinder/pallet analysis constraint set</param>
+        /// <param name="solver">Solver</param>
+        /// <returns>Cylinder/pallet analysis</returns>
         public CylinderPalletAnalysis CreateNewCylinderPalletAnalysis(
             string name, string description
             , CylinderProperties cylinder, PalletProperties pallet, InterlayerProperties interlayer
             , CylinderPalletConstraintSet constraintSet
             , ICylinderAnalysisSolver solver)
         {
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer);
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
+            // insert in list
+            _cylinderPalletAnalyses.Add(analysis);
+            // compute analysis
+            solver.ProcessAnalysis(analysis);
+            if (analysis.Solutions.Count < 1)
+            {	// remove analysis from list if it has no valid solution
+                _cylinderPalletAnalyses.Remove(analysis);
+                return null;
+            }
+            // notify listeners
+            NotifyOnNewCylinderPalletAnalysisCreated(analysis);
+            Modify();
             return analysis;
         }
-
+        /// <summary>
+        /// Creates a new cylinder/pallet analysis without generating solutions
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="description">Description</param>
+        /// <param name="cylinder">Cylinder</param>
+        /// <param name="pallet">Pallet</param>
+        /// <param name="interlayer">Interlayer or null</param>
+        /// <param name="constraintSet">Cylinder/pallet analysis constraint set</param>
+        /// <param name="solutions">Solutions</param>
+        /// <returns>Cylinder/pallet analysis</returns>
         public CylinderPalletAnalysis CreateNewCylinderPalletAnalysis(
             string name, string description
             , CylinderProperties cylinder, PalletProperties pallet, InterlayerProperties interlayer
@@ -427,6 +457,17 @@ namespace TreeDim.StackBuilder.Basics
             , List<CylinderPalletSolution> solutions)
         {
             CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer);
+            analysis.Name = name;
+            analysis.Description = description;
+            // insert in list
+            _cylinderPalletAnalyses.Add(analysis);
+            // set solutions
+            analysis.Solutions = solutions;
+            // notify listeners
+            NotifyOnNewCylinderPalletAnalysisCreated(analysis);
+            // set solution selected if its unique
+            if (solutions.Count == 1)
+                analysis.SelectSolutionByIndex(0);
             return analysis;
         }
 
@@ -3063,10 +3104,15 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTypeCreated(this, item);
         }
-        private void NotifyOnNewAnalysisCreated(CasePalletAnalysis analysis)
+        private void NotifyOnNewCasePalletAnalysisCreated(CasePalletAnalysis analysis)
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewCasePalletAnalysisCreated(this, analysis);
+        }
+        private void NotifyOnNewCylinderPalletAnalysisCreated(CylinderPalletAnalysis analysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewCylinderPalletAnalysisCreated(this, analysis);
         }
         private void NotifyOnNewBoxCaseAnalysis(BoxCaseAnalysis analysis)
         {

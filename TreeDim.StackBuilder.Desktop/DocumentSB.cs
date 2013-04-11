@@ -110,11 +110,22 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// Creates new DockContentAnalysis view
         /// </summary>
-        /// <param name="analysis"></param>
+        /// <param name="analysis">Case pallet analysis to view</param>
         /// <returns></returns>
-        public DockContentCasePalletAnalysis CreateAnalysisView(CasePalletAnalysis analysis)
+        public DockContentCasePalletAnalysis CreateAnalysisViewCasePallet(CasePalletAnalysis analysis)
         {
             DockContentCasePalletAnalysis form = new DockContentCasePalletAnalysis(this, analysis);
+            AddView(form);
+            return form;
+        }
+        /// <summary>
+        /// Creates new DockContentAnalysis view
+        /// </summary>
+        /// <param name="analysis"></param>
+        /// <returns></returns>
+        public DockContentCylinderPalletAnalysis CreateAnalysisViewCylinderPallet(CylinderPalletAnalysis analysis)
+        {
+            DockContentCylinderPalletAnalysis form = new DockContentCylinderPalletAnalysis(this, analysis);
             AddView(form);
             return form;
         }
@@ -400,11 +411,18 @@ namespace TreeDim.StackBuilder.Desktop
             FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this);
             form.Cylinders = Cylinders.ToArray();
             form.Pallets = Pallets.ToArray();
-            // maximum cylinder weight
-            // 
+
             if (DialogResult.OK == form.ShowDialog())
             {
+                // build constraint set
                 CylinderPalletConstraintSet constraintSet = new CylinderPalletConstraintSet();
+                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
+                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+
                 return CreateNewCylinderPalletAnalysis(form.AnalysisName, form.AnalysisDescription
                     , form.SelectedCylinder, form.SelectedPallet, null
                     , constraintSet
@@ -572,6 +590,23 @@ namespace TreeDim.StackBuilder.Desktop
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);
         }
+
+        public void EditCylinderPalletAnalysis(CylinderPalletAnalysis analysis)
+        {
+            bool recomputeRequired = false;
+            FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this, analysis);
+            form.Cylinders = Cylinders.ToArray();
+            form.Pallets = Pallets.ToArray();
+            if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
+            {
+                // analysis name / description
+                analysis.Name = form.AnalysisName;
+                analysis.Description = form.AnalysisDescription;
+            }
+            if (recomputeRequired)
+                analysis.OnEndUpdate(null);
+        }
+
         /// <summary>
         /// 
         /// </summary>

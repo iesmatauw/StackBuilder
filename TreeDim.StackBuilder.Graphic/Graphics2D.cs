@@ -75,6 +75,20 @@ namespace TreeDim.StackBuilder.Graphics
             g.DrawPolygon(penPath, pt);
         }
 
+        public void DrawCylinder(Cylinder cyl)
+        {
+            System.Drawing.Graphics g = Graphics;
+
+            // get points
+            Point[] pt = TransformPoint(cyl.TopPoints);
+            // bottom (draw only path)
+            Brush brushSolid = new SolidBrush(cyl.ColorTop);
+            g.FillPolygon(brushSolid, pt);
+            Brush brushPath = new SolidBrush(cyl.ColorPath);
+            Pen penPath = new Pen(brushPath);
+            g.DrawPolygon(penPath, pt);
+        }
+
         public void DrawRectangle(Vector2D vMin, Vector2D vMax, Color penColor)
         {
             Point[] pt = TransformPoint(new Vector2D[] { vMin, vMax });

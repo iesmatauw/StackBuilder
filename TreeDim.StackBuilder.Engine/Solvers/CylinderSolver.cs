@@ -69,6 +69,7 @@ namespace TreeDim.StackBuilder.Engine
                     }
                     catch (NotImplementedException ex)
                     {
+                        _log.Debug(ex.Message);
                         continue;
                     }
                     catch (Exception ex)
@@ -80,7 +81,7 @@ namespace TreeDim.StackBuilder.Engine
                     // stop
                     double zLayer = _palletProperties.Height;
                     bool maxWeightReached = _constraintSet.UseMaximumPalletWeight && (_palletProperties.Weight + _cylProperties.Weight > _constraintSet.MaximumPalletWeight);
-                    bool maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + _cylProperties.Height > _constraintSet.MaximumHeight);
+                    bool maxHeightReached = _constraintSet.UseMaximumPalletHeight && (zLayer + _cylProperties.Height > _constraintSet.MaximumPalletHeight);
                     bool maxNumberReached = false;
 
                     int iCount = 0;
@@ -106,7 +107,7 @@ namespace TreeDim.StackBuilder.Engine
                         // increment zLayer
                         zLayer += _cylProperties.Height;
 
-                        maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + _cylProperties.Height > _constraintSet.MaximumHeight);
+                        maxHeightReached = _constraintSet.UseMaximumPalletHeight && (zLayer + _cylProperties.Height > _constraintSet.MaximumPalletHeight);
                     }
                     solutions.Add(sol);
                 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+
 using WeifenLuo.WinFormsUI.Docking;
 using log4net;
 
@@ -71,7 +72,6 @@ namespace TreeDim.StackBuilder.Desktop
         #region Form override
         private void DockContentAnalysis_Load(object sender, EventArgs e)
         {
-
         }
         protected override void OnLoad(EventArgs e)
         {

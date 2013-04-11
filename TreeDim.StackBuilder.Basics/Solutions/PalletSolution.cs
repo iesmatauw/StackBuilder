@@ -278,7 +278,9 @@ namespace TreeDim.StackBuilder.Basics
                 return this[0].BoxCount;
             }
         }
-
+        /// <summary>
+        /// case layers count
+        /// </summary>
         public int CaseLayersCount
         {
             get

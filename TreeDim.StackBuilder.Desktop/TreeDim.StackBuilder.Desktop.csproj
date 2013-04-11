@@ -131,6 +131,12 @@
     <Compile Include="DockContentBoxCasePalletAnalysis.Designer.cs">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentCylinderPalletAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentCylinderPalletAnalysis.Designer.cs">
+      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentDocumentExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -423,6 +429,9 @@
     <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.resx">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.resx">
+      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.ca-ES.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -561,7 +570,7 @@
     <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="FormMain.nl-NL.resx">
+    <EmbeddedResource Include="FormMain.nl-NL.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysis.ca-ES.resx">

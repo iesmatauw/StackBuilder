@@ -84,6 +84,10 @@ namespace TreeDim.StackBuilder.Reporting.Test
             {
                 _log.Info(string.Format("Loaded case/pallet analysis {0}", analysis.Name));
             }
+            public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
+            {
+                _log.Info(string.Format("Loaded cylinder/pallet analysis {0}", analysis.Name));
+            }
             public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
             { 
                 _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
@@ -104,17 +108,6 @@ namespace TreeDim.StackBuilder.Reporting.Test
             public void OnAnalysisRemoved(Document doc, ItemBase itemBase)
             {
             }
-            /*
-            public void OnCasePalletAnalysisRemoved(Document doc, CasePalletAnalysis analysis)
-            { 
-            }
-            public void OnBoxCaseAnalysisRemoved(Document doc, BoxCaseAnalysis analysis)
-            {
-            }
-            public void OnCaseAnalysisRemoved(Document doc, BoxCasePalletAnalysis caseAnalysis)
-            {
-            }
-             */ 
             public void OnTruckAnalysisRemoved(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selectedSolution, TruckAnalysis truckAnalysis)
             { 
             }

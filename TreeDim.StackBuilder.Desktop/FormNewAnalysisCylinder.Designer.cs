@@ -51,14 +51,12 @@
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
             this.nudMaximumPalletWeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumPalletHeight = new System.Windows.Forms.NumericUpDown();
-            this.nudMaximumNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxMaximumLoadOnBox = new System.Windows.Forms.CheckBox();
+            this.nudMaximumNumberOfItems = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxMaximumLoadOnCylinder = new System.Windows.Forms.CheckBox();
             this.checkBoxMaximumPalletWeight = new System.Windows.Forms.CheckBox();
             this.lbStopStacking = new System.Windows.Forms.Label();
             this.checkBoxMaximumPalletHeight = new System.Windows.Forms.CheckBox();
-            this.checkBoxMaximumNumberOfBoxes = new System.Windows.Forms.CheckBox();
-            this.gbAllowedLayerPatterns = new System.Windows.Forms.GroupBox();
-            this.checkedListBoxPatterns = new System.Windows.Forms.CheckedListBox();
+            this.checkBoxMaximumNumberOfItems = new System.Windows.Forms.CheckBox();
             this.cbCylinders = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangY)).BeginInit();
             this.gbOverhangUnderhang.SuspendLayout();
@@ -67,14 +65,13 @@
             this.gbStopStackingCondition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).BeginInit();
-            this.gbAllowedLayerPatterns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfItems)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOK
             // 
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.Location = new System.Drawing.Point(497, 12);
+            this.bnOK.Location = new System.Drawing.Point(514, 9);
             this.bnOK.Name = "bnOK";
             this.bnOK.Size = new System.Drawing.Size(75, 23);
             this.bnOK.TabIndex = 0;
@@ -84,19 +81,19 @@
             // bnCancel
             // 
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Location = new System.Drawing.Point(497, 41);
+            this.bnCancel.Location = new System.Drawing.Point(514, 38);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 1;
             this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
-            // cbPallet
+            // cbPallets
             // 
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
-            this.cbPallets.Location = new System.Drawing.Point(355, 66);
-            this.cbPallets.Name = "cbPallet";
+            this.cbPallets.Location = new System.Drawing.Point(355, 63);
+            this.cbPallets.Name = "cbPallets";
             this.cbPallets.Size = new System.Drawing.Size(136, 21);
             this.cbPallets.TabIndex = 22;
             // 
@@ -104,7 +101,7 @@
             // 
             this.lbPallet.AutoSize = true;
             this.lbPallet.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbPallet.Location = new System.Drawing.Point(316, 66);
+            this.lbPallet.Location = new System.Drawing.Point(316, 63);
             this.lbPallet.Name = "lbPallet";
             this.lbPallet.Size = new System.Drawing.Size(33, 13);
             this.lbPallet.TabIndex = 21;
@@ -112,14 +109,14 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(121, 38);
+            this.tbDescription.Location = new System.Drawing.Point(121, 35);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(370, 20);
             this.tbDescription.TabIndex = 20;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(121, 12);
+            this.tbName.Location = new System.Drawing.Point(121, 9);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(150, 20);
             this.tbName.TabIndex = 19;
@@ -128,7 +125,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(6, 38);
+            this.label2.Location = new System.Drawing.Point(6, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 18;
@@ -138,7 +135,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(6, 12);
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 17;
@@ -147,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 66);
+            this.label3.Location = new System.Drawing.Point(6, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 23;
@@ -208,9 +205,9 @@
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
-            this.gbOverhangUnderhang.Location = new System.Drawing.Point(5, 107);
+            this.gbOverhangUnderhang.Location = new System.Drawing.Point(5, 92);
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
-            this.gbOverhangUnderhang.Size = new System.Drawing.Size(308, 78);
+            this.gbOverhangUnderhang.Size = new System.Drawing.Size(274, 78);
             this.gbOverhangUnderhang.TabIndex = 41;
             this.gbOverhangUnderhang.TabStop = false;
             this.gbOverhangUnderhang.Text = "Pallet overhang / underhang";
@@ -246,7 +243,7 @@
             // 
             this.lbMm.AutoSize = true;
             this.lbMm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbMm.Location = new System.Drawing.Point(270, 71);
+            this.lbMm.Location = new System.Drawing.Point(278, 71);
             this.lbMm.Name = "lbMm";
             this.lbMm.Size = new System.Drawing.Size(23, 13);
             this.lbMm.TabIndex = 30;
@@ -256,7 +253,7 @@
             // 
             this.lbKg1.AutoSize = true;
             this.lbKg1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbKg1.Location = new System.Drawing.Point(270, 99);
+            this.lbKg1.Location = new System.Drawing.Point(278, 99);
             this.lbKg1.Name = "lbKg1";
             this.lbKg1.Size = new System.Drawing.Size(19, 13);
             this.lbKg1.TabIndex = 29;
@@ -266,7 +263,7 @@
             // 
             this.lbKg2.AutoSize = true;
             this.lbKg2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbKg2.Location = new System.Drawing.Point(270, 129);
+            this.lbKg2.Location = new System.Drawing.Point(278, 129);
             this.lbKg2.Name = "lbKg2";
             this.lbKg2.Size = new System.Drawing.Size(19, 13);
             this.lbKg2.TabIndex = 28;
@@ -275,7 +272,7 @@
             // nudMaximumLoadOnBox
             // 
             this.nudMaximumLoadOnBox.DecimalPlaces = 1;
-            this.nudMaximumLoadOnBox.Location = new System.Drawing.Point(205, 127);
+            this.nudMaximumLoadOnBox.Location = new System.Drawing.Point(213, 127);
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -293,13 +290,13 @@
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumLoadOnBox);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletHeight);
-            this.gbStopStackingCondition.Controls.Add(this.nudMaximumNumberOfBoxes);
-            this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumLoadOnBox);
+            this.gbStopStackingCondition.Controls.Add(this.nudMaximumNumberOfItems);
+            this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumLoadOnCylinder);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
-            this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
-            this.gbStopStackingCondition.Location = new System.Drawing.Point(9, 198);
+            this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfItems);
+            this.gbStopStackingCondition.Location = new System.Drawing.Point(285, 92);
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.Size = new System.Drawing.Size(304, 154);
             this.gbStopStackingCondition.TabIndex = 45;
@@ -309,7 +306,7 @@
             // nudMaximumPalletWeight
             // 
             this.nudMaximumPalletWeight.DecimalPlaces = 1;
-            this.nudMaximumPalletWeight.Location = new System.Drawing.Point(205, 97);
+            this.nudMaximumPalletWeight.Location = new System.Drawing.Point(213, 97);
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -321,7 +318,7 @@
             // 
             // nudMaximumPalletHeight
             // 
-            this.nudMaximumPalletHeight.Location = new System.Drawing.Point(205, 67);
+            this.nudMaximumPalletHeight.Location = new System.Drawing.Point(213, 67);
             this.nudMaximumPalletHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -333,26 +330,26 @@
             // 
             // nudMaximumNumberOfBoxes
             // 
-            this.nudMaximumNumberOfBoxes.Location = new System.Drawing.Point(205, 37);
-            this.nudMaximumNumberOfBoxes.Maximum = new decimal(new int[] {
+            this.nudMaximumNumberOfItems.Location = new System.Drawing.Point(213, 37);
+            this.nudMaximumNumberOfItems.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nudMaximumNumberOfBoxes.Name = "nudMaximumNumberOfBoxes";
-            this.nudMaximumNumberOfBoxes.Size = new System.Drawing.Size(55, 20);
-            this.nudMaximumNumberOfBoxes.TabIndex = 24;
+            this.nudMaximumNumberOfItems.Name = "nudMaximumNumberOfBoxes";
+            this.nudMaximumNumberOfItems.Size = new System.Drawing.Size(55, 20);
+            this.nudMaximumNumberOfItems.TabIndex = 24;
             // 
             // checkBoxMaximumLoadOnBox
             // 
-            this.checkBoxMaximumLoadOnBox.AutoSize = true;
-            this.checkBoxMaximumLoadOnBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBoxMaximumLoadOnBox.Location = new System.Drawing.Point(8, 130);
-            this.checkBoxMaximumLoadOnBox.Name = "checkBoxMaximumLoadOnBox";
-            this.checkBoxMaximumLoadOnBox.Size = new System.Drawing.Size(190, 17);
-            this.checkBoxMaximumLoadOnBox.TabIndex = 23;
-            this.checkBoxMaximumLoadOnBox.Text = "when load on lower boxes reaches";
-            this.checkBoxMaximumLoadOnBox.UseVisualStyleBackColor = true;
+            this.checkBoxMaximumLoadOnCylinder.AutoSize = true;
+            this.checkBoxMaximumLoadOnCylinder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBoxMaximumLoadOnCylinder.Location = new System.Drawing.Point(8, 130);
+            this.checkBoxMaximumLoadOnCylinder.Name = "checkBoxMaximumLoadOnBox";
+            this.checkBoxMaximumLoadOnCylinder.Size = new System.Drawing.Size(203, 17);
+            this.checkBoxMaximumLoadOnCylinder.TabIndex = 23;
+            this.checkBoxMaximumLoadOnCylinder.Text = "when load on lower cylinders reaches";
+            this.checkBoxMaximumLoadOnCylinder.UseVisualStyleBackColor = true;
             // 
             // checkBoxMaximumPalletWeight
             // 
@@ -388,43 +385,20 @@
             // 
             // checkBoxMaximumNumberOfBoxes
             // 
-            this.checkBoxMaximumNumberOfBoxes.AutoSize = true;
-            this.checkBoxMaximumNumberOfBoxes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBoxMaximumNumberOfBoxes.Location = new System.Drawing.Point(8, 40);
-            this.checkBoxMaximumNumberOfBoxes.Name = "checkBoxMaximumNumberOfBoxes";
-            this.checkBoxMaximumNumberOfBoxes.Size = new System.Drawing.Size(174, 17);
-            this.checkBoxMaximumNumberOfBoxes.TabIndex = 19;
-            this.checkBoxMaximumNumberOfBoxes.Text = "when number of boxes reaches";
-            this.checkBoxMaximumNumberOfBoxes.UseVisualStyleBackColor = true;
-            // 
-            // gbAllowedLayerPatterns
-            // 
-            this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
-            this.gbAllowedLayerPatterns.Location = new System.Drawing.Point(319, 198);
-            this.gbAllowedLayerPatterns.Name = "gbAllowedLayerPatterns";
-            this.gbAllowedLayerPatterns.Size = new System.Drawing.Size(188, 154);
-            this.gbAllowedLayerPatterns.TabIndex = 46;
-            this.gbAllowedLayerPatterns.TabStop = false;
-            this.gbAllowedLayerPatterns.Text = "Allowed layer patterns";
-            // 
-            // checkedListBoxPatterns
-            // 
-            this.checkedListBoxPatterns.CheckOnClick = true;
-            this.checkedListBoxPatterns.FormattingEnabled = true;
-            this.checkedListBoxPatterns.Items.AddRange(new object[] {
-            "Aligned",
-            "Stagered",
-            "Mixed"});
-            this.checkedListBoxPatterns.Location = new System.Drawing.Point(12, 18);
-            this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
-            this.checkedListBoxPatterns.Size = new System.Drawing.Size(162, 124);
-            this.checkedListBoxPatterns.TabIndex = 17;
+            this.checkBoxMaximumNumberOfItems.AutoSize = true;
+            this.checkBoxMaximumNumberOfItems.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkBoxMaximumNumberOfItems.Location = new System.Drawing.Point(8, 40);
+            this.checkBoxMaximumNumberOfItems.Name = "checkBoxMaximumNumberOfBoxes";
+            this.checkBoxMaximumNumberOfItems.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxMaximumNumberOfItems.TabIndex = 19;
+            this.checkBoxMaximumNumberOfItems.Text = "when number of boxes reaches";
+            this.checkBoxMaximumNumberOfItems.UseVisualStyleBackColor = true;
             // 
             // cbCylinders
             // 
             this.cbCylinders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCylinders.FormattingEnabled = true;
-            this.cbCylinders.Location = new System.Drawing.Point(121, 66);
+            this.cbCylinders.Location = new System.Drawing.Point(121, 63);
             this.cbCylinders.Name = "cbCylinders";
             this.cbCylinders.Size = new System.Drawing.Size(158, 21);
             this.cbCylinders.TabIndex = 47;
@@ -435,9 +409,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(584, 364);
+            this.ClientSize = new System.Drawing.Size(596, 248);
             this.Controls.Add(this.cbCylinders);
-            this.Controls.Add(this.gbAllowedLayerPatterns);
             this.Controls.Add(this.gbStopStackingCondition);
             this.Controls.Add(this.gbOverhangUnderhang);
             this.Controls.Add(this.label3);
@@ -466,8 +439,7 @@
             this.gbStopStackingCondition.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).EndInit();
-            this.gbAllowedLayerPatterns.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,14 +470,12 @@
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
         private System.Windows.Forms.NumericUpDown nudMaximumPalletWeight;
         private System.Windows.Forms.NumericUpDown nudMaximumPalletHeight;
-        private System.Windows.Forms.NumericUpDown nudMaximumNumberOfBoxes;
-        private System.Windows.Forms.CheckBox checkBoxMaximumLoadOnBox;
+        private System.Windows.Forms.NumericUpDown nudMaximumNumberOfItems;
+        private System.Windows.Forms.CheckBox checkBoxMaximumLoadOnCylinder;
         private System.Windows.Forms.CheckBox checkBoxMaximumPalletWeight;
         private System.Windows.Forms.Label lbStopStacking;
         private System.Windows.Forms.CheckBox checkBoxMaximumPalletHeight;
-        private System.Windows.Forms.CheckBox checkBoxMaximumNumberOfBoxes;
-        private System.Windows.Forms.GroupBox gbAllowedLayerPatterns;
-        private System.Windows.Forms.CheckedListBox checkedListBoxPatterns;
+        private System.Windows.Forms.CheckBox checkBoxMaximumNumberOfItems;
         private System.Windows.Forms.ComboBox cbCylinders;
     }
 }

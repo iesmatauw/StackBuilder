@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 using TreeDim.StackBuilder.Basics;
 using log4net;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -137,6 +139,44 @@ namespace TreeDim.StackBuilder.Desktop
                         }
                     }
                 }
+
+                // fill interlayer combo
+                // overhang
+                if (null == _analysis)
+                {
+                    OverhangX = Settings.Default.OverhangX;
+                    OverhangY = Settings.Default.OverhangY;
+                }
+                else
+                {
+                    OverhangX = _analysis.ConstraintSet.OverhangX;
+                    OverhangY = _analysis.ConstraintSet.OverhangY;
+                }
+                // stop stacking criterions
+                if (null == _analysis)
+                {
+                    UseMaximumNumberOfItems = false;
+                    UseMaximumPalletHeight = true;
+                    UseMaximumPalletWeight = false;
+                    UseMaximumLoadOnLowerCylinder = false;
+
+                    MaximumNumberOfItems = 500;
+                    MaximumPalletHeight = 1200.0;
+                    MaximumPalletWeight = 1000.0;
+                    MaximumLoadOnLowerCylinder = 100.0;
+                }
+                else
+                {
+                    UseMaximumNumberOfItems = _analysis.ConstraintSet.UseMaximumNumberOfItems;
+                    UseMaximumPalletHeight = _analysis.ConstraintSet.UseMaximumPalletHeight;
+                    UseMaximumPalletWeight = _analysis.ConstraintSet.UseMaximumPalletWeight;
+                    UseMaximumLoadOnLowerCylinder = _analysis.ConstraintSet.UseMaximumLoadOnLowerCylinder;
+
+                    MaximumNumberOfItems = _analysis.ConstraintSet.MaximumNumberOfItems;
+                    MaximumPalletHeight = _analysis.ConstraintSet.MaximumPalletHeight;
+                    MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
+                    MaximumLoadOnLowerCylinder = _analysis.ConstraintSet.MaximumLoadOnLowerCylinder;                                    
+                }
             }
             catch (Exception ex)
             {
@@ -201,6 +241,63 @@ namespace TreeDim.StackBuilder.Desktop
         public PalletProperties SelectedPallet
         {
             get { return _palletProperties[cbPallets.SelectedIndex]; }
+        }
+        public double OverhangX
+        {
+            get { return (double)nudPalletOverhangX.Value; }
+            set { nudPalletOverhangX.Value = (decimal)value;}
+        }
+        public double OverhangY
+        {
+            get { return (double)nudPalletOverhangY.Value; }
+            set { nudPalletOverhangY.Value = (decimal)value; }
+        }
+        #endregion
+
+        #region Stop criterions
+        // Maximum pallet height
+        public bool UseMaximumPalletHeight
+        {
+            get { return checkBoxMaximumPalletHeight.Checked; }
+            set { checkBoxMaximumPalletHeight.Checked = value; }
+        }
+        public double MaximumPalletHeight
+        {
+            get { return (double)nudMaximumPalletHeight.Value; }
+            set { nudMaximumPalletHeight.Value = (decimal) value;}
+        }
+        // Maximum pallet weight
+        public bool UseMaximumPalletWeight
+        {
+            get { return checkBoxMaximumPalletHeight.Checked; }
+            set { checkBoxMaximumPalletWeight.Checked = value; }
+        }
+        public double MaximumPalletWeight
+        {
+            get { return (double)nudMaximumPalletWeight.Value; }
+            set { nudMaximumPalletWeight.Value = (decimal)value; }
+        }
+        // Maximum number of items
+        public bool UseMaximumNumberOfItems
+        {
+            get { return checkBoxMaximumNumberOfItems.Checked; }
+            set { checkBoxMaximumNumberOfItems.Checked = value; }
+        }
+        public int MaximumNumberOfItems
+        {
+            get { return (int)nudMaximumNumberOfItems.Value; }
+            set { nudMaximumNumberOfItems.Value = (decimal)value; }
+        }
+        // Maximum load on lower cylinder
+        public bool UseMaximumLoadOnLowerCylinder
+        {
+            get { return checkBoxMaximumLoadOnCylinder.Checked; }
+            set { checkBoxMaximumLoadOnCylinder.Checked = value; }
+        }
+        public double MaximumLoadOnLowerCylinder
+        {
+            get { return (double)nudMaximumLoadOnBox.Value; }
+            set { nudMaximumLoadOnBox.Value = (decimal)value;}
         }
         #endregion
 

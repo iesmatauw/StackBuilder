@@ -52,9 +52,11 @@
             this.toolStripShowImages = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripShowPallet = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
             this.splitContainerVert.Panel1.SuspendLayout();
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
@@ -271,20 +273,22 @@
             this.toolStripShowPallet.Name = "toolStripShowPallet";
             this.toolStripShowPallet.Click += new System.EventHandler(this.toolStripShowPallet_Click);
             // 
-            // DockContentCaseAnalysis
+            // DockContentBoxCasePalletAnalysis
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerHoriz);
             this.Controls.Add(this.toolStrip_view);
-            this.Name = "DockContentCaseAnalysis";
+            this.Name = "DockContentBoxCasePalletAnalysis";
             this.ShowInTaskbar = false;
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
             this.splitContainerHoriz.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).EndInit();
             this.splitContainerHoriz.ResumeLayout(false);
             this.splitContainerVert.Panel1.ResumeLayout(false);
             this.splitContainerVert.Panel1.PerformLayout();
             this.splitContainerVert.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();

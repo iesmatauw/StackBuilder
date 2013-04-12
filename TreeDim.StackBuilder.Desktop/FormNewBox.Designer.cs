@@ -57,11 +57,8 @@
             this.btBitmaps = new System.Windows.Forms.Button();
             this.chkAllFaces = new System.Windows.Forms.CheckBox();
             this.lbWeight = new System.Windows.Forms.Label();
-            this.lbWeightOnTop = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
-            this.nudWeightOnTop = new System.Windows.Forms.NumericUpDown();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.lbUnitWeightOnTop = new System.Windows.Forms.Label();
             this.lbUnitWeight = new System.Windows.Forms.Label();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.lblName = new System.Windows.Forms.Label();
@@ -86,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             this.gbFaceColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWeightOnTop)).BeginInit();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -395,7 +391,8 @@
             resources.GetString("cbColor.Items53"),
             resources.GetString("cbColor.Items54"),
             resources.GetString("cbColor.Items55"),
-            resources.GetString("cbColor.Items56")});
+            resources.GetString("cbColor.Items56"),
+            resources.GetString("cbColor.Items57")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -429,11 +426,6 @@
             resources.ApplyResources(this.lbWeight, "lbWeight");
             this.lbWeight.Name = "lbWeight";
             // 
-            // lbWeightOnTop
-            // 
-            resources.ApplyResources(this.lbWeightOnTop, "lbWeightOnTop");
-            this.lbWeightOnTop.Name = "lbWeightOnTop";
-            // 
             // nudWeight
             // 
             this.nudWeight.DecimalPlaces = 3;
@@ -445,33 +437,14 @@
             0});
             this.nudWeight.Name = "nudWeight";
             // 
-            // nudWeightOnTop
-            // 
-            this.nudWeightOnTop.DecimalPlaces = 3;
-            resources.ApplyResources(this.nudWeightOnTop, "nudWeightOnTop");
-            this.nudWeightOnTop.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudWeightOnTop.Name = "nudWeightOnTop";
-            // 
             // gbWeight
             // 
-            this.gbWeight.Controls.Add(this.lbUnitWeightOnTop);
             this.gbWeight.Controls.Add(this.lbUnitWeight);
-            this.gbWeight.Controls.Add(this.nudWeightOnTop);
             this.gbWeight.Controls.Add(this.nudWeight);
-            this.gbWeight.Controls.Add(this.lbWeightOnTop);
             this.gbWeight.Controls.Add(this.lbWeight);
             resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
-            // 
-            // lbUnitWeightOnTop
-            // 
-            resources.ApplyResources(this.lbUnitWeightOnTop, "lbUnitWeightOnTop");
-            this.lbUnitWeightOnTop.Name = "lbUnitWeightOnTop";
             // 
             // lbUnitWeight
             // 
@@ -607,7 +580,8 @@
             resources.GetString("cbTapeColor.Items54"),
             resources.GetString("cbTapeColor.Items55"),
             resources.GetString("cbTapeColor.Items56"),
-            resources.GetString("cbTapeColor.Items57")});
+            resources.GetString("cbTapeColor.Items57"),
+            resources.GetString("cbTapeColor.Items58")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -676,7 +650,6 @@
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWeightOnTop)).EndInit();
             this.gbWeight.ResumeLayout(false);
             this.gbWeight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
@@ -701,9 +674,7 @@
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.GroupBox gbFaceColor;
         private System.Windows.Forms.Label lbWeight;
-        private System.Windows.Forms.Label lbWeightOnTop;
         private System.Windows.Forms.NumericUpDown nudWeight;
-        private System.Windows.Forms.NumericUpDown nudWeightOnTop;
         private System.Windows.Forms.GroupBox gbWeight;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;
@@ -711,7 +682,6 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.Label lbUnitWeightOnTop;
         private System.Windows.Forms.Label lbUnitWeight;
         private System.Windows.Forms.Label lbUnitHeightInside;
         private System.Windows.Forms.Label lbUnitWidthInside;

@@ -63,7 +63,7 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Constructor
+        #region Constructors
         /// <summary>
         /// Default constructor used for creating analysis 
         /// </summary>

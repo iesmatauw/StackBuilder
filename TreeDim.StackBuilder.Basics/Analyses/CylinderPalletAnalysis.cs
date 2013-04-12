@@ -88,6 +88,9 @@ namespace TreeDim.StackBuilder.Basics
                     sol.Analysis = this;
             }
         }
+
+        public static ICylinderAnalysisSolver Solver
+        { set { _solver = value; } }
         #endregion
 
         #region Solution selection
@@ -134,7 +137,26 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Dependancies
+        public override void OnEndUpdate(ItemBase updatedAttribute)
+        {
+            // clear selected solutions
+            while (_selectedSolutions.Count > 0)
+                UnSelectSolution(_selectedSolutions[0]);
+            // clear solutions
+            _solutions.Clear();
+            // get default analysis solver
+            if (null != _solver)
+                _solver.ProcessAnalysis(this);
+            else
+                _log.Error("_solver == null : solver was not set");
+            if (_solutions.Count == 0)
+                _log.Debug("Recomputed analysis has no solutions");
+            // set modified / propagate modifications
+            Modify();
+        }
         #endregion
+
+
     }
 
     public interface ICylinderAnalysisSolver

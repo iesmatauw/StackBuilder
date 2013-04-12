@@ -153,6 +153,13 @@ namespace TreeDim.StackBuilder.Desktop
                 message = string.Format(Resources.ID_DELETE, nodeTag.CasePalletAnalysis.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteCasePalletAnalysis)));
             }
+            else if (nodeTag.Type == NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS)
+            {
+                string message = string.Format(Resources.ID_EDIT, nodeTag.CylinderPalletAnalysis.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditCylinderPalletAnalysis)));
+                message = string.Format(Resources.ID_DELETE, nodeTag.CylinderPalletAnalysis.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onDeleteCylinderPalletAnalysis)));
+            }
             else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEANALYSIS)
             {
                 string message = string.Format(Resources.ID_EDIT, nodeTag.BoxCaseAnalysis.Name);
@@ -265,6 +272,15 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void onEditCylinderPalletAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).EditCylinderPalletAnalysis(tag.CylinderPalletAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); } 
+        }
         private void onEditBoxCaseAnalysis(object sender, EventArgs e)
         {
             try
@@ -289,6 +305,15 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 tag.Document.RemoveItem(tag.CasePalletAnalysis);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onDeleteCylinderPalletAnalysis(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.Document.RemoveItem(tag.CylinderPalletAnalysis);
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -604,6 +629,7 @@ namespace TreeDim.StackBuilder.Desktop
                     || (tag.Type == NodeTag.NodeType.NT_ECTANALYSIS)
                     || (tag.Type == NodeTag.NodeType.NT_ANALYSISBOX)
                     || (tag.Type == NodeTag.NodeType.NT_ANALYSISPALLET)
+                    || (tag.Type == NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS)
                     || (tag.Type == NodeTag.NodeType.NT_ANALYSISINTERLAYER)
                     || (tag.Type == NodeTag.NodeType.NT_BOX)
                     || (tag.Type == NodeTag.NodeType.NT_CASE)
@@ -873,7 +899,11 @@ namespace TreeDim.StackBuilder.Desktop
             analysis.SolutionSelected += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelected);
             analysis.SolutionSelectionRemoved += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelectionRemoved);
         }
-
+        /// <summary>
+        /// handles new cylinder/pallet analysis creation
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="analysis"></param>
         public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
         {
             // get parent node
@@ -884,13 +914,21 @@ namespace TreeDim.StackBuilder.Desktop
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
-            // insert sub box node
+            // insert sub cylinder node
             int indexIconBoxAnalysis = 6;
-            TreeNode subBoxNode = new TreeNode(analysis.CylinderProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
-            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.CylinderProperties);
-            nodeAnalysis.Nodes.Add(subBoxNode);
+            TreeNode subCylNode = new TreeNode(analysis.CylinderProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
+            subCylNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISBOX, doc, analysis, analysis.CylinderProperties);
+            nodeAnalysis.Nodes.Add(subCylNode);
+            int indexIconPalletAnalysis = 7;
+            TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, indexIconPalletAnalysis, indexIconPalletAnalysis);
+            subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
+            nodeAnalysis.Nodes.Add(subPalletNode);
         }
-
+        /// <summary>
+        /// handles new box case analysis creation
+        /// </summary>
+        /// <param name="doc">Document</param>
+        /// <param name="analysis">Analysis</param>
         public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
         {
             // get parent node

@@ -246,9 +246,6 @@
 	<data name="&gt;&gt;nudInsideLength.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-	<data name="&gt;&gt;nudWeightOnTop.Name" xml:space="preserve">
-    <value>nudWeightOnTop</value>
-  </data>
 	<data name="&gt;&gt;nudInsideLength.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
@@ -381,12 +378,6 @@
 	<data name="lbUnitLengthInside.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>
-	<data name="&gt;&gt;nudWeightOnTop.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<data name="lbWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-		<value>123, 13</value>
-	</data>
 	<data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
 		<value>38, 13</value>
 	</data>
@@ -426,9 +417,6 @@
 	<data name="&gt;&gt;gbTape.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-	<data name="nudWeightOnTop.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
 	<data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
     <value>btBitmaps</value>
   </data>
@@ -497,9 +485,6 @@
   </data>
 	<data name="&gt;&gt;lbFace.Name" xml:space="preserve">
     <value>lbFace</value>
-  </data>
-	<data name="&gt;&gt;nudWeightOnTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="lbUnitWeightOnTop.TabIndex" type="System.Int32, mscorlib">
 		<value>5</value>
@@ -701,9 +686,6 @@
   </data>
 	<data name="lbUnitWidth.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
-	</data>
-	<data name="nudWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
-		<value>249, 44</value>
 	</data>
 	<data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
 		<value>186, 72</value>
@@ -1056,15 +1038,9 @@
 	<data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
 		<value>210, 256</value>
 	</data>
-	<data name="&gt;&gt;nudWeightOnTop.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
 	<data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-	<data name="nudWeightOnTop.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
 	<data name="lbUnitWeight.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>

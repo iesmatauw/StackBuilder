@@ -26,21 +26,41 @@ namespace TreeDim.StackBuilder.Desktop
         public CylinderProperties _cylProperties;
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
         #endregion
-        #region Constructor
+
+        #region Constructors
         public FormNewCylinder(Document document)
         {
             InitializeComponent();
             // save document reference
             _document = document;
             // properties
-            nudRadius.Value = 150.0M;
-            nudHeight.Value = 200.0M;
+            nudRadius.Value = 75.0M;
+            nudHeight.Value = 150.0M;
             cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
             cbColorTop.Color = System.Drawing.Color.Gray;
             // set horizontal angle
             trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
+        }
+        public FormNewCylinder(Document document, CylinderProperties cylinder)
+        {
+            InitializeComponent();
+            // save document reference
+            _document = document;
+            _cylProperties = cylinder;
+            // properties
+            tbName.Text = cylinder.Name;
+            tbDescription.Text = cylinder.Description;
+            nudRadius.Value = (decimal)cylinder.Radius;
+            nudHeight.Value = (decimal)cylinder.Height;
+            cbColorWall.Color = cylinder.ColorWall;
+            cbColorTop.Color = cylinder.ColorTop;
+            nudWeight.Value = (decimal)cylinder.Weight;
+            // set horizontal angle
+            trackBarHorizAngle.Value = 225;
+            // disable Ok button
+            UpdateButtonOkStatus();        
         }
         #endregion
 
@@ -151,9 +171,5 @@ namespace TreeDim.StackBuilder.Desktop
         }
 
         #endregion
-
-
-
-
     }
 }

@@ -120,7 +120,6 @@ namespace TreeDim.StackBuilder.Desktop
             nudHeight.Value = (decimal)_boxProperties.Height;
             nudInsideHeight.Value = (decimal)_boxProperties.InsideHeight;
             nudWeight.Value = (decimal)_boxProperties.Weight;
-            nudWeightOnTop.Value = (decimal)0.0;
             // color : all faces set together / face by face
             chkAllFaces.Checked = _boxProperties.UniqueColor;
             chkAllFaces_CheckedChanged(this, null);
@@ -211,14 +210,6 @@ namespace TreeDim.StackBuilder.Desktop
             set { nudWeight.Value = (decimal)value; }
         }
         /// <summary>
-        /// Weight on top
-        /// </summary>
-        public double WeightOnTop
-        {
-            get { return (double)nudWeightOnTop.Value; }
-            set { nudWeightOnTop.Value = (decimal)value; }
-        }
-        /// <summary>
         /// Colors
         /// </summary>
         public Color[] Colors
@@ -277,9 +268,6 @@ namespace TreeDim.StackBuilder.Desktop
             lbUnitLengthInside.Visible = _mode == Mode.MODE_CASE;
             lbUnitWidthInside.Visible = _mode == Mode.MODE_CASE;
             lbUnitHeightInside.Visible = _mode == Mode.MODE_CASE;
-            lbWeightOnTop.Visible = _mode == Mode.MODE_CASE;
-            nudWeightOnTop.Visible = _mode == Mode.MODE_CASE;
-            lbUnitWeightOnTop.Visible = _mode == Mode.MODE_CASE;
 
             gbTape.Visible = _mode == Mode.MODE_CASE;
             checkBoxTape.Visible = _mode == Mode.MODE_CASE;

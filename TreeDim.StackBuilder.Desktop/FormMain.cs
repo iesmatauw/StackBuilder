@@ -53,6 +53,7 @@ namespace TreeDim.StackBuilder.Desktop
             _instance = this;
             // set analysis solver
             CasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.CasePalletSolver();
+            CylinderPalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.CylinderSolver();
             BoxCasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCasePalletSolver();
             BoxCaseAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCaseSolver();
             // load content
@@ -271,6 +272,30 @@ namespace TreeDim.StackBuilder.Desktop
                         box.TapeWidth = form.TapeWidth;
                         box.TapeColor = form.TapeColor;
                         box.EndUpdate();
+                    }
+                }
+                else if (itemProp.GetType() == typeof(CylinderProperties))
+                {
+                    CylinderProperties cylinderProperties = itemProp as CylinderProperties;
+                    FormNewCylinder form = new FormNewCylinder(eventArg.Document, cylinderProperties);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        if (cylinderProperties.HasDependingAnalyses)
+                        {
+                            if (DialogResult.Cancel == MessageBox.Show(
+                               string.Format(Resources.ID_DEPENDINGANALYSES, cylinderProperties.Name)
+                               , Application.ProductName
+                               , MessageBoxButtons.OKCancel))
+                                return;                            
+                        }
+                        cylinderProperties.Name = form.CylinderName;
+                        cylinderProperties.Description = form.Description;
+                        cylinderProperties.Radius = form.Radius;
+                        cylinderProperties.Height = form.CylinderHeight;
+                        cylinderProperties.Weight = form.Weight;
+                        cylinderProperties.ColorTop = form.ColorTop;
+                        cylinderProperties.ColorWall = form.ColorWall;
+                        cylinderProperties.EndUpdate();
                     }
                 }
                 else if (itemProp.GetType() == typeof(CaseOfBoxesProperties))
@@ -1304,8 +1329,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
-
     }
 }

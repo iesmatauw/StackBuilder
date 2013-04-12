@@ -53,12 +53,12 @@ namespace TreeDim.StackBuilder.Basics
             get { return _weight; }
             set { _weight = value; Modify(); }
         }
-        public Color TopColor
+        public Color ColorTop
         {
             get { return _colorTop; }
             set { _colorTop = value; Modify(); }
         }
-        public Color WallColor
+        public Color ColorWall
         {
             get { return _colorWall; }
             set { _colorWall = value; Modify(); }

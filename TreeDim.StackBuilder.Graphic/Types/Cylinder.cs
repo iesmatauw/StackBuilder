@@ -34,16 +34,16 @@ namespace TreeDim.StackBuilder.Graphics
             _pickId = pickId;
             _radius = cylProperties.Radius;
             _height = cylProperties.Height;
-            _colorTop = cylProperties.TopColor;
-            _colorWall = cylProperties.WallColor;
+            _colorTop = cylProperties.ColorTop;
+            _colorWall = cylProperties.ColorWall;
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties, Vector3D position)
         {
             _pickId = pickId;
             _radius = cylProperties.Radius;
             _height = cylProperties.Height;
-            _colorTop = cylProperties.TopColor;
-            _colorWall = cylProperties.WallColor;
+            _colorTop = cylProperties.ColorTop;
+            _colorWall = cylProperties.ColorWall;
 
             _position = position;
         }

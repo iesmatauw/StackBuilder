@@ -449,9 +449,6 @@
 	<data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
 		<value>224, 17</value>
 	</data>
-	<data name="nudWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
-		<value>224, 47</value>
-	</data>
 	<data name="lbUnitWeightOnTop.Location" type="System.Drawing.Point, System.Drawing">
 		<value>315, 44</value>
 	</data>

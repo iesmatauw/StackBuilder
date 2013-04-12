@@ -236,7 +236,6 @@
             this.Controls.Add(this.splitContainerHoriz);
             this.Controls.Add(this.toolStrip_view);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
-            this.HideOnClose = true;
             this.Name = "DockContentCasePalletAnalysis";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.ShowInTaskbar = false;

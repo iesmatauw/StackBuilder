@@ -42,18 +42,14 @@
             this.lbHeight = new System.Windows.Forms.Label();
             this.lbLength = new System.Windows.Forms.Label();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.lbUnitWeightOnTop = new System.Windows.Forms.Label();
             this.lbUnitWeight = new System.Windows.Forms.Label();
-            this.nudWeightOnTop = new System.Windows.Forms.NumericUpDown();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
-            this.lbWeightOnTop = new System.Windows.Forms.Label();
             this.lbWeight = new System.Windows.Forms.Label();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
-            this.btBitmapsWall = new System.Windows.Forms.Button();
             this.cbColorWall = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbWallColor = new System.Windows.Forms.Label();
             this.cbColorTop = new OfficePickers.ColorPicker.ComboBoxColorPicker();
@@ -62,7 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             this.gbWeight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWeightOnTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -96,8 +91,8 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDescription.Location = new System.Drawing.Point(92, 38);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(399, 20);
@@ -237,11 +232,8 @@
             // 
             // gbWeight
             // 
-            this.gbWeight.Controls.Add(this.lbUnitWeightOnTop);
             this.gbWeight.Controls.Add(this.lbUnitWeight);
-            this.gbWeight.Controls.Add(this.nudWeightOnTop);
             this.gbWeight.Controls.Add(this.nudWeight);
-            this.gbWeight.Controls.Add(this.lbWeightOnTop);
             this.gbWeight.Controls.Add(this.lbWeight);
             this.gbWeight.Location = new System.Drawing.Point(8, 295);
             this.gbWeight.Name = "gbWeight";
@@ -249,16 +241,6 @@
             this.gbWeight.TabIndex = 17;
             this.gbWeight.TabStop = false;
             this.gbWeight.Text = "Weight";
-            // 
-            // lbUnitWeightOnTop
-            // 
-            this.lbUnitWeightOnTop.AutoSize = true;
-            this.lbUnitWeightOnTop.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbUnitWeightOnTop.Location = new System.Drawing.Point(315, 48);
-            this.lbUnitWeightOnTop.Name = "lbUnitWeightOnTop";
-            this.lbUnitWeightOnTop.Size = new System.Drawing.Size(19, 13);
-            this.lbUnitWeightOnTop.TabIndex = 5;
-            this.lbUnitWeightOnTop.Text = "kg";
             // 
             // lbUnitWeight
             // 
@@ -269,19 +251,6 @@
             this.lbUnitWeight.Size = new System.Drawing.Size(19, 13);
             this.lbUnitWeight.TabIndex = 2;
             this.lbUnitWeight.Text = "kg";
-            // 
-            // nudWeightOnTop
-            // 
-            this.nudWeightOnTop.DecimalPlaces = 3;
-            this.nudWeightOnTop.Location = new System.Drawing.Point(249, 44);
-            this.nudWeightOnTop.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudWeightOnTop.Name = "nudWeightOnTop";
-            this.nudWeightOnTop.Size = new System.Drawing.Size(60, 20);
-            this.nudWeightOnTop.TabIndex = 4;
             // 
             // nudWeight
             // 
@@ -296,16 +265,6 @@
             this.nudWeight.Size = new System.Drawing.Size(60, 20);
             this.nudWeight.TabIndex = 1;
             // 
-            // lbWeightOnTop
-            // 
-            this.lbWeightOnTop.AutoSize = true;
-            this.lbWeightOnTop.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbWeightOnTop.Location = new System.Drawing.Point(10, 48);
-            this.lbWeightOnTop.Name = "lbWeightOnTop";
-            this.lbWeightOnTop.Size = new System.Drawing.Size(123, 13);
-            this.lbWeightOnTop.TabIndex = 3;
-            this.lbWeightOnTop.Text = "Admissible weight on top";
-            // 
             // lbWeight
             // 
             this.lbWeight.AutoSize = true;
@@ -318,8 +277,8 @@
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarHorizAngle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.trackBarHorizAngle.LargeChange = 90;
             this.trackBarHorizAngle.Location = new System.Drawing.Point(368, 328);
@@ -333,9 +292,9 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBox.Location = new System.Drawing.Point(368, 67);
             this.pictureBox.Name = "pictureBox";
@@ -363,7 +322,6 @@
             // 
             // gbFaceColor
             // 
-            this.gbFaceColor.Controls.Add(this.btBitmapsWall);
             this.gbFaceColor.Controls.Add(this.cbColorWall);
             this.gbFaceColor.Controls.Add(this.lbWallColor);
             this.gbFaceColor.Controls.Add(this.cbColorTop);
@@ -375,17 +333,6 @@
             this.gbFaceColor.TabStop = false;
             this.gbFaceColor.Text = "Face color";
             // 
-            // btBitmapsWall
-            // 
-            this.btBitmapsWall.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btBitmapsWall.Location = new System.Drawing.Point(259, 38);
-            this.btBitmapsWall.Name = "btBitmapsWall";
-            this.btBitmapsWall.Size = new System.Drawing.Size(75, 23);
-            this.btBitmapsWall.TabIndex = 7;
-            this.btBitmapsWall.Text = "Bitmaps...";
-            this.btBitmapsWall.UseVisualStyleBackColor = true;
-            this.btBitmapsWall.Click += new System.EventHandler(this.btBitmapsWall_Click);
-            // 
             // cbColorWall
             // 
             this.cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
@@ -396,6 +343,7 @@
             this.cbColorWall.IntegralHeight = false;
             this.cbColorWall.ItemHeight = 16;
             this.cbColorWall.Items.AddRange(new object[] {
+            "Color",
             "Color",
             "Color",
             "Color",
@@ -543,6 +491,7 @@
             "Color",
             "Color",
             "Color",
+            "Color",
             "Farbe"});
             this.cbColorTop.Location = new System.Drawing.Point(84, 13);
             this.cbColorTop.Name = "cbColorTop";
@@ -589,7 +538,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             this.gbWeight.ResumeLayout(false);
             this.gbWeight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWeightOnTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -618,18 +566,14 @@
         private System.Windows.Forms.Label lbHeight;
         private System.Windows.Forms.Label lbLength;
         private System.Windows.Forms.GroupBox gbWeight;
-        private System.Windows.Forms.Label lbUnitWeightOnTop;
         private System.Windows.Forms.Label lbUnitWeight;
-        private System.Windows.Forms.NumericUpDown nudWeightOnTop;
         private System.Windows.Forms.NumericUpDown nudWeight;
-        private System.Windows.Forms.Label lbWeightOnTop;
         private System.Windows.Forms.Label lbWeight;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.GroupBox gbFaceColor;
-        private System.Windows.Forms.Button btBitmapsWall;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorWall;
         private System.Windows.Forms.Label lbWallColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorTop;

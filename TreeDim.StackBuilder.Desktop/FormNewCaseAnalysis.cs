@@ -198,14 +198,17 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get
             {
-                List<PalletSolutionDesc> list = new List<PalletSolutionDesc>();
-                return PalletSolutionDatabase.Instance.QueryPalletSolutions(CurrentKey);
-            }
-            set
-            {
-                foreach (PalletSolutionDesc desc in value)
+                List<PalletSolutionDesc> list = PalletSolutionDatabase.Instance.QueryPalletSolutions(CurrentKey);
+                for (int i = gridSolutions.RowsCount-1; i > 0; --i)
                 {
+                    SourceGrid.Cells.CheckBox checkBoxSel = gridSolutions[i, 6] as SourceGrid.Cells.CheckBox;
+                    if ((null != checkBoxSel) && !checkBoxSel.Checked.Value)
+                    {
+                        if (i > 0 && list.Count > i-1)
+                            list.RemoveAt(i-1);
+                    }
                 }
+                return list;
             }
         }
         /// <summary>
@@ -385,6 +388,8 @@ namespace TreeDim.StackBuilder.Desktop
             // AllowAlignedLayers / AllowAlternateLayers
             else if (!AllowAlignedLayers && !AllowAlternateLayers)
                 message = Resources.ID_ALLOWALIGNEDORALTERNATELAYERS;
+            else if (PalletSolutionList.Count == 0)
+                message = Resources.ID_NOPALLETSOLUTIONSELECTED;
             //---
             // button OK
             bnOK.Enabled = string.IsNullOrEmpty(message);
@@ -453,8 +458,6 @@ namespace TreeDim.StackBuilder.Desktop
             cbPalletDimensions.Items.AddRange(PalletSolutionDatabase.Instance.Keys.ToArray());
             if (cbPalletDimensions.Items.Count > 0)
                 cbPalletDimensions.SelectedIndex = 0;
-
-            FillGrid();
         }
         private PalletSolutionKey CurrentKey
         {
@@ -536,6 +539,9 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 6] = columnHeader;
 
+            // handling check box click
+            SourceGrid.Cells.Controllers.CustomEvents palletSolCheckBoxClickEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+            palletSolCheckBoxClickEvent.Click += new EventHandler(palletSolCheckBoxClickEvent_Click);
             int iIndex = 0;
             foreach (PalletSolutionDesc desc in PalletSolutionDatabase.Instance.QueryPalletSolutions(CurrentKey))
             {
@@ -546,8 +552,11 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseInsideDimensionsString));
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseOrientation));
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0}", desc.CaseCount));
-                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, true);
-                SourceGrid.Cells.Controllers.Button buttonClickEvent = new SourceGrid.Cells.Controllers.Button();
+                bool selected = true;
+                if (null != _caseAnalysis)
+                    selected = _caseAnalysis.PalletSolutionsList.Contains(desc);
+                gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, selected);
+                gridSolutions[iIndex, 6].AddController(palletSolCheckBoxClickEvent);
             }
 
             // handling check box click
@@ -559,6 +568,12 @@ namespace TreeDim.StackBuilder.Desktop
 
             // select first solution
             gridSolutions.Selection.SelectRow(-1, false);
+        }
+
+        void palletSolCheckBoxClickEvent_Click(object sender, EventArgs e)
+        {
+            // update Ok status
+            UpdateButtonOkStatus();
         }
         private Bitmap GetBoxBitmapFromDesc(PalletSolutionDesc desc)
         {
@@ -628,5 +643,11 @@ namespace TreeDim.StackBuilder.Desktop
             pictureBox.Image = graphics.Bitmap;
         }
         #endregion
+
+        private void cbPalletDimensions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // fill grid
+            FillGrid();
+        }
     }
 }

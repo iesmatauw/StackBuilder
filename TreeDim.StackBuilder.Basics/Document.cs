@@ -929,6 +929,7 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
         }
+
         #region Load containers / basics element
         private void LoadBoxProperties(XmlElement eltBoxProperties)
         {
@@ -1979,7 +1980,6 @@ namespace TreeDim.StackBuilder.Basics
                     if (null != truckProperties)
                         Save(truckProperties, xmlItemPropertiesElt, xmlDoc);
                 }
-
                 // create Analyses element
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
@@ -2000,7 +2000,6 @@ namespace TreeDim.StackBuilder.Basics
                 _log.Error(ex.ToString());
             }
         }
-
         public void WriteSolution(SelCasePalletSolution selSolution, string filePath)
         {
             try
@@ -2055,7 +2054,6 @@ namespace TreeDim.StackBuilder.Basics
                     if (null != truckProperties)
                         Save(truckProperties, xmlItemPropertiesElt, xmlDoc);
                 }
-
                 // create Analyses element
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
@@ -2068,8 +2066,7 @@ namespace TreeDim.StackBuilder.Basics
                 _log.Error(ex.ToString());
                 throw ex;
             }
-        }
-         
+        }         
         public void Save(BoxProperties boxProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create xmlBoxProperties element
@@ -2140,9 +2137,7 @@ namespace TreeDim.StackBuilder.Basics
                 tapeColorAttribute.Value = string.Format("{0}", boxProperties.TapeColor.ToArgb());
                 tapeElt.Attributes.Append(tapeColorAttribute);
             }
-
         }
-
         public void Save(CylinderProperties cylinderProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create xmlBoxProperties element
@@ -3147,7 +3142,14 @@ namespace TreeDim.StackBuilder.Basics
                     zlowAttribute.Value = string.Format("{0}", interlayerPos.ZLow);
                     interlayerElt.Attributes.Append(zlowAttribute);
                 }
-            } 
+            }
+            if (null != selSolution)
+            {
+                // selected attribute
+                XmlAttribute selAttribute = xmlDoc.CreateAttribute("Selected");
+                selAttribute.Value = "true";
+                solutionElt.Attributes.Append(selAttribute);            
+            }
         }
 
         public void Save(TruckAnalysis truckAnalysis, bool unique, XmlElement truckAnalysesElt, XmlDocument xmlDoc)

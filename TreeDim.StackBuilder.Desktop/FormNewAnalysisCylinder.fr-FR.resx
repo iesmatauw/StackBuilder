@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,110 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Abbrechen</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="checkBoxMaximumLoadOnCylinder.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
+  <data name="checkBoxMaximumLoadOnCylinder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 31</value>
   </data>
-  <data name="lbDescription.Text" xml:space="preserve">
-    <value>Beschreibung</value>
+  <data name="checkBoxMaximumLoadOnCylinder.Text" xml:space="preserve">
+    <value>le poids au dessus des cylindres les plus bas atteint</value>
   </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
+  <data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 17</value>
   </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Schachtel</value>
-  </data>
-  <data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 17</value>
-  </data>
-  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>Erlaube alternierende Lagen</value>
-  </data>
-  <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 17</value>
-  </data>
-  <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-    <value>Erlaube ausgerichtete Lagen</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items" xml:space="preserve">
-    <value>Spalten</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
-    <value>Verschachtelt</value>
-  </data>
-  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
-    <value>Spirale</value>
-  </data>
-  <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-    <value>Erlaubte Lagen Muster</value>
-  </data>
-  <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
-    <value>Erlaubte Schachtel Positionen</value>
-  </data>
-  <data name="checkBoxMaximumCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 17</value>
-  </data>
-  <data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
-    <value>Maximum Umverpackung Gewicht erreicht</value>
+  <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+    <value>le poids total de la pallette atteint</value>
   </data>
   <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 13</value>
+    <value>138, 13</value>
   </data>
   <data name="lbStopStacking.Text" xml:space="preserve">
-    <value>Stapel Endbedingung:</value>
+    <value>Arrêter l'empilement lorsque:</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 17</value>
+  <data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 17</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>Maximale Anzahl Schachteln erreicht</value>
+  <data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+    <value>la hauteur de la palette atteint</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfItems.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 17</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfItems.Text" xml:space="preserve">
+    <value>le nombre de cylindre atteint</value>
+  </data>
+  <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 171</value>
   </data>
   <data name="gbStopStackingCondition.Text" xml:space="preserve">
-    <value>Erweiterte Stapel Endbedingung</value>
+    <value>Condition d'arrêt de l'empilement</value>
   </data>
-  <data name="lbSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 13</value>
-  </data>
-  <data name="lbSolutions.Text" xml:space="preserve">
-    <value>Beste Lösung(en)</value>
-  </data>
-  <data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
-  </data>
-  <data name="lbBoxes.Text" xml:space="preserve">
-    <value>Schachtel(n)</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 17</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
-    <value>die unter den</value>
-  </data>
-  <data name="checkBoxMinNumberOfItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 17</value>
-  </data>
-  <data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
-    <value>Mindestanzahl Umverpackungen erreicht</value>
-  </data>
-  <data name="lbFilterSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 13</value>
-  </data>
-  <data name="lbFilterSolutions.Text" xml:space="preserve">
-    <value>Ergebnisse behalten:</value>
-  </data>
-  <data name="gbSolutionFiltering.Text" xml:space="preserve">
-    <value>Zusätzliche Daten</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
-    <value>Palette</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Erzeuge neue Umverpackungs Analyse…</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>596, 265</value>
   </data>
 </root>

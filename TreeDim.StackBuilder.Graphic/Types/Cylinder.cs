@@ -50,6 +50,14 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public properties
+        public double Diameter
+        {
+            get { return 2.0 * _radius; }
+        }
+        public double Height
+        {
+            get { return _height; }
+        }
         public Vector3D Position
         {
             get { return _position; }

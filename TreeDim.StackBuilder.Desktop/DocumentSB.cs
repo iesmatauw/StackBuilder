@@ -664,6 +664,8 @@ namespace TreeDim.StackBuilder.Desktop
                 caseAnalysis.Description = form.CaseAnalysisDescription;
                 // selected box
                 caseAnalysis.BoxProperties = form.SelectedBox;
+                // pallet solutions
+                caseAnalysis.PalletSolutionsList = form.PalletSolutionList;
                 // constraint set
                 BoxCasePalletConstraintSet constraintSet = caseAnalysis.ConstraintSet;
                 // aligned / alternate layers

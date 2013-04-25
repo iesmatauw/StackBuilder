@@ -454,6 +454,7 @@ namespace TreeDim.StackBuilder.Desktop
                 reporter.BuildAnalysisReport(
                     new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
+                        , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
                         , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                         , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                         )
@@ -482,6 +483,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // build report
                 ReportData reportObject = new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
+                        , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
                         , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                         , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                         );

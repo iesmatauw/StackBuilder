@@ -62,6 +62,7 @@
         </table>
         <xsl:apply-templates select="caseAnalysis"/>
         <xsl:apply-templates select="palletAnalysis"/>
+        <xsl:apply-templates select="cylinderPalletAnalysis"/>
         <xsl:apply-templates select="truckAnalysis"/>
         <xsl:apply-templates select="ectAnalysis"/>
       </body>
@@ -85,6 +86,14 @@
     <xsl:apply-templates select="constraintSet"/>
     <xsl:apply-templates select="caseOptimConstraintSet"/>
     <xsl:apply-templates select="palletSolution"/>
+  </xsl:template>
+  <xsl:template match="cylinderAnalysis">
+    <h2 style="font-family:arial;color:red;">Cylinder analysis</h2>
+    <xsl:apply-templates select="cylinder"/>
+    <xsl:apply-templates select="pallet"/>
+    <xsl:apply-templates select="interlayer"/>
+    <xsl:apply-templates select="cylinderPalletConstraintSet"/>
+    <xsl:apply-templates select="cylinderPalletSolution"/>
   </xsl:template>
   <xsl:template match="truckAnalysis">
     <h2 style="font-family:arial;color:red;">Analyse chargement camion</h2>
@@ -185,7 +194,56 @@
         </td>
       </tr>
     </table>
-  </xsl:template>  
+  </xsl:template>
+  <!--#### CYLINDER ####-->
+  <xsl:template match="cylinder">
+    <h3 style="font-family:arial;color:blue;">Cylinder</h3>
+    <table class="style3" cellpadding="4">
+      <tr>
+        <td class="style2" colspan="1">
+          <b>Nom</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="name"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>Description</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="description"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>Rayon (mm)</b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="width"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>Hauteur (mm)</b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="height"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>Poid (kg)</b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="weight"/>
+        </td>
+        <td colspan="2">
+          <xsl:apply-templates select="view_cylinder_iso"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
   <!--#### CASE WITH INNER DIMS #### -->
   <xsl:template match="caseWithInnerDims">
     <h3 style="font-family:arial;color:blue;">Caisse</h3>
@@ -714,6 +772,37 @@
       </xsl:apply-templates>
     </table>
   </xsl:template>
+  <!-- #### CYLINDER PALLET CONSTRAINT SET #### -->
+  <xsl:template match="cylinderPalletConstraintSet">
+    <h3 style="font-family:arial;color:blue;">Constraint set</h3>
+    <table class="style1">
+      <tr>
+        <td class="style2" width="20%">
+          <b>Débord palette (mm)</b>
+        </td>
+        <td class="style2">
+          <b>X</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="overhangX"/>
+        </td>
+        <td class="style2">
+          <b>Y</b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="overhangY"/>
+        </td>
+      </tr>
+      <xsl:apply-templates select="maximumPalletWeightGroup">
+      </xsl:apply-templates>
+      <xsl:apply-templates select="maximumPalletHeightGroup">
+      </xsl:apply-templates>
+      <xsl:apply-templates select="maximumNumberOfItemsGroup">
+      </xsl:apply-templates>
+      <xsl:apply-templates select="admissibleLoadOnTopGroup">
+      </xsl:apply-templates>
+    </table>
+  </xsl:template>
   <!--#### CASE OPTIM CONSTRAINT SET ####-->
   <xsl:template match="caseOptimConstraintSet">
     <h3 style="font-family:arial;color:blue;">Contraintes optimisation de caisse</h3>
@@ -876,6 +965,75 @@
       <xsl:apply-templates select="layer"/>
     </table>
   </xsl:template>
+  <!-- #### CYLINDER PALLET SOLUTION #### -->
+  <xsl:template match="cylinderPaletSolution">
+    <h3 style="font-family:arial;color:blue;">Selected solution</h3>
+    <table class="style1">
+      <tr>
+        <td class="style2">
+          <b>Titre</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="title"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>Nombre de cylindres</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="cylinderCount"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>Poid palette (kg)</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="palletWeight"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>Hauteur palette (mm)</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="palletHeight"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>Efficacité (%)</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="efficiency"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <xsl:apply-templates select="view_palletsolution_front"/>
+        </td>
+        <td>
+          <xsl:apply-templates select="view_palletsolution_left"/>
+        </td>
+        <td>
+          <xsl:apply-templates select="view_palletsolution_right"/>
+        </td>
+        <td>
+          <xsl:apply-templates select="view_palletsolution_back"/>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <xsl:apply-templates select="view_palletsolution_iso"/>
+        </td>
+      </tr>
+    </table>
+    <h3 style="font-family:arial;color:blue;">Couche</h3>
+    <table class="style1">
+      <xsl:apply-templates select="layer"/>
+    </table>
+  </xsl:template>
   <!--#### CASE SOLUTION ####-->
   <xsl:template match="caseSolution">
     <h3 style="font-family:arial;color:blue;">Remplissage caisse</h3>
@@ -948,6 +1106,10 @@
   <!--CASE-->
   <xsl:template match="view_case_iso">
     <img src="images\view_case_iso.gif" width="150" height="150" align="middle"/>
+  </xsl:template>
+  <!--CYLINDER-->
+  <xsl:template match="view_cylinder_iso">
+    <img src="images\view_cylinder_iso.gif" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--BOX-->
   <xsl:template match="view_box_iso">

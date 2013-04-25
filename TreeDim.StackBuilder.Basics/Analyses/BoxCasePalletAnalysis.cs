@@ -64,6 +64,7 @@ namespace TreeDim.StackBuilder.Basics
         public List<PalletSolutionDesc> PalletSolutionsList
         {
             get { return _palletSolutionsList; }
+            set { _palletSolutionsList = value; }
         }
         public PalletSolutionDesc GetPalletSolutionDescByGuid(Guid guid)
         {

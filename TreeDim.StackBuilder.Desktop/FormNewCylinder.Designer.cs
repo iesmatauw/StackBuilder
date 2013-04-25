@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewCylinder));
             this.bnCancel = new System.Windows.Forms.Button();
             this.bnOK = new System.Windows.Forms.Button();
             this.tbDescription = new System.Windows.Forms.TextBox();
@@ -67,65 +68,39 @@
             // 
             // bnCancel
             // 
-            this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bnCancel.Location = new System.Drawing.Point(497, 38);
             this.bnCancel.Name = "bnCancel";
-            this.bnCancel.Size = new System.Drawing.Size(75, 23);
-            this.bnCancel.TabIndex = 11;
-            this.bnCancel.Text = "Cancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // bnOK
             // 
-            this.bnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bnOK.Location = new System.Drawing.Point(497, 12);
             this.bnOK.Name = "bnOK";
-            this.bnOK.Size = new System.Drawing.Size(75, 23);
-            this.bnOK.TabIndex = 10;
-            this.bnOK.Text = "OK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // tbDescription
             // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDescription.Location = new System.Drawing.Point(92, 38);
+            resources.ApplyResources(this.tbDescription, "tbDescription");
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(399, 20);
-            this.tbDescription.TabIndex = 15;
             this.tbDescription.TextChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(92, 12);
+            resources.ApplyResources(this.tbName, "tbName");
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(143, 20);
-            this.tbName.TabIndex = 13;
             this.tbName.TextChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
             // lblDescription
             // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblDescription.Location = new System.Drawing.Point(14, 38);
+            resources.ApplyResources(this.lblDescription, "lblDescription");
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(60, 13);
-            this.lblDescription.TabIndex = 14;
-            this.lblDescription.Text = "Description";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblName.Location = new System.Drawing.Point(14, 9);
+            resources.ApplyResources(this.lblName, "lblName");
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Name";
             // 
             // gbDimensions
             // 
@@ -135,37 +110,24 @@
             this.gbDimensions.Controls.Add(this.nudHeight);
             this.gbDimensions.Controls.Add(this.lbHeight);
             this.gbDimensions.Controls.Add(this.lbLength);
-            this.gbDimensions.Location = new System.Drawing.Point(8, 64);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
-            this.gbDimensions.Size = new System.Drawing.Size(354, 70);
-            this.gbDimensions.TabIndex = 16;
             this.gbDimensions.TabStop = false;
-            this.gbDimensions.Text = "Dimentions";
             // 
             // lbUnitHeight
             // 
-            this.lbUnitHeight.AutoSize = true;
-            this.lbUnitHeight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbUnitHeight.Location = new System.Drawing.Point(150, 44);
+            resources.ApplyResources(this.lbUnitHeight, "lbUnitHeight");
             this.lbUnitHeight.Name = "lbUnitHeight";
-            this.lbUnitHeight.Size = new System.Drawing.Size(23, 13);
-            this.lbUnitHeight.TabIndex = 13;
-            this.lbUnitHeight.Text = "mm";
             // 
             // lbUnitRadius
             // 
-            this.lbUnitRadius.AutoSize = true;
-            this.lbUnitRadius.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbUnitRadius.Location = new System.Drawing.Point(150, 18);
+            resources.ApplyResources(this.lbUnitRadius, "lbUnitRadius");
             this.lbUnitRadius.Name = "lbUnitRadius";
-            this.lbUnitRadius.Size = new System.Drawing.Size(23, 13);
-            this.lbUnitRadius.TabIndex = 3;
-            this.lbUnitRadius.Text = "mm";
             // 
             // nudRadius
             // 
             this.nudRadius.DecimalPlaces = 1;
-            this.nudRadius.Location = new System.Drawing.Point(84, 16);
+            resources.ApplyResources(this.nudRadius, "nudRadius");
             this.nudRadius.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -177,8 +139,6 @@
             0,
             0});
             this.nudRadius.Name = "nudRadius";
-            this.nudRadius.Size = new System.Drawing.Size(60, 20);
-            this.nudRadius.TabIndex = 2;
             this.nudRadius.Value = new decimal(new int[] {
             1,
             0,
@@ -189,7 +149,7 @@
             // nudHeight
             // 
             this.nudHeight.DecimalPlaces = 1;
-            this.nudHeight.Location = new System.Drawing.Point(84, 44);
+            resources.ApplyResources(this.nudHeight, "nudHeight");
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -201,8 +161,6 @@
             0,
             0});
             this.nudHeight.Name = "nudHeight";
-            this.nudHeight.Size = new System.Drawing.Size(60, 20);
-            this.nudHeight.TabIndex = 12;
             this.nudHeight.Value = new decimal(new int[] {
             1,
             0,
@@ -212,113 +170,73 @@
             // 
             // lbHeight
             // 
-            this.lbHeight.AutoSize = true;
-            this.lbHeight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbHeight.Location = new System.Drawing.Point(6, 44);
+            resources.ApplyResources(this.lbHeight, "lbHeight");
             this.lbHeight.Name = "lbHeight";
-            this.lbHeight.Size = new System.Drawing.Size(38, 13);
-            this.lbHeight.TabIndex = 11;
-            this.lbHeight.Text = "Height";
             // 
             // lbLength
             // 
-            this.lbLength.AutoSize = true;
-            this.lbLength.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbLength.Location = new System.Drawing.Point(6, 18);
+            resources.ApplyResources(this.lbLength, "lbLength");
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(40, 13);
-            this.lbLength.TabIndex = 1;
-            this.lbLength.Text = "Radius";
             // 
             // gbWeight
             // 
             this.gbWeight.Controls.Add(this.lbUnitWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
-            this.gbWeight.Location = new System.Drawing.Point(8, 295);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
-            this.gbWeight.Size = new System.Drawing.Size(354, 78);
-            this.gbWeight.TabIndex = 17;
             this.gbWeight.TabStop = false;
-            this.gbWeight.Text = "Weight";
             // 
             // lbUnitWeight
             // 
-            this.lbUnitWeight.AutoSize = true;
-            this.lbUnitWeight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbUnitWeight.Location = new System.Drawing.Point(315, 24);
+            resources.ApplyResources(this.lbUnitWeight, "lbUnitWeight");
             this.lbUnitWeight.Name = "lbUnitWeight";
-            this.lbUnitWeight.Size = new System.Drawing.Size(19, 13);
-            this.lbUnitWeight.TabIndex = 2;
-            this.lbUnitWeight.Text = "kg";
             // 
             // nudWeight
             // 
             this.nudWeight.DecimalPlaces = 3;
-            this.nudWeight.Location = new System.Drawing.Point(249, 20);
+            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudWeight.Name = "nudWeight";
-            this.nudWeight.Size = new System.Drawing.Size(60, 20);
-            this.nudWeight.TabIndex = 1;
             // 
             // lbWeight
             // 
-            this.lbWeight.AutoSize = true;
-            this.lbWeight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbWeight.Location = new System.Drawing.Point(10, 24);
+            resources.ApplyResources(this.lbWeight, "lbWeight");
             this.lbWeight.Name = "lbWeight";
-            this.lbWeight.Size = new System.Drawing.Size(41, 13);
-            this.lbWeight.TabIndex = 0;
-            this.lbWeight.Text = "Weight";
             // 
             // trackBarHorizAngle
             // 
-            this.trackBarHorizAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarHorizAngle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
             this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Location = new System.Drawing.Point(368, 328);
             this.trackBarHorizAngle.Maximum = 360;
             this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.Size = new System.Drawing.Size(210, 45);
-            this.trackBarHorizAngle.TabIndex = 20;
             this.trackBarHorizAngle.TickFrequency = 90;
             this.trackBarHorizAngle.Value = 225;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // pictureBox
             // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox.Location = new System.Drawing.Point(368, 67);
+            resources.ApplyResources(this.pictureBox, "pictureBox");
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(210, 255);
-            this.pictureBox.TabIndex = 21;
             this.pictureBox.TabStop = false;
             // 
             // statusStripDef
             // 
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            this.statusStripDef.Location = new System.Drawing.Point(0, 382);
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
-            this.statusStripDef.Size = new System.Drawing.Size(584, 22);
             this.statusStripDef.SizingGrip = false;
-            this.statusStripDef.TabIndex = 22;
-            this.statusStripDef.Text = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            this.toolStripStatusLabelDef.Size = new System.Drawing.Size(130, 17);
-            this.toolStripStatusLabelDef.Text = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbFaceColor
             // 
@@ -326,12 +244,9 @@
             this.gbFaceColor.Controls.Add(this.lbWallColor);
             this.gbFaceColor.Controls.Add(this.cbColorTop);
             this.gbFaceColor.Controls.Add(this.lbTop);
-            this.gbFaceColor.Location = new System.Drawing.Point(8, 140);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
-            this.gbFaceColor.Size = new System.Drawing.Size(354, 67);
-            this.gbFaceColor.TabIndex = 23;
             this.gbFaceColor.TabStop = false;
-            this.gbFaceColor.Text = "Face color";
             // 
             // cbColorWall
             // 
@@ -340,86 +255,83 @@
             this.cbColorWall.DropDownHeight = 1;
             this.cbColorWall.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorWall.DropDownWidth = 1;
-            this.cbColorWall.IntegralHeight = false;
-            this.cbColorWall.ItemHeight = 16;
+            resources.ApplyResources(this.cbColorWall, "cbColorWall");
             this.cbColorWall.Items.AddRange(new object[] {
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Farbe"});
-            this.cbColorWall.Location = new System.Drawing.Point(84, 38);
+            resources.GetString("cbColorWall.Items"),
+            resources.GetString("cbColorWall.Items1"),
+            resources.GetString("cbColorWall.Items2"),
+            resources.GetString("cbColorWall.Items3"),
+            resources.GetString("cbColorWall.Items4"),
+            resources.GetString("cbColorWall.Items5"),
+            resources.GetString("cbColorWall.Items6"),
+            resources.GetString("cbColorWall.Items7"),
+            resources.GetString("cbColorWall.Items8"),
+            resources.GetString("cbColorWall.Items9"),
+            resources.GetString("cbColorWall.Items10"),
+            resources.GetString("cbColorWall.Items11"),
+            resources.GetString("cbColorWall.Items12"),
+            resources.GetString("cbColorWall.Items13"),
+            resources.GetString("cbColorWall.Items14"),
+            resources.GetString("cbColorWall.Items15"),
+            resources.GetString("cbColorWall.Items16"),
+            resources.GetString("cbColorWall.Items17"),
+            resources.GetString("cbColorWall.Items18"),
+            resources.GetString("cbColorWall.Items19"),
+            resources.GetString("cbColorWall.Items20"),
+            resources.GetString("cbColorWall.Items21"),
+            resources.GetString("cbColorWall.Items22"),
+            resources.GetString("cbColorWall.Items23"),
+            resources.GetString("cbColorWall.Items24"),
+            resources.GetString("cbColorWall.Items25"),
+            resources.GetString("cbColorWall.Items26"),
+            resources.GetString("cbColorWall.Items27"),
+            resources.GetString("cbColorWall.Items28"),
+            resources.GetString("cbColorWall.Items29"),
+            resources.GetString("cbColorWall.Items30"),
+            resources.GetString("cbColorWall.Items31"),
+            resources.GetString("cbColorWall.Items32"),
+            resources.GetString("cbColorWall.Items33"),
+            resources.GetString("cbColorWall.Items34"),
+            resources.GetString("cbColorWall.Items35"),
+            resources.GetString("cbColorWall.Items36"),
+            resources.GetString("cbColorWall.Items37"),
+            resources.GetString("cbColorWall.Items38"),
+            resources.GetString("cbColorWall.Items39"),
+            resources.GetString("cbColorWall.Items40"),
+            resources.GetString("cbColorWall.Items41"),
+            resources.GetString("cbColorWall.Items42"),
+            resources.GetString("cbColorWall.Items43"),
+            resources.GetString("cbColorWall.Items44"),
+            resources.GetString("cbColorWall.Items45"),
+            resources.GetString("cbColorWall.Items46"),
+            resources.GetString("cbColorWall.Items47"),
+            resources.GetString("cbColorWall.Items48"),
+            resources.GetString("cbColorWall.Items49"),
+            resources.GetString("cbColorWall.Items50"),
+            resources.GetString("cbColorWall.Items51"),
+            resources.GetString("cbColorWall.Items52"),
+            resources.GetString("cbColorWall.Items53"),
+            resources.GetString("cbColorWall.Items54"),
+            resources.GetString("cbColorWall.Items55"),
+            resources.GetString("cbColorWall.Items56"),
+            resources.GetString("cbColorWall.Items57"),
+            resources.GetString("cbColorWall.Items58"),
+            resources.GetString("cbColorWall.Items59"),
+            resources.GetString("cbColorWall.Items60"),
+            resources.GetString("cbColorWall.Items61"),
+            resources.GetString("cbColorWall.Items62"),
+            resources.GetString("cbColorWall.Items63"),
+            resources.GetString("cbColorWall.Items64"),
+            resources.GetString("cbColorWall.Items65"),
+            resources.GetString("cbColorWall.Items66"),
+            resources.GetString("cbColorWall.Items67")});
             this.cbColorWall.Name = "cbColorWall";
-            this.cbColorWall.Size = new System.Drawing.Size(75, 22);
-            this.cbColorWall.TabIndex = 6;
             this.cbColorWall.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
             // lbWallColor
             // 
-            this.lbWallColor.AutoSize = true;
-            this.lbWallColor.Location = new System.Drawing.Point(8, 41);
+            resources.ApplyResources(this.lbWallColor, "lbWallColor");
             this.lbWallColor.Name = "lbWallColor";
-            this.lbWallColor.Size = new System.Drawing.Size(54, 13);
-            this.lbWallColor.TabIndex = 5;
-            this.lbWallColor.Text = "Wall color";
             // 
             // cbColorTop
             // 
@@ -428,92 +340,87 @@
             this.cbColorTop.DropDownHeight = 1;
             this.cbColorTop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorTop.DropDownWidth = 1;
-            this.cbColorTop.IntegralHeight = false;
-            this.cbColorTop.ItemHeight = 16;
+            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Items.AddRange(new object[] {
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Color",
-            "Farbe"});
-            this.cbColorTop.Location = new System.Drawing.Point(84, 13);
+            resources.GetString("cbColorTop.Items"),
+            resources.GetString("cbColorTop.Items1"),
+            resources.GetString("cbColorTop.Items2"),
+            resources.GetString("cbColorTop.Items3"),
+            resources.GetString("cbColorTop.Items4"),
+            resources.GetString("cbColorTop.Items5"),
+            resources.GetString("cbColorTop.Items6"),
+            resources.GetString("cbColorTop.Items7"),
+            resources.GetString("cbColorTop.Items8"),
+            resources.GetString("cbColorTop.Items9"),
+            resources.GetString("cbColorTop.Items10"),
+            resources.GetString("cbColorTop.Items11"),
+            resources.GetString("cbColorTop.Items12"),
+            resources.GetString("cbColorTop.Items13"),
+            resources.GetString("cbColorTop.Items14"),
+            resources.GetString("cbColorTop.Items15"),
+            resources.GetString("cbColorTop.Items16"),
+            resources.GetString("cbColorTop.Items17"),
+            resources.GetString("cbColorTop.Items18"),
+            resources.GetString("cbColorTop.Items19"),
+            resources.GetString("cbColorTop.Items20"),
+            resources.GetString("cbColorTop.Items21"),
+            resources.GetString("cbColorTop.Items22"),
+            resources.GetString("cbColorTop.Items23"),
+            resources.GetString("cbColorTop.Items24"),
+            resources.GetString("cbColorTop.Items25"),
+            resources.GetString("cbColorTop.Items26"),
+            resources.GetString("cbColorTop.Items27"),
+            resources.GetString("cbColorTop.Items28"),
+            resources.GetString("cbColorTop.Items29"),
+            resources.GetString("cbColorTop.Items30"),
+            resources.GetString("cbColorTop.Items31"),
+            resources.GetString("cbColorTop.Items32"),
+            resources.GetString("cbColorTop.Items33"),
+            resources.GetString("cbColorTop.Items34"),
+            resources.GetString("cbColorTop.Items35"),
+            resources.GetString("cbColorTop.Items36"),
+            resources.GetString("cbColorTop.Items37"),
+            resources.GetString("cbColorTop.Items38"),
+            resources.GetString("cbColorTop.Items39"),
+            resources.GetString("cbColorTop.Items40"),
+            resources.GetString("cbColorTop.Items41"),
+            resources.GetString("cbColorTop.Items42"),
+            resources.GetString("cbColorTop.Items43"),
+            resources.GetString("cbColorTop.Items44"),
+            resources.GetString("cbColorTop.Items45"),
+            resources.GetString("cbColorTop.Items46"),
+            resources.GetString("cbColorTop.Items47"),
+            resources.GetString("cbColorTop.Items48"),
+            resources.GetString("cbColorTop.Items49"),
+            resources.GetString("cbColorTop.Items50"),
+            resources.GetString("cbColorTop.Items51"),
+            resources.GetString("cbColorTop.Items52"),
+            resources.GetString("cbColorTop.Items53"),
+            resources.GetString("cbColorTop.Items54"),
+            resources.GetString("cbColorTop.Items55"),
+            resources.GetString("cbColorTop.Items56"),
+            resources.GetString("cbColorTop.Items57"),
+            resources.GetString("cbColorTop.Items58"),
+            resources.GetString("cbColorTop.Items59"),
+            resources.GetString("cbColorTop.Items60"),
+            resources.GetString("cbColorTop.Items61"),
+            resources.GetString("cbColorTop.Items62"),
+            resources.GetString("cbColorTop.Items63"),
+            resources.GetString("cbColorTop.Items64"),
+            resources.GetString("cbColorTop.Items65"),
+            resources.GetString("cbColorTop.Items66")});
             this.cbColorTop.Name = "cbColorTop";
-            this.cbColorTop.Size = new System.Drawing.Size(75, 22);
-            this.cbColorTop.TabIndex = 2;
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
             // lbTop
             // 
-            this.lbTop.AutoSize = true;
-            this.lbTop.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbTop.Location = new System.Drawing.Point(6, 16);
+            resources.ApplyResources(this.lbTop, "lbTop");
             this.lbTop.Name = "lbTop";
-            this.lbTop.Size = new System.Drawing.Size(52, 13);
-            this.lbTop.TabIndex = 0;
-            this.lbTop.Text = "Top color";
             // 
             // FormNewCylinder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 404);
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.trackBarHorizAngle);
@@ -531,7 +438,6 @@
             this.Name = "FormNewCylinder";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Define a new cylinder...";
             this.gbDimensions.ResumeLayout(false);
             this.gbDimensions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRadius)).EndInit();

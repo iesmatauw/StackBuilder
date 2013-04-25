@@ -1,0 +1,6 @@
+copy "ReportTemplateHtml_ENU.xsl" "ReportTemplateHtml_ESP.xsl"
+copy "ReportTemplateHtml_ENU.xsl" "ReportTemplateHtml_CAT.xsl"
+copy "ReportTemplateHtml_ENU.xsl" "ReportTemplateHtml_JPN.xsl"
+copy "ReportTemplateMSWord_ENU.xml" "ReportTemplateMSWord_ESP.xml"
+copy "ReportTemplateMSWord_ENU.xml" "ReportTemplateMSWord_CAT.xml"
+copy "ReportTemplateMSWord_ENU.xml" "ReportTemplateMSWord_JPN.xml"

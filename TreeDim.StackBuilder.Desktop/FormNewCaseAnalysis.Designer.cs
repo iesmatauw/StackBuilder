@@ -400,6 +400,7 @@
             this.cbPalletDimensions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalletDimensions.FormattingEnabled = true;
             this.cbPalletDimensions.Name = "cbPalletDimensions";
+            this.cbPalletDimensions.SelectedIndexChanged += new System.EventHandler(this.cbPalletDimensions_SelectedIndexChanged);
             // 
             // FormNewCaseAnalysis
             // 

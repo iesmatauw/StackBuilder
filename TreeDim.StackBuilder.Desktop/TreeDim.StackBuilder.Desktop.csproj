@@ -429,6 +429,9 @@
     <EmbeddedResource Include="DockContentBoxCasePalletAnalysis.resx">
       <DependentUpon>DockContentBoxCasePalletAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentCylinderPalletAnalysis.fr-FR.resx">
+      <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentCylinderPalletAnalysis.resx">
       <DependentUpon>DockContentCylinderPalletAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -613,6 +616,9 @@
       <DependentUpon>FormNewAnalysisBundle.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinder.fr-FR.resx">
+      <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisCylinder.resx">
       <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,6 +698,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCaseOfBoxes.resx">
       <DependentUpon>FormNewCaseOfBoxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.fr-FR.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewCylinder.resx">
       <DependentUpon>FormNewCylinder.cs</DependentUpon>

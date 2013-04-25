@@ -229,6 +229,15 @@ namespace TreeDim.StackBuilder.Desktop
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.COLLADAWEBGL, new EventHandler(onAnalysisExportCollada)));
                 }
             }
+            else if (nodeTag.Type == NodeTag.NodeType.NT_CYLINDERPALLETANALYSISSOLUTION)
+            {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelCylinderPalletSolution.Solution.Title)
+                    , AnalysisTreeView.DELETE, new EventHandler(onUnselectCylinderPalletAnalysisSolution)));
+                string message = string.Format(Resources.ID_GENERATEREPORTHTML, nodeTag.SelCylinderPalletSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
+                message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelCylinderPalletSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
+            }
             else if (nodeTag.Type == NodeTag.NodeType.NT_BOXCASEANALYSISSOLUTION)
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(string.Format(Resources.ID_UNSELECTSOLUTION, nodeTag.SelBoxCaseSolution.Solution.Title), AnalysisTreeView.DELETE, new EventHandler(onUnselectBoxCaseAnalysisSolution)));
@@ -581,6 +590,15 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
+        private void onUnselectCylinderPalletAnalysisSolution(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                tag.CylinderPalletAnalysis.UnSelectSolution(tag.SelCylinderPalletSolution);
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
         private void onUnselectBoxCaseAnalysisSolution(object sender, EventArgs e)
         {
             try
@@ -923,6 +941,10 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, indexIconPalletAnalysis, indexIconPalletAnalysis);
             subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
             nodeAnalysis.Nodes.Add(subPalletNode);
+            nodeAnalysis.Expand();
+            // add event handlers for solution selection
+            analysis.SolutionSelected += new Basics.CylinderPalletAnalysis.SelectSolution(onCylinderAnalysisSolutionSelected);
+            analysis.SolutionSelectionRemoved += new Basics.CylinderPalletAnalysis.SelectSolution(onCylinderPalletSolutionSelectionRemoved);
         }
         /// <summary>
         /// handles new box case analysis creation
@@ -1187,6 +1209,20 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Expand();
         }
 
+        private void onCylinderAnalysisSolutionSelected(CylinderPalletAnalysis analysis, SelCylinderPalletSolution selSolution)
+        { 
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis));
+            // inserted selected solution node
+            TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 12, 12);
+            nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSISSOLUTION, doc, analysis, selSolution);
+            parentNode.Nodes.Add(nodeSelSolution);
+            // expand tree nodes
+            parentNode.Expand();
+        }
+
         private void onBoxCaseAnalysisSolutionSelected(BoxCaseAnalysis analysis, SelBoxCaseSolution selSolution)
         {
             // retrieve parent document
@@ -1200,13 +1236,27 @@ namespace TreeDim.StackBuilder.Desktop
             // expand tree nodes
             parentNode.Expand();
         }
-
         private void onPalletAnalysisSolutionSelectionRemoved(CasePalletAnalysis analysis, SelCasePalletSolution selSolution)
         {
             // retrieve parent document
             Document doc = analysis.ParentDocument;
             // get node
             TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION, doc, analysis, selSolution));
+            // test
+            if (null == selSolutionNode)
+            {
+                _log.Error(string.Format("Failed to find a valid tree node for selSolution {0}", selSolution.Name));
+                return;
+            }
+            // remove node
+            Nodes.Remove(selSolutionNode);
+        }
+        private void onCylinderPalletSolutionSelectionRemoved(CylinderPalletAnalysis analysis, SelCylinderPalletSolution selSolution)
+        { 
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get node
+            TreeNode selSolutionNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSISSOLUTION, doc, analysis, selSolution));
             // test
             if (null == selSolutionNode)
             {
@@ -1343,6 +1393,10 @@ namespace TreeDim.StackBuilder.Desktop
             /// analysis solution
             /// </summary>
             NT_CASEPALLETANALYSISSOLUTION,
+            /// <summary>
+            /// cylinder pallet analysis solution
+            /// </summary>
+            NT_CYLINDERPALLETANALYSISSOLUTION,
             /// <summary>
             /// analysis report
             /// </summary>

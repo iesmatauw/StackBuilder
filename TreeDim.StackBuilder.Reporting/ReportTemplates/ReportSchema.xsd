@@ -364,6 +364,106 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="cylinderPalletAnalysis" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="pallet" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="admissibleLoad" type="xs:string" />
+                    <xs:element name="type" type="xs:string"/>
+                    <xs:element name="view_pallet_iso" type="xs:string">
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="cylinder" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="radius" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_cylinder_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="constraintSet" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="overhangX" type="xs:string"/>
+                    <xs:element name="overhangY" type="xs:string"/>
+                    <xs:element name="maximumPalletWeightGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumPalletWeight" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumPalletHeightGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumPalletHeight" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="maximumNumberOfItemsGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="maximumNumberOfItems" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="admissibleLoadOnTopGroup" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="admissibleLoadOnTop" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="palletSolution" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="efficiency" type="xs:string"/>
+                    <xs:element name="cylinderCount" type="xs:string"/>
+                    <xs:element name="interlayerCount" type="xs:string"/>
+                    <xs:element name="palletWeight" type="xs:string"/>
+                    <xs:element name="palletHeight" type="xs:string"/>
+                    <xs:element name="cylinderCount" type="xs:string"/>
+                    <xs:element name="layerCount" type="xs:string"/>
+                    <xs:element name="view_palletsolution_front" type="xs:string"/>
+                    <xs:element name="view_palletsolution_left" type="xs:string"/>
+                    <xs:element name="view_palletsolution_right" type="xs:string"/>
+                    <xs:element name="view_palletsolution_back" type="xs:string"/>
+                    <xs:element name="view_palletsolution_iso" type="xs:string"/>
+                    <xs:element name="layer" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="layerId" type="xs:string"/>
+                          <xs:element name="layerImage" type="xs:string"/>
+                          <xs:element name="layerCylinderCount" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>                
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="truckAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>

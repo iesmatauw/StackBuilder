@@ -688,7 +688,7 @@
     <value>4</value>
   </data>
   <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimentions</value>
+    <value>Dimensions</value>
   </data>
   <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
     <value>gbDimensions</value>
@@ -919,6 +919,9 @@
     <value>Color</value>
   </data>
   <data name="cbColor.Items57" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items58" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
@@ -934,7 +937,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4847.15712, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4863.31688, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1477,6 +1480,9 @@
     <value>Color</value>
   </data>
   <data name="cbTapeColor.Items58" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items59" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
@@ -1492,7 +1498,7 @@
     <value>cbTapeColor</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4847.15712, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4863.31688, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
     <value>gbTape</value>

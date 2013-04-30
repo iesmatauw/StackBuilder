@@ -115,7 +115,6 @@
             // 
             // dockPanel
             // 
-            this.dockPanel.ActiveAutoHideContent = null;
             resources.ApplyResources(this.dockPanel, "dockPanel");
             this.dockPanel.DockBackColor = System.Drawing.SystemColors.Control;
             this.dockPanel.Name = "dockPanel";

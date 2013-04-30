@@ -4,7 +4,7 @@
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
 	<Bundle
     Name="StackBuilder"
-    Version="1.0.14.0"
+    Version="1.0.15.0"
     Manufacturer="treeDiM"
     UpgradeCode="3b6ab985-d566-4400-93c3-7a17e720eebf"
     IconSourceFile="StackBuilder.ico">

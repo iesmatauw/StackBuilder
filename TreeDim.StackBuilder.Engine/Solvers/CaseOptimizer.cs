@@ -84,10 +84,15 @@ namespace TreeDim.StackBuilder.Engine
             foreach (CaseDefinition caseDefinition in CaseDefinitions(iNumber))
             {
                 Vector3D outerDimensions = caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
-                BoxProperties bProperties = new BoxProperties(null, outerDimensions.X, outerDimensions.Y, outerDimensions.Z);
-
+                BoxProperties bProperties = new BoxProperties(_palletProperties.ParentDocument, outerDimensions.X, outerDimensions.Y, outerDimensions.Z);
+                // build analysis
+                CasePalletAnalysis casePalletAnalysis = new CasePalletAnalysis(bProperties, _palletProperties, null, _palletConstraintSet);
+                // instantiate solver
                 CasePalletSolver solver = new CasePalletSolver();
-                List<CasePalletSolution> palletSolutions = solver.Process(bProperties, _palletProperties, null, _palletConstraintSet);
+                // solve
+                solver.ProcessAnalysis(casePalletAnalysis);
+                // get list of pallet solutions
+                List<CasePalletSolution> palletSolutions = casePalletAnalysis.Solutions;
                 if (palletSolutions.Count > 0)
                 {
                     int maxCaseCount = palletSolutions[0].CaseCount;

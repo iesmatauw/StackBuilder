@@ -508,4 +508,7 @@ Continue?</value>
   <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
     <value>No pallet solution selected</value>
   </data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Maximal pallet height ({0} mm) ought to exceed {1} mm</value>
+  </data>
 </root>

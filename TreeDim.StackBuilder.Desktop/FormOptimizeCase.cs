@@ -167,7 +167,8 @@ namespace TreeDim.StackBuilder.Desktop
                 message = string.Format(Resources.ID_MAXLOWERTHANMIN, Resources.ID_HEIGHT, Resources.ID_HEIGHT);
             else if (maxVol < BoxPerCase * SelectedBox.Volume)
                 message = string.Format(Resources.ID_INSUFFICIENTVOLUME, BoxPerCase, SelectedBox.Name);
-
+            else if ((double)nudPalletHeight.Value < MinHeight + SelectedPallet.Height)
+                message = string.Format(Resources.ID_INSUFFICIENTPALLETHEIGHT, (double)nudPalletHeight.Value, MinHeight + SelectedPallet.Height);
             // btOptimize
             btOptimize.Enabled = string.IsNullOrEmpty(message);
             // status bar

@@ -660,6 +660,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximal pallet height ({0} mm) ought to exceed {1} mm.
+        /// </summary>
+        internal static string ID_INSUFFICIENTPALLETHEIGHT {
+            get {
+                return ResourceManager.GetString("ID_INSUFFICIENTPALLETHEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum volume is insufficient to pack {0} {1} ..
         /// </summary>
         internal static string ID_INSUFFICIENTVOLUME {

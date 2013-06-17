@@ -506,10 +506,14 @@ namespace TreeDim.StackBuilder.Basics
                 for (int i = 1; i < this.Count; ++i)
                 {
                     BoxLayer thisLayer = this[i] as BoxLayer;
-                    totalWeight += thisLayer.Count * Analysis.BProperties.Weight;
+                    if (null != thisLayer) // do not count interlayers
+                        totalWeight += thisLayer.Count * Analysis.BProperties.Weight;
                 }
                 BoxLayer boxlayer = this[0] as BoxLayer;
-                return totalWeight / boxlayer.Count;
+                if (null != boxlayer) // we never know
+                    return totalWeight / boxlayer.Count;
+                else
+                    return 0.0;
             }
         }
         #endregion

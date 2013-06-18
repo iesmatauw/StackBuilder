@@ -6,10 +6,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+// Docking
 using WeifenLuo.WinFormsUI.Docking;
+// log4net
 using log4net;
-
 using Sharp3D.Math.Core;
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
@@ -404,7 +404,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString()); Program.ReportException(ex);
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
         #endregion

@@ -48,10 +48,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExceptionReporter\ExceptionReporter.WinForms.csproj">
-      <Project>{C49896A3-C0DA-45C4-B30E-4D17E548DBF6}</Project>
-      <Name>ExceptionReporter.WinForms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>TreeDim.StackBuilder.Basics</Name>

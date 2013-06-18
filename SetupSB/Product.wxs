@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is application version number, update for each release -->
-<?define Version = "1.0.16.0" ?>
+<?define Version = "1.0.17.0" ?>
 <!-- This is package upgade code, do not modify -->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
 <!-- Manufacturer -->
@@ -83,17 +83,16 @@
     <DirectoryRef Id="BIN">
       <Component Id="References" Guid="{F464B17D-D223-4c7a-BDDD-A0647B7D7430}">
         <File Id="log4net.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\log4net.dll" KeyPath="yes" Checksum="yes"/>
-        <File Id ="WeifenLuo.WinFormsUI.Docking.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes"/>
-        <File Id ="OfficePickers.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\OfficePickers.dll" Checksum="yes"/>
-        <File Id ="PropertyGridEx.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\PropertyGridEx.dll" Checksum="yes"/>
-        <File Id ="SourceGrid.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\SourceGrid.dll" Checksum="yes"/>
-        <File Id ="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
-        <File Id ="ExceptionReporter.Winforms.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\ExceptionReporter.Winforms.dll" Checksum="yes"/>
-        <File Id ="Win32Mapi.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Win32Mapi.dll" Checksum="yes"/>
+        <File Id="WeifenLuo.WinFormsUI.Docking.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes"/>
+        <File Id="OfficePickers.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\OfficePickers.dll" Checksum="yes"/>
+        <File Id="PropertyGridEx.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\PropertyGridEx.dll" Checksum="yes"/>
+        <File Id="SourceGrid.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\SourceGrid.dll" Checksum="yes"/>
+        <File Id="Sharp3D.Math.dll" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes"/>
         <File Id="OptionsLib.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\OptionsLib.dll" Checksum="yes"/>
         <File Id="MsgBoxCheck.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\MsgBoxCheck.dll" Checksum="yes"/>
         <File Id="CbtHook.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CbtHook.dll" Checksum="yes"/>
         <File Id="WindowsHook.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\WindowsHook.dll" Checksum="yes"/>
+        <File Id="CrashReporter.NET.dll" Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CrashReporter.NET.dll" Checksum="yes"/>
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Id="TreeDim.StackBuilder.Desktop.exe" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes"/>

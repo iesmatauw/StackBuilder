@@ -514,8 +514,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
-                Program.ReportException(ex);
+                _log.Error(ex.ToString());  Program.SendCrashReport(ex);
             }
         }
 
@@ -542,8 +541,7 @@ namespace TreeDim.StackBuilder.Desktop
                 }
                 catch (Exception ex)
                 {
-                    _log.Error(ex.ToString());
-                    Program.ReportException(ex);
+                    _log.Error(ex.ToString()); Program.SendCrashReport(ex);
                     return;
                 }
 
@@ -555,8 +553,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
-                Program.ReportException(ex);
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
 
@@ -571,8 +568,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
-                Program.ReportException(ex);
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
 
@@ -587,8 +583,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString());
-                Program.ReportException(ex);
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
         #endregion
@@ -707,8 +702,7 @@ namespace TreeDim.StackBuilder.Desktop
                 if (null != _mruManager)
                     _mruManager.Remove(filePath);
 
-                _log.Error(ex.ToString());
-                Program.ReportException(ex);
+                _log.Error(ex.ToString());   Program.SendCrashReport(ex);
             }
             UpdateFormUI();
         }
@@ -975,62 +969,62 @@ namespace TreeDim.StackBuilder.Desktop
         private void toolAddNewBox(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewBoxUI();    }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewCase(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewCaseUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBundle(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewBundleUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewCylinder(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewCylinderUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
          }
         private void toolAddNewInterlayer(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewInterlayerUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewPallet(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewTruck(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewTruckUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewCasePalletAnalysis(object sender, EventArgs e)
         {
             try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCasePalletAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBundlePalletAnalysis(object sender, EventArgs e)
         {
             try { CasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBundlePalletAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBoxCaseAnalysis(object sender, EventArgs e)
         {
             try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewCylinderPalletAnalysis(object sender, EventArgs e)
         {
             try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolAddNewBoxCasePalletOptimization(object sender, EventArgs e)
         {
             try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolEditPalletSolutionsDB(object sender, EventArgs e)
         {
@@ -1042,7 +1036,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // update toolbar state as database may now be empty
                 UpdateToolbarState();
             }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void toolStripButtonOptimiseCase_Click(object sender, EventArgs e)
         {
@@ -1052,7 +1046,7 @@ namespace TreeDim.StackBuilder.Desktop
                 FormOptimizeCase form = new FormOptimizeCase((DocumentSB)ActiveDocument);
                 form.ShowDialog();
             }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1062,7 +1056,7 @@ namespace TreeDim.StackBuilder.Desktop
                 FormOptionsSettings form = new FormOptionsSettings();
                 form.ShowDialog();
             }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
 
@@ -1092,7 +1086,6 @@ namespace TreeDim.StackBuilder.Desktop
                         return;
                     }
                 }
-
             // ---> not found
             // ---> create new form
             // get document
@@ -1100,7 +1093,6 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentCasePalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewCasePallet(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
         public void CreateOrActivateViewCylinderPalletAnalysis(CylinderPalletAnalysis analysis)
         {
             // ---> search among existing views
@@ -1116,7 +1108,6 @@ namespace TreeDim.StackBuilder.Desktop
                         return;
                     }
                 }
-
             // ---> not found
             // ---> create new form
             // get document
@@ -1124,7 +1115,6 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentCylinderPalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewCylinderPallet(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
         public void CreateOrActivateViewPalletAnalysisWithBox(CasePalletAnalysis analysis)
         {
             // ---> search among existing views
@@ -1140,7 +1130,6 @@ namespace TreeDim.StackBuilder.Desktop
                         return;
                     }
                 }
-
             // ---> not found
             // ---> create new form
             // get document
@@ -1223,7 +1212,6 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentBoxCasePalletAnalysis formCaseAnalysis = parentDocument.CreateCaseAnalysisView(caseAnalysis);
             formCaseAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
-
         public void CreateOrActivateViewBoxCaseAnalysis(BoxCaseAnalysis boxCaseAnalysis)
         { 
             // search among existing views
@@ -1309,7 +1297,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , "FormMain.html");
             }
             catch (Exception ex)
-            {   _log.Error(ex.ToString());  Program.ReportException(ex); }
+            { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1321,7 +1309,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , "Tutorial.html");
             }
             catch (Exception ex)
-            { _log.Error(ex.ToString()); Program.ReportException(ex); }
+            { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion
 

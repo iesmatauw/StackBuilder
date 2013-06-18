@@ -352,7 +352,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
             catch (Exception ex)
             {
-                _log.Error(ex.ToString()); Program.ReportException(ex);
+                _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
         #endregion

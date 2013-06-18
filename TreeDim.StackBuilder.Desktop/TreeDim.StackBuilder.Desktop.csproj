@@ -56,6 +56,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrashReporter.NET">
+      <HintPath>..\ThirdPartyAssemblies\CrashReporter.NET.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
@@ -780,6 +783,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.ja-JP.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
@@ -959,10 +963,6 @@
     <None Include="Resources\View_Top.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExceptionReporter\ExceptionReporter.WinForms.csproj">
-      <Project>{C49896A3-C0DA-45C4-B30E-4D17E548DBF6}</Project>
-      <Name>ExceptionReporter.WinForms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MsgBoxCheck\MsgBoxCheck.csproj">
       <Project>{43D66268-9336-4118-A30E-FC43CED0E62D}</Project>
       <Name>MsgBoxCheck</Name>

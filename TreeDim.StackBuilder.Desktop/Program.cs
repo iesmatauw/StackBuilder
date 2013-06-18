@@ -7,12 +7,11 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Resources;
-
+// CrashReporter.NET
+using CrashReporterDotNET;
 // log4net
 using log4net;
 using log4net.Config;
-// Exception reporter
-using ExceptionReporting;
 // treeDiM
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Desktop.Properties;
@@ -54,55 +53,49 @@ namespace TreeDim.StackBuilder.Desktop
 
             // note: arguments are handled within FormMain constructor
             // using Environment.GetCommandLineArgs()
-            try
+            // force CultureToUse culture if specified in config file
+            string specifiedCulture = TreeDim.StackBuilder.Desktop.Properties.Settings.Default.CultureToUse;
+            if (!string.IsNullOrEmpty(specifiedCulture))
             {
-				// force CultureToUse culture if specified in config file
-                string specifiedCulture = TreeDim.StackBuilder.Desktop.Properties.Settings.Default.CultureToUse;
-                if (!string.IsNullOrEmpty(specifiedCulture))
+                try
                 {
-                    try
-                    {
-                        Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(specifiedCulture);
-                        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(specifiedCulture);
-                    }
-                    catch (Exception ex)
-                    {
-                        _log.Error(string.Format("Specified culture in config file ({0}) appears to be invalid: {1}", specifiedCulture, ex.Message));
-                    }
+                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(specifiedCulture);
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(specifiedCulture);
                 }
-
-                // get current culture
-                _log.Info(string.Format("Starting {0} with user culture {1}", Application.ProductName, Thread.CurrentThread.CurrentUICulture));
-
-                // file association
-                RegisterFileType();
-
-                // initialize database with containing folder
-                PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
-
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);
-
-                // if this application does not need updating,
-                // show main form
-                Updater updater = new Updater();
-                if (!updater.Update())
-                    Application.Run(new FormMain());
-
-                _log.Info("Closing " + Application.ProductName);
+                catch (Exception ex)
+                {
+                    _log.Error(string.Format("Specified culture in config file ({0}) appears to be invalid: {1}", specifiedCulture, ex.Message));
+                }
             }
-            catch (Exception ex)
+
+            // get current culture
+            _log.Info(string.Format("Starting {0} with user culture {1}", Application.ProductName, Thread.CurrentThread.CurrentUICulture));
+
+            // file association
+            RegisterFileType();
+
+            // initialize database with containing folder
+            PalletSolutionDatabase.Directory = Settings.Default.PalletSolutionsPath;
+
+            // *** crash reporting
+            Application.ThreadException += (sender, threadargs) => SendCrashReport(threadargs.Exception);
+            AppDomain.CurrentDomain.UnhandledException += (sender, threadargs) =>
             {
-                _log.Error(ex.ToString());
-                Program.ReportException("Uncaught exception", ex);
-            }
-        }
+                SendCrashReport((Exception)threadargs.ExceptionObject);
+                Environment.Exit(0);
+            };
+            // *** crash reporting
 
-        static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        {
-            _log.Error(e.Exception.ToString());
-            Program.ReportException("Uncaught exception", e.Exception);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+ 
+            // if this application does not need updating,
+            // show main form
+            Updater updater = new Updater();
+            if (!updater.Update())
+                Application.Run(new FormMain());
+
+            _log.Info("Closing " + Application.ProductName);
         }
         #endregion
 
@@ -163,22 +156,22 @@ namespace TreeDim.StackBuilder.Desktop
 
         #region Exception reporting
         /// <summary>
-        /// Report an exception + custom message
-        /// </summary>
-        public static void ReportException(string customMessage, Exception exception)
-        {
-            ExceptionReporter reporter = new ExceptionReporter();
-            reporter.ReadConfig();
-            reporter.Show(customMessage, exception);
-        }
-        /// <summary>
         /// Report an exception
         /// </summary>
-        public static void ReportException(Exception exception)
-        { 
-            ExceptionReporter reporter = new ExceptionReporter();
-            reporter.ReadConfig();
-            reporter.Show(exception);        
+        public static void SendCrashReport(Exception exception)
+        {
+            var reportCrash = new ReportCrash
+            {
+                FromEmail = "treedim@gmail.com",
+                ToEmail = "treedim@gmail.com",
+                SmtpHost = "smtp.gmail.com",
+                Port = 587,
+                UserName = "treedim@gmail.com",
+                Password = "Knowledge_1",
+                EnableSSL = true,
+            };
+
+            reportCrash.Send(exception);
         }
         #endregion
 

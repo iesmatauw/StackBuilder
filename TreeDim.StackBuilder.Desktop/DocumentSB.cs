@@ -574,7 +574,7 @@ namespace TreeDim.StackBuilder.Desktop
                     // allow aligned / alternate layer
                     constraintSet.AllowAlternateLayers = form.AllowAlternateLayers;
                     constraintSet.AllowAlignedLayers = form.AllowAlignedLayers;
-                    // stop criterion
+                    // stop criterions
                     constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
                     constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
                     constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
@@ -602,6 +602,20 @@ namespace TreeDim.StackBuilder.Desktop
                 // analysis name / description
                 analysis.Name = form.AnalysisName;
                 analysis.Description = form.AnalysisDescription;
+                // constraint set
+                CylinderPalletConstraintSet constraintSet = analysis.ConstraintSet;
+                // overhang / underhang
+                constraintSet.OverhangX = form.OverhangX;
+                constraintSet.OverhangY = form.OverhangY;
+                // stop criterions
+                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
+                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+                constraintSet.UseMaximumLoadOnLowerCylinder = form.UseMaximumLoadOnLowerCylinder;
+                constraintSet.MaximumLoadOnLowerCylinder = form.MaximumLoadOnLowerCylinder;
             }
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);

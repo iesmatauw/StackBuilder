@@ -57,6 +57,12 @@
     <Compile Include="FormDefineAnalysis.Designer.cs">
       <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDefineCaseOptimization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDefineCaseOptimization.Designer.cs">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDefineReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysis.resx">
       <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineReport.resx">
       <DependentUpon>FormDefineReport.cs</DependentUpon>

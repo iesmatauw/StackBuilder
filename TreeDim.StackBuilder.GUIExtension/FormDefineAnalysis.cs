@@ -67,6 +67,7 @@ namespace TreeDim.StackBuilder.GUIExtension
         public InterlayerProperties Interlayer
         {
             get { return _interlayerProperties; }
+            set { _interlayerProperties = value; }
         }
         public CasePalletConstraintSet Constraints
         {

@@ -57,5 +57,17 @@ namespace TreeDim.StackBuilder.GUIExtension
             if (DialogResult.OK == formSolutions.ShowDialog())
                 return;        
         }
+
+        public void StartCaseOptimization(string name, double length, double width, double height)
+        {
+            FormDefineCaseOptimization formCaseOptimization = new FormDefineCaseOptimization();
+            formCaseOptimization.BoxName = name;
+            formCaseOptimization.BoxLength = length;
+            formCaseOptimization.BoxWidth = width;
+            formCaseOptimization.BoxHeight = height;
+
+            formCaseOptimization.ShowDialog();
+
+        }
     }
 }

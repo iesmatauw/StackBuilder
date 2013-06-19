@@ -71,6 +71,7 @@
             this.btAddSolution = new System.Windows.Forms.Button();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).BeginInit();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
             this.splitContainerCasePallet.SuspendLayout();
@@ -101,10 +102,12 @@
             // 
             // splitContainerCasePallet.Panel1
             // 
+            resources.ApplyResources(this.splitContainerCasePallet.Panel1, "splitContainerCasePallet.Panel1");
             this.splitContainerCasePallet.Panel1.Controls.Add(this.pbBoxesLayout);
             // 
             // splitContainerCasePallet.Panel2
             // 
+            resources.ApplyResources(this.splitContainerCasePallet.Panel2, "splitContainerCasePallet.Panel2");
             this.splitContainerCasePallet.Panel2.Controls.Add(this.pbPallet);
             this.splitContainerCasePallet.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainerCasePallet_SplitterMoved);
             // 
@@ -178,9 +181,9 @@
             // 
             // cbBoxes
             // 
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.cbBoxes_SelectedIndexChanged);
             // 
@@ -417,9 +420,9 @@
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -455,16 +458,16 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormOptimizeCase
             // 
@@ -488,6 +491,7 @@
             this.Load += new System.EventHandler(this.FormOptimizeCase_Load);
             this.splitContainerCasePallet.Panel1.ResumeLayout(false);
             this.splitContainerCasePallet.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).EndInit();
             this.splitContainerCasePallet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBoxesLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPallet)).EndInit();

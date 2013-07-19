@@ -1893,7 +1893,7 @@ namespace TreeDim.StackBuilder.Basics
             {
                 if (string.Equals(node.Name, "Cardboard", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    string cardboardName = string.Empty;
+                    string cardboardName = string.Empty, profile = string.Empty;
                     double thickness = 0.0, ect = 0.0, stiffnessX = 0.0, stiffnessY = 0.0;
 
                     XmlElement eltCardboard = node as XmlElement;
@@ -1907,7 +1907,7 @@ namespace TreeDim.StackBuilder.Basics
                         stiffnessX = double.Parse(eltCardboard.Attributes["StiffnessX"].Value);
                     if (eltCardboard.HasAttribute("StiffnessY"))
                         stiffnessY = double.Parse(eltCardboard.Attributes["StiffnessY"].Value);
-                    ectAnalysis.Cardboard = new EdgeCrushTest.McKeeFormula.QualityData(name, thickness, ect, stiffnessX, stiffnessY);
+                    ectAnalysis.Cardboard = new EdgeCrushTest.McKeeFormula.QualityData(name, profile, thickness, ect, stiffnessX, stiffnessY);
                 }                
             }
             // CaseType

@@ -26,6 +26,7 @@ using System.Runtime.Serialization;
 namespace TreeDim.StackBuilder.SQLite
 {
     #region Contexts
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
@@ -61,11 +62,13 @@ namespace TreeDim.StackBuilder.SQLite
         }
     
         #endregion
+    
         #region Partial Methods
     
         partial void OnContextCreated();
     
         #endregion
+    
         #region ObjectSet Properties
     
         /// <summary>
@@ -145,6 +148,8 @@ namespace TreeDim.StackBuilder.SQLite
 
         #endregion
     }
+    
+
     #endregion
     
     #region Entities
@@ -196,6 +201,7 @@ namespace TreeDim.StackBuilder.SQLite
 
         #endregion
         #region Primitive Properties
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -510,6 +516,7 @@ namespace TreeDim.StackBuilder.SQLite
         private global::System.DateTime _DateModified;
         partial void OnDateModifiedChanging(global::System.DateTime value);
         partial void OnDateModifiedChanged();
+
         #endregion
     
         #region Navigation Properties
@@ -643,6 +650,7 @@ namespace TreeDim.StackBuilder.SQLite
         partial void OnPalletIDChanged();
 
         #endregion
+    
         #region Navigation Properties
     
         /// <summary>
@@ -1088,6 +1096,7 @@ namespace TreeDim.StackBuilder.SQLite
         partial void OnDateModifiedChanged();
 
         #endregion
+    
         #region Navigation Properties
     
         /// <summary>

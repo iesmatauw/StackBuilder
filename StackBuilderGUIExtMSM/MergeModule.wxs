@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
-     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <Module Id="StackBuilderGUIExtMSM" Language="1033" Version="1.0.0.0">
-    <Package Id="27807e7c-accd-496f-8cfe-09de354c6051" Manufacturer="Microsoft" InstallerVersion="200" />
-    <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="BIN32" Name="Bin32">
-        <Directory Id="MergeRedirectFolder">
-          <Component Id="StackBuilder" Guid="{AF1B8D78-642E-4370-8BFC-3775DDB3B67E}">
-            <File KeyPath="yes" Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.GUIExtension.dll"/>
-            <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Basics.dll"/>
-            <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Engine.dll"/>
-            <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Graphics.dll"/>
-            <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Reporting.dll"/>
-            <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.SQLite.dll"/>
-            <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.EdgeCrushTest.dll"/>
-          </Component>
-          <Component Id="SourceGrid" Guid="{35E01101-97AF-427B-A2E7-DD37F99A21C6}">
-            <File KeyPath="yes" Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\SourceGrid.dll"/>
-          </Component>
-          <Component Id="StackBuilderDB" Guid="{5BC03203-E2EA-450B-A902-2592A9572272}">
-            <File KeyPath="yes" Source="..\TreeDim.StackBuilder.SQLite\StackBuilder.db"/>
-          </Component>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+    <Module Id="StackBuilderGUIExtMSM" Language="1033" Version="1.0.0.0">
+        <Package Id="27807e7c-accd-496f-8cfe-09de354c6051" Manufacturer="Microsoft" InstallerVersion="200" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="BIN32" Name="Bin32">
+                <Directory Id="MergeRedirectFolder">
+                    <Component Id="StackBuilder" Guid="{AF1B8D78-642E-4370-8BFC-3775DDB3B67E}">
+                        <File KeyPath="yes" Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.GUIExtension.dll" />
+                        <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Basics.dll" />
+                        <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Engine.dll" />
+                        <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Graphics.dll" />
+                        <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.Reporting.dll" />
+                        <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.SQLite.dll" />
+                        <File Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.EdgeCrushTest.dll" />
+                    </Component>
+                    <Component Id="SourceGrid" Guid="{35E01101-97AF-427B-A2E7-DD37F99A21C6}">
+                        <File KeyPath="yes" Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\SourceGrid.dll" />
+                    </Component>
+                    <Component Id="StackBuilderDB" Guid="{5BC03203-E2EA-450B-A902-2592A9572272}">
+                        <File KeyPath="yes" Source="..\TreeDim.StackBuilder.SQLite\StackBuilder.db" />
+                    </Component>
           <!-- need condition 
           <Component Id="TreeDim.StackBuilder.GUIExtension.dll.config" Guid="{0B74133F-7DA0-424A-BBD2-F28FFCF9F415}">
             <File KeyPath="yes" Source="..\TreeDim.StackBuilder.GUIExtension\Bin\Release\TreeDim.StackBuilder.GUIExtension.dll.config"/>
@@ -42,29 +41,28 @@
                           Value="[SAMPLES]"/>
           </Component>
           -->
+                </Directory>
+            </Directory>
+            <Directory Id="REPORTTEMPLATES" Name="ReportTemplates">
+                <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes" />
+                    <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes" />
+                    <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes" />
+                    <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes" />
+                    <File Id="ReportTemplate_DEU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_DEU.xml" Checksum="yes" />
+                    <File Id="ReportTemplate_ESP.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ESP.xml" Checksum="yes" />
+                    <File Id="ReportTempalte_CAT.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_CAT.xml" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ENU.xsl" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_FRA.xsl" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_JPN.xsl" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_DEU.xsl" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ESP.xsl" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_CAT.xsl" Checksum="yes" />
+                    <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes" />
+                </Component>
+            </Directory>
+            <Directory Id="SAMPLES" Name="Samples" />
         </Directory>
-      </Directory>
-      <Directory Id="REPORTTEMPLATES" Name="ReportTemplates">
-        <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
-          <File Id="WML2XSLT.EXE" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes"/>
-          <File Id="interop.schemalibraryclass.dll" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
-          <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes"/>
-          <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes"/>
-          <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes"/>
-          <File Id="ReportTemplate_DEU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_DEU.xml" Checksum="yes"/>
-          <File Id="ReportTemplate_ESP.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ESP.xml" Checksum="yes"/>
-          <File Id="ReportTempalte_CAT.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_CAT.xml" Checksum="yes"/>
-          <File Id="ReportTemplateHtml_ENU.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ENU.xsl" Checksum="yes"/>
-          <File Id="ReportTemplateHtml_FRA.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_FRA.xsl" Checksum="yes"/>
-          <File Id="ReportTemplateHtml_JPN.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_JPN.xsl" Checksum="yes"/>
-          <File Id="ReportTemplateHtml_DEU.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_DEU.xsl" Checksum="yes"/>
-          <File Id="ReportTemplateHtml_ESP.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ESP.xsl" Checksum="yes"/>
-          <File Id="ReportTemplateHtml_CAT.xsl" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_CAT.xsl" Checksum="yes"/>
-          <File Id="ReportSchema.xsd" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes"/>
-        </Component>
-      </Directory>
-      <Directory Id="SAMPLES" Name="Samples">
-      </Directory>
-    </Directory>
-  </Module>
+    </Module>
 </Wix>

@@ -32,7 +32,7 @@
           <Property Name="Weight" Type="float" Nullable="false" />
           <Property Name="MaxLoad" Type="float" Nullable="false" />
           <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="10" />
-          <Property Name="Color" Type="int" Nullable="false" />
+          <Property Name="Color" Type="int" Nullable="false"/>
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="DateModified" Type="datetime" Nullable="false" />
         </EntityType>
@@ -184,6 +184,7 @@
           <EntitySetMapping Name="Pallets">
             <EntityTypeMapping TypeName="StackBuilderModel.Pallets">
               <MappingFragment StoreEntitySet="Pallets">
+                <ScalarProperty Name="Length" ColumnName="Length" />
                 <ScalarProperty Name="DateModified" ColumnName="DateModified" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="Color" ColumnName="Color" />
@@ -192,7 +193,6 @@
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="Width" ColumnName="Width" />
-                <ScalarProperty Name="Length" ColumnName="Length" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
@@ -248,18 +248,17 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ModelSQLite">
-        <EntityTypeShape EntityType="StackBuilderModel.Pallets" Width="1.5" PointX="0.75" PointY="1" Height="3.7109993489583313" />
-        <EntityTypeShape EntityType="StackBuilderModel.UserID_PalletID" Width="1.5" PointX="3" PointY="1.875" Height="1.9802864583333326" />
-        <EntityTypeShape EntityType="StackBuilderModel.Users" Width="1.5" PointX="0.75" PointY="6" Height="3.7109993489583317" />
+      <Diagram Name="ModelSQLite" ZoomLevel="68">
+        <EntityTypeShape EntityType="StackBuilderModel.Pallets" Width="1.5" PointX="6.75" PointY="0.5" Height="3.7109993489583313" />
+        <EntityTypeShape EntityType="StackBuilderModel.UserID_PalletID" Width="1.5" PointX="4" PointY="0.5" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="StackBuilderModel.Users" Width="2.25" PointX="0.5" PointY="0.5" Height="3.7109993489583317" />
         <AssociationConnector Association="StackBuilderModel.FK_UserID_PalletID_0_0" >
-          <ConnectorPoint PointX="2.25" PointY="2.8651432291666663" />
-          <ConnectorPoint PointX="3" PointY="2.8651432291666663" />
+          <ConnectorPoint PointX="6.75" PointY="1.4901432291666663" />
+          <ConnectorPoint PointX="5.5" PointY="1.4901432291666663" />
         </AssociationConnector>
-        <AssociationConnector Association="StackBuilderModel.FK_UserID_PalletID_1_0" >
-          <ConnectorPoint PointX="2.25" PointY="7.8554996744791659" />
-          <ConnectorPoint PointX="3.75" PointY="7.8554996744791659" />
-          <ConnectorPoint PointX="3.75" PointY="3.8552864583333326" />
+        <AssociationConnector Association="StackBuilderModel.FK_UserID_PalletID_1_0" ManuallyRouted="false" >
+          <ConnectorPoint PointX="2.75" PointY="1.4901432291666663" />
+          <ConnectorPoint PointX="4" PointY="1.4901432291666663" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

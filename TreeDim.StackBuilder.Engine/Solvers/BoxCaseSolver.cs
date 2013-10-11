@@ -127,10 +127,10 @@ namespace TreeDim.StackBuilder.Engine
             solutions.Sort();
 
             // removes solutions that do not equal the best number
-            if (!_keepAllSolutions)
+            if (!_keepAllSolutions && solutions.Count > 0)
             {
                 int indexFrom = 0, maxCount = solutions[0].BoxPerCaseCount;
-                while (solutions[indexFrom].BoxPerCaseCount == maxCount)
+                while (indexFrom < solutions.Count && solutions[indexFrom].BoxPerCaseCount == maxCount)
                     ++indexFrom;
                 solutions.RemoveRange(indexFrom, solutions.Count - indexFrom);
             }

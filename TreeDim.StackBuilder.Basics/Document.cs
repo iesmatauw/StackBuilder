@@ -2887,16 +2887,17 @@ namespace TreeDim.StackBuilder.Basics
             int solIndex = 0;
             XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
             xmlAnalysisElt.AppendChild(solutionsElt);
-            foreach (BoxCaseSolution sol in analysis.Solutions)
-            {
-                SaveBoxCaseSolution(
-                    analysis
-                    , sol
-                    , analysis.GetSelSolutionBySolutionIndex(solIndex) // null if not selected
-                    , solutionsElt
-                    , xmlDoc);
-                ++solIndex;
-            }
+            if (null != analysis.Solutions)
+                foreach (BoxCaseSolution sol in analysis.Solutions)
+                {
+                    SaveBoxCaseSolution(
+                        analysis
+                        , sol
+                        , analysis.GetSelSolutionBySolutionIndex(solIndex) // null if not selected
+                        , solutionsElt
+                        , xmlDoc);
+                    ++solIndex;
+                }
         }
 
         public void SaveBoxCaseSolution(BoxCaseAnalysis analysis, BoxCaseSolution sol, SelBoxCaseSolution selSolution, XmlElement solutionsElt, XmlDocument xmlDoc)

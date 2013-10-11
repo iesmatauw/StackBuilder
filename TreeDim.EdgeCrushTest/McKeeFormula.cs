@@ -13,8 +13,6 @@ namespace TreeDim.EdgeCrushTest
 {
     public partial class McKeeFormula
     {
-
-
         #region Enums
         public enum FormulaType
         {

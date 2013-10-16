@@ -10,4 +10,4 @@ It helps you solve 3 problems:
 
 StackBuilder can not handle heterogeneous problems such as:
 * palletizing with several case types,
-* producing solutions that do not rely on layers
+* producing solutions that do not rely on layers,

@@ -18,6 +18,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private Form _parentForm;
+        private bool _transparent = false;
         #endregion
 
         #region Constructor
@@ -33,7 +34,8 @@ namespace TreeDim.StackBuilder.Desktop
 
             // make lower right pixel color transparent
             Bitmap b = new Bitmap(this.BackgroundImage);
-            b.MakeTransparent(b.GetPixel(1, 1));
+            if (Transparent)
+                b.MakeTransparent(b.GetPixel(1, 1));
             this.BackgroundImage = b;
 
             // version
@@ -59,6 +61,14 @@ namespace TreeDim.StackBuilder.Desktop
         {
             set { timerClose.Interval = value;  }
             get { return timerClose.Interval; }
+        }
+        /// <summary>
+        /// set / get transparency
+        /// </summary>
+        public bool Transparent
+        {
+            get { return _transparent; }
+            set { _transparent = value; }
         }
         #endregion
 

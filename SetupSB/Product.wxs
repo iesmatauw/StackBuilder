@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- This is application version number, update for each release -->
-<?define Version = "1.0.17.0" ?>
-<!-- This is package upgade code, do not modify -->
-<?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c" ?>
-<!-- Manufacturer -->
-<?define Manufacturer="treeDiM"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
 <!-- Opensource-->
 <?define opensource="true"?>
 <!--Serial number-->
 <?define serial="FX11-VR50-ZH01-PICA"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-    <Product Id="*" Name="PLMPack StackBuilder" Language="1033" Version="$(var.Version)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
-        <Package Id="*" Description="A palletization simulation software" Comments="$(var.Version)" Manufacturer="$(var.Manufacturer)" InstallerVersion="300" Compressed="yes" />
+    <Product Id="*"
+             Name="PLMPack StackBuilder"
+             Language="1033"
+             Version="$(var.Version)"
+             Manufacturer="$(var.Manufacturer)"
+             UpgradeCode="$(var.UpgradeCode)">
+        <Package Id="*"
+                 Description="$(var.Package_Description)"
+                 Comments="$(var.Version)"
+                 Manufacturer="$(var.Manufacturer)"
+                 InstallerVersion="300"
+                 Compressed="yes" />
         <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
         <!-- ADD/REMOVE Programs icon -->
         <Icon Id="Stackbuilder.ico" SourceFile="Stackbuilder.ico" />
@@ -23,37 +27,7 @@
         <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp" />
         <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp" />
         <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
-        <!-- define the directory structure-->
-        <Directory Id="TARGETDIR" Name="SourceDir">
-            <Directory Id="ProgramFilesFolder">
-                <Directory Id="CompanyDir" Name="$(var.Manufacturer)">
-                    <Directory Id="PLMPackDir" Name="PLMPack">
-                        <Directory Id="INSTALLLOCATION" Name="StackBuilder">
-                            <Directory Id="BIN" Name="Bin">
-                                <Directory Id="LOCALIZATION_FR" Name="fr-FR" />
-                                <Directory Id="LOCALIZATION_JP" Name="ja-JP" />
-                                <Directory Id="LOCALIZATION_DE" Name="de-DE" />
-                                <Directory Id="LOCALIZATION_ES" Name="es-ES" />
-                                <Directory Id="LOCALIZATION_CA" Name="ca-CA" />
-                            </Directory>
-                            <Directory Id="REPORTTEMPLATES" Name="ReportTemplates" />
-                            <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB" />
-                            <Directory Id="SAMPLES" Name="Samples" />
-                            <Directory Id="XMLSCHEMAS" Name="XML Schemas" />
-                            <Directory Id="CARDBOARDQUALITYDATA" Name="CardboardQualityData" />
-                            <Directory Id="WEBGL" Name="WebGL">
-                                <Directory Id="GLGE" Name="GLGE" />
-                            </Directory>
-                        </Directory>
-                    </Directory>
-                </Directory>
-            </Directory>
-            <Directory Id="ProgramMenuFolder">
-                <Directory Id="ApplicationShortcutFolder" Name="$(var.Manufacturer)" />
-            </Directory>
-            <Directory Id="DesktopFolder" Name="Desktop" />
-        </Directory>
-        <!--Properties-->
+         <!--Properties-->
         <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PLMPack StackBuilder" />
         <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
         <Property Id="PIDTemplate" Value="????-????-????-????" />

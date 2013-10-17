@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<!--Directories-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="CompanyDir" Name="$(var.Manufacturer)">
+          <Directory Id="PLMPackDir" Name="PLMPack">
+            <Directory Id="INSTALLLOCATION" Name="StackBuilder">
+              <Directory Id="BIN" Name="Bin">
+                <Directory Id="LOCALIZATION_FR" Name="fr-FR" />
+                <Directory Id="LOCALIZATION_JP" Name="ja-JP" />
+                <Directory Id="LOCALIZATION_DE" Name="de-DE" />
+                <Directory Id="LOCALIZATION_ES" Name="es-ES" />
+                <Directory Id="LOCALIZATION_CA" Name="ca-CA" />
+              </Directory>
+              <Directory Id="REPORTTEMPLATES" Name="ReportTemplates" />
+              <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB" />
+              <Directory Id="SAMPLES" Name="Samples" />
+              <Directory Id="XMLSCHEMAS" Name="XML Schemas" />
+              <Directory Id="CARDBOARDQUALITYDATA" Name="CardboardQualityData" />
+              <Directory Id="WEBGL" Name="WebGL">
+                <Directory Id="GLGE" Name="GLGE" />
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationShortcutFolder" Name="$(var.Manufacturer)" />
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+  </Fragment>
+</Wix>

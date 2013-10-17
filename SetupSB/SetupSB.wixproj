@@ -21,6 +21,7 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DirectoryTree.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +37,9 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config.wxi" />
   </ItemGroup>
   <!--
   Uncomment this to install the .NET framework using a bootstraper

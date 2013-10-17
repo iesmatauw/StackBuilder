@@ -199,6 +199,11 @@ $RECYCLE.BIN/
 *.stb
 
 #############
+#HelpNDoc generated help files
+#############
+*.chm
+
+#############
 ## Python
 #############
 

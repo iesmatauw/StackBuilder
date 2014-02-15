@@ -5,7 +5,6 @@ using System.Text;
 
 using TreeDim.StackBuilder.SQLite;
 using TreeDim.StackBuilder.Basics;
-using TreeDim.EdgeCrushTest;
 
 namespace TreeDim.StackBuilder.SQLite.Test
 {

@@ -44,5 +44,23 @@
     <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates</Value>
     </Setting>
+    <Setting Name="NumberWallsLength" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="NumberWallsWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="NumberWallsHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="WallThickness" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="NumberBoxesPerCase" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="ForceVerticalBoxOrientation" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

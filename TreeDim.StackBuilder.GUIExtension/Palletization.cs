@@ -66,7 +66,15 @@ namespace TreeDim.StackBuilder.GUIExtension
             formCaseOptimization.BoxWidth = width;
             formCaseOptimization.BoxHeight = height;
 
-            formCaseOptimization.ShowDialog();
+            if (DialogResult.OK != formCaseOptimization.ShowDialog())
+                return;
+
+            // create document
+            Document doc = new Document(name, name + "_on_" + formCaseOptimization.SelectedPallet.Name, "from extension component", DateTime.Now, null);
+            // create case in document
+            BoxProperties boxInDoc = doc.CreateNewBox(formCaseOptimization.SelectedBox);
+            // create pallet in document
+            PalletProperties palletInDoc = doc.CreateNewPallet(formCaseOptimization.SelectedPallet);
 
         }
     }

@@ -117,20 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+  <data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+  <data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
   <data name="ID_ANALYSISDESCRIPTION" xml:space="preserve">
     <value>Stacking case {0} on pallet {1} </value>
   </data>
   <data name="ID_ANALYSISNAME" xml:space="preserve">
     <value>{0}_on_{1}</value>
   </data>
+  <data name="ID_AREA" xml:space="preserve">
+    <value>Area</value>
+  </data>
   <data name="ID_CASECOUNT" xml:space="preserve">
     <value>Case count</value>
+  </data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Cases/Layer</value>
+  </data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Cases/Pallet</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+    <value>Height</value>
   </data>
   <data name="ID_INDEX" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Maximal pallet height ({0} mm) ought to exceed {1} mm</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maximum volume is insufficient to pack {0} {1} .</value>
+  </data>
   <data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Layer pattern</value>
+  </data>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Layers</value>
+  </data>
+  <data name="ID_LENGTH" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Inconsistency: Maximum {0} is lower than minimum {1}.</value>
   </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet height (mm)</value>
@@ -150,7 +186,13 @@
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Pallet weight (kg)</value>
   </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Ready</value>
+  </data>
   <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Volume efficiency (%)</value>
+  </data>
+  <data name="ID_WIDTH" xml:space="preserve">
+    <value>Width</value>
   </data>
 </root>

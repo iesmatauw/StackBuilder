@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -120,6 +121,7 @@ namespace TreeDim.StackBuilder.SQLite
         private ObjectSet<Users> _Users;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -147,11 +149,11 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -200,6 +202,7 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -518,6 +521,7 @@ namespace TreeDim.StackBuilder.SQLite
         partial void OnDateModifiedChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -544,6 +548,7 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -572,6 +577,7 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -650,6 +656,7 @@ namespace TreeDim.StackBuilder.SQLite
         partial void OnPalletIDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -730,6 +737,7 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -778,6 +786,7 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1096,6 +1105,7 @@ namespace TreeDim.StackBuilder.SQLite
         partial void OnDateModifiedChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1122,8 +1132,10 @@ namespace TreeDim.StackBuilder.SQLite
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

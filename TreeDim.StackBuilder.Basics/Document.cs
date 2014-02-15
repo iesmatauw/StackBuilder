@@ -127,6 +127,25 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return boxProperties;
         }
+        public BoxProperties CreateNewBox(BoxProperties boxProp)
+        { 
+            // instantiate and initialize
+            BoxProperties boxPropClone = new BoxProperties(this
+                , boxProp.Length
+                , boxProp.Width
+                , boxProp.Height);
+            boxPropClone.Weight = boxProp.Weight;
+            boxPropClone.Name = boxProp.Name;
+            boxPropClone.Description = boxProp.Description;
+            boxPropClone.SetAllColors(boxProp.Colors);
+            // insert in list
+            _typeList.Add(boxPropClone);
+            // notify listeners
+            NotifyOnNewTypeCreated(boxPropClone);
+            Modify();
+
+            return boxPropClone;
+        }
         /// <summary>
         /// Create a new case
         /// </summary>

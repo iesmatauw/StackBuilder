@@ -28,25 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bnGUIExtension = new System.Windows.Forms.Button();
+            this.bnCasePalletAnalysis = new System.Windows.Forms.Button();
+            this.bnBoxCasePalletOptimization = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // bnGUIExtension
+            // bnCasePalletAnalysis
             // 
-            this.bnGUIExtension.Location = new System.Drawing.Point(13, 13);
-            this.bnGUIExtension.Name = "bnGUIExtension";
-            this.bnGUIExtension.Size = new System.Drawing.Size(101, 23);
-            this.bnGUIExtension.TabIndex = 0;
-            this.bnGUIExtension.Text = "GUIExtension";
-            this.bnGUIExtension.UseVisualStyleBackColor = true;
-            this.bnGUIExtension.Click += new System.EventHandler(this.bnGUIExtension_Click);
+            this.bnCasePalletAnalysis.Location = new System.Drawing.Point(16, 13);
+            this.bnCasePalletAnalysis.Name = "bnCasePalletAnalysis";
+            this.bnCasePalletAnalysis.Size = new System.Drawing.Size(178, 22);
+            this.bnCasePalletAnalysis.TabIndex = 0;
+            this.bnCasePalletAnalysis.Text = "Case / Pallet analysis";
+            this.bnCasePalletAnalysis.UseVisualStyleBackColor = true;
+            this.bnCasePalletAnalysis.Click += new System.EventHandler(this.bnCasePalletAnalysis_Click);
+            // 
+            // bnBoxCasePalletOptimization
+            // 
+            this.bnBoxCasePalletOptimization.Location = new System.Drawing.Point(16, 39);
+            this.bnBoxCasePalletOptimization.Name = "bnBoxCasePalletOptimization";
+            this.bnBoxCasePalletOptimization.Size = new System.Drawing.Size(178, 22);
+            this.bnBoxCasePalletOptimization.TabIndex = 1;
+            this.bnBoxCasePalletOptimization.Text = "Box / Case / Pallet optimization ";
+            this.bnBoxCasePalletOptimization.UseVisualStyleBackColor = true;
+            this.bnBoxCasePalletOptimization.Click += new System.EventHandler(this.bnBoxCasePalletOptimization_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.bnGUIExtension);
+            this.Controls.Add(this.bnBoxCasePalletOptimization);
+            this.Controls.Add(this.bnCasePalletAnalysis);
             this.Name = "FormMain";
             this.Text = "GUIExtension.Test";
             this.ResumeLayout(false);
@@ -55,7 +67,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnGUIExtension;
+        private System.Windows.Forms.Button bnCasePalletAnalysis;
+        private System.Windows.Forms.Button bnBoxCasePalletOptimization;
     }
 }
 

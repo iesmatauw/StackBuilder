@@ -7,7 +7,6 @@ using System.Text;
 using System.Drawing;
 
 using TreeDim.StackBuilder.Basics;
-using TreeDim.EdgeCrushTest;
 #endregion
 
 namespace TreeDim.StackBuilder.SQLite

@@ -107,11 +107,12 @@ namespace TreeDim.StackBuilder.Desktop
                 cbPallet.Items.Add(new PalletItem(palletProperties));
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
-            // set default wall thickness
+            // set default pallet height
+            nudPalletHeight.Value = (decimal)Settings.Default.PalletHeight;
+            // set default wall numbers and thickness
             nudWallsLengthDir.Value = Settings.Default.NumberWallsLength;
             nudWallsWidthDir.Value = Settings.Default.NumberWallsWidth;
             nudWallsHeightDir.Value = Settings.Default.NumberWallsHeight;
-            nudPalletHeight.Value = (decimal)Settings.Default.PalletHeight;
             nudWallThickness.Value = (decimal)Settings.Default.WallThickness;
             nudNumber.Value = Settings.Default.NumberBoxesPerCase;
             // set vertical orientation only

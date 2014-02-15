@@ -38,7 +38,7 @@
             // 
             resources.ApplyResources(this.lblVersion, "lblVersion");
             this.lblVersion.BackColor = System.Drawing.Color.Transparent;
-            this.lblVersion.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblVersion.ForeColor = System.Drawing.Color.White;
             this.lblVersion.Name = "lblVersion";
             // 
             // timerClose
@@ -54,6 +54,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ControlBox = false;
             this.Controls.Add(this.lblVersion);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

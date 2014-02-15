@@ -19,10 +19,30 @@ namespace TreeDim.StackBuilder.GUIExtension.Test
             InitializeComponent();
         }
 
-        private void bnGUIExtension_Click(object sender, EventArgs e)
+        private void bnCasePalletAnalysis_Click(object sender, EventArgs e)
         {
-            Palletization palletization = new Palletization();
-            palletization.StartPalletization("Default case", 220, 140, 145);
+            try
+            {
+                Palletization palletization = new Palletization();
+                palletization.StartPalletization("Default case", 220, 140, 145);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void bnBoxCasePalletOptimization_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Palletization palletization = new Palletization();
+                palletization.StartCaseOptimization("Default box", 100, 60, 40); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

@@ -45,7 +45,6 @@
             this.chkY = new System.Windows.Forms.CheckBox();
             this.chkZ = new System.Windows.Forms.CheckBox();
             this.gbCase = new System.Windows.Forms.GroupBox();
-            this.bnCaseColors = new System.Windows.Forms.Button();
             this.lbCaseWeight = new System.Windows.Forms.Label();
             this.nudCaseWeight = new System.Windows.Forms.NumericUpDown();
             this.lbWeight = new System.Windows.Forms.Label();
@@ -92,22 +91,22 @@
             // 
             // bnOK
             // 
-            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // nudCaseLength
             // 
-            resources.ApplyResources(this.nudCaseLength, "nudCaseLength");
             this.nudCaseLength.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudCaseLength, "nudCaseLength");
             this.nudCaseLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -138,8 +137,8 @@
             // 
             // nudCaseWidth
             // 
-            resources.ApplyResources(this.nudCaseWidth, "nudCaseWidth");
             this.nudCaseWidth.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudCaseWidth, "nudCaseWidth");
             this.nudCaseWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -165,8 +164,8 @@
             // 
             // nudCaseHeight
             // 
-            resources.ApplyResources(this.nudCaseHeight, "nudCaseHeight");
             this.nudCaseHeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudCaseHeight, "nudCaseHeight");
             this.nudCaseHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -228,8 +227,6 @@
             // 
             // gbCase
             // 
-            resources.ApplyResources(this.gbCase, "gbCase");
-            this.gbCase.Controls.Add(this.bnCaseColors);
             this.gbCase.Controls.Add(this.lbCaseWeight);
             this.gbCase.Controls.Add(this.nudCaseWeight);
             this.gbCase.Controls.Add(this.lbWeight);
@@ -249,14 +246,9 @@
             this.gbCase.Controls.Add(this.pbCaseZ);
             this.gbCase.Controls.Add(this.label4);
             this.gbCase.Controls.Add(this.pbCaseX);
+            resources.ApplyResources(this.gbCase, "gbCase");
             this.gbCase.Name = "gbCase";
             this.gbCase.TabStop = false;
-            // 
-            // bnCaseColors
-            // 
-            resources.ApplyResources(this.bnCaseColors, "bnCaseColors");
-            this.bnCaseColors.Name = "bnCaseColors";
-            this.bnCaseColors.UseVisualStyleBackColor = true;
             // 
             // lbCaseWeight
             // 
@@ -265,8 +257,8 @@
             // 
             // nudCaseWeight
             // 
-            resources.ApplyResources(this.nudCaseWeight, "nudCaseWeight");
             this.nudCaseWeight.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudCaseWeight, "nudCaseWeight");
             this.nudCaseWeight.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -300,13 +292,13 @@
             // 
             // gbPallet
             // 
-            resources.ApplyResources(this.gbPallet, "gbPallet");
             this.gbPallet.Controls.Add(this.lbDescription);
             this.gbPallet.Controls.Add(this.bnEditPalletList);
             this.gbPallet.Controls.Add(this.lbPalletDescription);
             this.gbPallet.Controls.Add(this.pbPallet);
             this.gbPallet.Controls.Add(this.cbPallet);
             this.gbPallet.Controls.Add(this.lbPallet);
+            resources.ApplyResources(this.gbPallet, "gbPallet");
             this.gbPallet.Name = "gbPallet";
             this.gbPallet.TabStop = false;
             // 
@@ -335,10 +327,10 @@
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.AllowDrop = true;
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -349,7 +341,6 @@
             // 
             // gbConstraints
             // 
-            resources.ApplyResources(this.gbConstraints, "gbConstraints");
             this.gbConstraints.Controls.Add(this.label7);
             this.gbConstraints.Controls.Add(this.label6);
             this.gbConstraints.Controls.Add(this.label5);
@@ -363,6 +354,7 @@
             this.gbConstraints.Controls.Add(this.lbOverhangWidth);
             this.gbConstraints.Controls.Add(this.lbOverhangLength);
             this.gbConstraints.Controls.Add(this.label1);
+            resources.ApplyResources(this.gbConstraints, "gbConstraints");
             this.gbConstraints.Name = "gbConstraints";
             this.gbConstraints.TabStop = false;
             // 
@@ -425,8 +417,8 @@
             // 
             // nudOverhangY
             // 
-            resources.ApplyResources(this.nudOverhangY, "nudOverhangY");
             this.nudOverhangY.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudOverhangY, "nudOverhangY");
             this.nudOverhangY.Maximum = new decimal(new int[] {
             500,
             0,
@@ -441,8 +433,8 @@
             // 
             // nudOverhangX
             // 
-            resources.ApplyResources(this.nudOverhangX, "nudOverhangX");
             this.nudOverhangX.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudOverhangX, "nudOverhangX");
             this.nudOverhangX.Minimum = new decimal(new int[] {
             500,
             0,
@@ -555,6 +547,5 @@
         private System.Windows.Forms.Label lbCaseWeight;
         private System.Windows.Forms.NumericUpDown nudCaseWeight;
         private System.Windows.Forms.Label lbWeight;
-        private System.Windows.Forms.Button bnCaseColors;
     }
 }

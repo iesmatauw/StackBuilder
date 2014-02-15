@@ -97,7 +97,7 @@ namespace TreeDim.StackBuilder.GUIExtension
         {
             // loads pallets
             LoadPallets();
-            // draw bow positions
+            // draw box positions
             DrawBoxPositions();
             // allowed case positions
             chkX.Checked = Properties.Settings.Default.AllowOrientationX;

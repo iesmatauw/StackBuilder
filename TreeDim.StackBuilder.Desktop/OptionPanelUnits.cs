@@ -28,7 +28,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void cbUnitSystem_SelectedIndexChanged(object sender, EventArgs e)
         {
             // save property
-            Properties.Settings.Default.UnitSystem = (int)UnitsManager.CurrentUnitSystem;
+            Properties.Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
             // tells the user that the application must restart
             this.ApplicationMustRestart = true;
         }

@@ -47,6 +47,7 @@
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerCaseOfBoxes)).BeginInit();
             this.splitContainerCaseOfBoxes.Panel1.SuspendLayout();
             this.splitContainerCaseOfBoxes.Panel2.SuspendLayout();
             this.splitContainerCaseOfBoxes.SuspendLayout();
@@ -227,7 +228,8 @@
             resources.GetString("cbColor.Items53"),
             resources.GetString("cbColor.Items54"),
             resources.GetString("cbColor.Items55"),
-            resources.GetString("cbColor.Items56")});
+            resources.GetString("cbColor.Items56"),
+            resources.GetString("cbColor.Items57")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -282,6 +284,7 @@
             this.Load += new System.EventHandler(this.FormNewCaseOfBoxes_Load);
             this.splitContainerCaseOfBoxes.Panel1.ResumeLayout(false);
             this.splitContainerCaseOfBoxes.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerCaseOfBoxes)).EndInit();
             this.splitContainerCaseOfBoxes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaseDefinition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).EndInit();

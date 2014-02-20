@@ -36,6 +36,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewAnalysis(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             onInterlayerChecked(this, null);
@@ -48,11 +50,13 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewAnalysis(Document document, CasePalletAnalysis analysis)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _analysis = analysis;
             // set caption text
-            Text = string.Format("Edit {0}...", _analysis.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
 
             onInterlayerChecked(this, null);
         }

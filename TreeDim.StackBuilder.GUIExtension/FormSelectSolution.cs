@@ -103,12 +103,12 @@ namespace TreeDim.StackBuilder.GUIExtension
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 3] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETWEIGHT);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_PALLETWEIGHT, "kg"));
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETHEIGHT);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Resources.ID_PALLETHEIGHT, "mm"));
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;

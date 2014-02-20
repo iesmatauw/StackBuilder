@@ -36,15 +36,15 @@
             this.lbInsideHeight = new System.Windows.Forms.Label();
             this.lbInsideWidth = new System.Windows.Forms.Label();
             this.lbInsideLength = new System.Windows.Forms.Label();
-            this.lbUnitHeightInside = new System.Windows.Forms.Label();
-            this.lbUnitWidthInside = new System.Windows.Forms.Label();
-            this.lbUnitLengthInside = new System.Windows.Forms.Label();
+            this.uLengthHeightInside = new System.Windows.Forms.Label();
+            this.uLengthWidthInside = new System.Windows.Forms.Label();
+            this.uLengthLengthInside = new System.Windows.Forms.Label();
             this.nudInsideLength = new System.Windows.Forms.NumericUpDown();
             this.nudInsideHeight = new System.Windows.Forms.NumericUpDown();
             this.nudInsideWidth = new System.Windows.Forms.NumericUpDown();
-            this.lbUnitHeight = new System.Windows.Forms.Label();
-            this.lbUnitWidth = new System.Windows.Forms.Label();
-            this.lbUnitLength = new System.Windows.Forms.Label();
+            this.uLengthHeight = new System.Windows.Forms.Label();
+            this.uLengthWidth = new System.Windows.Forms.Label();
+            this.uLengthLength = new System.Windows.Forms.Label();
             this.nudLength = new System.Windows.Forms.NumericUpDown();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.nudWidth = new System.Windows.Forms.NumericUpDown();
@@ -59,7 +59,7 @@
             this.lbWeight = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.lbUnitWeight = new System.Windows.Forms.Label();
+            this.uMassWeight = new System.Windows.Forms.Label();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbTape = new System.Windows.Forms.GroupBox();
+            this.uLengthTapeWidth = new System.Windows.Forms.Label();
             this.cbTapeColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.nudTapeWidth = new System.Windows.Forms.NumericUpDown();
             this.lbTapeColor = new System.Windows.Forms.Label();
@@ -112,25 +113,25 @@
             // 
             // gbDimensions
             // 
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.lbInsideHeight);
             this.gbDimensions.Controls.Add(this.lbInsideWidth);
             this.gbDimensions.Controls.Add(this.lbInsideLength);
-            this.gbDimensions.Controls.Add(this.lbUnitHeightInside);
-            this.gbDimensions.Controls.Add(this.lbUnitWidthInside);
-            this.gbDimensions.Controls.Add(this.lbUnitLengthInside);
+            this.gbDimensions.Controls.Add(this.uLengthHeightInside);
+            this.gbDimensions.Controls.Add(this.uLengthWidthInside);
+            this.gbDimensions.Controls.Add(this.uLengthLengthInside);
             this.gbDimensions.Controls.Add(this.nudInsideLength);
             this.gbDimensions.Controls.Add(this.nudInsideHeight);
             this.gbDimensions.Controls.Add(this.nudInsideWidth);
-            this.gbDimensions.Controls.Add(this.lbUnitHeight);
-            this.gbDimensions.Controls.Add(this.lbUnitWidth);
-            this.gbDimensions.Controls.Add(this.lbUnitLength);
+            this.gbDimensions.Controls.Add(this.uLengthHeight);
+            this.gbDimensions.Controls.Add(this.uLengthWidth);
+            this.gbDimensions.Controls.Add(this.uLengthLength);
             this.gbDimensions.Controls.Add(this.nudLength);
             this.gbDimensions.Controls.Add(this.nudHeight);
             this.gbDimensions.Controls.Add(this.nudWidth);
             this.gbDimensions.Controls.Add(this.lbHeight);
             this.gbDimensions.Controls.Add(this.lbWidth);
             this.gbDimensions.Controls.Add(this.lbLength);
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -149,25 +150,25 @@
             resources.ApplyResources(this.lbInsideLength, "lbInsideLength");
             this.lbInsideLength.Name = "lbInsideLength";
             // 
-            // lbUnitHeightInside
+            // uLengthHeightInside
             // 
-            resources.ApplyResources(this.lbUnitHeightInside, "lbUnitHeightInside");
-            this.lbUnitHeightInside.Name = "lbUnitHeightInside";
+            resources.ApplyResources(this.uLengthHeightInside, "uLengthHeightInside");
+            this.uLengthHeightInside.Name = "uLengthHeightInside";
             // 
-            // lbUnitWidthInside
+            // uLengthWidthInside
             // 
-            resources.ApplyResources(this.lbUnitWidthInside, "lbUnitWidthInside");
-            this.lbUnitWidthInside.Name = "lbUnitWidthInside";
+            resources.ApplyResources(this.uLengthWidthInside, "uLengthWidthInside");
+            this.uLengthWidthInside.Name = "uLengthWidthInside";
             // 
-            // lbUnitLengthInside
+            // uLengthLengthInside
             // 
-            resources.ApplyResources(this.lbUnitLengthInside, "lbUnitLengthInside");
-            this.lbUnitLengthInside.Name = "lbUnitLengthInside";
+            resources.ApplyResources(this.uLengthLengthInside, "uLengthLengthInside");
+            this.uLengthLengthInside.Name = "uLengthLengthInside";
             // 
             // nudInsideLength
             // 
-            this.nudInsideLength.DecimalPlaces = 1;
             resources.ApplyResources(this.nudInsideLength, "nudInsideLength");
+            this.nudInsideLength.DecimalPlaces = 2;
             this.nudInsideLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -183,8 +184,8 @@
             // 
             // nudInsideHeight
             // 
-            this.nudInsideHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudInsideHeight, "nudInsideHeight");
+            this.nudInsideHeight.DecimalPlaces = 2;
             this.nudInsideHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -200,8 +201,8 @@
             // 
             // nudInsideWidth
             // 
-            this.nudInsideWidth.DecimalPlaces = 1;
             resources.ApplyResources(this.nudInsideWidth, "nudInsideWidth");
+            this.nudInsideWidth.DecimalPlaces = 2;
             this.nudInsideWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -215,25 +216,25 @@
             0});
             this.nudInsideWidth.ValueChanged += new System.EventHandler(this.onBoxPropertyChanged);
             // 
-            // lbUnitHeight
+            // uLengthHeight
             // 
-            resources.ApplyResources(this.lbUnitHeight, "lbUnitHeight");
-            this.lbUnitHeight.Name = "lbUnitHeight";
+            resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
+            this.uLengthHeight.Name = "uLengthHeight";
             // 
-            // lbUnitWidth
+            // uLengthWidth
             // 
-            resources.ApplyResources(this.lbUnitWidth, "lbUnitWidth");
-            this.lbUnitWidth.Name = "lbUnitWidth";
+            resources.ApplyResources(this.uLengthWidth, "uLengthWidth");
+            this.uLengthWidth.Name = "uLengthWidth";
             // 
-            // lbUnitLength
+            // uLengthLength
             // 
-            resources.ApplyResources(this.lbUnitLength, "lbUnitLength");
-            this.lbUnitLength.Name = "lbUnitLength";
+            resources.ApplyResources(this.uLengthLength, "uLengthLength");
+            this.uLengthLength.Name = "uLengthLength";
             // 
             // nudLength
             // 
-            this.nudLength.DecimalPlaces = 1;
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.DecimalPlaces = 2;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -254,8 +255,8 @@
             // 
             // nudHeight
             // 
-            this.nudHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudHeight, "nudHeight");
+            this.nudHeight.DecimalPlaces = 2;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -276,8 +277,8 @@
             // 
             // nudWidth
             // 
-            this.nudWidth.DecimalPlaces = 1;
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.DecimalPlaces = 2;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -313,6 +314,7 @@
             // 
             // cbFace
             // 
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -322,18 +324,17 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
             // cbColor
             // 
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -393,18 +394,28 @@
             resources.GetString("cbColor.Items55"),
             resources.GetString("cbColor.Items56"),
             resources.GetString("cbColor.Items57"),
-            resources.GetString("cbColor.Items58")});
+            resources.GetString("cbColor.Items58"),
+            resources.GetString("cbColor.Items59"),
+            resources.GetString("cbColor.Items60"),
+            resources.GetString("cbColor.Items61"),
+            resources.GetString("cbColor.Items62"),
+            resources.GetString("cbColor.Items63"),
+            resources.GetString("cbColor.Items64"),
+            resources.GetString("cbColor.Items65"),
+            resources.GetString("cbColor.Items66"),
+            resources.GetString("cbColor.Items67"),
+            resources.GetString("cbColor.Items68")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
             // gbFaceColor
             // 
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.btBitmaps);
             this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
@@ -429,8 +440,8 @@
             // 
             // nudWeight
             // 
-            this.nudWeight.DecimalPlaces = 3;
             resources.ApplyResources(this.nudWeight, "nudWeight");
+            this.nudWeight.DecimalPlaces = 3;
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -440,17 +451,17 @@
             // 
             // gbWeight
             // 
-            this.gbWeight.Controls.Add(this.lbUnitWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
+            this.gbWeight.Controls.Add(this.uMassWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
-            // lbUnitWeight
+            // uMassWeight
             // 
-            resources.ApplyResources(this.lbUnitWeight, "lbUnitWeight");
-            this.lbUnitWeight.Name = "lbUnitWeight";
+            resources.ApplyResources(this.uMassWeight, "uMassWeight");
+            this.uMassWeight.Name = "uMassWeight";
             // 
             // trackBarHorizAngle
             // 
@@ -492,37 +503,43 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbTape
             // 
+            resources.ApplyResources(this.gbTape, "gbTape");
+            this.gbTape.Controls.Add(this.uLengthTapeWidth);
             this.gbTape.Controls.Add(this.cbTapeColor);
             this.gbTape.Controls.Add(this.nudTapeWidth);
             this.gbTape.Controls.Add(this.lbTapeColor);
             this.gbTape.Controls.Add(this.lbTapeWidth);
             this.gbTape.Controls.Add(this.checkBoxTape);
-            resources.ApplyResources(this.gbTape, "gbTape");
             this.gbTape.Name = "gbTape";
             this.gbTape.TabStop = false;
             // 
+            // uLengthTapeWidth
+            // 
+            resources.ApplyResources(this.uLengthTapeWidth, "uLengthTapeWidth");
+            this.uLengthTapeWidth.Name = "uLengthTapeWidth";
+            // 
             // cbTapeColor
             // 
+            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Color = System.Drawing.Color.Chocolate;
             this.cbTapeColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTapeColor.DropDownHeight = 1;
             this.cbTapeColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTapeColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Items.AddRange(new object[] {
             resources.GetString("cbTapeColor.Items"),
             resources.GetString("cbTapeColor.Items1"),
@@ -583,13 +600,24 @@
             resources.GetString("cbTapeColor.Items56"),
             resources.GetString("cbTapeColor.Items57"),
             resources.GetString("cbTapeColor.Items58"),
-            resources.GetString("cbTapeColor.Items59")});
+            resources.GetString("cbTapeColor.Items59"),
+            resources.GetString("cbTapeColor.Items60"),
+            resources.GetString("cbTapeColor.Items61"),
+            resources.GetString("cbTapeColor.Items62"),
+            resources.GetString("cbTapeColor.Items63"),
+            resources.GetString("cbTapeColor.Items64"),
+            resources.GetString("cbTapeColor.Items65"),
+            resources.GetString("cbTapeColor.Items66"),
+            resources.GetString("cbTapeColor.Items67"),
+            resources.GetString("cbTapeColor.Items68"),
+            resources.GetString("cbTapeColor.Items69")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
             // nudTapeWidth
             // 
             resources.ApplyResources(this.nudTapeWidth, "nudTapeWidth");
+            this.nudTapeWidth.DecimalPlaces = 2;
             this.nudTapeWidth.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -613,7 +641,7 @@
             resources.ApplyResources(this.checkBoxTape, "checkBoxTape");
             this.checkBoxTape.Name = "checkBoxTape";
             this.checkBoxTape.UseVisualStyleBackColor = true;
-            this.checkBoxTape.Click += new System.EventHandler(this.onCheckBoxTapeClicked);
+            this.checkBoxTape.CheckedChanged += new System.EventHandler(this.checkBoxTape_CheckedChanged);
             // 
             // FormNewBox
             // 
@@ -684,16 +712,16 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.Label lbUnitWeight;
-        private System.Windows.Forms.Label lbUnitHeightInside;
-        private System.Windows.Forms.Label lbUnitWidthInside;
-        private System.Windows.Forms.Label lbUnitLengthInside;
+        private System.Windows.Forms.Label uMassWeight;
+        private System.Windows.Forms.Label uLengthHeightInside;
+        private System.Windows.Forms.Label uLengthWidthInside;
+        private System.Windows.Forms.Label uLengthLengthInside;
         private System.Windows.Forms.NumericUpDown nudInsideLength;
         private System.Windows.Forms.NumericUpDown nudInsideHeight;
         private System.Windows.Forms.NumericUpDown nudInsideWidth;
-        private System.Windows.Forms.Label lbUnitHeight;
-        private System.Windows.Forms.Label lbUnitWidth;
-        private System.Windows.Forms.Label lbUnitLength;
+        private System.Windows.Forms.Label uLengthHeight;
+        private System.Windows.Forms.Label uLengthWidth;
+        private System.Windows.Forms.Label uLengthLength;
         private System.Windows.Forms.NumericUpDown nudLength;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.NumericUpDown nudWidth;
@@ -713,5 +741,6 @@
         private System.Windows.Forms.Label lbTapeColor;
         private System.Windows.Forms.Label lbTapeWidth;
         private System.Windows.Forms.CheckBox checkBoxTape;
+        private System.Windows.Forms.Label uLengthTapeWidth;
     }
 }

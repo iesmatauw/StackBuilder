@@ -54,6 +54,9 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewCaseAnalysis(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
+            // save document reference
             _document = document;
         }
         /// <summary>
@@ -64,7 +67,9 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewCaseAnalysis(Document document, BoxCasePalletAnalysis caseAnalysis)
         {
             InitializeComponent();
-
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
+            // save document reference
             _document = document;
             _caseAnalysis = caseAnalysis;
         }

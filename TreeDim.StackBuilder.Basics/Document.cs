@@ -53,6 +53,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private string _name, _description, _author;
         private DateTime _dateCreated;
+        private UnitsManager.UnitSystem _unitSystem;
         private List<ItemBase> _typeList = new List<ItemBase>();
         private List<CasePalletAnalysis> _casePalletAnalyses = new List<CasePalletAnalysis>();
         private List<CylinderPalletAnalysis> _cylinderPalletAnalyses = new List<CylinderPalletAnalysis>();
@@ -899,6 +900,10 @@ namespace TreeDim.StackBuilder.Basics
                     _log.Debug("Failed to load date of creation correctly: Loading file generated with former version?");
                 }
             }
+            if (docElement.HasAttribute("UnitSystem"))
+                _unitSystem = (UnitsManager.UnitSystem)int.Parse(docElement.Attributes["UnitSystem"].Value);
+            else
+                _unitSystem = UnitsManager.UnitSystem.UNIT_METRIC;
 
             foreach (XmlNode docChildNode in docElement.ChildNodes)
             {
@@ -1000,29 +1005,29 @@ namespace TreeDim.StackBuilder.Basics
                 boxProperties = CreateNewCase(
                 sname
                 , sdescription
-                , System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sInsideLength, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sInsideWidth, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sInsideHeight, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sInsideLength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sInsideWidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sInsideHeight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , colors);
             else
                 boxProperties = CreateNewBox(
                 sname
                 , sdescription
-                , System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , colors);
             boxProperties.Guid = new Guid(sid);
             boxProperties.TextureList = listTexture;
             // tape
             boxProperties.ShowTape = hasTape;
             boxProperties.TapeColor = tapeColor;
-            boxProperties.TapeWidth = tapeWidth;
+            boxProperties.TapeWidth = UnitsManager.ConvertMassFrom(tapeWidth, _unitSystem);
         }
 
         private void LoadCylinderProperties(XmlElement eltCylinderProperties)
@@ -1039,9 +1044,9 @@ namespace TreeDim.StackBuilder.Basics
             CylinderProperties cylinderProperties = CreateNewCylinder(
                 sname,
                 sdescription,
-                Convert.ToDouble(sradius, System.Globalization.CultureInfo.InvariantCulture),
-                Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture),
-                Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture),
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sradius, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
                 Color.FromArgb(System.Convert.ToInt32(sColorTop)),
                 Color.FromArgb(System.Convert.ToInt32(sColorWall)));
             cylinderProperties.Guid = new Guid(sid);
@@ -1088,7 +1093,7 @@ namespace TreeDim.StackBuilder.Basics
                 , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
                 , caseDefinition
                 , constraintSet);
-            caseOfBoxProperties.Weight = Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture);
+            caseOfBoxProperties.Weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem);
             caseOfBoxProperties.Guid = new Guid(sid);
             caseOfBoxProperties.TextureList = listTexture;
             caseOfBoxProperties.SetAllColors( colors );
@@ -1123,7 +1128,12 @@ namespace TreeDim.StackBuilder.Basics
                     // bitmap
                     Bitmap bmp = Document.StringToBitmap(xmlFaceTexture.Attributes["Bitmap"].Value);
                     // add texture pair
-                    listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal, new Texture(bmp, position, size, angle)));
+                    listTexture.Add(new Pair<HalfAxis.HAxis, Texture>(faceNormal
+                        , new Texture(
+                            bmp
+                            , UnitsManager.ConvertLengthFrom(position, _unitSystem)
+                            , UnitsManager.ConvertLengthFrom(size, _unitSystem)
+                            , angle)));
                 }
                 catch (Exception ex)
                 {
@@ -1179,10 +1189,10 @@ namespace TreeDim.StackBuilder.Basics
                 sname
                 , sdescription
                 , stype
-                , System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture)
-                , System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture));
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(System.Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(System.Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem));
             palletProperties.Color = Color.FromArgb(System.Convert.ToInt32(sColor));
             palletProperties.Guid = new Guid(sid);
         }
@@ -1201,10 +1211,10 @@ namespace TreeDim.StackBuilder.Basics
             InterlayerProperties interlayerProperties = CreateNewInterlayer(
                 sname
                 , sdescription
-                , Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture)
-                , Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture)
-                , Convert.ToDouble(sthickness, System.Globalization.CultureInfo.InvariantCulture)
-                , Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
             interlayerProperties.Guid = new Guid(sid);
         }
@@ -1222,10 +1232,10 @@ namespace TreeDim.StackBuilder.Basics
             BundleProperties bundleProperties = CreateNewBundle(
                 sname
                 , sdescription
-                , length
-                , width
-                , unitThickness
-                , unitWeight
+                , UnitsManager.ConvertLengthFrom(length, _unitSystem)
+                , UnitsManager.ConvertLengthFrom(width, _unitSystem)
+                , UnitsManager.ConvertLengthFrom(unitThickness, _unitSystem)
+                , UnitsManager.ConvertMassFrom(unitWeight, _unitSystem)
                 , color
                 , noFlats);
             bundleProperties.Guid = new Guid(sid);
@@ -1245,10 +1255,10 @@ namespace TreeDim.StackBuilder.Basics
             TruckProperties truckProperties = CreateNewTruck(
                 sName
                 , sDescription
-                , Convert.ToDouble(slength)
-                , Convert.ToDouble(swidth)
-                , Convert.ToDouble(sheight)
-                , Convert.ToDouble(sadmissibleLoadWeight)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sadmissibleLoadWeight), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
             truckProperties.Guid = new Guid(sid);
         }
@@ -1259,7 +1269,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
             int[] iNoWalls = ParseInt3(sNoWalls);
-            double wallThickness = Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value);
+            double wallThickness = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value), _unitSystem);
             constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero, false); 
         }
         #endregion
@@ -1568,7 +1578,7 @@ namespace TreeDim.StackBuilder.Basics
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
             // maximum case weight
             if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
-                constraints.MaximumCaseWeight = double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value);
+                constraints.MaximumCaseWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value), _unitSystem);
             // number of solutions to keep
             if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
                 constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
@@ -1589,7 +1599,7 @@ namespace TreeDim.StackBuilder.Basics
                 constraints.AllowOrthoAxisString = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
             // maximum case weight
             if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
-                constraints.MaximumCaseWeight = double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value);
+                constraints.MaximumCaseWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value), _unitSystem);
             // allowed patterns
             if (constraints.UseMaximumNumberOfBoxes = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfBoxes = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
@@ -1624,18 +1634,18 @@ namespace TreeDim.StackBuilder.Basics
                 constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
             // stop criterions
             if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
-                constraints.MaximumHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
+                constraints.MaximumHeight = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value), _unitSystem);
             if (constraints.UseMaximumNumberOfCases = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
             if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
-                constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
+                constraints.MaximumPalletWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value), _unitSystem);
             if (constraints.UseMaximumWeightOnBox = eltConstraintSet.HasAttribute("MaximumWeightOnBox"))
-                constraints.MaximumWeightOnBox = double.Parse(eltConstraintSet.Attributes["MaximumWeightOnBox"].Value);
+                constraints.MaximumWeightOnBox = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumWeightOnBox"].Value), _unitSystem);
             // overhang / underhang
             if (eltConstraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = double.Parse(eltConstraintSet.Attributes["OverhangX"].Value);
+                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangX"].Value), _unitSystem);
             if (eltConstraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = double.Parse(eltConstraintSet.Attributes["OverhangY"].Value);
+                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), _unitSystem);
             // number of solutions to keep
             if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
                 constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
@@ -1658,16 +1668,16 @@ namespace TreeDim.StackBuilder.Basics
                 constraints.AllowedPatternString = eltConstraintSet.Attributes["AllowedPatterns"].Value;
             // stop criterions
             if (constraints.UseMaximumHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
-                constraints.MaximumHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
+                constraints.MaximumHeight = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value), _unitSystem);
             if (constraints.UseMaximumNumberOfCases = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
             if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
-                constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
+                constraints.MaximumPalletWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value), _unitSystem);
             // overhang / underhang
             if (eltConstraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = double.Parse(eltConstraintSet.Attributes["OverhangX"].Value);
+                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangX"].Value), _unitSystem);
             if (eltConstraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = double.Parse(eltConstraintSet.Attributes["OverhangY"].Value);
+                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), _unitSystem);
             // number of solutions to keep
             if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
                 constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
@@ -1681,18 +1691,18 @@ namespace TreeDim.StackBuilder.Basics
             CylinderPalletConstraintSet constraints = new CylinderPalletConstraintSet();
             // stop criterions
             if (constraints.UseMaximumPalletHeight = eltConstraintSet.HasAttribute("MaximumHeight"))
-                constraints.MaximumPalletHeight = double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value);
+                constraints.MaximumPalletHeight = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["MaximumHeight"].Value), _unitSystem);
             if (constraints.UseMaximumNumberOfItems = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfItems = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
             if (constraints.UseMaximumPalletWeight = eltConstraintSet.HasAttribute("MaximumPalletWeight"))
-                constraints.MaximumPalletWeight = double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value);
+                constraints.MaximumPalletWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumPalletWeight"].Value), _unitSystem);
             if (constraints.UseMaximumLoadOnLowerCylinder = eltConstraintSet.HasAttribute("MaximumLoadOnLowerCylinder"))
-                constraints.MaximumLoadOnLowerCylinder = double.Parse(eltConstraintSet.Attributes["MaximumLoadOnLowerCylinder"].Value);
+                constraints.MaximumLoadOnLowerCylinder = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumLoadOnLowerCylinder"].Value), _unitSystem);
             // overhang / underhang
             if (eltConstraintSet.HasAttribute("OverhangX"))
-                constraints.OverhangX = double.Parse(eltConstraintSet.Attributes["OverhangX"].Value);
+                constraints.OverhangX = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangX"].Value), _unitSystem);
             if (eltConstraintSet.HasAttribute("OverhangY"))
-                constraints.OverhangY = double.Parse(eltConstraintSet.Attributes["OverhangY"].Value);
+                constraints.OverhangY = UnitsManager.ConvertLengthFrom(double.Parse(eltConstraintSet.Attributes["OverhangY"].Value), _unitSystem);
             return constraints;
         }
 
@@ -1784,7 +1794,7 @@ namespace TreeDim.StackBuilder.Basics
             double zLow = System.Convert.ToDouble(eltLayer.Attributes["ZLow"].Value);
             if (string.Equals(eltLayer.Name, "BoxLayer", StringComparison.CurrentCultureIgnoreCase))
             {
-                BoxLayer boxLayer = new BoxLayer(zLow);
+                BoxLayer boxLayer = new BoxLayer(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
                 foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
                 {
                     XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;
@@ -1793,7 +1803,7 @@ namespace TreeDim.StackBuilder.Basics
                     string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
                     try
                     {
-                        boxLayer.AddPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
+                        boxLayer.AddPosition(UnitsManager.ConvertLengthFrom(Vector3D.Parse(sPosition), _unitSystem), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth));
                     }
                     catch (Exception /*ex*/)
                     {
@@ -1805,17 +1815,17 @@ namespace TreeDim.StackBuilder.Basics
             }
             else if (string.Equals(eltLayer.Name, "CylLayer", StringComparison.CurrentCultureIgnoreCase))
             {
-                CylinderLayer cylLayer = new CylinderLayer(zLow);
+                CylinderLayer cylLayer = new CylinderLayer(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
                 foreach (XmlNode nodePosition in eltLayer.ChildNodes)
                 {
                     XmlElement eltBoxPosition = nodePosition as XmlElement;
                     string sPosition = eltBoxPosition.Attributes["Position"].Value;
-                    cylLayer.Add(Vector3D.Parse(sPosition));
+                    cylLayer.Add(UnitsManager.ConvertLengthFrom(Vector3D.Parse(sPosition), _unitSystem));
                     layer = cylLayer;
                 }
             }
             else if (string.Equals(eltLayer.Name, "InterLayer", StringComparison.CurrentCultureIgnoreCase))
-                layer = new InterlayerPos(zLow);
+                layer = new InterlayerPos(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
 
             return layer;
         }
@@ -1872,17 +1882,15 @@ namespace TreeDim.StackBuilder.Basics
             if (eltTruckConstraintSet.HasAttribute("MultilayerAllowed"))
                 constraintSet.MultilayerAllowed = string.Equals(eltTruckConstraintSet.Attributes["MultilayerAllowed"].Value, "true", StringComparison.CurrentCultureIgnoreCase);
             if (eltTruckConstraintSet.HasAttribute("MinDistancePalletWall"))
-            constraintSet.MinDistancePalletTruckWall = double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletWall"].Value);
+            constraintSet.MinDistancePalletTruckWall = UnitsManager.ConvertLengthFrom(double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletWall"].Value), _unitSystem);
             if (eltTruckConstraintSet.HasAttribute("MinDistancePalletRoof"))
-                constraintSet.MinDistancePalletTruckRoof = double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletRoof"].Value);
+                constraintSet.MinDistancePalletTruckRoof = UnitsManager.ConvertLengthFrom(double.Parse(eltTruckConstraintSet.Attributes["MinDistancePalletRoof"].Value), _unitSystem);
             if (eltTruckConstraintSet.HasAttribute("AllowedPalletOrientations"))
             {
                 string sAllowedPalletOrientations = eltTruckConstraintSet.Attributes["AllowedPalletOrientations"].Value;
                 constraintSet.AllowPalletOrientationX = sAllowedPalletOrientations.Contains("X");
                 constraintSet.AllowPalletOrientationY = sAllowedPalletOrientations.Contains("Y");
-
             }
-
             return constraintSet;
         }
 
@@ -1919,7 +1927,7 @@ namespace TreeDim.StackBuilder.Basics
                     if (eltCardboard.HasAttribute("Name"))
                         cardboardName = eltCardboard.Attributes["Name"].Value;
                     if (eltCardboard.HasAttribute("Thickness"))
-                        thickness = double.Parse(eltCardboard.Attributes["Thickness"].Value);
+                        thickness = UnitsManager.ConvertLengthFrom(double.Parse(eltCardboard.Attributes["Thickness"].Value), _unitSystem);
                     if (eltCardboard.HasAttribute("ECT"))
                         ect = double.Parse(eltCardboard.Attributes["ECT"].Value);
                     if (eltCardboard.HasAttribute("StiffnessX"))
@@ -1970,8 +1978,12 @@ namespace TreeDim.StackBuilder.Basics
                 xmlRootElement.Attributes.Append(xmlDocAuthorAttribute);
                 // dateCreated
                 XmlAttribute xmlDateCreatedAttribute = xmlDoc.CreateAttribute("DateCreated");
-                xmlDateCreatedAttribute.Value = Convert.ToString(_dateCreated, new CultureInfo("en-US")); //string.Format("{0}", _dateCreated);
+                xmlDateCreatedAttribute.Value = Convert.ToString(_dateCreated, new CultureInfo("en-US"));
                 xmlRootElement.Attributes.Append(xmlDateCreatedAttribute);
+                // unit system
+                XmlAttribute xmlUnitSystem = xmlDoc.CreateAttribute("UnitSystem");
+                xmlUnitSystem.Value = string.Format("{0}", (int)UnitsManager.CurrentUnitSystem);
+                xmlRootElement.Attributes.Append(xmlUnitSystem);
                 // create ItemProperties element
                 XmlElement xmlItemPropertiesElt = xmlDoc.CreateElement("ItemProperties");
                 xmlRootElement.AppendChild(xmlItemPropertiesElt);
@@ -3477,23 +3489,6 @@ namespace TreeDim.StackBuilder.Basics
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
         }
-/*
-        private void NotifyOnAnalysisRemoved(CasePalletAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnCasePalletAnalysisRemoved(this, analysis);
-        }
-        private void NotifyOnAnalysisRemoved(BoxCaseAnalysis analysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnBoxCaseAnalysisRemoved(this, analysis);
-        }
-        private void NotifyOnCaseAnalysisRemoved(BoxCasePalletAnalysis caseAnalysis)
-        {
-            foreach (IDocumentListener listener in _listeners)
-                listener.OnCaseAnalysisRemoved(this, caseAnalysis);
-        }
-*/ 
         internal void NotifyOnTruckAnalysisRemoved(SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis)
         {
             foreach (IDocumentListener listener in _listeners)

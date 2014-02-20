@@ -353,7 +353,7 @@ Continue?</value>
     <value>Box/Case count</value>
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Pallet weight (kg)</value>
+    <value>Pallet weight ({0})</value>
   </data>
   <data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -413,7 +413,7 @@ Continue?</value>
     <value>Add new truck analysis...</value>
   </data>
   <data name="ID_WEIGHT" xml:space="preserve">
-    <value>Weight (kg)</value>
+    <value>Weight</value>
   </data>
   <data name="ID_CASE" xml:space="preserve">
     <value>Case</value>
@@ -446,7 +446,7 @@ Continue?</value>
     <value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Pallet height (mm)</value>
+    <value>Pallet height ({0})</value>
   </data>
   <data name="ID_ADDNEWBOX" xml:space="preserve">
     <value>Add new box...</value>
@@ -500,15 +500,18 @@ Continue?</value>
     <value>Limit reached</value>
   </data>
   <data name="ID_CASEWEIGHT" xml:space="preserve">
-    <value>Case weight (kg)</value>
+    <value>Case weight ({0})</value>
   </data>
   <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
-    <value>Maximum case weight should exceed {0} kg.</value>
+    <value>Maximum case weight should exceed {0} {1}.</value>
   </data>
   <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
     <value>No pallet solution selected</value>
   </data>
   <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-    <value>Maximal pallet height ({0} mm) ought to exceed {1} mm</value>
+    <value>Maximal pallet height ({0} {1}) ought to exceed {2} {3}</value>
+  </data>
+  <data name="ID_" xml:space="preserve">
+    <value />
   </data>
 </root>

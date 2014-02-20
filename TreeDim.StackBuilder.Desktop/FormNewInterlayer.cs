@@ -26,6 +26,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewInterlayer(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             // initialize value
@@ -39,11 +41,13 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewInterlayer(Document document, InterlayerProperties interlayerProperties)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _interlayerProperties = interlayerProperties;
             // set caption text
-            Text = string.Format("Edit {0}...", _interlayerProperties.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, _interlayerProperties.Name);
             // initialize value
             tbName.Text = _interlayerProperties.Name;
             tbDescription.Text = _interlayerProperties.Description;

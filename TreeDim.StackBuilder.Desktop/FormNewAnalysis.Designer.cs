@@ -57,9 +57,9 @@
             this.nudMaximumPalletHeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumPalletWeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumLoadOnBox = new System.Windows.Forms.NumericUpDown();
-            this.lbKg2 = new System.Windows.Forms.Label();
-            this.lbKg1 = new System.Windows.Forms.Label();
-            this.lbMm = new System.Windows.Forms.Label();
+            this.uMassLoadLowerCases = new System.Windows.Forms.Label();
+            this.uMassPalletWeight = new System.Windows.Forms.Label();
+            this.uLengthPalletHeight = new System.Windows.Forms.Label();
             this.checkBoxInterlayer = new System.Windows.Forms.CheckBox();
             this.cbInterlayer = new System.Windows.Forms.ComboBox();
             this.lbInterlayerFreq1 = new System.Windows.Forms.Label();
@@ -70,8 +70,8 @@
             this.nudPalletOverhangX = new System.Windows.Forms.NumericUpDown();
             this.nudPalletOverhangY = new System.Windows.Forms.NumericUpDown();
             this.gbOverhangUnderhang = new System.Windows.Forms.GroupBox();
-            this.lbMm2 = new System.Windows.Forms.Label();
-            this.lbMm1 = new System.Windows.Forms.Label();
+            this.uLengthOverhangY = new System.Windows.Forms.Label();
+            this.uLengthOverhangX = new System.Windows.Forms.Label();
             this.checkBoxAllowAlignedLayer = new System.Windows.Forms.CheckBox();
             this.checkBoxAllowAlternateLayer = new System.Windows.Forms.CheckBox();
             this.gbLayerAlignment = new System.Windows.Forms.GroupBox();
@@ -183,13 +183,13 @@
             // 
             // gbAllowedBoxPositions
             // 
-            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionX);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionX);
+            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Name = "gbAllowedBoxPositions";
             this.gbAllowedBoxPositions.TabStop = false;
             // 
@@ -205,22 +205,21 @@
             // 
             // cbBox
             // 
-            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBox.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.Name = "cbBox";
             this.cbBox.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             // 
             // checkedListBoxPatterns
             // 
-            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.CheckOnClick = true;
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
@@ -230,12 +229,13 @@
             resources.GetString("checkedListBoxPatterns.Items3"),
             resources.GetString("checkedListBoxPatterns.Items4"),
             resources.GetString("checkedListBoxPatterns.Items5")});
+            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             // 
             // gbAllowedLayerPatterns
             // 
-            resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
             this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
+            resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
             this.gbAllowedLayerPatterns.Name = "gbAllowedLayerPatterns";
             this.gbAllowedLayerPatterns.TabStop = false;
             // 
@@ -294,8 +294,8 @@
             // 
             // nudMaximumPalletWeight
             // 
-            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -305,8 +305,8 @@
             // 
             // nudMaximumLoadOnBox
             // 
-            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -314,20 +314,20 @@
             0});
             this.nudMaximumLoadOnBox.Name = "nudMaximumLoadOnBox";
             // 
-            // lbKg2
+            // uMassLoadLowerCases
             // 
-            resources.ApplyResources(this.lbKg2, "lbKg2");
-            this.lbKg2.Name = "lbKg2";
+            resources.ApplyResources(this.uMassLoadLowerCases, "uMassLoadLowerCases");
+            this.uMassLoadLowerCases.Name = "uMassLoadLowerCases";
             // 
-            // lbKg1
+            // uMassPalletWeight
             // 
-            resources.ApplyResources(this.lbKg1, "lbKg1");
-            this.lbKg1.Name = "lbKg1";
+            resources.ApplyResources(this.uMassPalletWeight, "uMassPalletWeight");
+            this.uMassPalletWeight.Name = "uMassPalletWeight";
             // 
-            // lbMm
+            // uLengthPalletHeight
             // 
-            resources.ApplyResources(this.lbMm, "lbMm");
-            this.lbMm.Name = "lbMm";
+            resources.ApplyResources(this.uLengthPalletHeight, "uLengthPalletHeight");
+            this.uLengthPalletHeight.Name = "uLengthPalletHeight";
             // 
             // checkBoxInterlayer
             // 
@@ -338,9 +338,9 @@
             // 
             // cbInterlayer
             // 
-            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayer.FormattingEnabled = true;
+            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
             this.cbInterlayer.Name = "cbInterlayer";
             // 
             // lbInterlayerFreq1
@@ -410,25 +410,25 @@
             // 
             // gbOverhangUnderhang
             // 
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
-            this.gbOverhangUnderhang.Controls.Add(this.lbMm2);
-            this.gbOverhangUnderhang.Controls.Add(this.lbMm1);
+            this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangY);
+            this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
-            // lbMm2
+            // uLengthOverhangY
             // 
-            resources.ApplyResources(this.lbMm2, "lbMm2");
-            this.lbMm2.Name = "lbMm2";
+            resources.ApplyResources(this.uLengthOverhangY, "uLengthOverhangY");
+            this.uLengthOverhangY.Name = "uLengthOverhangY";
             // 
-            // lbMm1
+            // uLengthOverhangX
             // 
-            resources.ApplyResources(this.lbMm1, "lbMm1");
-            this.lbMm1.Name = "lbMm1";
+            resources.ApplyResources(this.uLengthOverhangX, "uLengthOverhangX");
+            this.uLengthOverhangX.Name = "uLengthOverhangX";
             // 
             // checkBoxAllowAlignedLayer
             // 
@@ -446,18 +446,17 @@
             // 
             // gbLayerAlignment
             // 
-            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlternateLayer);
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlignedLayer);
+            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Name = "gbLayerAlignment";
             this.gbLayerAlignment.TabStop = false;
             // 
             // gbStopStackingCondition
             // 
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
-            this.gbStopStackingCondition.Controls.Add(this.lbMm);
-            this.gbStopStackingCondition.Controls.Add(this.lbKg1);
-            this.gbStopStackingCondition.Controls.Add(this.lbKg2);
+            this.gbStopStackingCondition.Controls.Add(this.uLengthPalletHeight);
+            this.gbStopStackingCondition.Controls.Add(this.uMassPalletWeight);
+            this.gbStopStackingCondition.Controls.Add(this.uMassLoadLowerCases);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumLoadOnBox);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletHeight);
@@ -467,6 +466,7 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
@@ -493,13 +493,13 @@
             // 
             // gbAdditionalData
             // 
-            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
             this.gbAdditionalData.Controls.Add(this.lbSolutions);
             this.gbAdditionalData.Controls.Add(this.nudSolutions);
             this.gbAdditionalData.Controls.Add(this.checkBoxKeepSolutions);
             this.gbAdditionalData.Controls.Add(this.lbBoxes);
             this.gbAdditionalData.Controls.Add(this.nudNumberOfBoxes);
             this.gbAdditionalData.Controls.Add(this.checkBoxNumberOfPallets);
+            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
             this.gbAdditionalData.Name = "gbAdditionalData";
             this.gbAdditionalData.TabStop = false;
             // 
@@ -537,17 +537,17 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewAnalysis
             // 
@@ -644,9 +644,9 @@
         private System.Windows.Forms.NumericUpDown nudMaximumPalletHeight;
         private System.Windows.Forms.NumericUpDown nudMaximumPalletWeight;
         private System.Windows.Forms.NumericUpDown nudMaximumLoadOnBox;
-        private System.Windows.Forms.Label lbKg2;
-        private System.Windows.Forms.Label lbKg1;
-        private System.Windows.Forms.Label lbMm;
+        private System.Windows.Forms.Label uMassLoadLowerCases;
+        private System.Windows.Forms.Label uMassPalletWeight;
+        private System.Windows.Forms.Label uLengthPalletHeight;
         private System.Windows.Forms.CheckBox checkBoxInterlayer;
         private System.Windows.Forms.ComboBox cbInterlayer;
         private System.Windows.Forms.Label lbInterlayerFreq1;
@@ -657,8 +657,8 @@
         private System.Windows.Forms.NumericUpDown nudPalletOverhangX;
         private System.Windows.Forms.NumericUpDown nudPalletOverhangY;
         private System.Windows.Forms.GroupBox gbOverhangUnderhang;
-        private System.Windows.Forms.Label lbMm2;
-        private System.Windows.Forms.Label lbMm1;
+        private System.Windows.Forms.Label uLengthOverhangY;
+        private System.Windows.Forms.Label uLengthOverhangX;
         private System.Windows.Forms.CheckBox checkBoxAllowAlignedLayer;
         private System.Windows.Forms.CheckBox checkBoxAllowAlternateLayer;
         private System.Windows.Forms.GroupBox gbLayerAlignment;

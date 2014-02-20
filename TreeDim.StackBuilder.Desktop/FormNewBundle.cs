@@ -29,6 +29,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewBundle(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             // initialize value
@@ -44,11 +46,13 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewBundle(Document document, BundleProperties bundleProperties)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _bundleProperties = bundleProperties;
             // set caption text
-            Text = string.Format("Edit {0}...", _bundleProperties.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, _bundleProperties.Name);
             // initialize value
             tbName.Text = bundleProperties.Name;
             tbDescription.Text = bundleProperties.Description;

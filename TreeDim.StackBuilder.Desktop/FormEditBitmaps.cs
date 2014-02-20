@@ -34,6 +34,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormEditBitmaps(BoxProperties boxProperties)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // set internal box properties
             _boxProperties = boxProperties;
             // get textures
@@ -49,6 +51,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormEditBitmaps(double length, double width, double height, Color[] faceColors)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // set internal box properties
             _boxProperties = new BoxProperties(null, length, width, height);
             _boxProperties.SetAllColors(faceColors);

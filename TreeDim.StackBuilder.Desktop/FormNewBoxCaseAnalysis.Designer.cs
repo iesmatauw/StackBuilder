@@ -47,7 +47,7 @@
             this.pictureBoxPositionX = new System.Windows.Forms.PictureBox();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbKg = new System.Windows.Forms.Label();
+            this.uMassCaseWeight = new System.Windows.Forms.Label();
             this.nudMaximumCaseWeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
             this.checkBoxMaximumCaseWeight = new System.Windows.Forms.CheckBox();
@@ -254,15 +254,15 @@
             this.toolStripStatusLabelDef.Size = new System.Drawing.Size(130, 17);
             this.toolStripStatusLabelDef.Text = "toolStripStatusLabelDef";
             // 
-            // lbKg
+            // uMassCaseWeight
             // 
-            this.lbKg.AutoSize = true;
-            this.lbKg.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbKg.Location = new System.Drawing.Point(270, 69);
-            this.lbKg.Name = "lbKg";
-            this.lbKg.Size = new System.Drawing.Size(19, 13);
-            this.lbKg.TabIndex = 29;
-            this.lbKg.Text = "kg";
+            this.uMassCaseWeight.AutoSize = true;
+            this.uMassCaseWeight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.uMassCaseWeight.Location = new System.Drawing.Point(270, 71);
+            this.uMassCaseWeight.Name = "uMassCaseWeight";
+            this.uMassCaseWeight.Size = new System.Drawing.Size(47, 13);
+            this.uMassCaseWeight.TabIndex = 29;
+            this.uMassCaseWeight.Text = "uMass";
             // 
             // nudMaximumCaseWeight
             // 
@@ -304,7 +304,7 @@
             // 
             this.checkBoxMaximumCaseWeight.AutoSize = true;
             this.checkBoxMaximumCaseWeight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBoxMaximumCaseWeight.Location = new System.Drawing.Point(8, 70);
+            this.checkBoxMaximumCaseWeight.Location = new System.Drawing.Point(8, 69);
             this.checkBoxMaximumCaseWeight.Name = "checkBoxMaximumCaseWeight";
             this.checkBoxMaximumCaseWeight.Size = new System.Drawing.Size(176, 17);
             this.checkBoxMaximumCaseWeight.TabIndex = 22;
@@ -314,7 +314,7 @@
             // 
             // gbStopStackingCondition
             // 
-            this.gbStopStackingCondition.Controls.Add(this.lbKg);
+            this.gbStopStackingCondition.Controls.Add(this.uMassCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumNumberOfBoxes);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumCaseWeight);
@@ -341,7 +341,7 @@
             // 
             this.checkBoxMaximumNumberOfBoxes.AutoSize = true;
             this.checkBoxMaximumNumberOfBoxes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBoxMaximumNumberOfBoxes.Location = new System.Drawing.Point(8, 44);
+            this.checkBoxMaximumNumberOfBoxes.Location = new System.Drawing.Point(8, 43);
             this.checkBoxMaximumNumberOfBoxes.Name = "checkBoxMaximumNumberOfBoxes";
             this.checkBoxMaximumNumberOfBoxes.Size = new System.Drawing.Size(174, 17);
             this.checkBoxMaximumNumberOfBoxes.TabIndex = 19;
@@ -412,7 +412,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPositionX;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
-        private System.Windows.Forms.Label lbKg;
+        private System.Windows.Forms.Label uMassCaseWeight;
         private System.Windows.Forms.NumericUpDown nudMaximumCaseWeight;
         private System.Windows.Forms.NumericUpDown nudMaximumNumberOfBoxes;
         private System.Windows.Forms.CheckBox checkBoxMaximumCaseWeight;

@@ -71,6 +71,8 @@
             this.btAddSolution = new System.Windows.Forms.Button();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            this.uLengthWallThickness = new System.Windows.Forms.Label();
+            this.uLengthPalletHeight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).BeginInit();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
@@ -102,12 +104,10 @@
             // 
             // splitContainerCasePallet.Panel1
             // 
-            resources.ApplyResources(this.splitContainerCasePallet.Panel1, "splitContainerCasePallet.Panel1");
             this.splitContainerCasePallet.Panel1.Controls.Add(this.pbBoxesLayout);
             // 
             // splitContainerCasePallet.Panel2
             // 
-            resources.ApplyResources(this.splitContainerCasePallet.Panel2, "splitContainerCasePallet.Panel2");
             this.splitContainerCasePallet.Panel2.Controls.Add(this.pbPallet);
             this.splitContainerCasePallet.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainerCasePallet_SplitterMoved);
             // 
@@ -181,9 +181,9 @@
             // 
             // cbBoxes
             // 
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.cbBoxes_SelectedIndexChanged);
             // 
@@ -195,6 +195,7 @@
             // gbCase
             // 
             resources.ApplyResources(this.gbCase, "gbCase");
+            this.gbCase.Controls.Add(this.uLengthWallThickness);
             this.gbCase.Controls.Add(this.btSetMaximum);
             this.gbCase.Controls.Add(this.btSetMinimum);
             this.gbCase.Controls.Add(this.nudWallThickness);
@@ -233,6 +234,7 @@
             // 
             // nudWallThickness
             // 
+            this.nudWallThickness.DecimalPlaces = 1;
             resources.ApplyResources(this.nudWallThickness, "nudWallThickness");
             this.nudWallThickness.Name = "nudWallThickness";
             this.nudWallThickness.ValueChanged += new System.EventHandler(this.OptimizationParameterChanged);
@@ -389,6 +391,7 @@
             // gbPallet
             // 
             resources.ApplyResources(this.gbPallet, "gbPallet");
+            this.gbPallet.Controls.Add(this.uLengthPalletHeight);
             this.gbPallet.Controls.Add(this.nudPalletHeight);
             this.gbPallet.Controls.Add(this.lbPalletHeight);
             this.gbPallet.Controls.Add(this.lbPalletDimensions);
@@ -399,6 +402,7 @@
             // 
             // nudPalletHeight
             // 
+            this.nudPalletHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
             this.nudPalletHeight.Maximum = new decimal(new int[] {
             10000,
@@ -420,9 +424,9 @@
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -458,16 +462,26 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
+            // uLengthWallThickness
+            // 
+            resources.ApplyResources(this.uLengthWallThickness, "uLengthWallThickness");
+            this.uLengthWallThickness.Name = "uLengthWallThickness";
+            // 
+            // uLengthPalletHeight
+            // 
+            resources.ApplyResources(this.uLengthPalletHeight, "uLengthPalletHeight");
+            this.uLengthPalletHeight.Name = "uLengthPalletHeight";
             // 
             // FormOptimizeCase
             // 
@@ -563,5 +577,7 @@
         private System.Windows.Forms.PictureBox pbBoxesLayout;
         private System.Windows.Forms.PictureBox pbPallet;
         private System.Windows.Forms.CheckBox chkVerticalOrientationOnly;
+        private System.Windows.Forms.Label uLengthWallThickness;
+        private System.Windows.Forms.Label uLengthPalletHeight;
     }
 }

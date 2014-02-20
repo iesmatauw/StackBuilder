@@ -66,9 +66,9 @@
             // 
             // cbCardboard
             // 
-            resources.ApplyResources(this.cbCardboard, "cbCardboard");
             this.cbCardboard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCardboard.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCardboard, "cbCardboard");
             this.cbCardboard.Name = "cbCardboard";
             // 
             // label1
@@ -78,7 +78,6 @@
             // 
             // gbCardboardProperties
             // 
-            resources.ApplyResources(this.gbCardboardProperties, "gbCardboardProperties");
             this.gbCardboardProperties.Controls.Add(this.lbECTCoefUnit);
             this.gbCardboardProperties.Controls.Add(this.lbStiffnessYUnit);
             this.gbCardboardProperties.Controls.Add(this.lbStiffnessXUnit);
@@ -93,6 +92,7 @@
             this.gbCardboardProperties.Controls.Add(this.lbStiffnessY);
             this.gbCardboardProperties.Controls.Add(this.label3);
             this.gbCardboardProperties.Controls.Add(this.label2);
+            resources.ApplyResources(this.gbCardboardProperties, "gbCardboardProperties");
             this.gbCardboardProperties.Name = "gbCardboardProperties";
             this.gbCardboardProperties.TabStop = false;
             // 
@@ -118,9 +118,9 @@
             // 
             // lbECTCoefficient
             // 
-            resources.ApplyResources(this.lbECTCoefficient, "lbECTCoefficient");
             this.lbECTCoefficient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbECTCoefficient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.lbECTCoefficient, "lbECTCoefficient");
             this.lbECTCoefficient.Name = "lbECTCoefficient";
             // 
             // lbEctCoef
@@ -130,23 +130,23 @@
             // 
             // lbValueStiffnessY
             // 
-            resources.ApplyResources(this.lbValueStiffnessY, "lbValueStiffnessY");
             this.lbValueStiffnessY.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbValueStiffnessY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.lbValueStiffnessY, "lbValueStiffnessY");
             this.lbValueStiffnessY.Name = "lbValueStiffnessY";
             // 
             // lbValueStiffnessX
             // 
-            resources.ApplyResources(this.lbValueStiffnessX, "lbValueStiffnessX");
             this.lbValueStiffnessX.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbValueStiffnessX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.lbValueStiffnessX, "lbValueStiffnessX");
             this.lbValueStiffnessX.Name = "lbValueStiffnessX";
             // 
             // lbValueThickness
             // 
-            resources.ApplyResources(this.lbValueThickness, "lbValueThickness");
             this.lbValueThickness.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbValueThickness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.lbValueThickness, "lbValueThickness");
             this.lbValueThickness.Name = "lbValueThickness";
             // 
             // lbStiffnessY
@@ -171,9 +171,9 @@
             // 
             // cbPrintedSurface
             // 
-            resources.ApplyResources(this.cbPrintedSurface, "cbPrintedSurface");
             this.cbPrintedSurface.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrintedSurface.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPrintedSurface, "cbPrintedSurface");
             this.cbPrintedSurface.Name = "cbPrintedSurface";
             // 
             // gbCase
@@ -188,9 +188,9 @@
             // 
             // cbCaseType
             // 
-            resources.ApplyResources(this.cbCaseType, "cbCaseType");
             this.cbCaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCaseType.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCaseType, "cbCaseType");
             this.cbCaseType.Name = "cbCaseType";
             // 
             // lbCaseType
@@ -248,9 +248,9 @@
             // 
             // lbStaticBCTValue
             // 
-            resources.ApplyResources(this.lbStaticBCTValue, "lbStaticBCTValue");
             this.lbStaticBCTValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbStaticBCTValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.lbStaticBCTValue, "lbStaticBCTValue");
             this.lbStaticBCTValue.Name = "lbStaticBCTValue";
             // 
             // lbDynamicBCT

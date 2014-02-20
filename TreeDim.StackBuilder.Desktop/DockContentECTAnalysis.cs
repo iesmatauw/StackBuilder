@@ -45,6 +45,8 @@ namespace TreeDim.StackBuilder.Desktop
             _ectAnalysis.AddListener(this);
 
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
         }
         #endregion
 

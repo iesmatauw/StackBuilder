@@ -40,23 +40,23 @@
             this.labelMinimalDistPalletRoof = new System.Windows.Forms.Label();
             this.nudDistancePalletWall = new System.Windows.Forms.NumericUpDown();
             this.nudDistancePalletRoof = new System.Windows.Forms.NumericUpDown();
-            this.lbUnitDistPalletWalls = new System.Windows.Forms.Label();
-            this.lbUnitDistPalletRoof = new System.Windows.Forms.Label();
+            this.uLengthDistancePalletWalls = new System.Windows.Forms.Label();
+            this.uLengthTruckRoof = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudDistancePalletWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDistancePalletRoof)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOk
             // 
-            resources.ApplyResources(this.bnOk, "bnOk");
             this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.bnOk, "bnOk");
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
@@ -67,9 +67,9 @@
             // 
             // cbTruck
             // 
-            resources.ApplyResources(this.cbTruck, "cbTruck");
             this.cbTruck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTruck.FormattingEnabled = true;
+            resources.ApplyResources(this.cbTruck, "cbTruck");
             this.cbTruck.Name = "cbTruck";
             // 
             // checkBoxAllowSeveralLayers
@@ -110,15 +110,15 @@
             resources.ApplyResources(this.nudDistancePalletRoof, "nudDistancePalletRoof");
             this.nudDistancePalletRoof.Name = "nudDistancePalletRoof";
             // 
-            // lbUnitDistPalletWalls
+            // uLengthDistancePalletWalls
             // 
-            resources.ApplyResources(this.lbUnitDistPalletWalls, "lbUnitDistPalletWalls");
-            this.lbUnitDistPalletWalls.Name = "lbUnitDistPalletWalls";
+            resources.ApplyResources(this.uLengthDistancePalletWalls, "uLengthDistancePalletWalls");
+            this.uLengthDistancePalletWalls.Name = "uLengthDistancePalletWalls";
             // 
-            // lbUnitDistPalletRoof
+            // uLengthTruckRoof
             // 
-            resources.ApplyResources(this.lbUnitDistPalletRoof, "lbUnitDistPalletRoof");
-            this.lbUnitDistPalletRoof.Name = "lbUnitDistPalletRoof";
+            resources.ApplyResources(this.uLengthTruckRoof, "uLengthTruckRoof");
+            this.uLengthTruckRoof.Name = "uLengthTruckRoof";
             // 
             // FormNewTruckAnalysis
             // 
@@ -126,8 +126,8 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.Controls.Add(this.lbUnitDistPalletRoof);
-            this.Controls.Add(this.lbUnitDistPalletWalls);
+            this.Controls.Add(this.uLengthTruckRoof);
+            this.Controls.Add(this.uLengthDistancePalletWalls);
             this.Controls.Add(this.nudDistancePalletRoof);
             this.Controls.Add(this.nudDistancePalletWall);
             this.Controls.Add(this.labelMinimalDistPalletRoof);
@@ -166,7 +166,7 @@
         private System.Windows.Forms.Label labelMinimalDistPalletRoof;
         private System.Windows.Forms.NumericUpDown nudDistancePalletWall;
         private System.Windows.Forms.NumericUpDown nudDistancePalletRoof;
-        private System.Windows.Forms.Label lbUnitDistPalletWalls;
-        private System.Windows.Forms.Label lbUnitDistPalletRoof;
+        private System.Windows.Forms.Label uLengthDistancePalletWalls;
+        private System.Windows.Forms.Label uLengthTruckRoof;
     }
 }

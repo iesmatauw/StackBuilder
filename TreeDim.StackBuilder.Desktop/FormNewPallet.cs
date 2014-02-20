@@ -29,6 +29,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewPallet(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             // initialize type combo
@@ -41,6 +43,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewPallet(Document document, PalletProperties palletProperties)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _palletProperties = palletProperties;
@@ -202,10 +206,10 @@ namespace TreeDim.StackBuilder.Desktop
             // set name / description / length / width / height / weight
             PalletName = palletData.Name;
             Description = palletData.Description;
-            PalletLength = palletData.Length;
-            PalletWidth = palletData.Width;
-            PalletHeight = palletData.Height;
-            Weight = palletData.Weight;
+            PalletLength = UnitsManager.ConvertLengthFrom(palletData.Length, UnitsManager.UnitSystem.UNIT_METRIC);
+            PalletWidth = UnitsManager.ConvertLengthFrom(palletData.Width,  UnitsManager.UnitSystem.UNIT_METRIC);
+            PalletHeight = UnitsManager.ConvertLengthFrom(palletData.Height,  UnitsManager.UnitSystem.UNIT_METRIC);
+            Weight = UnitsManager.ConvertMassFrom(palletData.Weight, UnitsManager.UnitSystem.UNIT_METRIC);
 
             DrawPallet();
         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,251 +59,248 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="&gt;&gt;folderBrowserDlg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;folderBrowserDlg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="&gt;&gt;lbReportTemplatesDir.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbReportTemplatesDir.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-	<data name="lbThicknessUnit.Text" xml:space="preserve">
+  <data name="lbThicknessUnit.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-	<data name="&gt;&gt;lbReportTemplatesDir.Name" xml:space="preserve">
+  <data name="&gt;&gt;lbReportTemplatesDir.Name" xml:space="preserve">
     <value>lbReportTemplatesDir</value>
   </data>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-		<value>6, 13</value>
-	</data>
-	<data name="lbECTCoefficient.Text" xml:space="preserve">
-    <value>ECT coefficient</value>
-  </data>
-	<data name="lbStiffnessY.Text" xml:space="preserve">
-    <value>Stiffness Y</value>
-  </data>
-	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="lbReportTemplatesDir.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="lbCaseType.Text" xml:space="preserve">
-    <value>Case type</value>
-  </data>
-	<data name="label5.Text" xml:space="preserve">
-    <value>daN</value>
-  </data>
-	<data name="&gt;&gt;btReportTemplateDir.Name" xml:space="preserve">
-    <value>btReportTemplateDir</value>
-  </data>
-	<data name="lbReportTemplatesDir.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>GLib.Options.OptionsPanel, OptionsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-	<data name="label1.Text" xml:space="preserve">
-    <value>Cardboard type</value>
-  </data>
-	<data name="lbStaticBCT.Text" xml:space="preserve">
-    <value>Static BCT</value>
-  </data>
-	<data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>OptionPanelReporting</value>
-  </data>
-	<data name="gbCardboardProperties.Text" xml:space="preserve">
-    <value>Cardboard</value>
-  </data>
-	<data name="&gt;&gt;tbReportTemplateDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="lbECTCoefUnit.Text" xml:space="preserve">
-    <value>kN/m</value>
-  </data>
-	<data name="lbReportTemplatesDir.Text" xml:space="preserve">
-    <value>Report templates directory</value>
-  </data>
-	<data name="&gt;&gt;lbReportTemplatesDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;tbReportTemplateDir.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="&gt;&gt;btReportTemplateDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="gbFormula.Text" xml:space="preserve">
-    <value>McKee Formula</value>
-  </data>
-	<data name="tbReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
-    <value>Edge Crush Test Analysis</value>
-  </data>
-	<data name="label3.Text" xml:space="preserve">
-    <value>Stiffness X</value>
-  </data>
-	<data name="btReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
-		<value>24, 19</value>
-	</data>
-	<data name="&gt;&gt;btReportTemplateDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="lbEctCoef.Text" xml:space="preserve">
-    <value>ECT coefficient</value>
-  </data>
-	<data name="lbReportTemplatesDir.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 8</value>
-	</data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="btReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Right</value>
-	</data>
-	<data name="gbCase.Text" xml:space="preserve">
+  <data name="gbCase.Text" xml:space="preserve">
     <value>Case</value>
   </data>
-	<data name="&gt;&gt;folderBrowserDlg.Name" xml:space="preserve">
-    <value>folderBrowserDlg</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-	<data name="lbValueStiffnessX.Text" xml:space="preserve">
-    <value>stiffnessX</value>
+  <data name="lbECTCoefficient.Text" xml:space="preserve">
+    <value>ECT coefficient</value>
   </data>
-	<data name="tbReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
-		<value>137, 5</value>
-	</data>
-	<data name="&gt;&gt;btReportTemplateDir.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-	<data name="label2.Text" xml:space="preserve">
-    <value>Thickness</value>
+  <data name="lbStiffnessY.Text" xml:space="preserve">
+    <value>Stiffness Y</value>
   </data>
-	<data name="rbFormula2.Text" xml:space="preserve">
-    <value>Improved (uses cardboard stiffnesses)</value>
-  </data>
-	<data name="lbStiffnessXUnit.Text" xml:space="preserve">
-    <value>N.m</value>
-  </data>
-	<data name="$this.Location" type="System.Drawing.Point, System.Drawing">
-		<value>0, 0</value>
-	</data>
-	<data name="lbValueThickness.Text" xml:space="preserve">
-    <value>lbValueThickness</value>
-  </data>
-	<data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
-		<value>130, 13</value>
-	</data>
-	<data name="tbReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
-		<value>167, 20</value>
-	</data>
-	<data name="lbDynamicBCT.Text" xml:space="preserve">
-    <value>Dynamic BCT (daN) (Rate of humidity / Storage duration)</value>
-  </data>
-	<data name="btReportTemplateDir.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-	<data name="&gt;&gt;tbReportTemplateDir.Name" xml:space="preserve">
-    <value>tbReportTemplateDir</value>
-  </data>
-	<data name="chkShowLogConsole.Text" xml:space="preserve">
-    <value>Show log console</value>
-  </data>
-	<data name="&gt;&gt;tbReportTemplateDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="gbResults.Text" xml:space="preserve">
+  <data name="gbResults.Text" xml:space="preserve">
     <value>Results</value>
   </data>
-	<data name="&gt;&gt;lbReportTemplatesDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="rbFormula1.Text" xml:space="preserve">
-    <value>Classic (uses on ECT coefficient)</value>
-  </data>
-	<data name="btReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
-		<value>310, 5</value>
-	</data>
-	<data name="lbPrintedSurface.Text" xml:space="preserve">
-    <value>Printed surface</value>
-  </data>
-	<data name="lbStiffnessYUnit.Text" xml:space="preserve">
+  <data name="lbStiffnessXUnit.Text" xml:space="preserve">
     <value>N.m</value>
   </data>
-	<data name="btReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="tbReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Left, Right</value>
-	</data>
-	<data name="lbStaticBCTValue.Text" xml:space="preserve">
-    <value>lbStaticBCTValue</value>
+  <data name="rbFormula1.Text" xml:space="preserve">
+    <value>Classic (uses on ECT coefficient)</value>
   </data>
-	<data name="lbValueStiffnessY.Text" xml:space="preserve">
+  <data name="&gt;&gt;btReportTemplateDir.Name" xml:space="preserve">
+    <value>btReportTemplateDir</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>GLib.Options.OptionsPanel, OptionsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Cardboard type</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>OptionPanelReporting</value>
+  </data>
+  <data name="chkShowLogConsole.Text" xml:space="preserve">
+    <value>Show log console</value>
+  </data>
+  <data name="lbValueStiffnessY.Text" xml:space="preserve">
     <value>stiffnessY</value>
   </data>
-	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>de-DE</value>
-	</metadata>
-	<metadata name="folderBrowserDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-		<value>17, 17</value>
-	</metadata>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>True</value>
-	</metadata>
+  <data name="gbCardboardProperties.Text" xml:space="preserve">
+    <value>Cardboard</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbReportTemplatesDir.Text" xml:space="preserve">
+    <value>Report templates directory</value>
+  </data>
+  <data name="&gt;&gt;lbReportTemplatesDir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbPrintedSurface.Text" xml:space="preserve">
+    <value>Printed surface</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>daN</value>
+  </data>
+  <data name="gbFormula.Text" xml:space="preserve">
+    <value>McKee Formula</value>
+  </data>
+  <data name="tbReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Stiffness X</value>
+  </data>
+  <data name="lbECTCoefUnit.Text" xml:space="preserve">
+    <value>kN/m</value>
+  </data>
+  <data name="&gt;&gt;btReportTemplateDir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbStaticBCT.Text" xml:space="preserve">
+    <value>Static BCT</value>
+  </data>
+  <data name="lbEctCoef.Text" xml:space="preserve">
+    <value>ECT coefficient</value>
+  </data>
+  <data name="lbReportTemplatesDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="lbReportTemplatesDir.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDlg.Name" xml:space="preserve">
+    <value>folderBrowserDlg</value>
+  </data>
+  <data name="lbValueStiffnessX.Text" xml:space="preserve">
+    <value>stiffnessX</value>
+  </data>
+  <data name="tbReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 5</value>
+  </data>
+  <data name="&gt;&gt;btReportTemplateDir.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>310, 5</value>
+  </data>
+  <data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 13</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="rbFormula2.Text" xml:space="preserve">
+    <value>Improved (uses cardboard stiffnesses)</value>
+  </data>
+  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 19</value>
+  </data>
+  <data name="tbReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 20</value>
+  </data>
+  <data name="lbDynamicBCT.Text" xml:space="preserve">
+    <value>Dynamic BCT (daN) (Rate of humidity / Storage duration)</value>
+  </data>
+  <data name="btReportTemplateDir.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.Name" xml:space="preserve">
+    <value>tbReportTemplateDir</value>
+  </data>
+  <data name="lbReportTemplatesDir.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbCaseType.Text" xml:space="preserve">
+    <value>Case type</value>
+  </data>
+  <data name="lbStaticBCTValue.Text" xml:space="preserve">
+    <value>lbStaticBCTValue</value>
+  </data>
+  <data name="&gt;&gt;btReportTemplateDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbStiffnessYUnit.Text" xml:space="preserve">
+    <value>N.m</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edge Crush Test Analysis</value>
+  </data>
+  <data name="tbReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="lbValueThickness.Text" xml:space="preserve">
+    <value>lbValueThickness</value>
+  </data>
+  <data name="&gt;&gt;lbReportTemplatesDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="folderBrowserDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

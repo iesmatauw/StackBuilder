@@ -151,7 +151,7 @@
     <value>Index</value>
   </data>
   <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-    <value>Maximal pallet height ({0} mm) ought to exceed {1} mm</value>
+    <value>Maximal pallet height ({0} {1}) ought to exceed {1} {2}</value>
   </data>
   <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
     <value>Maximum volume is insufficient to pack {0} {1} .</value>
@@ -184,7 +184,7 @@
     <value>Weight</value>
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Pallet weight (kg)</value>
+    <value>Pallet weight ({0})</value>
   </data>
   <data name="ID_READY" xml:space="preserve">
     <value>Ready</value>

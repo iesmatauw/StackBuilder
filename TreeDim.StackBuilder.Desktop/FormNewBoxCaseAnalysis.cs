@@ -50,7 +50,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             _analysis = analysis;
             // set caption text
-            Text = string.Format("Edit {0}...", _analysis.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
         }
         #endregion
 

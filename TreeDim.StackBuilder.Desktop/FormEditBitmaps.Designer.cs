@@ -85,7 +85,6 @@
             // 
             // cbFace
             // 
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -95,6 +94,7 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
@@ -254,8 +254,8 @@
             // 
             // listBoxTextures
             // 
-            resources.ApplyResources(this.listBoxTextures, "listBoxTextures");
             this.listBoxTextures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            resources.ApplyResources(this.listBoxTextures, "listBoxTextures");
             this.listBoxTextures.Name = "listBoxTextures";
             this.listBoxTextures.SelectedIndexChanged += new System.EventHandler(this.onSelectedTextureChanged);
             // 

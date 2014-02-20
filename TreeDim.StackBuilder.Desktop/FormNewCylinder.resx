@@ -285,64 +285,64 @@
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="lbUnitHeight.AutoSize" type="System.Boolean, mscorlib">
+  <data name="uLengthHeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbUnitHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="uLengthHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 44</value>
+  <data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 48</value>
   </data>
-  <data name="lbUnitHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
+  <data name="uLengthHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
   </data>
-  <data name="lbUnitHeight.TabIndex" type="System.Int32, mscorlib">
+  <data name="uLengthHeight.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="lbUnitHeight.Text" xml:space="preserve">
-    <value>mm</value>
+  <data name="uLengthHeight.Text" xml:space="preserve">
+    <value>uLength</value>
   </data>
-  <data name="&gt;&gt;lbUnitHeight.Name" xml:space="preserve">
-    <value>lbUnitHeight</value>
+  <data name="&gt;&gt;uLengthHeight.Name" xml:space="preserve">
+    <value>uLengthHeight</value>
   </data>
-  <data name="&gt;&gt;lbUnitHeight.Type" xml:space="preserve">
+  <data name="&gt;&gt;uLengthHeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitHeight.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uLengthHeight.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;lbUnitHeight.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uLengthHeight.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lbUnitRadius.AutoSize" type="System.Boolean, mscorlib">
+  <data name="uLengthRadius.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbUnitRadius.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="uLengthRadius.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitRadius.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 18</value>
+  <data name="uLengthRadius.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 20</value>
   </data>
-  <data name="lbUnitRadius.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
+  <data name="uLengthRadius.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
   </data>
-  <data name="lbUnitRadius.TabIndex" type="System.Int32, mscorlib">
+  <data name="uLengthRadius.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="lbUnitRadius.Text" xml:space="preserve">
-    <value>mm</value>
+  <data name="uLengthRadius.Text" xml:space="preserve">
+    <value>uLength</value>
   </data>
-  <data name="&gt;&gt;lbUnitRadius.Name" xml:space="preserve">
-    <value>lbUnitRadius</value>
+  <data name="&gt;&gt;uLengthRadius.Name" xml:space="preserve">
+    <value>uLengthRadius</value>
   </data>
-  <data name="&gt;&gt;lbUnitRadius.Type" xml:space="preserve">
+  <data name="&gt;&gt;uLengthRadius.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitRadius.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uLengthRadius.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;lbUnitRadius.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uLengthRadius.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="nudRadius.Location" type="System.Drawing.Point, System.Drawing">
@@ -394,7 +394,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 44</value>
+    <value>6, 48</value>
   </data>
   <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -424,7 +424,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 18</value>
+    <value>6, 20</value>
   </data>
   <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 13</value>
@@ -471,38 +471,38 @@
   <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lbUnitWeight.AutoSize" type="System.Boolean, mscorlib">
+  <data name="uMassWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbUnitWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="uMassWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbUnitWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 24</value>
+  <data name="uMassWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 24</value>
   </data>
-  <data name="lbUnitWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 13</value>
+  <data name="uMassWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
   </data>
-  <data name="lbUnitWeight.TabIndex" type="System.Int32, mscorlib">
+  <data name="uMassWeight.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lbUnitWeight.Text" xml:space="preserve">
-    <value>kg</value>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value>uMass</value>
   </data>
-  <data name="&gt;&gt;lbUnitWeight.Name" xml:space="preserve">
-    <value>lbUnitWeight</value>
+  <data name="&gt;&gt;uMassWeight.Name" xml:space="preserve">
+    <value>uMassWeight</value>
   </data>
-  <data name="&gt;&gt;lbUnitWeight.Type" xml:space="preserve">
+  <data name="&gt;&gt;uMassWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbUnitWeight.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uMassWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
   </data>
-  <data name="&gt;&gt;lbUnitWeight.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uMassWeight.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 20</value>
+    <value>84, 20</value>
   </data>
   <data name="nudWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 20</value>
@@ -862,15 +862,21 @@
     <value>Color</value>
   </data>
   <data name="cbColorWall.Items64" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWall.Items65" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWall.Items66" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorWall.Items67" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWall.Items68" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWall.Items69" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorWall.Location" type="System.Drawing.Point, System.Drawing">
@@ -886,7 +892,7 @@
     <value>cbColorWall</value>
   </data>
   <data name="&gt;&gt;cbColorWall.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4863.31688, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5160.32, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWall.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1117,15 +1123,21 @@
     <value>Color</value>
   </data>
   <data name="cbColorTop.Items63" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items64" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items65" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorTop.Items66" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items67" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items68" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorTop.Location" type="System.Drawing.Point, System.Drawing">
@@ -1141,7 +1153,7 @@
     <value>cbColorTop</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4863.31688, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5160.32, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Parent" xml:space="preserve">
     <value>gbFaceColor</value>

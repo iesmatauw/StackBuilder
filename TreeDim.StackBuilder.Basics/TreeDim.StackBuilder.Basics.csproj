@@ -53,6 +53,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cureos.Measures">
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
@@ -101,6 +104,7 @@
     <Compile Include="Analyses\TruckAnalysis.cs" />
     <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
     <Compile Include="Solutions\TruckSolution.cs" />
+    <Compile Include="UnitsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">

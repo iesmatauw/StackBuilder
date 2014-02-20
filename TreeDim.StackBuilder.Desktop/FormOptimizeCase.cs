@@ -88,6 +88,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormOptimizeCase(DocumentSB document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // document
             _document = document;
 
@@ -169,7 +171,9 @@ namespace TreeDim.StackBuilder.Desktop
             else if (maxVol < BoxPerCase * SelectedBox.Volume)
                 message = string.Format(Resources.ID_INSUFFICIENTVOLUME, BoxPerCase, SelectedBox.Name);
             else if ((double)nudPalletHeight.Value < MinHeight + SelectedPallet.Height)
-                message = string.Format(Resources.ID_INSUFFICIENTPALLETHEIGHT, (double)nudPalletHeight.Value, MinHeight + SelectedPallet.Height);
+                message = string.Format(Resources.ID_INSUFFICIENTPALLETHEIGHT
+                    , (double)nudPalletHeight.Value, UnitsManager.LengthUnitString
+                    , MinHeight + SelectedPallet.Height, UnitsManager.LengthUnitString);
             // btOptimize
             btOptimize.Enabled = string.IsNullOrEmpty(message);
             // status bar

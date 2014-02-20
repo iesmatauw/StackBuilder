@@ -31,6 +31,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewCylinder(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             // properties
@@ -46,6 +48,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewCylinder(Document document, CylinderProperties cylinder)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _cylProperties = cylinder;

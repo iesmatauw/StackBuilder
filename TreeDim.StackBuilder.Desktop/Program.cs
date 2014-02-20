@@ -71,6 +71,9 @@ namespace TreeDim.StackBuilder.Desktop
             // get current culture
             _log.Info(string.Format("Starting {0} with user culture {1}", Application.ProductName, Thread.CurrentThread.CurrentUICulture));
 
+            // set unit system
+            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem; 
+
             // file association
             RegisterFileType();
 

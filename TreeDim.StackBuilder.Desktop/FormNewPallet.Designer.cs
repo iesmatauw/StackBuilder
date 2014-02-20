@@ -43,10 +43,10 @@
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.lbWeight = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
-            this.lbMm1 = new System.Windows.Forms.Label();
-            this.lbMm2 = new System.Windows.Forms.Label();
-            this.lbMm3 = new System.Windows.Forms.Label();
-            this.lbKg1 = new System.Windows.Forms.Label();
+            this.uLengthLength = new System.Windows.Forms.Label();
+            this.uLengthWidth = new System.Windows.Forms.Label();
+            this.uLengthHeight = new System.Windows.Forms.Label();
+            this.uMassWeight = new System.Windows.Forms.Label();
             this.lbType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
@@ -118,7 +118,7 @@
             // nudLength
             // 
             resources.ApplyResources(this.nudLength, "nudLength");
-            this.nudLength.DecimalPlaces = 1;
+            this.nudLength.DecimalPlaces = 2;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -130,7 +130,7 @@
             // nudWidth
             // 
             resources.ApplyResources(this.nudWidth, "nudWidth");
-            this.nudWidth.DecimalPlaces = 1;
+            this.nudWidth.DecimalPlaces = 2;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -142,7 +142,7 @@
             // nudHeight
             // 
             resources.ApplyResources(this.nudHeight, "nudHeight");
-            this.nudHeight.DecimalPlaces = 1;
+            this.nudHeight.DecimalPlaces = 2;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -162,25 +162,25 @@
             this.nudWeight.DecimalPlaces = 3;
             this.nudWeight.Name = "nudWeight";
             // 
-            // lbMm1
+            // uLengthLength
             // 
-            resources.ApplyResources(this.lbMm1, "lbMm1");
-            this.lbMm1.Name = "lbMm1";
+            resources.ApplyResources(this.uLengthLength, "uLengthLength");
+            this.uLengthLength.Name = "uLengthLength";
             // 
-            // lbMm2
+            // uLengthWidth
             // 
-            resources.ApplyResources(this.lbMm2, "lbMm2");
-            this.lbMm2.Name = "lbMm2";
+            resources.ApplyResources(this.uLengthWidth, "uLengthWidth");
+            this.uLengthWidth.Name = "uLengthWidth";
             // 
-            // lbMm3
+            // uLengthHeight
             // 
-            resources.ApplyResources(this.lbMm3, "lbMm3");
-            this.lbMm3.Name = "lbMm3";
+            resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
+            this.uLengthHeight.Name = "uLengthHeight";
             // 
-            // lbKg1
+            // uMassWeight
             // 
-            resources.ApplyResources(this.lbKg1, "lbKg1");
-            this.lbKg1.Name = "lbKg1";
+            resources.ApplyResources(this.uMassWeight, "uMassWeight");
+            this.uMassWeight.Name = "uMassWeight";
             // 
             // lbType
             // 
@@ -229,7 +229,10 @@
             resources.GetString("cbColor.Items7"),
             resources.GetString("cbColor.Items8"),
             resources.GetString("cbColor.Items9"),
-            resources.GetString("cbColor.Items10")});
+            resources.GetString("cbColor.Items10"),
+            resources.GetString("cbColor.Items11"),
+            resources.GetString("cbColor.Items12"),
+            resources.GetString("cbColor.Items13")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onPalletPropertyChanged);
             // 
@@ -241,16 +244,16 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewPallet
             // 
@@ -264,10 +267,10 @@
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.lbType);
-            this.Controls.Add(this.lbKg1);
-            this.Controls.Add(this.lbMm3);
-            this.Controls.Add(this.lbMm2);
-            this.Controls.Add(this.lbMm1);
+            this.Controls.Add(this.uMassWeight);
+            this.Controls.Add(this.uLengthHeight);
+            this.Controls.Add(this.uLengthWidth);
+            this.Controls.Add(this.uLengthLength);
             this.Controls.Add(this.nudWeight);
             this.Controls.Add(this.lbWeight);
             this.Controls.Add(this.nudHeight);
@@ -320,10 +323,10 @@
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.NumericUpDown nudWeight;
         private System.Windows.Forms.Label lbWeight;
-        private System.Windows.Forms.Label lbMm1;
-        private System.Windows.Forms.Label lbMm2;
-        private System.Windows.Forms.Label lbMm3;
-        private System.Windows.Forms.Label lbKg1;
+        private System.Windows.Forms.Label uLengthLength;
+        private System.Windows.Forms.Label uLengthWidth;
+        private System.Windows.Forms.Label uLengthHeight;
+        private System.Windows.Forms.Label uMassWeight;
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;

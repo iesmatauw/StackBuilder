@@ -45,9 +45,9 @@
             this.gbOverhangUnderhang = new System.Windows.Forms.GroupBox();
             this.nudPalletOverhangX = new System.Windows.Forms.NumericUpDown();
             this.lbPalletOverhangWidth = new System.Windows.Forms.Label();
-            this.lbMm = new System.Windows.Forms.Label();
-            this.lbKg1 = new System.Windows.Forms.Label();
-            this.lbKg2 = new System.Windows.Forms.Label();
+            this.uLengthPalletHeight = new System.Windows.Forms.Label();
+            this.uMassPalletWeight = new System.Windows.Forms.Label();
+            this.uMassLoadOnLower = new System.Windows.Forms.Label();
             this.nudMaximumLoadOnBox = new System.Windows.Forms.NumericUpDown();
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
             this.nudMaximumPalletWeight = new System.Windows.Forms.NumericUpDown();
@@ -59,6 +59,8 @@
             this.checkBoxMaximumPalletHeight = new System.Windows.Forms.CheckBox();
             this.checkBoxMaximumNumberOfItems = new System.Windows.Forms.CheckBox();
             this.cbCylinders = new System.Windows.Forms.ComboBox();
+            this.uLengthOverhangX = new System.Windows.Forms.Label();
+            this.uLengthOverhangY = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangY)).BeginInit();
             this.gbOverhangUnderhang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangX)).BeginInit();
@@ -71,23 +73,23 @@
             // 
             // bnOK
             // 
-            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // cbPallets
             // 
-            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
             // 
             // lbPallet
@@ -152,13 +154,15 @@
             // 
             // gbOverhangUnderhang
             // 
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
+            this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangY);
+            this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbMm2);
             this.gbOverhangUnderhang.Controls.Add(this.lbMm1);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
@@ -182,25 +186,25 @@
             resources.ApplyResources(this.lbPalletOverhangWidth, "lbPalletOverhangWidth");
             this.lbPalletOverhangWidth.Name = "lbPalletOverhangWidth";
             // 
-            // lbMm
+            // uLengthPalletHeight
             // 
-            resources.ApplyResources(this.lbMm, "lbMm");
-            this.lbMm.Name = "lbMm";
+            resources.ApplyResources(this.uLengthPalletHeight, "uLengthPalletHeight");
+            this.uLengthPalletHeight.Name = "uLengthPalletHeight";
             // 
-            // lbKg1
+            // uMassPalletWeight
             // 
-            resources.ApplyResources(this.lbKg1, "lbKg1");
-            this.lbKg1.Name = "lbKg1";
+            resources.ApplyResources(this.uMassPalletWeight, "uMassPalletWeight");
+            this.uMassPalletWeight.Name = "uMassPalletWeight";
             // 
-            // lbKg2
+            // uMassLoadOnLower
             // 
-            resources.ApplyResources(this.lbKg2, "lbKg2");
-            this.lbKg2.Name = "lbKg2";
+            resources.ApplyResources(this.uMassLoadOnLower, "uMassLoadOnLower");
+            this.uMassLoadOnLower.Name = "uMassLoadOnLower";
             // 
             // nudMaximumLoadOnBox
             // 
-            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -210,10 +214,9 @@
             // 
             // gbStopStackingCondition
             // 
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
-            this.gbStopStackingCondition.Controls.Add(this.lbMm);
-            this.gbStopStackingCondition.Controls.Add(this.lbKg1);
-            this.gbStopStackingCondition.Controls.Add(this.lbKg2);
+            this.gbStopStackingCondition.Controls.Add(this.uLengthPalletHeight);
+            this.gbStopStackingCondition.Controls.Add(this.uMassPalletWeight);
+            this.gbStopStackingCondition.Controls.Add(this.uMassLoadOnLower);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumLoadOnBox);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletHeight);
@@ -223,13 +226,14 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfItems);
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
             // nudMaximumPalletWeight
             // 
-            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -288,10 +292,20 @@
             // 
             // cbCylinders
             // 
-            resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCylinders.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.Name = "cbCylinders";
+            // 
+            // uLengthOverhangX
+            // 
+            resources.ApplyResources(this.uLengthOverhangX, "uLengthOverhangX");
+            this.uLengthOverhangX.Name = "uLengthOverhangX";
+            // 
+            // uLengthOverhangY
+            // 
+            resources.ApplyResources(this.uLengthOverhangY, "uLengthOverhangY");
+            this.uLengthOverhangY.Name = "uLengthOverhangY";
             // 
             // FormNewAnalysisCylinder
             // 
@@ -351,9 +365,9 @@
         private System.Windows.Forms.GroupBox gbOverhangUnderhang;
         private System.Windows.Forms.NumericUpDown nudPalletOverhangX;
         private System.Windows.Forms.Label lbPalletOverhangWidth;
-        private System.Windows.Forms.Label lbMm;
-        private System.Windows.Forms.Label lbKg1;
-        private System.Windows.Forms.Label lbKg2;
+        private System.Windows.Forms.Label uLengthPalletHeight;
+        private System.Windows.Forms.Label uMassPalletWeight;
+        private System.Windows.Forms.Label uMassLoadOnLower;
         private System.Windows.Forms.NumericUpDown nudMaximumLoadOnBox;
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
         private System.Windows.Forms.NumericUpDown nudMaximumPalletWeight;
@@ -365,5 +379,7 @@
         private System.Windows.Forms.CheckBox checkBoxMaximumPalletHeight;
         private System.Windows.Forms.CheckBox checkBoxMaximumNumberOfItems;
         private System.Windows.Forms.ComboBox cbCylinders;
+        private System.Windows.Forms.Label uLengthOverhangY;
+        private System.Windows.Forms.Label uLengthOverhangX;
     }
 }

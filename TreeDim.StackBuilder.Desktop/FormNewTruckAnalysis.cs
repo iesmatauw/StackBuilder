@@ -50,6 +50,9 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewTruckAnalysis(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
+
         }
         /// <summary>
         /// Constructor used when editing an existing analysis
@@ -58,8 +61,11 @@ namespace TreeDim.StackBuilder.Desktop
         /// <param name="truckAnalysis">Truck analysis</param>
         public FormNewTruckAnalysis(Document document, TruckAnalysis truckAnalysis)
         {
-            _truckAnalysis = truckAnalysis;
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
+            // set truck analysis ref
+            _truckAnalysis = truckAnalysis;
         }
         #endregion
         

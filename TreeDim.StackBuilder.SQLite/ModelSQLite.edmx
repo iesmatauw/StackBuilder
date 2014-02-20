@@ -248,7 +248,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ModelSQLite" ZoomLevel="68">
+      <Diagram Name="ModelSQLite" ZoomLevel="99">
         <EntityTypeShape EntityType="StackBuilderModel.Pallets" Width="1.5" PointX="6.75" PointY="0.5" Height="3.7109993489583313" />
         <EntityTypeShape EntityType="StackBuilderModel.UserID_PalletID" Width="1.5" PointX="4" PointY="0.5" Height="1.9802864583333326" />
         <EntityTypeShape EntityType="StackBuilderModel.Users" Width="2.25" PointX="0.5" PointY="0.5" Height="3.7109993489583317" />

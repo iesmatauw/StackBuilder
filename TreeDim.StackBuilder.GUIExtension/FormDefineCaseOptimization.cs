@@ -613,7 +613,9 @@ namespace TreeDim.StackBuilder.GUIExtension
             else if (maxVol < BoxPerCase * box.Volume)
                 message = string.Format(Resources.ID_INSUFFICIENTVOLUME, BoxPerCase, box.Name);
             else if ((double)nudPalletHeight.Value < MinHeight + SelectedPallet.Height)
-                message = string.Format(Resources.ID_INSUFFICIENTPALLETHEIGHT, (double)nudPalletHeight.Value, MinHeight + SelectedPallet.Height);
+                message = string.Format(Resources.ID_INSUFFICIENTPALLETHEIGHT
+                    , (double)nudPalletHeight.Value, "mm",
+                    MinHeight + SelectedPallet.Height, "mm");
             // btOptimize
             btOptimize.Enabled = string.IsNullOrEmpty(message);
             // status bar

@@ -33,6 +33,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewTruck(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             radioButtonTruck1.Checked = false;
@@ -56,6 +58,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewTruck(Document document, TruckProperties truckProperties)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _truckProperties = truckProperties;
@@ -63,7 +67,7 @@ namespace TreeDim.StackBuilder.Desktop
             radioButtonTruck1.Checked = false;
             radioButtonTruck2.Checked = true;
             // set caption text
-            Text = string.Format("Edit {0}...", _truckProperties.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, _truckProperties.Name);
             // initialize data
             tbName.Text = _truckProperties.Name;
             tbDescription.Text = _truckProperties.Description;

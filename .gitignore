@@ -207,6 +207,12 @@ $RECYCLE.BIN/
 ## Python
 #############
 
+#############
+## Samples
+#############
+*.dae
+
+
 *.py[co]
 
 # Packages
@@ -233,3 +239,4 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+

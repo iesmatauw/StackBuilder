@@ -40,9 +40,9 @@
             this.lbName = new System.Windows.Forms.Label();
             this.radioButtonTruck2 = new System.Windows.Forms.RadioButton();
             this.radioButtonTruck1 = new System.Windows.Forms.RadioButton();
-            this.lbMm3 = new System.Windows.Forms.Label();
-            this.lbMm2 = new System.Windows.Forms.Label();
-            this.lbMm1 = new System.Windows.Forms.Label();
+            this.uLengthHeight = new System.Windows.Forms.Label();
+            this.uLengthWidth = new System.Windows.Forms.Label();
+            this.uLengthLength = new System.Windows.Forms.Label();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.nudWidth = new System.Windows.Forms.NumericUpDown();
             this.nudLength = new System.Windows.Forms.NumericUpDown();
@@ -54,7 +54,7 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nudAdmissibleLoadWeight = new System.Windows.Forms.NumericUpDown();
-            this.lbKg = new System.Windows.Forms.Label();
+            this.uMassAdmissibleLoad = new System.Windows.Forms.Label();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
@@ -138,20 +138,20 @@
             this.radioButtonTruck1.TabStop = true;
             this.radioButtonTruck1.UseVisualStyleBackColor = true;
             // 
-            // lbMm3
+            // uLengthHeight
             // 
-            resources.ApplyResources(this.lbMm3, "lbMm3");
-            this.lbMm3.Name = "lbMm3";
+            resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
+            this.uLengthHeight.Name = "uLengthHeight";
             // 
-            // lbMm2
+            // uLengthWidth
             // 
-            resources.ApplyResources(this.lbMm2, "lbMm2");
-            this.lbMm2.Name = "lbMm2";
+            resources.ApplyResources(this.uLengthWidth, "uLengthWidth");
+            this.uLengthWidth.Name = "uLengthWidth";
             // 
-            // lbMm1
+            // uLengthLength
             // 
-            resources.ApplyResources(this.lbMm1, "lbMm1");
-            this.lbMm1.Name = "lbMm1";
+            resources.ApplyResources(this.uLengthLength, "uLengthLength");
+            this.uLengthLength.Name = "uLengthLength";
             // 
             // nudHeight
             // 
@@ -237,7 +237,10 @@
             resources.GetString("cbColor.Items23"),
             resources.GetString("cbColor.Items24"),
             resources.GetString("cbColor.Items25"),
-            resources.GetString("cbColor.Items26")});
+            resources.GetString("cbColor.Items26"),
+            resources.GetString("cbColor.Items27"),
+            resources.GetString("cbColor.Items28"),
+            resources.GetString("cbColor.Items29")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -268,37 +271,37 @@
             this.nudAdmissibleLoadWeight.Name = "nudAdmissibleLoadWeight";
             this.nudAdmissibleLoadWeight.ValueChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
-            // lbKg
+            // uMassAdmissibleLoad
             // 
-            resources.ApplyResources(this.lbKg, "lbKg");
-            this.lbKg.Name = "lbKg";
+            resources.ApplyResources(this.uMassAdmissibleLoad, "uMassAdmissibleLoad");
+            this.uMassAdmissibleLoad.Name = "uMassAdmissibleLoad";
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewTruck
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.statusStripDef);
-            this.Controls.Add(this.lbKg);
+            this.Controls.Add(this.uMassAdmissibleLoad);
             this.Controls.Add(this.nudAdmissibleLoadWeight);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.lbColor);
-            this.Controls.Add(this.lbMm3);
-            this.Controls.Add(this.lbMm2);
-            this.Controls.Add(this.lbMm1);
+            this.Controls.Add(this.uLengthHeight);
+            this.Controls.Add(this.uLengthWidth);
+            this.Controls.Add(this.uLengthLength);
             this.Controls.Add(this.nudHeight);
             this.Controls.Add(this.nudWidth);
             this.Controls.Add(this.nudLength);
@@ -351,9 +354,9 @@
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.RadioButton radioButtonTruck2;
         private System.Windows.Forms.RadioButton radioButtonTruck1;
-        private System.Windows.Forms.Label lbMm3;
-        private System.Windows.Forms.Label lbMm2;
-        private System.Windows.Forms.Label lbMm1;
+        private System.Windows.Forms.Label uLengthHeight;
+        private System.Windows.Forms.Label uLengthWidth;
+        private System.Windows.Forms.Label uLengthLength;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.NumericUpDown nudWidth;
         private System.Windows.Forms.NumericUpDown nudLength;
@@ -364,7 +367,7 @@
         private System.Windows.Forms.Label lbColor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nudAdmissibleLoadWeight;
-        private System.Windows.Forms.Label lbKg;
+        private System.Windows.Forms.Label uMassAdmissibleLoad;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }

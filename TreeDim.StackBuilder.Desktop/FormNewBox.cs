@@ -47,6 +47,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewBox(Document document, Mode mode)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             // mode
@@ -98,8 +100,9 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewBox(Document document, BoxProperties boxProperties)
         { 
             InitializeComponent();
-
-           // save document reference
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
+            // save document reference
             _document = document;
             _boxProperties = boxProperties;
             _mode = boxProperties.HasInsideDimensions ? Mode.MODE_CASE : Mode.MODE_BOX;
@@ -109,7 +112,7 @@ namespace TreeDim.StackBuilder.Desktop
             // set textures
             _textures = _boxProperties.TextureListCopy;
             // set caption text
-            Text = string.Format("Edit {0}...", _boxProperties.Name);
+            Text = string.Format(Properties.Resources.ID_EDIT, _boxProperties.Name);
             // initialize value
             tbName.Text = _boxProperties.Name;
             tbDescription.Text = _boxProperties.Description;
@@ -265,9 +268,9 @@ namespace TreeDim.StackBuilder.Desktop
             lbInsideLength.Visible = _mode == Mode.MODE_CASE;
             lbInsideWidth.Visible = _mode == Mode.MODE_CASE;
             lbInsideHeight.Visible = _mode == Mode.MODE_CASE;
-            lbUnitLengthInside.Visible = _mode == Mode.MODE_CASE;
-            lbUnitWidthInside.Visible = _mode == Mode.MODE_CASE;
-            lbUnitHeightInside.Visible = _mode == Mode.MODE_CASE;
+            uLengthLengthInside.Visible = _mode == Mode.MODE_CASE;
+            uLengthWidthInside.Visible = _mode == Mode.MODE_CASE;
+            uLengthHeightInside.Visible = _mode == Mode.MODE_CASE;
 
             gbTape.Visible = _mode == Mode.MODE_CASE;
             checkBoxTape.Visible = _mode == Mode.MODE_CASE;
@@ -280,7 +283,7 @@ namespace TreeDim.StackBuilder.Desktop
             // update thicknesses
             UpdateThicknesses();
             // update tape definition controls
-            onCheckBoxTapeClicked(this, null);
+            checkBoxTape_CheckedChanged(this, null);
             // update box drawing
             DrawBox();
             // windows settings
@@ -418,16 +421,16 @@ namespace TreeDim.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        
-        private void onCheckBoxTapeClicked(object sender, EventArgs e)
+        private void checkBoxTape_CheckedChanged(object sender, EventArgs e)
         {
             lbTapeColor.Enabled = checkBoxTape.Checked;
             cbTapeColor.Enabled = checkBoxTape.Checked;
             lbTapeWidth.Enabled = checkBoxTape.Checked;
             nudTapeWidth.Enabled = checkBoxTape.Checked;
+            uLengthTapeWidth.Enabled = checkBoxTape.Checked;
 
             DrawBox();
-        }
+        }      
         #endregion
 
         #region Helpers
@@ -475,5 +478,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
+
+
     }
 }

@@ -36,14 +36,14 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
-            this.lbUnitHeight = new System.Windows.Forms.Label();
-            this.lbUnitRadius = new System.Windows.Forms.Label();
+            this.uLengthHeight = new System.Windows.Forms.Label();
+            this.uLengthRadius = new System.Windows.Forms.Label();
             this.nudRadius = new System.Windows.Forms.NumericUpDown();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.lbHeight = new System.Windows.Forms.Label();
             this.lbLength = new System.Windows.Forms.Label();
             this.gbWeight = new System.Windows.Forms.GroupBox();
-            this.lbUnitWeight = new System.Windows.Forms.Label();
+            this.uMassWeight = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
             this.lbWeight = new System.Windows.Forms.Label();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
@@ -104,8 +104,8 @@
             // 
             // gbDimensions
             // 
-            this.gbDimensions.Controls.Add(this.lbUnitHeight);
-            this.gbDimensions.Controls.Add(this.lbUnitRadius);
+            this.gbDimensions.Controls.Add(this.uLengthHeight);
+            this.gbDimensions.Controls.Add(this.uLengthRadius);
             this.gbDimensions.Controls.Add(this.nudRadius);
             this.gbDimensions.Controls.Add(this.nudHeight);
             this.gbDimensions.Controls.Add(this.lbHeight);
@@ -114,15 +114,15 @@
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
-            // lbUnitHeight
+            // uLengthHeight
             // 
-            resources.ApplyResources(this.lbUnitHeight, "lbUnitHeight");
-            this.lbUnitHeight.Name = "lbUnitHeight";
+            resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
+            this.uLengthHeight.Name = "uLengthHeight";
             // 
-            // lbUnitRadius
+            // uLengthRadius
             // 
-            resources.ApplyResources(this.lbUnitRadius, "lbUnitRadius");
-            this.lbUnitRadius.Name = "lbUnitRadius";
+            resources.ApplyResources(this.uLengthRadius, "uLengthRadius");
+            this.uLengthRadius.Name = "uLengthRadius";
             // 
             // nudRadius
             // 
@@ -180,17 +180,17 @@
             // 
             // gbWeight
             // 
-            this.gbWeight.Controls.Add(this.lbUnitWeight);
+            this.gbWeight.Controls.Add(this.uMassWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
             resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
-            // lbUnitWeight
+            // uMassWeight
             // 
-            resources.ApplyResources(this.lbUnitWeight, "lbUnitWeight");
-            this.lbUnitWeight.Name = "lbUnitWeight";
+            resources.ApplyResources(this.uMassWeight, "uMassWeight");
+            this.uMassWeight.Name = "uMassWeight";
             // 
             // nudWeight
             // 
@@ -324,7 +324,9 @@
             resources.GetString("cbColorWall.Items64"),
             resources.GetString("cbColorWall.Items65"),
             resources.GetString("cbColorWall.Items66"),
-            resources.GetString("cbColorWall.Items67")});
+            resources.GetString("cbColorWall.Items67"),
+            resources.GetString("cbColorWall.Items68"),
+            resources.GetString("cbColorWall.Items69")});
             this.cbColorWall.Name = "cbColorWall";
             this.cbColorWall.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -408,7 +410,9 @@
             resources.GetString("cbColorTop.Items63"),
             resources.GetString("cbColorTop.Items64"),
             resources.GetString("cbColorTop.Items65"),
-            resources.GetString("cbColorTop.Items66")});
+            resources.GetString("cbColorTop.Items66"),
+            resources.GetString("cbColorTop.Items67"),
+            resources.GetString("cbColorTop.Items68")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -465,14 +469,14 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbDimensions;
-        private System.Windows.Forms.Label lbUnitHeight;
-        private System.Windows.Forms.Label lbUnitRadius;
+        private System.Windows.Forms.Label uLengthHeight;
+        private System.Windows.Forms.Label uLengthRadius;
         private System.Windows.Forms.NumericUpDown nudRadius;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.Label lbHeight;
         private System.Windows.Forms.Label lbLength;
         private System.Windows.Forms.GroupBox gbWeight;
-        private System.Windows.Forms.Label lbUnitWeight;
+        private System.Windows.Forms.Label uMassWeight;
         private System.Windows.Forms.NumericUpDown nudWeight;
         private System.Windows.Forms.Label lbWeight;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;

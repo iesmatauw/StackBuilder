@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+    <!-- Icon -->
+    <Icon Id="PLMStackBuilder.ico" SourceFile="..\TreeDim.StackBuilder.Desktop\Resources\treeDim.ico" />
+    <!-- Components-->
+    <DirectoryRef Id="BIN">
+      <Component Id="References" Guid="{F464B17D-D223-4c7a-BDDD-A0647B7D7430}">
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\log4net.dll" KeyPath="yes" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\OfficePickers.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\PropertyGridEx.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\SourceGrid.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\OptionsLib.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\MsgBoxCheck.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CbtHook.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\WindowsHook.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CrashReporter.NET.dll" Checksum="yes" />
+      </Component>
+      <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes" />
+        <!--File type association : begin-->
+        <ProgId Id="TreeDim.StackBuilder" Description="TreeDim StachBuilder Data File" Icon="TreeDim.StackBuilder.Desktop.exe" IconIndex="0">
+          <Extension Id="stb" ContentType="application/xml">
+            <Verb Id="open" Command="Open" TargetFile="TreeDim.StackBuilder.Desktop.exe" Argument="&quot;%1\&quot;" />
+          </Extension>
+        </ProgId>
+        <!--File type association : end-->
+        <File Source="..\TreeDim.EdgeCrushTest\Bin\Release\TreeDim.EdgeCrushTest.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe.config" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Graphics.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Engine.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Basics.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Reporting.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting.XsltGenerator\bin\Release\TreeDim.StackBuilder.Reporting.XsltGenerator.exe" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.chm" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\TreeDim.StackBuilder.XmlFileProcessor.exe.config" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ColladaExporter.dll" Checksum="yes" />
+        <File Id="Plossum_CommandLine.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes" />
+        <!--update config file-->
+        <util:XmlFile Id="SetInitialReportTemplatePath" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value" Value="[REPORTTEMPLATES]" />
+        <util:XmlFile Id="SetPalletSolutionsDBPath" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value" Value="[PALLETSOLUTIONSDB]" />
+        <util:XmlFile Id="SetStackBuilderSchemaPath" File="[BIN]TreeDim.StackBuilder.XmlFileProcessor.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value" Value="[XMLSCHEMAS]StackBuilderSchema.xsd" />
+        <util:XmlFile Id="SetCardboardQualityDBFile" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.EdgeCrushTest.Properties.Settings/setting[\[]@name='CardboardQualityDBFile'[\]]/value" Value="[CARDBOARDQUALITYDATA]CardboardQualityData.xml" />
+        <util:XmlFile Id="SetGLGELibPath" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='GLGEFilePath'[\]]/value" Value="[GLGE]glge-compiled-min.js" />
+        <util:XmlFile Id="SetGLGEHTMLPath" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.ColladaExporter.Properties.Settings/setting[\[]@name='HTMLFilePath'[\]]/value" Value="[GLGE]glge.html" />
+        <util:XmlFile Id="SetShowLogConsole" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ShowLogConsole'[\]]/value" Value="False" />
+        <!--update config file-->
+      </Component>
+      <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.AutoUpdater.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.Update.exe" Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="XMLSCHEMAS">
+      <Component Id="XmlSchemas" Guid="{A5C4F5DC-49B3-4df8-9FA4-2AD1F4737C3F}">
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\StackBuilderSchema.xsd" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\XML Schemas\SolutionListSchema.xsd" Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="CARDBOARDQUALITYDATA">
+      <Component Id="CardboardQualityData" Guid="{B63A07E3-A933-484D-9A31-4BA9FE2D32D6}">
+        <File Source="..\TreeDim.EdgeCrushTest\CardboardQualityData\CardboardQualityData.xml" Checksum="yes" />
+        <File Source="..\TreeDim.EdgeCrushTest\CardboardQualityData\CardboardQualityData.xsd" Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_FR">
+      <Component Id="resources_fr_FR" Guid="{78E448DA-06F6-48D1-B9EB-8C3135623A2B}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_fr.FR" Source="..\TreeDim.Update\Bin\Release\fr-FR\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_JP">
+      <Component Id="resources_ja_JP" Guid="{38DB11A6-D128-441A-A7BF-079B4B23FB74}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_ja.JP" Source="..\TreeDim.Update\Bin\Release\ja-JP\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_DE">
+      <Component Id="resources_de_DE" Guid="{17A7F347-A84E-448C-89D9-91E6CCFD5F27}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_de.DE" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\de-DE\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_de.DE" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\de-DE\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_de.DE" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\de-DE\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_de.DE" Source="..\TreeDim.Update\Bin\Release\de-DE\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_ES">
+      <Component Id="resources_es_ES" Guid="{5C08FECD-64D4-4C4C-AAF2-306AD5756370}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_es.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_es.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_es.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\es-ES\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_es.ES" Source="..\TreeDim.Update\Bin\Release\es-ES\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_CA">
+      <Component Id="resources_ca_ES" Guid="{CDFD4E5D-4FD4-47D9-9BA1-9F1CF20A6E1B}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ca.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_ca.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_ca.ES" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ca-ES\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_ca.ES" Source="..\TreeDim.Update\Bin\Release\ca-ES\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="REPORTTEMPLATES">
+      <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes" />
+        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes" />
+        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes" />
+        <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes" />
+        <File Id="ReportTemplate_DEU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_DEU.xml" Checksum="yes" />
+        <File Id="ReportTemplate_ESP.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ESP.xml" Checksum="yes" />
+        <File Id="ReportTempalte_CAT.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_CAT.xml" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ENU.xsl" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_FRA.xsl" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_JPN.xsl" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_DEU.xsl" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ESP.xsl" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_CAT.xsl" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="PALLETSOLUTIONSDB">
+      <Component Id="PalletSolutionsDB" Guid="{0D9897D8-0A69-4432-8E1A-9364CDF977B3}">
+        <CreateFolder Directory="PALLETSOLUTIONSDB">
+          <Permission User="Everyone" GenericAll="yes" />
+        </CreateFolder>
+        <File Source="..\PalletSolutionsDB\Index.xml">
+          <Permission User="Everyone" GenericAll="yes" />
+        </File>
+        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb">
+          <Permission User="Everyone" GenericAll="yes" />
+        </File>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="GLGE">
+      <Component Id="WEBGL_GLGE" Guid="{246C8AE8-BB09-41BC-A642-6C83C6585E56}">
+        <File Id="glge_compiled_min.js" Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge-compiled-min.js" Checksum="yes" KeyPath="yes" />
+        <File Source="..\TreeDim.StackBuilder.ColladaExporter\WebGL\GLGE\glge.html" Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SAMPLES">
+      <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">
+        <File Source="..\Samples\Matches.stb" />
+        <File Source="..\Samples\Matches.doc" />
+        <File Source="..\Samples\Case_44_28_29.stb" />
+        <File Source="..\Samples\Case_44_28_29.doc" />
+        <!-- Xml file processor samples -->
+        <File Source="..\Samples\Input1.xml" />
+        <File Source="..\Samples\Input2.xml" />
+        <File Source="..\Samples\TestXmlFileProcessor.bat" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationShortcutFolder">
+      <!--Application shortcut & Uninstall shortcut-->
+      <Component Id="ProgramMenuShortcutComp" Guid="{AEB5AFCA-E43E-4523-9551-90D406BAD8E6}">
+        <Shortcut Id="ProgramMenuShortcut" Name="PLMPack Stackbuilder" Description="PLMPack StackBuilder palettization application" Target="[BIN]TreeDim.StackBuilder.Desktop.exe" Icon="PLMStackBuilder.ico" />
+        <Shortcut Id="UninstallProduct" Name="Uninstall PLMPack StackBuilder" Description="Uninstalls PLMPack StackBuilder" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+        <RemoveFolder Id="RemoveApplicationShortcutFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="$(var.Manufacturer)\PLMPack StackBuilder" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{28CF1E86-4236-4cd8-8AED-0CB95B579C25}">
+        <Shortcut Id="DesktopShortCut" Name="PLMPack Stackbuilder" Description="PLMPack StackBuilder palettization application" Target="[BIN]TreeDim.StackBuilder.Desktop.exe" Icon="PLMStackBuilder.ico" />
+        <RegistryValue Root="HKCU" Key="$(var.Manufacturer)\PLMPack StackBuilder" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

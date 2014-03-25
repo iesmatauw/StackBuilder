@@ -67,7 +67,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Weight unit string
         /// </summary>
-        public static string WeightUnitString
+        public static string MassUnitString
         {
             get
             {
@@ -90,8 +90,8 @@ namespace TreeDim.StackBuilder.Basics
                 switch (Instance._currentUnitSystem)
                 {
                     case UnitSystem.UNIT_METRIC:    return "l";
-                    case UnitSystem.UNIT_IMPERIAL:  return "gal";
-                    case UnitSystem.UNIT_US:        return "gal";
+                    case UnitSystem.UNIT_IMPERIAL:  return "in³";
+                    case UnitSystem.UNIT_US:        return "in³";
                     default: throw new Exception("Invalid unit system!");
                 }
             }
@@ -108,7 +108,7 @@ namespace TreeDim.StackBuilder.Basics
         { 
             string sText = s;
             sText = sText.Replace("uLength", LengthUnitString);
-            sText = sText.Replace("uMass", WeightUnitString);
+            sText = sText.Replace("uMass", MassUnitString);
             sText = sText.Replace("uVolume", VolumeUnitString);
             return sText;
         }
@@ -121,7 +121,7 @@ namespace TreeDim.StackBuilder.Basics
                 if (null != lb)
                 {
                     if (lb.Name.Contains("uLength")) lb.Text = LengthUnitString;
-                    else if (lb.Name.Contains("uMass")) lb.Text = WeightUnitString;
+                    else if (lb.Name.Contains("uMass")) lb.Text = MassUnitString;
                     else if (lb.Name.Contains("uVolume")) lb.Text = VolumeUnitString;
                 }
                 GroupBox gb = ctrl as GroupBox;
@@ -134,6 +134,20 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Conversions
+        public static double FactorCubeLengthToVolume
+        {
+            get
+            {
+                switch (CurrentUnitSystem)
+                {
+                    case UnitsManager.UnitSystem.UNIT_METRIC: return 10.0E-06; //mm³ to l
+                    case UnitsManager.UnitSystem.UNIT_IMPERIAL: return 1.0; // in³ to in³
+                    case UnitsManager.UnitSystem.UNIT_US: return 1.0; // in³ to in³
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
+
         private static IUnit<Length> LengthUnitFromUnitSystem(UnitsManager.UnitSystem unitSystem)
         {
             switch (unitSystem)

@@ -2,7 +2,7 @@
 <!-- Product manufacturer -->
 <?define Manufacturer = "treeDiM"?>
 <!-- Product version -->
-<?define Version = "1.0.17.0"?>
+<?define Version = "1.0.18.0"?>
 <!-- Company URL -->
 <?define CompanyURL = "http://www.picador.fr/"?>
 <!-- Product name as it appears in Add/Remove Programs-->
@@ -10,9 +10,9 @@
 <!--Upgrade code-->
 <?define UpgradeCode = "3ea15bae-a660-4872-a937-0a7c8a0f595c"?>
 <!-- Package_Description -->
-<?define Package_Description = "A palletization simulation software" ?>
+<?define Package_Description = "A homogeneous palletization simulation software" ?>
 <!-- Package_Comments -->
-<?define Package_Comments = "registers PicThumbnailShellExt"?>
+<?define Package_Comments = "Requires framework .NET 4.0"?>
 <!-- Merge module directory -->
 <?define MergeModuleDir="C:\Program Files (x86)\Common Files\Merge Modules"?>
 <Include>

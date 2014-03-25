@@ -82,7 +82,7 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "StackBuilderGUIExtMSM", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp3D.Math", "Sharp3D.Math\Sharp3D.Math.csproj", "{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MergeModuleSB", "MergeModuleSB\MergeModuleSB.wixproj", "{DCE973AD-D647-4989-8F16-F43FF7E058A2}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MergeModuleSB", "SetupSB\MergeModuleSB.wixproj", "{DCE973AD-D647-4989-8F16-F43FF7E058A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

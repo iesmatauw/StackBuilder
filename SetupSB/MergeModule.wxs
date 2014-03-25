@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Module Id="MergeModuleSB" Language="1033" Version="$(var.Version)">
+    <Package Id="c0d647e3-ae85-433b-9660-df474dcfcf7c"
+             Description="$(var.Package_Description)"
+             Comments="$(var.Package_Comments)"
+             Languages="1033"
+             Manufacturer="$(var.Manufacturer)"
+             InstallerVersion="300" />
+    <!--Properties-->
+    <Property Id="ALLUSERS" Value="1" />
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+    <!--ComponentRefs-->
+    <ComponentRef Id="References" />
+    <ComponentRef Id="Application" />
+    <ComponentRef Id="ProgramMenuShortcutComp" />
+    <ComponentRef Id="DesktopShortcutComp" />
+    <ComponentRef Id="ReportTemplates" />
+    <ComponentRef Id="PalletSolutionsDB" />
+    <ComponentRef Id="resources_fr_FR" />
+    <ComponentRef Id="resources_ja_JP" />
+    <ComponentRef Id="resources_de_DE" />
+    <ComponentRef Id="resources_es_ES" />
+    <ComponentRef Id="resources_ca_ES" />
+    <ComponentRef Id="Samples" />
+    <ComponentRef Id="XmlSchemas" />
+    <ComponentRef Id="CardboardQualityData" />
+    <ComponentRef Id="WEBGL_GLGE" />
+    <ComponentRef Id="AutoUpdater" />
+  </Module>
+</Wix>

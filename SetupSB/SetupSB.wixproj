@@ -21,6 +21,7 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components.wxs" />
     <Compile Include="DirectoryTree.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
@@ -63,6 +64,6 @@
     <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="My Application Name" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v7.0A\Bootstrapper\" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>"$(DevEnvDir)..\..\..\WiX Toolset v3.7\bin\setupbld.exe" -out $(TargetDir)SBSetup.exe -ms "$(TargetPath)" -setup "$(ProjectDir)setup.exe" -title $(SolutionName)</PostBuildEvent>
+    <PostBuildEvent />
   </PropertyGroup>
 </Project>

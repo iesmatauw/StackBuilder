@@ -97,6 +97,70 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
 
+        #region Name checking / Getting new name
+        public bool IsValidNewTypeName(string name, ItemBase itemToName)
+        {
+            // make sure is not empty
+            if (name.Trim() == string.Empty)
+                return false;
+            // make sure it is not already used
+            return null == _typeList.Find(
+                delegate(ItemBase item)
+                {
+                    return (item != itemToName) && string.Equals(item.Name.Trim(), name.Trim(), StringComparison.CurrentCultureIgnoreCase);
+                }
+                );
+        }
+        public string GetValidNewTypeName(string prefix)
+        {
+            int index = 0;
+            string name = string.Empty;
+            while (!IsValidNewTypeName(name = string.Format("{0}{1}", prefix, index), null))
+                ++index;
+            return name;
+        }
+        public bool IsValidNewAnalysisName(string name, ItemBase analysisToRename)
+        {
+            string trimmedName = name.Trim();
+            return (null == _casePalletAnalyses.Find(
+                delegate(CasePalletAnalysis analysis)
+                {
+                    return analysis != analysisToRename
+                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                }
+                ))
+                && (null == _cylinderPalletAnalyses.Find(
+                delegate(CylinderPalletAnalysis analysis)
+                {
+                    return analysis != analysisToRename
+                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                }
+                ))
+                && (null == _boxCaseAnalyses.Find(
+                delegate(BoxCaseAnalysis analysis)
+                {
+                    return analysis != analysisToRename
+                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                }
+                ))
+                && (null == _boxCasePalletOptimizations.Find(
+                delegate(BoxCasePalletAnalysis analysis)
+                {
+                    return analysis != analysisToRename
+                        && string.Equals(analysis.Name, trimmedName, StringComparison.InvariantCultureIgnoreCase);
+                }
+                ));
+        }
+        public string GetValidNewAnalysisName(string prefix)
+        {
+            int index = 0;
+            string name = string.Empty;
+            while (!IsValidNewAnalysisName(name = string.Format("{0}{1}", prefix, index), null))
+                ++index;
+            return name;
+        }
+        #endregion
+
         #region Public instantiation methods
         /// <summary>
         /// Create a new box
@@ -632,48 +696,6 @@ namespace TreeDim.StackBuilder.Basics
             else
                 Debug.Assert(false);
             Modify();
-        }
-        #endregion
-
-        #region Name methods
-        public bool IsValidNewTypeName(string name, ItemBase itemToName)
-        { 
-            // make sure is not empty
-            if (name.Trim() == string.Empty)
-                return false;            
-            // make sure that name is not already used
-            foreach (ItemBase item in _typeList)
-            {
-                if (item == itemToName)
-                    continue;
-                if (item.Name.Trim().ToLower() == name.Trim().ToLower())
-                    return false;
-            }
-            // success
-            return true;
-        }
-        public bool IsValidNewAnalysisName(string name, ItemBase analysisToRename)
-        {
-            // make sure is not empty
-            if (name.Trim() == string.Empty)
-                return false;
-            // make sure that name is not already used
-            foreach (ItemBase item in _casePalletAnalyses)
-            {
-                if (item == analysisToRename)
-                    continue;
-                if (item.Name.Trim().ToLower() == name.Trim().ToLower())
-                    return false;
-            }
-            foreach (ItemBase item in _boxCasePalletOptimizations)
-            {
-                if (item == analysisToRename)
-                    continue;
-                if (item.Name.Trim().ToLower() == name.Trim().ToLower())
-                    return false;
-            }
-            // success
-            return true;
         }
         #endregion
 

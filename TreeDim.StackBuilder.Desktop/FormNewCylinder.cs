@@ -35,6 +35,8 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
+            tbName.Text = _document.GetValidNewTypeName(Resources.ID_CYLINDER);
+            tbDescription.Text = tbName.Text;
             // properties
             nudRadius.Value = 75.0M;
             nudHeight.Value = 150.0M;
@@ -120,12 +122,15 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // status + message
             string message = string.Empty;
+            // name
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            // name validity
             else if (!_document.IsValidNewTypeName(tbName.Text, _cylProperties))
                 message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            // description
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             // accept
             bnOK.Enabled = string.IsNullOrEmpty(message);
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;

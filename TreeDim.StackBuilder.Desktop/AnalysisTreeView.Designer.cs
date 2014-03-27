@@ -148,6 +148,14 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap PDF
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("PDF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap COLLADAWEBGL
         {
             get

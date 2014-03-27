@@ -33,6 +33,9 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
+            // name
+            tbName.Text = _document.GetValidNewTypeName(Resources.ID_BUNDLE);
+            tbDescription.Text = tbName.Text;
             // initialize value
             BundleLength = 400.0;
             BundleWidth = 300.0;
@@ -150,12 +153,13 @@ namespace TreeDim.StackBuilder.Desktop
             // name
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
+            // name validity
+            else if (!_document.IsValidNewTypeName(tbName.Text, _bundleProperties))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // name validity
-            else if (!_document.IsValidNewTypeName(tbName.Text, _bundleProperties))
-                message = Resources.ID_INVALIDNAME;
+            // ---
             // button OK
             bnOk.Enabled = string.IsNullOrEmpty(message);
             // status bar

@@ -22,7 +22,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         private BoxProperties[] _boxes, _cases;
-        private Document _document;
+        private TreeDim.StackBuilder.Basics.Document _document;
         private BoxCaseAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBoxCaseAnalysis));
         #endregion
@@ -37,6 +37,9 @@ namespace TreeDim.StackBuilder.Desktop
             InitializeComponent();
             // save document reference
             _document = document;
+            // name
+            tbName.Text = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
+            tbDescription.Text = tbName.Text;
         }
         /// <summary>
         /// Constructor used while browsing/editing existing analysis
@@ -142,12 +145,12 @@ namespace TreeDim.StackBuilder.Desktop
             // name
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
+            // name validity
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // name validity
-            else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
-                message = Resources.ID_INVALIDNAME;
             // orientation
             else if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
                 message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;

@@ -20,7 +20,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private CylinderProperties[] _cylinderProperties;
         private PalletProperties[] _palletProperties;
-        private Document _document;
+        private TreeDim.StackBuilder.Basics.Document _document;
         private CylinderPalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinder));
         #endregion
@@ -102,6 +102,11 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                     tbName.Text = _analysis.Name;
                     tbDescription.Text = _analysis.Description;
+                }
+                else
+                {
+                    tbName.Text = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
+                    tbDescription.Text = tbName.Text;
                 }
                 // fill boxes combo
                 foreach (CylinderProperties cyl in _cylinderProperties)

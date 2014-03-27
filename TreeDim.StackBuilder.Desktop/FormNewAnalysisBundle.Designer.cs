@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysisBundle));
             this.bnCancel = new System.Windows.Forms.Button();
-            this.bnAccept = new System.Windows.Forms.Button();
+            this.bnOk = new System.Windows.Forms.Button();
             this.uLengthPalletOverhangY = new System.Windows.Forms.Label();
             this.uLengthPalletOverhangX = new System.Windows.Forms.Label();
             this.nudPalletOverhangX = new System.Windows.Forms.NumericUpDown();
@@ -91,10 +91,10 @@
             // 
             // bnAccept
             // 
-            resources.ApplyResources(this.bnAccept, "bnAccept");
-            this.bnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnAccept.Name = "bnAccept";
-            this.bnAccept.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.bnOk, "bnAccept");
+            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bnOk.Name = "bnAccept";
+            this.bnOk.UseVisualStyleBackColor = true;
             // 
             // uLengthPalletOverhangY
             // 
@@ -406,7 +406,7 @@
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnAccept);
+            this.Controls.Add(this.bnOk);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewAnalysisBundle";
@@ -437,7 +437,7 @@
         #endregion
 
         private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.Button bnAccept;
+        private System.Windows.Forms.Button bnOk;
         private System.Windows.Forms.Label uLengthPalletOverhangY;
         private System.Windows.Forms.Label uLengthPalletOverhangX;
         private System.Windows.Forms.NumericUpDown nudPalletOverhangX;

@@ -293,6 +293,11 @@ namespace TreeDim.StackBuilder.Desktop
                     tbName.Text = _caseAnalysis.Name;
                     tbDescription.Text = _caseAnalysis.Description;
                 }
+                else
+                {
+                    tbName.Text = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
+                    tbDescription.Text = tbName.Text;
+                }
                 // fill boxes combo
                 foreach (BProperties box in _boxes)
                     cbBoxes.Items.Add(new BoxItem(box));
@@ -378,12 +383,11 @@ namespace TreeDim.StackBuilder.Desktop
             // name
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
+            else if (_document.IsValidNewAnalysisName(tbName.Text, _caseAnalysis))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // name validity
-            else if (!_document.IsValidNewAnalysisName(tbName.Text, _caseAnalysis))
-                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // orientation
             else if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
                 message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;

@@ -62,6 +62,9 @@
     <Reference Include="Cureos.Measures">
       <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\ThirdPartyAssemblies\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
@@ -1116,6 +1119,7 @@
     <None Include="Resources\Cylinder.bmp" />
     <Content Include="Resources\Image.bmp" />
     <None Include="Resources\OptimalCase.bmp" />
+    <None Include="Resources\PDF.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
     <Content Include="Resources\AnalysisStackingStrength.bmp" />

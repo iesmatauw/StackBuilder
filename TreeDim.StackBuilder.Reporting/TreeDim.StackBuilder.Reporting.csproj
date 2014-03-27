@@ -95,10 +95,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ReportTemplates\ReportTemplateHtml_JPN.xsl" />
-    <Content Include="ReportTemplates\ReportTemplateMSWord_DEU.xml" />
-    <Content Include="ReportTemplates\ReportTemplateMSWord_ENU.xml" />
-    <Content Include="ReportTemplates\ReportTemplateMSWord_FRA.xml" />
-    <Content Include="ReportTemplates\ReportTemplateMSWord_JPN.xml" />
     <Content Include="SampleReportData\SampleReport.xml">
       <SubType>Designer</SubType>
     </Content>

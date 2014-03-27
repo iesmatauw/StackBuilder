@@ -511,7 +511,31 @@ Continue?</value>
   <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
     <value>Maximal pallet height ({0} {1}) ought to exceed {2} {3}</value>
   </data>
-  <data name="ID_" xml:space="preserve">
-    <value />
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+    <value>Generate PDF report for {0}</value>
+  </data>
+  <data name="ID_BOX" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+    <value>Name already exists.</value>
+  </data>
+  <data name="ID_TRUCK" xml:space="preserve">
+    <value>Truck</value>
+  </data>
+  <data name="ID_ANALYSIS" xml:space="preserve">
+    <value>Analysis</value>
+  </data>
+  <data name="ID_BUNDLE" xml:space="preserve">
+    <value>Bundle</value>
+  </data>
+  <data name="ID_CYLINDER" xml:space="preserve">
+    <value>Cylinder</value>
+  </data>
+  <data name="ID_INTERLAYER" xml:space="preserve">
+    <value>Interlayer</value>
+  </data>
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
+    <value>Case of boxes</value>
   </data>
 </root>

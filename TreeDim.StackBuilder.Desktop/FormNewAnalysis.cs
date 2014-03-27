@@ -40,6 +40,10 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
+            // name / description
+            tbName.Text = document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
+            tbDescription.Text = tbName.Text;
+            // update interlayer UI
             onInterlayerChecked(this, null);
         }
         /// <summary>
@@ -551,7 +555,7 @@ namespace TreeDim.StackBuilder.Desktop
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             // name validity
             else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
-                message = Resources.ID_INVALIDNAME;
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // orientation
             else if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
                 message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;

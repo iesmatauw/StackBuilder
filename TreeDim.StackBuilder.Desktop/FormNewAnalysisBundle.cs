@@ -101,6 +101,11 @@ namespace TreeDim.StackBuilder.Desktop
                     tbName.Text = _analysis.Name;
                     tbDescription.Text = _analysis.Description;
                 }
+                else
+                {
+                    tbName.Text = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
+                    tbDescription.Text = tbName.Text;
+                }
                 // fill boxes combo
                 foreach (BProperties bundle in _bundles)
                     cbBox.Items.Add(new BoxItem(bundle));
@@ -392,10 +397,16 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handles
         private void UpdateButtonOkStatus()
         {
-            bnAccept.Enabled =
-                tbName.Text.Length > 0
-                && tbDescription.Text.Length > 0
-                && _document.IsValidNewTypeName(tbName.Text, _analysis);
+            string message = string.Empty;
+            // name
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
+                message = Resources.ID_FIELDNAMEINVALID;
+            // description 
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            bnOk.Enabled = string.IsNullOrEmpty(message);
         }
         private void onNameDescriptionChanged(object sender, EventArgs e)
         {

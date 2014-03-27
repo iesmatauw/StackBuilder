@@ -57,6 +57,7 @@ namespace TreeDim.StackBuilder.Desktop
             switch (_mode)
             {
                 case Mode.MODE_CASE:
+                    tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
                     nudLength.Value = 400.0M;
                     nudWidth.Value = 300.0M;
                     nudHeight.Value = 200.0M;
@@ -67,6 +68,7 @@ namespace TreeDim.StackBuilder.Desktop
                     cbTapeColor.Color = Color.Beige;
                     break;
                 case Mode.MODE_BOX:
+                    tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
                     nudLength.Value = 120.0M;
                     nudWidth.Value = 60.0M;
                     nudHeight.Value = 30.0M;
@@ -77,6 +79,8 @@ namespace TreeDim.StackBuilder.Desktop
                 default:
                     break;
             }
+            // description (same as name)
+            tbDescription.Text = tbName.Text;
             // color : all faces set together / face by face
             chkAllFaces.Checked = false;
             chkAllFaces_CheckedChanged(this, null);
@@ -374,14 +378,18 @@ namespace TreeDim.StackBuilder.Desktop
             string message = string.Empty;
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             else if (!_document.IsValidNewTypeName(tbName.Text, _boxProperties))
                 message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            // description
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            // case length consistency
             else if (_mode == Mode.MODE_CASE && InsideLength > BoxLength)
                 message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength);
+            // case width consistency
             else if (_mode == Mode.MODE_CASE && InsideWidth > BoxWidth)
                 message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth);
+            // case height consistency
             else if (_mode == Mode.MODE_CASE && InsideHeight > BoxHeight)
                 message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight);
             // accept

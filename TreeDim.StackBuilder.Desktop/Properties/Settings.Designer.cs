@@ -608,15 +608,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CultureToUse {
-            get {
-                return ((string)(this["CultureToUse"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -689,6 +680,27 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
             set {
                 this["UnitSystem"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
+        public string CultureToUse {
+            get {
+                return ((string)(this["CultureToUse"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReportInitialDirectory {
+            get {
+                return ((string)(this["ReportInitialDirectory"]));
+            }
+            set {
+                this["ReportInitialDirectory"] = value;
             }
         }
     }

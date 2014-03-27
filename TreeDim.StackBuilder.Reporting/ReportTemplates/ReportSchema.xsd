@@ -840,8 +840,8 @@
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="layerId" type="xs:string"/>
+                          <xs:element name="layerCaseCount" type="xs:string"/>
                           <xs:element name="layerImage" type="xs:string"/>
-                          <xs:element name="layerBoxCount" type="xs:string"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>

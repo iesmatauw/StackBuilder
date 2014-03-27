@@ -231,15 +231,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string ID_ {
-            get {
-                return ResourceManager.GetString("ID_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A1.
         /// </summary>
         internal static string ID_A1 {
@@ -411,11 +402,29 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis.
+        /// </summary>
+        internal static string ID_ANALYSIS {
+            get {
+                return ResourceManager.GetString("ID_ANALYSIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Area.
         /// </summary>
         internal static string ID_AREA {
             get {
                 return ResourceManager.GetString("ID_AREA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Box.
+        /// </summary>
+        internal static string ID_BOX {
+            get {
+                return ResourceManager.GetString("ID_BOX", resourceCulture);
             }
         }
         
@@ -434,6 +443,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_BOXCOUNT {
             get {
                 return ResourceManager.GetString("ID_BOXCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bundle.
+        /// </summary>
+        internal static string ID_BUNDLE {
+            get {
+                return ResourceManager.GetString("ID_BUNDLE", resourceCulture);
             }
         }
         
@@ -492,6 +510,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Case of boxes.
+        /// </summary>
+        internal static string ID_CASEOFBOXES {
+            get {
+                return ResourceManager.GetString("ID_CASEOFBOXES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case/pallet.
         /// </summary>
         internal static string ID_CASEPERPALLET {
@@ -542,6 +569,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_CLOSE {
             get {
                 return ResourceManager.GetString("ID_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder.
+        /// </summary>
+        internal static string ID_CYLINDER {
+            get {
+                return ResourceManager.GetString("ID_CYLINDER", resourceCulture);
             }
         }
         
@@ -657,6 +693,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name already exists..
+        /// </summary>
+        internal static string ID_FIELDNAMEINVALID {
+            get {
+                return ResourceManager.GetString("ID_FIELDNAMEINVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File {0} could not be found.
         /// </summary>
         internal static string ID_FILENOTFOUND {
@@ -702,6 +747,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate PDF report for {0}.
+        /// </summary>
+        internal static string ID_GENERATEREPORTPDF {
+            get {
+                return ResourceManager.GetString("ID_GENERATEREPORTPDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string ID_HEIGHT {
@@ -734,6 +788,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_INSUFFICIENTVOLUME {
             get {
                 return ResourceManager.GetString("ID_INSUFFICIENTVOLUME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interlayer.
+        /// </summary>
+        internal static string ID_INTERLAYER {
+            get {
+                return ResourceManager.GetString("ID_INTERLAYER", resourceCulture);
             }
         }
         
@@ -1067,6 +1130,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_SENDTODATABASE {
             get {
                 return ResourceManager.GetString("ID_SENDTODATABASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Truck.
+        /// </summary>
+        internal static string ID_TRUCK {
+            get {
+                return ResourceManager.GetString("ID_TRUCK", resourceCulture);
             }
         }
         

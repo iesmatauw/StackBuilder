@@ -30,6 +30,9 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
+            // name / description
+            tbName.Text = _document.GetValidNewTypeName(Resources.ID_INTERLAYER);
+            tbDescription.Text = tbName.Text;
             // initialize value
             InterlayerLength = 1200.0;
             InterlayerWidth = 1000.0;
@@ -129,13 +132,12 @@ namespace TreeDim.StackBuilder.Desktop
             // name
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
+            // name validity
+            else if (!_document.IsValidNewTypeName(tbName.Text, _interlayerProperties))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // name validity
-            else if (!_document.IsValidNewTypeName(tbName.Text, _interlayerProperties))
-                message = Resources.ID_INVALIDNAME;
-
             // button OK
             bnOk.Enabled = string.IsNullOrEmpty(message);
             // status bar

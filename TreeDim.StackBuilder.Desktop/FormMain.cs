@@ -142,6 +142,7 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
             _documentExplorer.DocumentTreeView.AnalysisNodeClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_NodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportMSWordClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportNodeClicked);
+            _documentExplorer.DocumentTreeView.SolutionReportPdfClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportPDFNodeClicked);
             _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
@@ -445,26 +446,36 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
-                // build output file path
-                string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
-                // getting current culture
-                string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
-                // build report
-                ReporterMSWord reporter = new ReporterMSWord();
-                reporter.BuildAnalysisReport(
-                    new ReportData(
-                        eventArg.Analysis, eventArg.SelSolution
-                        , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
-                        , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
-                        , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
-                        )
-                    , Settings.Default.ReportTemplatePath
-                    , outputFilePath);
-
-                // logging
-                _log.Debug(string.Format("Saved report to: {0}", outputFilePath));
-                // open resulting report in Word
-                Process.Start(new ProcessStartInfo(outputFilePath));
+                SaveFileDialog dlg = new SaveFileDialog();
+                dlg.InitialDirectory    = Properties.Settings.Default.ReportInitialDirectory;
+                dlg.FileName = Path.ChangeExtension(eventArg.Analysis.Name, "html");
+                dlg.Filter = "HTML file (*.html)|*.html|All files (*.*)|*.*";
+                dlg.DefaultExt = "html";
+                dlg.ValidateNames = true;
+                if (DialogResult.OK == dlg.ShowDialog())
+                {
+                    // build output file path
+                    string outputFilePath = dlg.FileName;
+                    // save directory
+                    Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
+                    // getting current culture
+                    string cultAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
+                    // build report
+                    ReportData reportObject = new ReportData(
+                            eventArg.Analysis, eventArg.SelSolution
+                            , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
+                            , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
+                            , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
+                            );
+                    ReporterHtml reporter = new ReporterHtml(
+                        reportObject
+                        , Settings.Default.ReportTemplatePath
+                        , outputFilePath);
+                    // logging
+                    _log.Debug(string.Format("Saved report to {0}", outputFilePath));
+                    // start MS Word
+                    Process.Start("WINWORD.exe", "\"" + outputFilePath + "\"");
+                }
             }
             catch (Exception ex)
             {
@@ -472,6 +483,28 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
+        public static System.Text.StringBuilder ReadHtmlFile(string htmlFileNameWithPath)
+        {
+            System.Text.StringBuilder htmlContent = new System.Text.StringBuilder();
+            string line;
+            try
+            {
+                using (System.IO.StreamReader htmlReader = new System.IO.StreamReader(htmlFileNameWithPath))
+                {
+                    while ((line = htmlReader.ReadLine()) != null)
+                    {
+                        htmlContent.Append(line);
+                    }
+                }
+            }
+            catch (Exception objError)
+            {    throw objError;    }
+            return htmlContent;
+        }
+
+        public void DocumentTreeView_SolutionReportPDFNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
+        {
+        }
         private void DocumentTreeView_SolutionReportHtmlClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try

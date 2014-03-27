@@ -302,6 +302,7 @@ namespace TreeDim.StackBuilder.Reporting
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(ReporterMSWord));
         protected static bool _validateAgainstSchema = false;
+        protected string _imageDirectory;
         #endregion
 
         #region Abstract members
@@ -313,10 +314,8 @@ namespace TreeDim.StackBuilder.Reporting
         #region Private properties
         private string ImageDirectory
         {
-            get
-            {
-                return Path.Combine(Path.GetTempPath() , @"Images\");
-            }
+            set {   _imageDirectory = value;}
+            get {   return _imageDirectory;  }
         }
         #endregion
 
@@ -327,6 +326,7 @@ namespace TreeDim.StackBuilder.Reporting
             if (!inputData.IsValid)
                 throw new Exception("Reporter.BuildAnalysisReport(): ReportData argument is invalid!");
             // create directory if needed
+            ImageDirectory = Path.Combine( Path.GetDirectoryName(outputFilePath), "Images");
             if (WriteImageFiles && !Directory.Exists(ImageDirectory))
                 Directory.CreateDirectory(ImageDirectory); 
             // create xml data file + XmlTextReader
@@ -411,7 +411,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemDocument.AppendChild(elemAuthor);
             // date of creation element
             XmlElement elemDateOfCreation = xmlDoc.CreateElement("dateOfCreation", ns);
-            elemDateOfCreation.InnerText = doc.DateOfCreation.ToString();
+            elemDateOfCreation.InnerText = doc.DateOfCreation.Year < 2000 ? DateTime.Now.ToShortDateString() : doc.DateOfCreation.ToShortDateString();
             elemDocument.AppendChild(elemDateOfCreation);
 
             // case analysis
@@ -1060,9 +1060,9 @@ namespace TreeDim.StackBuilder.Reporting
                 styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 2, graphics.Bitmap.Height / 2);
                 elemLayerImage.Attributes.Append(styleAttribute);
                 elemLayer.AppendChild(elemLayerImage);
-                // layerBoxCount
+                // layerCaseCount
                 XmlElement elemLayerBoxCount = xmlDoc.CreateElement("layerCaseCount", ns);
-                elemLayerBoxCount.InnerText = "0";
+                elemLayerBoxCount.InnerText = sol[i].BoxCount.ToString();
                 elemLayer.AppendChild(elemLayerBoxCount);
 
                 elemSolution.AppendChild(elemLayer);
@@ -1423,10 +1423,13 @@ namespace TreeDim.StackBuilder.Reporting
             // create "truckSolution" element
             XmlElement elemTruckSolution = xmlDoc.CreateElement("truckSolution", ns);
             elemTruckAnalysis.AppendChild(elemTruckSolution);
-            // title
-            XmlElement elemTitle = xmlDoc.CreateElement("title", ns);
-            elemTitle.InnerText = truckSolution.Title;
-            elemTruckSolution.AppendChild(elemTitle);
+            if (!string.IsNullOrEmpty(truckSolution.Title))
+            {
+                // title
+                XmlElement elemTitle = xmlDoc.CreateElement("title", ns);
+                elemTitle.InnerText = truckSolution.Title;
+                elemTruckSolution.AppendChild(elemTitle);
+            }
             // palletCount
             XmlElement elemPalletCount = xmlDoc.CreateElement("palletCount", ns);
             elemPalletCount.InnerText = string.Format("{0}", truckSolution.PalletCount);

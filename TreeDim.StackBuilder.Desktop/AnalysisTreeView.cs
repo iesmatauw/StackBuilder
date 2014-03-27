@@ -223,6 +223,10 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
                 message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
+                message = string.Format(Resources.ID_GENERATEREPORTPDF, nodeTag.SelSolution.Name);
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.PDF, new EventHandler(onAnalysisReportPdf)));
+
+                message = string.Format(Resources.ID_GENERATEREPORTPDF, nodeTag.SelSolution.Name);
                 if (nodeTag.CasePalletAnalysis.IsBoxAnalysis)
                 {
                     message = string.Format(Resources.ID_GENERATECOLLADA, nodeTag.SelSolution.Name);
@@ -341,6 +345,15 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 SolutionReportMSWordClicked(this, new AnalysisTreeViewEventArgs(tag));
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void onAnalysisReportPdf(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                SolutionReportPdfClicked(this, new AnalysisTreeViewEventArgs(tag));
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -734,6 +747,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public event AnalysisNodeClickHandler SolutionReportMSWordClicked;
         public event AnalysisNodeClickHandler SolutionReportHtmlClicked;
+        public event AnalysisNodeClickHandler SolutionReportPdfClicked;
         public event AnalysisNodeClickHandler SolutionColladaExportClicked;
         #endregion
 

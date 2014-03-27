@@ -40,6 +40,17 @@ namespace TreeDim.StackBuilder.Desktop
             InitializeComponent();
             // save document reference
             _document = document;
+            // name / description
+            if (null != caseOfBoxProperties)
+            {
+                tbName.Text = caseOfBoxProperties.Name;
+                tbDescription.Text = caseOfBoxProperties.Description;
+            }
+            else
+            {
+                tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASEOFBOXES);
+                tbDescription.Text = tbName.Text;
+            }
             // save CaseOfBoxesProperties
             _caseOfBoxesProperties = caseOfBoxProperties;
             // color : all faces set together / face by face
@@ -224,12 +235,16 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // status + message
             string message = string.Empty;
+            // name validity
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
+            else if (!_document.IsValidNewTypeName(tbName.Text, _caseOfBoxesProperties))
+                message = Resources.ID_FIELDNAMEINVALID;
             else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            // accept
+            // button OK
             bnOK.Enabled = string.IsNullOrEmpty(message);
+            // status bar
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }

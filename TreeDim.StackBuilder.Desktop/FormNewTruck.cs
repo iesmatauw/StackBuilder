@@ -41,12 +41,14 @@ namespace TreeDim.StackBuilder.Desktop
             radioButtonTruck2.Checked = true;
 
             // initialize data
+            tbName.Text = _document.GetValidNewTypeName(Resources.ID_TRUCK);
             TruckLength = 12100;
             TruckWidth = 2320;
             TruckHeight = 2350;
             TruckAdmissibleLoadWeight = 38000;
             TruckColor = Color.LightBlue;
-
+            // description
+            tbDescription.Text = tbName.Text;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -193,10 +195,11 @@ namespace TreeDim.StackBuilder.Desktop
             string message = string.Empty;
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             else if (!_document.IsValidNewTypeName(tbName.Text, _truckProperties))
                 message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            // description ?
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             // button OK
             bnOK.Enabled = string.IsNullOrEmpty(message);
             // status bar

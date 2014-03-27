@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--definitions : beg-->
+<?define SkuName = "StackBuilder"?>
+<?define ProductVersion = "1.0.18.0"?>
+<?define Manufacturer="treeDiM"?>
+<?define ProductName = "StackBuilder"?>
+<?define UpgradeCode="3b6ab985-d566-4400-93c3-7a17e720eebf"?>
+<!--definitions : end-->
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Bundle
-    Name="StackBuilder"
-    Version="1.0.18.0"
-    Manufacturer="treeDiM"
-    UpgradeCode="3b6ab985-d566-4400-93c3-7a17e720eebf"
-    IconSourceFile="StackBuilder.ico">
+	<Bundle Name="$(var.ProductName)"
+          Version="$(var.ProductVersion)"
+          Manufacturer="$(var.Manufacturer)"
+          UpgradeCode="$(var.UpgradeCode)"
+          IconSourceFile="StackBuilder.ico"
+          Copyright="Copyright© 2014, treeDiM"
+          AboutUrl="http://www.picador.fr"
+          HelpUrl="http://www.picador.fr"
+          Condition="(VersionNT >= v5.0)">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
       <bal:WixStandardBootstrapperApplication
         SuppressOptionsUI="no"
         LicenseUrl=""
-        LogoFile="StackBuilder.png"
         ThemeFile="RtfTheme.xml"/>
     </BootstrapperApplicationRef>
-		<Chain>
+    <Variable Name="InstallFolder" Type="string" Value="[ProgramFilesFolder]treeDiM\PLMPack\StackBuilder" />
+    <Variable Name="LaunchTarget" Value="[InstallFolder]\Bin32\StackBuilder.exe"/>
+    <Chain>
       <PackageGroupRef Id="Netfx4Full"/>
       <MsiPackage
                 Compressed="yes"
@@ -24,9 +36,8 @@
                 DisplayInternalUI="no"
                 ForcePerMachine="yes"
                 Visible="yes">
-        <MsiProperty
-            Name="ARPSYSTEMCOMPONENT"
-            Value="1"/>
+        <MsiProperty Name="ARPSYSTEMCOMPONENT" Value="1"/>
+        <MsiProperty Name="INSTALLLOCATION" Value="[InstallFolder]" />
       </MsiPackage>
 		</Chain>
 	</Bundle>
@@ -53,7 +64,10 @@
           Vital="yes"
           SourceFile="dotNetFx40_Full_x86_x64.exe"
           DownloadUrl="http://go.microsoft.com/fwlink/?LinkId=164193"
-          DetectCondition="Netfx4FullVersion AND (NOT VersionNT64 OR Netfx4x64FullVersion)" />
+          InstallCondition="Netfx4FullVersion AND (NOT VersionNT64 OR Netfx4x64FullVersion)"
+          DetectCondition="Netfx4FullVersion AND (NOT VersionNT64 OR Netfx4x64FullVersion)">
+        <ExitCode Behavior="success" Value="3010"/>
+      </ExePackage>
     </PackageGroup>
   </Fragment>
 </Wix>

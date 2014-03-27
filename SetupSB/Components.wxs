@@ -19,6 +19,7 @@
         <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CbtHook.dll" Checksum="yes" />
         <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\WindowsHook.dll" Checksum="yes" />
         <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CrashReporter.NET.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\iTextSharp.dll" Checksum="yes" />
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes" />
@@ -113,12 +114,6 @@
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\WML2XSLT.EXE" Checksum="yes" KeyPath="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes" />
-        <File Id="ReportTemplate_ENU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ENU.xml" Checksum="yes" />
-        <File Id="ReportTemplate_FRA.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_FRA.xml" Checksum="yes" />
-        <File Id="ReportTemplate_JPN.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_JPN.xml" Checksum="yes" />
-        <File Id="ReportTemplate_DEU.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_DEU.xml" Checksum="yes" />
-        <File Id="ReportTemplate_ESP.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_ESP.xml" Checksum="yes" />
-        <File Id="ReportTempalte_CAT.xml" Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateMSWord_CAT.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ENU.xsl" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_FRA.xsl" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_JPN.xsl" Checksum="yes" />

@@ -42,9 +42,9 @@ namespace TreeDim.StackBuilder.Desktop
 
             // initialize data
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_TRUCK);
-            TruckLength = 12100;
-            TruckWidth = 2320;
-            TruckHeight = 2350;
+            TruckLength = 13600;
+            TruckWidth = 2450;
+            TruckHeight = 2700;
             TruckAdmissibleLoadWeight = 38000;
             TruckColor = Color.LightBlue;
             // description

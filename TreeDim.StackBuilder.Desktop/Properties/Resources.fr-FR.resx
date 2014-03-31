@@ -385,4 +385,67 @@ Souhaitez-vous continuer?</value>
 	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
 		<value>Hauteur</value>
 	</data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+		<value>Limite atteinte</value>
+	</data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+		<value>Efficacité (%)</value>
+	</data>
+	<data name="ID_BOXCOUNT" xml:space="preserve">
+		<value>Etui/Caisse</value>
+	</data>
+	<data name="ID_NODE_CYLINDERS" xml:space="preserve">
+		<value>Cylindres</value>
+	</data>
+	<data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+		<value>Ajouter une nouvelle analyse Etui/Caisse…</value>
+	</data>
+	<data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+		<value>Ajouter un nouveau cylindre…</value>
+	</data>
+	<data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+		<value>Ajouter une nouvelle analyse Cylindre/Palette…</value>
+	</data>
+	<data name="ID_CASELIMIT" xml:space="preserve">
+		<value>Limite atteinte</value>
+	</data>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+		<value>Masse caisse ({0})</value>
+	</data>
+	<data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+		<value>La masse caisse maximale devrait être supérieure à {0}{1}</value>
+	</data>
+	<data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+		<value>Pas de solution palette sélectionnée</value>
+	</data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+		<value>La hauteur maximale de la palette ({0} {1}) devrait être supérieure à {2} {3}</value>
+	</data>
+	<data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+		<value>Générer un rapport PDF pour {0}</value>
+	</data>
+	<data name="ID_BOX" xml:space="preserve">
+		<value>Etui</value>
+	</data>
+	<data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+		<value>Ce nom existe déjà</value>
+	</data>
+	<data name="ID_TRUCK" xml:space="preserve">
+		<value>Camion</value>
+	</data>
+	<data name="ID_ANALYSIS" xml:space="preserve">
+		<value>Analyse</value>
+	</data>
+	<data name="ID_BUNDLE" xml:space="preserve">
+		<value>Liasse</value>
+	</data>
+	<data name="ID_CYLINDER" xml:space="preserve">
+		<value>Cylindre</value>
+	</data>
+	<data name="ID_INTERLAYER" xml:space="preserve">
+		<value>Intercallaire</value>
+	</data>
+	<data name="ID_CASEOFBOXES" xml:space="preserve">
+		<value>Caisse d'étuis</value>
+	</data>
 </root>

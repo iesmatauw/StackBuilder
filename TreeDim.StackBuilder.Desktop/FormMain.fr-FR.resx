@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,349 +59,349 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="newToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouveau</value>
   </data>
-  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Créer un nouveau fichier</value>
   </data>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+	<data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>Ouvrir...</value>
   </data>
-  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ouvrir le fichier</value>
   </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+	<data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
     <value>Enregistrer</value>
   </data>
-  <data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Enregistrer</value>
   </data>
-  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+	<data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
     <value>Enregistrer sous...</value>
   </data>
-  <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Enregistrer sous...</value>
   </data>
-  <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+	<data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
     <value>Enregistrer tout</value>
   </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+	<data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>Fermer</value>
   </data>
-  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Fermer le document actif</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 6</value>
-  </data>
-  <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="mnuFileMRU.Text" xml:space="preserve">
+	<data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>163, 6</value>
+	</data>
+	<data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="mnuFileMRU.Text" xml:space="preserve">
     <value>Fichiers récents</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 6</value>
-  </data>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
-  </data>
-  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+	<data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+		<value>163, 6</value>
+	</data>
+	<data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 22</value>
+	</data>
+	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Quitter</value>
   </data>
-  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Quitter l'application.</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+	<data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>54, 20</value>
+	</data>
+	<data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>Fichier</value>
   </data>
-  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvel Etui</value>
   </data>
-  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Caisse</value>
   </data>
-  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvel Intercalaire</value>
   </data>
-  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Liasse</value>
   </data>
-  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Palette</value>
   </data>
-  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouveau Camion</value>
   </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>331, 6</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+	<data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+		<value>331, 6</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle Analyse Caisse/Palette</value>
   </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle analyse de Liasse/Palette</value>
   </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+	<data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="newCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle analyse de Etui/Caisse</value>
   </data>
-  <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+	<data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
     <value>Recherche de la caisse optimale</value>
   </data>
-  <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
     <value>Recherche de la caisse optimale</value>
   </data>
-  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>331, 6</value>
-  </data>
-  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+	<data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+		<value>331, 6</value>
+	</data>
+	<data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
     <value>Editer la base de données des solution de palettes</value>
   </data>
-  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>331, 6</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 22</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+	<data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+		<value>331, 6</value>
+	</data>
+	<data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>334, 22</value>
+	</data>
+	<data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Paramètres...</value>
   </data>
-  <data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+	<data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
+		<value>50, 20</value>
+	</data>
+	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
     <value>Outils</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+	<data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+		<value>215, 22</value>
+	</data>
+	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
     <value>Aide</value>
   </data>
-  <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+	<data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>215, 22</value>
+	</data>
+	<data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
     <value>Tutoriel</value>
   </data>
-  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 6</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+	<data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+		<value>212, 6</value>
+	</data>
+	<data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
+		<value>215, 22</value>
+	</data>
+	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>A propos de StackBuilder...</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+	<data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+		<value>43, 20</value>
+	</data>
+	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Aide</value>
   </data>
-  <data name="menuStripMain.Text" xml:space="preserve">
+	<data name="menuStripMain.Text" xml:space="preserve">
     <value>menu principal</value>
   </data>
-  <data name="toolStripButtonNewFile.Text" xml:space="preserve">
+	<data name="toolStripButtonNewFile.Text" xml:space="preserve">
     <value>Nouveau fichier</value>
   </data>
-  <data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonNewFile.ToolTipText" xml:space="preserve">
     <value>Créer un nouveau document</value>
   </data>
-  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
     <value>Ouvrir un fichier</value>
   </data>
-  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
     <value>Ouvrir une fichier</value>
   </data>
-  <data name="toolStripButtonFileSave.Text" xml:space="preserve">
+	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
     <value>Enregistrer</value>
   </data>
-  <data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
     <value>Enregistrer Tout</value>
   </data>
-  <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
     <value>Ajouter un nouvel étui</value>
   </data>
-  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
     <value>Ajouter une nouvelle caisse...</value>
   </data>
-  <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
-    <value>Ajouter une Nouvelle Liasse</value>
+	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+    <value>Ajouter une nouvelle liasse</value>
   </data>
-  <data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
-    <value>Ajouter une nouvelle Intercalaire</value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
     <value>Ajouter un nouvel intercallaire</value>
   </data>
-  <data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+	<data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+    <value>Ajouter un nouvel intercallaire</value>
+  </data>
+	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
     <value>Ajouter une nouvelle Palette</value>
   </data>
-  <data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
     <value>Ajouter une nouvelle palette</value>
   </data>
-  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
     <value>Ajouter un nouveau Camion</value>
   </data>
-  <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse caisse/palette</value>
   </data>
-  <data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
     <value>Ajouter une nouvelle analyse caisse/palette</value>
   </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
     <value>Créer une nouvelle analyse bundle/palette</value>
   </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
     <value>Ajouter une nouvelle analyse liasse/palette</value>
   </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
+	<data name="toolStripButtonCreateNewCaseAnalysis.Text" xml:space="preserve">
     <value>Ajouter une nouvelle analyse étui/caisse</value>
   </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonCreateNewCaseAnalysis.ToolTipText" xml:space="preserve">
     <value>Ajouter une nouvelle analyse étui/caisse</value>
   </data>
-  <data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
-    <value>Rechercher la caisse optimale</value>
+	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+    <value>Recherche de la caisse optimale</value>
   </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Editer la base de donnée des solutions de palettes</value>
   </data>
-  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+	<data name="toolStripButtonHelp.Text" xml:space="preserve">
     <value>Aide</value>
   </data>
-  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
     <value>Aide</value>
   </data>
-  <data name="openFileDialogSB.Filter" xml:space="preserve">
+	<data name="openFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder files (*.stb)|*.stb|Tous les fichiers (*.*)|*.*</value>
   </data>
-  <data name="openFileDialogSB.Title" xml:space="preserve">
+	<data name="openFileDialogSB.Title" xml:space="preserve">
     <value>Ouvrir...</value>
   </data>
-  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+	<data name="saveFileDialogSB.Filter" xml:space="preserve">
     <value>Fichiers StackBuilder (*.stb)|*.stb</value>
   </data>
-  <data name="saveFileDialogSB.Title" xml:space="preserve">
+	<data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>Sauvegarder...</value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
@@ -473,14 +473,44 @@
         AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
         AAD//wAA//8AAA==
 </value>
-  </data>
-  <data name="toolStripStandard.Text" xml:space="preserve">
+	</data>
+	<data name="toolStripStandard.Text" xml:space="preserve">
     <value>Standard</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="$this.Text" xml:space="preserve">
     <value>StackBuilder</value>
   </data>
-  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+	<data name="saveFileDialogWebGL.Filter" xml:space="preserve">
     <value>Fichier HTML (*.html)|*.html</value>
   </data>
+	<data name="toolStripButtonAddNewCylinder.Text" xml:space="preserve">
+    <value>Ajouter un nouveau cylindre</value>
+  </data>
+	<data name="toolStripButtonCreateNewCylinderPalletAnalysis.Text" xml:space="preserve">
+    <value>Créer une nouvelle analyse cylindre/palette</value>
+  </data>
+	<data name="toolStripButtonCreateNewCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
+    <value>Ajouter une nouvelle analyse cylindre/palette</value>
+  </data>
+	<data name="newCylinderToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nouveau cylindre</value>
+	</data>
+	<data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
+		<value>Nouvelle analyse Cylindre/Palette</value>
+	</data>
+	<data name="newBoxCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nouvelle analyse Etui/Caisse</value>
+	</data>
+	<data name="newBoxCasePalletOptimizationToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nouvelle optimisation Etui/Caisse/Palette</value>
+	</data>
+	<data name="toolStripButtonCreateNewBoxCaseAnalysis.Text" xml:space="preserve">
+		<value>Créer une nouvelle analyse Etui/Caisse…</value>
+	</data>
+	<data name="toolStripButtonCreateNewBoxCaseAnalysis.ToolTipText" xml:space="preserve">
+		<value>Ajouter une nouvelle analyse Etui/Caisse…</value>
+	</data>
+	<data name="toolStripButtonCreateNewBoxCasePalletOptimization.Text" xml:space="preserve">
+		<value>Créer une nouvelle optimisation étui/caisse/palette</value>
+	</data>
 </root>

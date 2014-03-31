@@ -124,7 +124,7 @@
     <value>Editer les images de la face...</value>
   </data>
 	<data name="lbUnitOriginX.Text" xml:space="preserve">
-		<value>mm</value>
+		<value>uLength</value>
 	</data>
 	<data name="bnOK.Text" xml:space="preserve">
 		<value>OK</value>
@@ -145,7 +145,7 @@
 		<value>Arrière</value>
 	</data>
 	<data name="lbUnitSizeX.Text" xml:space="preserve">
-		<value>mm</value>
+		<value>uLength</value>
 	</data>
 	<data name="bnRemove.Text" xml:space="preserve">
 		<value>Supprimer</value>
@@ -169,7 +169,7 @@
 		<value>Angle</value>
 	</data>
 	<data name="lbUnitSizeY.Text" xml:space="preserve">
-		<value>mm</value>
+		<value>uLength</value>
 	</data>
 	<data name="bnAdd.Text" xml:space="preserve">
 		<value>Ajouter texture</value>
@@ -184,7 +184,7 @@
 		<value>°</value>
 	</data>
 	<data name="lbUnitOriginY.Text" xml:space="preserve">
-		<value>mm</value>
+		<value>uLength</value>
 	</data>
 	<data name="lbImage.Text" xml:space="preserve">
 		<value>Images</value>

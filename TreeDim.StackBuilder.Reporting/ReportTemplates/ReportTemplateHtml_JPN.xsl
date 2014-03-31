@@ -1228,62 +1228,62 @@
   </xsl:template>
   <!--CASE-->
   <xsl:template match="view_case_iso">
-    <img src="images\view_case_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_case_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--CYLINDER-->
   <xsl:template match="view_cylinder_iso">
-    <img src="images\view_cylinder_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_cylinder_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--BOX-->
   <xsl:template match="view_box_iso">
-    <img src="images\view_box_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_box_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--PALLET-->
   <xsl:template match="view_pallet_iso">
-    <img src="images\view_pallet_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_pallet_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--INTERLAYER-->
   <xsl:template match="view_interlayer_iso">
-    <img src="images\view_interlayer_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_interlayer_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--BUNDLE-->
   <xsl:template match="view_bundle_iso">
-    <img src="images\view_interlayer_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_interlayer_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <!--PALLET SOLUTION-->
   <xsl:template match="view_palletsolution_front">
-    <img src="images\view_palletsolution_front.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_palletsolution_front.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_palletsolution_left">
-    <img src="images\view_palletsolution_left.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_palletsolution_left.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_palletsolution_right">
-    <img src="images\view_palletsolution_right.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_palletsolution_right.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_palletsolution_back">
-    <img src="images\view_palletsolution_back.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_palletsolution_back.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_palletsolution_iso">
-    <img src="images\view_palletsolution_iso.gif" width="450" height="450" align="middle"/>
+    <img src="images\view_palletsolution_iso.png" width="450" height="450" align="middle"/>
   </xsl:template>
   <!--CASE OF BOXES-->
   <xsl:template match="view_caseOfBoxes_iso1">
-    <img src="images\view_caseOfBoxes_iso1.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_caseOfBoxes_iso1.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_caseOfBoxes_iso2">
-    <img src="images\view_caseOfBoxes_iso2.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_caseOfBoxes_iso2.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_caseSolution_iso">
-    <img src="images\view_caseSolution_iso.gif" width="300" height="300" align="middle"/>
+    <img src="images\view_caseSolution_iso.png" width="300" height="300" align="middle"/>
   </xsl:template>
   <xsl:template match="view_truck_iso">
-    <img src="images\view_truck_iso.gif" width="150" height="150" align="middle"/>
+    <img src="images\view_truck_iso.png" width="150" height="150" align="middle"/>
   </xsl:template>
   <xsl:template match="view_trucksolution_top">
-    <img src="images\view_trucksolution_top.gif" width="450" height="450" align="middle"/>
+    <img src="images\view_trucksolution_top.png" width="450" height="450" align="middle"/>
   </xsl:template>
   <xsl:template match="view_trucksolution_iso">
-    <img src="images\view_trucksolution_iso.gif" width="450" height="450" align="middle"/>
+    <img src="images\view_trucksolution_iso.png" width="450" height="450" align="middle"/>
   </xsl:template>
   <!--STOP STACKING CONDITIONS-->
   <xsl:template match="maximumPalletWeightGroup">
@@ -1355,7 +1355,7 @@
         <xsl:value-of select="layerCaseCount"/>
       </td>
       <td align="middle">
-        <img src="images\layerImage1.gif" width="150" height="150"/>
+        <img src="images\layerImage1.png" width="150" height="150"/>
       </td>
     </tr>
   </xsl:template>

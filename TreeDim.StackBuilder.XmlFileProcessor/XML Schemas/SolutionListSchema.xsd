@@ -10,7 +10,7 @@
   <xs:annotation>
     <xs:documentation>
       PLMPack STACKBUILDER Schema
-      Version 1.0.18.0 (June, 2013)
+      Version 1.0.19.0 (June, 2013)
     </xs:documentation>
   </xs:annotation>
   <!-- import needed for xml:base attribute-->

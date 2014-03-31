@@ -45,4 +45,11 @@
 	<Target Name="AfterBuild">
 	</Target>
 	-->
+  <Target Name="AfterBuild">
+    <GetAssemblyIdentity AssemblyFiles="..\TreeDim.StackBuilder.Desktop\bin\$(Configuration)\TreeDim.StackBuilder.Desktop.exe">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+    </GetAssemblyIdentity>
+    <Copy SourceFiles=".\bin\$(Configuration)\$(OutputName).exe" DestinationFiles=".\bin\$(Configuration)\$(OutputName)_%(AssemblyVersion.Version).exe" />
+    <Delete Files=".\bin\$(Configuration)\$(OutputName).exe" />
+  </Target>
 </Project>

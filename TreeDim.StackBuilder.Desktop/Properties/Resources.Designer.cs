@@ -711,6 +711,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Microsoft Office Word (*.docx)|*.docx|All Files (*.*)|*.*.
+        /// </summary>
+        internal static string ID_FILTER_MSWORD {
+            get {
+                return ResourceManager.GetString("ID_FILTER_MSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate 3D animation file for {0}.
         /// </summary>
         internal static string ID_GENERATECOLLADA {

@@ -131,7 +131,7 @@
 		<value>33, 13</value>
 	</data>
 	<data name="lbBox.Text" xml:space="preserve">
-    <value>Boîte</value>
+    <value>Etui</value>
   </data>
 	<data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
 		<value>172, 17</value>
@@ -255,5 +255,8 @@
 	</data>
 	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
 		<value>Trilock</value>
+	</data>
+	<data name="uMassCaseWeight.Text" xml:space="preserve">
+		<value>uMass</value>
 	</data>
 </root>

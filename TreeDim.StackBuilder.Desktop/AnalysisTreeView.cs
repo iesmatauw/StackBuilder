@@ -165,7 +165,7 @@ namespace TreeDim.StackBuilder.Desktop
                 string message = string.Format(Resources.ID_EDIT, nodeTag.BoxCaseAnalysis.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, null, new EventHandler(onEditBoxCaseAnalysis)));
                 message = string.Format(Resources.ID_DELETE, nodeTag.BoxCaseAnalysis.Name);
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBoxCaseAnalysis))); 
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.DELETE, new EventHandler(onDeleteBoxCaseAnalysis)));
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_TRUCKANALYSIS)
             {
@@ -185,6 +185,8 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, AnalysisTreeView.Box, new EventHandler(onCreateNewBox)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCASE)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, AnalysisTreeView.Case, new EventHandler(onCreateNewCase)));
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTCYLINDER)
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, AnalysisTreeView.Cylinder, new EventHandler(onCreateNewCylinder)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, AnalysisTreeView.Pallet, new EventHandler(onCreateNewPallet)));
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
@@ -223,9 +225,10 @@ namespace TreeDim.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.HTML, new EventHandler(onAnalysisReportHTML)));
                 message = string.Format(Resources.ID_GENERATEREPORTMSWORD, nodeTag.SelSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.WORD, new EventHandler(onAnalysisReportMSWord)));
+                /*
                 message = string.Format(Resources.ID_GENERATEREPORTPDF, nodeTag.SelSolution.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, AnalysisTreeView.PDF, new EventHandler(onAnalysisReportPdf)));
-
+                */
                 message = string.Format(Resources.ID_GENERATEREPORTPDF, nodeTag.SelSolution.Name);
                 if (nodeTag.CasePalletAnalysis.IsBoxAnalysis)
                 {

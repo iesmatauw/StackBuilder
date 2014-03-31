@@ -338,4 +338,22 @@
 	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
 		<value>toolStripStatusLabelDef</value>
 	</data>
+	<data name="uLengthLength.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthWidth.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uMassWeight.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
+	<data name="cbColor.Items11" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items12" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
 </root>

@@ -172,4 +172,10 @@
 	<data name="bnOk.Text" xml:space="preserve">
 		<value>OK</value>
 	</data>
+	<data name="uLengthDistancePalletWalls.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthTruckRoof.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
 </root>

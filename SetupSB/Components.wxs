@@ -20,6 +20,7 @@
         <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\WindowsHook.dll" Checksum="yes" />
         <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\CrashReporter.NET.dll" Checksum="yes" />
         <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\iTextSharp.dll" Checksum="yes" />
+        <File Source="..\TreeDim.Stackbuilder.Desktop\Bin\Release\Cureos.Measures.dll" Checksum="yes" />
       </Component>
       <Component Id="Application" Guid="{58548AED-E30F-4b0c-A910-C94BE00640C8}">
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.Desktop.exe" KeyPath="yes" Checksum="yes" />

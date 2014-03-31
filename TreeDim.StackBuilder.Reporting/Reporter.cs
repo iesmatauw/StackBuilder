@@ -547,7 +547,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemPallet.AppendChild(elemImage);
             // save image
-            SaveImageAs(graphics.Bitmap, "view_pallet_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_pallet_iso.png");
         }
 
         private void AppendCaseElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -591,7 +591,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemCase.AppendChild(elemImage);
             // save image
-            SaveImageAs(graphics.Bitmap, "view_case_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_case_iso.png");
         }
 
         private void AppendCylinderElement(CylinderProperties cylProperties, XmlElement elemAnalysis, XmlDocument xmlDoc)
@@ -630,7 +630,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemCylinder.AppendChild(elemImage);
             // save image
-            SaveImageAs(graphics.Bitmap, "view_cylinder_iso.gif");             
+            SaveImageAs(graphics.Bitmap, "view_cylinder_iso.png");             
         }
 
         private void AppendBundleElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -701,7 +701,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemBundle.AppendChild(elemImage);
             // save images ?
-            SaveImageAs(graphics.Bitmap, "view_bundle_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_bundle_iso.png");
         }
 
         private void AppendConstraintSet(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -852,7 +852,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemBox.AppendChild(elemImage);
             // save image ?
-            SaveImageAs(graphics.Bitmap, "view_box_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_box_iso.png");
         }
         private void AppendCaseOfBoxesElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
@@ -934,7 +934,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage1.Attributes.Append(styleAttribute1);
             elemCaseOfBoxes.AppendChild(elemImage1);
             // save image
-            SaveImageAs(graphics1.Bitmap, "view_caseOfBoxes_iso1.gif");
+            SaveImageAs(graphics1.Bitmap, "view_caseOfBoxes_iso1.png");
             // view_caseOfBoxes_iso2
             XmlElement elemImage2 = xmlDoc.CreateElement("view_caseOfBoxes_iso2", ns);
             elemImage2.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics2.Bitmap, typeof(byte[])));
@@ -943,7 +943,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage2.Attributes.Append(styleAttribute2);
             elemCaseOfBoxes.AppendChild(elemImage2);
             // save image
-            SaveImageAs(graphics2.Bitmap, "view_caseOfBoxes_iso2.gif");
+            SaveImageAs(graphics2.Bitmap, "view_caseOfBoxes_iso2.png");
         }
 
         private void AppendInterlayerElement(InterlayerProperties interlayerProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -985,7 +985,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemInterlayer.AppendChild(elemImage);
             // save image ?
-            SaveImageAs(graphics.Bitmap, "view_interlayer_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_interlayer_iso.png");
         }
 
         private void AppendSolutionElement(ReportData inputData, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
@@ -1067,7 +1067,7 @@ namespace TreeDim.StackBuilder.Reporting
 
                 elemSolution.AppendChild(elemLayer);
                 // save image
-                SaveImageAs(graphics.Bitmap, string.Format("layerImage{0}.gif", i + 1));
+                SaveImageAs(graphics.Bitmap, string.Format("layerImage{0}.png", i + 1));
             }
             // --- pallet images
             for (int i = 0; i < 5; ++i)
@@ -1114,7 +1114,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
                 // Save image ?
-                SaveImageAs(graphics.Bitmap, viewName + ".gif");
+                SaveImageAs(graphics.Bitmap, viewName + ".png");
             }
         }
 
@@ -1188,7 +1188,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemLayer.AppendChild(elemLayerBoxCount);
                 elemSolution.AppendChild(elemLayer);
                 // save image
-                SaveImageAs(graphics.Bitmap, string.Format("layerImage{0}.gif", 1));
+                SaveImageAs(graphics.Bitmap, string.Format("layerImage{0}.png", 1));
             }
             // --- pallet images
             for (int i = 0; i < 5; ++i)
@@ -1235,7 +1235,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
                 // Save image ?
-                SaveImageAs(graphics.Bitmap, viewName + ".gif");
+                SaveImageAs(graphics.Bitmap, viewName + ".png");
             }
         }
 
@@ -1408,7 +1408,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemTruck.AppendChild(elemImage);
             // Save image ?
-            SaveImageAs(graphics.Bitmap, "view_truck_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_truck_iso.png");
         }
         private void AppendTruckSolutionElement(ReportData inputData, XmlElement elemTruckAnalysis, XmlDocument xmlDoc)
         {
@@ -1480,7 +1480,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemImage.Attributes.Append(styleAttribute);
                 elemTruckSolution.AppendChild(elemImage);
                 // Save image ?
-                SaveImageAs(graphics.Bitmap, viewName + ".gif");
+                SaveImageAs(graphics.Bitmap, viewName + ".png");
             }
         }
         #endregion
@@ -1587,7 +1587,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemCase.AppendChild(elemImage);
             // save image
-            SaveImageAs(graphics.Bitmap, "view_case_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_case_iso.png");
         }
 
         private void AppendBoxElement(BoxProperties boxProperties, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
@@ -1623,7 +1623,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemBox.AppendChild(elemImage);
             // save image ?
-            SaveImageAs(graphics.Bitmap, "view_box_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_box_iso.png");
         }
         
         private void AppendCaseElement(SelBoxCasePalletSolution caseSolution, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
@@ -1663,7 +1663,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemCase.AppendChild(elemImage);
             // save image
-            SaveImageAs(graphics.Bitmap, "view_case_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_case_iso.png");
         }
 
         private void AppendBoxCaseConstraintSet(BoxCaseConstraintSet boxCaseConstraintSet, XmlElement elemDocument, XmlDocument xmlDoc)
@@ -1771,7 +1771,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
                 // Save image ?
-                SaveImageAs(graphics.Bitmap, viewName + ".gif");
+                SaveImageAs(graphics.Bitmap, viewName + ".png");
             }
         }
         #endregion // BoxCaseAnalysis
@@ -1854,7 +1854,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemImage.Attributes.Append(styleAttribute);
             elemCaseSolution.AppendChild(elemImage);
             // save image
-            SaveImageAs(graphics.Bitmap, "view_caseSolution_iso.gif");
+            SaveImageAs(graphics.Bitmap, "view_caseSolution_iso.png");
         }
         #endregion
 
@@ -1920,7 +1920,7 @@ namespace TreeDim.StackBuilder.Reporting
                 return;
             try
             {
-                bmp.Save(Path.Combine(ImageDirectory, fileName), System.Drawing.Imaging.ImageFormat.Gif);
+                bmp.Save(Path.Combine(ImageDirectory, fileName), System.Drawing.Imaging.ImageFormat.Png);
             }
             catch (Exception ex)
             {

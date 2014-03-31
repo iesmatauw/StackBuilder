@@ -21,6 +21,8 @@ using TreeDim.StackBuilder.Reporting;
 
 using TreeDim.StackBuilder.Desktop.Properties;
 using TreeDim.StackBuilder.ColladaExporter;
+
+using Microsoft.Office.Interop;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -442,20 +444,30 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
 
+        private string CleanString(string name)
+        {
+            string nameCopy = name;
+            char[] specialChars = { ' ', '*', '.', ';', ':' };
+            foreach (char c in specialChars)
+                nameCopy = nameCopy.Replace(c, '_');
+            return nameCopy;
+        }
+
         private void DocumentTreeView_SolutionReportNodeClicked(object sender, AnalysisTreeViewEventArgs eventArg)
         {
             try
             {
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.InitialDirectory    = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(eventArg.Analysis.Name, "html");
-                dlg.Filter = "HTML file (*.html)|*.html|All files (*.*)|*.*";
-                dlg.DefaultExt = "html";
+                dlg.FileName = Path.ChangeExtension(CleanString(eventArg.Analysis.Name), "docx");
+                dlg.Filter = Resources.ID_FILTER_MSWORD;
+                dlg.DefaultExt = "docx";
                 dlg.ValidateNames = true;
                 if (DialogResult.OK == dlg.ShowDialog())
                 {
                     // build output file path
                     string outputFilePath = dlg.FileName;
+                    string htmlFilePath = Path.ChangeExtension(outputFilePath, "html");
                     // save directory
                     Properties.Settings.Default.ReportInitialDirectory = Path.GetDirectoryName(dlg.FileName);
                     // getting current culture
@@ -470,11 +482,30 @@ namespace TreeDim.StackBuilder.Desktop
                     ReporterHtml reporter = new ReporterHtml(
                         reportObject
                         , Settings.Default.ReportTemplatePath
-                        , outputFilePath);
+                        , htmlFilePath);
                     // logging
-                    _log.Debug(string.Format("Saved report to {0}", outputFilePath));
-                    // start MS Word
-                    Process.Start("WINWORD.exe", "\"" + outputFilePath + "\"");
+                    _log.Debug(string.Format("Saved html report to {0}", htmlFilePath));
+
+                    // opens word
+                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+                    wordApp.Visible = true;
+                    Microsoft.Office.Interop.Word.Document wordDoc = wordApp.Documents.Open(htmlFilePath, false, true, NoEncodingDialog: true);
+                    // embed pictures (unlinking images)
+                    for (int i=1; i <= wordDoc.InlineShapes.Count; ++i)
+                    {
+                        if (null != wordDoc.InlineShapes[i].LinkFormat && !wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument)
+                            wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument = true;
+                    }
+                    // set margins (unit?)
+                    wordDoc.PageSetup.TopMargin = 10.0f;
+                    wordDoc.PageSetup.BottomMargin = 10.0f;
+                    wordDoc.PageSetup.RightMargin = 10.0f;
+                    wordDoc.PageSetup.LeftMargin = 10.0f;
+                    // set print view 
+                    wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
+
+                    wordDoc.SaveAs(outputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);
+                    _log.Debug(string.Format("Saved docx report to {0}", outputFilePath));
                 }
             }
             catch (Exception ex)

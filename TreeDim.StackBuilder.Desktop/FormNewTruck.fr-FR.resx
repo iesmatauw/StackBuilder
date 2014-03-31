@@ -304,4 +304,22 @@
 	<data name="cbColor.Items24" xml:space="preserve">
 		<value>Couleur</value>
 	</data>
+	<data name="uLengthHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthWidth.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthLength.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="uMassAdmissibleLoad.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
 </root>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--definitions : beg-->
 <?define SkuName = "StackBuilder"?>
-<?define ProductVersion = "1.0.18.0"?>
+<?define ProductVersion = "1.0.19.0"?>
 <?define Manufacturer="treeDiM"?>
 <?define ProductName = "StackBuilder"?>
 <?define UpgradeCode="3b6ab985-d566-4400-93c3-7a17e720eebf"?>
@@ -10,7 +10,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Bundle Name="$(var.ProductName)"
+  <Bundle Name="$(var.ProductName)"
           Version="$(var.ProductVersion)"
           Manufacturer="$(var.Manufacturer)"
           UpgradeCode="$(var.UpgradeCode)"
@@ -25,8 +25,9 @@
         LicenseUrl=""
         ThemeFile="RtfTheme.xml"/>
     </BootstrapperApplicationRef>
+    <WixVariable Id="WixStdbaLogo" Value="WixUIBanner.png" />
     <Variable Name="InstallFolder" Type="string" Value="[ProgramFilesFolder]treeDiM\PLMPack\StackBuilder" />
-    <Variable Name="LaunchTarget" Value="[InstallFolder]\Bin32\StackBuilder.exe"/>
+    <Variable Name="LaunchTarget" Value="[InstallFolder]\Bin\TreeDim.StackBuilder.Desktop.exe"/>
     <Chain>
       <PackageGroupRef Id="Netfx4Full"/>
       <MsiPackage
@@ -39,8 +40,8 @@
         <MsiProperty Name="ARPSYSTEMCOMPONENT" Value="1"/>
         <MsiProperty Name="INSTALLLOCATION" Value="[InstallFolder]" />
       </MsiPackage>
-		</Chain>
-	</Bundle>
+    </Chain>
+  </Bundle>
   <Fragment>
     <util:RegistrySearch
             Root="HKLM"

@@ -286,4 +286,16 @@
 	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
 		<value>Spirale élargie</value>
 	</data>
+	<data name="uLengthPalletOverhangY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthPalletOverhangX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthPalletHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uMassPalletWeight.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
 </root>

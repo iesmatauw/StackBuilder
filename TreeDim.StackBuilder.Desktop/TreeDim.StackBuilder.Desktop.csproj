@@ -661,6 +661,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBoxCaseAnalysis.fr-FR.resx">
+      <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBoxCaseAnalysis.resx">
       <DependentUpon>FormNewBoxCaseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -828,15 +831,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.ca-ES.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.de-DE.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.es-ES.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.fr-FR.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptimizeCase.ja-JP.resx">
       <DependentUpon>FormOptimizeCase.cs</DependentUpon>

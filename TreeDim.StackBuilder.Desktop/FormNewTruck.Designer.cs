@@ -156,6 +156,7 @@
             // nudHeight
             // 
             resources.ApplyResources(this.nudHeight, "nudHeight");
+            this.nudHeight.DecimalPlaces = 1;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -167,6 +168,7 @@
             // nudWidth
             // 
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.DecimalPlaces = 1;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -178,6 +180,7 @@
             // nudLength
             // 
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.DecimalPlaces = 1;
             this.nudLength.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -240,7 +243,12 @@
             resources.GetString("cbColor.Items26"),
             resources.GetString("cbColor.Items27"),
             resources.GetString("cbColor.Items28"),
-            resources.GetString("cbColor.Items29")});
+            resources.GetString("cbColor.Items29"),
+            resources.GetString("cbColor.Items30"),
+            resources.GetString("cbColor.Items31"),
+            resources.GetString("cbColor.Items32"),
+            resources.GetString("cbColor.Items33"),
+            resources.GetString("cbColor.Items34")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -263,6 +271,7 @@
             // nudAdmissibleLoadWeight
             // 
             resources.ApplyResources(this.nudAdmissibleLoadWeight, "nudAdmissibleLoadWeight");
+            this.nudAdmissibleLoadWeight.DecimalPlaces = 1;
             this.nudAdmissibleLoadWeight.Maximum = new decimal(new int[] {
             100000,
             0,

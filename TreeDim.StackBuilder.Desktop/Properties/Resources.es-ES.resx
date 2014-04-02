@@ -206,13 +206,13 @@
 		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_LOADHEIGHT" xml:space="preserve">
-		<value>Altura de la carga (mm)</value>
+		<value>Altura de la carga</value>
 	</data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
 		<value>Inconsistencia:Máximo {0} és menor que el mínimo {1}</value>
 	</data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-		<value>Altura del palet (mm)</value>
+		<value>Altura del palet</value>
 	</data>
 	<data name="ID_FILENOTFOUND" xml:space="preserve">
 		<value>Archivo {0} no encontrado</value>
@@ -320,7 +320,7 @@
 		<value>A1</value>
 	</data>
 	<data name="ID_LOADWEIGHT" xml:space="preserve">
-		<value>Carga (kg)</value>
+		<value>Carga</value>
 	</data>
 	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
 		<value>Generar informe en Word para {0}</value>
@@ -365,7 +365,7 @@
 		<value>¿guardar archivo {0}?</value>
 	</data>
 	<data name="ID_PALLETWEIGHT" xml:space="preserve">
-		<value>Peso del palet (kg)</value>
+		<value>Peso del palet</value>
 	</data>
 	<data name="ID_ADDNEWPALLET" xml:space="preserve">
 		<value>Añadir nuevo palet…</value>
@@ -416,7 +416,7 @@
 		<value>Orientación</value>
 	</data>
 	<data name="ID_WEIGHT" xml:space="preserve">
-		<value>Peso (kg)</value>
+		<value>Peso</value>
 	</data>
 	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
 		<value>Necesita tener instaldo el navegador Google Chrome para visualizar las animaciones collada/webGL</value>

@@ -75,8 +75,6 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// handles timer click and closes splashscreen
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void timerClose_Tick(object sender, EventArgs e)
         {
             Close();

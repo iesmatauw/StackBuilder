@@ -891,7 +891,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load height (mm).
+        ///   Looks up a localized string similar to Load height.
         /// </summary>
         internal static string ID_LOADHEIGHT {
             get {
@@ -900,7 +900,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load (kg).
+        ///   Looks up a localized string similar to Load.
         /// </summary>
         internal static string ID_LOADWEIGHT {
             get {

@@ -148,7 +148,7 @@
     <value>Masse</value>
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Masse (kg)</value>
+    <value>Masse</value>
   </data>
   <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Efficacité volumique (%)</value>

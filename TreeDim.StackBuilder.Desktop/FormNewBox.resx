@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,1688 +59,1715 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="uLengthLengthInside.Location" type="System.Drawing.Point, System.Drawing">
-		<value>321, 21</value>
-	</data>
-	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="lbWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>6</value>
-	</data>
-	<data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
-		<value>392, 20</value>
-	</data>
-	<data name="&gt;&gt;nudWidth.ZOrder" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="uLengthLengthInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 21</value>
+  </data>
+  <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>392, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudWidth.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-	<data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>67, 13</value>
-	</data>
-	<data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
-		<value>354, 66</value>
-	</data>
-	<data name="btBitmaps.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
-	<data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 23</value>
-	</data>
-	<data name="checkBoxTape.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="cbTapeColor.Items46" xml:space="preserve">
+  <data name="lbInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="btBitmaps.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="uMassWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 24</value>
+  </data>
+  <data name="cbTapeColor.Items46" xml:space="preserve">
     <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;bnOK.Type" xml:space="preserve">
+  </data>
+  <data name="&gt;&gt;bnOK.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-	<data name="nudInsideHeight.TabIndex" type="System.Int32, mscorlib">
-		<value>14</value>
-	</data>
-	<data name="cbTapeColor.Items21" xml:space="preserve">
+  <data name="&gt;&gt;uLengthTapeWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items58" xml:space="preserve">
     <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items65" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthWidth.ZOrder" xml:space="preserve">
+  </data>
+  <data name="lbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 40</value>
+  </data>
+  <data name="cbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="nudInsideHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 45</value>
+  </data>
+  <data name="cbColor.Items65" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-	<data name="&gt;&gt;chkAllFaces.Name" xml:space="preserve">
+  <data name="&gt;&gt;lbTapeWidth.Parent" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="&gt;&gt;chkAllFaces.Name" xml:space="preserve">
     <value>chkAllFaces</value>
   </data>
-	<data name="cbColor.Items12" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-	<data name="&gt;&gt;lbTapeWidth.Parent" xml:space="preserve">
-    <value>gbTape</value>
+  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
   </data>
-	<data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-	<data name="cbFace.Items5" xml:space="preserve">
+  <data name="cbFace.Items5" xml:space="preserve">
     <value>Top</value>
-  <comment></comment></data>
-	<data name="cbFace.Items4" xml:space="preserve">
+  </data>
+  <data name="cbFace.Items4" xml:space="preserve">
     <value>Bottom</value>
-  <comment></comment></data>
-	<data name="cbFace.Items3" xml:space="preserve">
+  </data>
+  <data name="cbFace.Items3" xml:space="preserve">
     <value>Left</value>
-  <comment></comment></data>
-	<data name="cbFace.Items2" xml:space="preserve">
+  </data>
+  <data name="cbFace.Items2" xml:space="preserve">
     <value>Right</value>
-  <comment></comment></data>
-	<data name="cbFace.Items1" xml:space="preserve">
+  </data>
+  <data name="cbFace.Items1" xml:space="preserve">
     <value>Front</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items58" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items62" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>139, 76</value>
-	</data>
-	<data name="&gt;&gt;gbTape.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Left, Right</value>
-	</data>
-	<data name="uLengthTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>143, 40</value>
-	</data>
-	<data name="lblName.Text" xml:space="preserve">
-    <value>Name</value>
-  <comment></comment></data>
-	<data name="nudLength.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="uLengthLength.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="cbColor.Items33" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items1" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>10, 24</value>
-	</data>
-	<data name="uLengthWidthInside.TabIndex" type="System.Int32, mscorlib">
-		<value>10</value>
-	</data>
-	<data name="cbTapeColor.Items44" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-		<value>259, 35</value>
-	</data>
-	<data name="&gt;&gt;btBitmaps.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-	<data name="cbColor.Items34" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items50" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="gbTape.TabIndex" type="System.Int32, mscorlib">
-		<value>21</value>
-	</data>
-	<data name="&gt;&gt;uLengthWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="chkAllFaces.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>63, 13</value>
-	</data>
-	<data name="lblName.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="cbTapeColor.Items11" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items15" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items29" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lblDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  <comment></comment></data>
-	<data name="cbColor.Items39" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 76</value>
-	</data>
-	<data name="&gt;&gt;btBitmaps.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="uLengthTapeWidth.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;cbFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;nudInsideLength.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-	<data name="&gt;&gt;uLengthHeightInside.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="&gt;&gt;uLengthWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="uLengthWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-	<data name="&gt;&gt;nudInsideLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="cbColor.Items62" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="cbTapeColor.Items68" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="cbColor.Items48" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="$this.Text" xml:space="preserve">
-    <value>Define a new box/case...</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-	<data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>38, 13</value>
-	</data>
-	<data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
-		<value>143, 20</value>
-	</data>
-	<data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="lbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
-		<value>193, 40</value>
-	</data>
-	<data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
-		<value>366, 330</value>
-	</data>
-	<data name="cbTapeColor.Items19" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-	<data name="&gt;&gt;nudInsideHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="lbInsideHeight.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
-    <value>pictureBox</value>
-  </data>
-	<data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-		<value>130, 17</value>
-	</data>
-	<data name="cbTapeColor.Items14" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items30" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbInsideLength.Name" xml:space="preserve">
-    <value>lbInsideLength</value>
-  </data>
-	<data name="cbFace.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
-		<value>12, 32</value>
-	</data>
-	<data name="&gt;&gt;lbLength.Name" xml:space="preserve">
-    <value>lbLength</value>
-  </data>
-	<data name="uLengthWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="cbColor.Items37" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;uLengthWidth.Name" xml:space="preserve">
-    <value>uLengthWidth</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;nudTapeWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-	<data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="lbInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>186, 49</value>
-	</data>
-	<data name="&gt;&gt;gbTape.Name" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-	<data name="cbColor.Items54" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbTapeColor.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-	<data name="uLengthLength.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
-	</data>
-	<data name="lbLength.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-		<value>177, 37</value>
-	</data>
-	<data name="uLengthHeightInside.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<data name="cbTapeColor.Items15" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbInsideLength.TabIndex" type="System.Int32, mscorlib">
-		<value>16</value>
-	</data>
-	<data name="&gt;&gt;uLengthLength.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-	<data name="cbColor.Items51" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
-    <value>lbHeight</value>
-  </data>
-	<data name="cbColor.Items59" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 23</value>
-	</data>
-	<data name="&gt;&gt;uLengthHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="&gt;&gt;lblName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="uLengthHeightInside.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
-		<value>9</value>
-	</data>
-	<data name="cbColor.Items47" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uMassWeight.Text" xml:space="preserve">
-    <value>uMass</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="cbColor.Items43" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthLength.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbWeight.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
-		<value>7</value>
-	</data>
-	<data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbColor.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="&gt;&gt;uLengthHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbInsideWidth.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="&gt;&gt;uLengthWidthInside.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-	<data name="uLengthWidth.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-		<value>497, 32</value>
-	</data>
-	<data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbColor.Items28" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items24" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="statusStripDef.Text" xml:space="preserve">
-    <value>statusStripDef</value>
-  <comment></comment></data>
-	<data name="uLengthHeight.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items45" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;gbTape.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="cbTapeColor.Items20" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
-    <value>trackBarHorizAngle</value>
-  </data>
-	<data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
-    <value>btBitmaps</value>
-  </data>
-	<data name="cbColor.Items66" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items50" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items18" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items41" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;checkBoxTape.Name" xml:space="preserve">
-    <value>checkBoxTape</value>
-  </data>
-	<data name="uLengthLengthInside.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="tbName.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="cbTapeColor.Items33" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="&gt;&gt;lbWidth.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-	<data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uMassWeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>145, 24</value>
-	</data>
-	<data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
-		<value>31, 13</value>
-	</data>
-	<data name="uLengthTapeWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>14</value>
-	</data>
-	<data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-	<data name="&gt;&gt;lbInsideHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
-		<value>67, 13</value>
-	</data>
-	<data name="&gt;&gt;lbInsideHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="&gt;&gt;lbInsideHeight.Name" xml:space="preserve">
-    <value>lbInsideHeight</value>
-  </data>
-	<data name="&gt;&gt;lbFace.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-	<data name="nudTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="uLengthWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>139, 49</value>
-	</data>
-	<data name="&gt;&gt;nudHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="&gt;&gt;uLengthLength.Name" xml:space="preserve">
-    <value>uLengthLength</value>
-  </data>
-	<data name="uLengthHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="&gt;&gt;lbWeight.Name" xml:space="preserve">
-    <value>lbWeight</value>
-  </data>
-	<data name="&gt;&gt;nudTapeWidth.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-	<data name="cbColor.Items31" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;tbName.Name" xml:space="preserve">
-    <value>tbName</value>
-  </data>
-	<data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>354, 70</value>
-	</data>
-	<data name="&gt;&gt;nudLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>186, 76</value>
-	</data>
-	<data name="uLengthLengthInside.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthLengthInside.Name" xml:space="preserve">
-    <value>uLengthLengthInside</value>
-  </data>
-	<data name="&gt;&gt;lbFace.Name" xml:space="preserve">
-    <value>lbFace</value>
-  </data>
-	<data name="lbTapeColor.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="cbColor.Items16" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items9" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 22</value>
-	</data>
-	<data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-		<value>600, 400</value>
-	</data>
-	<data name="nudInsideLength.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
-	<data name="lbFace.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;nudInsideHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbTapeWidth.Name" xml:space="preserve">
-    <value>lbTapeWidth</value>
-  </data>
-	<data name="lbInsideWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>17</value>
-	</data>
-	<data name="cbColor.Items" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items23" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="uLengthLength.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lbWeight.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
-    <value>statusStripDef</value>
-  </data>
-	<data name="lbInsideWidth.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="nudInsideWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>9</value>
-	</data>
-	<data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>35, 13</value>
-	</data>
-	<data name="&gt;&gt;checkBoxTape.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbColor.Items40" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthLengthInside.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>41, 13</value>
-	</data>
-	<data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-	<data name="&gt;&gt;uMassWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="uLengthWidthInside.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="&gt;&gt;tbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="uLengthTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
-		<value>354, 67</value>
-	</data>
-	<data name="cbColor.Items29" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbWidth.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="uMassWeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>47, 13</value>
-	</data>
-	<data name="&gt;&gt;uLengthLengthInside.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="lbInsideHeight.TabIndex" type="System.Int32, mscorlib">
-		<value>18</value>
-	</data>
-	<data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="checkBoxTape.Size" type="System.Drawing.Size, System.Drawing">
-		<value>148, 17</value>
-	</data>
-	<data name="cbTapeColor.Items54" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="chkAllFaces.Text" xml:space="preserve">
-    <value>All faces are the same color</value>
-  <comment></comment></data>
-	<data name="lbInsideLength.Text" xml:space="preserve">
-    <value>Inside length</value>
-  <comment></comment></data>
-	<data name="uLengthHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items37" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
-	<data name="cbTapeColor.Items53" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="chkAllFaces.Location" type="System.Drawing.Point, System.Drawing">
-		<value>9, 20</value>
-	</data>
-	<data name="&gt;&gt;uLengthWidthInside.Name" xml:space="preserve">
-    <value>uLengthWidthInside</value>
-  </data>
-	<data name="&gt;&gt;gbFaceColor.Name" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-	<data name="bnOK.TabIndex" type="System.Int32, mscorlib">
-		<value>8</value>
-	</data>
-	<data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 21</value>
-	</data>
-	<data name="checkBoxTape.Text" xml:space="preserve">
-    <value>Show tape on top of case</value>
-  <comment></comment></data>
-	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-	<data name="cbTapeColor.Items32" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudInsideHeight.Name" xml:space="preserve">
-    <value>nudInsideHeight</value>
-  </data>
-	<data name="nudWeight.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="uLengthHeightInside.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="cbTapeColor.Items49" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthWidthInside.Location" type="System.Drawing.Point, System.Drawing">
-		<value>321, 49</value>
-	</data>
-	<data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
-		<value>16</value>
-	</data>
-	<data name="cbColor.Items35" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items64" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uMassWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
-		<value>19</value>
-	</data>
-	<data name="&gt;&gt;cbColor.Name" xml:space="preserve">
-    <value>cbColor</value>
-  </data>
-	<data name="&gt;&gt;uLengthHeightInside.Name" xml:space="preserve">
-    <value>uLengthHeightInside</value>
-  </data>
-	<data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
-  <comment></comment></data>
-	<data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 309</value>
-	</data>
-	<data name="cbTapeColor.Items3" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items52" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 237</value>
-	</data>
-	<data name="&gt;&gt;nudLength.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-	<data name="cbTapeColor.Items60" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uLengthHeight.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-	<data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-	<data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
-		<value>6</value>
-	</data>
-	<data name="cbTapeColor.Items67" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="cbColor.Items27" xml:space="preserve">
+  <data name="cbTapeColor.Items62" xml:space="preserve">
     <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="&gt;&gt;nudWidth.Name" xml:space="preserve">
-    <value>nudWidth</value>
+  <data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 76</value>
   </data>
-	<data name="uLengthLength.Location" type="System.Drawing.Point, System.Drawing">
-		<value>139, 21</value>
-	</data>
-	<data name="&gt;&gt;chkAllFaces.Parent" xml:space="preserve">
-    <value>gbFaceColor</value>
-  </data>
-	<data name="cbColor.Items44" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items20" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items68" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthHeight.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-	<data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Bottom, Left, Right</value>
-	</data>
-	<data name="lbTapeColor.Text" xml:space="preserve">
-    <value>Tape color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items41" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gbTape.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-	<data name="&gt;&gt;nudWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-	<data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
-		<value>40, 13</value>
-	</data>
-	<data name="&gt;&gt;lbTapeWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="checkBoxTape.Location" type="System.Drawing.Point, System.Drawing">
-		<value>7, 18</value>
-	</data>
-	<data name="cbTapeColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items10" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="btBitmaps.Location" type="System.Drawing.Point, System.Drawing">
-		<value>259, 37</value>
-	</data>
-	<data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
-    <value>lbWidth</value>
-  </data>
-	<data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="lbFace.Text" xml:space="preserve">
-    <value>Face</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-	<data name="cbColor.Items55" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthHeightInside.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-	<data name="cbTapeColor.Items57" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items9" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
-		<value>76, 38</value>
-	</data>
-	<data name="cbTapeColor.Items34" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbInsideLength.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="uLengthLengthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="cbTapeColor.Items36" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbFace.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="&gt;&gt;nudInsideLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;uLengthTapeWidth.Name" xml:space="preserve">
-    <value>uLengthTapeWidth</value>
-  </data>
-	<data name="cbColor.Items18" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbLength.Text" xml:space="preserve">
-    <value>Length</value>
-  <comment></comment></data>
-	<data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>79, 20</value>
-	</data>
-	<data name="&gt;&gt;lblName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>354, 102</value>
-	</data>
-	<data name="lblName.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;lbInsideLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>258, 72</value>
-	</data>
-	<data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="cbColor.Items56" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudInsideWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items40" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>76, 45</value>
-	</data>
-	<data name="&gt;&gt;uMassWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
-  </data>
-	<data name="cbTapeColor.Items61" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items23" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items63" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="gbFaceColor.Text" xml:space="preserve">
-    <value>Face color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lblName.Name" xml:space="preserve">
+  <data name="&gt;&gt;lblName.Name" xml:space="preserve">
     <value>lblName</value>
   </data>
-	<data name="cbFace.Items" xml:space="preserve">
-    <value>Rear</value>
-  <comment></comment></data>
-	<data name="lbWeight.Text" xml:space="preserve">
-    <value>Weight</value>
-  <comment></comment></data>
-	<data name="cbColor.Items32" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items66" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="cbColor.Items24" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="lbTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>7, 40</value>
-	</data>
-	<data name="&gt;&gt;lbInsideWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-	<data name="&gt;&gt;uLengthTapeWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>76, 72</value>
-	</data>
-	<data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 166</value>
-	</data>
-	<data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
-		<value>0, 382</value>
-	</data>
-	<data name="cbColor.Items45" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbFace.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-	<data name="cbColor.Items21" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthWidthInside.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lbTapeWidth.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="uLengthWidthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="lbHeight.Text" xml:space="preserve">
-    <value>Height</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormNewBox</value>
-  </data>
-	<data name="&gt;&gt;nudTapeWidth.Name" xml:space="preserve">
-    <value>nudTapeWidth</value>
-  </data>
-	<data name="uLengthHeight.TabIndex" type="System.Int32, mscorlib">
-		<value>13</value>
-	</data>
-	<data name="&gt;&gt;lbTapeColor.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-	<data name="cbTapeColor.Items8" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 49</value>
-	</data>
-	<data name="uMassWeight.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="lbInsideWidth.Text" xml:space="preserve">
-    <value>Inside width</value>
-  <comment></comment></data>
-	<data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
-		<value>96, 21</value>
-	</data>
-	<data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimensions</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items13" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.ItemHeight" type="System.Int32, mscorlib">
-		<value>16</value>
-	</data>
-	<data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthTapeWidth.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-	<data name="cbColor.Items57" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;nudInsideHeight.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-	<data name="cbTapeColor.Items56" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items26" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>8</value>
-	</data>
-	<data name="cbColor.Items30" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 62</value>
-	</data>
-	<data name="nudHeight.TabIndex" type="System.Int32, mscorlib">
-		<value>12</value>
-	</data>
-	<data name="&gt;&gt;lbInsideHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Right</value>
-	</data>
-	<data name="&gt;&gt;lbInsideLength.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbInsideLength.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-	<data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Bottom, Left, Right</value>
-	</data>
-	<data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 13</value>
-	</data>
-	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+  <data name="cbColor.Items57" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 24</value>
+  </data>
+  <data name="uLengthWidthInside.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="cbTapeColor.Items44" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 35</value>
+  </data>
+  <data name="checkBoxTape.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btBitmaps.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="cbTapeColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items50" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items73" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="chkAllFaces.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="lblName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cbTapeColor.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.Name" xml:space="preserve">
+    <value>lbWeight</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="nudInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 76</value>
+  </data>
+  <data name="&gt;&gt;btBitmaps.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="cbColor.Items19" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthHeight.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="nudWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>7</value>
-	</data>
-	<data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;nudInsideWidth.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="uLengthTapeWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-	<data name="nudTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>77, 36</value>
-	</data>
-	<data name="nudWeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="lbWidth.Text" xml:space="preserve">
-    <value>Width</value>
-  <comment></comment></data>
-	<data name="cbColor.Items36" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbFace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
-		<value>156, 17</value>
-	</data>
-	<data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="&gt;&gt;uMassWeight.Name" xml:space="preserve">
-    <value>uMassWeight</value>
-  </data>
-	<data name="btBitmaps.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 23</value>
-	</data>
-	<data name="cbTapeColor.Items48" xml:space="preserve">
+  <data name="cbTapeColor.Items34" xml:space="preserve">
     <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthHeightInside.TabIndex" type="System.Int32, mscorlib">
-		<value>15</value>
-	</data>
-	<data name="&gt;&gt;uLengthLength.Parent" xml:space="preserve">
+  </data>
+  <data name="&gt;&gt;nudInsideLength.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeightInside.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-	<data name="&gt;&gt;uLengthLengthInside.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items27" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items43" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
-		<value>584, 22</value>
-	</data>
-	<data name="&gt;&gt;chkAllFaces.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="cbTapeColor.Items59" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uMassWeight.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="&gt;&gt;cbTapeColor.Name" xml:space="preserve">
-    <value>cbTapeColor</value>
-  </data>
-	<data name="&gt;&gt;lbTapeColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbColor.Items60" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 13</value>
-	</data>
-	<data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
-  </data>
-	<data name="cbTapeColor.Items63" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudInsideWidth.Name" xml:space="preserve">
-    <value>nudInsideWidth</value>
-  </data>
-	<data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
-		<value>20</value>
-	</data>
-	<data name="&gt;&gt;btBitmaps.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="&gt;&gt;lbTapeWidth.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-	<data name="cbColor.Items25" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
-		<value>5</value>
-	</data>
-	<data name="&gt;&gt;lbInsideWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="lbInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-		<value>186, 21</value>
-	</data>
-	<data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
-		<value>False</value>
-	</data>
-	<data name="&gt;&gt;nudHeight.Name" xml:space="preserve">
-    <value>nudHeight</value>
-  </data>
-	<data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="uLengthWidthInside.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items2" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items42" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;cbFace.Name" xml:space="preserve">
-    <value>cbFace</value>
-  </data>
-	<data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
-		<value>6, 42</value>
-	</data>
-	<data name="&gt;&gt;uLengthHeightInside.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;checkBoxTape.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-	<data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
-	</data>
-	<data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-		<value>13, 6</value>
-	</data>
-	<data name="nudInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>60, 20</value>
-	</data>
-	<data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
-		<value>76, 17</value>
-	</data>
-	<data name="cbTapeColor.Items25" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items17" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items17" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-		<value>210, 255</value>
-	</data>
-	<data name="&gt;&gt;uLengthHeight.Name" xml:space="preserve">
-    <value>uLengthHeight</value>
-  </data>
-	<data name="cbTapeColor.Items52" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthWidthInside.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-		<value>6, 13</value>
-	</data>
-	<data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5160.32, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-	<data name="&gt;&gt;nudInsideLength.Name" xml:space="preserve">
-    <value>nudInsideLength</value>
-  </data>
-	<data name="cbTapeColor.Items12" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-	<data name="cbColor.Items10" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items58" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 22</value>
-	</data>
-	<data name="&gt;&gt;bnOK.Name" xml:space="preserve">
-    <value>bnOK</value>
-  </data>
-	<data name="&gt;&gt;nudTapeWidth.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items35" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;gbTape.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="cbTapeColor.Items51" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;checkBoxTape.Parent" xml:space="preserve">
-    <value>gbTape</value>
-  </data>
-	<data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uLengthWidth.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-	<data name="uLengthHeightInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
-	<data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
-		<value>58, 13</value>
-	</data>
-	<data name="gbWeight.Text" xml:space="preserve">
-    <value>Weight</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items22" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items1" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
+  <data name="uLengthWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-	<data name="&gt;&gt;nudWeight.Name" xml:space="preserve">
-    <value>nudWeight</value>
-  </data>
-	<data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-	<data name="&gt;&gt;lbLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="checkBoxTape.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="cbTapeColor.Items47" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items8" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-		<value>584, 404</value>
-	</data>
-	<data name="cbTapeColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="nudInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
-		<value>258, 45</value>
-	</data>
-	<data name="btBitmaps.Text" xml:space="preserve">
-    <value>Bitmaps...</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthTapeWidth.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="&gt;&gt;nudLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
-		<value>210, 45</value>
-	</data>
-	<data name="cbTapeColor.Items31" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items26" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="cbColor.Items64" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items69" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-		<value>NoControl</value>
-	</data>
-	<data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="chkAllFaces.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
-	</data>
-	<data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<data name="&gt;&gt;nudWeight.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
     <value>gbWeight</value>
   </data>
-	<data name="cbTapeColor.Items65" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbFace.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;nudInsideLength.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
   </data>
-	<data name="cbColor.Items61" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items67" xml:space="preserve">
-    <value>Farbe</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;cbTapeColor.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 32</value>
   </data>
-	<data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
-		<value>99, 32</value>
-	</data>
-	<data name="uLengthHeightInside.Location" type="System.Drawing.Point, System.Drawing">
-		<value>321, 76</value>
-	</data>
-	<data name="cbTapeColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="gbTape.Text" xml:space="preserve">
-    <value>Tape</value>
-  <comment></comment></data>
-	<data name="cbColor.Items46" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items22" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items38" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5160.32, Culture=neutral, PublicKeyToken=null</value>
+  <data name="uMassWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
   </data>
-	<data name="uLengthLengthInside.TabIndex" type="System.Int32, mscorlib">
-		<value>5</value>
-	</data>
-	<data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
-    <value>lblDescription</value>
+  <data name="cbColor.Items48" xml:space="preserve">
+    <value>Color</value>
   </data>
-	<data name="cbColor.Items49" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-		<value>99, 6</value>
-	</data>
-	<data name="uLengthWidth.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="cbTapeColor.Items42" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="lbTapeWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="nudInsideLength.Location" type="System.Drawing.Point, System.Drawing">
-		<value>258, 17</value>
-	</data>
-	<data name="cbColor.Items53" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Define a new box/case...</value>
   </data>
-	<data name="cbTapeColor.Items28" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="uLengthTapeWidth.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-	<data name="cbTapeColor.Items16" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="cbColor.Items14" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;nudInsideWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
+  <data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-	<data name="cbColor.Items38" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
-		<value>366, 69</value>
-	</data>
-	<data name="cbTapeColor.Items39" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbTapeColor.Name" xml:space="preserve">
-    <value>lbTapeColor</value>
+  <data name="nudInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 45</value>
   </data>
-	<data name="cbColor.Items13" xml:space="preserve">
+  <data name="cbTapeColor.Items25" xml:space="preserve">
     <value>Color</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.Items55" xml:space="preserve">
-    <value>Color</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
   </data>
-	<data name="cbColor.Items11" xml:space="preserve">
+  <data name="uLengthHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 330</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.Name" xml:space="preserve">
+    <value>uMassWeight</value>
+  </data>
+  <data name="cbTapeColor.Items19" xml:space="preserve">
     <value>Color</value>
-  <comment></comment></data>
-	<data name="lbInsideHeight.Text" xml:space="preserve">
+  </data>
+  <data name="uLengthTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 40</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="lbInsideHeight.Text" xml:space="preserve">
     <value>Inside height</value>
-  <comment></comment></data>
-	<data name="cbTapeColor.IntegralHeight" type="System.Boolean, mscorlib">
-		<value>False</value>
-	</data>
-	<data name="nudTapeWidth.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
-	</data>
-	<data name="&gt;&gt;nudWidth.Type" xml:space="preserve">
+  </data>
+  <data name="&gt;&gt;nudInsideHeight.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="lbInsideHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
+    <value>pictureBox</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="cbColor.Items62" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.Name" xml:space="preserve">
+    <value>lbInsideLength</value>
+  </data>
+  <data name="cbFace.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;lbFace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Name" xml:space="preserve">
+    <value>lbLength</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 404</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.Name" xml:space="preserve">
+    <value>uLengthWidth</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudInsideHeight.Name" xml:space="preserve">
+    <value>nudInsideHeight</value>
+  </data>
+  <data name="&gt;&gt;nudTapeWidth.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="&gt;&gt;uLengthLengthInside.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
   </data>
-	<data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="lbTapeWidth.Text" xml:space="preserve">
-    <value>Tape width</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthWidthInside.Parent" xml:space="preserve">
+  <data name="lbInsideWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 49</value>
+  </data>
+  <data name="&gt;&gt;gbTape.Name" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="cbColor.Items54" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthLength.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 37</value>
+  </data>
+  <data name="&gt;&gt;lblName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-	<data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Right</value>
-	</data>
-	<data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-		<value>35, 13</value>
-	</data>
-	<data name="&gt;&gt;lbInsideWidth.Name" xml:space="preserve">
-    <value>lbInsideWidth</value>
+  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-	<data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbTapeColor.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbTapeColor.Items15" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbInsideLength.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="cbColor.Items51" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
+    <value>lbHeight</value>
+  </data>
+  <data name="cbTapeColor.Items29" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbTapeColor.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="cbTapeColor.Items43" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbInsideWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthHeightInside.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 382</value>
+  </data>
+  <data name="cbColor.Items47" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbTapeColor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudHeight.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="uLengthLength.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbInsideWidth.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidthInside.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="uLengthWidth.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 32</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items24" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="uLengthHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbTapeColor.Items45" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items49" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;gbTape.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value>uMass</value>
+  </data>
+  <data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
+    <value>btBitmaps</value>
+  </data>
+  <data name="cbColor.Items66" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items18" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="&gt;&gt;checkBoxTape.Name" xml:space="preserve">
+    <value>checkBoxTape</value>
+  </data>
+  <data name="uLengthLengthInside.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;nudInsideWidth.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 6</value>
+  </data>
+  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cbTapeColor.Items33" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="nudTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="uLengthTapeWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;lbInsideHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;lbInsideHeight.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;lbInsideHeight.Name" xml:space="preserve">
+    <value>lbInsideHeight</value>
+  </data>
+  <data name="&gt;&gt;lbFace.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 49</value>
+  </data>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.Name" xml:space="preserve">
+    <value>uLengthLength</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;gbTape.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items55" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudTapeWidth.Parent" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
+    <value>tbName</value>
+  </data>
+  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 70</value>
+  </data>
+  <data name="&gt;&gt;nudLength.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="gbTape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 66</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items72" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="&gt;&gt;uLengthLengthInside.Name" xml:space="preserve">
+    <value>uLengthLengthInside</value>
+  </data>
+  <data name="&gt;&gt;lbFace.Name" xml:space="preserve">
+    <value>lbFace</value>
+  </data>
+  <data name="cbTapeColor.Items51" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items48" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="nudInsideWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="nudInsideLength.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbFace.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lbTapeColor.Parent" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="cbTapeColor.Items54" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="&gt;&gt;lbTapeWidth.Name" xml:space="preserve">
+    <value>lbTapeWidth</value>
+  </data>
+  <data name="lbInsideWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudWidth.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="uLengthLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbWeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="lbInsideWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nudInsideWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="cbTapeColor.Items50" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthLengthInside.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeightInside.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 67</value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbTapeColor.Items42" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;uLengthLengthInside.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;checkBoxTape.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="checkBoxTape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 17</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btBitmaps.Text" xml:space="preserve">
+    <value>Bitmaps...</value>
+  </data>
+  <data name="lbInsideLength.Text" xml:space="preserve">
+    <value>Inside length</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
+    <value>cbColor</value>
+  </data>
+  <data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="uMassWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="cbTapeColor.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="cbTapeColor.Items53" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="chkAllFaces.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidthInside.Name" xml:space="preserve">
+    <value>uLengthWidthInside</value>
+  </data>
+  <data name="&gt;&gt;gbFaceColor.Name" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-	<data name="&gt;&gt;nudHeight.ZOrder" xml:space="preserve">
+  <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 21</value>
+  </data>
+  <data name="cbTapeColor.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 20</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="cbTapeColor.Items32" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items70" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="nudWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="uLengthHeightInside.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbTapeColor.Items49" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbTapeColor.Items71" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 17</value>
+  </data>
+  <data name="cbTapeColor.Items64" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="uLengthWidthInside.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 309</value>
+  </data>
+  <data name="cbTapeColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="gbTape.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 237</value>
+  </data>
+  <data name="&gt;&gt;nudLength.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="cbTapeColor.Items60" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="checkBoxTape.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 18</value>
+  </data>
+  <data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cbTapeColor.Items67" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudWidth.Name" xml:space="preserve">
+    <value>nudWidth</value>
+  </data>
+  <data name="uLengthLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 21</value>
+  </data>
+  <data name="cbTapeColor.Items16" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="&gt;&gt;chkAllFaces.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items68" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="lbTapeColor.Text" xml:space="preserve">
+    <value>Tape color</value>
+  </data>
+  <data name="cbTapeColor.Items70" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items69" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lbTapeColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudWeight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="&gt;&gt;lbTapeWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbTapeColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items10" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="btBitmaps.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 37</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
+    <value>lbWidth</value>
+  </data>
+  <data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items27" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudHeight.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-	<data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
-		<value>11</value>
-	</data>
-	<data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
-		<value>497, 6</value>
-	</data>
-	<data name="&gt;&gt;nudLength.Name" xml:space="preserve">
+  <data name="&gt;&gt;lbWeight.Parent" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeightInside.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbTapeColor.Items57" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items63" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 38</value>
+  </data>
+  <data name="cbTapeColor.Items40" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items23" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="uLengthLengthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbTapeColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items36" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbFace.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;nudInsideLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthTapeWidth.Name" xml:space="preserve">
+    <value>uLengthTapeWidth</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="nudWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cbTapeColor.Items30" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 102</value>
+  </data>
+  <data name="cbColor.Items71" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="nudInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 72</value>
+  </data>
+  <data name="cbColor.Items56" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudInsideWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uLengthTapeWidth.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="nudWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="&gt;&gt;nudWeight.Parent" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="cbColor.Items63" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="gbFaceColor.Text" xml:space="preserve">
+    <value>Face color</value>
+  </data>
+  <data name="&gt;&gt;cbTapeColor.Name" xml:space="preserve">
+    <value>cbTapeColor</value>
+  </data>
+  <data name="uLengthWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbFace.Items" xml:space="preserve">
+    <value>Rear</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;nudTapeWidth.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbTapeColor.Items66" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 40</value>
+  </data>
+  <data name="cbTapeColor.Items28" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 72</value>
+  </data>
+  <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 166</value>
+  </data>
+  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="lbTapeWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbFace.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthWidthInside.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInsideHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="uLengthWidthInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbTapeColor.Items26" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormNewBox</value>
+  </data>
+  <data name="&gt;&gt;nudTapeWidth.Name" xml:space="preserve">
+    <value>nudTapeWidth</value>
+  </data>
+  <data name="uLengthHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="cbTapeColor.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="cbTapeColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbInsideWidth.Text" xml:space="preserve">
+    <value>Inside width</value>
+  </data>
+  <data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 21</value>
+  </data>
+  <data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uLengthTapeWidth.Parent" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="uMassWeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbTapeColor.Items52" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudInsideHeight.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="cbTapeColor.Items56" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 62</value>
+  </data>
+  <data name="nudHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;nudInsideWidth.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
+    <value>trackBarHorizAngle</value>
+  </data>
+  <data name="btBitmaps.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthHeight.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="nudWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lbTapeWidth.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="nudTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 36</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>600, 400</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;nudHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uLengthLengthInside.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="uLengthHeightInside.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;uLengthLengthInside.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkAllFaces.Text" xml:space="preserve">
+    <value>All faces are the same color</value>
+  </data>
+  <data name="cbColor.Items67" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 22</value>
+  </data>
+  <data name="&gt;&gt;chkAllFaces.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cbTapeColor.Items59" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbInsideWidth.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="cbTapeColor.Items22" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbTapeColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items60" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
+    <value>tbDescription</value>
+  </data>
+  <data name="lbInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 76</value>
+  </data>
+  <data name="&gt;&gt;nudInsideWidth.Name" xml:space="preserve">
+    <value>nudInsideWidth</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInsideWidth.Name" xml:space="preserve">
+    <value>lbInsideWidth</value>
+  </data>
+  <data name="&gt;&gt;btBitmaps.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbTapeColor.Items61" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="nudLength.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbInsideLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 21</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.Parent" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="&gt;&gt;nudHeight.Name" xml:space="preserve">
+    <value>nudHeight</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="uLengthWidthInside.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="cbTapeColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;cbFace.Name" xml:space="preserve">
+    <value>cbFace</value>
+  </data>
+  <data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 42</value>
+  </data>
+  <data name="uLengthTapeWidth.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;checkBoxTape.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 6</value>
+  </data>
+  <data name="nudInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="nudLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 17</value>
+  </data>
+  <data name="uLengthTapeWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="cbTapeColor.Items17" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.Name" xml:space="preserve">
+    <value>uLengthHeight</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidthInside.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5196.30854, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nudInsideLength.Name" xml:space="preserve">
+    <value>nudInsideLength</value>
+  </data>
+  <data name="cbTapeColor.Items12" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items58" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="&gt;&gt;bnOK.Name" xml:space="preserve">
+    <value>bnOK</value>
+  </data>
+  <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 255</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items35" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxTape.Parent" xml:space="preserve">
+    <value>gbTape</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="uLengthHeightInside.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="cbTapeColor.Items1" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items72" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="uLengthHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;nudWeight.Name" xml:space="preserve">
+    <value>nudWeight</value>
+  </data>
+  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="checkBoxTape.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="cbTapeColor.Items47" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbInsideHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbTapeColor.Items38" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthHeightInside.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="&gt;&gt;nudLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 45</value>
+  </data>
+  <data name="cbTapeColor.Items31" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="cbColor.Items64" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items69" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="lbWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbFace.Text" xml:space="preserve">
+    <value>Face</value>
+  </data>
+  <data name="chkAllFaces.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="nudLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbTapeColor.Items20" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items65" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items61" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="gbTape.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="cbTapeColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 32</value>
+  </data>
+  <data name="uLengthHeightInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 76</value>
+  </data>
+  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="gbTape.Text" xml:space="preserve">
+    <value>Tape</value>
+  </data>
+  <data name="cbColor.Items46" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="nudWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeightInside.Name" xml:space="preserve">
+    <value>uLengthHeightInside</value>
+  </data>
+  <data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5196.30854, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="uLengthLengthInside.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
+    <value>lblDescription</value>
+  </data>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 6</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lbTapeWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="nudInsideLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 17</value>
+  </data>
+  <data name="cbColor.Items53" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbLength.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;nudInsideHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="uLengthWidthInside.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 49</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 69</value>
+  </data>
+  <data name="cbTapeColor.Items39" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbTapeColor.Name" xml:space="preserve">
+    <value>lbTapeColor</value>
+  </data>
+  <data name="cbTapeColor.Items55" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items59" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items21" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="nudTapeWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;nudWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthLengthInside.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbTapeWidth.Text" xml:space="preserve">
+    <value>Tape width</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidthInside.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="cbTapeColor.Items68" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="checkBoxTape.Text" xml:space="preserve">
+    <value>Show tape on top of case</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="uLengthWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;nudLength.Name" xml:space="preserve">
     <value>nudLength</value>
   </data>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>True</value>
-	</metadata>
-	<metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-		<value>0, 340</value>
-	</metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>de-DE</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 340</value>
+  </metadata>
 </root>

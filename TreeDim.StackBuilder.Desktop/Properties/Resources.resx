@@ -188,7 +188,7 @@
     <value>Define at least one vertical axis</value>
   </data>
   <data name="ID_LOADHEIGHT" xml:space="preserve">
-    <value>Load height (mm)</value>
+    <value>Load height</value>
   </data>
   <data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -347,7 +347,7 @@ Continue?</value>
     <value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>Load (kg)</value>
+    <value>Load</value>
   </data>
   <data name="ID_BOXCASECOUNT" xml:space="preserve">
     <value>Box/Case count</value>

@@ -214,7 +214,7 @@ namespace TreeDim.StackBuilder.GUIExtension.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pallet height (mm).
+        ///   Looks up a localized string similar to Pallet height.
         /// </summary>
         internal static string ID_PALLETHEIGHT {
             get {

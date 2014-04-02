@@ -98,13 +98,13 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="ID_LOADHEIGHT" xml:space="preserve">
-		<value>Lade Höhe (mm)</value>
+		<value>Lade Höhe</value>
 	</data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
 		<value>Widerspruch: Maximum {0} ist kleiner als Minimum {1}</value>
 	</data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-		<value>Paletten Höhe (mm)</value>
+		<value>Paletten Höhe</value>
 	</data>
 	<data name="ID_FILENOTFOUND" xml:space="preserve">
 		<value>Datei {0} kann nicht gefunden werden</value>
@@ -212,7 +212,7 @@
 		<value>A1</value>
 	</data>
 	<data name="ID_LOADWEIGHT" xml:space="preserve">
-		<value>Ladung (kg)</value>
+		<value>Ladung</value>
 	</data>
 	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
 		<value>Generiere Word Report für {0}</value>
@@ -254,7 +254,7 @@
 		<value>Datei {0} speichern?</value>
 	</data>
 	<data name="ID_PALLETWEIGHT" xml:space="preserve">
-		<value>Paletten Gewicht (kg)</value>
+		<value>Paletten Gewicht</value>
 	</data>
 	<data name="ID_ADDNEWPALLET" xml:space="preserve">
 		<value>Neue Palette anfügen…</value>
@@ -305,7 +305,7 @@
 		<value>Orientierung</value>
 	</data>
 	<data name="ID_WEIGHT" xml:space="preserve">
-		<value>Gewicht (kg)</value>
+		<value>Gewicht</value>
 	</data>
 	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
 		<value>Der Google Chrome Browser muss installiert sein um collada/webGL animationen anzeigen zu können.</value>

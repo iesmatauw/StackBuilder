@@ -73,12 +73,12 @@
             // 
             // cbColor
             // 
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Beige;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -109,7 +109,9 @@
             resources.GetString("cbColor.Items26"),
             resources.GetString("cbColor.Items27"),
             resources.GetString("cbColor.Items28"),
-            resources.GetString("cbColor.Items29")});
+            resources.GetString("cbColor.Items29"),
+            resources.GetString("cbColor.Items30"),
+            resources.GetString("cbColor.Items31")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
@@ -130,21 +132,21 @@
             // 
             // gbFaceColor
             // 
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.lbColor);
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
             // nudWeight
             // 
+            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.DecimalPlaces = 3;
             this.nudWeight.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -155,8 +157,8 @@
             // 
             // nudLength
             // 
-            this.nudLength.DecimalPlaces = 1;
             resources.ApplyResources(this.nudLength, "nudLength");
+            this.nudLength.DecimalPlaces = 2;
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -177,10 +179,10 @@
             // 
             // gbWeight
             // 
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uMassWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -223,6 +225,7 @@
             // 
             // gbDimensions
             // 
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uLengthThickness);
             this.gbDimensions.Controls.Add(this.uLengthWidth);
             this.gbDimensions.Controls.Add(this.uLengthLength);
@@ -234,7 +237,6 @@
             this.gbDimensions.Controls.Add(this.lbThickness);
             this.gbDimensions.Controls.Add(this.lbWidth);
             this.gbDimensions.Controls.Add(this.lbLength);
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -281,8 +283,8 @@
             // 
             // nudThickness
             // 
-            this.nudThickness.DecimalPlaces = 2;
             resources.ApplyResources(this.nudThickness, "nudThickness");
+            this.nudThickness.DecimalPlaces = 2;
             this.nudThickness.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -303,8 +305,8 @@
             // 
             // nudWidth
             // 
-            this.nudWidth.DecimalPlaces = 1;
             resources.ApplyResources(this.nudWidth, "nudWidth");
+            this.nudWidth.DecimalPlaces = 2;
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -355,17 +357,17 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewBundle
             // 

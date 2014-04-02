@@ -171,9 +171,9 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.BoxCount));
                 // Efficiency
                 gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.Efficiency));
-                // Load (kg)
+                // Load
                 gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.LoadWeight));
-                // Load height (mm)
+                // Load height
                 gridSolutions[iIndex, 6] = new SourceGrid.Cells.Cell(string.Format("{0:F}", sol.LoadHeight));
                 // Selected
                 gridSolutions[iIndex, 7] = new SourceGrid.Cells.CheckBox(null, _truckAnalysis.HasSolutionSelected(iIndex-1));
@@ -332,6 +332,17 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
                 if (null == _sol)   return;
+                // show dimensions when in corner views
+                if (Vector3D.Equals(_cameraPosition, Graphics3D.Corner_0)
+                    || Vector3D.Equals(_cameraPosition, Graphics3D.Corner_90)
+                    || Vector3D.Equals(_cameraPosition, Graphics3D.Corner_180)
+                    || Vector3D.Equals(_cameraPosition, Graphics3D.Corner_270))
+                {
+                    TruckProperties truckProp = _sol.ParentTruckAnalysis.TruckProperties;
+                    graphics.AddDimensions(new DimensionCube(_sol.LoadBoundingBox, Color.Red, false));
+                    graphics.AddDimensions(new DimensionCube(Vector3D.Zero, truckProp.Length, truckProp.Width, truckProp.Height, Color.Black, true));
+                }
+                // draw solution
                 TruckSolutionViewer sv = new TruckSolutionViewer(_sol);
                 sv.Draw(graphics);
                 // show generated bitmap on picture box control

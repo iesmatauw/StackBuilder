@@ -161,8 +161,8 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAmwAAADICAYAAABVh730AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwwAA
-        DsMBx2+oZAAAH9tJREFUeF7tnduvbVddx/kjfPFRIltfTHioPovxjQRITHyxBQpSoMUqhmjjBQOkgGKI
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwgAA
+        DsIBFShKgAAAH9tJREFUeF7tnduvbVddx/kjfPFRIltfTHioPovxjQRITHyxBQpSoMUqhmjjBQOkgGKI
         cjARaLHVAkXwtNDSe6FgT+vh0mCLLW2pB+gFkJ4EehAsIZn2u84eh7FHv785xxxzrr3nWuvzTT7Ze805
         7nOsMb5rjLnmesEtL/3VDgAAAACWC4YNAAAAYOFg2AAAAAAWDoYNAAAAYOFg2AAAAAAWDoYNAAAAYOFg
         2AAAAAAWDoYNAAAAYOFg2AAAAAAWDoYNAAAAYOFg2AAAAAAWDoYNAAAAYOFg2AAAAAAWDoYNAAAAYOFg
@@ -306,7 +306,7 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>522, 230</value>
+    <value>620, 200</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

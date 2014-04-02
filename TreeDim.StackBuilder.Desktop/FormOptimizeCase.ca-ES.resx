@@ -1138,22 +1138,22 @@
 		<value>Assigna el mimin</value>
 	</data>
 	<data name="lbWallThickness.Text" xml:space="preserve">
-		<value>Gruix de la paret (mm)</value>
+		<value>Gruix de la paret</value>
 	</data>
 	<data name="lbWalls.Text" xml:space="preserve">
 		<value>Nombre de parets</value>
 	</data>
 	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
-		<value>Mides màximes del embalatge (mm)</value>
+		<value>Mides màximes del embalatge</value>
 	</data>
 	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
-		<value>Mides mínimes del embalatge (mm)</value>
+		<value>Mides mínimes del embalatge</value>
 	</data>
 	<data name="gbCase.Text" xml:space="preserve">
 		<value>Limitacions del embalatge</value>
 	</data>
 	<data name="lbPalletHeight.Text" xml:space="preserve">
-		<value>Alçada màxima del palet (mm)</value>
+		<value>Alçada màxima del palet</value>
 	</data>
 	<data name="btOptimize.Text" xml:space="preserve">
 		<value>Optimitzar</value>

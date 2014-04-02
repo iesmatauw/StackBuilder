@@ -253,7 +253,7 @@
   <!--#### CYLINDER ####-->
   <xsl:template match="cylinder">
     <h3>Zylinder</h3>
-    <table class="style3" cellpadding="4">
+    <table class="style1" cellpadding="4">
       <tr>
         <td class="style2" colspan="1">
           <b>Name</b>
@@ -308,7 +308,7 @@
   <!--#### CASE WITH INNER DIMS #### -->
   <xsl:template match="caseWithInnerDims">
     <h3>Case</h3>
-    <table class="style3" cellpadding="4">
+    <table class="style1" cellpadding="4">
       <tr>
         <td class="style2" colspan="1">
           <b>Name</b>
@@ -1355,7 +1355,12 @@
         <xsl:value-of select="layerCaseCount"/>
       </td>
       <td align="middle">
-        <img src="images\layerImage1.png" width="150" height="150"/>
+        <xsl:if test="layerId='1'">
+          <img src="images\layerImage1.png" width="150" height="150"/>
+        </xsl:if>
+        <xsl:if test="layerId='2'">
+          <img src="images\layerImage2.png" width="150" height="150"/>
+        </xsl:if>
       </td>
     </tr>
   </xsl:template>

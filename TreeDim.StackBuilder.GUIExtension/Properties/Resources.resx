@@ -169,7 +169,7 @@
     <value>Inconsistency: Maximum {0} is lower than minimum {1}.</value>
   </data>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Pallet height (mm)</value>
+    <value>Pallet height</value>
   </data>
   <data name="ID_PALLETLIMIT" xml:space="preserve">
     <value>Limit reached</value>

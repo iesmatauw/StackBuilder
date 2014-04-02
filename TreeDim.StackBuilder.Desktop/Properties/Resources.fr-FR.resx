@@ -208,10 +208,10 @@ Souhaitez-vous continuer?</value>
     <value>Disposition</value>
   </data>
 	<data name="ID_LOADHEIGHT" xml:space="preserve">
-    <value>Hauteur de chargement (mm)</value>
+    <value>Hauteur de chargement</value>
   </data>
 	<data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>Masse du chargement (kg)</value>
+    <value>Masse du chargement</value>
   </data>
 	<data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>Analyses</value>
@@ -238,7 +238,7 @@ Souhaitez-vous continuer?</value>
     <value>Nombre de pallettes</value>
   </data>
 	<data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Poid de la palette (kg)</value>
+    <value>Poid de la palette</value>
   </data>
 	<data name="ID_READY" xml:space="preserve">
     <value>Prêt</value>
@@ -287,7 +287,7 @@ Souhaitez-vous continuer?</value>
     <value>Longueur</value>
   </data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Hauteur de palette (mm)</value>
+    <value>Hauteur de palette</value>
   </data>
 	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
     <value>Autoriser les couches alignées et/ou alternées</value>
@@ -344,7 +344,7 @@ Souhaitez-vous continuer?</value>
     <value>Orientation</value>
   </data>
 	<data name="ID_WEIGHT" xml:space="preserve">
-    <value>Masse (kg)</value>
+    <value>Masse</value>
   </data>
 	<data name="ID_GENERATECOLLADA" xml:space="preserve">
 		<value>Générer un fichier animation 3D pour {0}</value>

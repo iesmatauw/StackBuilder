@@ -1138,22 +1138,22 @@
 		<value>Asigna el mínimo</value>
 	</data>
 	<data name="lbWallThickness.Text" xml:space="preserve">
-		<value>Grueso de la pared (mm)</value>
+		<value>Grueso de la pared</value>
 	</data>
 	<data name="lbWalls.Text" xml:space="preserve">
 		<value>Número de paredes</value>
 	</data>
 	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
-		<value>Medidas máximas del embalaje (mm)</value>
+		<value>Medidas máximas del embalaje</value>
 	</data>
 	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
-		<value>Medidas mínimas del embalaje (mm)</value>
+		<value>Medidas mínimas del embalaje</value>
 	</data>
 	<data name="gbCase.Text" xml:space="preserve">
 		<value>Limitaciones del embalaje</value>
 	</data>
 	<data name="lbPalletHeight.Text" xml:space="preserve">
-		<value>Altura máxima del palet (mm)</value>
+		<value>Altura máxima del palet</value>
 	</data>
 	<data name="btOptimize.Text" xml:space="preserve">
 		<value>Optimizar</value>

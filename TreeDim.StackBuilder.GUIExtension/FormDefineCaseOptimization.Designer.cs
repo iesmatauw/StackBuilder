@@ -189,7 +189,7 @@
             this.lbBoxHeight.Name = "lbBoxHeight";
             this.lbBoxHeight.Size = new System.Drawing.Size(63, 13);
             this.lbBoxHeight.TabIndex = 8;
-            this.lbBoxHeight.Text = "Height (mm)";
+            this.lbBoxHeight.Text = "Height";
             // 
             // lbBoxWidth
             // 
@@ -198,7 +198,7 @@
             this.lbBoxWidth.Name = "lbBoxWidth";
             this.lbBoxWidth.Size = new System.Drawing.Size(60, 13);
             this.lbBoxWidth.TabIndex = 7;
-            this.lbBoxWidth.Text = "Width (mm)";
+            this.lbBoxWidth.Text = "Width";
             // 
             // lbBoxLength
             // 
@@ -207,7 +207,7 @@
             this.lbBoxLength.Name = "lbBoxLength";
             this.lbBoxLength.Size = new System.Drawing.Size(65, 13);
             this.lbBoxLength.TabIndex = 6;
-            this.lbBoxLength.Text = "Length (mm)";
+            this.lbBoxLength.Text = "Length";
             // 
             // chkVerticalOrientationOnly
             // 
@@ -272,7 +272,7 @@
             this.lbPalletHeight.Name = "lbPalletHeight";
             this.lbPalletHeight.Size = new System.Drawing.Size(136, 13);
             this.lbPalletHeight.TabIndex = 3;
-            this.lbPalletHeight.Text = "Maximum pallet height (mm)";
+            this.lbPalletHeight.Text = "Maximum pallet height";
             // 
             // gbPallet
             // 
@@ -355,7 +355,7 @@
             this.lbWallThickness.Name = "lbWallThickness";
             this.lbWallThickness.Size = new System.Drawing.Size(101, 13);
             this.lbWallThickness.TabIndex = 15;
-            this.lbWallThickness.Text = "Wall thickness (mm)";
+            this.lbWallThickness.Text = "Wall thickness";
             // 
             // nudWallsHeightDir
             // 
@@ -558,7 +558,7 @@
             this.lbMaxCaseDimensions.Name = "lbMaxCaseDimensions";
             this.lbMaxCaseDimensions.Size = new System.Drawing.Size(136, 13);
             this.lbMaxCaseDimensions.TabIndex = 1;
-            this.lbMaxCaseDimensions.Text = "Max. case dimensions (mm)";
+            this.lbMaxCaseDimensions.Text = "Max. case dimensions";
             // 
             // lbMinCaseDimensions
             // 
@@ -568,7 +568,7 @@
             this.lbMinCaseDimensions.Name = "lbMinCaseDimensions";
             this.lbMinCaseDimensions.Size = new System.Drawing.Size(133, 13);
             this.lbMinCaseDimensions.TabIndex = 0;
-            this.lbMinCaseDimensions.Text = "Min. case dimensions (mm)";
+            this.lbMinCaseDimensions.Text = "Min. case dimensions";
             // 
             // btOptimize
             // 

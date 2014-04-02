@@ -71,7 +71,7 @@
         <h1 style="text-align:center">
           Rapport généré par treeDiM StackBuilder
         </h1>
-        <table border="1" cellpadding="4">
+        <table class="style1" cellpadding="4">
           <tr>
             <td class="style2" colspan="1">
               <b>Document</b>
@@ -253,7 +253,7 @@
   <!--#### CYLINDER ####-->
   <xsl:template match="cylinder">
     <h3>Cylinder</h3>
-    <table class="style3" cellpadding="4">
+    <table class="style1" cellpadding="4">
       <tr>
         <td class="style2" colspan="1">
           <b>Name</b>
@@ -308,7 +308,7 @@
   <!--#### CASE WITH INNER DIMS #### -->
   <xsl:template match="caseWithInnerDims">
     <h3>Caisse</h3>
-    <table class="style3" cellpadding="4">
+    <table class="style1" cellpadding="4">
       <tr>
         <td class="style2" colspan="1">
           <b>Nom</b>
@@ -1079,8 +1079,19 @@
         </td>
       </tr>
     </table>
-    <h3>Layer(s)</h3>
+    <h3>Couche(s)</h3>
     <table class="style1">
+      <tr>
+        <td class="style2">
+          <b>Index</b>
+        </td>
+        <td class="style3">
+          <b>Nombre de caisses</b>
+        </td>
+        <td class="style3" align="middle">
+          <b>Image</b>
+        </td>
+      </tr>
       <xsl:apply-templates select="layer"/>
     </table>
   </xsl:template>
@@ -1357,7 +1368,12 @@
         <xsl:value-of select="layerCaseCount"/>
       </td>
       <td align="middle">
-        <img src="images\layerImage1.png" width="150" height="150"/>
+        <xsl:if test="layerId='1'">
+          <img src="images\layerImage1.png" width="150" height="150"/>
+        </xsl:if>
+        <xsl:if test="layerId='2'">
+          <img src="images\layerImage2.png" width="150" height="150"/>
+        </xsl:if>
       </td>
     </tr>
   </xsl:template>

@@ -35,6 +35,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewBoxCaseAnalysis(Document document)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             // name
@@ -49,6 +51,8 @@ namespace TreeDim.StackBuilder.Desktop
         public FormNewBoxCaseAnalysis(Document document, BoxCaseAnalysis analysis)
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
             _analysis = analysis;

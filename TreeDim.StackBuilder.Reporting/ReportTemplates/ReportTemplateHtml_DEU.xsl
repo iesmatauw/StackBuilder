@@ -1079,6 +1079,17 @@
     </table>
     <h3>Layer(s)</h3>
     <table class="style1">
+      <tr>
+        <td class="style2">
+          <b>Index</b>
+        </td>
+        <td class="style3">
+          <b>Anzahl der Kisten</b>
+        </td>
+        <td class="style3" align="middle">
+          <b>Image</b>
+        </td>
+      </tr>
       <xsl:apply-templates select="layer"/>
     </table>
   </xsl:template>

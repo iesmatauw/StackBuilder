@@ -1077,6 +1077,17 @@
     </table>
     <h3>Layer(s)</h3>
     <table class="style1">
+      <tr>
+        <td class="style2">
+          <b>Index</b>
+        </td>
+        <td class="style3">
+          <b>Nombre de caisses</b>
+        </td>
+        <td class="style3" align="middle">
+          <b>Image</b>
+        </td>
+      </tr>
       <xsl:apply-templates select="layer"></xsl:apply-templates>
     </table>
   </xsl:template>
@@ -1150,6 +1161,17 @@
     </table>
     <h3>Layer(s)</h3>
     <table class="style1">
+      <tr>
+        <td class="style2">
+          <b>Index</b>
+        </td>
+        <td class="style3">
+          <b>Number of case(s)</b>
+        </td>
+        <td class="style3" align="middle">
+          <b>Image</b>
+        </td>
+      </tr>
       <xsl:apply-templates select="layer"></xsl:apply-templates>
     </table>
   </xsl:template>

@@ -146,9 +146,7 @@
     <DirectoryRef Id="SAMPLES">
       <Component Id="Samples" Guid="{E46693C3-7E18-4278-9DEE-8D7C5ED96552}">
         <File Source="..\Samples\Matches.stb" />
-        <File Source="..\Samples\Matches.doc" />
         <File Source="..\Samples\Case_44_28_29.stb" />
-        <File Source="..\Samples\Case_44_28_29.doc" />
         <!-- Xml file processor samples -->
         <File Source="..\Samples\Input1.xml" />
         <File Source="..\Samples\Input2.xml" />

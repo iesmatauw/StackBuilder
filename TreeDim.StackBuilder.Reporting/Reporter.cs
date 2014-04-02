@@ -1469,9 +1469,12 @@ namespace TreeDim.StackBuilder.Reporting
                 // set camera position 
                 graphics.CameraPosition = cameraPos;
                 // dimensions
-                TruckProperties truckProp = truckSolution.ParentTruckAnalysis.TruckProperties;
-                graphics.AddDimensions(new DimensionCube(truckSolution.LoadBoundingBox, Color.Red, false));
-                graphics.AddDimensions(new DimensionCube(Vector3D.Zero, truckProp.Length, truckProp.Width, truckProp.Height, Color.Black, true));
+                if (1 == i)
+                {
+                    TruckProperties truckProp = truckSolution.ParentTruckAnalysis.TruckProperties;
+                    graphics.AddDimensions(new DimensionCube(truckSolution.LoadBoundingBox, Color.Red, false));
+                    graphics.AddDimensions(new DimensionCube(Vector3D.Zero, truckProp.Length, truckProp.Width, truckProp.Height, Color.Black, true));
+                }
                 // instantiate solution viewer
                 TruckSolutionViewer sv = new TruckSolutionViewer(truckSolution);
                 sv.Draw(graphics);

@@ -211,7 +211,10 @@ $RECYCLE.BIN/
 ## Samples
 #############
 *.dae
-
+Samples\*.html
+Samples\*.docx
+Samples\*.doc
+[Ii]mages/
 
 *.py[co]
 

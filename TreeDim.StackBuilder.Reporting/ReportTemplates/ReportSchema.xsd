@@ -546,6 +546,14 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="wallSurfaceMass" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unit" type="xs:string"/>
+                          <xs:element name="value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element name="noWallsX" type="xs:string"/>
                     <xs:element name="noWallsY" type="xs:string"/>
                     <xs:element name="noWallsZ" type="xs:string"/>

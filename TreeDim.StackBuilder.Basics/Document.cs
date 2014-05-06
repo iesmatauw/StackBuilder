@@ -1292,7 +1292,9 @@ namespace TreeDim.StackBuilder.Basics
             string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
             int[] iNoWalls = ParseInt3(sNoWalls);
             double wallThickness = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value), _unitSystem);
-            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, Vector3D.Zero, Vector3D.Zero, false); 
+            double wallSurfaceMass = 0.0;
+            wallSurfaceMass = UnitsManager.ConvertSurfaceMassFrom(Convert.ToDouble(eltConstraintSet.Attributes["WallSurfaceMass"].Value), _unitSystem);
+            constraintSet = new CaseOptimConstraintSet(iNoWalls, wallThickness, wallSurfaceMass, Vector3D.Zero, Vector3D.Zero, false); 
         }
         #endregion
 
@@ -2285,6 +2287,10 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute xmlWallThickness = xmlDoc.CreateAttribute("WallThickness");
             xmlWallThickness.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallThickness);
             xmlCaseOptimConstraintSet.Attributes.Append(xmlWallThickness);
+            // wall surface mass
+            XmlAttribute xmlWallSurfaceMass = xmlDoc.CreateAttribute("WallSurfaceMass");
+            xmlWallSurfaceMass.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallSurfaceMass);
+            xmlCaseOptimConstraintSet.Attributes.Append(xmlWallSurfaceMass);
             // no walls
             XmlAttribute xmlNumberOfWalls = xmlDoc.CreateAttribute("NumberOfWalls");
             xmlNumberOfWalls.Value = string.Format("{0} {1} {2}"

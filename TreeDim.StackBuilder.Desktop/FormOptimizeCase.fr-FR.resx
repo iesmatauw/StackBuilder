@@ -120,9 +120,6 @@
   <data name="btClose.Text" xml:space="preserve">
     <value>Fermer</value>
   </data>
-  <data name="groupBox.Text" xml:space="preserve">
-    <value>Etui (produit)</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
     <value>256, 17</value>
@@ -145,8 +142,8 @@
   <data name="lbBox.Text" xml:space="preserve">
     <value>Etui</value>
   </data>
-  <data name="gbCase.Text" xml:space="preserve">
-    <value>Contraintes % caisse </value>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>Etui (produit)</value>
   </data>
   <data name="btSetMaximum.Text" xml:space="preserve">
     <value>Maximum par défaut</value>
@@ -155,7 +152,7 @@
     <value>Minimum par défaut</value>
   </data>
   <data name="lbWallThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 13</value>
+    <value>73, 13</value>
   </data>
   <data name="lbWallThickness.Text" xml:space="preserve">
     <value>Epaisseur mur</value>
@@ -195,6 +192,9 @@
   </data>
   <data name="lbMinCaseDimensions.Text" xml:space="preserve">
     <value>Dimensions min. caisse</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Contraintes % caisse </value>
   </data>
   <data name="lbPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 13</value>

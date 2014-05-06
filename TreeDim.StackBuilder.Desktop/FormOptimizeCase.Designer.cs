@@ -45,6 +45,7 @@
             this.btSetMaximum = new System.Windows.Forms.Button();
             this.btSetMinimum = new System.Windows.Forms.Button();
             this.nudWallThickness = new System.Windows.Forms.NumericUpDown();
+            this.nudWallSurfaceMass = new System.Windows.Forms.NumericUpDown();
             this.lbWallThickness = new System.Windows.Forms.Label();
             this.nudWallsHeightDir = new System.Windows.Forms.NumericUpDown();
             this.nudWallsWidthDir = new System.Windows.Forms.NumericUpDown();
@@ -73,6 +74,8 @@
             this.btAddSolution = new System.Windows.Forms.Button();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbSurfaceMass = new System.Windows.Forms.Label();
+            this.uSurfaceMassCase = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).BeginInit();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
@@ -83,17 +86,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.gbCase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallThickness)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWallsHeightDir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWallsWidthDir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallSurfaceMass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallsLengthDir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallsWidthDir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallsHeightDir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCaseHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCaseWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCaseLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinCaseHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinCaseWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinCaseLength)).BeginInit();
-            this.gbPallet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).BeginInit();
+            this.gbPallet.SuspendLayout();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,12 +108,10 @@
             // 
             // splitContainerCasePallet.Panel1
             // 
-            resources.ApplyResources(this.splitContainerCasePallet.Panel1, "splitContainerCasePallet.Panel1");
             this.splitContainerCasePallet.Panel1.Controls.Add(this.pbBoxesLayout);
             // 
             // splitContainerCasePallet.Panel2
             // 
-            resources.ApplyResources(this.splitContainerCasePallet.Panel2, "splitContainerCasePallet.Panel2");
             this.splitContainerCasePallet.Panel2.Controls.Add(this.pbPallet);
             this.splitContainerCasePallet.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainerCasePallet_SplitterMoved);
             // 
@@ -183,9 +185,9 @@
             // 
             // cbBoxes
             // 
-            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxes.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBoxes, "cbBoxes");
             this.cbBoxes.Name = "cbBoxes";
             this.cbBoxes.SelectedIndexChanged += new System.EventHandler(this.cbBoxes_SelectedIndexChanged);
             // 
@@ -197,6 +199,9 @@
             // gbCase
             // 
             resources.ApplyResources(this.gbCase, "gbCase");
+            this.gbCase.Controls.Add(this.uSurfaceMassCase);
+            this.gbCase.Controls.Add(this.nudWallSurfaceMass);
+            this.gbCase.Controls.Add(this.lbSurfaceMass);
             this.gbCase.Controls.Add(this.uLengthWallThickness);
             this.gbCase.Controls.Add(this.btSetMaximum);
             this.gbCase.Controls.Add(this.btSetMinimum);
@@ -241,8 +246,13 @@
             // 
             // nudWallThickness
             // 
-            resources.ApplyResources(this.nudWallThickness, "nudWallThickness");
             this.nudWallThickness.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudWallThickness, "nudWallThickness");
+            this.nudWallThickness.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudWallThickness.Name = "nudWallThickness";
             this.nudWallThickness.ValueChanged += new System.EventHandler(this.OptimizationParameterChanged);
             // 
@@ -301,8 +311,8 @@
             // 
             // nudMaxCaseHeight
             // 
-            resources.ApplyResources(this.nudMaxCaseHeight, "nudMaxCaseHeight");
             this.nudMaxCaseHeight.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudMaxCaseHeight, "nudMaxCaseHeight");
             this.nudMaxCaseHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -313,8 +323,8 @@
             // 
             // nudMaxCaseWidth
             // 
-            resources.ApplyResources(this.nudMaxCaseWidth, "nudMaxCaseWidth");
             this.nudMaxCaseWidth.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudMaxCaseWidth, "nudMaxCaseWidth");
             this.nudMaxCaseWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -325,8 +335,8 @@
             // 
             // nudMaxCaseLength
             // 
-            resources.ApplyResources(this.nudMaxCaseLength, "nudMaxCaseLength");
             this.nudMaxCaseLength.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudMaxCaseLength, "nudMaxCaseLength");
             this.nudMaxCaseLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -337,8 +347,8 @@
             // 
             // nudMinCaseHeight
             // 
-            resources.ApplyResources(this.nudMinCaseHeight, "nudMinCaseHeight");
             this.nudMinCaseHeight.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudMinCaseHeight, "nudMinCaseHeight");
             this.nudMinCaseHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -349,8 +359,8 @@
             // 
             // nudMinCaseWidth
             // 
-            resources.ApplyResources(this.nudMinCaseWidth, "nudMinCaseWidth");
             this.nudMinCaseWidth.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudMinCaseWidth, "nudMinCaseWidth");
             this.nudMinCaseWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -361,8 +371,8 @@
             // 
             // nudMinCaseLength
             // 
-            resources.ApplyResources(this.nudMinCaseLength, "nudMinCaseLength");
             this.nudMinCaseLength.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudMinCaseLength, "nudMinCaseLength");
             this.nudMinCaseLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -420,8 +430,8 @@
             // 
             // nudPalletHeight
             // 
-            resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
             this.nudPalletHeight.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
             this.nudPalletHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -442,9 +452,9 @@
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -480,16 +490,33 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
+            // lbSurfaceMass
+            // 
+            resources.ApplyResources(this.lbSurfaceMass, "lbSurfaceMass");
+            this.lbSurfaceMass.Name = "lbSurfaceMass";
+            // 
+            // nudSurfaceMass
+            // 
+            this.nudWallSurfaceMass.DecimalPlaces = 3;
+            resources.ApplyResources(this.nudWallSurfaceMass, "nudSurfaceMass");
+            this.nudWallSurfaceMass.Maximum = 10000.0M;
+            this.nudWallSurfaceMass.Name = "nudSurfaceMass";
+            // 
+            // uSurfaceMassCase
+            // 
+            resources.ApplyResources(this.uSurfaceMassCase, "uSurfaceMassCase");
+            this.uSurfaceMassCase.Name = "uSurfaceMassCase";
             // 
             // FormOptimizeCase
             // 
@@ -537,6 +564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallSurfaceMass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,5 +615,8 @@
         private System.Windows.Forms.CheckBox chkVerticalOrientationOnly;
         private System.Windows.Forms.Label uLengthWallThickness;
         private System.Windows.Forms.Label uLengthPalletHeight;
+        private System.Windows.Forms.Label uSurfaceMassCase;
+        private System.Windows.Forms.NumericUpDown nudWallSurfaceMass;
+        private System.Windows.Forms.Label lbSurfaceMass;
     }
 }

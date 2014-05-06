@@ -934,6 +934,16 @@
       </tr>
       <tr>
         <td class="style2">
+          <b>
+            Masse surfacique (<xsl:value-of select="wallMassSurface/unit"/>)
+          </b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="wallMassSurface/value"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
           <b>Dimensions minimales</b>
         </td>
         <td class="style3">

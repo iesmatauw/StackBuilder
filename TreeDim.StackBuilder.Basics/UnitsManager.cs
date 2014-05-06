@@ -45,7 +45,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Current unit system 
         public static UnitSystem CurrentUnitSystem
         {
-            get {   return Instance._currentUnitSystem; }
+            get { return Instance._currentUnitSystem; }
             set { Instance._currentUnitSystem = value; }
         }
         /// <summary>
@@ -96,6 +96,20 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
         }
+
+        public static string SurfaceMassUnitString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC:    return "kg/m²";
+                    case UnitSystem.UNIT_IMPERIAL:  return "lb/in²";
+                    case UnitSystem.UNIT_US:        return "lb/in²";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
         #endregion
 
         #region Data members
@@ -110,6 +124,7 @@ namespace TreeDim.StackBuilder.Basics
             sText = sText.Replace("uLength", LengthUnitString);
             sText = sText.Replace("uMass", MassUnitString);
             sText = sText.Replace("uVolume", VolumeUnitString);
+            sText = sText.Replace("uSurfaceMass", SurfaceMassUnitString);
             return sText;
         }
 
@@ -123,6 +138,7 @@ namespace TreeDim.StackBuilder.Basics
                     if (lb.Name.Contains("uLength")) lb.Text = LengthUnitString;
                     else if (lb.Name.Contains("uMass")) lb.Text = MassUnitString;
                     else if (lb.Name.Contains("uVolume")) lb.Text = VolumeUnitString;
+                    else if (lb.Name.Contains("uSurfaceMass")) lb.Text = SurfaceMassUnitString;
                 }
                 GroupBox gb = ctrl as GroupBox;
                 if (null != gb)
@@ -134,6 +150,19 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Conversions
+        public static double FactorSquareLengthToArea
+        {
+            get
+            {
+                switch (CurrentUnitSystem)
+                {
+                    case UnitsManager.UnitSystem.UNIT_METRIC: return 1.0E-06; //mm² to m²
+                    case UnitsManager.UnitSystem.UNIT_IMPERIAL: return 1.0; // in² to in²
+                    case UnitsManager.UnitSystem.UNIT_US: return 1.0; // in² to in²
+                    default: throw new Exception("Invalid unit system!");                    
+                }
+            }
+        }
         public static double FactorCubeLengthToVolume
         {
             get
@@ -147,7 +176,6 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
         }
-
         private static IUnit<Length> LengthUnitFromUnitSystem(UnitsManager.UnitSystem unitSystem)
         {
             switch (unitSystem)
@@ -168,6 +196,17 @@ namespace TreeDim.StackBuilder.Basics
                 default: throw new Exception("Invalid unit system!");
             }
         }
+        private static IUnit<SurfaceDensity> SurfaceMassUnitFromUnitSystem(UnitsManager.UnitSystem unitSystem)
+        {
+            switch (unitSystem)
+            {
+                case UnitsManager.UnitSystem.UNIT_METRIC: return Cureos.Measures.Quantities.SurfaceDensity.KiloGramPerSquareMeter;
+                case UnitsManager.UnitSystem.UNIT_IMPERIAL: return Cureos.Measures.Quantities.SurfaceDensity.PoundPerSquareInch;
+                case UnitsManager.UnitSystem.UNIT_US: return Cureos.Measures.Quantities.SurfaceDensity.PoundPerSquareInch;
+                default: throw new Exception("Invalid unit system!");
+            }
+        }
+
         public static double ConvertLengthFrom(double value, UnitsManager.UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
@@ -217,6 +256,16 @@ namespace TreeDim.StackBuilder.Basics
                 StandardMeasure<Mass> measure = new StandardMeasure<Mass>(value, MassUnitFromUnitSystem(unitSystem));
                 return measure.GetAmount(MassUnitFromUnitSystem(CurrentUnitSystem));
             }       
+        }
+        public static double ConvertSurfaceMassFrom(double value, UnitsManager.UnitSystem unitSystem)
+        {
+            if (unitSystem == CurrentUnitSystem)
+                return value;
+            else
+            {
+                StandardMeasure<SurfaceDensity> measure = new StandardMeasure<SurfaceDensity>(value, SurfaceMassUnitFromUnitSystem(unitSystem));
+                return measure.GetAmount(SurfaceMassUnitFromUnitSystem(CurrentUnitSystem));
+            }
         }
         #endregion
     }

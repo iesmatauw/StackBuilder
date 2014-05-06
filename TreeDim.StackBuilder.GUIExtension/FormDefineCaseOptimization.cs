@@ -118,6 +118,7 @@ namespace TreeDim.StackBuilder.GUIExtension
             }
         }
         private double WallThickness { get { return (double)nudWallThickness.Value; } }
+        private double WallSurfaceMass { get { return (double)0.0; } }
         private bool ForceVerticalBoxOrientation
         {
             get { return chkVerticalOrientationOnly.Checked; }
@@ -314,6 +315,7 @@ namespace TreeDim.StackBuilder.GUIExtension
             return new CaseOptimConstraintSet(
                     NoWalls
                     , WallThickness
+                    , WallSurfaceMass
                     , new Vector3D(MinLength, MinWidth, MinHeight)
                     , new Vector3D(MaxLength, MaxWidth, MaxHeight)
                     , ForceVerticalBoxOrientation

@@ -12,37 +12,30 @@ namespace TreeDim.StackBuilder.Basics
     public class CaseOptimConstraintSet
     {
         #region Constructor
-        public CaseOptimConstraintSet(int[] noWalls, double wallThickness, Vector3D caseLimitMin, Vector3D caseLimitMax, bool forceVerticalCaseOrientation)
+        public CaseOptimConstraintSet(int[] noWalls
+            , double wallThickness, double wallSurfaceMass
+            , Vector3D caseLimitMin, Vector3D caseLimitMax
+            , bool forceVerticalCaseOrientation)
         {
             NoWalls = noWalls;
             _wallThickness = wallThickness;
+            _wallSurfaceMass = wallSurfaceMass;
             _caseLimitMin = caseLimitMin;
             _caseLimitMax = caseLimitMax;
             _forceVerticalCaseOrientation = forceVerticalCaseOrientation;
         }
         #endregion
-
-        #region Data members
-        private bool _forceVerticalCaseOrientation;
-        /// <summary>
-        /// Case wall thickness
-        /// </summary>
-        private double _wallThickness;
-        /// <summary>
-        /// Number of walls in each direction (used to compute outer case dimensions)
-        /// </summary>
-        private int[] _noWalls = new int[3];
-        /// <summary>
-        /// Optimal case min / max size limits
-        /// </summary>
-        private Vector3D _caseLimitMin, _caseLimitMax;
-        #endregion
-
+        
         #region Public properties
         public double WallThickness
         {
             get { return _wallThickness; }
             set { _wallThickness = value; }
+        }
+        public double WallSurfaceMass
+        {
+            get { return _wallSurfaceMass; }
+            set { _wallSurfaceMass = value; }
         }
         public Vector3D CaseLimitMin
         {
@@ -71,6 +64,26 @@ namespace TreeDim.StackBuilder.Basics
         {
             return _noWalls[iDir];
         }
+        #endregion
+
+        #region Data members
+        private bool _forceVerticalCaseOrientation;
+        /// <summary>
+        /// Case wall thickness
+        /// </summary>
+        private double _wallThickness;
+        /// <summary>
+        /// Case wall surface mass
+        /// </summary>
+        private double _wallSurfaceMass;
+        /// <summary>
+        /// Number of walls in each direction (used to compute outer case dimensions)
+        /// </summary>
+        private int[] _noWalls = new int[3];
+        /// <summary>
+        /// Optimal case min / max size limits
+        /// </summary>
+        private Vector3D _caseLimitMin, _caseLimitMax;
         #endregion
     }
     #endregion
@@ -156,9 +169,9 @@ namespace TreeDim.StackBuilder.Basics
         public double Area(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
         {
             Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
-            return constraintSet.NoWalls[0] * outerDim.Y * outerDim.Z
+            return (constraintSet.NoWalls[0] * outerDim.Y * outerDim.Z
                 + constraintSet.NoWalls[1] * outerDim.X * outerDim.Z
-                + constraintSet.NoWalls[2] * outerDim.X * outerDim.Y;
+                + constraintSet.NoWalls[2] * outerDim.X * outerDim.Y) * UnitsManager.FactorSquareLengthToArea;
         }
         public double InnerVolume(BoxProperties boxProperties)
         {
@@ -170,11 +183,18 @@ namespace TreeDim.StackBuilder.Basics
             Vector3D outerDim = OuterDimensions(boxProperties, constraintSet);
             return outerDim.X * outerDim.Y * outerDim.Z;
         }
-        public double Weight(BoxProperties boxProperties)
+        public double EmptyWeight(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        { 
+            return Area(boxProperties, constraintSet) * constraintSet.WallSurfaceMass;
+        }
+        public double InnerWeight(BoxProperties boxProperties)
         {
             return _arrangement.Number * boxProperties.Weight;
         }
-
+        public double TotalWeight(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        {
+            return InnerWeight(boxProperties) + EmptyWeight(boxProperties, constraintSet);                    
+        }
         #endregion
 
         #region Public methods referring CaseOptimizer
@@ -211,6 +231,12 @@ namespace TreeDim.StackBuilder.Basics
                 , 0.5 * constraintSet.WallThickness * constraintSet.NoWalls[1]
                 , 0.5 * constraintSet.WallThickness * constraintSet.NoWalls[2]);
         }
+
+        public double CaseEmptyWeight(BoxProperties boxProperties, CaseOptimConstraintSet constraintSet)
+        {
+            return constraintSet.WallSurfaceMass * Area(boxProperties, constraintSet);
+        }
+
         /// <summary>
         /// Returns true 
         /// </summary>

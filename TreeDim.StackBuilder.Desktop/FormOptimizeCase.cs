@@ -116,6 +116,7 @@ namespace TreeDim.StackBuilder.Desktop
             nudWallsWidthDir.Value = Settings.Default.NumberWallsWidth;
             nudWallsHeightDir.Value = Settings.Default.NumberWallsHeight;
             nudWallThickness.Value = (decimal)Settings.Default.WallThickness;
+            nudWallSurfaceMass.Value = (decimal)Settings.Default.WallSurfaceMass;
             nudNumber.Value = Settings.Default.NumberBoxesPerCase;
             // set vertical orientation only
             ForceVerticalBoxOrientation = Settings.Default.ForceVerticalBoxOrientation;
@@ -144,6 +145,7 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.NumberWallsHeight = (int)nudWallsHeightDir.Value;
                 Settings.Default.PalletHeight = (double)nudPalletHeight.Value;
                 Settings.Default.WallThickness = (double)nudWallThickness.Value;
+                Settings.Default.WallSurfaceMass = (double)nudWallSurfaceMass.Value;
                 Settings.Default.NumberBoxesPerCase = (int)nudNumber.Value;
                 // window position
                 if (null == Settings.Default.FormOptimizeCasePosition)
@@ -362,6 +364,7 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         private double WallThickness { get { return (double)nudWallThickness.Value; } }
+        private double WallSurfaceMass { get { return (double)nudWallSurfaceMass.Value; } }
         private bool ForceVerticalBoxOrientation
         {
             get { return chkVerticalOrientationOnly.Checked; }
@@ -442,7 +445,7 @@ namespace TreeDim.StackBuilder.Desktop
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, 6] = columnHeader;
                 // 7
-                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_AREA);
+                columnHeader = new SourceGrid.Cells.ColumnHeader(Resources.ID_AREA + "/" + Resources.ID_WEIGHT);
                 columnHeader.AutomaticSortEnabled = false;
                 columnHeader.View = viewColumnHeader;
                 gridSolutions[0, 7] = columnHeader;
@@ -475,7 +478,7 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions.Columns[4].Width = 50;
                 gridSolutions.Columns[5].Width = 50;
                 gridSolutions.Columns[6].Width = 50;
-                gridSolutions.Columns[7].Width = 50;
+                gridSolutions.Columns[7].Width = 80;
                 gridSolutions.Columns[8].Width = 80;
                 gridSolutions.Columns[9].Width = 50;
                 gridSolutions.Columns[10].Width = 80;
@@ -510,7 +513,10 @@ namespace TreeDim.StackBuilder.Desktop
                     // HEIGHT
                     gridSolutions[iIndex, 6] = new SourceGrid.Cells.Cell(string.Format("{0:0.#}", innerDim.Z));
                     // AREA
-                    gridSolutions[iIndex, 7] = new SourceGrid.Cells.Cell(string.Format("{0:0.00}", sol.CaseDefinition.Area(boxProperties, caseOptimConstraintSet) * 1.0E-06));
+                    gridSolutions[iIndex, 7] = new SourceGrid.Cells.Cell(string.Format("{0:0.00} / {1:0.000}"
+                        , sol.CaseDefinition.Area(boxProperties, caseOptimConstraintSet)
+                        , sol.CaseDefinition.EmptyWeight(boxProperties, caseOptimConstraintSet) 
+                        ));
                     // CASES PER LAYER
                     gridSolutions[iIndex, 8] = new SourceGrid.Cells.Cell(string.Format("{0}", sol.PalletSolution[0].BoxCount));
                     // LAYERS
@@ -688,7 +694,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             return new CaseOptimConstraintSet(
                     NoWalls
-                    , WallThickness
+                    , WallThickness, WallSurfaceMass
                     , new Vector3D(MinLength, MinWidth, MinHeight)
                     , new Vector3D(MaxLength, MaxWidth, MaxHeight)
                     , ForceVerticalBoxOrientation

@@ -564,6 +564,18 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        public double WallSurfaceMass {
+            get {
+                return ((double)(this["WallSurfaceMass"]));
+            }
+            set {
+                this["WallSurfaceMass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("48")]
         public int NumberBoxesPerCase {
             get {
@@ -683,15 +695,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
-        public string CultureToUse {
-            get {
-                return ((string)(this["CultureToUse"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -701,6 +704,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
             set {
                 this["ReportInitialDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CultureToUse {
+            get {
+                return ((string)(this["CultureToUse"]));
             }
         }
     }

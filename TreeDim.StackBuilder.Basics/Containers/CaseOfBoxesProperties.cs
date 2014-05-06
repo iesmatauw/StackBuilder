@@ -33,6 +33,9 @@ namespace TreeDim.StackBuilder.Basics
             _boxProperties.AddDependancie(this);
             _caseDefinition = caseDefinition;
             _constraintSet = constraintSet;
+
+            base.Weight = _caseDefinition.CaseEmptyWeight(_boxProperties, _constraintSet);
+
             OnAttributeModified(boxProperties);
         }
         #endregion

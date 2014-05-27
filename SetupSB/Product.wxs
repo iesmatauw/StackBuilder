@@ -1,94 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?include $(sys.CURRENTDIR)\Config.wxi?>
-<!-- Opensource-->
-<?define opensource="true"?>
-<!--Serial number-->
-<?define serial="FX11-VR50-ZH01-PICA"?>
+
+<?define ShowLaunchAppCheckBox = false?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-    <Product Id="*"
-             Name="PLMPack StackBuilder"
-             Language="1033"
-             Version="$(var.Version)"
+  <Product Id="*"
+           Name="PLMPack StackBuilder"
+           Language="1033"
+           Version="$(var.Version)"
+           Manufacturer="$(var.Manufacturer)"
+           UpgradeCode="$(var.UpgradeCode)">
+    <Package Id="*"
+             Description="$(var.Package_Description)"
+             Comments="$(var.Version)"
              Manufacturer="$(var.Manufacturer)"
-             UpgradeCode="$(var.UpgradeCode)">
-        <Package Id="*"
-                 Description="$(var.Package_Description)"
-                 Comments="$(var.Version)"
-                 Manufacturer="$(var.Manufacturer)"
-                 InstallerVersion="300"
-                 Compressed="yes" />
-        <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
-        <!-- ADD/REMOVE Programs icon -->
-        <Icon Id="Stackbuilder.ico" SourceFile="Stackbuilder.ico" />
-        <Property Id="ARPPRODUCTICON" Value="Stackbuilder.ico" />
-        <Property Id="ARPHELPLINK" Value="http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm" />
-        <!-- Installer images -->
-        <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp" />
-        <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp" />
-        <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
-         <!--Properties-->
-        <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PLMPack StackBuilder" />
-        <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
-        <Property Id="PIDTemplate" Value="????-????-????-????" />
-        <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
-        <Property Id="SERIALNUMBER" Value="    -    -    -    " />
-        <Property Id="ALLUSERS" Value="1" />
-        <!--Property references-->
-        <!--PropertyRef Id="NETFRAMEWORK20"/-->
-        <!-- Conditions-->
-        <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
-        <Condition Message="This application is only supported on Windows XP, Windows Vista, Windows 7 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
-        <!--Condition Message="This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again."><![CDATA[Installed OR NETFRAMEWORK20]]></Condition-->
-        <!-- Tell WiX to install the files -->
-        <Feature Id="ProductFeature" Title="SetupSB" Level="1">
-            <ComponentRef Id="References" />
-            <ComponentRef Id="Application" />
-            <ComponentRef Id="ProgramMenuShortcutComp" />
-            <ComponentRef Id="DesktopShortcutComp" />
-            <ComponentRef Id="ReportTemplates" />
-            <ComponentRef Id="PalletSolutionsDB" />
-            <ComponentRef Id="resources_fr_FR" />
-            <ComponentRef Id="resources_ja_JP" />
-            <ComponentRef Id="resources_de_DE" />
-            <ComponentRef Id="resources_es_ES" />
-            <ComponentRef Id="resources_ca_ES" />
-            <ComponentRef Id="Samples" />
-            <ComponentRef Id="XmlSchemas" />
-            <ComponentRef Id="CardboardQualityData" />
-            <ComponentRef Id="WEBGL_GLGE" />
-            <ComponentRef Id="AutoUpdater" />
-        </Feature>
-        <!--Upgrade table-->
-        <Property Id="PROJECT_UPGRADE" Secure="yes" />
-        <Property Id="PROJECT_DOWNGRADE" Secure="yes" />
-        <Upgrade Id="$(var.UpgradeCode)">
-            <UpgradeVersion Minimum="0.0.0.0" IncludeMinimum="yes" Maximum="$(var.Version)" IncludeMaximum="no" OnlyDetect="no" Property="PROJECT_UPGRADE" />
-            <UpgradeVersion Minimum="$(var.Version)" IncludeMinimum="no" OnlyDetect="yes" Property="PROJECT_DOWNGRADE" />
-        </Upgrade>
-        <!--UI-->
-        <UI>
-            <!-- Add UI to the installer -->
-            <UIRef Id="WixUI_InstallDir" />
-            <!-- Following line to override install execute sequance and skip the license agreement dialog -->
-            <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">1</Publish>
-            <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
-            <!-- Trigger custom action -->
-            <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
-        </UI>
-        <!-- Include 'Start' custom action-->
-        <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
-        <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
-        <!-- Prevent downgrade custom action -->
-        <CustomAction Id="NoDownGrade" Error="A later version of [ProductName] is already installed." />
-        <!-- Install execute sequence -->
-        <InstallExecuteSequence>
-            <LaunchConditions After="AppSearch" />
-            <RemoveExistingProducts Before="InstallInitialize" />
-            <Custom Action="NoDownGrade" After="FindRelatedProducts"><![CDATA[PROJECT_DOWNGRADE]]></Custom>
-        </InstallExecuteSequence>
-        <!---->
-    </Product>
+             InstallerVersion="300"
+             Compressed="yes" />
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <!-- ADD/REMOVE Programs icon -->
+    <Icon Id="Stackbuilder.ico" SourceFile="Stackbuilder.ico" />
+    <Property Id="ARPPRODUCTICON" Value="Stackbuilder.ico" />
+    <Property Id="ARPHELPLINK" Value="http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm" />
+    <!-- Installer images -->
+    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    <!--Properties-->
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <Property Id="ALLUSERS" Value="1" />
+    <!-- Conditions-->
+    <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
+    <Condition Message="This application is only supported on Windows XP, Windows Vista, Windows 7 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
+    <!-- Tell WiX to install the files -->
+    <MajorUpgrade AllowDowngrades="no"
+                  AllowSameVersionUpgrades="no"
+                  DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
+    <Feature Id="ProductFeature" Title="SetupSB" Level="1">
+      <ComponentRef Id="References" />
+      <ComponentRef Id="Application" />
+      <ComponentRef Id="ProgramMenuShortcutComp" />
+      <ComponentRef Id="DesktopShortcutComp" />
+      <ComponentRef Id="ReportTemplates" />
+      <ComponentRef Id="PalletSolutionsDB" />
+      <ComponentRef Id="resources_fr_FR" />
+      <ComponentRef Id="resources_ja_JP" />
+      <ComponentRef Id="resources_de_DE" />
+      <ComponentRef Id="resources_es_ES" />
+      <ComponentRef Id="resources_ca_ES" />
+      <ComponentRef Id="Samples" />
+      <ComponentRef Id="XmlSchemas" />
+      <ComponentRef Id="CardboardQualityData" />
+      <ComponentRef Id="WEBGL_GLGE" />
+      <ComponentRef Id="AutoUpdater" />
+    </Feature>
+    <UI>
+      <!-- Add UI to the installer -->
+      <UIRef Id="WixUI_InstallDir" />
+      <DialogRef Id="UserRegistrationDlg" />
+      <?if $(var.ShowLaunchAppCheckBox) = "true" ?>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      <?endif?>
+    </UI>
+    <!-- Include 'Start' custom action-->
+    <?if $(var.ShowLaunchAppCheckBox) = "true"?>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PLMPack StackBuilder" />
+    <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+    <?endif?>
+    <!-- Prevent downgrade custom action -->
+    <CustomAction Id="NoDownGrade" Error="A later version of [ProductName] is already installed." />
+    <!-- Install execute sequence -->
+    <InstallExecuteSequence>
+      <LaunchConditions After="AppSearch" />
+      <Custom Action="NoDownGrade" After="FindRelatedProducts"><![CDATA[PROJECT_DOWNGRADE]]></Custom>
+    </InstallExecuteSequence>
+    <!---->
+  </Product>
 </Wix>

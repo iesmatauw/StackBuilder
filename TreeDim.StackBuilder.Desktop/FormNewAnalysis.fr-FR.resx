@@ -155,6 +155,21 @@
   <data name="checkBoxPositionZ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="checkBoxAllowChangingLastLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>287, 17</value>
+  </data>
+  <data name="checkBoxAllowChangingLastLayerOrient.Text" xml:space="preserve">
+    <value>permettre de changer la direction de la dernière couche</value>
+  </data>
+  <data name="checkBoxAllowTwoLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 17</value>
+  </data>
+  <data name="checkBoxAllowTwoLayerOrient.Text" xml:space="preserve">
+    <value>permettre l'utilisation d'une combinaison de 2 directions de couches</value>
+  </data>
+  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 185</value>
+  </data>
   <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
     <value>Positions de caisses autorisées</value>
   </data>
@@ -188,11 +203,20 @@
   <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
     <value>Spirale élargie</value>
   </data>
+  <data name="checkedListBoxPatterns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 94</value>
+  </data>
+  <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 162</value>
+  </data>
   <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
     <value>Motif de couches autorisées</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 34</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 17</value>
@@ -203,6 +227,9 @@
   <data name="checkBoxMaximumPalletHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="checkBoxMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 59</value>
+  </data>
   <data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 17</value>
   </data>
@@ -211,6 +238,9 @@
   </data>
   <data name="lbStopStacking.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lbStopStacking.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 16</value>
   </data>
   <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 13</value>
@@ -221,6 +251,9 @@
   <data name="checkBoxMaximumPalletWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="checkBoxMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 85</value>
+  </data>
   <data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 17</value>
   </data>
@@ -230,6 +263,9 @@
   <data name="checkBoxMaximumLoadOnBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="checkBoxMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 110</value>
+  </data>
   <data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 17</value>
   </data>
@@ -237,25 +273,25 @@
     <value>le poids au dessus des caisses les plus basses atteint</value>
   </data>
   <data name="nudMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 37</value>
+    <value>284, 31</value>
   </data>
   <data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 67</value>
+    <value>284, 56</value>
   </data>
   <data name="nudMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 97</value>
+    <value>284, 82</value>
   </data>
   <data name="nudMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 127</value>
+    <value>284, 107</value>
   </data>
   <data name="uMassLoadLowerCases.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 132</value>
+    <value>343, 112</value>
   </data>
   <data name="uMassPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 102</value>
+    <value>343, 87</value>
   </data>
   <data name="uLengthPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 72</value>
+    <value>343, 61</value>
   </data>
   <data name="checkBoxInterlayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -326,35 +362,20 @@
   <data name="gbLayerAlignment.Text" xml:space="preserve">
     <value>Alignement des couches</value>
   </data>
+  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 394</value>
+  </data>
   <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 154</value>
+    <value>393, 133</value>
   </data>
   <data name="gbStopStackingCondition.Text" xml:space="preserve">
     <value>Condition d'arrêt de l'empilement</value>
-  </data>
-  <data name="checkBoxNumberOfPallets.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxNumberOfPallets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 17</value>
-  </data>
-  <data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
-    <value>Afficher le nombre de pallettes requis pour</value>
-  </data>
-  <data name="lbBoxes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 13</value>
-  </data>
-  <data name="lbBoxes.Text" xml:space="preserve">
-    <value>caisse(s)</value>
   </data>
   <data name="lbSolutions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 40</value>
+    <value>226, 18</value>
   </data>
   <data name="lbSolutions.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 13</value>
@@ -363,7 +384,7 @@
     <value>meilleure(s) solution(s)</value>
   </data>
   <data name="nudSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 37</value>
+    <value>138, 15</value>
   </data>
   <data name="checkBoxKeepSolutions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -373,6 +394,12 @@
   </data>
   <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
     <value>qui sont parmis les</value>
+  </data>
+  <data name="gbAdditionalData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 532</value>
+  </data>
+  <data name="gbAdditionalData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>568, 44</value>
   </data>
   <data name="gbAdditionalData.Text" xml:space="preserve">
     <value>Données additionnelles</value>

@@ -24,6 +24,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             return (orthoAxis == HalfAxis.HAxis.AXIS_Z_N) || (orthoAxis == HalfAxis.HAxis.AXIS_Z_P);
         }
+        public override bool AllowTwoLayerOrientations
+        {
+            get { return false; }
+            set { }
+        }
+        public override bool AllowLastLayerOrientationChange
+        {
+            get { return false; }
+            set { }
+        } 
         #endregion
 
         #region Stop conditions

@@ -42,6 +42,8 @@
             this.checkBoxPositionY = new System.Windows.Forms.CheckBox();
             this.checkBoxPositionZ = new System.Windows.Forms.CheckBox();
             this.gbAllowedBoxPositions = new System.Windows.Forms.GroupBox();
+            this.checkBoxAllowChangingLastLayerOrient = new System.Windows.Forms.CheckBox();
+            this.checkBoxAllowTwoLayerOrient = new System.Windows.Forms.CheckBox();
             this.lbBox = new System.Windows.Forms.Label();
             this.lbPallet = new System.Windows.Forms.Label();
             this.cbBox = new System.Windows.Forms.ComboBox();
@@ -76,9 +78,6 @@
             this.checkBoxAllowAlternateLayer = new System.Windows.Forms.CheckBox();
             this.gbLayerAlignment = new System.Windows.Forms.GroupBox();
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
-            this.checkBoxNumberOfPallets = new System.Windows.Forms.CheckBox();
-            this.nudNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
-            this.lbBoxes = new System.Windows.Forms.Label();
             this.gbAdditionalData = new System.Windows.Forms.GroupBox();
             this.lbSolutions = new System.Windows.Forms.Label();
             this.nudSolutions = new System.Windows.Forms.NumericUpDown();
@@ -100,7 +99,6 @@
             this.gbOverhangUnderhang.SuspendLayout();
             this.gbLayerAlignment.SuspendLayout();
             this.gbStopStackingCondition.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).BeginInit();
             this.gbAdditionalData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).BeginInit();
             this.statusStripDef.SuspendLayout();
@@ -184,6 +182,8 @@
             // gbAllowedBoxPositions
             // 
             resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
+            this.gbAllowedBoxPositions.Controls.Add(this.checkBoxAllowChangingLastLayerOrient);
+            this.gbAllowedBoxPositions.Controls.Add(this.checkBoxAllowTwoLayerOrient);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionX);
@@ -192,6 +192,18 @@
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionX);
             this.gbAllowedBoxPositions.Name = "gbAllowedBoxPositions";
             this.gbAllowedBoxPositions.TabStop = false;
+            // 
+            // checkBoxAllowChangingLastLayerOrient
+            // 
+            resources.ApplyResources(this.checkBoxAllowChangingLastLayerOrient, "checkBoxAllowChangingLastLayerOrient");
+            this.checkBoxAllowChangingLastLayerOrient.Name = "checkBoxAllowChangingLastLayerOrient";
+            this.checkBoxAllowChangingLastLayerOrient.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAllowTwoLayerOrient
+            // 
+            resources.ApplyResources(this.checkBoxAllowTwoLayerOrient, "checkBoxAllowTwoLayerOrient");
+            this.checkBoxAllowTwoLayerOrient.Name = "checkBoxAllowTwoLayerOrient";
+            this.checkBoxAllowTwoLayerOrient.UseVisualStyleBackColor = true;
             // 
             // lbBox
             // 
@@ -470,36 +482,12 @@
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
-            // checkBoxNumberOfPallets
-            // 
-            resources.ApplyResources(this.checkBoxNumberOfPallets, "checkBoxNumberOfPallets");
-            this.checkBoxNumberOfPallets.Name = "checkBoxNumberOfPallets";
-            this.checkBoxNumberOfPallets.UseVisualStyleBackColor = true;
-            // 
-            // nudNumberOfBoxes
-            // 
-            resources.ApplyResources(this.nudNumberOfBoxes, "nudNumberOfBoxes");
-            this.nudNumberOfBoxes.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nudNumberOfBoxes.Name = "nudNumberOfBoxes";
-            // 
-            // lbBoxes
-            // 
-            resources.ApplyResources(this.lbBoxes, "lbBoxes");
-            this.lbBoxes.Name = "lbBoxes";
-            // 
             // gbAdditionalData
             // 
             resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
             this.gbAdditionalData.Controls.Add(this.lbSolutions);
             this.gbAdditionalData.Controls.Add(this.nudSolutions);
             this.gbAdditionalData.Controls.Add(this.checkBoxKeepSolutions);
-            this.gbAdditionalData.Controls.Add(this.lbBoxes);
-            this.gbAdditionalData.Controls.Add(this.nudNumberOfBoxes);
-            this.gbAdditionalData.Controls.Add(this.checkBoxNumberOfPallets);
             this.gbAdditionalData.Name = "gbAdditionalData";
             this.gbAdditionalData.TabStop = false;
             // 
@@ -603,7 +591,6 @@
             this.gbLayerAlignment.PerformLayout();
             this.gbStopStackingCondition.ResumeLayout(false);
             this.gbStopStackingCondition.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).EndInit();
             this.gbAdditionalData.ResumeLayout(false);
             this.gbAdditionalData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).EndInit();
@@ -663,14 +650,13 @@
         private System.Windows.Forms.CheckBox checkBoxAllowAlternateLayer;
         private System.Windows.Forms.GroupBox gbLayerAlignment;
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
-        private System.Windows.Forms.CheckBox checkBoxNumberOfPallets;
-        private System.Windows.Forms.NumericUpDown nudNumberOfBoxes;
-        private System.Windows.Forms.Label lbBoxes;
         private System.Windows.Forms.GroupBox gbAdditionalData;
         private System.Windows.Forms.CheckBox checkBoxKeepSolutions;
         private System.Windows.Forms.Label lbSolutions;
         private System.Windows.Forms.NumericUpDown nudSolutions;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
+        private System.Windows.Forms.CheckBox checkBoxAllowChangingLastLayerOrient;
+        private System.Windows.Forms.CheckBox checkBoxAllowTwoLayerOrient;
     }
 }

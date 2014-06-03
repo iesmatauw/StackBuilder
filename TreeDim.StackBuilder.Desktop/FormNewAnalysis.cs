@@ -166,6 +166,10 @@ namespace TreeDim.StackBuilder.Desktop
                     AllowVerticalZ = Settings.Default.AllowVerticalZ;
 
                     AllowedPatternsString = Settings.Default.AllowedPatterns;
+
+                    AllowTwoLayerOrientations = Settings.Default.AllowLayerOrientChange;
+                    AllowLastLayerOrientationChange = Settings.Default.AllowLayerOrientChangeLastOnly;
+
                 }
                 else
                 {
@@ -173,10 +177,12 @@ namespace TreeDim.StackBuilder.Desktop
                     AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
                     AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
                     AllowVerticalZ = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P);
-                    
+
+                    AllowTwoLayerOrientations = constraintSet.AllowTwoLayerOrientations;
+                    AllowLastLayerOrientationChange = constraintSet.AllowLastLayerOrientationChange;
+
                     AllowedPatternsString = constraintSet.AllowedPatternString;
                 }
-
 
                 // alternate / aligned layers + stop stacking criterion
                 if (null == _analysis)
@@ -420,6 +426,22 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return checkBoxPositionZ.Checked; }
             set { checkBoxPositionZ.Checked = value; }
+        }
+        /// <summary>
+        /// Allow using a combination two layer orientations
+        /// </summary>
+        public bool AllowTwoLayerOrientations
+        {
+            get { return checkBoxAllowTwoLayerOrient.Checked; }
+            set { checkBoxAllowTwoLayerOrient.Checked = value; }
+        }
+        /// <summary>
+        /// Allow changing last layer direction to use remaining space
+        /// </summary>
+        public bool AllowLastLayerOrientationChange
+        {
+            get { return checkBoxAllowChangingLastLayerOrient.Checked; }
+            set { checkBoxAllowChangingLastLayerOrient.Checked = value; }
         }
         /// <summary>
         /// Allowed patterns

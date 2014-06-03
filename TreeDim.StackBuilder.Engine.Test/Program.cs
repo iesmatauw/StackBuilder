@@ -34,11 +34,11 @@ namespace TreeDim.StackBuilder.Engine.Test
                 Console.WriteLine("=== Pallet properties ===");
                 Console.WriteLine(palletProperties.ToString());
 
-                bool testCylinder = true;
+                bool testCylinder = false;
                 if (!testCylinder)
                 {
                     // define box properties
-                    BoxProperties boxProperties = new BoxProperties(doc, 162, 210, 125);
+                    BoxProperties boxProperties = new BoxProperties(doc, 162, 210, 250);
                     boxProperties.Name = "Box1";
                     boxProperties.Weight = 3.0;
                     if (!useSingleColor)
@@ -60,12 +60,12 @@ namespace TreeDim.StackBuilder.Engine.Test
 
                     // define constraints
                     CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
-                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, false);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
                     constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, true);
-                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, false);
-                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, false);
-                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, false);
-                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, false);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, true);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, true);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, true);
+                    constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
 
                     constraintSet.SetAllowedPattern("Trilock");
 
@@ -74,10 +74,11 @@ namespace TreeDim.StackBuilder.Engine.Test
 
                     constraintSet.MaximumPalletWeight = 2000;
                     constraintSet.MaximumNumberOfItems = 2000;
-                    constraintSet.MaximumHeight = 400.0;
+                    constraintSet.MaximumHeight = 2000.0;
                     constraintSet.UseMaximumHeight = true;
                     constraintSet.UseMaximumPalletWeight = true;
                     constraintSet.UseMaximumWeightOnBox = false;
+                    constraintSet.AllowLastLayerOrientationChange = true;
                     Console.WriteLine("=== Constraint set ===");
                     Console.WriteLine(constraintSet.ToString());
 

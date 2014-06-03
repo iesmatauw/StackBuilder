@@ -22,6 +22,20 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Static conversion methods
+        public static HAxis Opposite(HAxis axis)
+        {
+            switch (axis)
+            {
+                case HAxis.AXIS_X_N: return HAxis.AXIS_X_P;
+                case HAxis.AXIS_X_P: return HAxis.AXIS_X_N;
+                case HAxis.AXIS_Y_N: return HAxis.AXIS_Y_P;
+                case HAxis.AXIS_Y_P: return HAxis.AXIS_Y_N;
+                case HAxis.AXIS_Z_N: return HAxis.AXIS_Z_P;
+                case HAxis.AXIS_Z_P: return HAxis.AXIS_Z_N;
+                default: return HAxis.AXIS_Z_P;
+            }
+        }
+
         public static Vector3D ToVector3D(HAxis axis)
         {
             switch (axis)

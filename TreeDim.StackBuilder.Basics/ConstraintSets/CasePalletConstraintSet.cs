@@ -12,6 +12,7 @@ namespace TreeDim.StackBuilder.Basics
         private bool[] _allowedOrthoAxis = new bool[6];
         private bool _useMaximumWeightOnBox;
         private double _maximumWeightOnBox;
+        private bool _allowTwoLayerOrientations = false, _allowLastLayerOrientationChange = false;
         #endregion
 
         #region Constructor
@@ -43,6 +44,16 @@ namespace TreeDim.StackBuilder.Basics
         {
             _allowedOrthoAxis[(int)axis] = allowed;
         }
+        public override bool AllowTwoLayerOrientations
+        {
+            get { return _allowTwoLayerOrientations; }
+            set { _allowTwoLayerOrientations = value; }
+        }
+        public override bool AllowLastLayerOrientationChange
+        {
+            get { return _allowLastLayerOrientationChange; }
+            set { _allowLastLayerOrientationChange = value; }
+        } 
         #endregion
 
         #region Stop conditions

@@ -170,6 +170,9 @@ namespace TreeDim.StackBuilder.Basics
                 return sGlobal;
             }
         }
+
+        abstract public bool AllowTwoLayerOrientations { get; set; }
+        abstract public bool AllowLastLayerOrientationChange { get; set; }
         #endregion
 
         #region Overhang / underhang

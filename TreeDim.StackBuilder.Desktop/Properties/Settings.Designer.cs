@@ -715,5 +715,29 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 return ((string)(this["CultureToUse"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AllowLayerOrientChange {
+            get {
+                return ((bool)(this["AllowLayerOrientChange"]));
+            }
+            set {
+                this["AllowLayerOrientChange"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AllowLayerOrientChangeLastOnly {
+            get {
+                return ((bool)(this["AllowLayerOrientChangeLastOnly"]));
+            }
+            set {
+                this["AllowLayerOrientChangeLastOnly"] = value;
+            }
+        }
     }
 }

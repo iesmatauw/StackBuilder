@@ -523,6 +523,9 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
                     constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
                     constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
+                    // allowed dir change
+                    constraintSet.AllowTwoLayerOrientations = form.AllowTwoLayerOrientations;
+                    constraintSet.AllowLastLayerOrientationChange = form.AllowLastLayerOrientationChange;
                     // allowed patterns
                     constraintSet.ClearAllowedPatterns();
                     foreach (string s in form.AllowedPatterns)

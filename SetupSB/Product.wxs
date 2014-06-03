@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 
-<?define ShowLaunchAppCheckBox = false?>
+<?define ShowLaunchAppCheckBox = "no"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
@@ -60,12 +60,12 @@
       <!-- Add UI to the installer -->
       <UIRef Id="WixUI_InstallDir" />
       <DialogRef Id="UserRegistrationDlg" />
-      <?if $(var.ShowLaunchAppCheckBox) = "true" ?>
+      <?if $(var.ShowLaunchAppCheckBox) = "yes" ?>
       <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
       <?endif?>
     </UI>
     <!-- Include 'Start' custom action-->
-    <?if $(var.ShowLaunchAppCheckBox) = "true"?>
+    <?if $(var.ShowLaunchAppCheckBox) = "yes"?>
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PLMPack StackBuilder" />
     <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
     <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />

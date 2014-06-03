@@ -9,8 +9,6 @@
   <Fragment>
     <!--UI-->
     <UI>
-      <!-- Add UI to the installer -->
-
       <!-- Trigger custom action -->
       <Publish Dialog="UserRegistrationDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
       <Publish Dialog="UserRegistrationDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>

@@ -23,6 +23,8 @@ using TreeDim.StackBuilder.Desktop.Properties;
 using TreeDim.StackBuilder.ColladaExporter;
 
 using Microsoft.Office.Interop;
+
+using treeDiM.StackBuilder.Plugin;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -1002,7 +1004,16 @@ namespace TreeDim.StackBuilder.Desktop
             CloseStartPage();
             NewDocument();
         }
-
+        private void fileNewINTEX(object sender, EventArgs e)
+        {
+            CloseStartPage();
+            // use INTEX plugin to generate document
+            Plugin_INTEX plugin = new Plugin_INTEX();
+            string fileName = null;
+            // if document can be created, then open
+            if (plugin.onFileNew(ref fileName))
+                OpenDocument(fileName);
+        }
         private void fileOpen(object sender, EventArgs e)
         {
             CloseStartPage();
@@ -1383,5 +1394,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

@@ -925,7 +925,7 @@ namespace TreeDim.StackBuilder.Basics
             if (docElement.HasAttribute("UnitSystem"))
                 _unitSystem = (UnitsManager.UnitSystem)int.Parse(docElement.Attributes["UnitSystem"].Value);
             else
-                _unitSystem = UnitsManager.UnitSystem.UNIT_METRIC;
+                _unitSystem = UnitsManager.UnitSystem.UNIT_METRIC1;
 
             foreach (XmlNode docChildNode in docElement.ChildNodes)
             {

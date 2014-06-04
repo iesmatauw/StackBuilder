@@ -86,9 +86,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ThirdPartyAssemblies\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <HintPath>..\packages\DockPanelSuite.2.9.0.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -929,6 +929,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1036,6 +1037,14 @@
       <Project>{2AD4C04C-5B8A-4E69-9B1C-402CB86860A7}</Project>
       <Name>TreeDim.StackBuilder.Graphics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Plugin\treeDiM.StackBuilder.Plugin.csproj">
+      <Project>{75769E19-2CCC-4DF0-88D9-CBAC14BB6329}</Project>
+      <Name>treeDiM.StackBuilder.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Plugin_INTEX\treeDiM.StackBuilder.Plugin_INTEX.csproj">
+      <Project>{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53}</Project>
+      <Name>treeDiM.StackBuilder.Plugin_INTEX</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\TreeDim.StackBuilder.Reporting.csproj">
       <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
       <Name>TreeDim.StackBuilder.Reporting</Name>
@@ -1112,6 +1121,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solution.bmp" />
+    <Content Include="license.txt" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />

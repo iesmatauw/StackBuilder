@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C5AAB10A-8D08-419F-9D5C-2FC78FEF8B53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.StackBuilder.Plugin</RootNamespace>
+    <AssemblyName>treeDiM.StackBuilder.Plugin_INTEX</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataItemINTEX.cs" />
+    <Compile Include="ExcelDataReader.cs" />
+    <Compile Include="ExcelDataReaderCore.cs" />
+    <Compile Include="FormNewINTEX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewINTEX.Designer.cs">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PalletINTEX.cs" />
+    <Compile Include="Plugin_INTEX.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
+      <Project>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</Project>
+      <Name>Sharp3D.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\TreeDim.StackBuilder.Basics.csproj">
+      <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
+      <Name>TreeDim.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj">
+      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
+      <Name>TreeDim.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Plugin\treeDiM.StackBuilder.Plugin.csproj">
+      <Project>{75769E19-2CCC-4DF0-88D9-CBAC14BB6329}</Project>
+      <Name>treeDiM.StackBuilder.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.UserControls\TreeDim.UserControls.csproj">
+      <Project>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</Project>
+      <Name>TreeDim.UserControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormNewINTEX.fr-FR.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewINTEX.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

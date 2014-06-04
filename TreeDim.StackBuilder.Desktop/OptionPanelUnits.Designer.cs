@@ -37,7 +37,8 @@
             this.cbUnitSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUnitSystem.FormattingEnabled = true;
             this.cbUnitSystem.Items.AddRange(new object[] {
-            "Metric (mm/kg/l)",
+            "Metric 1 (mm/kg/l)",
+            "Metric 2 (cm/kg/l)",
             "UK (in/lb/gal)",
             "US (in/lb/gal)"});
             this.cbUnitSystem.Location = new System.Drawing.Point(99, 21);

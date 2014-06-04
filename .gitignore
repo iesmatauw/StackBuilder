@@ -244,3 +244,5 @@ pip-log.txt
 .mr.developer.cfg
 
 BootstrapperSB/dotNetFx40_Full_x86_x64.exe
+TreeDim.StackBuilder.Desktop/license.txt
+packages/DockPanelSuite.2.9.0.0/content/license.txt

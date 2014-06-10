@@ -58,5 +58,17 @@ namespace treeDiM.StackBuilder.Plugin.Properties {
                 this["TopPictoPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("152")]
+        public double PalletHeight {
+            get {
+                return ((double)(this["PalletHeight"]));
+            }
+            set {
+                this["PalletHeight"] = value;
+            }
+        }
     }
 }

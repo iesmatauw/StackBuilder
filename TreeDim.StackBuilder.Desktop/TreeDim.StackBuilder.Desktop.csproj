@@ -86,9 +86,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DockPanelSuite.2.9.0.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\ThirdPartyAssemblies\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +320,12 @@
     </Compile>
     <Compile Include="OptionPanelDebugging.Designer.cs">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanelPlugins.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanelPlugins.Designer.cs">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
     </Compile>
     <Compile Include="OptionPanelReporting.cs">
       <SubType>UserControl</SubType>
@@ -863,6 +868,12 @@
     <EmbeddedResource Include="OptionPanelDebugging.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelPlugins.fr-FR.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelPlugins.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelReporting.de-DE.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
     </EmbeddedResource>
@@ -1049,6 +1060,10 @@
       <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
       <Name>TreeDim.StackBuilder.Reporting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TreeDim.UserControls\TreeDim.UserControls.csproj">
+      <Project>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</Project>
+      <Name>TreeDim.UserControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OPENFOLD.BMP" />
@@ -1121,7 +1136,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solution.bmp" />
-    <Content Include="license.txt" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />

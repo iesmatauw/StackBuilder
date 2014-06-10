@@ -33,6 +33,8 @@
             this.tbReportTemplateDir = new System.Windows.Forms.TextBox();
             this.btReportTemplateDir = new System.Windows.Forms.Button();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkbUseCompanySpecificReportTemplate = new System.Windows.Forms.CheckBox();
+            this.fileSelectCtrlUsedReportTemplate = new TreeDim.UserControls.FileSelect();
             this.SuspendLayout();
             // 
             // lbReportTemplatesDir
@@ -53,20 +55,32 @@
             this.btReportTemplateDir.UseVisualStyleBackColor = true;
             this.btReportTemplateDir.Click += new System.EventHandler(this.btReportTemplateDir_Click);
             // 
-            // folderBrowserDlg
+            // chkbUseCompanySpecificReportTemplate
             // 
-            resources.ApplyResources(this.folderBrowserDlg, "folderBrowserDlg");
+            resources.ApplyResources(this.chkbUseCompanySpecificReportTemplate, "chkbUseCompanySpecificReportTemplate");
+            this.chkbUseCompanySpecificReportTemplate.Name = "chkbUseCompanySpecificReportTemplate";
+            this.chkbUseCompanySpecificReportTemplate.UseVisualStyleBackColor = true;
+            this.chkbUseCompanySpecificReportTemplate.CheckedChanged += new System.EventHandler(this.chkbUseCompanySpecificReportTemplate_CheckedChanged);
+            // 
+            // fileSelectCtrlUsedReportTemplate
+            // 
+            resources.ApplyResources(this.fileSelectCtrlUsedReportTemplate, "fileSelectCtrlUsedReportTemplate");
+            this.fileSelectCtrlUsedReportTemplate.Filter = "XSLT Stylesheet (.xsl)|*.xsl";
+            this.fileSelectCtrlUsedReportTemplate.Name = "fileSelectCtrlUsedReportTemplate";
             // 
             // OptionPanelReporting
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Reporting";
+            this.Controls.Add(this.fileSelectCtrlUsedReportTemplate);
+            this.Controls.Add(this.chkbUseCompanySpecificReportTemplate);
             this.Controls.Add(this.btReportTemplateDir);
             this.Controls.Add(this.tbReportTemplateDir);
             this.Controls.Add(this.lbReportTemplatesDir);
             this.DisplayName = "Reporting";
             this.Name = "OptionPanelReporting";
+            this.Load += new System.EventHandler(this.OptionPanelReporting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,5 +92,7 @@
         private System.Windows.Forms.TextBox tbReportTemplateDir;
         private System.Windows.Forms.Button btReportTemplateDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDlg;
+        private System.Windows.Forms.CheckBox chkbUseCompanySpecificReportTemplate;
+        private TreeDim.UserControls.FileSelect fileSelectCtrlUsedReportTemplate;
     }
 }

@@ -49,6 +49,14 @@
             this.cbPallet = new System.Windows.Forms.ComboBox();
             this.lbFilePath = new System.Windows.Forms.Label();
             this.fileSelectCtrl = new TreeDim.UserControls.FileSelect();
+            this.uLengthX = new System.Windows.Forms.Label();
+            this.uLengthY = new System.Windows.Forms.Label();
+            this.uLengthZ = new System.Windows.Forms.Label();
+            this.uMassCase = new System.Windows.Forms.Label();
+            this.lbPalletHeight = new System.Windows.Forms.Label();
+            this.nudPalletHeight = new System.Windows.Forms.NumericUpDown();
+            this.uLengthPalletHeight = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOK
@@ -165,7 +173,50 @@
             // fileSelectCtrl
             // 
             resources.ApplyResources(this.fileSelectCtrl, "fileSelectCtrl");
+            this.fileSelectCtrl.Filter = "StackBuilder (*.stb) |*.stb";
             this.fileSelectCtrl.Name = "fileSelectCtrl";
+            this.fileSelectCtrl.SaveMode = true;
+            // 
+            // uLengthX
+            // 
+            resources.ApplyResources(this.uLengthX, "uLengthX");
+            this.uLengthX.Name = "uLengthX";
+            // 
+            // uLengthY
+            // 
+            resources.ApplyResources(this.uLengthY, "uLengthY");
+            this.uLengthY.Name = "uLengthY";
+            // 
+            // uLengthZ
+            // 
+            resources.ApplyResources(this.uLengthZ, "uLengthZ");
+            this.uLengthZ.Name = "uLengthZ";
+            // 
+            // uMassCase
+            // 
+            resources.ApplyResources(this.uMassCase, "uMassCase");
+            this.uMassCase.Name = "uMassCase";
+            // 
+            // lbPalletHeight
+            // 
+            resources.ApplyResources(this.lbPalletHeight, "lbPalletHeight");
+            this.lbPalletHeight.Name = "lbPalletHeight";
+            // 
+            // nudPalletHeight
+            // 
+            this.nudPalletHeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
+            this.nudPalletHeight.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudPalletHeight.Name = "nudPalletHeight";
+            // 
+            // uLengthPalletHeight
+            // 
+            resources.ApplyResources(this.uLengthPalletHeight, "uLengthPalletHeight");
+            this.uLengthPalletHeight.Name = "uLengthPalletHeight";
             // 
             // FormNewINTEX
             // 
@@ -173,6 +224,13 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.uLengthPalletHeight);
+            this.Controls.Add(this.nudPalletHeight);
+            this.Controls.Add(this.lbPalletHeight);
+            this.Controls.Add(this.uMassCase);
+            this.Controls.Add(this.uLengthZ);
+            this.Controls.Add(this.uLengthY);
+            this.Controls.Add(this.uLengthX);
             this.Controls.Add(this.fileSelectCtrl);
             this.Controls.Add(this.lbFilePath);
             this.Controls.Add(this.cbPallet);
@@ -198,6 +256,7 @@
             this.Name = "FormNewINTEX";
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.FormNewINTEX_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +284,12 @@
         private System.Windows.Forms.ComboBox cbPallet;
         private System.Windows.Forms.Label lbFilePath;
         private TreeDim.UserControls.FileSelect fileSelectCtrl;
+        private System.Windows.Forms.Label uLengthX;
+        private System.Windows.Forms.Label uLengthY;
+        private System.Windows.Forms.Label uLengthZ;
+        private System.Windows.Forms.Label uMassCase;
+        private System.Windows.Forms.Label lbPalletHeight;
+        private System.Windows.Forms.NumericUpDown nudPalletHeight;
+        private System.Windows.Forms.Label uLengthPalletHeight;
     }
 }

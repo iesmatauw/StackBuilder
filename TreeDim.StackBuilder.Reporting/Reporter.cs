@@ -320,7 +320,7 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Report generation
-        public void BuildAnalysisReport(ReportData inputData, string reportTemplatePath, string outputFilePath)
+        public void BuildAnalysisReport(ReportData inputData, string reportTemplatePath, bool exactTemplate, string outputFilePath)
         {
             // verify if inputData is a valid entry
             if (!inputData.IsValid)
@@ -340,8 +340,14 @@ namespace TreeDim.StackBuilder.Reporting
                 Reporter.ValidateXmlDocument(xmlData, Path.Combine(reportTemplatePath, "ReportSchema.xsd"));
             // build xslt file
             string xsltTemplateFilePath = string.Empty;
-            if (!RetrieveXsltTemplate(reportTemplatePath, ref xsltTemplateFilePath))
-                throw new Exception(string.Format("Failed to build/retrieve xslt template: {0}",reportTemplatePath));
+            // if is exact template and exists, use as template path
+            if (exactTemplate && File.Exists(reportTemplatePath))
+                xsltTemplateFilePath = reportTemplatePath;
+            else
+            {
+                if (!RetrieveXsltTemplate(reportTemplatePath, ref xsltTemplateFilePath))
+                    throw new Exception(string.Format("Failed to build/retrieve xslt template: {0}", reportTemplatePath));
+            }
             // check availibility of files
             if (!File.Exists(xsltTemplateFilePath))
                 throw new Exception(string.Format("Report template path ({0}) is invalid", xsltTemplateFilePath));

@@ -65,6 +65,10 @@ namespace TreeDim.StackBuilder.Desktop
 
             InitializeComponent();
 
+            // plugins
+            if (Properties.Settings.Default.HasPluginINTEX)
+                this.toolStripSplitButtonNew.DropDownItems.Add(this.ToolStripMenuNewFileINTEX); // add new menu item in "New" ToolStripSplitButton
+
             // load file passed as argument
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length >= 2)
@@ -481,9 +485,12 @@ namespace TreeDim.StackBuilder.Desktop
                             , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                             , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                             );
+                    bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
+                        && File.Exists(Settings.Default.CompanySpecificReportTemplate);
                     ReporterHtml reporter = new ReporterHtml(
                         reportObject
-                        , Settings.Default.ReportTemplatePath
+                        , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath
+                        , exactTemplate
                         , htmlFilePath);
                     // logging
                     _log.Debug(string.Format("Saved html report to {0}", htmlFilePath));
@@ -553,9 +560,12 @@ namespace TreeDim.StackBuilder.Desktop
                         , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                         , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                         );
+                bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
+                    && File.Exists(Settings.Default.CompanySpecificReportTemplate);
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
-                    , Settings.Default.ReportTemplatePath
+                    , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath
+                    , exactTemplate
                     , outputFilePath);
                 // logging
                 _log.Debug(string.Format("Saved report to {0}", outputFilePath));
@@ -1010,6 +1020,8 @@ namespace TreeDim.StackBuilder.Desktop
             // use INTEX plugin to generate document
             Plugin_INTEX plugin = new Plugin_INTEX();
             string fileName = null;
+            // change unit system
+
             // if document can be created, then open
             if (plugin.onFileNew(ref fileName))
                 OpenDocument(fileName);
@@ -1394,7 +1406,5 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
     }
 }

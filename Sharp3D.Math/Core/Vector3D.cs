@@ -619,7 +619,7 @@ namespace Sharp3D.Math.Core
 		/// <returns>A string representation of this object.</returns>
 		public override string ToString()
 		{
-			return string.Format("({0}, {1}, {2})", _x, _y, _z);
+            return string.Format(System.Globalization.CultureInfo.InvariantCulture, "({0}, {1}, {2})", _x, _y, _z);
 		}
 		#endregion
 

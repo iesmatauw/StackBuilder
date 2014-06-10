@@ -21,6 +21,9 @@ namespace treeDiM.StackBuilder.Plugin
         #region Implement IPlugin members
         public bool onFileNew(ref string fileName)
         {
+            // INTEX data are in cms
+            UnitsManager.CurrentUnitSystem = UnitsManager.UnitSystem.UNIT_METRIC2;
+
             string dbPath = Properties.Settings.Default.DatabasePathINTEX;
             if (string.IsNullOrWhiteSpace(fileName) || !File.Exists(fileName))
             {
@@ -137,7 +140,7 @@ namespace treeDiM.StackBuilder.Plugin
                 // constraint set
                 CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
                 constraintSet.UseMaximumHeight = true;
-                constraintSet.MaximumHeight = 220;
+                constraintSet.MaximumHeight = UnitsManager.ConvertLengthFrom(220, UnitsManager.UnitSystem.UNIT_METRIC2);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
                 constraintSet.AllowAlignedLayers = true;
                 constraintSet.AllowAlternateLayers = true;

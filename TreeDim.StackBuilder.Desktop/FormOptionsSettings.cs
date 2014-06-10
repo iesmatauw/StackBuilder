@@ -19,6 +19,7 @@ namespace TreeDim.StackBuilder.Desktop
             Panels.Add(new OptionPanelUnits());
             Panels.Add(new OptionPanelReporting());
             Panels.Add(new OptionPanelDebugging());
+            Panels.Add(new OptionPanelPlugins());
         }
     }
 }

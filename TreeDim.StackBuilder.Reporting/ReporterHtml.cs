@@ -19,9 +19,9 @@ namespace TreeDim.StackBuilder.Reporting
         /// <summary>
         /// ReportHtml : generate html report
         /// </summary>
-        public ReporterHtml(ReportData inputData, string templatePath,  string outpuFilePath)
+        public ReporterHtml(ReportData inputData, string templatePath, bool exactTemplate, string outpuFilePath)
         {
-            BuildAnalysisReport(inputData, templatePath, outpuFilePath);
+            BuildAnalysisReport(inputData, templatePath, exactTemplate, outpuFilePath);
         }
         #endregion
 

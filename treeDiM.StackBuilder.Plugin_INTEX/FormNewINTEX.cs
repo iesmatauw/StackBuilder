@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
+using TreeDim.StackBuilder.Basics;
+#endregion
 
 namespace treeDiM.StackBuilder.Plugin
 {
@@ -15,6 +19,8 @@ namespace treeDiM.StackBuilder.Plugin
         public FormNewINTEX()
         {
             InitializeComponent();
+            // set unit labels
+            UnitsManager.AdaptUnitLabels(this);
         }
         #endregion
 
@@ -32,13 +38,15 @@ namespace treeDiM.StackBuilder.Plugin
             tbWeight.Text = string.Format("{0}", _currentItem._weight);
             // set output file path
             fileSelectCtrl.FileName = BuildFilePath(_currentItem._ref);
-            fileSelectCtrl.Filter = "StackBuilder (*.stb) |*.stb";
-            fileSelectCtrl.SaveMode = true;
+            // update pallet height if necessary
+            UpdatePalletHeight();
         }
 
         private void cbPallet_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentPallet = (PalletINTEX)cbPallet.SelectedItem;
+            // update pallet height if necessary
+            UpdatePalletHeight();
         }
 
         private void FormNewINTEX_Load(object sender, EventArgs e)
@@ -53,6 +61,19 @@ namespace treeDiM.StackBuilder.Plugin
                 cbPallet.Items.Add(pallet);
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
+            // initialize pallet height
+            PalletHeight = Properties.Settings.Default.PalletHeight;
+        }
+
+        private void UpdatePalletHeight()
+        { 
+            // set minimal pallet height
+            if (null != _currentPallet && null != _currentItem)
+            {
+                nudPalletHeight.Minimum = (decimal)(_currentPallet._height + _currentItem._height);
+                if (PalletHeight < (double)nudPalletHeight.Minimum)
+                    PalletHeight = (double)nudPalletHeight.Minimum;
+            }
         }
         #endregion
 
@@ -60,6 +81,11 @@ namespace treeDiM.StackBuilder.Plugin
         public string FilePath
         {
             get { return fileSelectCtrl.FileName; }
+        }
+        public double PalletHeight
+        {
+            get { return (double)nudPalletHeight.Value; }
+            set { nudPalletHeight.Value = (decimal)value; }
         }
         #endregion
 
@@ -80,6 +106,5 @@ namespace treeDiM.StackBuilder.Plugin
         public DataItemINTEX _currentItem;
         public PalletINTEX _currentPallet;
         #endregion
-
     }
 }

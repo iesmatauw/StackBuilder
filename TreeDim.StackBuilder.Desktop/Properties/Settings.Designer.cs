@@ -739,5 +739,41 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["AllowLayerOrientChangeLastOnly"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseCompanySpecificReportTemplate {
+            get {
+                return ((bool)(this["UseCompanySpecificReportTemplate"]));
+            }
+            set {
+                this["UseCompanySpecificReportTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CompanySpecificReportTemplate {
+            get {
+                return ((string)(this["CompanySpecificReportTemplate"]));
+            }
+            set {
+                this["CompanySpecificReportTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HasPluginINTEX {
+            get {
+                return ((bool)(this["HasPluginINTEX"]));
+            }
+            set {
+                this["HasPluginINTEX"] = value;
+            }
+        }
     }
 }

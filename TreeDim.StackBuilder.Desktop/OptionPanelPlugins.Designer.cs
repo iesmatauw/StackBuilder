@@ -42,7 +42,9 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CategoryPath = "Options\\\\Plugins";
             this.Controls.Add(this.chkbPluginINTEX);
+            this.DisplayName = "Plugins";
             this.Name = "OptionPanelPlugins";
             this.Load += new System.EventHandler(this.OptionPanelPlugins_Load);
             this.ResumeLayout(false);

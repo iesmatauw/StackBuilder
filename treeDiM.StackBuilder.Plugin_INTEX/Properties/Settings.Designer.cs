@@ -50,12 +50,12 @@ namespace treeDiM.StackBuilder.Plugin.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TopPictoPath {
+        public string pictoTOP {
             get {
-                return ((string)(this["TopPictoPath"]));
+                return ((string)(this["pictoTOP"]));
             }
             set {
-                this["TopPictoPath"] = value;
+                this["pictoTOP"] = value;
             }
         }
         

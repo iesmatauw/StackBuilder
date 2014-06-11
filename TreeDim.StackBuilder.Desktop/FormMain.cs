@@ -487,6 +487,7 @@ namespace TreeDim.StackBuilder.Desktop
                             );
                     bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
                         && File.Exists(Settings.Default.CompanySpecificReportTemplate);
+                    Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     ReporterHtml reporter = new ReporterHtml(
                         reportObject
                         , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath
@@ -562,6 +563,7 @@ namespace TreeDim.StackBuilder.Desktop
                         );
                 bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
                     && File.Exists(Settings.Default.CompanySpecificReportTemplate);
+                Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
                     , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath

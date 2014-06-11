@@ -68,38 +68,34 @@
         </style>
       </head>
       <body>
-        <h1 style="text-align:center">
-          Rapport généré par treeDiM StackBuilder
-        </h1>
         <table class="style1" cellpadding="4">
+          <xsl:if test="companyLogo">
+            <tr>
+              <td class="style2" colspan="1"/>
+              <td class="style3" colspan="1"/>
+              <td class="style2" colspan="1"/>
+              <td colspan="1" align="middle">
+                <xsl:apply-templates select="companyLogo"/>
+              </td>
+            </tr>
+          </xsl:if>
           <tr>
-            <td class="style2" colspan="1">
-              <b>Document</b>
-            </td>
-            <td class="style3" colspan="3">
-              <xsl:value-of select="name"/>
+            <td colspan="4">
+              <h1 style="text-align:center">
+                Chargement palette <b>
+                  <xsl:value-of select="name"/>
+                </b>
+              </h1>
             </td>
           </tr>
           <tr>
-            <td class="style2" colspan="1">
-              <b>Description</b>
-            </td>
-            <td class="style3" colspan="3">
-              <xsl:value-of select="description"/>
-            </td>
-          </tr>
-          <tr>
+            <td class="style2" colspan="1"/>
+            <td class="style3" colspan="1"/>
             <td class="style2" colspan="1">
               <b>Date</b>
             </td>
             <td class="style3" colspan="1">
               <xsl:value-of select="dateOfCreation"/>
-            </td>
-            <td class="style2" colspan="1">
-              <b>Auteur</b>
-            </td>
-            <td class="style3" colspan="1">
-              <xsl:value-of select="author"/>
             </td>
           </tr>
         </table>
@@ -126,8 +122,6 @@
     <xsl:apply-templates select="caseOfBoxes"/>
     <xsl:apply-templates select="interlayer"/>
     <xsl:apply-templates select="pallet"/>
-    <xsl:apply-templates select="constraintSet"/>
-    <xsl:apply-templates select="caseOptimConstraintSet"/>
     <xsl:apply-templates select="palletSolution"/>
   </xsl:template>
   <xsl:template match="cylinderAnalysis">
@@ -406,69 +400,6 @@
           <xsl:value-of select="name"/>
         </td>
       </tr>
-      <tr>
-        <td  class="style2" colspan="1">
-          <b>Description</b>
-        </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"/>
-        </td>
-      </tr>
-      <tr>
-        <td  class="style2" colspan="1">
-          <b>
-            Longueur (<xsl:value-of select="length/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="length/value"/>
-        </td>
-        <td rowspan="5" align="middle">
-          <xsl:apply-templates select="view_pallet_iso"/>
-        </td>
-      </tr>
-      <tr>
-        <td  class="style2" colspan="1">
-          <b>
-            Largeur (<xsl:value-of select="width/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="width/value"/>
-        </td>
-      </tr>
-      <tr>
-        <td  class="style2" colspan="1">
-          <b>
-            Hauteur (<xsl:value-of select="height/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="height/value"/>
-        </td>
-      </tr>
-      <tr>
-        <td  class="style2" colspan="1">
-          <b>
-            Masse (<xsl:value-of select="admissibleLoad/unit"/>)
-          </b>
-        </td>
-        <td class="style3" colspan="1">
-          <xsl:value-of select="admissibleLoad/value"/>
-        </td>
-      </tr>
-      <xsl:if test="admissibleLoad">
-        <tr>
-          <td  class="style2" colspan="1">
-            <b>
-              Chargement admissible (<xsl:value-of select="admissibleLoad/unit"/>)
-            </b>
-          </td>
-          <td class="style3" colspan="1">
-            <xsl:value-of select="admissibleLoad/value"/>
-          </td>
-        </tr>
-      </xsl:if>
     </table>
   </xsl:template>
   <!--BOX-->
@@ -1013,22 +944,32 @@
   </xsl:template>
   <!--#### PALLET SOLUTION ####-->
   <xsl:template match="palletSolution">
-    <h3>Solution sélectionnée</h3>
     <table class="style1">
       <tr>
         <td class="style2">
-          <b>Titre</b>
+          <b>Nombre de caisses / palette</b>
         </td>
         <td class="style3" colspan="3">
-          <xsl:value-of select="title"/>
+          <xsl:value-of select="caseCount"/>
         </td>
       </tr>
       <tr>
         <td class="style2">
-          <b>Nombre de caisses</b>
+          <b>Nombre de caisses / couche</b>
         </td>
         <td class="style3" colspan="3">
-          <xsl:value-of select="caseCount"/>
+          <xsl:value-of select="layerCount"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>Nombre de couches / palette</b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="layer1_caseCount"/>
+          <xsl:if test="layer2_caseCount">
+            / <xsl:value-of select="layer2_caseCount"/>
+          </xsl:if>
         </td>
       </tr>
       <xsl:if test="interlayerCount">
@@ -1054,19 +995,11 @@
       <tr>
         <td class="style2">
           <b>
-            Hauteur palette (<xsl:value-of select="palletHeight/unit"/>)
+            Longueur / Largeur / Hauteur (<xsl:value-of select="palletHeight/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="3">
-          <xsl:value-of select="palletHeight/value"/>
-        </td>
-      </tr>
-      <tr>
-        <td class="style2">
-          <b>Efficacité (%)</b>
-        </td>
-        <td class="style3" colspan="3">
-          <xsl:value-of select="efficiency"/>
+          <xsl:value-of select="palletLength/value"/> / <xsl:value-of select="palletWidth/value"/> / <xsl:value-of select="palletHeight/value"/>
         </td>
       </tr>
       <tr>
@@ -1219,6 +1152,10 @@
         </td>
       </tr>
     </table>
+  </xsl:template>
+  <!--COMPANYLOGO-->
+  <xsl:template match="companyLogo">
+    <img src="images\companyLogo.png" width="162" height="50" align="middle"/>
   </xsl:template>
   <!--CASE-->
   <xsl:template match="view_case_iso">

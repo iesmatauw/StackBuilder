@@ -90,7 +90,7 @@ namespace treeDiM.StackBuilder.Plugin
                 caseProperties.TapeWidth = 5.0;
                 caseProperties.ShowTape = true;
                 // textures
-                string pictoPath = Properties.Settings.Default.TopPictoPath;
+                string pictoPath = Properties.Settings.Default.pictoTOP;
                 if (File.Exists(pictoPath))
                 {
                     // load image
@@ -133,14 +133,14 @@ namespace treeDiM.StackBuilder.Plugin
                         , UnitsManager.ConvertLengthFrom(pallet._length, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(pallet._width, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(pallet._height, UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertMassFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC2));
+                        , UnitsManager.ConvertMassFrom(pallet._weight, UnitsManager.UnitSystem.UNIT_METRIC2));
                     if (string.Equals(form._currentPallet._name, pallet._name))
                         currentPallet = palletProperties;
                 }
                 // constraint set
                 CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
                 constraintSet.UseMaximumHeight = true;
-                constraintSet.MaximumHeight = UnitsManager.ConvertLengthFrom(220, UnitsManager.UnitSystem.UNIT_METRIC2);
+                constraintSet.MaximumHeight = UnitsManager.ConvertLengthFrom(form.PalletHeight, UnitsManager.UnitSystem.UNIT_METRIC2);
                 constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, true);
                 constraintSet.AllowAlignedLayers = true;
                 constraintSet.AllowAlternateLayers = true;

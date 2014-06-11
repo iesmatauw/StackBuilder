@@ -11,6 +11,7 @@
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\log4net.dll" KeyPath="yes" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\WeifenLuo.WinFormsUI.Docking.dll" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\OfficePickers.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.UserControls.dll"/>
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\PropertyGridEx.dll" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\SourceGrid.dll" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\Sharp3D.Math.dll" Checksum="yes" />
@@ -55,8 +56,12 @@
         <!--update config file-->
       </Component>
       <Component Id="AutoUpdater" Guid="{AD812321-44AD-4213-8B16-8A641CB4D23F}">
-        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.AutoUpdater.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.AutoUpdater.dll" Checksum="yes" KeyPath="yes"/>
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.Update.exe" Checksum="yes" />
+      </Component>
+      <Component Id="Plugins" Guid="{67DBC5AD-1EAB-42A1-AEF0-F044C452D8BA}">
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Plugin.dll" Checksum="yes" KeyPath="yes"/>
+        <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\treeDiM.StackBuilder.Plugin_INTEX.dll" Checksum="yes" />
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="XMLSCHEMAS">
@@ -122,6 +127,16 @@
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_ESP.xsl" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_CAT.xsl" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes" />
+      </Component>
+      <Component Id="ReportTemplate_INTEX" Guid="{02528622-3F81-46D5-9F8C-B5EE3BA35B55}">
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_INTEX.xsl" Checksum="yes" KeyPath="yes" />
+        <util:XmlFile Id="SetUseSpecificReportTemplate" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='UseCompanySpecificReportTemplate'[\]]/value" Value="True" />
+        <util:XmlFile Id="SetSpecificReportTemplate" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanySpecificReportTemplate'[\]]/value" Value="[REPORTTEMPLATES]ReportTemplateHtml_INTEX.xsl" />
+        <util:XmlFile Id="SetHasPluginINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='HasPluginINTEX'[\]]/value" Value="True" />
+        <File Source="..\treeDiM.StackBuilder.Plugin_INTEX\Images\pictoTOP.jpg" Checksum="yes"/>
+        <util:XmlFile Id="SetPictoTOP" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/treeDiM.StackBuilder.Plugin.Properties.Settings/setting[\[]@name='pictoTOP'[\]]/value" Value="[REPORTTEMPLATES]pictoTOP.jpg" />
+        <File Source="..\treeDiM.StackBuilder.Plugin_INTEX\Images\Intex_Reflex.jpg" Checksum="yes"/>
+        <util:XmlFile Id="SetCompanyLogoPath" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanyLogoPath'[\]]/value" Value="[REPORTTEMPLATES]Intex_Reflex.jpg"/>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="PALLETSOLUTIONSDB">

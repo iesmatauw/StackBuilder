@@ -775,5 +775,17 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["HasPluginINTEX"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\TreeDim.png")]
+        public string CompanyLogoPath {
+            get {
+                return ((string)(this["CompanyLogoPath"]));
+            }
+            set {
+                this["CompanyLogoPath"] = value;
+            }
+        }
     }
 }

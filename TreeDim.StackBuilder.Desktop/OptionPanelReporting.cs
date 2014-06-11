@@ -22,6 +22,7 @@ namespace TreeDim.StackBuilder.Desktop
             // initialize
             chkbUseCompanySpecificReportTemplate.Checked = Properties.Settings.Default.UseCompanySpecificReportTemplate;
             fileSelectCtrlUsedReportTemplate.FileName = Properties.Settings.Default.CompanySpecificReportTemplate;
+            fileSelectCompanyLogo.FileName = Properties.Settings.Default.CompanyLogoPath;
         }
 
         void OptionsForm_OptionsSaving(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace TreeDim.StackBuilder.Desktop
             Properties.Settings.Default.UseCompanySpecificReportTemplate
                 = chkbUseCompanySpecificReportTemplate.Checked
                 && System.IO.File.Exists(fileSelectCtrlUsedReportTemplate.FileName);
+            Properties.Settings.Default.CompanyLogoPath = fileSelectCompanyLogo.FileName;
         }
         #endregion
 

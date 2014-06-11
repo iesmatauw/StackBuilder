@@ -231,6 +231,7 @@ namespace TreeDim.StackBuilder.GUIExtension
                 SelCasePalletSolution selSolution = new SelCasePalletSolution(null, _analysis, CurrentSolution);
                 ReportData reportData = new ReportData(_analysis, selSolution);
 
+                Reporter.CompanyLogo = string.Empty;
                 Reporter reporter;
                 string reportTemplatePath = string.Empty;
                 if (formReport.FileExtension == "doc")
@@ -238,12 +239,12 @@ namespace TreeDim.StackBuilder.GUIExtension
                     // create "MS Word" report file
                     reporter = new ReporterMSWord();
                     reportTemplatePath = Settings.Default.ReportTemplatePath;
-                    reporter.BuildAnalysisReport(reportData, reportTemplatePath, formReport.FilePath);
+                    reporter.BuildAnalysisReport(reportData, reportTemplatePath, false, formReport.FilePath);
                 }
                 else if (formReport.FileExtension == "html")
                 {
                     // create "html" report file
-                    reporter = new ReporterHtml(reportData, Settings.Default.ReportTemplatePath, formReport.FilePath);
+                    reporter = new ReporterHtml(reportData, Settings.Default.ReportTemplatePath, false, formReport.FilePath);
                 }
                 else
                     return;

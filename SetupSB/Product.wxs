@@ -38,7 +38,7 @@
     <MajorUpgrade AllowDowngrades="no"
                   AllowSameVersionUpgrades="no"
                   DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
-    <Feature Id="ProductFeature" Title="SetupSB" Level="1">
+    <Feature Id="ProductFeature" Title="StackBuilder" Level="1" Absent="disallow" AllowAdvertise="no">
       <ComponentRef Id="References" />
       <ComponentRef Id="Application" />
       <ComponentRef Id="ProgramMenuShortcutComp" />
@@ -55,10 +55,14 @@
       <ComponentRef Id="CardboardQualityData" />
       <ComponentRef Id="WEBGL_GLGE" />
       <ComponentRef Id="AutoUpdater" />
+      <ComponentRef Id="Plugins"/>
+    </Feature>
+    <Feature Id="Plugin_INTEX" Title="Plugin INTEX" Level="2" AllowAdvertise="no">
+      <ComponentRef Id="ReportTemplate_INTEX"/>
     </Feature>
     <UI>
       <!-- Add UI to the installer -->
-      <UIRef Id="WixUI_InstallDir" />
+      <UIRef Id="WixUI_FeatureTree" />
       <DialogRef Id="UserRegistrationDlg" />
       <?if $(var.ShowLaunchAppCheckBox) = "yes" ?>
       <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>

@@ -303,12 +303,21 @@ namespace TreeDim.StackBuilder.Reporting
         protected static readonly ILog _log = LogManager.GetLogger(typeof(ReporterMSWord));
         protected static bool _validateAgainstSchema = false;
         protected string _imageDirectory;
+        protected static string _companyLogo;
         #endregion
 
         #region Abstract members
         abstract public bool RetrieveXsltTemplate(string reportTemplatePath, ref string xsltTemplateFilePath);
         abstract public bool WriteNamespace { get; }
         abstract public bool WriteImageFiles { get; }
+        #endregion
+
+        #region Public properties
+        static public string CompanyLogo
+        {
+            get { return _companyLogo; }
+            set { _companyLogo = File.Exists(value) ? value : string.Empty; }
+        }
         #endregion
 
         #region Private properties
@@ -419,7 +428,21 @@ namespace TreeDim.StackBuilder.Reporting
             XmlElement elemDateOfCreation = xmlDoc.CreateElement("dateOfCreation", ns);
             elemDateOfCreation.InnerText = doc.DateOfCreation.Year < 2000 ? DateTime.Now.ToShortDateString() : doc.DateOfCreation.ToShortDateString();
             elemDocument.AppendChild(elemDateOfCreation);
+            // CompanyLogo
+            if (!string.IsNullOrEmpty(CompanyLogo))
+            {
+                System.Drawing.Bitmap logoBitmap = new Bitmap(System.Drawing.Bitmap.FromFile(CompanyLogo));
 
+                XmlElement elemCompanyLogo = xmlDoc.CreateElement("companyLogo", ns);
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+                elemCompanyLogo.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(logoBitmap, typeof(byte[])));
+                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", 100, 100);
+                elemCompanyLogo.Attributes.Append(styleAttribute);
+                elemDocument.AppendChild(elemCompanyLogo);
+
+                SaveImageAs(logoBitmap, "CompanyLogo.png");
+            }
             // case analysis
             AppendCaseAnalysisElement(inputData, elemDocument, xmlDoc);
             // box/case analysis
@@ -1018,6 +1041,8 @@ namespace TreeDim.StackBuilder.Reporting
             elemSolution.AppendChild(elemEfficiency);
 
             AppendElementValue(xmlDoc, elemSolution, "palletWeight", UnitsManager.MassUnitString, inputData.ActualPalletWeight);
+            AppendElementValue(xmlDoc, elemSolution, "palletLength", UnitsManager.LengthUnitString, sol.PalletLength);
+            AppendElementValue(xmlDoc, elemSolution, "palletWidth", UnitsManager.LengthUnitString, sol.PalletWidth);
             AppendElementValue(xmlDoc, elemSolution, "palletHeight", UnitsManager.LengthUnitString, sol.PalletHeight);
 
             // caseCount
@@ -1033,6 +1058,20 @@ namespace TreeDim.StackBuilder.Reporting
                 elemSolution.AppendChild(elemBoxCount);
                 XmlElement elemBoxEfficiency = xmlDoc.CreateElement("boxEfficiency", ns);
                 elemBoxEfficiency.InnerText = string.Format("{0:F}", sol.VolumeEfficiencyCases);
+            }
+            // layerCount
+            XmlElement elemLayerCount = xmlDoc.CreateElement("layerCount", ns);
+            elemLayerCount.InnerText = string.Format("{0}", sol.CaseLayersCount);
+            elemSolution.AppendChild(elemLayerCount);
+            // layer1_caseCount / layer2_caseCount
+            XmlElement elemLayer1_caseCount = xmlDoc.CreateElement("layer1_caseCount", ns);
+            elemLayer1_caseCount.InnerText = string.Format("{0}", sol.CaseLayerFirst.BoxCount);
+            elemSolution.AppendChild(elemLayer1_caseCount);
+            if (sol.CaseLayerFirst.BoxCount != sol.CaseLayerSecond.BoxCount)
+            {
+                XmlElement elemLayer2_caseCount = xmlDoc.CreateElement("layer2_caseCount", ns);
+                elemLayer2_caseCount.InnerText = string.Format("{0}", sol.CaseLayerSecond.BoxCount);
+                elemSolution.AppendChild(elemLayer2_caseCount);
             }
             // interlayer count
             if (sol.Analysis.ConstraintSet.HasInterlayer)

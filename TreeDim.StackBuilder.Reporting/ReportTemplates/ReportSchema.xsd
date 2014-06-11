@@ -15,6 +15,7 @@
         <xs:element name="description" type="xs:string" />
         <xs:element name="author" type="xs:string" />
         <xs:element name="dateOfCreation" type="xs:string" />
+        <xs:element name="companyLogo" type="xs:string" minOccurs="0" maxOccurs="1"/>
         <xs:element name="caseAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
@@ -57,7 +58,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-					          <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1">
+                    <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="unit" type="xs:string"/>
@@ -130,7 +131,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-					          <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1">
+                    <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="unit" type="xs:string"/>
@@ -408,12 +409,12 @@
                       </xs:complexType>
                     </xs:element>
                     <xs:element name="width"  minOccurs="1" maxOccurs="1">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="unit" type="xs:string"/>
-                        <xs:element name="value" type="xs:string"/>
-                      </xs:sequence>
-                    </xs:complexType>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unit" type="xs:string"/>
+                          <xs:element name="value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
                     </xs:element>
                     <xs:element name="height" minOccurs="1" maxOccurs="1">
                       <xs:complexType>
@@ -437,7 +438,7 @@
                           <xs:element name="unit" type="xs:string"/>
                           <xs:element name="value" type="xs:string"/>
                         </xs:sequence>
-                      </xs:complexType>                      
+                      </xs:complexType>
                     </xs:element>
                     <xs:element name="type" type="xs:string"/>
                     <xs:element name="view_pallet_iso" type="xs:string">
@@ -529,7 +530,7 @@
                           <xs:element name="unit" type="xs:string"/>
                           <xs:element name="value" type="xs:string"/>
                         </xs:sequence>
-                      </xs:complexType>                      
+                      </xs:complexType>
                     </xs:element>
                     <xs:element name="view_box_iso" type="xs:string"/>
                   </xs:sequence>
@@ -765,7 +766,7 @@
                     <xs:element name="maximumPalletHeightGroup" minOccurs="0" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
-						<xs:element name="maximumPalletHeight" minOccurs="1" maxOccurs="1">
+                          <xs:element name="maximumPalletHeight" minOccurs="1" maxOccurs="1">
                             <xs:complexType>
                               <xs:sequence>
                                 <xs:element name="unit" type="xs:string"/>
@@ -825,6 +826,22 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="palletLength" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unit" type="xs:string"/>
+                          <xs:element name="value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="palletWidth" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unit" type="xs:string"/>
+                          <xs:element name="value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element name="palletHeight" minOccurs="1" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
@@ -834,6 +851,7 @@
                       </xs:complexType>
                     </xs:element>
                     <xs:element name="caseCount" type="xs:string"/>
+                    <xs:element name="layerCount" type="xs:string"/>
                     <xs:element name="interlayerCount" type="xs:string"/>
                     <xs:element name="layer1_caseCount" type="xs:string"/>
                     <xs:element name="layer1_image" type="xs:string"/>
@@ -1059,7 +1077,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                </xs:complexType>                
+                </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>

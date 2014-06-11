@@ -11,9 +11,9 @@
     <UI>
       <!-- Trigger custom action -->
       <Publish Dialog="UserRegistrationDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
-      <Publish Dialog="UserRegistrationDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+      <Publish Dialog="UserRegistrationDlg" Control="Next" Event="NewDialog" Value="CustomizeDlg">1</Publish>
       <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="UserRegistrationDlg">1</Publish>
-      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="UserRegistrationDlg">1</Publish>
+      <Publish Dialog="CustomizeDlg" Control="Back" Event="NewDialog" Value="UserRegistrationDlg">1</Publish>
     </UI>
     <!--UI-->
     <UI>

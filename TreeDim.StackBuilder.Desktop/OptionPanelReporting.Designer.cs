@@ -35,6 +35,8 @@
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.chkbUseCompanySpecificReportTemplate = new System.Windows.Forms.CheckBox();
             this.fileSelectCtrlUsedReportTemplate = new TreeDim.UserControls.FileSelect();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fileSelectCompanyLogo = new TreeDim.UserControls.FileSelect();
             this.SuspendLayout();
             // 
             // lbReportTemplatesDir
@@ -68,11 +70,24 @@
             this.fileSelectCtrlUsedReportTemplate.Filter = "XSLT Stylesheet (.xsl)|*.xsl";
             this.fileSelectCtrlUsedReportTemplate.Name = "fileSelectCtrlUsedReportTemplate";
             // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // fileSelectCompanyLogo
+            // 
+            resources.ApplyResources(this.fileSelectCompanyLogo, "fileSelectCompanyLogo");
+            this.fileSelectCompanyLogo.Filter = "Image file (.bmp;.gif;.jpg;.png)|*.bmp;*.gif;*.jpg;*.png";
+            this.fileSelectCompanyLogo.Name = "fileSelectCompanyLogo";
+            // 
             // OptionPanelReporting
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Reporting";
+            this.Controls.Add(this.fileSelectCompanyLogo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.fileSelectCtrlUsedReportTemplate);
             this.Controls.Add(this.chkbUseCompanySpecificReportTemplate);
             this.Controls.Add(this.btReportTemplateDir);
@@ -94,5 +109,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDlg;
         private System.Windows.Forms.CheckBox chkbUseCompanySpecificReportTemplate;
         private TreeDim.UserControls.FileSelect fileSelectCtrlUsedReportTemplate;
+        private System.Windows.Forms.Label label1;
+        private UserControls.FileSelect fileSelectCompanyLogo;
     }
 }

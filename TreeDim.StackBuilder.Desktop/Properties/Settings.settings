@@ -197,5 +197,8 @@
     <Setting Name="HasPluginINTEX" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="CompanyLogoPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\..\..\TreeDim.StackBuilder.Reporting\ReportTemplates\TreeDim.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

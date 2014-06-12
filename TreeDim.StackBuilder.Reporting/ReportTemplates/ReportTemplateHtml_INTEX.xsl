@@ -958,7 +958,10 @@
           <b>Nombre de caisses / couche</b>
         </td>
         <td class="style3" colspan="3">
-          <xsl:value-of select="layerCount"/>
+          <xsl:value-of select="layer1_caseCount"/>
+          <xsl:if test="layer2_caseCount">
+            / <xsl:value-of select="layer2_caseCount"/>
+          </xsl:if>
         </td>
       </tr>
       <tr>
@@ -966,10 +969,7 @@
           <b>Nombre de couches / palette</b>
         </td>
         <td class="style3" colspan="3">
-          <xsl:value-of select="layer1_caseCount"/>
-          <xsl:if test="layer2_caseCount">
-            / <xsl:value-of select="layer2_caseCount"/>
-          </xsl:if>
+          <xsl:value-of select="layerCount"/>
         </td>
       </tr>
       <xsl:if test="interlayerCount">

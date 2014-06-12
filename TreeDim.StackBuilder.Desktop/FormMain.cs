@@ -129,12 +129,21 @@ namespace TreeDim.StackBuilder.Desktop
                 }
             }
         }
+        private string StartPageURL
+        {
+            get
+            { 
+                string cultAbbrev = string.Equals(System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName, "FRA") ? "FRA" : "ENU";
+                string cultURL = Path.ChangeExtension(Settings.Default.StartPageUrl, null) + "_" + cultAbbrev;
+                return Path.ChangeExtension(cultURL, Path.GetExtension(Settings.Default.StartPageUrl));
+            }
+        }
         public void ShowStartPage()
         {
             if (!IsWebSiteReachable || null == _dockStartPage)
                 return;
             _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            _dockStartPage.Url = new System.Uri(Settings.Default.StartPageUrl);
+            _dockStartPage.Url = new System.Uri(StartPageURL);
         }
         private void CloseStartPage()
         {

@@ -284,10 +284,10 @@ namespace TreeDim.StackBuilder.Desktop
             lbOrigin.Enabled = null != texture;
             lbSize.Enabled = null != texture;
             lbAngle.Enabled = null != texture;
-            lbUnitOriginX.Enabled = null != texture;
-            lbUnitOriginY.Enabled = null != texture;
-            lbUnitSizeX.Enabled = null != texture;
-            lbUnitSizeY.Enabled = null != texture;
+            uLengthOriginX.Enabled = null != texture;
+            uLengthOriginY.Enabled = null != texture;
+            uLengthSizeX.Enabled = null != texture;
+            uLengthSizeY.Enabled = null != texture;
             lbUnitAngle.Enabled = null != texture;
 
             if (null != texture)

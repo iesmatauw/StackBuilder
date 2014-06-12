@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Plugin
             UnitsManager.CurrentUnitSystem = UnitsManager.UnitSystem.UNIT_METRIC2;
 
             string dbPath = Properties.Settings.Default.DatabasePathINTEX;
-            if (string.IsNullOrWhiteSpace(fileName) || !File.Exists(fileName))
+            if (string.IsNullOrWhiteSpace(dbPath) || !File.Exists(dbPath))
             {
                 OpenFileDialog fd = new OpenFileDialog();
                 fd.DefaultExt = "xls";
@@ -58,10 +58,17 @@ namespace treeDiM.StackBuilder.Plugin
                 }
             }
             catch (Exception ex)
-            { _log.Error(ex.Message); }
+            {
+                MessageBox.Show(
+                    ex.Message
+                    , Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _log.Error(ex.Message);
+            }
             finally
             { Cursor.Current = Cursors.Default; }
-
+            // do we have a valid list
+            if (null == list || 0 == list.Count)
+                return false;
             // proceed : buid project file
             try
             {

@@ -954,4 +954,10 @@
         AAD//wAA//8AAA==
 </value>
   </data>
+  <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
+    <value>Créer un nouveau project INTEX...</value>
+  </data>
+  <data name="ToolStripMenuNewFileINTEX.ToolTipText" xml:space="preserve">
+    <value>Créer un nouveau project INTEX...</value>
+  </data>
 </root>

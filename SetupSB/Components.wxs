@@ -82,6 +82,7 @@
         <File Id="TreeDim.EdgeCrushTest.resources.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.EdgeCrushTest.resources.dll" />
         <File Id="TreeDim.AutoUpdater.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\TreeDim.AutoUpdater.resources.dll" />
         <File Id="TreeDim.Update.dll_fr.FR" Source="..\TreeDim.Update\Bin\Release\fr-FR\TreeDim.Update.resources.dll" />
+        <File Id="treeDiM.StackBuilder.Plugin_INTEX.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\treeDiM.StackBuilder.Plugin_INTEX.resources.dll" />
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_JP">

@@ -43,11 +43,11 @@
             this.nudSizeX = new System.Windows.Forms.NumericUpDown();
             this.nudSizeY = new System.Windows.Forms.NumericUpDown();
             this.nudAngle = new System.Windows.Forms.NumericUpDown();
-            this.lbUnitOriginX = new System.Windows.Forms.Label();
-            this.lbUnitSizeX = new System.Windows.Forms.Label();
+            this.uLengthOriginX = new System.Windows.Forms.Label();
+            this.uLengthSizeX = new System.Windows.Forms.Label();
             this.lbUnitAngle = new System.Windows.Forms.Label();
-            this.lbUnitOriginY = new System.Windows.Forms.Label();
-            this.lbUnitSizeY = new System.Windows.Forms.Label();
+            this.uLengthOriginY = new System.Windows.Forms.Label();
+            this.uLengthSizeY = new System.Windows.Forms.Label();
             this.bnMoveUp = new System.Windows.Forms.Button();
             this.bnMoveDown = new System.Windows.Forms.Button();
             this.bnAdd = new System.Windows.Forms.Button();
@@ -193,30 +193,30 @@
             this.nudAngle.Name = "nudAngle";
             this.nudAngle.ValueChanged += new System.EventHandler(this.texturePosition_ValueChanged);
             // 
-            // lbUnitOriginX
+            // uLengthOriginX
             // 
-            resources.ApplyResources(this.lbUnitOriginX, "lbUnitOriginX");
-            this.lbUnitOriginX.Name = "lbUnitOriginX";
+            resources.ApplyResources(this.uLengthOriginX, "uLengthOriginX");
+            this.uLengthOriginX.Name = "uLengthOriginX";
             // 
-            // lbUnitSizeX
+            // uLengthSizeX
             // 
-            resources.ApplyResources(this.lbUnitSizeX, "lbUnitSizeX");
-            this.lbUnitSizeX.Name = "lbUnitSizeX";
+            resources.ApplyResources(this.uLengthSizeX, "uLengthSizeX");
+            this.uLengthSizeX.Name = "uLengthSizeX";
             // 
             // lbUnitAngle
             // 
             resources.ApplyResources(this.lbUnitAngle, "lbUnitAngle");
             this.lbUnitAngle.Name = "lbUnitAngle";
             // 
-            // lbUnitOriginY
+            // uLengthOriginY
             // 
-            resources.ApplyResources(this.lbUnitOriginY, "lbUnitOriginY");
-            this.lbUnitOriginY.Name = "lbUnitOriginY";
+            resources.ApplyResources(this.uLengthOriginY, "uLengthOriginY");
+            this.uLengthOriginY.Name = "uLengthOriginY";
             // 
-            // lbUnitSizeY
+            // uLengthSizeY
             // 
-            resources.ApplyResources(this.lbUnitSizeY, "lbUnitSizeY");
-            this.lbUnitSizeY.Name = "lbUnitSizeY";
+            resources.ApplyResources(this.uLengthSizeY, "uLengthSizeY");
+            this.uLengthSizeY.Name = "uLengthSizeY";
             // 
             // bnMoveUp
             // 
@@ -275,11 +275,11 @@
             this.Controls.Add(this.bnAdd);
             this.Controls.Add(this.bnMoveDown);
             this.Controls.Add(this.bnMoveUp);
-            this.Controls.Add(this.lbUnitSizeY);
-            this.Controls.Add(this.lbUnitOriginY);
+            this.Controls.Add(this.uLengthSizeY);
+            this.Controls.Add(this.uLengthOriginY);
             this.Controls.Add(this.lbUnitAngle);
-            this.Controls.Add(this.lbUnitSizeX);
-            this.Controls.Add(this.lbUnitOriginX);
+            this.Controls.Add(this.uLengthSizeX);
+            this.Controls.Add(this.uLengthOriginX);
             this.Controls.Add(this.nudAngle);
             this.Controls.Add(this.nudSizeY);
             this.Controls.Add(this.nudSizeX);
@@ -331,11 +331,11 @@
         private System.Windows.Forms.NumericUpDown nudSizeX;
         private System.Windows.Forms.NumericUpDown nudSizeY;
         private System.Windows.Forms.NumericUpDown nudAngle;
-        private System.Windows.Forms.Label lbUnitOriginX;
-        private System.Windows.Forms.Label lbUnitSizeX;
+        private System.Windows.Forms.Label uLengthOriginX;
+        private System.Windows.Forms.Label uLengthSizeX;
         private System.Windows.Forms.Label lbUnitAngle;
-        private System.Windows.Forms.Label lbUnitOriginY;
-        private System.Windows.Forms.Label lbUnitSizeY;
+        private System.Windows.Forms.Label uLengthOriginY;
+        private System.Windows.Forms.Label uLengthSizeY;
         private System.Windows.Forms.Button bnMoveUp;
         private System.Windows.Forms.Button bnMoveDown;
         private System.Windows.Forms.Button bnAdd;

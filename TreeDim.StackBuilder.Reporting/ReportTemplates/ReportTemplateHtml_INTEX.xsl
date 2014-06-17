@@ -12,6 +12,7 @@
         <style type="text/css">
           .style1
           {
+          width:200mm;
           color:blue;
           }
           .style2
@@ -23,6 +24,7 @@
           }
           .style3
           {
+          width: 50mm;
           color:black;
           font-family:Arial;
           font-size:10px;

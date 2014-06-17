@@ -117,9 +117,9 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Adding layer / interlayer
-        public BoxLayer CreateNewLayer(double zLow)
+        public BoxLayer CreateNewLayer(double zLow, string patternName)
         {
-            BoxLayer layer = new BoxLayer(zLow);
+            BoxLayer layer = new BoxLayer(zLow, patternName);
             Add(layer);
             return layer;
         }
@@ -138,9 +138,36 @@ namespace TreeDim.StackBuilder.Basics
             if (this.BoxPerPalletCount > sol.BoxPerPalletCount)
                 return -1;
             else if (this.BoxPerPalletCount == sol.BoxPerPalletCount)
+            {
+                if ((sol.Count > 0 && sol[0] is BoxLayer)
+                    && (this.Count > 0 && this[0] is BoxLayer))
+                {
+                    BoxLayer layerSol = (BoxLayer)sol[0];
+                    int iPatternSol = PatternNameToIndex(layerSol.PatternName);
+                    BoxLayer layerThis = (BoxLayer)this[0];
+                    int iPatternThis = PatternNameToIndex(layerThis.PatternName);
+
+                    if (iPatternSol > iPatternThis)
+                        return -1;
+                    else if (iPatternSol == iPatternThis)
+                        return 0;
+                    else
+                        return 1;                    
+                }
                 return 0;
+            }
             else
                 return 1; 
+        }
+        private int PatternNameToIndex(string patternName)
+        {
+            if (string.Equals(patternName, "Column"))               return 0;
+            else if (string.Equals(patternName, "Interlocked"))     return 1;
+            else if (string.Equals(patternName, "Trilock"))         return 2;
+            else if (string.Equals(patternName,  "Diagonale"))      return 3;
+            else if (string.Equals(patternName, "Spirale"))         return 4;
+            else if (string.Equals(patternName, "Enlarged spiral")) return 5;
+            else return 6;        
         }
         #endregion
     }

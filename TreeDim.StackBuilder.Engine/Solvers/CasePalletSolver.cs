@@ -222,7 +222,7 @@ namespace TreeDim.StackBuilder.Engine
 
                                     // select current layer type
                                     Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
-                                    BoxLayer layer = sol.CreateNewLayer(zLayer);
+                                    BoxLayer layer = sol.CreateNewLayer(zLayer, pattern.Name);
 
                                     foreach (LayerPosition layerPos in currentLayer)
                                     {
@@ -284,7 +284,7 @@ namespace TreeDim.StackBuilder.Engine
                                     {
                                         for (int iAddLayer = 0; iAddLayer < ibestLayerCount; ++iAddLayer)
                                         {
-                                            BoxLayer layer = sol.CreateNewLayer(zLayer);
+                                            BoxLayer layer = sol.CreateNewLayer(zLayer, string.Empty);
 
                                             foreach (LayerPosition layerPos in bestLayer)
                                             {
@@ -391,7 +391,7 @@ namespace TreeDim.StackBuilder.Engine
 
                     for (int j = 0; j < noLayer0; ++j)
                     {
-                        BoxLayer layer = sol0.CreateNewLayer(zLayer);
+                        BoxLayer layer = sol0.CreateNewLayer(zLayer, string.Empty);
                         foreach (LayerPosition layerPos in layer0)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -409,7 +409,7 @@ namespace TreeDim.StackBuilder.Engine
                     }
                     for (int j = 0; j < noLayer1; ++j)
                     {
-                        BoxLayer layer = sol0.CreateNewLayer(zLayer);
+                        BoxLayer layer = sol0.CreateNewLayer(zLayer, string.Empty);
                         foreach (LayerPosition layerPos in layer1)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -433,7 +433,7 @@ namespace TreeDim.StackBuilder.Engine
 
                     for (int j = 0; j < noLayer0; ++j)
                     {
-                        BoxLayer layer = sol1.CreateNewLayer(zLayer);
+                        BoxLayer layer = sol1.CreateNewLayer(zLayer, string.Empty);
                         foreach (LayerPosition layerPos in layer1)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
@@ -451,7 +451,7 @@ namespace TreeDim.StackBuilder.Engine
                     }
                     for (int j = 0; j < noLayer1; ++j)
                     {
-                        BoxLayer layer = sol1.CreateNewLayer(zLayer);
+                        BoxLayer layer = sol1.CreateNewLayer(zLayer, string.Empty);
                         foreach (LayerPosition layerPos in layer0)
                         {
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);

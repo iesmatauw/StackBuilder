@@ -117,200 +117,209 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbReportTemplatesDir.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;tbReportTemplateDir.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btReportTemplateDir.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cbImageSizes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbReportTemplatesDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 8</value>
-  </data>
   <data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 13</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbReportTemplatesDir.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="lbReportTemplatesDir.Text" xml:space="preserve">
-    <value>Report templates directory</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>GLib.Options.OptionsPanel, OptionsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;lbReportTemplatesDir.Name" xml:space="preserve">
-    <value>lbReportTemplatesDir</value>
+  <data name="&gt;&gt;btReportTemplateDir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbImageSizes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="cbImageSizes.Items1" xml:space="preserve">
+    <value>Small images (384*384 &amp; 128*128)</value>
+  </data>
+  <data name="btReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 19</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fileSelectCompanyLogo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tbReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCompanyLogo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.Name" xml:space="preserve">
+    <value>tbReportTemplateDir</value>
+  </data>
+  <data name="&gt;&gt;btReportTemplateDir.Name" xml:space="preserve">
+    <value>btReportTemplateDir</value>
+  </data>
+  <data name="lbImageSizes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="fileSelectCtrlUsedReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 63</value>
+  </data>
+  <data name="&gt;&gt;lbImageSizes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbImageSizes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tbReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>287, 20</value>
+  </data>
+  <data name="cbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 130</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btReportTemplateDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCompanyLogo.Name" xml:space="preserve">
+    <value>fileSelectCompanyLogo</value>
+  </data>
+  <data name="chkbUseCompanySpecificReportTemplate.Text" xml:space="preserve">
+    <value>Use company specific report template</value>
+  </data>
+  <data name="chkbUseCompanySpecificReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 44</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCompanyLogo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chkbUseCompanySpecificReportTemplate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbReportTemplatesDir.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbImageSizes.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbReportTemplatesDir.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 5</value>
+  </data>
+  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.Name" xml:space="preserve">
+    <value>chkbUseCompanySpecificReportTemplate</value>
+  </data>
+  <data name="cbImageSizes.Items" xml:space="preserve">
+    <value>Default size images (768*768 &amp; 256*256)</value>
+  </data>
+  <data name="fileSelectCompanyLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;lbReportTemplatesDir.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbReportTemplatesDir.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbReportTemplatesDir.Name" xml:space="preserve">
+    <value>lbReportTemplatesDir</value>
+  </data>
+  <data name="chkbUseCompanySpecificReportTemplate.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbImageSizes.Text" xml:space="preserve">
+    <value>Image sizes</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDlg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbReportTemplateDir.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbReportTemplatesDir.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="btReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="&gt;&gt;cbImageSizes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCompanyLogo.Type" xml:space="preserve">
+    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5276.24235, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="cbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 21</value>
+  </data>
   <data name="tbReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="tbReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
     <value>137, 5</value>
   </data>
-  <data name="tbReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>287, 20</value>
+  <data name="cbImageSizes.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="tbReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 134</value>
   </data>
-  <data name="&gt;&gt;tbReportTemplateDir.Name" xml:space="preserve">
-    <value>tbReportTemplateDir</value>
-  </data>
-  <data name="&gt;&gt;tbReportTemplateDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbReportTemplateDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbReportTemplateDir.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="btReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 5</value>
-  </data>
-  <data name="btReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 19</value>
-  </data>
-  <data name="btReportTemplateDir.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btReportTemplateDir.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;btReportTemplateDir.Name" xml:space="preserve">
-    <value>btReportTemplateDir</value>
-  </data>
-  <data name="&gt;&gt;btReportTemplateDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btReportTemplateDir.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btReportTemplateDir.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <metadata name="folderBrowserDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="chkbUseCompanySpecificReportTemplate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbUseCompanySpecificReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 44</value>
-  </data>
-  <data name="chkbUseCompanySpecificReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 17</value>
-  </data>
-  <data name="chkbUseCompanySpecificReportTemplate.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="chkbUseCompanySpecificReportTemplate.Text" xml:space="preserve">
-    <value>Use company specific report template</value>
-  </data>
-  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.Name" xml:space="preserve">
-    <value>chkbUseCompanySpecificReportTemplate</value>
-  </data>
-  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="fileSelectCtrlUsedReportTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="fileSelectCtrlUsedReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 63</value>
-  </data>
-  <data name="fileSelectCtrlUsedReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 20</value>
   </data>
   <data name="fileSelectCtrlUsedReportTemplate.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.Name" xml:space="preserve">
-    <value>fileSelectCtrlUsedReportTemplate</value>
-  </data>
-  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.Type" xml:space="preserve">
-    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5275.14727, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 96</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="chkbUseCompanySpecificReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 17</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Company logo</value>
+  <data name="lbReportTemplatesDir.Text" xml:space="preserve">
+    <value>Report templates directory</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbImageSizes.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="fileSelectCompanyLogo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 96</value>
-  </data>
-  <data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 20</value>
-  </data>
-  <data name="fileSelectCompanyLogo.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;btReportTemplateDir.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;fileSelectCompanyLogo.Name" xml:space="preserve">
-    <value>fileSelectCompanyLogo</value>
-  </data>
-  <data name="&gt;&gt;fileSelectCompanyLogo.Type" xml:space="preserve">
-    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5275.14727, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fileSelectCompanyLogo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fileSelectCompanyLogo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 96</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>460, 215</value>
@@ -318,13 +327,61 @@
   <data name="&gt;&gt;folderBrowserDlg.Name" xml:space="preserve">
     <value>folderBrowserDlg</value>
   </data>
-  <data name="&gt;&gt;folderBrowserDlg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 20</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.Type" xml:space="preserve">
+    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5276.24235, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;chkbUseCompanySpecificReportTemplate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbReportTemplatesDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="&gt;&gt;fileSelectCtrlUsedReportTemplate.Name" xml:space="preserve">
+    <value>fileSelectCtrlUsedReportTemplate</value>
+  </data>
+  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;lbReportTemplatesDir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 96</value>
+  </data>
+  <data name="btReportTemplateDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;lbImageSizes.Name" xml:space="preserve">
+    <value>lbImageSizes</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>OptionPanelReporting</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>GLib.Options.OptionsPanel, OptionsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;cbImageSizes.Name" xml:space="preserve">
+    <value>cbImageSizes</value>
   </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fileSelectCtrlUsedReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 20</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Company logo</value>
+  </data>
+  <data name="fileSelectCtrlUsedReportTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr-FR</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="folderBrowserDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

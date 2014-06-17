@@ -299,11 +299,20 @@ namespace TreeDim.StackBuilder.Reporting
     /// </summary>
     abstract public class Reporter
     {
+        #region Enums
+        public enum eImageSize
+        {
+            IMAGESIZE_DEFAULT
+            , IMAGESIZE_SMALL
+        };
+        #endregion
+
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(ReporterMSWord));
         protected static bool _validateAgainstSchema = false;
         protected string _imageDirectory;
         protected static string _companyLogo;
+        protected static eImageSize _imageSize = eImageSize.IMAGESIZE_DEFAULT;
         #endregion
 
         #region Abstract members
@@ -318,6 +327,11 @@ namespace TreeDim.StackBuilder.Reporting
             get { return _companyLogo; }
             set { _companyLogo = File.Exists(value) ? value : string.Empty; }
         }
+        static public eImageSize ImageSizeSetting
+        {
+            get { return _imageSize; }
+            set { _imageSize = value; }
+        }
         #endregion
 
         #region Private properties
@@ -325,6 +339,30 @@ namespace TreeDim.StackBuilder.Reporting
         {
             set {   _imageDirectory = value;}
             get {   return _imageDirectory;  }
+        }
+        private int ImageSizeDetail
+        {
+            get
+            {
+                switch (_imageSize)
+                {
+                    case eImageSize.IMAGESIZE_DEFAULT: return 256;
+                    case eImageSize.IMAGESIZE_SMALL: return 128;
+                    default: return 256;
+                }
+            }
+        }
+        private int ImageSizeWide
+        {
+            get
+            {
+                switch (_imageSize)
+                {
+                    case eImageSize.IMAGESIZE_DEFAULT: return 768;
+                    case eImageSize.IMAGESIZE_SMALL: return 384;
+                    default: return 768;
+                }
+            }
         }
         #endregion
 
@@ -603,7 +641,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemCase, "weight", UnitsManager.MassUnitString, boxProp.Weight);
             AppendElementValue(xmlDoc, elemCase, "admissibleLoadOnTop", UnitsManager.MassUnitString, 0.0);
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProp);
@@ -642,7 +680,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemCylinder, "width", UnitsManager.LengthUnitString, cylProperties.Height);
             AppendElementValue(xmlDoc, elemCylinder, "height", UnitsManager.MassUnitString, cylProperties.Weight);
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;
             Cylinder cyl = new Cylinder(0, cylProperties);
@@ -714,7 +752,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemTotalWeight.InnerText = string.Format("{0:F}", bundleProp.UnitWeight * bundleProp.NoFlats);
             elemBundle.AppendChild(elemTotalWeight);
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, bundleProp);
             graphics.AddBox(box);
@@ -864,7 +902,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemBox, "weight", UnitsManager.MassUnitString, boxProperties.Weight);
 
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProperties);
@@ -941,7 +979,7 @@ namespace TreeDim.StackBuilder.Reporting
             // type converter
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
             // view case of boxes iso1
-            Graphics3DImage graphics1 = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics1 = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics1.CameraPosition = Graphics3D.Corner_0;
             CaseDefinitionViewer viewer = new CaseDefinitionViewer(caseOfBoxes.CaseDefinition, caseOfBoxes.InsideBoxProperties, caseOfBoxes.CaseOptimConstraintSet);
             viewer.CaseProperties = caseOfBoxes;
@@ -949,7 +987,7 @@ namespace TreeDim.StackBuilder.Reporting
             viewer.Draw(graphics1);
             graphics1.Flush();
             // view case of boxes iso2
-            Graphics3DImage graphics2 = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics2 = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics2.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, caseOfBoxes);
             graphics2.AddBox(box);
@@ -999,7 +1037,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemInterlayer, "weight", UnitsManager.MassUnitString, interlayerProp.Weight);
 
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, interlayerProp);
             graphics.AddBox(box);
@@ -1090,7 +1128,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemLayer.AppendChild(xmlLayerId);
                 // --- build layer image
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
                 // set camera position 
                 graphics.CameraPosition = Graphics3D.Top;
                 // instantiate solution viewer
@@ -1120,24 +1158,24 @@ namespace TreeDim.StackBuilder.Reporting
                 // initialize drawing values
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = 256;
+                int imageWidth = ImageSizeDetail;
                 bool showDimensions = false;
                 switch (i)
                 {
                     case 0:
-                        viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256;
+                        viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail;
                         break;
                     case 1:
-                        viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = 256;
+                        viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail;
                         break;
                     case 2:
-                        viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = 256;
+                        viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail;
                         break;
                     case 3:
-                        viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = 256;
+                        viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail;
                         break;
                     case 4:
-                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; showDimensions = true;
+                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true;
                         break;
                     default:
                         break;
@@ -1212,7 +1250,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemLayer.AppendChild(xmlLayerId);
                 // --- build layer image
                 // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
                 // set camera position 
                 graphics.CameraPosition = Graphics3D.Top;
                 // instantiate solution viewer
@@ -1241,24 +1279,24 @@ namespace TreeDim.StackBuilder.Reporting
                 // initialize drawing values
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = 256;
+                int imageWidth = ImageSizeDetail;
                 bool showDimensions = false;
                 switch (i)
                 {
                     case 0:
-                        viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256;
+                        viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail;
                         break;
                     case 1:
-                        viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = 256;
+                        viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail;
                         break;
                     case 2:
-                        viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = 256;
+                        viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail;
                         break;
                     case 3:
-                        viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = 256;
+                        viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail;
                         break;
                     case 4:
-                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; showDimensions = true;
+                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true;
                         break;
                     default:
                         break;
@@ -1436,7 +1474,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemTruck, "admissibleLoad", UnitsManager.MassUnitString, truckProp.AdmissibleLoadWeight);
 
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             Truck truck = new Truck(truckProp);
             truck.DrawBegin(graphics);
@@ -1502,11 +1540,11 @@ namespace TreeDim.StackBuilder.Reporting
                 // initialize drawing values
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = 768;
+                int imageWidth = ImageSizeWide;
                 switch (i)
                 {
-                    case 0: viewName = "view_trucksolution_top"; cameraPos = Graphics3D.Top; imageWidth = 768; break;
-                    case 1: viewName = "view_trucksolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; break;
+                    case 0: viewName = "view_trucksolution_top"; cameraPos = Graphics3D.Top; imageWidth = ImageSizeWide; break;
+                    case 1: viewName = "view_trucksolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; break;
                     default: break;
                 }
                 // instantiate graphics
@@ -1622,7 +1660,7 @@ namespace TreeDim.StackBuilder.Reporting
             // weight
             AppendElementValue(xmlDoc, elemCase, "weight", UnitsManager.MassUnitString, caseProperties.Weight);
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, caseProperties);
@@ -1658,7 +1696,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemBox, "weight", UnitsManager.MassUnitString, boxProperties.Height);
             // view_box_iso
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProperties);
@@ -1698,7 +1736,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemCase, "weight", UnitsManager.MassUnitString, boxProp.Height);
  
             // --- build image
-            Graphics3DImage graphics = new Graphics3DImage(new Size(256, 256));
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProp);
@@ -1795,15 +1833,15 @@ namespace TreeDim.StackBuilder.Reporting
                 // initialize drawing values
                 string viewName = string.Empty;
                 Vector3D cameraPos = Vector3D.Zero;
-                int imageWidth = 256;
+                int imageWidth = ImageSizeDetail;
                 bool showDimensions = false;
                 switch (i)
                 {
-                    case 0:  viewName = "view_casesolution_front"; cameraPos = Graphics3D.Front; imageWidth = 256; break;
-                    case 1:  viewName = "view_casesolution_left"; cameraPos = Graphics3D.Left; imageWidth = 256; break;
-                    case 2:  viewName = "view_casesolution_right"; cameraPos = Graphics3D.Right; imageWidth = 256; break;
-                    case 3:  viewName = "view_casesolution_back"; cameraPos = Graphics3D.Back; imageWidth = 256; break;
-                    case 4:  viewName = "view_casesolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = 768; showDimensions = true; break;
+                    case 0: viewName = "view_casesolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail; break;
+                    case 1: viewName = "view_casesolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail; break;
+                    case 2: viewName = "view_casesolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail; break;
+                    case 3: viewName = "view_casesolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail; break;
+                    case 4:  viewName = "view_casesolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true; break;
                     default: break;
                 }
                 // instantiate graphics
@@ -1979,6 +2017,14 @@ namespace TreeDim.StackBuilder.Reporting
                 _log.Error(ex.ToString());
             }
 
+        }
+        #endregion
+
+        #region Deleting methods
+        public void DeleteImageDirectory()
+        {
+            try { System.IO.Directory.Delete(_imageDirectory, true); }
+            catch (Exception ex) { _log.Error(ex.Message); }
         }
         #endregion
 

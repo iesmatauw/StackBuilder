@@ -595,6 +595,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja-JP.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.nl-NL.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -885,6 +886,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelReporting.resx">
       <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOptionsSettings.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>

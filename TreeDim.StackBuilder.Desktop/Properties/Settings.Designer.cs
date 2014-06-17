@@ -787,5 +787,17 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["CompanyLogoPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ReporterImageSize {
+            get {
+                return ((int)(this["ReporterImageSize"]));
+            }
+            set {
+                this["ReporterImageSize"] = value;
+            }
+        }
     }
 }

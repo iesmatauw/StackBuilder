@@ -68,17 +68,19 @@
         </style>
       </head>
       <body>
-        <h1 style="text-align:center">
-          Rapport généré par treeDiM StackBuilder
-        </h1>
         <table class="style1" cellpadding="4">
           <tr>
             <td class="style2" colspan="1">
               <b>Document</b>
             </td>
-            <td class="style3" colspan="3">
+            <td class="style3" colspan="2">
               <xsl:value-of select="name"/>
             </td>
+            <xsl:if test="companyLogo">
+              <td colspan="1" align="middle">
+                <xsl:apply-templates select="companyLogo"/>
+              </td>
+            </xsl:if>
           </tr>
           <tr>
             <td class="style2" colspan="1">

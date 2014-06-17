@@ -539,6 +539,6 @@ Continue?</value>
     <value>Case of boxes</value>
   </data>
   <data name="ID_FILTER_MSWORD" xml:space="preserve">
-    <value>Microsoft Office Word (*.docx)|*.docx|All Files (*.*)|*.*</value>
+    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
   </data>
 </root>

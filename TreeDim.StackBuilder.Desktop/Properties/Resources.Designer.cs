@@ -711,7 +711,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft Office Word (*.docx)|*.docx|All Files (*.*)|*.*.
+        ///   Looks up a localized string similar to Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*.
         /// </summary>
         internal static string ID_FILTER_MSWORD {
             get {

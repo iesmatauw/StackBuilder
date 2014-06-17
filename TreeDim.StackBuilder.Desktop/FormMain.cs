@@ -474,9 +474,9 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.InitialDirectory    = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(eventArg.Analysis.Name), "docx");
+                dlg.FileName = Path.ChangeExtension(CleanString(eventArg.Analysis.Name), "doc");
                 dlg.Filter = Resources.ID_FILTER_MSWORD;
-                dlg.DefaultExt = "docx";
+                dlg.DefaultExt = "doc";
                 dlg.ValidateNames = true;
                 if (DialogResult.OK == dlg.ShowDialog())
                 {
@@ -497,6 +497,7 @@ namespace TreeDim.StackBuilder.Desktop
                     bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
                         && File.Exists(Settings.Default.CompanySpecificReportTemplate);
                     Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
+                    Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     ReporterHtml reporter = new ReporterHtml(
                         reportObject
                         , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath
@@ -510,7 +511,7 @@ namespace TreeDim.StackBuilder.Desktop
                     wordApp.Visible = true;
                     Microsoft.Office.Interop.Word.Document wordDoc = wordApp.Documents.Open(htmlFilePath, false, true, NoEncodingDialog: true);
                     // embed pictures (unlinking images)
-                    for (int i=1; i <= wordDoc.InlineShapes.Count; ++i)
+                    for (int i = 1; i <= wordDoc.InlineShapes.Count; ++i)
                     {
                         if (null != wordDoc.InlineShapes[i].LinkFormat && !wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument)
                             wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument = true;
@@ -522,9 +523,12 @@ namespace TreeDim.StackBuilder.Desktop
                     wordDoc.PageSetup.LeftMargin = 10.0f;
                     // set print view 
                     wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
-
                     wordDoc.SaveAs(outputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);
-                    _log.Debug(string.Format("Saved docx report to {0}", outputFilePath));
+                    _log.Debug(string.Format("Saved doc report to {0}", outputFilePath));
+                    // delete image directory
+                    reporter.DeleteImageDirectory();
+                    // delete html report
+                    File.Delete(htmlFilePath);
                 }
             }
             catch (Exception ex)
@@ -573,6 +577,7 @@ namespace TreeDim.StackBuilder.Desktop
                 bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
                     && File.Exists(Settings.Default.CompanySpecificReportTemplate);
                 Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
+                Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
                     , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath

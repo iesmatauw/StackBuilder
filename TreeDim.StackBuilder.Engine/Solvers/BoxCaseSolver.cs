@@ -78,7 +78,7 @@ namespace TreeDim.StackBuilder.Engine
 
                         while (!maxWeightReached && !maxHeightReached && !maxNumberReached)
                         {
-                            BoxLayer bLayer = sol.CreateNewLayer(zLayer);
+                            BoxLayer bLayer = sol.CreateNewLayer(zLayer, string.Empty);
 
                             foreach (LayerPosition layerPos in layer)
                             {

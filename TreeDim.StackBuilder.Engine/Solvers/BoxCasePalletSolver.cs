@@ -141,7 +141,7 @@ namespace TreeDim.StackBuilder.Engine
 
                                         // select current layer type
                                         Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
-                                        BoxLayer layer = sol.CreateNewLayer(zLayer);
+                                        BoxLayer layer = sol.CreateNewLayer(zLayer, pattern.Name);
 
                                         foreach (LayerPosition layerPos in currentLayer)
                                         {

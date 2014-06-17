@@ -232,6 +232,7 @@ namespace TreeDim.StackBuilder.GUIExtension
                 ReportData reportData = new ReportData(_analysis, selSolution);
 
                 Reporter.CompanyLogo = string.Empty;
+                Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
                 Reporter reporter;
                 string reportTemplatePath = string.Empty;
                 if (formReport.FileExtension == "doc")

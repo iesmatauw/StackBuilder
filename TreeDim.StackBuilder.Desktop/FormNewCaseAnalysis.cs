@@ -383,7 +383,7 @@ namespace TreeDim.StackBuilder.Desktop
             // name
             if (string.IsNullOrEmpty(tbName.Text))
                 message = Resources.ID_FIELDNAMEEMPTY;
-            else if (_document.IsValidNewAnalysisName(tbName.Text, _caseAnalysis))
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, _caseAnalysis))
                 message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))

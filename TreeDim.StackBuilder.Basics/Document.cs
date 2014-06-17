@@ -1049,7 +1049,7 @@ namespace TreeDim.StackBuilder.Basics
             // tape
             boxProperties.ShowTape = hasTape;
             boxProperties.TapeColor = tapeColor;
-            boxProperties.TapeWidth = UnitsManager.ConvertMassFrom(tapeWidth, _unitSystem);
+            boxProperties.TapeWidth = UnitsManager.ConvertLengthFrom(tapeWidth, _unitSystem);
         }
 
         private void LoadCylinderProperties(XmlElement eltCylinderProperties)
@@ -1816,9 +1816,12 @@ namespace TreeDim.StackBuilder.Basics
         {
             ILayer layer = null;
             double zLow = System.Convert.ToDouble(eltLayer.Attributes["ZLow"].Value);
+            string patternName = string.Empty;
+            if (eltLayer.HasAttribute("PatternName"))
+                patternName = eltLayer.Attributes["PatternName"].Value;
             if (string.Equals(eltLayer.Name, "BoxLayer", StringComparison.CurrentCultureIgnoreCase))
             {
-                BoxLayer boxLayer = new BoxLayer(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
+                BoxLayer boxLayer = new BoxLayer(UnitsManager.ConvertLengthFrom(zLow, _unitSystem), patternName);
                 foreach (XmlNode nodeBoxPosition in eltLayer.ChildNodes)
                 {
                     XmlElement eltBoxPosition = nodeBoxPosition as XmlElement;

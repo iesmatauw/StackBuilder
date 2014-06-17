@@ -37,6 +37,8 @@
             this.fileSelectCtrlUsedReportTemplate = new TreeDim.UserControls.FileSelect();
             this.label1 = new System.Windows.Forms.Label();
             this.fileSelectCompanyLogo = new TreeDim.UserControls.FileSelect();
+            this.lbImageSizes = new System.Windows.Forms.Label();
+            this.cbImageSizes = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbReportTemplatesDir
@@ -56,6 +58,10 @@
             this.btReportTemplateDir.Name = "btReportTemplateDir";
             this.btReportTemplateDir.UseVisualStyleBackColor = true;
             this.btReportTemplateDir.Click += new System.EventHandler(this.btReportTemplateDir_Click);
+            // 
+            // folderBrowserDlg
+            // 
+            resources.ApplyResources(this.folderBrowserDlg, "folderBrowserDlg");
             // 
             // chkbUseCompanySpecificReportTemplate
             // 
@@ -81,11 +87,28 @@
             this.fileSelectCompanyLogo.Filter = "Image file (.bmp;.gif;.jpg;.png)|*.bmp;*.gif;*.jpg;*.png";
             this.fileSelectCompanyLogo.Name = "fileSelectCompanyLogo";
             // 
+            // lbImageSizes
+            // 
+            resources.ApplyResources(this.lbImageSizes, "lbImageSizes");
+            this.lbImageSizes.Name = "lbImageSizes";
+            // 
+            // cbImageSizes
+            // 
+            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
+            this.cbImageSizes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbImageSizes.FormattingEnabled = true;
+            this.cbImageSizes.Items.AddRange(new object[] {
+            resources.GetString("cbImageSizes.Items"),
+            resources.GetString("cbImageSizes.Items1")});
+            this.cbImageSizes.Name = "cbImageSizes";
+            // 
             // OptionPanelReporting
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Reporting";
+            this.Controls.Add(this.cbImageSizes);
+            this.Controls.Add(this.lbImageSizes);
             this.Controls.Add(this.fileSelectCompanyLogo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fileSelectCtrlUsedReportTemplate);
@@ -111,5 +134,7 @@
         private TreeDim.UserControls.FileSelect fileSelectCtrlUsedReportTemplate;
         private System.Windows.Forms.Label label1;
         private UserControls.FileSelect fileSelectCompanyLogo;
+        private System.Windows.Forms.Label lbImageSizes;
+        private System.Windows.Forms.ComboBox cbImageSizes;
     }
 }

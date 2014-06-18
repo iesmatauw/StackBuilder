@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation=".\ReportSchema.xsd">
-  <xsl:output method="html"/>
+  <xsl:output method="html" indent="yes"/>
   <xsl:template match="report">
     <html>
       <head>
@@ -24,7 +24,6 @@
           }
           .style3
           {
-          width: 50mm;
           color:black;
           font-family:Arial;
           font-size:10px;
@@ -84,39 +83,76 @@
           <tr>
             <td colspan="4">
               <h1 style="text-align:center">
-                Chargement palette <b>
-                  <xsl:value-of select="name"/>
+                <b>
+                  Palettisation <xsl:value-of select="name"/>
                 </b>
               </h1>
             </td>
           </tr>
           <tr>
-            <td class="style2" colspan="1"/>
-            <td class="style3" colspan="1"/>
-            <td class="style2" colspan="1">
+             <td class="style2" colspan="1">
               <b>Date</b>
             </td>
-            <td class="style3" colspan="1">
+            <td class="style3" colspan="3">
               <xsl:value-of select="dateOfCreation"/>
             </td>
           </tr>
         </table>
-        <xsl:apply-templates select="caseAnalysis"/>
-        <xsl:apply-templates select="palletAnalysis"/>
+        <xsl:apply-templates select="boxCaseAnalysis"/>
+        <xsl:apply-templates select="casePalletAnalysis"/>
         <xsl:apply-templates select="cylinderPalletAnalysis"/>
         <xsl:apply-templates select="truckAnalysis"/>
         <xsl:apply-templates select="ectAnalysis"/>
       </body>
     </html>
   </xsl:template>
-  <xsl:template match="caseAnalysis">
+  
+  <!-- Splitting templates : templates -->
+  <xsl:template match="description">
+    <xsl:call-template name="print-lines"/>
+  </xsl:template>
+
+  <xsl:template name="print-lines">
+    <!-- If we are not passed text as a param, use the node's text. -->
+    <xsl:param name="text" select="text()"/>
+
+    <!-- If there is no (more) text, we are finished. -->
+    <xsl:if test="string-length(normalize-space($text)) > 0">
+      <xsl:choose>
+        <!-- If the text contains a newline... -->
+        <xsl:when test="contains($text, ';')">
+          <!-- Split text into the first line and the remainder.  We search
+                for the newline char using the '&#10;' entity instead of '\n'. -->
+          <xsl:variable name="line" select="substring-before($text, ';')"/>
+          <xsl:variable name="remainder" select="substring-after($text, ';')"/>
+
+          <!-- Output the line, a HTML <br/> tag and a newline. -->
+          <xsl:value-of select="normalize-space($line)"/>
+          <xsl:element name="br"/>
+          <xsl:text>&#10;</xsl:text>
+
+          <!-- Recurse using the remaining text. -->
+          <xsl:call-template name="print-lines">
+            <xsl:with-param name="text" select="$remainder"/>
+          </xsl:call-template>
+        </xsl:when>
+        <!-- Otherwise no more newlines, output the remaining text. -->
+        <xsl:otherwise>
+          <xsl:value-of select="normalize-space($text)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>
+  </xsl:template>
+  <!-- Splitting templates : templates -->
+  
+  <xsl:template match="boxCaseAnalysis">
     <h2>Analyse caisse</h2>
     <xsl:apply-templates select="box"/>
     <xsl:apply-templates select="caseWithInnerDims"/>
     <xsl:apply-templates select="caseConstraintSet"/>
     <xsl:apply-templates select="caseSolution"/>
   </xsl:template>
-  <xsl:template match="palletAnalysis">
+  <xsl:template match="casePalletAnalysis">
     <h2>Analyse Caisse/Palette</h2>
     <xsl:apply-templates select="case"/>
     <xsl:apply-templates select="bundle"/>
@@ -177,16 +213,19 @@
         <td class="style2" colspan="1">
           <b>Nom</b>
         </td>
-        <td class="style3" colspan="2">
+        <td class="style3" colspan="1">
           <xsl:value-of select="name"/>
+        </td>
+        <td rowspan="6" align="middle" colspan="1">
+          <xsl:apply-templates select="view_case_iso"/>
         </td>
       </tr>
       <tr>
         <td class="style2" colspan="1">
           <b>Description</b>
         </td>
-        <td class="style3" colspan="2">
-          <xsl:value-of select="description"/>
+        <td class="style3" colspan="1">
+          <xsl:apply-templates select="description"/>
         </td>
       </tr>
       <tr>
@@ -198,12 +237,9 @@
         <td class="style3" colspan="1">
           <xsl:value-of select="length/value"/>
         </td>
-        <td rowspan="5" align="middle">
-          <xsl:apply-templates select="view_case_iso"/>
-        </td>
       </tr>
       <tr>
-        <td  class="style2">
+        <td  class="style2" colspan="1">
           <b>
             Largeur (<xsl:value-of select="width/unit"/>)
           </b>
@@ -213,7 +249,7 @@
         </td>
       </tr>
       <tr>
-        <td  class="style2">
+        <td  class="style2" colspan="1">
           <b>
             Hauteur (<xsl:value-of select="height/unit"/>)
           </b>
@@ -223,9 +259,9 @@
         </td>
       </tr>
       <tr>
-        <td  class="style2">
+        <td  class="style2" colspan="1">
           <b>
-            Masse (<xsl:value-of select="weight/unit"/>)
+            Masse brute (<xsl:value-of select="weight/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="1">
@@ -234,7 +270,7 @@
       </tr>
       <xsl:if test="admissibleLoad">
         <tr>
-          <td  class="style2">
+          <td  class="style2" colspan="1">
             <b>
               Admissible load on top (<xsl:value-of select="admissibleLoad/unit"/>)
             </b>
@@ -393,12 +429,12 @@
   <!-- #### PALLET ####-->
   <xsl:template match="pallet">
     <h3>Palette</h3>
-    <table class="style1" cellpadding="3">
+    <table class="style1" cellpadding="2">
       <tr>
         <td  class="style2" colspan="1">
           <b>Nom</b>
         </td>
-        <td class="style3" colspan="2">
+        <td class="style3" colspan="1">
           <xsl:value-of select="name"/>
         </td>
       </tr>
@@ -987,7 +1023,7 @@
       <tr>
         <td class="style2">
           <b>
-            Masse palette (<xsl:value-of select="palletWeight/unit"/>)
+            Masse brute palette (<xsl:value-of select="palletWeight/unit"/>)
           </b>
         </td>
         <td class="style3" colspan="3">

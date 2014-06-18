@@ -865,6 +865,12 @@
   <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
     <value>Aide</value>
   </data>
+  <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
+    <value>Créer un nouveau project INTEX...</value>
+  </data>
+  <data name="ToolStripMenuNewFileINTEX.ToolTipText" xml:space="preserve">
+    <value>Créer un nouveau project INTEX...</value>
+  </data>
   <data name="openFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder files (*.stb)|*.stb|Tous les fichiers (*.*)|*.*</value>
   </data>
@@ -953,11 +959,5 @@
         AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
         AAD//wAA//8AAA==
 </value>
-  </data>
-  <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
-    <value>Créer un nouveau project INTEX...</value>
-  </data>
-  <data name="ToolStripMenuNewFileINTEX.ToolTipText" xml:space="preserve">
-    <value>Créer un nouveau project INTEX...</value>
   </data>
 </root>

@@ -472,9 +472,16 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                // build analysis name
+                string analysisName = string.Empty;
+                if (null != eventArg.Analysis) analysisName = eventArg.Analysis.Name;
+                else if (null != eventArg.BoxCaseAnalysis) analysisName = eventArg.BoxCaseAnalysis.Name;
+                else if (null != eventArg.BoxCasePalletAnalysis) analysisName = eventArg.BoxCasePalletAnalysis.Name;
+                else if (null != eventArg.CylinderAnalysis) analysisName = eventArg.CylinderAnalysis.Name;
+                // save file dialog
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.InitialDirectory    = Properties.Settings.Default.ReportInitialDirectory;
-                dlg.FileName = Path.ChangeExtension(CleanString(eventArg.Analysis.Name), "doc");
+                dlg.FileName = Path.ChangeExtension(CleanString(analysisName), "doc");
                 dlg.Filter = Resources.ID_FILTER_MSWORD;
                 dlg.DefaultExt = "doc";
                 dlg.ValidateNames = true;
@@ -494,14 +501,11 @@ namespace TreeDim.StackBuilder.Desktop
                             , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                             , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                             );
-                    bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
-                        && File.Exists(Settings.Default.CompanySpecificReportTemplate);
                     Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                     ReporterHtml reporter = new ReporterHtml(
                         reportObject
-                        , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath
-                        , exactTemplate
+                        , Settings.Default.ReportTemplatePath
                         , htmlFilePath);
                     // logging
                     _log.Debug(string.Format("Saved html report to {0}", htmlFilePath));
@@ -574,14 +578,11 @@ namespace TreeDim.StackBuilder.Desktop
                         , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                         , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                         );
-                bool exactTemplate = Settings.Default.UseCompanySpecificReportTemplate
-                    && File.Exists(Settings.Default.CompanySpecificReportTemplate);
                 Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                 Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
                 ReporterHtml reporter = new ReporterHtml(
                     reportObject
-                    , exactTemplate ? Settings.Default.CompanySpecificReportTemplate : Settings.Default.ReportTemplatePath
-                    , exactTemplate
+                    , Settings.Default.ReportTemplatePath
                     , outputFilePath);
                 // logging
                 _log.Debug(string.Format("Saved report to {0}", outputFilePath));

@@ -84,7 +84,7 @@ namespace treeDiM.StackBuilder.Plugin
                 for (int i = 0; i < 6; ++i) colors[i] = Color.Chocolate;
                 BoxProperties caseProperties = document.CreateNewCase(
                     item._ref
-                    , string.Format("{0} / EAN14 : {1} / UPC : {2} / PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
+                    , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
                     , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
                     , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
                     , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)

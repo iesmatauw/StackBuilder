@@ -20,18 +20,14 @@ namespace TreeDim.StackBuilder.Desktop
         {
             InitializeComponent();
             // initialize
-            chkbUseCompanySpecificReportTemplate.Checked = Properties.Settings.Default.UseCompanySpecificReportTemplate;
-            fileSelectCtrlUsedReportTemplate.FileName = Properties.Settings.Default.CompanySpecificReportTemplate;
+            fileSelectCtrlReportTemplate.FileName = Properties.Settings.Default.ReportTemplatePath;
             fileSelectCompanyLogo.FileName = Properties.Settings.Default.CompanyLogoPath;
             cbImageSizes.SelectedIndex = Properties.Settings.Default.ReporterImageSize;
         }
 
         void OptionsForm_OptionsSaving(object sender, EventArgs e)
         {
-            Properties.Settings.Default.CompanySpecificReportTemplate = fileSelectCtrlUsedReportTemplate.FileName;
-            Properties.Settings.Default.UseCompanySpecificReportTemplate
-                = chkbUseCompanySpecificReportTemplate.Checked
-                && System.IO.File.Exists(fileSelectCtrlUsedReportTemplate.FileName);
+            Properties.Settings.Default.ReportTemplatePath = fileSelectCtrlReportTemplate.FileName;
             Properties.Settings.Default.CompanyLogoPath = fileSelectCompanyLogo.FileName;
             Properties.Settings.Default.ReporterImageSize = cbImageSizes.SelectedIndex;
         }
@@ -42,18 +38,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // events
             OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
-            // update fileSelectControl
-            chkbUseCompanySpecificReportTemplate_CheckedChanged(this, null);
-        }
-        private void btReportTemplateDir_Click(object sender, EventArgs e)
-        {
-            folderBrowserDlg.SelectedPath = tbReportTemplateDir.Text;
-            if (DialogResult.OK == folderBrowserDlg.ShowDialog())
-                tbReportTemplateDir.Text = folderBrowserDlg.SelectedPath;
-        }
-        private void chkbUseCompanySpecificReportTemplate_CheckedChanged(object sender, EventArgs e)
-        {
-            fileSelectCtrlUsedReportTemplate.Enabled = chkbUseCompanySpecificReportTemplate.Checked;
         }
         #endregion
     }

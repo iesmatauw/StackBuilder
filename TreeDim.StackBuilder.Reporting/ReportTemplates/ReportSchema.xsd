@@ -16,7 +16,7 @@
         <xs:element name="author" type="xs:string" />
         <xs:element name="dateOfCreation" type="xs:string" />
         <xs:element name="companyLogo" type="xs:string" minOccurs="0" maxOccurs="1"/>
-        <xs:element name="caseAnalysis" minOccurs="0" maxOccurs="1">
+        <xs:element name="boxCaseAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" type="xs:string"/>
@@ -181,7 +181,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name ="caseSolution" minOccurs="0" maxOccurs="1">
+              <xs:element name ="boxCasePalletSolution" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="title" type="xs:string"/>
@@ -214,7 +214,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="boxCaseAnalysis" minOccurs="0" maxOccurs="1">
+        <xs:element name="boxCasePalletAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" type="xs:string"/>
@@ -359,7 +359,7 @@
                     <xs:element name="title" type="xs:string"/>
                     <xs:element name="boxPerLayerCount" type="xs:string"/>
                     <xs:element name="boxPerCaseCount" type="xs:string"/>
-                    <xs:element name="BoxLayersCount" type="xs:string"/>
+                    <xs:element name="boxLayersCount" type="xs:string"/>
                     <xs:element name="LoadWeight" minOccurs="0" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
@@ -379,18 +379,18 @@
                     <xs:element name="EfficiencyWeight" type="xs:string"/>
                     <xs:element name="EfficiencyVolume" type="xs:string"/>
                     <xs:element name="LimitReached" type="xs:string"/>
-                    <xs:element name="view_casesolution_front" type="xs:string"/>
-                    <xs:element name="view_casesolution_left" type="xs:string"/>
-                    <xs:element name="view_casesolution_right" type="xs:string"/>
-                    <xs:element name="view_casesolution_back" type="xs:string"/>
-                    <xs:element name="view_casesolution_iso" type="xs:string"/>
+                    <xs:element name="view_caseSolution_front" type="xs:string"/>
+                    <xs:element name="view_caseSolution_left" type="xs:string"/>
+                    <xs:element name="view_caseSolution_right" type="xs:string"/>
+                    <xs:element name="view_caseSolution_back" type="xs:string"/>
+                    <xs:element name="view_caseSolution_iso" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="palletAnalysis" minOccurs="0" maxOccurs="1">
+        <xs:element name="casePalletAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" type="xs:string"/>

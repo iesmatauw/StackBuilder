@@ -29,52 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionPanelReporting));
-            this.lbReportTemplatesDir = new System.Windows.Forms.Label();
-            this.tbReportTemplateDir = new System.Windows.Forms.TextBox();
-            this.btReportTemplateDir = new System.Windows.Forms.Button();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkbUseCompanySpecificReportTemplate = new System.Windows.Forms.CheckBox();
-            this.fileSelectCtrlUsedReportTemplate = new TreeDim.UserControls.FileSelect();
+            this.fileSelectCtrlReportTemplate = new TreeDim.UserControls.FileSelect();
             this.label1 = new System.Windows.Forms.Label();
             this.fileSelectCompanyLogo = new TreeDim.UserControls.FileSelect();
             this.lbImageSizes = new System.Windows.Forms.Label();
             this.cbImageSizes = new System.Windows.Forms.ComboBox();
+            this.lbReportTemplate = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lbReportTemplatesDir
-            // 
-            resources.ApplyResources(this.lbReportTemplatesDir, "lbReportTemplatesDir");
-            this.lbReportTemplatesDir.Name = "lbReportTemplatesDir";
-            // 
-            // tbReportTemplateDir
-            // 
-            resources.ApplyResources(this.tbReportTemplateDir, "tbReportTemplateDir");
-            this.tbReportTemplateDir.Name = "tbReportTemplateDir";
-            this.tbReportTemplateDir.Text = global::TreeDim.StackBuilder.Desktop.Properties.Settings.Default.ReportTemplatePath;
-            // 
-            // btReportTemplateDir
-            // 
-            resources.ApplyResources(this.btReportTemplateDir, "btReportTemplateDir");
-            this.btReportTemplateDir.Name = "btReportTemplateDir";
-            this.btReportTemplateDir.UseVisualStyleBackColor = true;
-            this.btReportTemplateDir.Click += new System.EventHandler(this.btReportTemplateDir_Click);
             // 
             // folderBrowserDlg
             // 
             resources.ApplyResources(this.folderBrowserDlg, "folderBrowserDlg");
             // 
-            // chkbUseCompanySpecificReportTemplate
+            // fileSelectCtrlReportTemplate
             // 
-            resources.ApplyResources(this.chkbUseCompanySpecificReportTemplate, "chkbUseCompanySpecificReportTemplate");
-            this.chkbUseCompanySpecificReportTemplate.Name = "chkbUseCompanySpecificReportTemplate";
-            this.chkbUseCompanySpecificReportTemplate.UseVisualStyleBackColor = true;
-            this.chkbUseCompanySpecificReportTemplate.CheckedChanged += new System.EventHandler(this.chkbUseCompanySpecificReportTemplate_CheckedChanged);
-            // 
-            // fileSelectCtrlUsedReportTemplate
-            // 
-            resources.ApplyResources(this.fileSelectCtrlUsedReportTemplate, "fileSelectCtrlUsedReportTemplate");
-            this.fileSelectCtrlUsedReportTemplate.Filter = "XSLT Stylesheet (.xsl)|*.xsl";
-            this.fileSelectCtrlUsedReportTemplate.Name = "fileSelectCtrlUsedReportTemplate";
+            resources.ApplyResources(this.fileSelectCtrlReportTemplate, "fileSelectCtrlReportTemplate");
+            this.fileSelectCtrlReportTemplate.Filter = "XSLT Stylesheet (.xsl)|*.xsl";
+            this.fileSelectCtrlReportTemplate.Name = "fileSelectCtrlReportTemplate";
             // 
             // label1
             // 
@@ -102,20 +74,22 @@
             resources.GetString("cbImageSizes.Items1")});
             this.cbImageSizes.Name = "cbImageSizes";
             // 
+            // lbReportTemplate
+            // 
+            resources.ApplyResources(this.lbReportTemplate, "lbReportTemplate");
+            this.lbReportTemplate.Name = "lbReportTemplate";
+            // 
             // OptionPanelReporting
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Reporting";
+            this.Controls.Add(this.lbReportTemplate);
             this.Controls.Add(this.cbImageSizes);
             this.Controls.Add(this.lbImageSizes);
             this.Controls.Add(this.fileSelectCompanyLogo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.fileSelectCtrlUsedReportTemplate);
-            this.Controls.Add(this.chkbUseCompanySpecificReportTemplate);
-            this.Controls.Add(this.btReportTemplateDir);
-            this.Controls.Add(this.tbReportTemplateDir);
-            this.Controls.Add(this.lbReportTemplatesDir);
+            this.Controls.Add(this.fileSelectCtrlReportTemplate);
             this.DisplayName = "Reporting";
             this.Name = "OptionPanelReporting";
             this.Load += new System.EventHandler(this.OptionPanelReporting_Load);
@@ -126,15 +100,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbReportTemplatesDir;
-        private System.Windows.Forms.TextBox tbReportTemplateDir;
-        private System.Windows.Forms.Button btReportTemplateDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDlg;
-        private System.Windows.Forms.CheckBox chkbUseCompanySpecificReportTemplate;
-        private TreeDim.UserControls.FileSelect fileSelectCtrlUsedReportTemplate;
+        private TreeDim.UserControls.FileSelect fileSelectCtrlReportTemplate;
         private System.Windows.Forms.Label label1;
         private UserControls.FileSelect fileSelectCompanyLogo;
         private System.Windows.Forms.Label lbImageSizes;
         private System.Windows.Forms.ComboBox cbImageSizes;
+        private System.Windows.Forms.Label lbReportTemplate;
     }
 }

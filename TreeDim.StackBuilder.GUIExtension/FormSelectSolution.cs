@@ -240,12 +240,12 @@ namespace TreeDim.StackBuilder.GUIExtension
                     // create "MS Word" report file
                     reporter = new ReporterMSWord();
                     reportTemplatePath = Settings.Default.ReportTemplatePath;
-                    reporter.BuildAnalysisReport(reportData, reportTemplatePath, false, formReport.FilePath);
+                    reporter.BuildAnalysisReport(reportData, reportTemplatePath, formReport.FilePath);
                 }
                 else if (formReport.FileExtension == "html")
                 {
                     // create "html" report file
-                    reporter = new ReporterHtml(reportData, Settings.Default.ReportTemplatePath, false, formReport.FilePath);
+                    reporter = new ReporterHtml(reportData, Settings.Default.ReportTemplatePath, formReport.FilePath);
                 }
                 else
                     return;

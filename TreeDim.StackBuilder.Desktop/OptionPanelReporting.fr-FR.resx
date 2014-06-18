@@ -118,36 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 13</value>
+  <data name="fileSelectCtrlReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 11</value>
   </data>
-  <data name="lbReportTemplatesDir.Text" xml:space="preserve">
-    <value>Dossier des patrons de rapport</value>
-  </data>
-  <data name="tbReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 5</value>
-  </data>
-  <data name="tbReportTemplateDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 20</value>
-  </data>
-  <data name="btReportTemplateDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 5</value>
-  </data>
-  <data name="chkbUseCompanySpecificReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 17</value>
-  </data>
-  <data name="chkbUseCompanySpecificReportTemplate.Text" xml:space="preserve">
-    <value>Utiliser un patron de rapport spécifique à une entreprise</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fileSelectCtrlUsedReportTemplate.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="fileSelectCtrlUsedReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>413, 20</value>
+  <data name="fileSelectCtrlReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 20</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 100</value>
+    <value>5, 50</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 13</value>
@@ -155,11 +133,32 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Logo entreprise</value>
   </data>
+  <data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 46</value>
+  </data>
+  <data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 20</value>
+  </data>
+  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 84</value>
+  </data>
   <data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 13</value>
   </data>
   <data name="lbImageSizes.Text" xml:space="preserve">
     <value>Tailles images</value>
+  </data>
+  <data name="cbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 80</value>
+  </data>
+  <data name="lbReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 15</value>
+  </data>
+  <data name="lbReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
+  </data>
+  <data name="lbReportTemplate.Text" xml:space="preserve">
+    <value>Patron de rapport</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>450, 215</value>

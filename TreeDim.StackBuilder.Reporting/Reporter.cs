@@ -23,6 +23,16 @@ using TreeDim.StackBuilder.Graphics;
 
 namespace TreeDim.StackBuilder.Reporting
 {
+    class MyXmlUrlResolver : XmlUrlResolver
+    {
+        public override Uri ResolveUri(Uri baseUri, string relativeUri)
+        {
+            if (baseUri != null)
+                return base.ResolveUri(baseUri, relativeUri);
+            else
+                return base.ResolveUri(new Uri(@"K:\GitHub\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates"), relativeUri);
+        }
+    }
     /// <summary>
     /// class used to encapsulate an analysis and a solution
     /// </summary>
@@ -308,7 +318,7 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Data members
-        protected static readonly ILog _log = LogManager.GetLogger(typeof(ReporterMSWord));
+        protected static readonly ILog _log = LogManager.GetLogger(typeof(Reporter));
         protected static bool _validateAgainstSchema = false;
         protected string _imageDirectory;
         protected static string _companyLogo;
@@ -316,7 +326,6 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Abstract members
-        abstract public bool RetrieveXsltTemplate(string reportTemplatePath, ref string xsltTemplateFilePath);
         abstract public bool WriteNamespace { get; }
         abstract public bool WriteImageFiles { get; }
         #endregion
@@ -367,7 +376,7 @@ namespace TreeDim.StackBuilder.Reporting
         #endregion
 
         #region Report generation
-        public void BuildAnalysisReport(ReportData inputData, string reportTemplatePath, bool exactTemplate, string outputFilePath)
+        public void BuildAnalysisReport(ReportData inputData, string reportTemplatePath, string outputFilePath)
         {
             // verify if inputData is a valid entry
             if (!inputData.IsValid)
@@ -384,24 +393,22 @@ namespace TreeDim.StackBuilder.Reporting
             // note xml file validation against xml schema produces a large number of errors
             // For the moment, I can not remove all errors
             if (_validateAgainstSchema)
-                Reporter.ValidateXmlDocument(xmlData, Path.Combine(reportTemplatePath, "ReportSchema.xsd"));
-            // build xslt file
-            string xsltTemplateFilePath = string.Empty;
-            // if is exact template and exists, use as template path
-            if (exactTemplate && File.Exists(reportTemplatePath))
-                xsltTemplateFilePath = reportTemplatePath;
-            else
-            {
-                if (!RetrieveXsltTemplate(reportTemplatePath, ref xsltTemplateFilePath))
-                    throw new Exception(string.Format("Failed to build/retrieve xslt template: {0}", reportTemplatePath));
-            }
+                Reporter.ValidateXmlDocument(xmlData, Path.Combine(Path.GetDirectoryName(reportTemplatePath), "ReportSchema.xsd"));
             // check availibility of files
-            if (!File.Exists(xsltTemplateFilePath))
-                throw new Exception(string.Format("Report template path ({0}) is invalid", xsltTemplateFilePath));
+            if (!File.Exists(reportTemplatePath))
+                throw new Exception(string.Format("Report template path ({0}) is invalid", reportTemplatePath));
             // load generated xslt
-            XmlTextReader xsltReader = new XmlTextReader(new FileStream(xsltTemplateFilePath, FileMode.Open, FileAccess.Read));
+            XmlTextReader xsltReader = new XmlTextReader(new FileStream(reportTemplatePath, FileMode.Open, FileAccess.Read));
+            string threeLetterLanguageAbbrev = System.Globalization.CultureInfo.CurrentCulture.ThreeLetterWindowsLanguageName;
+            if (!File.Exists(Path.Combine(Path.GetDirectoryName(reportTemplatePath), threeLetterLanguageAbbrev + ".xml")))
+            {
+                _log.Warn(string.Format("Language file {0}.xml could not be found! Trying ENU.xml...", threeLetterLanguageAbbrev));
+                threeLetterLanguageAbbrev = "ENU";
+            }
+            if (!File.Exists(Path.Combine(Path.GetDirectoryName(reportTemplatePath), threeLetterLanguageAbbrev + ".xml")))
+                _log.Warn(string.Format("Language file {0}.xml could not be found!", threeLetterLanguageAbbrev));
             // generate word document
-            byte[] wordDoc = GetReport(xmlData, xsltReader);
+            byte[] wordDoc = GetReport(xmlData, xsltReader, Path.Combine(Path.GetDirectoryName(reportTemplatePath), threeLetterLanguageAbbrev));
             // write resulting array to HDD, show process information
             using (FileStream fs = new FileStream(outputFilePath, FileMode.Create))
                 fs.Write(wordDoc, 0, wordDoc.Length);
@@ -415,18 +422,23 @@ namespace TreeDim.StackBuilder.Reporting
         /// <param name="xmlData">Report data as XML</param>
         /// <param name="xsltReader">XSLT transformation as Stream, used for document creation</param>
         /// <returns>Resulting document as byte[]</returns>
-        private static byte[] GetReport(XmlReader xmlData, XmlReader xsltReader)
+        private static byte[] GetReport(XmlReader xmlData, XmlReader xsltReader, string threeLetterLanguageAbbrev)
         {
             // Initialize needed variables
             XslCompiledTransform xslt = new XslCompiledTransform();
             XsltArgumentList args = new XsltArgumentList();
+            args.AddParam("lang", "", threeLetterLanguageAbbrev);
+
+            XsltSettings xslt_set = new XsltSettings();
+            xslt_set.EnableScript = true;
+            xslt_set.EnableDocumentFunction = true;
+          
 
             using (MemoryStream swResult = new MemoryStream())
             {
                 // Load XSLT to reader and perform transformation
-                xslt.Load(xsltReader);
+                xslt.Load(xsltReader, xslt_set, new MyXmlUrlResolver());
                 xslt.Transform(xmlData, args, swResult);
-
                 return swResult.ToArray();
             }
         }
@@ -509,7 +521,7 @@ namespace TreeDim.StackBuilder.Reporting
             SelCasePalletSolution selSolution = inputData.SelSolution;
 
             // palletAnalysis
-            XmlElement elemPalletAnalysis = xmlDoc.CreateElement("palletAnalysis", ns);
+            XmlElement elemPalletAnalysis = xmlDoc.CreateElement("casePalletAnalysis", ns);
             elemDocument.AppendChild(elemPalletAnalysis);
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
@@ -1587,7 +1599,7 @@ namespace TreeDim.StackBuilder.Reporting
             // namespace
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             // caseAnalysis
-            XmlElement elemCaseAnalysis = xmlDoc.CreateElement("caseAnalysis", ns);
+            XmlElement elemCaseAnalysis = xmlDoc.CreateElement("boxCasePalletAnalysis", ns);
             elemDocument.AppendChild(elemCaseAnalysis);
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
@@ -1693,7 +1705,7 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemBox, "length", UnitsManager.LengthUnitString, boxProperties.Length);
             AppendElementValue(xmlDoc, elemBox, "width", UnitsManager.LengthUnitString, boxProperties.Width);
             AppendElementValue(xmlDoc, elemBox, "height", UnitsManager.LengthUnitString, boxProperties.Height);
-            AppendElementValue(xmlDoc, elemBox, "weight", UnitsManager.MassUnitString, boxProperties.Height);
+            AppendElementValue(xmlDoc, elemBox, "weight", UnitsManager.MassUnitString, boxProperties.Weight);
             // view_box_iso
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
@@ -1797,7 +1809,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemBoxPerCaseCount.InnerText = solution.BoxPerCaseCount.ToString();
             elemSolution.AppendChild(elemBoxPerCaseCount);
             // BoxLayersCount
-            XmlElement elemBoxLayersCount = xmlDoc.CreateElement("BoxLayersCount", ns);
+            XmlElement elemBoxLayersCount = xmlDoc.CreateElement("boxLayersCount", ns);
             elemBoxLayersCount.InnerText = solution.BoxLayersCount.ToString();
             elemSolution.AppendChild(elemBoxLayersCount);
 
@@ -1837,11 +1849,11 @@ namespace TreeDim.StackBuilder.Reporting
                 bool showDimensions = false;
                 switch (i)
                 {
-                    case 0: viewName = "view_casesolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail; break;
-                    case 1: viewName = "view_casesolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail; break;
-                    case 2: viewName = "view_casesolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail; break;
-                    case 3: viewName = "view_casesolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail; break;
-                    case 4:  viewName = "view_casesolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true; break;
+                    case 0: viewName = "view_caseSolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail; break;
+                    case 1: viewName = "view_caseSolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail; break;
+                    case 2: viewName = "view_caseSolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail; break;
+                    case 3: viewName = "view_caseSolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail; break;
+                    case 4:  viewName = "view_caseSolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true; break;
                     default: break;
                 }
                 // instantiate graphics
@@ -1908,7 +1920,7 @@ namespace TreeDim.StackBuilder.Reporting
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             BoxCasePalletSolution caseSolution = selSolution.Solution;
             // caseSolution element
-            XmlElement elemCaseSolution = CreateElement("caseSolution", null, elemCaseAnalysis, xmlDoc, ns);
+            XmlElement elemCaseSolution = CreateElement("boxCasePalletSolution", null, elemCaseAnalysis, xmlDoc, ns);
             // title
             CreateElement("title", caseSolution.Title, elemCaseSolution, xmlDoc, ns);
             // homogeneousLayer

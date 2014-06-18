@@ -44,6 +44,7 @@
       <ComponentRef Id="ProgramMenuShortcutComp" />
       <ComponentRef Id="DesktopShortcutComp" />
       <ComponentRef Id="ReportTemplates" />
+      <ComponentRef Id="ReportTemplate_DEFAULT"/>
       <ComponentRef Id="PalletSolutionsDB" />
       <ComponentRef Id="resources_fr_FR" />
       <ComponentRef Id="resources_ja_JP" />
@@ -56,9 +57,9 @@
       <ComponentRef Id="WEBGL_GLGE" />
       <ComponentRef Id="AutoUpdater" />
       <ComponentRef Id="Plugins"/>
-    </Feature>
-    <Feature Id="Plugin_INTEX" Title="Plugin INTEX" Level="2" AllowAdvertise="no">
-      <ComponentRef Id="ReportTemplate_INTEX"/>
+      <Feature Id="Plugin_INTEX" Title="Plugin INTEX" Level="2" AllowAdvertise="no">
+        <ComponentRef Id="ReportTemplate_INTEX"/>
+      </Feature>
     </Feature>
     <UI>
       <!-- Add UI to the installer -->

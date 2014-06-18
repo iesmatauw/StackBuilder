@@ -18,6 +18,7 @@
     <ComponentRef Id="ProgramMenuShortcutComp" />
     <ComponentRef Id="DesktopShortcutComp" />
     <ComponentRef Id="ReportTemplates" />
+    <ComponentRef Id="ReportTemplate_DEFAULT" />
     <ComponentRef Id="ReportTemplate_INTEX"/>
     <ComponentRef Id="PalletSolutionsDB" />
     <ComponentRef Id="resources_fr_FR" />

@@ -66,7 +66,6 @@
     <Compile Include="Reporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporterHtml.cs" />
-    <Compile Include="ReporterMSWord.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharp3D.Math\Sharp3D.Math.csproj">
@@ -87,15 +86,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReportTemplates\ReportTemplateHtml_DEU.xsl" />
-    <Content Include="ReportTemplates\ReportTemplateHtml_ENU.xsl">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="ReportTemplates\ReportTemplateHtml_FRA.xsl">
+    <Content Include="ReportTemplates\ENU.xml" />
+    <Content Include="ReportTemplates\FRA.xml" />
+    <Content Include="ReportTemplates\ReportTemplateHtml.xsl">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ReportTemplates\ReportTemplateHtml_INTEX.xsl" />
-    <Content Include="ReportTemplates\ReportTemplateHtml_JPN.xsl" />
     <Content Include="SampleReportData\SampleReport.xml">
       <SubType>Designer</SubType>
     </Content>

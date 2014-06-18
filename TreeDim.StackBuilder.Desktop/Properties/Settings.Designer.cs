@@ -655,15 +655,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\")]
-        public string ReportTemplatePath {
-            get {
-                return ((string)(this["ReportTemplatePath"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/stackbuilder_start_page.htm")]
         public string StartPageUrl {
             get {
@@ -743,30 +734,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UseCompanySpecificReportTemplate {
-            get {
-                return ((bool)(this["UseCompanySpecificReportTemplate"]));
-            }
-            set {
-                this["UseCompanySpecificReportTemplate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CompanySpecificReportTemplate {
-            get {
-                return ((string)(this["CompanySpecificReportTemplate"]));
-            }
-            set {
-                this["CompanySpecificReportTemplate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool HasPluginINTEX {
             get {
                 return ((bool)(this["HasPluginINTEX"]));
@@ -797,6 +764,19 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
             set {
                 this["ReporterImageSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("K:\\GitHub\\StackBuilder\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\ReportTempl" +
+            "ateHtml.xsl")]
+        public string ReportTemplatePath {
+            get {
+                return ((string)(this["ReportTemplatePath"]));
+            }
+            set {
+                this["ReportTemplatePath"] = value;
             }
         }
     }

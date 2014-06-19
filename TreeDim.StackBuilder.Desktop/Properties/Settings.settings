@@ -195,7 +195,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ReportTemplatePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">K:\GitHub\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl</Value>
+      <Value Profile="(Default)">..\..\..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl</Value>
     </Setting>
   </Settings>
 </SettingsFile>

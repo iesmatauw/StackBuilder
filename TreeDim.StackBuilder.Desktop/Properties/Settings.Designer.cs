@@ -769,8 +769,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K:\\GitHub\\StackBuilder\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\ReportTempl" +
-            "ateHtml.xsl")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\ReportTemplateHtml.xsl")]
         public string ReportTemplatePath {
             get {
                 return ((string)(this["ReportTemplatePath"]));

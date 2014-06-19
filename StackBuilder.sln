@@ -67,6 +67,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.ColladaExporter.Test", "TreeDim.StackBuilder.ColladaExporter.Test\TreeDim.StackBuilder.ColladaExporter.Test.csproj", "{58436B36-D49F-4C14-92E7-EF083858003C}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BootstrapperSB", "BootstrapperSB\BootstrapperSB.wixproj", "{A4249447-3954-42AB-AF4A-AEEB007BA105}"
+	ProjectSection(ProjectDependencies) = postProject
+		{125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B} = {125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.SQLite", "TreeDim.StackBuilder.SQLite\TreeDim.StackBuilder.SQLite.csproj", "{7F2C7280-F996-4548-A856-D2DFBF37489E}"
 EndProject

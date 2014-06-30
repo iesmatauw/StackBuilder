@@ -958,6 +958,13 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode subPalletNode = new TreeNode(analysis.PalletProperties.Name, indexIconPalletAnalysis, indexIconPalletAnalysis);
             subPalletNode.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISPALLET, doc, analysis, analysis.PalletProperties);
             nodeAnalysis.Nodes.Add(subPalletNode);
+            // insert sub interlayer node if any
+            if (analysis.HasInterlayer)
+            {
+                TreeNode subInterlayer = new TreeNode(analysis.InterlayerProperties.Name, 8, 8);
+                subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
+                nodeAnalysis.Nodes.Add(subInterlayer);
+            }
             nodeAnalysis.Expand();
             // add event handlers for solution selection
             analysis.SolutionSelected += new Basics.CylinderPalletAnalysis.SelectSolution(onCylinderAnalysisSolutionSelected);
@@ -1501,6 +1508,11 @@ namespace TreeDim.StackBuilder.Desktop
             else if (_type == NodeType.NT_BOXCASEPALLETANALYSIS && itemProperties is BoxCasePalletAnalysis)
             {
                 _boxCasePalletAnalysis = itemProperties as BoxCasePalletAnalysis;
+                _itemProperties = null;
+            }
+            else if (_type == NodeType.NT_CYLINDERPALLETANALYSIS && itemProperties is CylinderPalletAnalysis)
+            {
+                _cylinderPalletAnalysis = itemProperties as CylinderPalletAnalysis;
                 _itemProperties = null;
             }
         }

@@ -129,9 +129,6 @@ namespace TreeDim.StackBuilder.Engine
                 _patterns.Add(new CylinderLayerPatternAligned());
                 _patterns.Add(new CylinderLayerPatternStaggered());
                 _patterns.Add(new CylinderLayerPatternMixed12());
-                _patterns.Add(new CylinderLayerPatternMixed121());
-                _patterns.Add(new CylinderLayerPatternMixed212());
-                _patterns.Add(new CylinderLayerPatternExpanded());
             }
         }
         #endregion

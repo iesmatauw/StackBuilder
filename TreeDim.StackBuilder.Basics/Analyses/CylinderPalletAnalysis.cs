@@ -31,13 +31,6 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public CylinderPalletAnalysis(CylinderProperties cylProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties)
-            : base(cylProperties.ParentDocument)
-        {
-            _cylinderProperties = cylProperties;
-            _palletProperties = palletProperties;
-            _interlayerProperties = interlayerProperties;
-        }
         public CylinderPalletAnalysis(
             CylinderProperties cylProperties
             , PalletProperties palletProperties
@@ -45,6 +38,9 @@ namespace TreeDim.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet)
             : base(cylProperties.ParentDocument)
         {
+            // has interrlayer ?
+            _constraintSet.HasInterlayer = null != interlayerProperties;
+            // setting members
             _cylinderProperties = cylProperties;
             _palletProperties = palletProperties;
             _interlayerProperties = interlayerProperties;
@@ -53,6 +49,33 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
+
+        public CylinderProperties CylinderProperties
+        {
+            get { return _cylinderProperties; }
+            set
+            {
+                if (value == _cylinderProperties) return;
+                if (null != _cylinderProperties) _cylinderProperties.RemoveDependancie(this);
+                _cylinderProperties = value;
+                _cylinderProperties.AddDependancie(this);
+            }
+        }
+        public PalletProperties PalletProperties
+        {
+            get { return _palletProperties; }
+            set
+            {
+                if (_palletProperties == value) return;
+                if (null != _palletProperties) _palletProperties.RemoveDependancie(this);
+                _palletProperties = value;
+                _palletProperties.AddDependancie(this);
+            }
+        }
+        public bool HasInterlayer
+        {
+            get { return (null != _interlayerProperties); }
+        }
         public InterlayerProperties InterlayerProperties
         {
             get { return _interlayerProperties; }
@@ -64,14 +87,6 @@ namespace TreeDim.StackBuilder.Basics
                 if (null != _interlayerProperties)
                     _interlayerProperties.AddDependancie(this);
             }
-        }
-        public CylinderProperties CylinderProperties
-        {
-            get { return _cylinderProperties; }
-        }
-        public PalletProperties PalletProperties
-        {
-            get { return _palletProperties; }
         }
         public CylinderPalletConstraintSet ConstraintSet
         {

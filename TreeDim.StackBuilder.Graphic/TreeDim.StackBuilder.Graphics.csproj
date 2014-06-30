@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CylinderComparer.cs" />
+    <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
     <Compile Include="SolutionViewers\CylinderPalletSolutionViewer.cs" />
     <Compile Include="Types\Box.cs" />
     <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />

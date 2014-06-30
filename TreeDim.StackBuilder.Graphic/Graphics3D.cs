@@ -335,14 +335,90 @@ namespace TreeDim.StackBuilder.Graphics
 
                 // sort cylinder list
                 _cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
-               
-                // draw all boxes
-                foreach (Box box in _boxes)
-                    Draw(box);
 
-                // draw all cylinders
-                foreach (Cylinder cyl in _cylinders)
-                    Draw(cyl);
+                if (_cylinders.Count > 0)
+                {
+                    // sort by Z
+                    List<Drawable> drawableList = new List<Drawable>();
+                    drawableList.AddRange(_boxes);
+                    drawableList.AddRange(_cylinders);
+                    drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo());
+
+                    List<Box> boxes = new List<Box>();
+                    List<Cylinder> cylinders = new List<Cylinder>();
+                    bool processingBox = drawableList[0] is Box;
+                    foreach (Drawable drawable in drawableList)
+                    {
+                        Box b = drawable as Box;
+                        Cylinder c = drawable as Cylinder;
+
+                        if ((null != b) && processingBox)
+                            boxes.Add(b);
+                        else if ((null == b) && !processingBox)
+                            cylinders.Add(c);
+                        else
+                        {
+                            if (boxes.Count > 0)
+                            {
+                                BoxelOrderer boxelOrderer = new BoxelOrderer(boxes);
+                                boxelOrderer.Direction = _vTarget - _vCameraPos;
+                                boxes = boxelOrderer.GetSortedList();
+                                // draw boxes
+                                foreach (Box bb in boxes)
+                                    Draw(bb);
+                                // clear
+                                boxes.Clear();
+                            }
+                            if (cylinders.Count > 0)
+                            {
+                                cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                                // draw cylinders
+                                foreach (Cylinder cc in cylinders)
+                                    Draw(cc);
+                                // clear
+                                cylinders.Clear();
+                            }
+                            if (null != b)
+                            {
+                                boxes.Add(b);
+                                processingBox = true;
+                            }
+                            else
+                            {
+                                cylinders.Add(c);
+                                processingBox = false;
+                            }
+                        }
+                    }
+
+                    // remaining boxes
+                    BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes);
+                    boxelOrdererRem.Direction = _vTarget - _vCameraPos;
+                    boxes = boxelOrdererRem.GetSortedList();
+                    // draw boxes
+                    foreach (Box bb in boxes)
+                        Draw(bb);
+
+                    // remaining cylinders
+                    cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                    // draw cylinders
+                    foreach (Cylinder cc in cylinders)
+                        Draw(cc);
+
+
+                    // clear
+                    boxes.Clear();
+
+
+
+                }
+                else
+                {
+                    // draw all boxes
+                    foreach (Box box in _boxes)
+                        Draw(box);
+                }
+
 
                 // draw segment list
                 foreach (Segment seg in _segments)

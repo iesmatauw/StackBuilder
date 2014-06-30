@@ -411,11 +411,16 @@ namespace TreeDim.StackBuilder.Desktop
             FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this);
             form.Cylinders = Cylinders.ToArray();
             form.Pallets = Pallets.ToArray();
+            form.Interlayers = Interlayers.ToArray();
 
             if (DialogResult.OK == form.ShowDialog())
             {
                 // build constraint set
                 CylinderPalletConstraintSet constraintSet = new CylinderPalletConstraintSet();
+                // interlayer period
+                constraintSet.HasInterlayer = form.HasInterlayer;
+                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                // stop criterion
                 constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
                 constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
                 constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
@@ -424,7 +429,7 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
 
                 return CreateNewCylinderPalletAnalysis(form.AnalysisName, form.AnalysisDescription
-                    , form.SelectedCylinder, form.SelectedPallet, null
+                    , form.SelectedCylinder, form.SelectedPallet, form.SelectedInterlayer
                     , constraintSet
                     , new CylinderSolver());
             }
@@ -600,6 +605,8 @@ namespace TreeDim.StackBuilder.Desktop
             FormNewAnalysisCylinder form = new FormNewAnalysisCylinder(this, analysis);
             form.Cylinders = Cylinders.ToArray();
             form.Pallets = Pallets.ToArray();
+            form.Interlayers = Interlayers.ToArray();
+
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
             {
                 // analysis name / description
@@ -607,6 +614,9 @@ namespace TreeDim.StackBuilder.Desktop
                 analysis.Description = form.AnalysisDescription;
                 // constraint set
                 CylinderPalletConstraintSet constraintSet = analysis.ConstraintSet;
+                // interlayers
+                constraintSet.HasInterlayer = form.HasInterlayer;
+                constraintSet.InterlayerPeriod = form.InterlayerPeriod;
                 // overhang / underhang
                 constraintSet.OverhangX = form.OverhangX;
                 constraintSet.OverhangY = form.OverhangY;

@@ -540,10 +540,9 @@ namespace TreeDim.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet
             , List<CylinderPalletSolution> solutions)
         {
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer);
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer, constraintSet);
             analysis.Name = name;
             analysis.Description = description;
-            analysis.ConstraintSet = constraintSet;
             // insert in list
             _cylinderPalletAnalyses.Add(analysis);
             // set solutions

@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>17</value>
   </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>514, 38</value>
@@ -165,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>16</value>
   </data>
   <data name="cbPallets.Location" type="System.Drawing.Point, System.Drawing">
     <value>355, 63</value>
@@ -186,7 +186,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>10</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -217,7 +217,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>11</value>
   </data>
   <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 35</value>
@@ -238,7 +238,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>12</value>
   </data>
   <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 9</value>
@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>13</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -289,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>14</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -319,7 +319,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>15</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -346,7 +346,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>9</value>
   </data>
   <data name="lbMm2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -568,7 +568,7 @@
     <value>6</value>
   </data>
   <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 92</value>
+    <value>5, 125</value>
   </data>
   <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 78</value>
@@ -589,7 +589,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbOverhangUnderhang.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>8</value>
   </data>
   <data name="uLengthPalletHeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -631,7 +631,7 @@
     <value>272, 101</value>
   </data>
   <data name="uMassPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
+    <value>38, 13</value>
   </data>
   <data name="uMassPalletWeight.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -661,7 +661,7 @@
     <value>272, 131</value>
   </data>
   <data name="uMassLoadOnLower.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
+    <value>38, 13</value>
   </data>
   <data name="uMassLoadOnLower.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -916,7 +916,7 @@
     <value>11</value>
   </data>
   <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>285, 92</value>
+    <value>285, 125</value>
   </data>
   <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
     <value>304, 154</value>
@@ -937,7 +937,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbStopStackingCondition.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>7</value>
   </data>
   <data name="cbCylinders.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 63</value>
@@ -958,6 +958,162 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbCylinders.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="checkBoxInterlayer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxInterlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 95</value>
+  </data>
+  <data name="checkBoxInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="checkBoxInterlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="checkBoxInterlayer.Text" xml:space="preserve">
+    <value>Interlayer</value>
+  </data>
+  <data name="&gt;&gt;checkBoxInterlayer.Name" xml:space="preserve">
+    <value>checkBoxInterlayer</value>
+  </data>
+  <data name="&gt;&gt;checkBoxInterlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxInterlayer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxInterlayer.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cbInterlayers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 93</value>
+  </data>
+  <data name="cbInterlayers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 21</value>
+  </data>
+  <data name="cbInterlayers.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayers.Name" xml:space="preserve">
+    <value>cbInterlayers</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayers.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbInterlayerFreq1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInterlayerFreq1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 97</value>
+  </data>
+  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="lbInterlayerFreq1.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="lbInterlayerFreq1.Text" xml:space="preserve">
+    <value>every</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq1.Name" xml:space="preserve">
+    <value>lbInterlayerFreq1</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="nudInterlayerFreq.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 93</value>
+  </data>
+  <data name="nudInterlayerFreq.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 20</value>
+  </data>
+  <data name="nudInterlayerFreq.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;nudInterlayerFreq.Name" xml:space="preserve">
+    <value>nudInterlayerFreq</value>
+  </data>
+  <data name="&gt;&gt;nudInterlayerFreq.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudInterlayerFreq.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudInterlayerFreq.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbInterlayerFreq2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInterlayerFreq2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>411, 97</value>
+  </data>
+  <data name="lbInterlayerFreq2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="lbInterlayerFreq2.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="lbInterlayerFreq2.Text" xml:space="preserve">
+    <value>layers</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq2.Name" xml:space="preserve">
+    <value>lbInterlayerFreq2</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbInterlayerFreq2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 290</value>
+  </data>
+  <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>596, 22</value>
+  </data>
+  <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -967,10 +1123,22 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>596, 248</value>
+    <value>596, 312</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>612, 350</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>612, 350</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Create new cylinder analysis... </value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewAnalysisCylinder</value>

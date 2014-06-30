@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="PalletSolutionsDB" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PalletSolutionsDBGroup">
+            <Component Id="cmpE56D1C5B6064144BCFDDA8B7A7FC6A6D" Directory="PalletSolutionsDB" Guid="B4989F05-F0A3-4C55-B344-48B501FD9A47">
+                <File Id="filC49DD6B032968C22DCCA02D0A4234DF9" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\08d93c2d_ea3a_4955_a1e3_b4594715a9e1.stb" />
+            </Component>
+            <Component Id="cmpD72EFB2968C14B096C81DAE9251037F8" Directory="PalletSolutionsDB" Guid="14842845-EDBB-41A7-933A-D626C4551C85">
+                <File Id="fil9CAAB0C1A33A27F2ECA5A7C16C98D5D6" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\1b278969_1170_4313_a85a_20c47c9b601a.stb" />
+            </Component>
+            <Component Id="cmpF8D7E7EF84B413BDB1003A68AABECF11" Directory="PalletSolutionsDB" Guid="9E999A0D-EAF4-4468-B3E4-6BD74A006A85">
+                <File Id="fil1AEB883611F455DFE8AD5C6D36CC8968" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\1e34b1b5_4da7_477b_9c2e_5a4f967e83a9.stb" />
+            </Component>
+            <Component Id="cmp0BE370AF58BD67AF5AC6AA7F13027A0F" Directory="PalletSolutionsDB" Guid="827B5AC7-435B-4C2C-B4F7-B8667F4F18AA">
+                <File Id="fil5658F0D7E74805C50A4A2A4C5B41E728" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\2954e7ec_e023_4b7f_b610_df52ee071c01.stb" />
+            </Component>
+            <Component Id="cmp58FBB74CA44F06C103927FFA723DC652" Directory="PalletSolutionsDB" Guid="6CEC2378-B555-42DF-99C8-F9FAD2DA0139">
+                <File Id="filC89300224ACF3445EBA456E446F00502" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\3e200ddb_b8e3_45ee_85fa_09db48555012.stb" />
+            </Component>
+            <Component Id="cmpE64F73E6ED5EDCA44053DF9AF83C8006" Directory="PalletSolutionsDB" Guid="C747EE98-DCA5-48A6-B990-41E7C14A439A">
+                <File Id="filB88E261FF3A5EEA4D4D0AF4A7B8C08AE" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\44595ff5_6ac4_450b_8543_45bf4a53fd62.stb" />
+            </Component>
+            <Component Id="cmp8209B22568BB5590B2F67D950FE4AD7D" Directory="PalletSolutionsDB" Guid="54B7F49B-E2CB-4148-B998-0705AB444C6B">
+                <File Id="fil37B861827A80A8901269911D0212F1AC" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" />
+            </Component>
+            <Component Id="cmp28997624219D7F87ECA80A93EEDA02CC" Directory="PalletSolutionsDB" Guid="84BFA312-23B4-4EDC-B076-9598089E8259">
+                <File Id="filA62381B7E5894871DB9A194B4212CE7B" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\49528a5e_0e61_4b3e_8ed4_7fc438cf8955.stb" />
+            </Component>
+            <Component Id="cmp703CB69FA4CB7A37D895DB6CFCE1B922" Directory="PalletSolutionsDB" Guid="33FBD8AC-564C-4DFA-8D8A-177458E2B2CF">
+                <File Id="fil44987988D0928681553C1AFDEF8D9530" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\61d1b336_e7a0_42d2_90ec_db5c5ea23235.stb" />
+            </Component>
+            <Component Id="cmp224D8C6B37A8A833A559180B43658F81" Directory="PalletSolutionsDB" Guid="69DCA08F-52D0-41D1-9EE9-7D1D1A9E767B">
+                <File Id="fil9B6A12F7E722BBB357E48F0C05BF0B37" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\9e4e5f7d_ca7e_466f_8dbe_81d1d9dc2444.stb" />
+            </Component>
+            <Component Id="cmpC227431FB9FB41EC1198C18ADEB6D246" Directory="PalletSolutionsDB" Guid="0D89F8CE-F3BB-439F-BDFE-98CF0193EC7D">
+                <File Id="filC948D239EF8477F08F2BD087E18AC9CF" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\9eb6a1bb_4e52_4174_8f76_043b9c12bf94.stb" />
+            </Component>
+            <Component Id="cmp807B9B0FF86F9E10505222FECEF041C0" Directory="PalletSolutionsDB" Guid="C6076A71-1F46-4B23-8AF6-0C91CB5E0D09">
+                <File Id="fil8EFA72542F0829F5BBE1DCAEE6AC2C1D" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\b0297a77_eb89_4477_ad3c_ca3d1ede9741.stb" />
+            </Component>
+            <Component Id="cmp779B50E1C967A83EC51614C6D428642E" Directory="PalletSolutionsDB" Guid="BB0D3962-E934-406C-B22F-C639D4C5A378">
+                <File Id="fil252537F552911CC20358D5D81C9B547F" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\be6ae428_39ab_4a91_bccc_de04e064afa1.stb" />
+            </Component>
+            <Component Id="cmp25EF144D797E7BE7729E5A8D75322A17" Directory="PalletSolutionsDB" Guid="52C7ADCD-78C1-4457-A6B0-C29D875BDA73">
+                <File Id="filD00382758F9E9059D201CB053E39DD43" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\bfb5e1b7_5fb1_455f_9256_49fee6dbaa9b.stb" />
+            </Component>
+            <Component Id="cmpC6E4D9AD8607DB09B577E653AED9D211" Directory="PalletSolutionsDB" Guid="0D0E9F3B-9B2A-4637-AFAB-360B20ADF16C">
+                <File Id="fil37CCE4902B7811D521BB4189A9FD08E0" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\c121d1ff_1500_408e_a480_8f55b1eabfce.stb" />
+            </Component>
+            <Component Id="cmp9A8F196BCC995D92E43BE84F369F7A93" Directory="PalletSolutionsDB" Guid="FE8368E1-7311-427B-90D8-1F761E7D735C">
+                <File Id="fil9541BED46001F9A37F2CD0F85EC7B5E3" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\cf0c6af1_83cb_450e_8c80_3f7455b1770f.stb" />
+            </Component>
+            <Component Id="cmp4C0144D52350D8245BA695FD1C3428AB" Directory="PalletSolutionsDB" Guid="E2D40FCC-6E3C-4FEB-813F-E09082642857">
+                <File Id="fil473A3FB1BC8A682CB8C9AE1E1D06E6A7" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\d268e2ba_fa1d_4b0b_9821_90140edfaa1f.stb" />
+            </Component>
+            <Component Id="cmpA71BA66031DFD1EF6053AF7EFAB67EC5" Directory="PalletSolutionsDB" Guid="413BD9EA-09A3-44A9-A770-E08B650E39E5">
+                <File Id="fil45E0BD73317FC3C63B77485B5FA1798B" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\index.xml" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

@@ -15,7 +15,6 @@ namespace TreeDim.StackBuilder.Graphics
             // instantiate
             BoxelOrderer orderer0 = new BoxelOrderer();
 
-
             // fill BoxelOrderer class
             Box b0 = new Box(0, 400.0, 300.0, 200.0);
             b0.Position = new Vector3D(300.0, 0.0, 0.0);

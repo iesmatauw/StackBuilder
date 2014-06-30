@@ -20,6 +20,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Data members
         private CylinderProperties[] _cylinderProperties;
         private PalletProperties[] _palletProperties;
+        private InterlayerProperties[] _interlayerProperties;
         private TreeDim.StackBuilder.Basics.Document _document;
         private CylinderPalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinder));
@@ -75,6 +76,8 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
+            // update interlayer UI
+            onInterlayerChecked(this, null);
         }
         /// <summary>
         /// Constructor used while browsing/editing existing analysis
@@ -88,7 +91,9 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             _analysis = analysis;
             // set caption text
-            Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);     
+            Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
+            // update interlayer UI
+            onInterlayerChecked(this, null);
         }
         #endregion
 
@@ -108,7 +113,7 @@ namespace TreeDim.StackBuilder.Desktop
                     tbName.Text = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
                     tbDescription.Text = tbName.Text;
                 }
-                // fill boxes combo
+                // fill cylinders combo
                 foreach (CylinderProperties cyl in _cylinderProperties)
                     cbCylinders.Items.Add(new CylinderItem(cyl));
                 if (cbCylinders.Items.Count > 0)
@@ -150,6 +155,34 @@ namespace TreeDim.StackBuilder.Desktop
                 }
 
                 // fill interlayer combo
+                foreach (InterlayerProperties interlayer in _interlayerProperties)
+                    cbInterlayers.Items.Add(new InterlayerItem(interlayer));
+                if (cbInterlayers.Items.Count > 0)
+                {
+                    if (null == _analysis)
+                        cbInterlayers.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 0; i < cbInterlayers.Items.Count; ++i)
+                        {
+                            InterlayerItem interlayerItem = cbInterlayers.Items[i] as InterlayerItem;
+                            if (interlayerItem.Item == _analysis.InterlayerProperties)
+                            {
+                                cbInterlayers.SelectedIndex = i;
+                                break;
+                            }
+                        }
+
+                        checkBoxInterlayer.Checked = _analysis.ConstraintSet.HasInterlayer;
+                        checkBoxInterlayer.Enabled = true;
+                    }
+                }
+                else
+                {
+                    checkBoxInterlayer.Checked = false;
+                    checkBoxInterlayer.Enabled = false;
+                }
+
                 // overhang
                 if (null == _analysis)
                 {
@@ -186,6 +219,7 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
                     MaximumLoadOnLowerCylinder = _analysis.ConstraintSet.MaximumLoadOnLowerCylinder;                                    
                 }
+                UpdateButtonOkStatus();
             }
             catch (Exception ex)
             {
@@ -196,12 +230,20 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                // window position
+                if (null == Settings.Default.FormNewAnalysisPosition)
+                    Settings.Default.FormNewAnalysisPosition = new WindowSettings();
+                Settings.Default.FormNewAnalysisPosition.Record(this);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
         } 
+        private void onFormContentChanged(object sender, EventArgs e)
+        {
+            UpdateButtonOkStatus();
+        }
         #endregion
 
         #region Public properties
@@ -251,11 +293,57 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return _palletProperties[cbPallets.SelectedIndex]; }
         }
+        /// <summary>
+        /// List of interlayers
+        /// </summary>
+        public InterlayerProperties[] Interlayers
+        {
+            get { return _interlayerProperties; }
+            set { _interlayerProperties = value; }
+        }
+        /// <summary>
+        /// Selected interlayer
+        /// </summary>
+        public InterlayerProperties SelectedInterlayer
+        {
+            get
+            {
+                if (null == _interlayerProperties
+                    || _interlayerProperties.Length == 0
+                    || !checkBoxInterlayer.Checked
+                    || -1 == cbInterlayers.SelectedIndex)
+                    return null;
+                else
+                    return _interlayerProperties[cbInterlayers.SelectedIndex];
+            }
+        }
+        /// <summary>
+        /// Has interlayer ?
+        /// </summary>
+        public bool HasInterlayer
+        {
+            get { return checkBoxInterlayer.Checked; }
+            set { checkBoxInterlayer.Checked = value; }
+        }
+        /// <summary>
+        /// Interlayer period
+        /// </summary>
+        public int InterlayerPeriod
+        {
+            get { return (int)nudInterlayerFreq.Value; }
+            set { nudInterlayerFreq.Value = (decimal)value; }
+        }
+        /// <summary>
+        /// Overgang X
+        /// </summary>
         public double OverhangX
         {
             get { return (double)nudPalletOverhangX.Value; }
             set { nudPalletOverhangX.Value = (decimal)value;}
         }
+        /// <summary>
+        /// Overhang Y
+        /// </summary>
         public double OverhangY
         {
             get { return (double)nudPalletOverhangY.Value; }
@@ -308,9 +396,48 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudMaximumLoadOnBox.Value; }
             set { nudMaximumLoadOnBox.Value = (decimal)value;}
         }
+        private void UpdateCriterionFields()
+        {
+            nudMaximumNumberOfItems.Enabled = checkBoxMaximumNumberOfItems.Checked;
+            nudMaximumPalletHeight.Enabled = checkBoxMaximumPalletHeight.Checked;
+            nudMaximumPalletWeight.Enabled = checkBoxMaximumPalletWeight.Checked;
+            nudMaximumLoadOnBox.Enabled = checkBoxMaximumLoadOnCylinder.Checked;
+        }
+        private void onCriterionCheckChanged(object sender, EventArgs e)
+        {
+            UpdateCriterionFields();
+        }
         #endregion
 
         #region Handlers
+        private void UpdateButtonOkStatus()
+        {
+            string message = string.Empty;
+            // name
+            if (string.IsNullOrEmpty(tbName.Text))
+                message = Resources.ID_FIELDNAMEEMPTY;
+            // description
+            else if (string.IsNullOrEmpty(tbDescription.Text))
+                message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            // name validity
+            else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
+                message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            // maximum load
+            else if (!UseMaximumLoadOnLowerCylinder && !UseMaximumNumberOfItems && !UseMaximumPalletHeight && !UseMaximumPalletWeight)
+                message = Resources.ID_USEATLEASTONESTOPSTACKINGCRITERION;
+            // button OK
+            bnOK.Enabled = string.IsNullOrEmpty(message);
+            // status bar
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+        }
+        private void onInterlayerChecked(object sender, EventArgs e)
+        {
+            cbInterlayers.Enabled = checkBoxInterlayer.Checked;
+            lbInterlayerFreq1.Enabled = checkBoxInterlayer.Checked;
+            lbInterlayerFreq2.Enabled = checkBoxInterlayer.Checked;
+            nudInterlayerFreq.Enabled = checkBoxInterlayer.Checked;
+        }
         #endregion
     }
 }

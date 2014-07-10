@@ -37,9 +37,9 @@ namespace TreeDim.StackBuilder.Desktop
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_BUNDLE);
             tbDescription.Text = tbName.Text;
             // initialize value
-            BundleLength = 400.0;
-            BundleWidth = 300.0;
-            UnitThickness = 5.0;
+            BundleLength = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            BundleWidth = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            UnitThickness = UnitsManager.ConvertLengthFrom(5.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             NoFlats = 10;
             // set horizontal angle
             trackBarHorizAngle.Value = 225;

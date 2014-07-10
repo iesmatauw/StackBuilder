@@ -58,23 +58,23 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 case Mode.MODE_CASE:
                     tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
-                    nudLength.Value = 400.0M;
-                    nudWidth.Value = 300.0M;
-                    nudHeight.Value = 200.0M;
-                    nudInsideLength.Value = nudLength.Value - 6.0M;
-                    nudInsideWidth.Value = nudWidth.Value - 6.0M;
-                    nudInsideHeight.Value = nudHeight.Value - 6.0M;
-                    nudTapeWidth.Value = 50;
+                    nudLength.Value = (decimal)UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudWidth.Value = (decimal)UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudInsideLength.Value = nudLength.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudInsideWidth.Value = nudWidth.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudInsideHeight.Value = nudHeight.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudTapeWidth.Value = (decimal)UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1);
                     cbTapeColor.Color = Color.Beige;
                     break;
                 case Mode.MODE_BOX:
                     tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
-                    nudLength.Value = 120.0M;
-                    nudWidth.Value = 60.0M;
-                    nudHeight.Value = 30.0M;
-                    nudInsideLength.Value = nudLength.Value - 6.0M;
-                    nudInsideWidth.Value = nudWidth.Value - 6.0M;
-                    nudInsideHeight.Value = nudHeight.Value - 6.0M;
+                    nudLength.Value = (decimal)UnitsManager.ConvertLengthFrom(120.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudWidth.Value = (decimal)UnitsManager.ConvertLengthFrom(60.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(30.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudInsideLength.Value = nudLength.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudInsideWidth.Value = nudWidth.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    nudInsideHeight.Value = nudHeight.Value - (decimal)UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                     break;
                 default:
                     break;
@@ -302,7 +302,6 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.FormNewBoxPosition = new WindowSettings();
             Settings.Default.FormNewBoxPosition.Record(this);
         }
-
         #endregion
 
         #region Form override
@@ -486,7 +485,5 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
-
-
     }
 }

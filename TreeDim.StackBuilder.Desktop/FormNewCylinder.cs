@@ -38,8 +38,8 @@ namespace TreeDim.StackBuilder.Desktop
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_CYLINDER);
             tbDescription.Text = tbName.Text;
             // properties
-            nudRadius.Value = 75.0M;
-            nudHeight.Value = 150.0M;
+            nudRadius.Value = (decimal)UnitsManager.ConvertLengthFrom(75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
             cbColorTop.Color = System.Drawing.Color.Gray;
             // set horizontal angle

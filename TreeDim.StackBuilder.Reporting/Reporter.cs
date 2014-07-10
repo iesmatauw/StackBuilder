@@ -1117,7 +1117,7 @@ namespace TreeDim.StackBuilder.Reporting
             XmlElement elemLayer1_caseCount = xmlDoc.CreateElement("layer1_caseCount", ns);
             elemLayer1_caseCount.InnerText = string.Format("{0}", sol.CaseLayerFirst.BoxCount);
             elemSolution.AppendChild(elemLayer1_caseCount);
-            if (sol.CaseLayerFirst.BoxCount != sol.CaseLayerSecond.BoxCount)
+            if (sol.Count > 1 && (sol.CaseLayerFirst.BoxCount != sol.CaseLayerSecond.BoxCount))
             {
                 XmlElement elemLayer2_caseCount = xmlDoc.CreateElement("layer2_caseCount", ns);
                 elemLayer2_caseCount.InnerText = string.Format("{0}", sol.CaseLayerSecond.BoxCount);
@@ -1131,7 +1131,7 @@ namespace TreeDim.StackBuilder.Reporting
                 elemSolution.AppendChild(elemInterlayerCount);
             }
             // --- layer images
-            for (int i = 0; i < (sol.HasHomogeneousLayers ? 1 : 2); ++i)
+            for (int i = 0; i < Math.Min(sol.Count, (sol.HasHomogeneousLayers ? 1 : 2)); ++i)
             {
                 XmlElement elemLayer = xmlDoc.CreateElement("layer", ns);
                 // layerId

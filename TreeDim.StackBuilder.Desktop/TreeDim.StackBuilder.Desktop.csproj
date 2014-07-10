@@ -69,9 +69,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdPartyAssemblies\PropertyGridEx.dll</HintPath>
@@ -891,6 +888,12 @@
     <EmbeddedResource Include="FormOptionsSettings.resx">
       <DependentUpon>FormOptionsSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelUnits.de-DE.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelUnits.fr-FR.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelUnits.resx">
       <DependentUpon>OptionPanelUnits.cs</DependentUpon>
     </EmbeddedResource>
@@ -1138,6 +1141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solution.bmp" />
+    <Content Include="FAQ\FAQ.html" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />

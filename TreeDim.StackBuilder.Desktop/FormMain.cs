@@ -478,9 +478,14 @@ namespace TreeDim.StackBuilder.Desktop
                 else if (null != eventArg.BoxCaseAnalysis) analysisName = eventArg.BoxCaseAnalysis.Name;
                 else if (null != eventArg.BoxCasePalletAnalysis) analysisName = eventArg.BoxCasePalletAnalysis.Name;
                 else if (null != eventArg.CylinderAnalysis) analysisName = eventArg.CylinderAnalysis.Name;
+                else
+                {
+                    _log.Error("Unsupported analysis type ?");
+                    return;
+                }
                 // save file dialog
                 SaveFileDialog dlg = new SaveFileDialog();
-                dlg.InitialDirectory    = Properties.Settings.Default.ReportInitialDirectory;
+                dlg.InitialDirectory = Properties.Settings.Default.ReportInitialDirectory;
                 dlg.FileName = Path.ChangeExtension(CleanString(analysisName), "doc");
                 dlg.Filter = Resources.ID_FILTER_MSWORD;
                 dlg.DefaultExt = "doc";
@@ -503,37 +508,15 @@ namespace TreeDim.StackBuilder.Desktop
                             );
                     Reporter.CompanyLogo = Properties.Settings.Default.CompanyLogoPath;
                     Reporter.ImageSizeSetting = (Reporter.eImageSize)Properties.Settings.Default.ReporterImageSize;
-                    ReporterHtml reporter = new ReporterHtml(
+                    ReporterMSWord reporter = new ReporterMSWord(
                         reportObject
                         , Settings.Default.ReportTemplatePath
                         , htmlFilePath);
-                    // logging
-                    _log.Debug(string.Format("Saved html report to {0}", htmlFilePath));
-
-                    // opens word
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
-                    wordApp.Visible = true;
-                    Microsoft.Office.Interop.Word.Document wordDoc = wordApp.Documents.Open(htmlFilePath, false, true, NoEncodingDialog: true);
-                    // embed pictures (unlinking images)
-                    for (int i = 1; i <= wordDoc.InlineShapes.Count; ++i)
-                    {
-                        if (null != wordDoc.InlineShapes[i].LinkFormat && !wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument)
-                            wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument = true;
-                    }
-                    // set margins (unit?)
-                    wordDoc.PageSetup.TopMargin = 10.0f;
-                    wordDoc.PageSetup.BottomMargin = 10.0f;
-                    wordDoc.PageSetup.RightMargin = 10.0f;
-                    wordDoc.PageSetup.LeftMargin = 10.0f;
-                    // set print view 
-                    wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
-                    wordDoc.SaveAs(outputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);
-                    _log.Debug(string.Format("Saved doc report to {0}", outputFilePath));
-                    // delete image directory
-                    reporter.DeleteImageDirectory();
-                    // delete html report
-                    File.Delete(htmlFilePath);
                 }
+            }
+            catch (System.Runtime.InteropServices.COMException ex)
+            {
+                _log.Error("MS Word not installed? : "+ ex.Message);
             }
             catch (Exception ex)
             {

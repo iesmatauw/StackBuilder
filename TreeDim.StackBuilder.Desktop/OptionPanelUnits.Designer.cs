@@ -28,43 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionPanelUnits));
             this.cbUnitSystem = new System.Windows.Forms.ComboBox();
             this.lbUnitSystem = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbUnitSystem
             // 
+            resources.ApplyResources(this.cbUnitSystem, "cbUnitSystem");
             this.cbUnitSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUnitSystem.FormattingEnabled = true;
             this.cbUnitSystem.Items.AddRange(new object[] {
-            "Metric 1 (mm/kg/l)",
-            "Metric 2 (cm/kg/l)",
-            "UK (in/lb/gal)",
-            "US (in/lb/gal)"});
-            this.cbUnitSystem.Location = new System.Drawing.Point(99, 21);
+            resources.GetString("cbUnitSystem.Items"),
+            resources.GetString("cbUnitSystem.Items1"),
+            resources.GetString("cbUnitSystem.Items2"),
+            resources.GetString("cbUnitSystem.Items3")});
             this.cbUnitSystem.Name = "cbUnitSystem";
-            this.cbUnitSystem.Size = new System.Drawing.Size(121, 21);
-            this.cbUnitSystem.TabIndex = 0;
             this.cbUnitSystem.SelectedIndexChanged += new System.EventHandler(this.cbUnitSystem_SelectedIndexChanged);
             // 
             // lbUnitSystem
             // 
-            this.lbUnitSystem.AutoSize = true;
-            this.lbUnitSystem.Location = new System.Drawing.Point(8, 23);
+            resources.ApplyResources(this.lbUnitSystem, "lbUnitSystem");
             this.lbUnitSystem.Name = "lbUnitSystem";
-            this.lbUnitSystem.Size = new System.Drawing.Size(61, 13);
-            this.lbUnitSystem.TabIndex = 1;
-            this.lbUnitSystem.Text = "Unit system";
             // 
             // OptionPanelUnits
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Unit system";
             this.Controls.Add(this.lbUnitSystem);
             this.Controls.Add(this.cbUnitSystem);
             this.DisplayName = "Unit system";
-            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "OptionPanelUnits";
             this.ResumeLayout(false);
             this.PerformLayout();

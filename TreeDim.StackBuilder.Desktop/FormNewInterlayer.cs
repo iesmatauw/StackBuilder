@@ -34,8 +34,8 @@ namespace TreeDim.StackBuilder.Desktop
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_INTERLAYER);
             tbDescription.Text = tbName.Text;
             // initialize value
-            InterlayerLength = 1200.0;
-            InterlayerWidth = 1000.0;
+            InterlayerLength = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            InterlayerWidth = UnitsManager.ConvertLengthFrom(1000.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             // set horizontal angle
             trackBarHorizAngle.Value = 225;
             // disable Ok button

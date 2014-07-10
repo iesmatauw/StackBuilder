@@ -208,9 +208,6 @@
   <data name="cbFace.Items5" xml:space="preserve">
     <value>Oben</value>
   </data>
-  <data name="cbColor.Items2" xml:space="preserve">
-    <value>Farbe</value>
-  </data>
   <data name="cbColor.Items3" xml:space="preserve">
     <value>Farbe</value>
   </data>
@@ -373,10 +370,16 @@
   <data name="cbColor.Items56" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbColor.Items57" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbColor.Items66" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items72" xml:space="preserve">
+  <data name="cbColor.Items67" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items73" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
@@ -408,9 +411,6 @@
   </data>
   <data name="uLengthTapeWidth.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 40</value>
-  </data>
-  <data name="cbTapeColor.Items2" xml:space="preserve">
-    <value>Farbe</value>
   </data>
   <data name="cbTapeColor.Items3" xml:space="preserve">
     <value>Farbe</value>
@@ -577,10 +577,16 @@
   <data name="cbTapeColor.Items57" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbTapeColor.Items58" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbTapeColor.Items67" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbTapeColor.Items73" xml:space="preserve">
+  <data name="cbTapeColor.Items68" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items74" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="lbTapeColor.Size" type="System.Drawing.Size, System.Drawing">

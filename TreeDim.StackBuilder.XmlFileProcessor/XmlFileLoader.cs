@@ -257,8 +257,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // selected solution
             SelCasePalletSolution selSolution = new SelCasePalletSolution(doc, analysis, sol);
             // generate report
-            ReporterMSWord reporter = new ReporterMSWord();
-            reporter.BuildAnalysisReport(new ReportData(analysis, selSolution), rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
+            ReporterMSWord reporter = new ReporterMSWord(new ReportData(analysis, selSolution), rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
         }
 
         private void ProcessDocument(genDocument genDoc)

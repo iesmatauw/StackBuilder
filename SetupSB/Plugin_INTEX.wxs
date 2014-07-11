@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Fragment>
+		<!-- Components-->
+    <DirectoryRef Id="REPORTTEMPLATES">
+      <Component Id="ReportTemplate_INTEX" Guid="{02528622-3F81-46D5-9F8C-B5EE3BA35B55}">        
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_INTEX.xsl" Checksum="yes" KeyPath="yes" />
+        <util:XmlFile Id="SetReportTemplateINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value" Value="[REPORTTEMPLATES]ReportTemplateHtml_INTEX.xsl"/>
+        <util:XmlFile Id="SetHasPluginINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='HasPluginINTEX'[\]]/value" Value="True" />
+        <File Source="..\treeDiM.StackBuilder.Plugin_INTEX\Images\pictoTOP.jpg" Checksum="yes"/>
+        <util:XmlFile Id="SetPictoTOP" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/treeDiM.StackBuilder.Plugin.Properties.Settings/setting[\[]@name='pictoTOP'[\]]/value" Value="[REPORTTEMPLATES]pictoTOP.jpg" />
+        <File Source="..\treeDiM.StackBuilder.Plugin_INTEX\Images\Intex_Reflex.jpg" Checksum="yes"/>
+        <util:XmlFile Id="SetCompanyLogoINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanyLogoPath'[\]]/value" Value="[REPORTTEMPLATES]Intex_Reflex.jpg" Sequence="2"/>
+      </Component>
+    </DirectoryRef>
+	</Fragment>
+</Wix>

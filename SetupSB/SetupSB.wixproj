@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="Components.wxs" />
     <Compile Include="DirectoryTree.wxs" />
+    <Compile Include="Plugin_INTEX.wxs" />
     <Compile Include="Product.wxs" />
     <Compile Include="RegistDlg.wxs" />
   </ItemGroup>

@@ -1370,7 +1370,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void helpToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
             AboutBox form = new AboutBox();
-            form.CompanyUrl = "http://stackbuilder.codeplex.com/";
+            form.CompanyUrl = "https://github.com/treeDiM/StackBuilder/releases";
             form.SupportEmail = "treedim@gmail.com";
             form.ShowDialog();
         }

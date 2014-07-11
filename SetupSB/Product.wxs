@@ -44,6 +44,7 @@
       <ComponentRef Id="ProgramMenuShortcutComp" />
       <ComponentRef Id="DesktopShortcutComp" />
       <ComponentRef Id="ReportTemplates" />
+      <ComponentRef Id="CompanyLogoTreeDiM"/>
       <ComponentRef Id="PalletSolutionsDB" />
       <ComponentRef Id="resources_fr_FR" />
       <ComponentRef Id="resources_ja_JP" />

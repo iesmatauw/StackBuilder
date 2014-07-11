@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TreeDim PLMPack StackBuilder")]
+[assembly: AssemblyTitle("treeDiM PLMPack StackBuilder")]
 [assembly: AssemblyDescription("Palletization simulation")]
 // Compile a Debug or Release flag into the assembly.
 #if DEBUG
@@ -13,9 +13,9 @@ using System.Runtime.InteropServices;
 #else
 [assembly: AssemblyConfiguration("Release")]
 #endif
-[assembly: AssemblyCompany("TreeDim")]
+[assembly: AssemblyCompany("treeDiM")]
 [assembly: AssemblyProduct("PLMPack StackBuilder")]
-[assembly: AssemblyCopyright("Copyright TreeDim ©  2011")]
+[assembly: AssemblyCopyright("Copyright TreeDim ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

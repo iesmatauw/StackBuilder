@@ -64,9 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
-    <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="SolutionViewers\CylinderPalletSolutionViewer.cs" />
     <Compile Include="Types\Box.cs" />
     <Compile Include="SolutionViewers\BoxCaseSolutionViewer.cs" />

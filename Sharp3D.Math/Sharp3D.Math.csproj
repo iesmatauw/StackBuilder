@@ -74,6 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Analysis\Interfaces.cs" />
     <Compile Include="Analysis\RombergIntegral.cs" />
     <Compile Include="Analysis\SimpsonIntegral.cs" />

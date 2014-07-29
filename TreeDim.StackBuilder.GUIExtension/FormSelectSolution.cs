@@ -238,9 +238,7 @@ namespace TreeDim.StackBuilder.GUIExtension
                 if (formReport.FileExtension == "doc")
                 {
                     // create "MS Word" report file
-                    reporter = new ReporterMSWord();
-                    reportTemplatePath = Settings.Default.ReportTemplatePath;
-                    reporter.BuildAnalysisReport(reportData, reportTemplatePath, formReport.FilePath);
+                    reporter = new ReporterMSWord(reportData, Settings.Default.ReportTemplatePath, formReport.FilePath);
                 }
                 else if (formReport.FileExtension == "html")
                 {

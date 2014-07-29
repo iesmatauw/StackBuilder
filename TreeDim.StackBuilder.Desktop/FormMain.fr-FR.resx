@@ -866,10 +866,10 @@
     <value>Aide</value>
   </data>
   <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
-    <value>Créer un nouveau project INTEX...</value>
+    <value>Créer un nouveau projet INTEX...</value>
   </data>
   <data name="ToolStripMenuNewFileINTEX.ToolTipText" xml:space="preserve">
-    <value>Créer un nouveau project INTEX...</value>
+    <value>Créer un nouveau projet INTEX...</value>
   </data>
   <data name="openFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder files (*.stb)|*.stb|Tous les fichiers (*.*)|*.*</value>

@@ -229,7 +229,7 @@ Souhaitez-vous continuer?</value>
     <value>Intercallaires</value>
   </data>
 	<data name="ID_NODE_PALLETS" xml:space="preserve">
-    <value>Pallettes</value>
+    <value>Palettes</value>
   </data>
 	<data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>Camions</value>

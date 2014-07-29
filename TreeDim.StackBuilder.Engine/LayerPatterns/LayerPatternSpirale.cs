@@ -88,7 +88,7 @@ namespace TreeDim.StackBuilder.Engine
 
         public override int GetNumberOfVariants(Layer layer) { return 1; }
         public override bool CanBeSwaped { get { return true; } }
-        public override bool CanBeInverted { get { return false; } }
+        public override bool CanBeInverted { get { return true; } }
         #endregion
 
         #region Helpers

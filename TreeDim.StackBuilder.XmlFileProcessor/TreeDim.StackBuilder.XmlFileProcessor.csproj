@@ -74,6 +74,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="XML Schemas\SolutionListSchema.designer.cs" />
     <Compile Include="XML Schemas\StackBuilderSchema.designer.cs" />
     <Compile Include="XmlFileLoader.cs" />

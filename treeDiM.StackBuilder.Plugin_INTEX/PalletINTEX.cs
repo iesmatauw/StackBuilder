@@ -27,12 +27,12 @@ namespace treeDiM.StackBuilder.Plugin
         public static List<PalletINTEX> BuildList()
         {
             List<PalletINTEX> list = new List<PalletINTEX>();
-            list.Add(new PalletINTEX() { _name = "Palette 80 x 120 x 15", _length = 120, _width = 80, _height = 15, _weight = 15.0 });
-            list.Add(new PalletINTEX() { _name = "Palette 92 x 120 x 15", _length = 92, _width = 120, _height = 15, _weight = 15.0 });
-            list.Add(new PalletINTEX() { _name = "Palette 100 x 120 x 15", _length = 100, _width = 120, _height = 15, _weight = 15.0 });
-            list.Add(new PalletINTEX() { _name = "Demi-palette 80 x 120 x 15", _length = 80, _width = 60, _height = 15, _weight = 15.0 });
-            list.Add(new PalletINTEX() { _name = "Demi-palette 80 x 120 x 15", _length = 100, _width = 60, _height = 15, _weight = 15.0 });
-            list.Add(new PalletINTEX() { _name = "Demi-palette 50 x 120 x 15", _length = 120, _width = 50, _height = 15, _weight = 15.0 });
+            list.Add(new PalletINTEX() { _name = "Palette 80 x 120", _length = 120, _width = 80, _height = 15, _weight = 15.0 });
+            list.Add(new PalletINTEX() { _name = "Palette 92 x 120", _length = 92, _width = 120, _height = 15, _weight = 15.0 });
+            list.Add(new PalletINTEX() { _name = "Palette 100 x 120", _length = 100, _width = 120, _height = 15, _weight = 15.0 });
+            list.Add(new PalletINTEX() { _name = "Demi-palette 80 x 60", _length = 80, _width = 60, _height = 15, _weight = 15.0 });
+            list.Add(new PalletINTEX() { _name = "Demi-palette 60 x 100", _length = 100, _width = 60, _height = 15, _weight = 15.0 });
+            list.Add(new PalletINTEX() { _name = "Demi-palette 50 x 120", _length = 120, _width = 50, _height = 15, _weight = 15.0 });
             return list;
         }
         #endregion

@@ -46,7 +46,7 @@ namespace TreeDim.StackBuilder.Engine.TestCaseOptimisation
             // define case optim constraintSet
             CaseOptimConstraintSet caseOptimConstraintSet = new CaseOptimConstraintSet(
                 new int[3]{2, 2, 4}
-                , 4.0
+                , 4.0, 0.01
                 , new Vector3D(30.0, 30.0, 70.0)
                 , new Vector3D(500.0, 500.0, 500.0)
                 , false

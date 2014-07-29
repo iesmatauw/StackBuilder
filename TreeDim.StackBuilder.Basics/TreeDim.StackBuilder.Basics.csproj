@@ -67,6 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="ConstraintSets\CylinderPalletConstraintSet.cs" />
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="Analyses\BoxCaseAnalysis.cs" />

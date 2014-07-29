@@ -126,8 +126,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     constraintSet.MaximumNumberOfItems = 2000;
                     Console.WriteLine(constraintSet.ToString());
                     // cylinder analysis
-                    CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylProperties, palletProperties, null);
-                    analysis.ConstraintSet = constraintSet;
+                    CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylProperties, palletProperties, null, constraintSet);
                     // initialize solver
                     CylinderSolver solver = new CylinderSolver();
                     solver.ProcessAnalysis(analysis);

@@ -61,6 +61,7 @@ namespace TreeDim.StackBuilder.Desktop
             PalletWidth = _palletProperties.Width;
             PalletHeight = _palletProperties.Height;
             Weight = _palletProperties.Weight;
+            PalletColor = _palletProperties.Color;
         }
         #endregion
 
@@ -109,9 +110,10 @@ namespace TreeDim.StackBuilder.Desktop
             set { nudWeight.Text = string.Format("{0:F}", value); }
         }
 
-        public Color Color
+        public Color PalletColor
         {
             get { return cbColor.Color; }
+            set { cbColor.Color = value; }
         }
 
         public string PalletTypeName
@@ -150,7 +152,7 @@ namespace TreeDim.StackBuilder.Desktop
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
 
                 PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight);
-                palletProperties.Color = Color;
+                palletProperties.Color = PalletColor;
                 Pallet pallet = new Pallet(palletProperties);
                 pallet.Draw(graphics, Transform3D.Identity);
                 graphics.AddDimensions(new DimensionCube(PalletLength, PalletWidth, PalletHeight));
@@ -210,6 +212,7 @@ namespace TreeDim.StackBuilder.Desktop
             PalletWidth = UnitsManager.ConvertLengthFrom(palletData.Width,  UnitsManager.UnitSystem.UNIT_METRIC1);
             PalletHeight = UnitsManager.ConvertLengthFrom(palletData.Height,  UnitsManager.UnitSystem.UNIT_METRIC1);
             Weight = UnitsManager.ConvertMassFrom(palletData.Weight, UnitsManager.UnitSystem.UNIT_METRIC1);
+            PalletColor = palletData.Color;
 
             DrawPallet();
         }

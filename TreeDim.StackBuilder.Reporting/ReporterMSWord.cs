@@ -56,7 +56,6 @@ namespace TreeDim.StackBuilder.Reporting
         {
             get { return false; }
         }
-
         public override bool WriteImageFiles
         {
             get { return true; }

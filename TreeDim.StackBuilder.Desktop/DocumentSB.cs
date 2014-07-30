@@ -208,10 +208,15 @@ namespace TreeDim.StackBuilder.Desktop
         {
             FormNewBox form = new FormNewBox(this, FormNewBox.Mode.MODE_CASE);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewCase(form.BoxName, form.Description
+            {
+                BoxProperties boxProperties = CreateNewCase(form.BoxName, form.Description
                     , form.BoxLength, form.BoxWidth, form.BoxHeight
                     , form.InsideLength, form.InsideWidth, form.InsideHeight
                     , form.Weight, form.Colors);
+                boxProperties.ShowTape = form.ShowTape;
+                boxProperties.TapeColor = form.TapeColor;
+                boxProperties.TapeWidth = form.TapeWidth;
+            }
         }
 
         public void CreateNewCylinderUI()
@@ -258,9 +263,12 @@ namespace TreeDim.StackBuilder.Desktop
         {        
             FormNewPallet form = new FormNewPallet(this);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewPallet(form.PalletName, form.Description, form.PalletTypeName
+            {
+                PalletProperties palletProp = CreateNewPallet(form.PalletName, form.Description, form.PalletTypeName
                     , form.PalletLength, form.PalletWidth, form.PalletHeight
                     , form.Weight);
+                palletProp.Color = form.PalletColor;
+            }
         }
         /// <summary>
         /// Creates a new TruckProperties

@@ -73,35 +73,40 @@ namespace ExcelDataReader
             ReadWorkbookGlobals();
             GC.Collect();
             m_workbookData = new DataSet();
-            for (int i = 0; i < m_sheets.Count; i++)
-                if (ReadWorksheet(m_sheets[i]))
+            // first sheet : boxes
+            if (ReadWorksheet(m_sheets[0]))
+            {
+                DataTable dt = m_sheets[0].Data;
+                for (int iRow = 4; iRow < dt.Rows.Count; ++iRow)
                 {
-                    DataTable dt = m_sheets[i].Data;
-                    for (int iRow = 4; iRow < dt.Rows.Count; ++iRow)
+                    try
                     {
-                        try
-                        {
-                            DataItemINTEX item = new DataItemINTEX();
+                        DataItemINTEX item = new DataItemINTEX();
 
-                            item._ref = (string)dt.Rows[iRow][0];
-                            item._description = (string)dt.Rows[iRow][1];
-                            if (DBNull.Value != dt.Rows[iRow][2])
-                                item._UPC = (string)dt.Rows[iRow][2];
-                            if (DBNull.Value != dt.Rows[iRow][3])
-                                item._PCB = Convert.ToInt32((string)dt.Rows[iRow][3]);
-                            if (DBNull.Value != dt.Rows[iRow][4])
-                                item._gencode = (string)dt.Rows[iRow][4];
-                            item._weight = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
-                            item._length = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
-                            item._width = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
-                            item._height = double.Parse((string)dt.Rows[iRow][8], System.Globalization.CultureInfo.InvariantCulture);
-                            list.Add(item);
-                        }
-                        catch (Exception /*ex*/)
-                        { 
-                        }
+                        item._ref = (string)dt.Rows[iRow][0];
+                        item._description = (string)dt.Rows[iRow][1];
+                        if (DBNull.Value != dt.Rows[iRow][2])
+                            item._UPC = (string)dt.Rows[iRow][2];
+                        if (DBNull.Value != dt.Rows[iRow][3])
+                            item._PCB = Convert.ToInt32((string)dt.Rows[iRow][3]);
+                        if (DBNull.Value != dt.Rows[iRow][4])
+                            item._gencode = (string)dt.Rows[iRow][4];
+                        item._weight = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
+                        item._length = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
+                        item._width = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
+                        item._height = double.Parse((string)dt.Rows[iRow][8], System.Globalization.CultureInfo.InvariantCulture);
+                        list.Add(item);
+                    }
+                    catch (Exception /*ex*/)
+                    { 
                     }
                 }
+            }
+            // second sheet : cases
+
+            // third sheet : pallets
+
+
             m_globals.SST = null;
             m_globals = null;
             m_sheets = null;

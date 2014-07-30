@@ -45,11 +45,12 @@ namespace TreeDim.StackBuilder.Graphics
         private List<Position> _positions;
         private Vector3D _defaultDimensions;
         private double _weight;
+        private Color _color;
         private static List<PalletData> _pool;
         #endregion
 
         #region Constructor
-        private PalletData(string name, string description, Vector3D[] lumbers, Position[] positions, Vector3D dimensions, double weight)
+        private PalletData(string name, string description, Vector3D[] lumbers, Position[] positions, Vector3D dimensions, double weight, Color color)
         {
             _name = name;
             _description = description;
@@ -57,6 +58,7 @@ namespace TreeDim.StackBuilder.Graphics
             _positions = new List<Position>(positions);
             _defaultDimensions = dimensions;
             _weight = weight;
+            _color = color;
         }
         #endregion
 
@@ -77,6 +79,7 @@ namespace TreeDim.StackBuilder.Graphics
         public double Width { get { return _defaultDimensions.Y; } }
         public double Height { get { return _defaultDimensions.Z; } }
         public double Weight { get { return _weight; } }
+        public Color Color { get { return _color; } }
         #endregion
 
         #region Static pool methods
@@ -97,7 +100,7 @@ namespace TreeDim.StackBuilder.Graphics
                     Position[] positions = {
                         new Position(0, new Vector3D(0.0, 0.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
                     };
-                    _pool.Add(new PalletData("Block", "Block", lumbers, positions, dimensions, 20));
+                    _pool.Add(new PalletData("Block", "Block", lumbers, positions, dimensions, 20, Color.Yellow));
                 }
                 #endregion
                 #region Standard UK
@@ -167,7 +170,7 @@ namespace TreeDim.StackBuilder.Graphics
                              , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
 
                     };
-                    _pool.Add(new PalletData("UK Standard", "UK Standard", lumbers, positions, dimensions, 20));
+                    _pool.Add(new PalletData("UK Standard", "UK Standard", lumbers, positions, dimensions, 20, Color.Yellow));
                 }
                 #endregion
                 #region GMA 48*40
@@ -217,7 +220,138 @@ namespace TreeDim.StackBuilder.Graphics
                             , new Position(0, new Vector3D(0.5 * (dimensions.X + 9 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
                                 , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
                     };
-                    _pool.Add(new PalletData("GMA 48x40", "Grocery Manufacturer Association (North America)", lumbers, positions, dimensions, 20));
+                    _pool.Add(new PalletData("GMA 48x40", "Grocery Manufacturer Association (North America)", lumbers, positions, dimensions, 20, Color.Yellow));
+                }
+                #endregion
+                #region CHEP AU
+                {
+                    Vector3D[] lumbers = {
+                            new Vector3D(1165.0, 3.5 * 25.4, 0.625 * 25.4)
+                            , new Vector3D(1165.0, 5.5 * 25.4, 0.625 * 25.4)
+                            , new Vector3D(1165.0, 1.375 * 25.4, 3.5 * 25.4)
+                        };
+
+                    Vector3D dimensions = new Vector3D(1165.0, 1165.0, 150.0);
+
+                    Position[] positions = {
+                            // bottom deck                            
+                            new Position(1, new Vector3D(lumbers[1].Y, 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(1, new Vector3D(dimensions.X, 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X - 3 * lumbers[0].Y), 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 1 * lumbers[0].Y), 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 5 * lumbers[0].Y), 0.0, 0.0)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            // stringers
+                            , new Position(2, new Vector3D(0.0, 0.0, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(2, new Vector3D(0.0, 0.5 * (dimensions.Y - lumbers[2].Y), 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            , new Position(2, new Vector3D(0.0, dimensions.Y - lumbers[2].Y, 0.625 * 25.4)
+                                , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                            // top deck
+                            , new Position(1, new Vector3D(lumbers[1].Y, 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(1, new Vector3D(dimensions.X, 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X - 7 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X - 3 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 1 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 5 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                            , new Position(0, new Vector3D(0.5 * (dimensions.X + 9 * lumbers[0].Y), 0.0, (0.625+3.5) * 25.4)
+                                , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                    };
+                    _pool.Add(new PalletData("CHEP AU", "AU (W)", lumbers, positions, dimensions, 43, Color.FromArgb(51, 102, 255)));
+                }
+                #endregion
+                #region CHEP NZ
+                {
+                    Vector3D[] lumbers = {
+                         new Vector3D(1000.0, 98.0, 25.0)
+                         , new Vector3D(1000.0, 98.0, 25.0)
+                         , new Vector3D(160.0, 95.0, 77.0)
+                         , new Vector3D(95.0, 95.0, 77.0)
+                         , new Vector3D(1200.0, 98.0, 25.0)
+                         , new Vector3D(1000.0, 112.0, 17.0)
+                         , new Vector3D(1000.0, 135.0, 17.0)
+                         , new Vector3D(1000.0, 112.0, 17.0)
+                         , new Vector3D(1000.0, 112.0, 17.0)
+                    };
+
+                    Vector3D dimensions = new Vector3D(1200.0, 1000.0, 162.0);
+                    double xInit0 = (dimensions.X - lumbers[0].X) / 2.0;
+                    double yStep0 = (dimensions.Y - lumbers[0].Y) / 2.0;
+                    double yStep1 = (dimensions.Y - lumbers[2].Y) / 2.0;
+                    double yStep2 = (dimensions.Y - lumbers[4].Y) / 2.0;
+                    double xStep3 = (dimensions.X - 2.0 * lumbers[5].Y - 2.0 * lumbers[6].Y - 5.0 * lumbers[7].Y) / 6.0;
+                    Position[] positions = {
+                        // 1st layer
+                        // x dir
+                        new Position(0, new Vector3D(xInit0, 0.0, 0.0)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                         , new Position(0, new Vector3D(xInit0, 1.0 * yStep0, 0.0)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                         , new Position(0, new Vector3D(xInit0, 2.0 * yStep0, 0.0)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                       // y dir
+                        , new Position(1, new Vector3D(lumbers[1].Y, 0.0, 0.0)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(1, new Vector3D(dimensions.X, 0.0, 0.0)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        // 2 nd layer
+                        , new Position(2, new Vector3D(0.0, 0.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(2, new Vector3D(0.0, 1.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(2, new Vector3D(0.0, 2.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(2, new Vector3D(dimensions.X - lumbers[2].X, 0.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(2, new Vector3D(dimensions.X - lumbers[2].X, 1.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(2, new Vector3D(dimensions.X - lumbers[2].X, 2.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(3, new Vector3D((dimensions.X - lumbers[3].X) / 2.0, 0.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(3, new Vector3D((dimensions.X - lumbers[3].X) / 2.0, 1.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(3, new Vector3D((dimensions.X - lumbers[3].X) / 2.0, 2.0 * yStep1, lumbers[0].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        // 3 rd layer
+                        , new Position(4, new Vector3D(0.0, 0.0 * yStep2, lumbers[0].Z + lumbers[2].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(4, new Vector3D(0.0, 1.0 * yStep2, lumbers[0].Z + lumbers[2].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        , new Position(4, new Vector3D(0.0, 2.0 * yStep2, lumbers[0].Z + lumbers[2].Z)
+                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        // 4 th layer
+                        , new Position(5, new Vector3D(lumbers[5].Y, 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(5, new Vector3D(dimensions.X, 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(6, new Vector3D(lumbers[5].Y + lumbers[6].Y, 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(6, new Vector3D(dimensions.X-lumbers[5].Y, 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(7, new Vector3D(lumbers[5].Y + lumbers[6].Y + 1.0 * (xStep3 + lumbers[7].Y), 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(7, new Vector3D(lumbers[5].Y + lumbers[6].Y + 2.0 * (xStep3 + lumbers[7].Y), 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(7, new Vector3D(lumbers[5].Y + lumbers[6].Y + 3.0 * (xStep3 + lumbers[7].Y), 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(7, new Vector3D(lumbers[5].Y + lumbers[6].Y + 4.0 * (xStep3 + lumbers[7].Y), 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                        , new Position(7, new Vector3D(lumbers[5].Y + lumbers[6].Y + 5.0 * (xStep3 + lumbers[7].Y), 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
+                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
+                    };
+                    _pool.Add(new PalletData("CHEP NZ", "NZ (W)", lumbers, positions, dimensions, 28, Color.FromArgb(51, 102, 255)));
                 }
                 #endregion
                 #region EUR
@@ -289,7 +423,7 @@ namespace TreeDim.StackBuilder.Graphics
                              , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
 
                         };
-                    _pool.Add(new PalletData("EUR", "EUR-EPAL (European Pallet Association)", lumbers, positions, dimensions, 20));
+                    _pool.Add(new PalletData("EUR", "EUR-EPAL (European Pallet Association)", lumbers, positions, dimensions, 20, Color.Yellow));
                 }
                 #endregion
                 #region EUR2
@@ -312,7 +446,7 @@ namespace TreeDim.StackBuilder.Graphics
                     double xInit0 = (dimensions.X - lumbers[0].X) / 2.0;
                     double yStep0 = (dimensions.Y - lumbers[0].Y) / 2.0;
                     double yStep1 = (dimensions.Y - lumbers[2].Y) / 2.0;
-                    double yStep2 = (dimensions.Y - lumbers[4].Y)/ 2.0;
+                    double yStep2 = (dimensions.Y - lumbers[4].Y) / 2.0;
                     double xStep3 = (dimensions.X - 2.0 * lumbers[5].Y - 2.0 * lumbers[6].Y - 5.0 * lumbers[7].Y) / 6.0;
                     Position[] positions = {
                         // 1st layer
@@ -374,7 +508,7 @@ namespace TreeDim.StackBuilder.Graphics
                         , new Position(7, new Vector3D(lumbers[5].Y + lumbers[6].Y + 5.0 * (xStep3 + lumbers[7].Y), 0.0, lumbers[0].Z + lumbers[2].Z + lumbers[4].Z)
                              , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
                     };
-                    _pool.Add(new PalletData("EUR2", "EUR2-EPAL (European Pallet Association)", lumbers, positions, dimensions, 33));
+                    _pool.Add(new PalletData("EUR2", "EUR2-EPAL (European Pallet Association)", lumbers, positions, dimensions, 33, Color.Yellow));
                 }
                 #endregion
                 #region EUR3
@@ -450,7 +584,7 @@ namespace TreeDim.StackBuilder.Graphics
                         , new Position(5, new Vector3D(0.0, dimensions.Y - lumbers[3].Y - lumbers[5].Y - yyStep3, lumbers[0].Z+lumbers[1].Z+lumbers[2].Z)
                             , HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
                     };
-                    _pool.Add(new PalletData("EUR3", "EUR3-EPAL (European Pallet Association)", lumbers, positions, dimensions, 20));
+                    _pool.Add(new PalletData("EUR3", "EUR3-EPAL (European Pallet Association)", lumbers, positions, dimensions, 20, Color.Yellow));
                 }
                 #endregion
                 #region EUR6
@@ -523,7 +657,7 @@ namespace TreeDim.StackBuilder.Graphics
                             , HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N)
 
                     };
-                    _pool.Add(new PalletData("EUR6", "EUR6-EPAL (European Pallet Association)", lumbers, positions, dimensions, 20));
+                    _pool.Add(new PalletData("EUR6", "EUR6-EPAL (European Pallet Association)", lumbers, positions, dimensions, 20, Color.Yellow));
                 }
                 #endregion
                 // --------------------------------------------------------------------------------

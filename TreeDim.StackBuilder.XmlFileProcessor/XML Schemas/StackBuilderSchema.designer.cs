@@ -17,7 +17,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
     using System.Collections.Generic;
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -243,7 +243,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum AxisDir
@@ -268,7 +268,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         ZP,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -545,7 +545,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -761,7 +761,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -977,7 +977,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -1287,7 +1287,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -1613,7 +1613,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -1919,7 +1919,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -2210,7 +2210,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -2516,7 +2516,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum palletType
@@ -2544,7 +2544,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         EUR6,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -2820,7 +2820,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -3036,7 +3036,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -3252,7 +3252,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -3468,7 +3468,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -3684,7 +3684,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -3900,7 +3900,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -4116,7 +4116,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -4342,7 +4342,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -4568,7 +4568,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -4794,7 +4794,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -5020,7 +5020,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -5419,7 +5419,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -5682,7 +5682,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum PatternName
@@ -5707,7 +5707,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         ENLARGED_SPIRAL,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum LayerArrangement
@@ -5723,7 +5723,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         ROTATED180,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -6089,7 +6089,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum imageFormat
@@ -6108,7 +6108,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         PNG,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum pointOfViewValue
@@ -6142,7 +6142,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         CORNER3,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -6156,7 +6156,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
         private string authorField;
 
-        private string templateDirField;
+        private string templateFilePathField;
 
         private string outputPathField;
 
@@ -6204,15 +6204,15 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         }
 
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string templateDir
+        public string templateFilePath
         {
             get
             {
-                return this.templateDirField;
+                return this.templateFilePathField;
             }
             set
             {
-                this.templateDirField = value;
+                this.templateFilePathField = value;
             }
         }
 
@@ -6428,7 +6428,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
     public enum reportFormat
@@ -6441,7 +6441,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         HTML,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -6672,7 +6672,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -6898,7 +6898,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -7139,7 +7139,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -7371,7 +7371,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -7603,7 +7603,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -7859,7 +7859,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -8165,7 +8165,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -8397,7 +8397,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -8628,7 +8628,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -8929,7 +8929,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]
@@ -9192,7 +9192,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         #endregion
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.treedim.com/StackBuilderSchema.xsd")]

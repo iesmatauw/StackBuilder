@@ -540,7 +540,7 @@
       <xs:attribute name="name" type="xs:string" use="required"/>
       <xs:attribute name="description" type="xs:string" use="optional"/>
       <xs:attribute name="author" type="xs:string" use="required"/>
-      <xs:attribute name="templateDir" type="xs:string" use="required"/>
+      <xs:attribute name="templateFilePath" type="xs:string" use="required"/>
       <xs:attribute name="outputPath" type="xs:string" use="required"/>
       <xs:attribute name="format" type="reportFormat" use="required"/>
     </xs:complexType>

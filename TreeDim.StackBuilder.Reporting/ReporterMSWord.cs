@@ -43,7 +43,7 @@ namespace TreeDim.StackBuilder.Reporting
             // set print view 
             wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
             wordDoc.SaveAs(outputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);
-            _log.Debug(string.Format("Saved doc report to {0}", outputFilePath));
+            _log.Info(string.Format("Saved doc report to {0}", outputFilePath));
             // delete image directory
             DeleteImageDirectory();
             // delete html report

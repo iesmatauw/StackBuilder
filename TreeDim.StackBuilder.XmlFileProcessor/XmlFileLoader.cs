@@ -257,7 +257,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // selected solution
             SelCasePalletSolution selSolution = new SelCasePalletSolution(doc, analysis, sol);
             // generate report
-            ReporterMSWord reporter = new ReporterMSWord(new ReportData(analysis, selSolution), rSol.reportParameters.templateDir, rSol.reportParameters.outputPath);
+            ReporterMSWord reporter = new ReporterMSWord(new ReportData(analysis, selSolution), rSol.reportParameters.templateFilePath, rSol.reportParameters.outputPath);
         }
 
         private void ProcessDocument(genDocument genDoc)
@@ -278,14 +278,17 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
             // save document
             document.Write(genDoc.path);
             // open generated document using TreeDim.StackBuilder.Desktop
-            if (genDoc.open)
-            { 
+            string stackbuilderExePath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "TreeDim.StackBuilder.Desktop.exe");
+            if (genDoc.open && File.Exists(stackbuilderExePath))
+            {
                 // build start info
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "TreeDim.StackBuilder.Desktop.exe");
+                startInfo.FileName = stackbuilderExePath;
                 startInfo.Arguments = "\"" + genDoc.path + "\"";
                 System.Diagnostics.Process.Start(startInfo);
             }
+            else
+                _log.Info(string.Format("Executable {0} could not be found!", stackbuilderExePath));
         }
 
         private Graphics3DImage InitializeImageFromViewParameters(viewParameters vParam)

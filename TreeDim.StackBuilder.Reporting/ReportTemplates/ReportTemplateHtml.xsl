@@ -1548,7 +1548,7 @@
   </xsl:template>
   <!--BUNDLE-->
   <xsl:template match="view_bundle_iso">
-    <img src="images\view_interlayer_iso.png" width="150" height="150" align="middle"></img>
+    <img src="images\view_bundle_iso.png" width="150" height="150" align="middle"></img>
   </xsl:template>
   <!--PALLET SOLUTION-->
   <xsl:template match="view_palletsolution_front">

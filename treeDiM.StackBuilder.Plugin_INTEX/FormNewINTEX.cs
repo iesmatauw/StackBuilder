@@ -44,20 +44,19 @@ namespace treeDiM.StackBuilder.Plugin
 
         private void cbPallet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _currentPallet = (PalletINTEX)cbPallet.SelectedItem;
+            _currentPallet = (DataPalletINTEX)cbPallet.SelectedItem;
             // update pallet height if necessary
             UpdatePalletHeight();
         }
 
         private void FormNewINTEX_Load(object sender, EventArgs e)
         {
-            foreach (DataItemINTEX item in _list)
+            foreach (DataItemINTEX item in _listItems)
                 cbRefDescription.Items.Add(item);
             if (cbRefDescription.Items.Count > 0)
                 cbRefDescription.SelectedIndex = 0;
 
-            List<PalletINTEX> pallets = PalletINTEX.BuildList();
-            foreach (PalletINTEX pallet in pallets)
+            foreach (DataPalletINTEX pallet in _listPallets)
                 cbPallet.Items.Add(pallet);
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
@@ -85,7 +84,10 @@ namespace treeDiM.StackBuilder.Plugin
         public double PalletHeight
         {
             get { return (double)nudPalletHeight.Value; }
-            set { nudPalletHeight.Value = (decimal)value; }
+            set
+            {
+                nudPalletHeight.Value = (decimal)value;
+            }
         }
         #endregion
 
@@ -102,9 +104,11 @@ namespace treeDiM.StackBuilder.Plugin
         #endregion
 
         #region Data members
-        public List<DataItemINTEX> _list;
+        public List<DataItemINTEX> _listItems;
+        public List<DataPalletINTEX> _listPallets;
+        public List<DataCaseINTEX> _listCases;
         public DataItemINTEX _currentItem;
-        public PalletINTEX _currentPallet;
+        public DataPalletINTEX _currentPallet;
         #endregion
     }
 }

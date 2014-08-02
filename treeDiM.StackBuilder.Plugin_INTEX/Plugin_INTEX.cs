@@ -42,13 +42,15 @@ namespace treeDiM.StackBuilder.Plugin
                 Properties.Settings.Default.Save();
             }
             // load INTEX excel file
-            List<DataItemINTEX> list = null;
+            List<DataItemINTEX> listItems = null;
+            List<DataPalletINTEX> listPallets = null;
+            List<DataCaseINTEX> listCases = null;
             try
             {
                 // Set cursor as hourglass
                 Cursor.Current = Cursors.WaitCursor;
                 // load excel file
-                if (!ExcelDataReader.ExcelDataReader.LoadIntexFile(dbPath, ref list))
+                if (!ExcelDataReader.ExcelDataReader.LoadIntexFile(dbPath, ref listItems, ref listPallets, ref listCases))
                 {
                     Cursor.Current = Cursors.Default;
                     MessageBox.Show(
@@ -67,13 +69,15 @@ namespace treeDiM.StackBuilder.Plugin
             finally
             { Cursor.Current = Cursors.Default; }
             // do we have a valid list
-            if (null == list || 0 == list.Count)
+            if (null == listItems || 0 == listItems.Count)
                 return false;
             // proceed : buid project file
             try
             {
                 FormNewINTEX form = new FormNewINTEX();
-                form._list = list;
+                form._listItems = listItems;
+                form._listPallets = listPallets;
+                form._listCases = listCases;
                 if (DialogResult.OK != form.ShowDialog())
                     return false;
                 // create document
@@ -133,15 +137,15 @@ namespace treeDiM.StackBuilder.Plugin
                 }
                 // create pallets
                 PalletProperties currentPallet = null;
-                foreach (PalletINTEX pallet in PalletINTEX.BuildList())
+                foreach (DataPalletINTEX pallet in listPallets)
                 {
                     PalletProperties palletProperties = document.CreateNewPallet(
-                        pallet._name, pallet._name, "EUR"
+                        pallet._type, pallet._type, "EUR"
                         , UnitsManager.ConvertLengthFrom(pallet._length, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(pallet._width, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertLengthFrom(pallet._height, UnitsManager.UnitSystem.UNIT_METRIC2)
                         , UnitsManager.ConvertMassFrom(pallet._weight, UnitsManager.UnitSystem.UNIT_METRIC2));
-                    if (string.Equals(form._currentPallet._name, pallet._name))
+                    if (string.Equals(form._currentPallet._type, pallet._type))
                         currentPallet = palletProperties;
                 }
                 // constraint set

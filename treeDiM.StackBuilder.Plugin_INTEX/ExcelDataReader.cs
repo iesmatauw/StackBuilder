@@ -57,9 +57,11 @@ namespace ExcelDataReader
             GC.Collect();
         }
 
-        public ExcelDataReader(Stream file, ref List<DataItemINTEX> list)
+        public ExcelDataReader(Stream file, 
+            ref List<DataItemINTEX> listItems,
+            ref List<DataPalletINTEX> listPallets,
+            ref List<DataCaseINTEX> listCases)
         {
-            list = new List<DataItemINTEX>();
             XlsHeader hdr = XlsHeader.ReadHeader(file);
             XlsRootDirectory dir = new XlsRootDirectory(hdr);
             XlsDirectoryEntry workbookEntry = dir.FindEntry("Workbook");
@@ -74,38 +76,96 @@ namespace ExcelDataReader
             GC.Collect();
             m_workbookData = new DataSet();
             // first sheet : boxes
-            if (ReadWorksheet(m_sheets[0]))
+            for (int iSheet = 0; iSheet < m_sheets.Count; ++iSheet)
             {
-                DataTable dt = m_sheets[0].Data;
-                for (int iRow = 4; iRow < dt.Rows.Count; ++iRow)
+                if (string.Equals(m_sheets[iSheet].Name, "Articles", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    try
+                    listItems = new List<DataItemINTEX>();
+                    if (ReadWorksheet(m_sheets[iSheet]))
                     {
-                        DataItemINTEX item = new DataItemINTEX();
-
-                        item._ref = (string)dt.Rows[iRow][0];
-                        item._description = (string)dt.Rows[iRow][1];
-                        if (DBNull.Value != dt.Rows[iRow][2])
-                            item._UPC = (string)dt.Rows[iRow][2];
-                        if (DBNull.Value != dt.Rows[iRow][3])
-                            item._PCB = Convert.ToInt32((string)dt.Rows[iRow][3]);
-                        if (DBNull.Value != dt.Rows[iRow][4])
-                            item._gencode = (string)dt.Rows[iRow][4];
-                        item._weight = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
-                        item._length = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
-                        item._width = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
-                        item._height = double.Parse((string)dt.Rows[iRow][8], System.Globalization.CultureInfo.InvariantCulture);
-                        list.Add(item);
+                        DataTable dt = m_sheets[iSheet].Data;
+                        for (int iRow = 4; iRow < dt.Rows.Count; ++iRow)
+                        {
+                            try
+                            {
+                                DataItemINTEX item = new DataItemINTEX();
+                                item._ref = (string)dt.Rows[iRow][0];
+                                item._description = (string)dt.Rows[iRow][1];
+                                if (DBNull.Value != dt.Rows[iRow][2])
+                                    item._UPC = (string)dt.Rows[iRow][2];
+                                if (DBNull.Value != dt.Rows[iRow][3])
+                                    item._PCB = Convert.ToInt32((string)dt.Rows[iRow][3]);
+                                if (DBNull.Value != dt.Rows[iRow][4])
+                                    item._gencode = (string)dt.Rows[iRow][4];
+                                item._weight = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
+                                item._length = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
+                                item._width = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
+                                item._height = double.Parse((string)dt.Rows[iRow][8], System.Globalization.CultureInfo.InvariantCulture);
+                                listItems.Add(item);
+                            }
+                            catch (Exception /*ex*/)
+                            {
+                            }
+                        }
                     }
-                    catch (Exception /*ex*/)
-                    { 
+                }
+                // Pallets
+                else if (string.Equals(m_sheets[iSheet].Name, "Palettes", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    listPallets = new List<DataPalletINTEX>();
+                    if (ReadWorksheet(m_sheets[iSheet]))
+                    {
+                        DataTable dt = m_sheets[iSheet].Data;
+                        for (int iRow = 4; iRow < dt.Rows.Count; ++iRow)
+                        {
+                            try
+                            {
+                                DataPalletINTEX pallet = new DataPalletINTEX();
+                                pallet._type = (string)dt.Rows[iRow][0];
+                                pallet._length = double.Parse((string)dt.Rows[iRow][1], System.Globalization.CultureInfo.InvariantCulture);
+                                pallet._width = double.Parse((string)dt.Rows[iRow][2], System.Globalization.CultureInfo.InvariantCulture);
+                                pallet._height = double.Parse((string)dt.Rows[iRow][3], System.Globalization.CultureInfo.InvariantCulture);
+                                if (!DBNull.Value.Equals(dt.Rows[iRow][4]))
+                                    pallet._weight = double.Parse((string)dt.Rows[iRow][4], System.Globalization.CultureInfo.InvariantCulture);
+                                listPallets.Add(pallet);
+                            }
+                            catch (Exception /*ex*/)
+                            {
+                            }
+                        }
+                    }
+                }
+                // Caisses
+                else if (string.Equals(m_sheets[iSheet].Name, "Caisses", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    listCases = new List<DataCaseINTEX>();
+                    if (ReadWorksheet(m_sheets[iSheet]))
+                    {
+                        DataTable dt = m_sheets[iSheet].Data;
+                        for (int iRow = 4; iRow < dt.Rows.Count; ++iRow)
+                        {
+                            try
+                            {
+                                DataCaseINTEX caseItem = new DataCaseINTEX();
+                                caseItem._type = (string)dt.Rows[iRow][0];
+                                caseItem._lengthExt = double.Parse((string)dt.Rows[iRow][1], System.Globalization.CultureInfo.InvariantCulture);
+                                caseItem._widthExt = double.Parse((string)dt.Rows[iRow][2], System.Globalization.CultureInfo.InvariantCulture);
+                                caseItem._heightExt = double.Parse((string)dt.Rows[iRow][3], System.Globalization.CultureInfo.InvariantCulture);
+                                if (!DBNull.Value.Equals(dt.Rows[iRow][4]))
+                                    caseItem._lengthInt = double.Parse((string)dt.Rows[iRow][4], System.Globalization.CultureInfo.InvariantCulture);
+                                if (!DBNull.Value.Equals(dt.Rows[iRow][5]))
+                                    caseItem._widthInt = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
+                                if (!DBNull.Value.Equals(dt.Rows[iRow][6]))
+                                    caseItem._heightInt = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
+                                listCases.Add(caseItem);
+                            }
+                            catch (Exception /*ex*/)
+                            {
+                            }
+                        }
                     }
                 }
             }
-            // second sheet : cases
-
-            // third sheet : pallets
-
 
             m_globals.SST = null;
             m_globals = null;
@@ -115,12 +175,12 @@ namespace ExcelDataReader
             GC.Collect();
         }
 
-        public static bool LoadIntexFile(string filePath, ref List<DataItemINTEX> list)
+        public static bool LoadIntexFile(string filePath, ref List<DataItemINTEX> listItems, ref List<DataPalletINTEX> listPallet, ref List<DataCaseINTEX> listCases)
         {
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            ExcelDataReader excelDataReader = new ExcelDataReader(fs, ref list);
+            ExcelDataReader excelDataReader = new ExcelDataReader(fs, ref listItems, ref listPallet, ref listCases);
             fs.Close();
-            return list.Count > 0;
+            return listItems.Count > 0;
         }
 
         /// <summary>
@@ -347,6 +407,5 @@ namespace ExcelDataReader
             else
                 return Math.Round(x, 2).ToString(CultureInfo.InvariantCulture);
         }
-
     }
 }

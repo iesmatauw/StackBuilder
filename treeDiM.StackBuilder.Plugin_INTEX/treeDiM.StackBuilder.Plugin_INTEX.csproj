@@ -55,7 +55,6 @@
     <Compile Include="FormNewINTEX.Designer.cs">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </Compile>
-    <Compile Include="PalletINTEX.cs" />
     <Compile Include="Plugin_INTEX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

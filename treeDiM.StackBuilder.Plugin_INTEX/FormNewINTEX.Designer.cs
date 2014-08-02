@@ -159,9 +159,9 @@
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -204,10 +204,10 @@
             // 
             // nudPalletHeight
             // 
-            this.nudPalletHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
+            this.nudPalletHeight.DecimalPlaces = 1;
             this.nudPalletHeight.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});

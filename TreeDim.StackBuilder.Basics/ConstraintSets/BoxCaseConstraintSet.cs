@@ -56,6 +56,10 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Allowed box axis
+        public void SetAllowedOrthoAxisAll()
+        { 
+            for (int i = 0; i < 6; ++i) _allowedOrthoAxis[i] = true;
+        }
         public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
             return _allowedOrthoAxis[(int)orthoAxis];

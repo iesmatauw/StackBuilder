@@ -53,7 +53,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 draw(node._nodeRight, ptEye, graphics3D, offset);
                 if (_showInfo)  Console.WriteLine(offset + node._face.PickingId);
-                graphics3D.Draw(node._face);
+                graphics3D.Draw(node._face, Graphics3D.FaceDir.FRONT);
                 draw(node._nodeCoincident, ptEye, graphics3D, offset);
                 draw(node._nodeLeft, ptEye, graphics3D, offset);
             }
@@ -61,7 +61,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 draw(node._nodeLeft, ptEye, graphics3D, offset);
                 if (_showInfo) Console.WriteLine(offset + node._face.PickingId);
-                graphics3D.Draw(node._face);
+                graphics3D.Draw(node._face, Graphics3D.FaceDir.FRONT);
                 draw(node._nodeCoincident, ptEye, graphics3D, offset);
                 draw(node._nodeRight, ptEye, graphics3D, offset);
             }

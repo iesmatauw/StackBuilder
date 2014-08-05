@@ -45,7 +45,7 @@
             this.lbGenCode = new System.Windows.Forms.Label();
             this.tbUPC = new System.Windows.Forms.TextBox();
             this.tbGenCode = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbPallet = new System.Windows.Forms.Label();
             this.cbPallet = new System.Windows.Forms.ComboBox();
             this.lbFilePath = new System.Windows.Forms.Label();
             this.fileSelectCtrl = new TreeDim.UserControls.FileSelect();
@@ -56,7 +56,17 @@
             this.lbPalletHeight = new System.Windows.Forms.Label();
             this.nudPalletHeight = new System.Windows.Forms.NumericUpDown();
             this.uLengthPalletHeight = new System.Windows.Forms.Label();
+            this.lbCase = new System.Windows.Forms.Label();
+            this.cbCases = new System.Windows.Forms.ComboBox();
+            this.chkUseIntermediatePacking = new System.Windows.Forms.CheckBox();
+            this.lbThickness = new System.Windows.Forms.Label();
+            this.nudThickness = new System.Windows.Forms.NumericUpDown();
+            this.uLengthThickness = new System.Windows.Forms.Label();
+            this.statusStripDef = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
+            this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOK
@@ -152,16 +162,16 @@
             this.tbGenCode.Name = "tbGenCode";
             this.tbGenCode.ReadOnly = true;
             // 
-            // label1
+            // lbPallet
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lbPallet, "lbPallet");
+            this.lbPallet.Name = "lbPallet";
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -204,8 +214,8 @@
             // 
             // nudPalletHeight
             // 
-            resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
             this.nudPalletHeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
             this.nudPalletHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -218,12 +228,74 @@
             resources.ApplyResources(this.uLengthPalletHeight, "uLengthPalletHeight");
             this.uLengthPalletHeight.Name = "uLengthPalletHeight";
             // 
+            // lbCase
+            // 
+            resources.ApplyResources(this.lbCase, "lbCase");
+            this.lbCase.Name = "lbCase";
+            // 
+            // cbCases
+            // 
+            this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCases.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCases, "cbCases");
+            this.cbCases.Name = "cbCases";
+            this.cbCases.SelectedIndexChanged += new System.EventHandler(this.cbCases_SelectedIndexChanged);
+            // 
+            // chkUseIntermediatePacking
+            // 
+            resources.ApplyResources(this.chkUseIntermediatePacking, "chkUseIntermediatePacking");
+            this.chkUseIntermediatePacking.Name = "chkUseIntermediatePacking";
+            this.chkUseIntermediatePacking.UseVisualStyleBackColor = true;
+            this.chkUseIntermediatePacking.CheckedChanged += new System.EventHandler(this.chkUseIntermediatePacking_CheckedChanged);
+            // 
+            // lbThickness
+            // 
+            resources.ApplyResources(this.lbThickness, "lbThickness");
+            this.lbThickness.Name = "lbThickness";
+            // 
+            // nudThickness
+            // 
+            this.nudThickness.DecimalPlaces = 2;
+            this.nudThickness.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            resources.ApplyResources(this.nudThickness, "nudThickness");
+            this.nudThickness.Name = "nudThickness";
+            // 
+            // uLengthThickness
+            // 
+            resources.ApplyResources(this.uLengthThickness, "uLengthThickness");
+            this.uLengthThickness.Name = "uLengthThickness";
+            // 
+            // statusStripDef
+            // 
+            this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
+            this.statusStripDef.Name = "statusStripDef";
+            this.statusStripDef.SizingGrip = false;
+            // 
+            // toolStripStatusLabelDef
+            // 
+            this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
+            // 
             // FormNewINTEX
             // 
             this.AcceptButton = this.bnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.statusStripDef);
+            this.Controls.Add(this.uLengthThickness);
+            this.Controls.Add(this.nudThickness);
+            this.Controls.Add(this.lbThickness);
+            this.Controls.Add(this.chkUseIntermediatePacking);
+            this.Controls.Add(this.cbCases);
+            this.Controls.Add(this.lbCase);
             this.Controls.Add(this.uLengthPalletHeight);
             this.Controls.Add(this.nudPalletHeight);
             this.Controls.Add(this.lbPalletHeight);
@@ -234,7 +306,7 @@
             this.Controls.Add(this.fileSelectCtrl);
             this.Controls.Add(this.lbFilePath);
             this.Controls.Add(this.cbPallet);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbPallet);
             this.Controls.Add(this.tbGenCode);
             this.Controls.Add(this.tbUPC);
             this.Controls.Add(this.lbGenCode);
@@ -255,8 +327,12 @@
             this.MinimizeBox = false;
             this.Name = "FormNewINTEX";
             this.ShowInTaskbar = false;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewINTEX_FormClosing);
             this.Load += new System.EventHandler(this.FormNewINTEX_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
+            this.statusStripDef.ResumeLayout(false);
+            this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,7 +356,7 @@
         private System.Windows.Forms.Label lbGenCode;
         private System.Windows.Forms.TextBox tbUPC;
         private System.Windows.Forms.TextBox tbGenCode;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbPallet;
         private System.Windows.Forms.ComboBox cbPallet;
         private System.Windows.Forms.Label lbFilePath;
         private TreeDim.UserControls.FileSelect fileSelectCtrl;
@@ -291,5 +367,13 @@
         private System.Windows.Forms.Label lbPalletHeight;
         private System.Windows.Forms.NumericUpDown nudPalletHeight;
         private System.Windows.Forms.Label uLengthPalletHeight;
+        private System.Windows.Forms.Label lbCase;
+        private System.Windows.Forms.ComboBox cbCases;
+        private System.Windows.Forms.CheckBox chkUseIntermediatePacking;
+        private System.Windows.Forms.Label lbThickness;
+        private System.Windows.Forms.NumericUpDown nudThickness;
+        private System.Windows.Forms.Label uLengthThickness;
+        private System.Windows.Forms.StatusStrip statusStripDef;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
     }
 }

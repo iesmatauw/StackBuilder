@@ -70,6 +70,8 @@ namespace TreeDim.StackBuilder.Engine
 
                         string title = string.Empty;
                         BoxCaseSolution sol = new BoxCaseSolution(null, axisOrtho, pattern.Name);
+                        double offsetX = 0.5 * (_caseProperties.Length - _caseProperties.InsideLength);
+                        double offsetY = 0.5 * (_caseProperties.Width - _caseProperties.InsideWidth);
                         double zLayer = 0.5 * (_caseProperties.Height - _caseProperties.InsideHeight);
                         bool maxWeightReached = _constraintSet.UseMaximumCaseWeight && (_caseProperties.Weight + _boxProperties.Weight > _constraintSet.MaximumCaseWeight);
                         bool maxHeightReached = _boxProperties.Dimension(axisOrtho) > _caseProperties.InsideHeight;
@@ -92,9 +94,14 @@ namespace TreeDim.StackBuilder.Engine
                                 if (maxWeightReached)
                                     break;
 
+
+
                                 // insert new box in current layer
                                 BoxPosition boxPos = new BoxPosition(
-                                    layerPos.Position + zLayer * Vector3D.ZAxis
+                                    layerPos.Position
+                                    + offsetX * Vector3D.XAxis
+                                    + offsetY * Vector3D.YAxis
+                                    + zLayer * Vector3D.ZAxis
                                     , layerPos.LengthAxis
                                     , layerPos.WidthAxis
                                     );
@@ -140,7 +147,6 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Public properties
-
         #endregion
 
         #region Static methods

@@ -19,6 +19,11 @@ namespace TreeDim.StackBuilder.Graphics
             ALGO_PAINTER,
             ALGO_BSPTREE
         }
+        public enum FaceDir
+        {
+            FRONT
+            , BACK
+        }
         #endregion
 
         #region Data members
@@ -321,7 +326,7 @@ namespace TreeDim.StackBuilder.Graphics
                 _faces.Sort(faceComparer);
                 // draw all faces
                 foreach (Face face in _faces)
-                    Draw(face);
+                    Draw(face, FaceDir.BACK);
 
                 // sort box list
                 if (_useBoxelOrderer)
@@ -404,13 +409,8 @@ namespace TreeDim.StackBuilder.Graphics
                     // draw cylinders
                     foreach (Cylinder cc in cylinders)
                         Draw(cc);
-
-
                     // clear
                     boxes.Clear();
-
-
-
                 }
                 else
                 {
@@ -419,6 +419,9 @@ namespace TreeDim.StackBuilder.Graphics
                         Draw(box);
                 }
 
+                // draw faces : end
+                foreach (Face face in _faces)
+                    Draw(face, FaceDir.FRONT);
 
                 // draw segment list
                 foreach (Segment seg in _segments)
@@ -602,17 +605,22 @@ namespace TreeDim.StackBuilder.Graphics
         /// Draw a face
         /// </summary>
         /// <param name="face">Face object to be drawn</param>
-        internal void Draw(Face face)
+        internal void Draw(Face face, FaceDir dir)
         {
             System.Drawing.Graphics g = Graphics;
 
             // test if face can actuallt be seen
-            if (Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) > 0.0)
+            if ((Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) > 0.0 && dir == FaceDir.BACK)
+                || (Vector3D.DotProduct(face.Normal, _vCameraPos - _vTarget) < 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
             double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
-            Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
+            Color color = Color.FromArgb(
+                dir == FaceDir.FRONT ? 128 : 255
+                , (int)(face.ColorFill.R * cosA)
+                , (int)(face.ColorFill.G * cosA)
+                , (int)(face.ColorFill.B * cosA));
             Point[] pt = TransformPoint(GetCurrentTransformation(), face.Points);
 
             Brush brush = new SolidBrush(color);

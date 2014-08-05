@@ -64,7 +64,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 graphics.AddDimensions(new DimensionCube(
                     Vector3D.Zero
-                    , caseProperties.InsideLength, caseProperties.InsideWidth, caseProperties.InsideHeight
+                    , caseProperties.Length, caseProperties.Width, caseProperties.Height
                     , System.Drawing.Color.Black
                     , false));
                 graphics.AddDimensions(new DimensionCube(

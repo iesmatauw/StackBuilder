@@ -54,7 +54,7 @@ namespace treeDiM.StackBuilder.Plugin
                 {
                     Cursor.Current = Cursors.Default;
                     MessageBox.Show(
-                        string.Format("Failed to load any valid record from file {0}", dbPath)
+                        string.Format(Properties.Resources.ID_ERROR_INVALIDFILE, dbPath)
                         , Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
@@ -84,57 +84,98 @@ namespace treeDiM.StackBuilder.Plugin
                 DataItemINTEX item = form._currentItem;
                 Document document = new Document(item._ref, item._description, "INTEX", DateTime.Now, null);
                 // create box properties
-                Color[] colors = new Color[6];
-                for (int i = 0; i < 6; ++i) colors[i] = Color.Chocolate;
-                BoxProperties caseProperties = document.CreateNewCase(
-                    item._ref
-                    , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
-                    , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._length - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._width - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._height - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , colors);
-                caseProperties.TapeColor = Color.Beige;
-                caseProperties.TapeWidth = 5.0;
-                caseProperties.ShowTape = true;
-                // textures
-                string pictoPath = Properties.Settings.Default.pictoTOP;
-                if (File.Exists(pictoPath))
+                Color[] colorsCase = new Color[6];
+                Color[] colorsBox = new Color[6];
+                for (int i = 0; i < 6; ++i)
                 {
-                    // load image
-                    Bitmap bmp = new Bitmap(pictoPath);
-                    // case dimensions
-                    double length = caseProperties.Length;
-                    double width = caseProperties.Width;
-                    double height = caseProperties.Height;
-                    // dimensions and margins
-                    double margin = 2;
-                    double pictoSize = 10;
-                    double minDim = Math.Min(Math.Min(length, width), Math.Min(width, height));
-                    if (minDim < pictoSize) { margin = 0.0; pictoSize = minDim; }
-                    // top position
-                    double topPos = caseProperties.Height - margin - pictoSize;
-                    // insert picto as a texture
-                    caseProperties.AddTexture(HalfAxis.HAxis.AXIS_X_N
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , 0, bmp);
-                    caseProperties.AddTexture(HalfAxis.HAxis.AXIS_X_P
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , 0, bmp);
-                    caseProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_N
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , 0, bmp);
-                    caseProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_P
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
-                        , 0, bmp);
+                    colorsCase[i] = Color.Chocolate;
+                    colorsBox[i] = Color.Turquoise;
                 }
+                BoxProperties itemProperties = null;
+                if (!form.UseIntermediatePacking)
+                {
+                    itemProperties = document.CreateNewCase(
+                        item._ref
+                        , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
+                        , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._length - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._width - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._height - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , colorsCase);
+                    itemProperties.ShowTape = true;
+                    itemProperties.TapeColor = Color.Beige;
+                    itemProperties.TapeWidth = 5.0;
+                }
+                else
+                {
+                    itemProperties = document.CreateNewBox(
+                        item._ref
+                        , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
+                        , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , colorsBox);
+                    itemProperties.ShowTape = false;
+                }
+
+                if (!form.UseIntermediatePacking)
+                    InsertPictogram(ref itemProperties);
+
+                BoxProperties currentCase = null;
+                if (form.UseIntermediatePacking)
+                { 
+                    // create cases
+                    foreach (DataCaseINTEX dataCase in listCases)
+                    {
+                        double lengthInt = dataCase._lengthInt > 0 ? dataCase._lengthInt : dataCase._lengthExt - 2* form.DefaultCaseThickness;
+                        double widthInt = dataCase._widthInt > 0 ? dataCase._widthInt : dataCase._widthExt - 2 * form.DefaultCaseThickness;
+                        double heightInt = dataCase._heightInt > 0 ? dataCase._heightInt : dataCase._heightExt - 2 * form.DefaultCaseThickness;
+
+                        BoxProperties intercaseProperties = document.CreateNewCase(
+                            dataCase._ref
+                            , string.Format("{0}*{1}*{2}", dataCase._lengthExt, dataCase._widthExt, dataCase._heightExt)
+                            , UnitsManager.ConvertLengthFrom(dataCase._lengthExt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , UnitsManager.ConvertLengthFrom(dataCase._widthExt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , UnitsManager.ConvertLengthFrom(dataCase._heightExt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , UnitsManager.ConvertLengthFrom(lengthInt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , UnitsManager.ConvertLengthFrom(widthInt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , UnitsManager.ConvertLengthFrom(heightInt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , UnitsManager.ConvertMassFrom(dataCase._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , colorsCase);
+                        intercaseProperties.ShowTape = true;
+                        intercaseProperties.TapeColor = Color.Beige;
+                        intercaseProperties.TapeWidth = 5.0;
+
+                        // textures
+                        InsertPictogram(ref intercaseProperties);
+
+                        if (string.Equals( form._currentCase._ref, intercaseProperties.Name))
+                            currentCase = intercaseProperties;
+                    }
+                }
+
+                if (form.UseIntermediatePacking)
+                { 
+                    // Case constraint set
+                    BoxCaseConstraintSet boxCaseConstraintSet = new BoxCaseConstraintSet();
+                    boxCaseConstraintSet.SetAllowedOrthoAxisAll();
+                    if (boxCaseConstraintSet.IsValid)
+                    {
+                        // create case analysis
+                        BoxCaseAnalysis analysis = document.CreateNewBoxCaseAnalysis(
+                            string.Format(Properties.Resources.ID_PACKING, item._ref)
+                            , item._description
+                            , itemProperties
+                            , currentCase
+                            , boxCaseConstraintSet
+                            , new BoxCaseSolver());
+                    }
+                }
+
                 // create pallets
                 PalletProperties currentPallet = null;
                 foreach (DataPalletINTEX pallet in listPallets)
@@ -148,6 +189,8 @@ namespace treeDiM.StackBuilder.Plugin
                     if (string.Equals(form._currentPallet._type, pallet._type))
                         currentPallet = palletProperties;
                 }
+
+                // *** pallet analysis ***
                 // constraint set
                 CasePalletConstraintSet constraintSet = new CasePalletConstraintSet();
                 constraintSet.UseMaximumHeight = true;
@@ -165,7 +208,9 @@ namespace treeDiM.StackBuilder.Plugin
                 {
                     // create analysis
                     CasePalletSolver solver = new CasePalletSolver();
-                    CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(item._ref, item.ToString(), caseProperties, currentPallet, null, constraintSet, solver);
+                    CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(item._ref, item.ToString()
+                        , form.UseIntermediatePacking ? currentCase : itemProperties
+                        , currentPallet, null, constraintSet, solver);
                 }
                 // save document
                 fileName = form.FilePath;
@@ -177,6 +222,46 @@ namespace treeDiM.StackBuilder.Plugin
             {
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+        }
+        #endregion
+
+        #region Insert pictogram
+        private void InsertPictogram(ref BoxProperties boxProperties)
+        {
+            string pictoPath = Properties.Settings.Default.pictoTOP;
+            if (File.Exists(pictoPath))
+            {
+                // load image
+                Bitmap bmp = new Bitmap(pictoPath);
+                // case dimensions
+                double length = boxProperties.Length;
+                double width = boxProperties.Width;
+                double height = boxProperties.Height;
+                // dimensions and margins
+                double margin = 2;
+                double pictoSize = 10;
+                double minDim = Math.Min(Math.Min(length, width), Math.Min(width, height));
+                if (minDim < pictoSize) { margin = 0.0; pictoSize = minDim; }
+                // top position
+                double topPos = boxProperties.Height - margin - pictoSize;
+                // insert picto as a texture
+                boxProperties.AddTexture(HalfAxis.HAxis.AXIS_X_N
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , 0, bmp);
+                boxProperties.AddTexture(HalfAxis.HAxis.AXIS_X_P
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(width - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , 0, bmp);
+                boxProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_N
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , 0, bmp);
+                boxProperties.AddTexture(HalfAxis.HAxis.AXIS_Y_P
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(length - margin - pictoSize, topPos), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , UnitsManager.ConvertLengthFrom(new Vector2D(pictoSize, pictoSize), UnitsManager.UnitSystem.UNIT_METRIC2)
+                    , 0, bmp);
             }
         }
         #endregion

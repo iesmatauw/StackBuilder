@@ -147,7 +147,7 @@ namespace ExcelDataReader
                             try
                             {
                                 DataCaseINTEX caseItem = new DataCaseINTEX();
-                                caseItem._type = (string)dt.Rows[iRow][0];
+                                caseItem._ref = (string)dt.Rows[iRow][0];
                                 caseItem._lengthExt = double.Parse((string)dt.Rows[iRow][1], System.Globalization.CultureInfo.InvariantCulture);
                                 caseItem._widthExt = double.Parse((string)dt.Rows[iRow][2], System.Globalization.CultureInfo.InvariantCulture);
                                 caseItem._heightExt = double.Parse((string)dt.Rows[iRow][3], System.Globalization.CultureInfo.InvariantCulture);
@@ -157,6 +157,8 @@ namespace ExcelDataReader
                                     caseItem._widthInt = double.Parse((string)dt.Rows[iRow][5], System.Globalization.CultureInfo.InvariantCulture);
                                 if (!DBNull.Value.Equals(dt.Rows[iRow][6]))
                                     caseItem._heightInt = double.Parse((string)dt.Rows[iRow][6], System.Globalization.CultureInfo.InvariantCulture);
+                                if (!DBNull.Value.Equals(dt.Rows[iRow][7]))
+                                    caseItem._weight = double.Parse((string)dt.Rows[iRow][7], System.Globalization.CultureInfo.InvariantCulture);
                                 listCases.Add(caseItem);
                             }
                             catch (Exception /*ex*/)
@@ -180,7 +182,7 @@ namespace ExcelDataReader
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
             ExcelDataReader excelDataReader = new ExcelDataReader(fs, ref listItems, ref listPallet, ref listCases);
             fs.Close();
-            return listItems.Count > 0;
+            return listItems.Count > 0 && listPallet.Count > 0;
         }
 
         /// <summary>

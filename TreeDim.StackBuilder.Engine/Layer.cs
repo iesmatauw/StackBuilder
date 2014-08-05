@@ -252,7 +252,7 @@ namespace TreeDim.StackBuilder.Engine
             pts[3] = new Vector3D(vPosition.X, vPosition.Y, 0.0) + HalfAxis.ToVector3D(lengthAxis) * _boxLength + HalfAxis.ToVector3D(widthAxis) * _boxWidth;
             foreach (Vector3D pt in pts)
             {
-                if (pt.X < 0 || pt.X > _palletLength || pt.Y < 0 || pt.Y > _palletWidth)
+                if (pt.X < 0.0 || pt.X > _palletLength  || pt.Y < 0.0 || pt.Y > _palletWidth)
                     return false;
             }
             return true;

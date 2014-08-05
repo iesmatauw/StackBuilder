@@ -40,15 +40,33 @@ namespace treeDiM.StackBuilder.Plugin
             fileSelectCtrl.FileName = BuildFilePath(_currentItem._ref);
             // update pallet height if necessary
             UpdatePalletHeight();
+            UpdateButtonOkStatus();
         }
-
         private void cbPallet_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentPallet = (DataPalletINTEX)cbPallet.SelectedItem;
             // update pallet height if necessary
             UpdatePalletHeight();
+            UpdateButtonOkStatus();
         }
+        private void cbCases_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentCase = (DataCaseINTEX)cbCases.SelectedItem;
+            UpdateButtonOkStatus();
+        }
+        private void chkUseIntermediatePacking_CheckedChanged(object sender, EventArgs e)
+        {
+            lbCase.Enabled = chkUseIntermediatePacking.Checked;
+            cbCases.Enabled = chkUseIntermediatePacking.Checked;
+            lbThickness.Enabled = chkUseIntermediatePacking.Checked;
+            nudThickness.Enabled = chkUseIntermediatePacking.Checked;
+            uLengthThickness.Enabled = chkUseIntermediatePacking.Checked;
+            // update status and enable/disable OK button
+            UpdateButtonOkStatus();
+        }
+        #endregion
 
+        #region Form Loading & Closing
         private void FormNewINTEX_Load(object sender, EventArgs e)
         {
             foreach (DataItemINTEX item in _listItems)
@@ -60,10 +78,32 @@ namespace treeDiM.StackBuilder.Plugin
                 cbPallet.Items.Add(pallet);
             if (cbPallet.Items.Count > 0)
                 cbPallet.SelectedIndex = 0;
+
+            foreach (DataCaseINTEX interCase in _listCases)
+                cbCases.Items.Add(interCase);
+            if (cbCases.Items.Count > 0)
+                cbCases.SelectedIndex = 0;
+
             // initialize pallet height
             PalletHeight = Properties.Settings.Default.PalletHeight;
+            // initialize intermediate packing
+            chkUseIntermediatePacking.Checked = _listCases.Count > 0 && Properties.Settings.Default.IntermediatePacking;
+            chkUseIntermediatePacking.Enabled = _listCases.Count > 0;
+            chkUseIntermediatePacking_CheckedChanged(null, null);
+            // initialize thickness
+            DefaultCaseThickness = Properties.Settings.Default.DefaultCaseThickness;
+            // update status and enable/disable OK button
+            UpdateButtonOkStatus();
         }
+        private void FormNewINTEX_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.IntermediatePacking = UseIntermediatePacking;
+            Properties.Settings.Default.DefaultCaseThickness = DefaultCaseThickness;
+            Properties.Settings.Default.PalletHeight = PalletHeight;
+        } 
+        #endregion
 
+        #region Update status
         private void UpdatePalletHeight()
         { 
             // set minimal pallet height
@@ -74,9 +114,40 @@ namespace treeDiM.StackBuilder.Plugin
                     PalletHeight = (double)nudPalletHeight.Minimum;
             }
         }
+        private void UpdateButtonOkStatus()
+        {
+            string message = string.Empty;
+            if (null != _currentPallet)
+            {
+                if (UseIntermediatePacking && (null != _currentCase))
+                {
+                    if (_currentCase._heightExt + _currentPallet._height > PalletHeight)
+                        message = Properties.Resources.ID_PALLETHEIGHTINSUFFICIENT;
+                }
+                else if (!UseIntermediatePacking && (null != _currentItem))
+                {
+                    if (_currentItem._height + _currentPallet._height > PalletHeight)
+                        message = Properties.Resources.ID_PALLETHEIGHTINSUFFICIENT;
+                }
+            }
+            if (UseIntermediatePacking && null != _currentCase && null != _currentItem)
+            {
+                if (!_currentCase.CanContain(_currentItem, DefaultCaseThickness))
+                    message = string.Format(Properties.Resources.ID_CASECANNOTCONTAINITEM
+                        , _currentCase._ref, _currentItem._ref);
+            }
+            toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
+            toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Properties.Resources.ID_READY : message;
+            bnOK.Enabled = string.IsNullOrEmpty(message);
+        }
         #endregion
 
         #region Public properties
+        public bool UseIntermediatePacking
+        {
+            get { return chkUseIntermediatePacking.Checked; }
+            set { chkUseIntermediatePacking.Checked = value; }
+        }
         public string FilePath
         {
             get { return fileSelectCtrl.FileName; }
@@ -84,10 +155,12 @@ namespace treeDiM.StackBuilder.Plugin
         public double PalletHeight
         {
             get { return (double)nudPalletHeight.Value; }
-            set
-            {
-                nudPalletHeight.Value = (decimal)value;
-            }
+            set { nudPalletHeight.Value = (decimal)value; }
+        }
+        public double DefaultCaseThickness
+        {
+            get { return (double)nudThickness.Value; }
+            set { nudThickness.Value = (decimal)value; }
         }
         #endregion
 
@@ -109,6 +182,7 @@ namespace treeDiM.StackBuilder.Plugin
         public List<DataCaseINTEX> _listCases;
         public DataItemINTEX _currentItem;
         public DataPalletINTEX _currentPallet;
+        public DataCaseINTEX _currentCase;
         #endregion
     }
 }

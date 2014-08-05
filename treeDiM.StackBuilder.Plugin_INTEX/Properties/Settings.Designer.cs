@@ -49,6 +49,30 @@ namespace treeDiM.StackBuilder.Plugin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("152")]
+        public double PalletHeight {
+            get {
+                return ((double)(this["PalletHeight"]));
+            }
+            set {
+                this["PalletHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IntermediatePacking {
+            get {
+                return ((bool)(this["IntermediatePacking"]));
+            }
+            set {
+                this["IntermediatePacking"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string pictoTOP {
             get {
@@ -61,13 +85,13 @@ namespace treeDiM.StackBuilder.Plugin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("152")]
-        public double PalletHeight {
+        [global::System.Configuration.DefaultSettingValueAttribute("0.4")]
+        public double DefaultCaseThickness {
             get {
-                return ((double)(this["PalletHeight"]));
+                return ((double)(this["DefaultCaseThickness"]));
             }
             set {
-                this["PalletHeight"] = value;
+                this["DefaultCaseThickness"] = value;
             }
         }
     }

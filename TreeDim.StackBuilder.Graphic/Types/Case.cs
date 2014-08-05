@@ -18,6 +18,7 @@ namespace TreeDim.StackBuilder.Graphics
         #region Data members
         private uint _pickId = 0;
         private double _length, _width, _height;
+        private double _insideLength, _insideWidth, _insideHeight;
         private Color[] _colors = new Color[6];
         private Color _colorPath = Color.Black;
         private Vector3D[] _points;
@@ -30,6 +31,9 @@ namespace TreeDim.StackBuilder.Graphics
             _length = boxProperties.Length;
             _width = boxProperties.Width;
             _height = boxProperties.Height;
+            _insideLength = boxProperties.InsideLength;
+            _insideWidth = boxProperties.InsideWidth;
+            _insideHeight = boxProperties.InsideHeight;
             _colors = boxProperties.Colors;
             _colorPath = Color.Black;
         }
@@ -38,6 +42,9 @@ namespace TreeDim.StackBuilder.Graphics
             _length = boxProperties.Length;
             _width = boxProperties.Width;
             _height = boxProperties.Height;
+            _insideLength = boxProperties.InsideLength;
+            _insideWidth = boxProperties.InsideWidth;
+            _insideHeight = boxProperties.InsideHeight;
             _colors = boxProperties.Colors;
             _colorPath = Color.Black;
             _transf = transf;
@@ -68,6 +75,30 @@ namespace TreeDim.StackBuilder.Graphics
                 return _points;
             }
         }
+
+        public Vector3D[] InsidePoints
+        {
+            get
+            {
+                double xThickness = 0.5 * (_length - _insideLength);
+                double yThickness = 0.5 * (_width - _insideWidth);
+                double zThickness = 0.5 * (_height - _insideHeight);
+                if (null == _points)
+                {
+                    _points = new Vector3D[8];
+                    _points[0] = _transf.transform(new Vector3D(0.0 + xThickness, 0.0 + yThickness, 0.0 + zThickness));
+                    _points[1] = _transf.transform(new Vector3D(_length - xThickness, 0.0 + yThickness, 0.0 + zThickness));
+                    _points[2] = _transf.transform(new Vector3D(_length - xThickness, _width - yThickness, 0.0 + zThickness));
+                    _points[3] = _transf.transform(new Vector3D(0.0 + xThickness, _width - yThickness, 0.0 + zThickness));
+
+                    _points[4] = _transf.transform(new Vector3D(0.0 + xThickness, 0.0 + yThickness, _height - zThickness));
+                    _points[5] = _transf.transform(new Vector3D(_length - xThickness, 0.0 + yThickness, _height - zThickness));
+                    _points[6] = _transf.transform(new Vector3D(_length - xThickness, _width - yThickness, _height - zThickness));
+                    _points[7] = _transf.transform(new Vector3D(0.0 + xThickness, _width - yThickness, _height - zThickness));
+                }
+                return _points;
+            }
+        }
         /// <summary>
         /// Faces
         /// </summary>
@@ -77,6 +108,23 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 Face[] faces = new Face[6];
                 Vector3D[] points = Points;
+
+                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _colors[0], _colorPath);    // AXIS_Z_P
+                faces[1] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _colors[1], _colorPath);    // AXIS_Z_N
+                faces[2] = new Face(_pickId, new Vector3D[] { points[1], points[5], points[4], points[0] }, _colors[2], _colorPath);    // AXIS_Y_P
+                faces[3] = new Face(_pickId, new Vector3D[] { points[3], points[7], points[6], points[2] }, _colors[3], _colorPath);    // AXIS_Y_N
+                faces[4] = new Face(_pickId, new Vector3D[] { points[2], points[6], points[5], points[1] }, _colors[4], _colorPath);    // AXIS_X_N
+                faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[7], points[3], points[0] }, _colors[5], _colorPath);    // AXIS_X_P
+
+                return faces;
+            }
+        }
+        public Face[] InsideFaces
+        {
+            get
+            {
+                Face[] faces = new Face[6];
+                Vector3D[] points = InsidePoints;
 
                 faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _colors[0], _colorPath);    // AXIS_Z_P
                 faces[1] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _colors[1], _colorPath);    // AXIS_Z_N

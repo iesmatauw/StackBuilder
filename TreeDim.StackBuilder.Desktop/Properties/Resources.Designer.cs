@@ -447,6 +447,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Box {0} does not fit in case {1}..
+        /// </summary>
+        internal static string ID_BOXDOESNOTFITINCASE {
+            get {
+                return ResourceManager.GetString("ID_BOXDOESNOTFITINCASE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bundle.
         /// </summary>
         internal static string ID_BUNDLE {

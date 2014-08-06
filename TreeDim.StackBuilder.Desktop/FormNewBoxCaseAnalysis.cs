@@ -158,8 +158,12 @@ namespace TreeDim.StackBuilder.Desktop
             // orientation
             else if (!AllowVerticalX && !AllowVerticalY && !AllowVerticalZ)
                 message = Resources.ID_DEFINEATLEASTONEVERTICALAXIS;
+            // maximum weight reached with only one box ?
             else if (UseMaximumCaseWeight && (MaximumCaseWeight < SelectedCase.Weight + SelectedBox.Weight))
                 message = string.Format(Resources.ID_MAXIMUMCASEWEIGHTSHOULDEXCEED, SelectedCase.Weight + SelectedBox.Weight);
+            // does box fits in case ?
+            else if (!SelectedBox.FitsIn(SelectedCase, AllowVerticalX, AllowVerticalY, AllowVerticalZ))
+                message = string.Format(Resources.ID_BOXDOESNOTFITINCASE, SelectedBox.Name, SelectedCase.Name);
             // update nud boxes according to checkbox
             nudMaximumCaseWeight.Enabled = checkBoxMaximumCaseWeight.Checked;
             nudMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;

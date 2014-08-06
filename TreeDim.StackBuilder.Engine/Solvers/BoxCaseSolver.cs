@@ -93,17 +93,15 @@ namespace TreeDim.StackBuilder.Engine
                                 maxWeightReached = _constraintSet.UseMaximumCaseWeight && weight >  _constraintSet.MaximumCaseWeight;
                                 if (maxWeightReached)
                                     break;
-
-
-
                                 // insert new box in current layer
+                                LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                 BoxPosition boxPos = new BoxPosition(
-                                    layerPos.Position
+                                    layerPosTemp.Position
                                     + offsetX * Vector3D.XAxis
                                     + offsetY * Vector3D.YAxis
                                     + zLayer * Vector3D.ZAxis
-                                    , layerPos.LengthAxis
-                                    , layerPos.WidthAxis
+                                    , layerPosTemp.LengthAxis
+                                    , layerPosTemp.WidthAxis
                                     );
                                 bLayer.Add(boxPos);
                             }
@@ -141,12 +139,42 @@ namespace TreeDim.StackBuilder.Engine
                     ++indexFrom;
                 solutions.RemoveRange(indexFrom, solutions.Count - indexFrom);
             }
-
             return solutions;        
         }
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// if box bottom oriented to Z+, reverse box
+        /// </summary>
+        private LayerPosition AdjustLayerPosition(LayerPosition layerPos)
+        {
+            LayerPosition layerPosTemp = layerPos;
+            if (layerPosTemp.HeightAxis == HalfAxis.HAxis.AXIS_Z_N)
+            {
+                if (layerPosTemp.LengthAxis == HalfAxis.HAxis.AXIS_X_P)
+                {
+                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_Y_P;
+                    layerPosTemp.Position += new Vector3D(0.0, -_boxProperties.Width, -_boxProperties.Height);
+                }
+                else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_Y_P)
+                {
+                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_N;
+                    layerPosTemp.Position += new Vector3D(_boxProperties.Width, 0.0, -_boxProperties.Height);
+                }
+                else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_X_N)
+                {
+                    layerPosTemp.LengthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    layerPosTemp.Position += new Vector3D(-_boxProperties.Length, 0.0, -_boxProperties.Height);
+                }
+                else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_Y_N)
+                {
+                    layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_P;
+                    layerPosTemp.Position += new Vector3D(-_boxProperties.Width, 0.0, -_boxProperties.Height);
+                }
+            }
+            return layerPosTemp;
+        }
         #endregion
 
         #region Static methods

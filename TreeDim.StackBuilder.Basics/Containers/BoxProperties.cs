@@ -107,6 +107,67 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return InsideLength * InsideWidth * InsideHeight; }
         }
+        double[] OuterDimensions
+        {
+            get
+            {
+                double[] dimensions = new double[3];
+                dimensions[0] = _length; dimensions[1] = _width; dimensions[2] = _height;
+                return dimensions;
+            }
+        }
+        double[] InsideDimensions
+        {
+            get
+            {
+                double[] dimensions = new double[3];
+                dimensions[0] = InsideLength; dimensions[1] = InsideWidth; dimensions[2] = InsideHeight;
+                return dimensions;
+            }
+        }
+        public bool FitsIn(BoxProperties caseProperties)
+        {
+            double[] dimItem = OuterDimensions;
+            Array.Sort(dimItem);
+            double[] dimCase = caseProperties.InsideDimensions;
+            Array.Sort(dimCase);
+            return dimItem[0] <= dimCase[0]
+                && dimItem[1] <= dimCase[1]
+                && dimItem[2] <= dimCase[2];        
+        }
+        public bool FitsIn(BoxProperties caseProperties, bool allowVerticalX, bool allowVerticalY, bool allowVerticalZ)
+        { 
+            double[] dimItem = OuterDimensions;
+            double[] dimCase = caseProperties.InsideDimensions;
+            if (allowVerticalX)
+            {
+                if (
+                    (dimItem[0] <= dimCase[0]) && (
+                        ( (dimItem[1] <= dimCase[1]) && (dimItem[2] <= dimCase[2]) )
+                    || ( (dimItem[1] <= dimCase[2]) && (dimItem[2] <= dimCase[1]) ) )
+                    )
+                return true;
+            }
+            if (allowVerticalY)
+            {
+                if (
+                    (dimItem[1] <= dimCase[1]) && (
+                        ((dimItem[0] <= dimCase[0]) && (dimItem[2] <= dimCase[2]))
+                    || ((dimItem[0] <= dimCase[2]) && (dimItem[2] <= dimCase[0])))
+                    )
+                    return true;
+            }
+            if (allowVerticalZ)
+            {
+                if (
+                    (dimItem[2] <= dimCase[2]) && (
+                        ((dimItem[0] <= dimCase[0]) && (dimItem[1] <= dimCase[1]))
+                    || ((dimItem[0] <= dimCase[1]) && (dimItem[1] <= dimCase[0])))
+                    )
+                    return true;
+            }
+            return false;
+        }
         #endregion
 
         #region Colors

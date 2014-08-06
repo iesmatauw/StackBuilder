@@ -541,4 +541,7 @@ Continue?</value>
   <data name="ID_FILTER_MSWORD" xml:space="preserve">
     <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
   </data>
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+    <value>Box {0} does not fit in case {1}.</value>
+  </data>
 </root>

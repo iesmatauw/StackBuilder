@@ -87,17 +87,31 @@ namespace treeDiM.StackBuilder.Plugin
                 Color[] colorsCase = new Color[6];
                 for (int i = 0; i < 6; ++i) {   colorsCase[i] = Color.Chocolate; }
                 BoxProperties itemProperties = null;
-                itemProperties = document.CreateNewCase(
-                    item._ref
-                    , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
-                    , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._length - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._width - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertLengthFrom(item._height - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
-                    , colorsCase);
+                if (!form.UseIntermediatePacking)
+                {
+                    itemProperties = document.CreateNewCase(
+                        item._ref
+                        , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
+                        , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._length - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._width - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._height - 0.6, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , colorsCase);
+                }
+                else
+                {
+                    itemProperties = document.CreateNewBox(
+                        item._ref
+                        , string.Format("{0};EAN14 : {1};UPC : {2};PCB : {3}", item._description, item._gencode, item._UPC, item._PCB)
+                        , UnitsManager.ConvertLengthFrom(item._length, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._width, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertLengthFrom(item._height, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , UnitsManager.ConvertMassFrom(item._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
+                        , colorsCase);                
+                }
                 itemProperties.ShowTape = true;
                 itemProperties.TapeColor = Color.Beige;
                 itemProperties.TapeWidth = 5.0;

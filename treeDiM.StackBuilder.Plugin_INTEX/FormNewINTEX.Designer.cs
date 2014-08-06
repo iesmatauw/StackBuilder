@@ -169,9 +169,9 @@
             // 
             // cbPallet
             // 
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             this.cbPallet.SelectedIndexChanged += new System.EventHandler(this.cbPallet_SelectedIndexChanged);
             // 
@@ -214,8 +214,8 @@
             // 
             // nudPalletHeight
             // 
-            this.nudPalletHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudPalletHeight, "nudPalletHeight");
+            this.nudPalletHeight.DecimalPlaces = 1;
             this.nudPalletHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -235,9 +235,9 @@
             // 
             // cbCases
             // 
+            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCases.FormattingEnabled = true;
-            resources.ApplyResources(this.cbCases, "cbCases");
             this.cbCases.Name = "cbCases";
             this.cbCases.SelectedIndexChanged += new System.EventHandler(this.cbCases_SelectedIndexChanged);
             // 
@@ -255,13 +255,13 @@
             // 
             // nudThickness
             // 
+            resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.DecimalPlaces = 2;
             this.nudThickness.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.Name = "nudThickness";
             // 
             // uLengthThickness
@@ -271,17 +271,17 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewINTEX
             // 

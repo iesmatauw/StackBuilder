@@ -50,7 +50,9 @@ namespace TreeDim.StackBuilder.Reporting.Test
                 // build output file path
                 string outputFilePath = Path.ChangeExtension(Path.GetTempFileName(), "doc");
                 string templatePath = @"..\..\..\TreeDim.StackBuilder.Reporting\ReportTemplates\";
-                ReporterMSWord reporter = new ReporterMSWord(new ReportData(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0)), templatePath, outputFilePath);
+                ReporterMSWord reporter = new ReporterMSWord(
+                    new ReportData(analyses[0], analyses[0].GetSelSolutionBySolutionIndex(0))
+                    , templatePath, outputFilePath, new Margins());
                 Console.WriteLine("Saved report to: {0}", outputFilePath);
 
                 // Display resulting report in Word

@@ -55,10 +55,10 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CategoryPath = "Options\\\\Unit system";
+            this.CategoryPath = "Options\\\\Système de mesures";
             this.Controls.Add(this.lbUnitSystem);
             this.Controls.Add(this.cbUnitSystem);
-            this.DisplayName = "Unit system";
+            this.DisplayName = "Système de mesures";
             this.Name = "OptionPanelUnits";
             this.ResumeLayout(false);
             this.PerformLayout();

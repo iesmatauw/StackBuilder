@@ -45,9 +45,9 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CategoryPath = "Options\\\\Debugging";
+            this.CategoryPath = "Options\\\\Débogage";
             this.Controls.Add(this.chkShowLogConsole);
-            this.DisplayName = "Debugging";
+            this.DisplayName = "Débogage";
             this.Name = "OptionPanelDebugging";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -511,7 +511,8 @@ namespace TreeDim.StackBuilder.Desktop
                     ReporterMSWord reporter = new ReporterMSWord(
                         reportObject
                         , Settings.Default.ReportTemplatePath
-                        , dlg.FileName);
+                        , dlg.FileName
+                        , new Margins());
                 }
             }
             catch (System.Runtime.InteropServices.COMException ex)

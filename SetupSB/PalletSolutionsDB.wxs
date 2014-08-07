@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?define PalletSolutionsDBSourceDir="..\PalletSolutionsDB"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="PALLETSOLUTIONSDB" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PalletSolutionsDBGroup">
+            <Component Id="cmpE56D1C5B6064144BCFDDA8B7A7FC6A6D" Directory="PALLETSOLUTIONSDB" Guid="999D8AFE-FDF7-4DE8-8695-C2F30806869C">
+                <File Id="filC49DD6B032968C22DCCA02D0A4234DF9" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\08d93c2d_ea3a_4955_a1e3_b4594715a9e1.stb" />
+            </Component>
+            <Component Id="cmpD72EFB2968C14B096C81DAE9251037F8" Directory="PALLETSOLUTIONSDB" Guid="1BE3E15E-D1CA-4ED1-8C51-A50A5BCE10D5">
+                <File Id="fil9CAAB0C1A33A27F2ECA5A7C16C98D5D6" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\1b278969_1170_4313_a85a_20c47c9b601a.stb" />
+            </Component>
+            <Component Id="cmpF8D7E7EF84B413BDB1003A68AABECF11" Directory="PALLETSOLUTIONSDB" Guid="4198BC00-F861-4858-8048-B702F4DC8EA8">
+                <File Id="fil1AEB883611F455DFE8AD5C6D36CC8968" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\1e34b1b5_4da7_477b_9c2e_5a4f967e83a9.stb" />
+            </Component>
+            <Component Id="cmp0BE370AF58BD67AF5AC6AA7F13027A0F" Directory="PALLETSOLUTIONSDB" Guid="FBB69200-1A06-4FF8-AEAB-FB6AF88A9A9B">
+                <File Id="fil5658F0D7E74805C50A4A2A4C5B41E728" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\2954e7ec_e023_4b7f_b610_df52ee071c01.stb" />
+            </Component>
+            <Component Id="cmp58FBB74CA44F06C103927FFA723DC652" Directory="PALLETSOLUTIONSDB" Guid="61844E35-EF00-402F-8A08-B6B5522E5464">
+                <File Id="filC89300224ACF3445EBA456E446F00502" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\3e200ddb_b8e3_45ee_85fa_09db48555012.stb" />
+            </Component>
+            <Component Id="cmpE64F73E6ED5EDCA44053DF9AF83C8006" Directory="PALLETSOLUTIONSDB" Guid="A1836BF7-1406-408E-AFD3-7CA11E9C53AA">
+                <File Id="filB88E261FF3A5EEA4D4D0AF4A7B8C08AE" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\44595ff5_6ac4_450b_8543_45bf4a53fd62.stb" />
+            </Component>
+            <Component Id="cmp8209B22568BB5590B2F67D950FE4AD7D" Directory="PALLETSOLUTIONSDB" Guid="9DB69457-90D7-4BD0-9211-9D6C439E29FF">
+                <File Id="fil37B861827A80A8901269911D0212F1AC" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" />
+            </Component>
+            <Component Id="cmp28997624219D7F87ECA80A93EEDA02CC" Directory="PALLETSOLUTIONSDB" Guid="2881A42D-E155-4984-A5BD-25A8B183ECCB">
+                <File Id="filA62381B7E5894871DB9A194B4212CE7B" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\49528a5e_0e61_4b3e_8ed4_7fc438cf8955.stb" />
+            </Component>
+            <Component Id="cmp703CB69FA4CB7A37D895DB6CFCE1B922" Directory="PALLETSOLUTIONSDB" Guid="3AB695F2-3646-4174-B5E1-1E84228AB954">
+                <File Id="fil44987988D0928681553C1AFDEF8D9530" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\61d1b336_e7a0_42d2_90ec_db5c5ea23235.stb" />
+            </Component>
+            <Component Id="cmp224D8C6B37A8A833A559180B43658F81" Directory="PALLETSOLUTIONSDB" Guid="DCB14DC2-4EDA-4891-9FC5-597B69D85D51">
+                <File Id="fil9B6A12F7E722BBB357E48F0C05BF0B37" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\9e4e5f7d_ca7e_466f_8dbe_81d1d9dc2444.stb" />
+            </Component>
+            <Component Id="cmpC227431FB9FB41EC1198C18ADEB6D246" Directory="PALLETSOLUTIONSDB" Guid="9B6F1313-8AB8-4C0B-8D6B-24FA1530D43E">
+                <File Id="filC948D239EF8477F08F2BD087E18AC9CF" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\9eb6a1bb_4e52_4174_8f76_043b9c12bf94.stb" />
+            </Component>
+            <Component Id="cmp807B9B0FF86F9E10505222FECEF041C0" Directory="PALLETSOLUTIONSDB" Guid="93EE89A8-09C7-4221-B96D-6D6902BF3C52">
+                <File Id="fil8EFA72542F0829F5BBE1DCAEE6AC2C1D" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\b0297a77_eb89_4477_ad3c_ca3d1ede9741.stb" />
+            </Component>
+            <Component Id="cmp779B50E1C967A83EC51614C6D428642E" Directory="PALLETSOLUTIONSDB" Guid="A8AB609C-D068-4C39-BE68-748ACD6B44DD">
+                <File Id="fil252537F552911CC20358D5D81C9B547F" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\be6ae428_39ab_4a91_bccc_de04e064afa1.stb" />
+            </Component>
+            <Component Id="cmp25EF144D797E7BE7729E5A8D75322A17" Directory="PALLETSOLUTIONSDB" Guid="D11B39B8-8515-4770-9AD4-DB33E27DB241">
+                <File Id="filD00382758F9E9059D201CB053E39DD43" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\bfb5e1b7_5fb1_455f_9256_49fee6dbaa9b.stb" />
+            </Component>
+            <Component Id="cmpC6E4D9AD8607DB09B577E653AED9D211" Directory="PALLETSOLUTIONSDB" Guid="83075CC9-7DCD-4C73-9268-5BF44A4D57B3">
+                <File Id="fil37CCE4902B7811D521BB4189A9FD08E0" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\c121d1ff_1500_408e_a480_8f55b1eabfce.stb" />
+            </Component>
+            <Component Id="cmp9A8F196BCC995D92E43BE84F369F7A93" Directory="PALLETSOLUTIONSDB" Guid="729DE635-5A34-4688-B309-BDD2FAB65107">
+                <File Id="fil9541BED46001F9A37F2CD0F85EC7B5E3" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\cf0c6af1_83cb_450e_8c80_3f7455b1770f.stb" />
+            </Component>
+            <Component Id="cmp4C0144D52350D8245BA695FD1C3428AB" Directory="PALLETSOLUTIONSDB" Guid="4739A45F-BEC6-4342-B091-EB5F2428F732">
+                <File Id="fil473A3FB1BC8A682CB8C9AE1E1D06E6A7" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\d268e2ba_fa1d_4b0b_9821_90140edfaa1f.stb" />
+            </Component>
+            <Component Id="cmpA71BA66031DFD1EF6053AF7EFAB67EC5" Directory="PALLETSOLUTIONSDB" Guid="AB9F7AA4-62E8-4927-A0CE-1E8E0A6DE129">
+                <File Id="fil45E0BD73317FC3C63B77485B5FA1798B" KeyPath="yes" Source="$(var.PalletSolutionsDBSourceDir)\index.xml" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

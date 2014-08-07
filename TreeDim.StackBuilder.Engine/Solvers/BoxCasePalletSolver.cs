@@ -41,6 +41,11 @@ namespace TreeDim.StackBuilder.Engine
             foreach (PalletSolutionDesc desc in _palletSolutionList)
             {
                 CasePalletSolution palletSolution = desc.LoadPalletSolution();
+                if (null == palletSolution)
+                {
+                    _log.Warn(string.Format("Failed to load pallet solution "));
+                    continue; 
+                }
                 BoxProperties caseProperties = palletSolution.Analysis.BProperties as BoxProperties;
 
                 // loop through all patterns

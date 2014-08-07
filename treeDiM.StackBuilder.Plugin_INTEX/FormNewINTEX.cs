@@ -32,10 +32,10 @@ namespace treeDiM.StackBuilder.Plugin
                 return;
             tbUPC.Text = _currentItem._UPC;
             tbGenCode.Text = _currentItem._gencode;
-            tbLength.Text = string.Format("{0}", _currentItem._length);
-            tbWidth.Text = string.Format("{0}", _currentItem._width);
-            tbHeight.Text = string.Format("{0}", _currentItem._height);
-            tbWeight.Text = string.Format("{0}", _currentItem._weight);
+            tbLength.Text = string.Format("{0:0.0}", _currentItem._length);
+            tbWidth.Text = string.Format("{0:0.0}", _currentItem._width);
+            tbHeight.Text = string.Format("{0:0.0}", _currentItem._height);
+            tbWeight.Text = string.Format("{0:0.000}", _currentItem._weight);
             // set output file path
             fileSelectCtrl.FileName = BuildFilePath(_currentItem._ref);
             // update pallet height if necessary

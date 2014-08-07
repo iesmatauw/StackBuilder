@@ -617,7 +617,7 @@ namespace TreeDim.StackBuilder.Graphics
             // compute face color
             double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
             Color color = Color.FromArgb(
-                dir == FaceDir.FRONT ? 128 : 255
+                dir == FaceDir.FRONT ? 64 : 255
                 , (int)(face.ColorFill.R * cosA)
                 , (int)(face.ColorFill.G * cosA)
                 , (int)(face.ColorFill.B * cosA));

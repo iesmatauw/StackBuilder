@@ -57,6 +57,7 @@
       <ComponentRef Id="WEBGL_GLGE" />
       <ComponentRef Id="AutoUpdater" />
       <ComponentRef Id="Plugins"/>
+      <ComponentGroupRef Id="PalletSolutionsDBGroup"/>
       <Feature Id="Plugin_INTEX" Title="Plugin INTEX" Level="2" AllowAdvertise="no">
         <ComponentRef Id="ReportTemplate_INTEX"/>
       </Feature>

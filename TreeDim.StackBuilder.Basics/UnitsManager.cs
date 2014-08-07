@@ -216,7 +216,16 @@ namespace TreeDim.StackBuilder.Basics
                 default: throw new Exception("Invalid unit system!");
             }
         }
-
+        public static double ConvertLengthTo(double value, UnitsManager.UnitSystem unitSystem)
+        {
+            if (unitSystem == CurrentUnitSystem)
+                return value;
+            else
+            {
+                StandardMeasure<Length> measure = new StandardMeasure<Length>(value, LengthUnitFromUnitSystem(CurrentUnitSystem));
+                return measure.GetAmount(LengthUnitFromUnitSystem(unitSystem));
+            }       
+        }
         public static double ConvertLengthFrom(double value, UnitsManager.UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
@@ -255,6 +264,16 @@ namespace TreeDim.StackBuilder.Basics
                     , measureY.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
                     , measureZ.GetAmount(LengthUnitFromUnitSystem(CurrentUnitSystem))
                     );
+            }
+        }
+        public static double ConvertMassTo(double value, UnitsManager.UnitSystem unitSystem)
+        {
+            if (unitSystem == CurrentUnitSystem)
+                return value;
+            else
+            {
+                StandardMeasure<Mass> measure = new StandardMeasure<Mass>(value, MassUnitFromUnitSystem(CurrentUnitSystem));
+                return measure.GetAmount(MassUnitFromUnitSystem(unitSystem));
             }
         }
         public static double ConvertMassFrom(double value, UnitsManager.UnitSystem unitSystem)

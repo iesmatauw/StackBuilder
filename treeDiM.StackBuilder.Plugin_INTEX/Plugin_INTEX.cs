@@ -129,7 +129,7 @@ namespace treeDiM.StackBuilder.Plugin
 
                         BoxProperties intercaseProperties = document.CreateNewCase(
                             dataCase._ref
-                            , string.Format("{0}*{1}*{2}", dataCase._lengthExt, dataCase._widthExt, dataCase._heightExt)
+                            , string.Format("{0:0.0}*{1:0.0}*{2:0.0}", dataCase._lengthExt, dataCase._widthExt, dataCase._heightExt)
                             , UnitsManager.ConvertLengthFrom(dataCase._lengthExt, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , UnitsManager.ConvertLengthFrom(dataCase._widthExt, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , UnitsManager.ConvertLengthFrom(dataCase._heightExt, UnitsManager.UnitSystem.UNIT_METRIC2)

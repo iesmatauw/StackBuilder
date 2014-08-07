@@ -133,12 +133,12 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 0] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS + @"\n(mm*mm*mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS + @"(mm*mm*mm)");
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
 
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEINSIDEDIMENSIONS + @"\n(mm*mm*mm)");
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEINSIDEDIMENSIONS + @"(mm*mm*mm)");
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;

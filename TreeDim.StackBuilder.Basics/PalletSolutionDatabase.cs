@@ -304,7 +304,10 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 CultureInfo ci = new CultureInfo("en-US");
-                return string.Format("{0:F},{1:F},{2:F}", _caseDimensions[0].ToString(ci), _caseDimensions[1].ToString(ci), _caseDimensions[2].ToString(ci)); 
+                return string.Format("{0:F},{1:F},{2:F}"
+                    , UnitsManager.ConvertLengthTo(_caseDimensions[0], UnitsManager.UnitSystem.UNIT_METRIC1).ToString(ci)
+                    , UnitsManager.ConvertLengthTo(_caseDimensions[1], UnitsManager.UnitSystem.UNIT_METRIC1).ToString(ci)
+                    , UnitsManager.ConvertLengthTo(_caseDimensions[2], UnitsManager.UnitSystem.UNIT_METRIC1).ToString(ci)); 
             }
             set
             {
@@ -313,9 +316,9 @@ namespace TreeDim.StackBuilder.Basics
                 if (m.Success)
                 {
                     CultureInfo ci = new CultureInfo("en-US");
-                    _caseDimensions[0] = double.Parse(m.Result("${x}"), ci);
-                    _caseDimensions[1] = double.Parse(m.Result("${y}"), ci);
-                    _caseDimensions[2] = double.Parse(m.Result("${z}"), ci);
+                    _caseDimensions[0] = UnitsManager.ConvertLengthFrom(double.Parse(m.Result("${x}"), ci), UnitsManager.UnitSystem.UNIT_METRIC1);
+                    _caseDimensions[1] = UnitsManager.ConvertLengthFrom(double.Parse(m.Result("${y}"), ci), UnitsManager.UnitSystem.UNIT_METRIC1);
+                    _caseDimensions[2] = UnitsManager.ConvertLengthFrom(double.Parse(m.Result("${z}"), ci), UnitsManager.UnitSystem.UNIT_METRIC1);
                 }
                 else
                     throw new Exception("Failed to parse CaseDimensions");
@@ -329,7 +332,10 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 CultureInfo ci = new CultureInfo("en-US");
-                return string.Format("{0:F},{1:F},{2:F}", _insideCaseDimensions[0].ToString(ci), _insideCaseDimensions[1].ToString(ci), _insideCaseDimensions[2].ToString(ci)); 
+                return string.Format("{0:F},{1:F},{2:F}"
+                    , UnitsManager.ConvertLengthTo(_insideCaseDimensions[0], UnitsManager.UnitSystem.UNIT_METRIC1).ToString(ci)
+                    , UnitsManager.ConvertLengthTo(_insideCaseDimensions[1], UnitsManager.UnitSystem.UNIT_METRIC1).ToString(ci)
+                    , UnitsManager.ConvertLengthTo(_insideCaseDimensions[2], UnitsManager.UnitSystem.UNIT_METRIC1).ToString(ci)); 
             }
             set
             {
@@ -338,9 +344,9 @@ namespace TreeDim.StackBuilder.Basics
                 if (m.Success)
                 {
                     CultureInfo ci = new CultureInfo("en-US");
-                    _insideCaseDimensions[0] = double.Parse(m.Result("${x}"), ci);
-                    _insideCaseDimensions[1] = double.Parse(m.Result("${y}"), ci);
-                    _insideCaseDimensions[2] = double.Parse(m.Result("${z}"), ci);
+                    _insideCaseDimensions[0] = UnitsManager.ConvertLengthFrom(double.Parse(m.Result("${x}"), ci), UnitsManager.UnitSystem.UNIT_METRIC1);
+                    _insideCaseDimensions[1] = UnitsManager.ConvertLengthFrom(double.Parse(m.Result("${y}"), ci), UnitsManager.UnitSystem.UNIT_METRIC1);
+                    _insideCaseDimensions[2] = UnitsManager.ConvertLengthFrom(double.Parse(m.Result("${z}"), ci), UnitsManager.UnitSystem.UNIT_METRIC1);
                 }
                 else
                     throw new Exception("Failed to parse CaseInsideDimensions");

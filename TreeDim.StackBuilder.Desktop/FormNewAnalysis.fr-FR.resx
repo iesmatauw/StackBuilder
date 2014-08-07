@@ -219,10 +219,10 @@
     <value>9, 34</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 17</value>
+    <value>157, 17</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>le nombre de bundle atteint</value>
+    <value>le nombre de caisses atteint</value>
   </data>
   <data name="checkBoxMaximumPalletHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

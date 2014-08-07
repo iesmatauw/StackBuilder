@@ -137,12 +137,6 @@
         <CreateFolder Directory="PALLETSOLUTIONSDB">
           <Permission User="Everyone" GenericAll="yes" />
         </CreateFolder>
-        <File Source="..\PalletSolutionsDB\Index.xml">
-          <Permission User="Everyone" GenericAll="yes" />
-        </File>
-        <File Id="_44c1c155_bd5b_49d7_aefd_e1bc13961418.stb" Source="..\PalletSolutionsDB\44c1c155_bd5b_49d7_aefd_e1bc13961418.stb">
-          <Permission User="Everyone" GenericAll="yes" />
-        </File>
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="GLGE">

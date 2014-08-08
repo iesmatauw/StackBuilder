@@ -113,9 +113,9 @@
             // 
             // cbBox
             // 
-            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBox.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.Name = "cbBox";
             this.cbBox.SelectedIndexChanged += new System.EventHandler(this.onBoxChanged);
             // 
@@ -150,13 +150,13 @@
             // 
             // gbAllowedBoxPositions
             // 
-            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.checkBoxPositionX);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionZ);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionY);
             this.gbAllowedBoxPositions.Controls.Add(this.pictureBoxPositionX);
+            resources.ApplyResources(this.gbAllowedBoxPositions, "gbAllowedBoxPositions");
             this.gbAllowedBoxPositions.Name = "gbAllowedBoxPositions";
             this.gbAllowedBoxPositions.TabStop = false;
             // 
@@ -180,17 +180,17 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // uMassCaseWeight
             // 
@@ -199,8 +199,8 @@
             // 
             // nudMaximumCaseWeight
             // 
-            resources.ApplyResources(this.nudMaximumCaseWeight, "nudMaximumCaseWeight");
             this.nudMaximumCaseWeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumCaseWeight, "nudMaximumCaseWeight");
             this.nudMaximumCaseWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -238,13 +238,13 @@
             // 
             // gbStopStackingCondition
             // 
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Controls.Add(this.uMassCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumNumberOfBoxes);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumCaseWeight);
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 

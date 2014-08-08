@@ -160,6 +160,12 @@
   <data name="lbReportTemplate.Text" xml:space="preserve">
     <value>Patron de rapport</value>
   </data>
+  <data name="gbMSWordMargins.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 87</value>
+  </data>
+  <data name="gbMSWordMargins.Text" xml:space="preserve">
+    <value>Marges (pour Microsoft Word seulement)</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
@@ -183,9 +189,6 @@
   </data>
   <data name="lbTop.Text" xml:space="preserve">
     <value>Haut</value>
-  </data>
-  <data name="gbMSWordMargins.Text" xml:space="preserve">
-    <value>Marges (pour Microsoft Word seulement)</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>450, 215</value>

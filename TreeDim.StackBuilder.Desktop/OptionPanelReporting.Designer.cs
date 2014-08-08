@@ -52,10 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).BeginInit();
             this.SuspendLayout();
             // 
-            // folderBrowserDlg
-            // 
-            resources.ApplyResources(this.folderBrowserDlg, "folderBrowserDlg");
-            // 
             // fileSelectCtrlReportTemplate
             // 
             resources.ApplyResources(this.fileSelectCtrlReportTemplate, "fileSelectCtrlReportTemplate");
@@ -80,12 +76,12 @@
             // 
             // cbImageSizes
             // 
-            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
             this.cbImageSizes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbImageSizes.FormattingEnabled = true;
             this.cbImageSizes.Items.AddRange(new object[] {
             resources.GetString("cbImageSizes.Items"),
             resources.GetString("cbImageSizes.Items1")});
+            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
             this.cbImageSizes.Name = "cbImageSizes";
             // 
             // lbReportTemplate
@@ -109,26 +105,26 @@
             // 
             // nudRight
             // 
-            resources.ApplyResources(this.nudRight, "nudRight");
             this.nudRight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudRight, "nudRight");
             this.nudRight.Name = "nudRight";
             // 
             // nudBottom
             // 
-            resources.ApplyResources(this.nudBottom, "nudBottom");
             this.nudBottom.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudBottom, "nudBottom");
             this.nudBottom.Name = "nudBottom";
             // 
             // nudLeft
             // 
-            resources.ApplyResources(this.nudLeft, "nudLeft");
             this.nudLeft.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudLeft, "nudLeft");
             this.nudLeft.Name = "nudLeft";
             // 
             // nudTop
             // 
-            resources.ApplyResources(this.nudTop, "nudTop");
             this.nudTop.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudTop, "nudTop");
             this.nudTop.Name = "nudTop";
             // 
             // label2

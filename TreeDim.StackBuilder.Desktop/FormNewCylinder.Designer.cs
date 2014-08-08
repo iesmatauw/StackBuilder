@@ -195,6 +195,11 @@
             // nudWeight
             // 
             this.nudWeight.DecimalPlaces = 3;
+            this.nudWeight.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
@@ -326,7 +331,8 @@
             resources.GetString("cbColorWall.Items66"),
             resources.GetString("cbColorWall.Items67"),
             resources.GetString("cbColorWall.Items68"),
-            resources.GetString("cbColorWall.Items69")});
+            resources.GetString("cbColorWall.Items69"),
+            resources.GetString("cbColorWall.Items70")});
             this.cbColorWall.Name = "cbColorWall";
             this.cbColorWall.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -412,7 +418,8 @@
             resources.GetString("cbColorTop.Items65"),
             resources.GetString("cbColorTop.Items66"),
             resources.GetString("cbColorTop.Items67"),
-            resources.GetString("cbColorTop.Items68")});
+            resources.GetString("cbColorTop.Items68"),
+            resources.GetString("cbColorTop.Items69")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 

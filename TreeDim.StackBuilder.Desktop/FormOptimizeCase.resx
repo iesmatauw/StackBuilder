@@ -249,102 +249,6 @@
   <data name="groupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;chkVerticalOrientationOnly.Name" xml:space="preserve">
-    <value>chkVerticalOrientationOnly</value>
-  </data>
-  <data name="&gt;&gt;chkVerticalOrientationOnly.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkVerticalOrientationOnly.Parent" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;chkVerticalOrientationOnly.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;nudNumber.Name" xml:space="preserve">
-    <value>nudNumber</value>
-  </data>
-  <data name="&gt;&gt;nudNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudNumber.Parent" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;nudNumber.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbNumber.Name" xml:space="preserve">
-    <value>lbNumber</value>
-  </data>
-  <data name="&gt;&gt;lbNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbNumber.Parent" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;lbNumber.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lbBoxDimensions.Name" xml:space="preserve">
-    <value>lbBoxDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbBoxDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbBoxDimensions.Parent" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;lbBoxDimensions.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbBoxes.Name" xml:space="preserve">
-    <value>cbBoxes</value>
-  </data>
-  <data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;cbBoxes.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lbBox.Name" xml:space="preserve">
-    <value>lbBox</value>
-  </data>
-  <data name="&gt;&gt;lbBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 27</value>
-  </data>
-  <data name="groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 108</value>
-  </data>
-  <data name="groupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBox.Text" xml:space="preserve">
-    <value>Box (inner product)</value>
-  </data>
-  <data name="&gt;&gt;groupBox.Name" xml:space="preserve">
-    <value>groupBox</value>
-  </data>
-  <data name="&gt;&gt;groupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="chkVerticalOrientationOnly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -498,6 +402,30 @@
   <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="groupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 27</value>
+  </data>
+  <data name="groupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 108</value>
+  </data>
+  <data name="groupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBox.Text" xml:space="preserve">
+    <value>Box (inner product)</value>
+  </data>
+  <data name="&gt;&gt;groupBox.Name" xml:space="preserve">
+    <value>groupBox</value>
+  </data>
+  <data name="&gt;&gt;groupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="gbCase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -528,25 +456,25 @@
   <data name="&gt;&gt;uSurfaceMassCase.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="nudSurfaceMass.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="nudWallSurfaceMass.Location" type="System.Drawing.Point, System.Drawing">
     <value>176, 130</value>
   </data>
-  <data name="nudSurfaceMass.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nudWallSurfaceMass.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 20</value>
   </data>
-  <data name="nudSurfaceMass.TabIndex" type="System.Int32, mscorlib">
+  <data name="nudWallSurfaceMass.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="&gt;&gt;nudSurfaceMass.Name" xml:space="preserve">
-    <value>nudSurfaceMass</value>
+  <data name="&gt;&gt;nudWallSurfaceMass.Name" xml:space="preserve">
+    <value>nudWallSurfaceMass</value>
   </data>
-  <data name="&gt;&gt;nudSurfaceMass.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudWallSurfaceMass.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudSurfaceMass.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudWallSurfaceMass.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
-  <data name="&gt;&gt;nudSurfaceMass.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;nudWallSurfaceMass.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="lbSurfaceMass.AutoSize" type="System.Boolean, mscorlib">
@@ -1080,102 +1008,6 @@
   <data name="gbPallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;uLengthPalletHeight.Name" xml:space="preserve">
-    <value>uLengthPalletHeight</value>
-  </data>
-  <data name="&gt;&gt;uLengthPalletHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;uLengthPalletHeight.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;uLengthPalletHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;nudPalletHeight.Name" xml:space="preserve">
-    <value>nudPalletHeight</value>
-  </data>
-  <data name="&gt;&gt;nudPalletHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudPalletHeight.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;nudPalletHeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbPalletHeight.Name" xml:space="preserve">
-    <value>lbPalletHeight</value>
-  </data>
-  <data name="&gt;&gt;lbPalletHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbPalletHeight.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;lbPalletHeight.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lbPalletDimensions.Name" xml:space="preserve">
-    <value>lbPalletDimensions</value>
-  </data>
-  <data name="&gt;&gt;lbPalletDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbPalletDimensions.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;lbPalletDimensions.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbPallet.Name" xml:space="preserve">
-    <value>cbPallet</value>
-  </data>
-  <data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPallet.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
-    <value>lbPallet</value>
-  </data>
-  <data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="gbPallet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 28</value>
-  </data>
-  <data name="gbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 107</value>
-  </data>
-  <data name="gbPallet.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="gbPallet.Text" xml:space="preserve">
-    <value>Pallet</value>
-  </data>
-  <data name="&gt;&gt;gbPallet.Name" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;gbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbPallet.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbPallet.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="uLengthPalletHeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1329,6 +1161,30 @@
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="gbPallet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 28</value>
+  </data>
+  <data name="gbPallet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 107</value>
+  </data>
+  <data name="gbPallet.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="&gt;&gt;gbPallet.Name" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+  <data name="&gt;&gt;gbPallet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbPallet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbPallet.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="btOptimize.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -1413,6 +1269,12 @@
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 689</value>
   </metadata>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
   <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 689</value>
   </data>
@@ -1436,12 +1298,6 @@
   </data>
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

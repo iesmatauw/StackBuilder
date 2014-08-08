@@ -34,10 +34,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Delegates
+        public delegate void ModifyAnalysis(BoxCaseAnalysis analysis);
         public delegate void SelectSolution(BoxCaseAnalysis analysis, SelBoxCaseSolution selSolution);
         #endregion
 
         #region Events
+        public event ModifyAnalysis Modified;
         public event SelectSolution SolutionSelected;
         public event SelectSolution SolutionSelectionRemoved;
         #endregion
@@ -159,6 +161,8 @@ namespace TreeDim.StackBuilder.Basics
 
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
+            if (null != Modified)
+                Modified(this);
             // get default analysis solver
             if (null != _solver)
             {

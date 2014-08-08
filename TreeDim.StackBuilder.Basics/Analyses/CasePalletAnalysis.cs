@@ -22,10 +22,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Delegates
+        public delegate void ModifyAnalysis(CasePalletAnalysis analysis);
         public delegate void SelectSolution(CasePalletAnalysis analysis, SelCasePalletSolution selSolution);
         #endregion
 
         #region Events
+        public event ModifyAnalysis Modified;
         public event SelectSolution SolutionSelected;
         public event SelectSolution SolutionSelectionRemoved;
         #endregion
@@ -187,9 +189,8 @@ namespace TreeDim.StackBuilder.Basics
         }
         public override void OnEndUpdate(ItemBase updatedAttribute)
         {
-            // clear selected solutions
-            while (_selectedSolutions.Count > 0)
-                UnSelectSolution(_selectedSolutions[0]);
+            if (null != Modified)
+                Modified(this);
             // clear solutions
             _solutions.Clear();
             // get default analysis solver

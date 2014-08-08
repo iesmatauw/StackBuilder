@@ -203,9 +203,9 @@ namespace TreeDim.StackBuilder.Desktop
                     UseMaximumLoadOnLowerCylinder = false;
 
                     MaximumNumberOfItems = 500;
-                    MaximumPalletHeight = 1200.0;
-                    MaximumPalletWeight = 1000.0;
-                    MaximumLoadOnLowerCylinder = 100.0;
+                    MaximumPalletHeight = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    MaximumPalletWeight = UnitsManager.ConvertMassFrom(1000.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    MaximumLoadOnLowerCylinder = UnitsManager.ConvertMassFrom(100.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 }
                 else
                 {

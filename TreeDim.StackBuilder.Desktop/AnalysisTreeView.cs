@@ -891,6 +891,8 @@ namespace TreeDim.StackBuilder.Desktop
                 nodeItem.Nodes.Add(subNode);
             }
         }
+ 
+        #region Case/Pallet analyses 
         /// <summary>
         /// handles new analysis created
         /// </summary>
@@ -906,6 +908,19 @@ namespace TreeDim.StackBuilder.Desktop
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
+            CasePalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
+
+            // add event handlers for solution selection
+            analysis.Modified += new CasePalletAnalysis.ModifyAnalysis(onCasePalletAnalysisModified);
+            analysis.SolutionSelected += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelected);
+            analysis.SolutionSelectionRemoved += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelectionRemoved);
+        }
+        void CasePalletAnalysis_InsertSubNodes(Document doc, CasePalletAnalysis analysis, TreeNode nodeAnalysis)
+        {
+            // sanity check
+            if (null == nodeAnalysis) return;
+            // remove any existing subnodes
+            nodeAnalysis.Nodes.Clear();
             // insert sub box node
             int indexIconBoxAnalysis = 4;
             if (analysis.BProperties is CaseOfBoxesProperties)
@@ -928,17 +943,13 @@ namespace TreeDim.StackBuilder.Desktop
                 subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
                 nodeAnalysis.Nodes.Add(subInterlayer);
             }
-            nodeAnalysis.Expand();
-
-            // add event handlers for solution selection
-            analysis.SolutionSelected += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new CasePalletAnalysis.SelectSolution(onPalletAnalysisSolutionSelectionRemoved);
+            nodeAnalysis.Expand();        
         }
+        #endregion
+        #region Cylinder/Pallet analyses
         /// <summary>
         /// handles new cylinder/pallet analysis creation
         /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="analysis"></param>
         public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
         {
             // get parent node
@@ -948,7 +959,16 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
-            parentNode.Expand();
+            CylinderPalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
+            // add event handlers for solution selection
+            analysis.Modified += new CylinderPalletAnalysis.ModifyAnalysis(onCylinderAnalysisModified);
+            analysis.SolutionSelected += new CylinderPalletAnalysis.SelectSolution(onCylinderAnalysisSolutionSelected);
+            analysis.SolutionSelectionRemoved += new CylinderPalletAnalysis.SelectSolution(onCylinderPalletSolutionSelectionRemoved);
+        }
+        void CylinderPalletAnalysis_InsertSubNodes(Document doc, CylinderPalletAnalysis analysis, TreeNode nodeAnalysis)
+        { 
+            // sanity check
+            if (null == nodeAnalysis) return;
             // insert sub cylinder node
             int indexIconBoxAnalysis = 6;
             TreeNode subCylNode = new TreeNode(analysis.CylinderProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
@@ -965,11 +985,10 @@ namespace TreeDim.StackBuilder.Desktop
                 subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
                 nodeAnalysis.Nodes.Add(subInterlayer);
             }
-            nodeAnalysis.Expand();
-            // add event handlers for solution selection
-            analysis.SolutionSelected += new Basics.CylinderPalletAnalysis.SelectSolution(onCylinderAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new Basics.CylinderPalletAnalysis.SelectSolution(onCylinderPalletSolutionSelectionRemoved);
+            nodeAnalysis.Expand();        
         }
+        #endregion
+        #region Box/Case analyses
         /// <summary>
         /// handles new box case analysis creation
         /// </summary>
@@ -985,6 +1004,19 @@ namespace TreeDim.StackBuilder.Desktop
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();
+            BoxCaseAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
+            // add event handlers for solution selection
+            analysis.Modified += new Basics.BoxCaseAnalysis.ModifyAnalysis(onBoxCaseAnalysisModified);
+            analysis.SolutionSelected += new BoxCaseAnalysis.SelectSolution(onBoxCaseAnalysisSolutionSelected);
+            analysis.SolutionSelectionRemoved += new Basics.BoxCaseAnalysis.SelectSolution(onBoxCaseAnalysisSolutionSelectionRemoved);
+        }
+
+        public void BoxCaseAnalysis_InsertSubNodes(Document doc, BoxCaseAnalysis analysis, TreeNode nodeAnalysis)
+        {
+            // sanity check
+            if (null == nodeAnalysis) return;
+            // remove existing sub nodes
+            nodeAnalysis.Nodes.Clear();
             // insert sub box node
             int indexIcon = 3;
             TreeNode subBoxNode = new TreeNode(analysis.BoxProperties.Name, indexIcon, indexIcon);
@@ -996,11 +1028,9 @@ namespace TreeDim.StackBuilder.Desktop
             subCaseNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISCASE, doc, analysis.CaseProperties);
             nodeAnalysis.Nodes.Add(subCaseNode);
             nodeAnalysis.Expand();
-            // add event handlers for solution selection
-            analysis.SolutionSelected += new BoxCaseAnalysis.SelectSolution(onBoxCaseAnalysisSolutionSelected);
-            analysis.SolutionSelectionRemoved += new Basics.BoxCaseAnalysis.SelectSolution(onBoxCaseAnalysisSolutionSelectionRemoved);
         }
-
+        #endregion
+        #region Box/Case/Pallet analyses
         /// <summary>
         /// handles new analysis created
         /// </summary>
@@ -1024,6 +1054,8 @@ namespace TreeDim.StackBuilder.Desktop
             caseAnalysis.SolutionSelected += new Basics.BoxCasePalletAnalysis.SelectSolution(onCaseAnalysisSolutionSelected);
             caseAnalysis.SolutionSelectionRemoved += new Basics.BoxCasePalletAnalysis.SelectSolution(onCaseAnalysisSolutionSelectionRemoved);
         }
+        #endregion
+        #region Truck analyses
         /// <summary>
         /// handles new truck analysis created
         /// </summary>
@@ -1038,6 +1070,8 @@ namespace TreeDim.StackBuilder.Desktop
             // expand parent tree node
             parentNode.Expand();
         }
+        #endregion
+        #region ECT analyses
         /// <summary>
         /// handles new ECT analysis created
         /// </summary>
@@ -1052,6 +1086,7 @@ namespace TreeDim.StackBuilder.Desktop
             // expand parent tree node
             parentNode.Expand();
         }
+        #endregion
         #endregion
 
         #region Remove functions
@@ -1219,6 +1254,18 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Expand();
         }
 
+        private void onCasePalletAnalysisModified(CasePalletAnalysis analysis)
+        { 
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
+            // insert case/pallet/interlayer node
+            CasePalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
+            // expand tree node
+            parentNode.Expand();
+        }
+
         private void onPalletAnalysisSolutionSelected(CasePalletAnalysis analysis, SelCasePalletSolution selSolution)
         {
             // retrieve parent document
@@ -1233,6 +1280,15 @@ namespace TreeDim.StackBuilder.Desktop
             parentNode.Expand();
         }
 
+        private void onCylinderAnalysisModified(CylinderPalletAnalysis analysis)
+        {
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
+            // remove & insert sub nodes
+            CylinderPalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
+        }
         private void onCylinderAnalysisSolutionSelected(CylinderPalletAnalysis analysis, SelCylinderPalletSolution selSolution)
         { 
             // retrieve parent document
@@ -1246,7 +1302,15 @@ namespace TreeDim.StackBuilder.Desktop
             // expand tree nodes
             parentNode.Expand();
         }
-
+        private void onBoxCaseAnalysisModified(BoxCaseAnalysis analysis)
+        {
+            // retrieve parent document
+            Document doc = analysis.ParentDocument;
+            // get parent node
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis));
+            // remove & insert sub nodes
+            BoxCaseAnalysis_InsertSubNodes(doc, analysis, parentNode);
+        }
         private void onBoxCaseAnalysisSolutionSelected(BoxCaseAnalysis analysis, SelBoxCaseSolution selSolution)
         {
             // retrieve parent document

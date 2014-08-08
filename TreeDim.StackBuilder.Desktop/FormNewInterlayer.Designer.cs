@@ -254,13 +254,19 @@
             resources.GetString("cbColor.Items25"),
             resources.GetString("cbColor.Items26"),
             resources.GetString("cbColor.Items27"),
-            resources.GetString("cbColor.Items28")});
+            resources.GetString("cbColor.Items28"),
+            resources.GetString("cbColor.Items29")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
             // nudWeight
             // 
             this.nudWeight.DecimalPlaces = 3;
+            this.nudWeight.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             1000,

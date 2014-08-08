@@ -41,11 +41,13 @@
             this.cbBoxes = new System.Windows.Forms.ComboBox();
             this.lbBox = new System.Windows.Forms.Label();
             this.gbCase = new System.Windows.Forms.GroupBox();
+            this.uSurfaceMassCase = new System.Windows.Forms.Label();
+            this.nudWallSurfaceMass = new System.Windows.Forms.NumericUpDown();
+            this.lbSurfaceMass = new System.Windows.Forms.Label();
             this.uLengthWallThickness = new System.Windows.Forms.Label();
             this.btSetMaximum = new System.Windows.Forms.Button();
             this.btSetMinimum = new System.Windows.Forms.Button();
             this.nudWallThickness = new System.Windows.Forms.NumericUpDown();
-            this.nudWallSurfaceMass = new System.Windows.Forms.NumericUpDown();
             this.lbWallThickness = new System.Windows.Forms.Label();
             this.nudWallsHeightDir = new System.Windows.Forms.NumericUpDown();
             this.nudWallsWidthDir = new System.Windows.Forms.NumericUpDown();
@@ -74,8 +76,6 @@
             this.btAddSolution = new System.Windows.Forms.Button();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbSurfaceMass = new System.Windows.Forms.Label();
-            this.uSurfaceMassCase = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).BeginInit();
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
@@ -85,19 +85,19 @@
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.gbCase.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWallThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallSurfaceMass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWallsLengthDir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWallsWidthDir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallsHeightDir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallsWidthDir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallsLengthDir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCaseHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCaseWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxCaseLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinCaseHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinCaseWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinCaseLength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).BeginInit();
             this.gbPallet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,6 +225,32 @@
             this.gbCase.Name = "gbCase";
             this.gbCase.TabStop = false;
             // 
+            // uSurfaceMassCase
+            // 
+            resources.ApplyResources(this.uSurfaceMassCase, "uSurfaceMassCase");
+            this.uSurfaceMassCase.Name = "uSurfaceMassCase";
+            // 
+            // nudWallSurfaceMass
+            // 
+            this.nudWallSurfaceMass.DecimalPlaces = 3;
+            this.nudWallSurfaceMass.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            resources.ApplyResources(this.nudWallSurfaceMass, "nudWallSurfaceMass");
+            this.nudWallSurfaceMass.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudWallSurfaceMass.Name = "nudWallSurfaceMass";
+            // 
+            // lbSurfaceMass
+            // 
+            resources.ApplyResources(this.lbSurfaceMass, "lbSurfaceMass");
+            this.lbSurfaceMass.Name = "lbSurfaceMass";
+            // 
             // uLengthWallThickness
             // 
             resources.ApplyResources(this.uLengthWallThickness, "uLengthWallThickness");
@@ -247,6 +273,11 @@
             // nudWallThickness
             // 
             this.nudWallThickness.DecimalPlaces = 2;
+            this.nudWallThickness.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             resources.ApplyResources(this.nudWallThickness, "nudWallThickness");
             this.nudWallThickness.Maximum = new decimal(new int[] {
             10000,
@@ -501,23 +532,6 @@
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
-            // lbSurfaceMass
-            // 
-            resources.ApplyResources(this.lbSurfaceMass, "lbSurfaceMass");
-            this.lbSurfaceMass.Name = "lbSurfaceMass";
-            // 
-            // nudSurfaceMass
-            // 
-            this.nudWallSurfaceMass.DecimalPlaces = 3;
-            resources.ApplyResources(this.nudWallSurfaceMass, "nudSurfaceMass");
-            this.nudWallSurfaceMass.Maximum = 10000.0M;
-            this.nudWallSurfaceMass.Name = "nudSurfaceMass";
-            // 
-            // uSurfaceMassCase
-            // 
-            resources.ApplyResources(this.uSurfaceMassCase, "uSurfaceMassCase");
-            this.uSurfaceMassCase.Name = "uSurfaceMassCase";
-            // 
             // FormOptimizeCase
             // 
             resources.ApplyResources(this, "$this");
@@ -549,6 +563,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).EndInit();
             this.gbCase.ResumeLayout(false);
             this.gbCase.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWallSurfaceMass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallsHeightDir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWallsWidthDir)).EndInit();
@@ -564,7 +579,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletHeight)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWallSurfaceMass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

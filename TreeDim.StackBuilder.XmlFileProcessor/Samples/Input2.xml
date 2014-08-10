@@ -138,8 +138,8 @@
     <reportSolution>
       <solutionRef analysisId="_1B96FAAB-985B-46a7-B4D3-BAFD46BA3320" index="0"/>
       <reportParameters name="Bundle" description="Bundle" author="treeDiM"
-                        templateFilePath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl"
-                        outputPath="K:\GitHub\StackBuilder\TreeDim.StackBuilder.Reporting\bin\release\Output2\bundle_0_report.doc"
+                        templateFilePath="..\ReportTemplates\ReportTemplateHtml.xsl"
+                        outputPath="C:\Program Files (x86)\treeDiM\PLMPack\StackBuilder\Samples\Output2\bundle_0_report.doc"
                         format="WORDML"/>
     </reportSolution>
   </output>

@@ -276,6 +276,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 // load interlayer if any
                 // load pallet analysis
             }
+            // attempt to create directory
             // save document
             document.Write(genDoc.path);
             // open generated document using TreeDim.StackBuilder.Desktop
@@ -318,11 +319,14 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
         private void FinalizeImageFromViewParameters(viewParameters vParam, Graphics3DImage graphics)
         {
             graphics.Flush();
-
+            // attempt to create directory
+            string dirPath = Path.GetDirectoryName(vParam.path);
+            try { Directory.CreateDirectory(dirPath); }
+            catch (Exception ex) { _log.Error(ex.Message); }
             // check that directory exists
-            if (!Directory.Exists(Path.GetDirectoryName(vParam.path)))
-                throw new Exception(string.Format("Directory {0} does not exist! Can not generate output file!", Path.GetDirectoryName(vParam.path)));
-
+            if (!Directory.Exists(dirPath))
+                throw new Exception(string.Format("Directory {0} does not exist!\n Can not generate output file!", Path.GetDirectoryName(vParam.path)));
+            // save image
             graphics.SaveAs(vParam.path);
             _log.Info(string.Format("Successfully saved file {0}", vParam.path));
         }

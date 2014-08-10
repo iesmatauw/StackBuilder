@@ -44,6 +44,7 @@
         <File Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\TreeDim.StackBuilder.ColladaExporter.dll" Checksum="yes" />
         <File Id="Plossum_CommandLine.dll" Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\Plossum CommandLine.dll" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Bin\Release\C5.dll" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"/>
         <!--update config file-->
         <util:XmlFile Id="SetPalletSolutionsDBPath" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='PalletSolutionsPath'[\]]/value" Value="[PALLETSOLUTIONSDB]" />
         <util:XmlFile Id="SetStackBuilderSchemaPath" File="[BIN]TreeDim.StackBuilder.XmlFileProcessor.exe.config" Action="setValue" ElementPath="/configuration/applicationSettings/TreeDim.StackBuilder.XmlFileProcessor.Properties.Settings/setting[\[]@name='XmlSchemaFilePath'[\]]/value" Value="[XMLSCHEMAS]StackBuilderSchema.xsd" />
@@ -117,7 +118,6 @@
     </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
-        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\interop.schemalibraryclass.dll" Checksum="yes"  KeyPath="yes"/>
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ENU.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\FRA.xml" Checksum="yes" />
@@ -150,8 +150,14 @@
         <File Source="..\Samples\Matches.stb" />
         <File Source="..\Samples\Case_44_28_29.stb" />
         <!-- Xml file processor samples -->
-        <File Source="..\Samples\Input1.xml" />
-        <File Source="..\Samples\Input2.xml" />
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Samples\Input1.xml" />
+        <!--util:XmlFile Id="SetOutput1ReportPath" File="[SAMPLES]Input1.xml" Action="setValue"
+                      ElementPath="/STACKBUILDER/output/reportSolution/reportParameters/outputPath"
+                      Value="[SAMPLES]Output1\case_0_report.doc" Sequence="1"/-->
+        <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Samples\Input2.xml" />
+        <!--util:XmlFile Id="SetOutput2ReportPath" File="[SAMPLES]Input2.xml" Action="setValue" 
+                      ElementPath="/STACKBUILDER/output/reportSolution/reportParameters/outputPath"
+                      Value="[SAMPLES]Output2\bundle_0_report.doc" Sequence="1"/-->
         <File Source="..\Samples\TestXmlFileProcessor.bat" />
       </Component>
     </DirectoryRef>

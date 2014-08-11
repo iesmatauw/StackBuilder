@@ -90,11 +90,10 @@
             </td>
           </tr>
           <tr>
-             <td class="style2" colspan="1">
-              <b>Date</b>
+            <td class="style2" colspan="1">
+              <xsl:value-of select="dateOfCreation"/>
             </td>
             <td class="style3" colspan="3">
-              <xsl:value-of select="dateOfCreation"/>
             </td>
           </tr>
         </table>
@@ -106,7 +105,7 @@
       </body>
     </html>
   </xsl:template>
-  
+
   <!-- Splitting templates : templates -->
   <xsl:template match="description">
     <xsl:call-template name="print-lines"/>
@@ -144,7 +143,7 @@
     </xsl:if>
   </xsl:template>
   <!-- Splitting templates : templates -->
-  
+
   <xsl:template match="boxCaseAnalysis">
     <h2>Analyse Etui/Caisse</h2>
     <xsl:apply-templates select="box"/>

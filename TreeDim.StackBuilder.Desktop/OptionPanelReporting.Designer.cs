@@ -37,6 +37,10 @@
             this.cbImageSizes = new System.Windows.Forms.ComboBox();
             this.lbReportTemplate = new System.Windows.Forms.Label();
             this.gbMSWordMargins = new System.Windows.Forms.GroupBox();
+            this.lbCmRight = new System.Windows.Forms.Label();
+            this.lbCmLeft = new System.Windows.Forms.Label();
+            this.lbcmBottom = new System.Windows.Forms.Label();
+            this.lbcm = new System.Windows.Forms.Label();
             this.nudRight = new System.Windows.Forms.NumericUpDown();
             this.nudBottom = new System.Windows.Forms.NumericUpDown();
             this.nudLeft = new System.Windows.Forms.NumericUpDown();
@@ -51,6 +55,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).BeginInit();
             this.SuspendLayout();
+            // 
+            // folderBrowserDlg
+            // 
+            resources.ApplyResources(this.folderBrowserDlg, "folderBrowserDlg");
             // 
             // fileSelectCtrlReportTemplate
             // 
@@ -76,12 +84,12 @@
             // 
             // cbImageSizes
             // 
+            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
             this.cbImageSizes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbImageSizes.FormattingEnabled = true;
             this.cbImageSizes.Items.AddRange(new object[] {
             resources.GetString("cbImageSizes.Items"),
             resources.GetString("cbImageSizes.Items1")});
-            resources.ApplyResources(this.cbImageSizes, "cbImageSizes");
             this.cbImageSizes.Name = "cbImageSizes";
             // 
             // lbReportTemplate
@@ -92,6 +100,10 @@
             // gbMSWordMargins
             // 
             resources.ApplyResources(this.gbMSWordMargins, "gbMSWordMargins");
+            this.gbMSWordMargins.Controls.Add(this.lbCmRight);
+            this.gbMSWordMargins.Controls.Add(this.lbCmLeft);
+            this.gbMSWordMargins.Controls.Add(this.lbcmBottom);
+            this.gbMSWordMargins.Controls.Add(this.lbcm);
             this.gbMSWordMargins.Controls.Add(this.nudRight);
             this.gbMSWordMargins.Controls.Add(this.nudBottom);
             this.gbMSWordMargins.Controls.Add(this.nudLeft);
@@ -103,28 +115,58 @@
             this.gbMSWordMargins.Name = "gbMSWordMargins";
             this.gbMSWordMargins.TabStop = false;
             // 
+            // lbCmRight
+            // 
+            resources.ApplyResources(this.lbCmRight, "lbCmRight");
+            this.lbCmRight.Name = "lbCmRight";
+            // 
+            // lbCmLeft
+            // 
+            resources.ApplyResources(this.lbCmLeft, "lbCmLeft");
+            this.lbCmLeft.Name = "lbCmLeft";
+            // 
+            // lbcmBottom
+            // 
+            resources.ApplyResources(this.lbcmBottom, "lbcmBottom");
+            this.lbcmBottom.Name = "lbcmBottom";
+            // 
+            // lbcm
+            // 
+            resources.ApplyResources(this.lbcm, "lbcm");
+            this.lbcm.Name = "lbcm";
+            // 
             // nudRight
             // 
-            this.nudRight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudRight, "nudRight");
+            this.nudRight.DecimalPlaces = 1;
             this.nudRight.Name = "nudRight";
             // 
             // nudBottom
             // 
-            this.nudBottom.DecimalPlaces = 1;
             resources.ApplyResources(this.nudBottom, "nudBottom");
+            this.nudBottom.DecimalPlaces = 1;
             this.nudBottom.Name = "nudBottom";
             // 
             // nudLeft
             // 
-            this.nudLeft.DecimalPlaces = 1;
             resources.ApplyResources(this.nudLeft, "nudLeft");
+            this.nudLeft.DecimalPlaces = 1;
             this.nudLeft.Name = "nudLeft";
             // 
             // nudTop
             // 
-            this.nudTop.DecimalPlaces = 1;
             resources.ApplyResources(this.nudTop, "nudTop");
+            this.nudTop.DecimalPlaces = 1;
+            this.nudTop.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudTop.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nudTop.Name = "nudTop";
             // 
             // label2
@@ -191,5 +233,9 @@
         private System.Windows.Forms.NumericUpDown nudRight;
         private System.Windows.Forms.NumericUpDown nudBottom;
         private System.Windows.Forms.NumericUpDown nudLeft;
+        private System.Windows.Forms.Label lbCmRight;
+        private System.Windows.Forms.Label lbCmLeft;
+        private System.Windows.Forms.Label lbcmBottom;
+        private System.Windows.Forms.Label lbcm;
     }
 }

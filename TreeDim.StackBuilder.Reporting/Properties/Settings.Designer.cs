@@ -25,7 +25,7 @@ namespace TreeDim.StackBuilder.Reporting.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float MarginTop {
             get {
                 return ((float)(this["MarginTop"]));
@@ -37,7 +37,7 @@ namespace TreeDim.StackBuilder.Reporting.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float MarginBottom {
             get {
                 return ((float)(this["MarginBottom"]));
@@ -49,7 +49,7 @@ namespace TreeDim.StackBuilder.Reporting.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float MarginLeft {
             get {
                 return ((float)(this["MarginLeft"]));
@@ -61,7 +61,7 @@ namespace TreeDim.StackBuilder.Reporting.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float MarginRight {
             get {
                 return ((float)(this["MarginRight"]));

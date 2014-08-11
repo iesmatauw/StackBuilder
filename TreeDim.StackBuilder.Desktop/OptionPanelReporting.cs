@@ -39,6 +39,7 @@ namespace TreeDim.StackBuilder.Desktop
             Reporting.Properties.Settings.Default.MarginBottom = (float)nudBottom.Value;
             Reporting.Properties.Settings.Default.MarginLeft = (float)nudLeft.Value;
             Reporting.Properties.Settings.Default.MarginRight = (float)nudRight.Value;
+            Reporting.Properties.Settings.Default.Save();
         }
         #endregion
 

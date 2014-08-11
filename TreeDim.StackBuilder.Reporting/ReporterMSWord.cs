@@ -57,10 +57,10 @@ namespace TreeDim.StackBuilder.Reporting
                     wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument = true;
             }
             // set margins (unit?)
-            wordDoc.PageSetup.TopMargin     = margins.Top;
-            wordDoc.PageSetup.BottomMargin  = margins.Bottom;
-            wordDoc.PageSetup.RightMargin   = margins.Right;
-            wordDoc.PageSetup.LeftMargin    = margins.Left;
+            wordDoc.PageSetup.TopMargin = wordApp.CentimetersToPoints(margins.Top);
+            wordDoc.PageSetup.BottomMargin = wordApp.CentimetersToPoints(margins.Bottom);
+            wordDoc.PageSetup.RightMargin = wordApp.CentimetersToPoints(margins.Right);
+            wordDoc.PageSetup.LeftMargin = wordApp.CentimetersToPoints(margins.Left);
             // set print view 
             wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
             wordDoc.SaveAs(outputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);

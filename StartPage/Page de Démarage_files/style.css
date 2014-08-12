@@ -1,0 +1,141 @@
+body {
+background-color:#ffffff;
+
+}
+	html, body { margin: 0; padding: 0; }
+	
+	.h1 {font-size:18px;margin-top:-60px;
+	font-family:arial;
+	 font-size:20px;
+	 margin-left:356;
+	 color:#003366
+	 }
+	
+	.h2 {font-size:16px;margin-top:-65px;
+	font-family:arial;
+	 font-size:16px;
+	 margin-left:315;
+	 color:#003366
+	 }
+	 
+	 
+@font-face {
+    font-family: 'title';
+    src: url('fonts/myriadpro-bold-webfont.eot');
+    src: url('fonts/myriadpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/myriadpro-bold-webfont.woff') format('woff'),
+         url('fonts/myriadpro-bold-webfont.ttf') format('truetype'),
+         url('fonts/myriadpro-bold-webfont.svg#title') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.background-image:{url('background.png')
+	z-index:1};
+
+.image{
+	z-index:2}
+
+a, a:visited {color:black; text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+
+ .decalage{
+	padding-left:250px;
+ 	padding-top:30px;}
+ 
+ .paragraphe {
+	 text-align:justify;
+	 width:850;
+	 font-family:arial;
+	 font-size:16px;
+	 margin-left:75;
+	 color:#003366
+ }
+ .p {
+	 text-align:justify;
+	 width:850;
+	 font-family:arial;
+	 font-size:16px;
+	 margin-left:75;
+	 color:#003366
+ }
+ 
+ .p2 {
+	 text-align:justify;
+	 width:850;
+	 font-family:arial;
+	 font-size:16px;
+	 margin-left:75;
+	 color:#003366;
+	 font-style: italic;
+ }
+ 
+  .liste {
+	text-align:justify;
+	width:600;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight: semi-bold;
+	margin-left:120;
+	color:#003366
+ }
+ 
+ #footer {
+    position: fixed;
+    bottom: 0;
+	height:18px;
+	color:white;
+	background-color:#003399;
+	width:1000px;
+	margin-right:0px;
+	padding-right:0px;	
+	text-align:center;
+	font-size:12px;
+	padding-top:3px;
+}
+ #footer2 {
+	position: absolue;
+	height:30px;
+	color:white;
+	background-color:#003399;
+	width:350px;
+	margin-left:70px;
+	padding-right:0px;
+	text-align:center;
+	font-family:arial;
+	font-size:18px;
+	padding-top:3px;
+	left: 5px;
+	top: 370px;
+}	
+ #footer3 {
+	position: absolute;
+	height:30px;
+	color:white;
+	background-color:#003399;
+	width:600px;
+	margin-left:70px;
+	padding-right:0px;
+	text-align:center;
+	font-family:arial;
+	font-size:18px;
+	padding-top:3px;
+	left: 4;
+}
+ #footer4 {
+	position: absolue;
+	height:30px;
+	color:white;
+	background-color:#003399;
+	width:350px;
+	margin-left:70px;
+	padding-right:0px;
+	text-align:center;
+	font-family:arial;
+	font-size:18px;
+	padding-top:3px;
+	left: 5px;
+	top: 370px;
+}

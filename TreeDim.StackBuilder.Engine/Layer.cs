@@ -106,8 +106,8 @@ namespace TreeDim.StackBuilder.Engine
         {
             _axisOrtho = axisOrtho;
             _inversed = false;
-            _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
-            _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
+            _palletLength = palletProperties.Length + constraintSet.OverhangX;
+            _palletWidth = palletProperties.Width + constraintSet.OverhangY;
             Initialize(boxProperties);
         }
 
@@ -118,8 +118,8 @@ namespace TreeDim.StackBuilder.Engine
         {
             _axisOrtho = axisOrtho;
             _inversed = inversed;
-            _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
-            _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
+            _palletLength = palletProperties.Length + constraintSet.OverhangX;
+            _palletWidth = palletProperties.Width + constraintSet.OverhangY;
             Initialize(boxProperties);
         }
 

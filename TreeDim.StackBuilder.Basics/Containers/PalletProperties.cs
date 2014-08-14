@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+
+using Sharp3D.Math.Core;
 #endregion
 
 namespace TreeDim.StackBuilder.Basics
@@ -68,6 +70,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             set { _color = value; }
             get { return _color; }
+        }
+        public BBox3D BoundingBox
+        {
+            get { return new BBox3D(Vector3D.Zero, new Vector3D(_length, _width, _height)); }
         }
         #endregion
 

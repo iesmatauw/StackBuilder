@@ -352,7 +352,9 @@
           <b>Nom</b>
         </td>
         <td class="style3" colspan="1">
-          <xsl:value-of select="name"/>
+          <b>
+            <xsl:value-of select="name"/>
+          </b>
         </td>
       </tr>
     </table>

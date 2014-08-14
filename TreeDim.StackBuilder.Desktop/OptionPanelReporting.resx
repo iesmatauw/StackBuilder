@@ -121,6 +121,10 @@
   <data name="nudBottom.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 84</value>
+  </data>
   <data name="lbCmLeft.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -130,16 +134,15 @@
   <data name="&gt;&gt;nudRight.Name" xml:space="preserve">
     <value>nudRight</value>
   </data>
-  <data name="&gt;&gt;nudLeft.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="&gt;&gt;lbcm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCmRight.Name" xml:space="preserve">
+    <value>lbCmRight</value>
   </data>
   <data name="lbCmRight.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lbLeft.Location" type="System.Drawing.Point, System.Drawing">
     <value>183, 26</value>
   </data>
@@ -160,9 +163,6 @@
   </data>
   <data name="&gt;&gt;lbReportTemplate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
   </data>
   <data name="&gt;&gt;nudLeft.Parent" xml:space="preserve">
     <value>gbMSWordMargins</value>
@@ -185,6 +185,9 @@
   <data name="&gt;&gt;nudTop.Name" xml:space="preserve">
     <value>nudTop</value>
   </data>
+  <data name="&gt;&gt;fileSelectCompanyLogo.Type" xml:space="preserve">
+    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5283.14405, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="&gt;&gt;lbcmBottom.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -197,17 +200,17 @@
   <data name="lbLeft.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;fileSelectCompanyLogo.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;gbMSWordMargins.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="lbTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 26</value>
+  <data name="nudLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="nudRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 20</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;fileSelectCompanyLogo.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="cbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
     <value>215, 21</value>
@@ -233,11 +236,8 @@
   <data name="&gt;&gt;nudBottom.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lbBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 54</value>
-  </data>
-  <data name="&gt;&gt;lbImageSizes.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="nudTop.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;nudRight.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -251,22 +251,19 @@
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="lbTop.Text" xml:space="preserve">
-    <value>Top</value>
-  </data>
   <data name="lbLeft.Text" xml:space="preserve">
     <value>Left</value>
   </data>
   <data name="lbcmBottom.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;nudLeft.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbMSWordMargins.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="cbImageSizes.Items1" xml:space="preserve">
     <value>Small images (384*384 &amp; 128*128)</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="fileSelectCtrlReportTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -276,8 +273,8 @@
   <data name="fileSelectCtrlReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
     <value>245, 20</value>
   </data>
-  <data name="lbLeft.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="lbCmRight.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 54</value>
@@ -294,23 +291,23 @@
   <data name="&gt;&gt;lbLeft.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbCmLeft.Parent" xml:space="preserve">
-    <value>gbMSWordMargins</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>OptionPanelReporting</value>
   </data>
-  <data name="&gt;&gt;gbMSWordMargins.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
   </data>
-  <data name="&gt;&gt;lbReportTemplate.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbcm.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="nudBottom.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 50</value>
   </data>
-  <data name="&gt;&gt;lbTop.Name" xml:space="preserve">
-    <value>lbTop</value>
-  </data>
   <data name="&gt;&gt;lbcmBottom.Name" xml:space="preserve">
     <value>lbcmBottom</value>
+  </data>
+  <data name="&gt;&gt;lbImageSizes.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="lbReportTemplate.Text" xml:space="preserve">
     <value>Report template</value>
@@ -333,8 +330,8 @@
   <data name="&gt;&gt;gbMSWordMargins.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lbLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 13</value>
   </data>
   <data name="&gt;&gt;gbMSWordMargins.Name" xml:space="preserve">
     <value>gbMSWordMargins</value>
@@ -354,8 +351,8 @@
   <data name="&gt;&gt;nudBottom.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="fileSelectCompanyLogo.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;lbReportTemplate.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbCmLeft.Text" xml:space="preserve">
     <value>cm</value>
@@ -384,8 +381,8 @@
   <data name="&gt;&gt;lbCmLeft.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbcm.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lbTop.Name" xml:space="preserve">
+    <value>lbTop</value>
   </data>
   <data name="lbcmBottom.Text" xml:space="preserve">
     <value>cm</value>
@@ -402,8 +399,8 @@
   <data name="&gt;&gt;lbBottom.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="cbImageSizes.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="fileSelectCompanyLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;nudTop.Parent" xml:space="preserve">
     <value>gbMSWordMargins</value>
@@ -420,8 +417,8 @@
   <data name="&gt;&gt;nudRight.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;fileSelectCompanyLogo.Type" xml:space="preserve">
-    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5283.14405, Culture=neutral, PublicKeyToken=null</value>
+  <data name="lbLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 13</value>
@@ -441,14 +438,8 @@
   <data name="lbcmBottom.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>OptionPanelReporting</value>
-  </data>
   <data name="nudRight.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="nudTop.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
   </data>
   <data name="fileSelectCompanyLogo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -468,8 +459,8 @@
   <data name="&gt;&gt;lbCmRight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbBottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 26</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -480,14 +471,11 @@
   <data name="lbTop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lbCmRight.Name" xml:space="preserve">
-    <value>lbCmRight</value>
+  <data name="&gt;&gt;nudLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Right</value>
-  </data>
-  <data name="&gt;&gt;cbImageSizes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="nudBottom.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 20</value>
@@ -498,6 +486,9 @@
   <data name="lbReportTemplate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lbImageSizes.Text" xml:space="preserve">
+    <value>Image sizes</value>
+  </data>
   <data name="&gt;&gt;fileSelectCtrlReportTemplate.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
@@ -506,6 +497,9 @@
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
+  </data>
+  <data name="&gt;&gt;lbBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fileSelectCtrlReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
     <value>88, 11</value>
@@ -521,6 +515,9 @@
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Company logo</value>
+  </data>
+  <data name="&gt;&gt;cbImageSizes.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="cbImageSizes.Items" xml:space="preserve">
     <value>Default size images (768*768 &amp; 256*256)</value>
@@ -558,11 +555,17 @@
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
+  <data name="cbImageSizes.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="&gt;&gt;folderBrowserDlg.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbTop.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbCmLeft.Parent" xml:space="preserve">
+    <value>gbMSWordMargins</value>
   </data>
   <data name="nudLeft.Location" type="System.Drawing.Point, System.Drawing">
     <value>245, 22</value>
@@ -573,26 +576,23 @@
   <data name="&gt;&gt;fileSelectCtrlReportTemplate.Name" xml:space="preserve">
     <value>fileSelectCtrlReportTemplate</value>
   </data>
-  <data name="nudLeft.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="lbTop.Text" xml:space="preserve">
+    <value>Top</value>
   </data>
   <data name="nudTop.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 22</value>
   </data>
+  <data name="&gt;&gt;nudLeft.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="&gt;&gt;lbLeft.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="lbImageSizes.Text" xml:space="preserve">
-    <value>Image sizes</value>
-  </data>
-  <data name="gbMSWordMargins.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;lbCmRight.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 84</value>
+  <data name="lbBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 54</value>
   </data>
   <data name="lbBottom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -624,16 +624,13 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;cbImageSizes.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;cbImageSizes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="folderBrowserDlg.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr-FR</value>
   </metadata>
 </root>

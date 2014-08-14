@@ -9,10 +9,12 @@
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml_INTEX.xsl" Checksum="yes" KeyPath="yes" />
         <util:XmlFile Id="SetReportTemplateINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value" Value="[REPORTTEMPLATES]ReportTemplateHtml_INTEX.xsl"/>
         <util:XmlFile Id="SetHasPluginINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='HasPluginINTEX'[\]]/value" Value="True" />
+        <util:XmlFile Id="SetDimCasePalletSol1" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Graphics.Properties.Settings/setting[\[]@name='DimCasePalletSol1'[\]]/value" Value="2" />
+        <util:XmlFile Id="SetDimCasePalletSol2" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Graphics.Properties.Settings/setting[\[]@name='DimCasePalletSol2'[\]]/value" Value="1" />
         <File Source="..\treeDiM.StackBuilder.Plugin_INTEX\Images\pictoTOP.jpg" Checksum="yes"/>
         <util:XmlFile Id="SetPictoTOP" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/treeDiM.StackBuilder.Plugin.Properties.Settings/setting[\[]@name='pictoTOP'[\]]/value" Value="[REPORTTEMPLATES]pictoTOP.jpg" />
         <File Source="..\treeDiM.StackBuilder.Plugin_INTEX\Images\Intex_Reflex.jpg" Checksum="yes"/>
-        <util:XmlFile Id="SetCompanyLogoINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanyLogoPath'[\]]/value" Value="[REPORTTEMPLATES]Intex_Reflex.jpg" Sequence="2"/>
+        <util:XmlFile Id="SetCompanyLogoINTEX" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='CompanyLogoPath'[\]]/value" Value="[REPORTTEMPLATES]Intex_Reflex.jpg" Sequence="2"/>    
       </Component>
     </DirectoryRef>
 	</Fragment>

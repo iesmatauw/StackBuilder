@@ -760,7 +760,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en-us")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CultureToUse {
             get {
                 return ((string)(this["CultureToUse"]));
@@ -769,7 +769,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool HasPluginINTEX {
             get {
                 return ((bool)(this["HasPluginINTEX"]));

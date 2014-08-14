@@ -71,8 +71,7 @@ namespace TreeDim.StackBuilder.Graphics
 
             Pallet pallet = new Pallet(palletProperties);
             pallet.Draw(graphics, Transform3D.Identity);
-            DimensionCube dc = new DimensionCube(palletProperties.Length, palletProperties.Width, palletProperties.Height);
-            dc.FontSize = 6;
+            DimensionCube dc = new DimensionCube(palletProperties.Length, palletProperties.Width, palletProperties.Height);     dc.FontSize = 6.0f;
             graphics.AddDimensions(dc);
             graphics.Flush();
             pictureBox.Image = graphics.Bitmap;

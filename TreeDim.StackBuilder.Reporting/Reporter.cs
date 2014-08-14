@@ -658,7 +658,8 @@ namespace TreeDim.StackBuilder.Reporting
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProp);
             graphics.AddBox(box);
-            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+            DimensionCube dc = new DimensionCube(box.Length, box.Width, box.Height);    dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // view_case_iso
@@ -697,7 +698,8 @@ namespace TreeDim.StackBuilder.Reporting
             graphics.Target = Vector3D.Zero;
             Cylinder cyl = new Cylinder(0, cylProperties);
             graphics.AddCylinder(cyl);
-            graphics.AddDimensions(new DimensionCube(cyl.Diameter, cyl.Diameter, cyl.Height));
+            DimensionCube dc = new DimensionCube(cyl.Diameter, cyl.Diameter, cyl.Height);   dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // view_case_iso
@@ -768,7 +770,8 @@ namespace TreeDim.StackBuilder.Reporting
             graphics.CameraPosition = Graphics3D.Corner_0;
             Box box = new Box(0, bundleProp);
             graphics.AddBox(box);
-            graphics.AddDimensions(new DimensionCube(bundleProp.Length, bundleProp.Width, bundleProp.Height));
+            DimensionCube dc = new DimensionCube(bundleProp.Length, bundleProp.Width, bundleProp.Height);   dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // view_bundle_iso
@@ -919,7 +922,8 @@ namespace TreeDim.StackBuilder.Reporting
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, boxProperties);
             graphics.AddBox(box);
-            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+            DimensionCube dc = new DimensionCube(box.Length, box.Width, box.Height);    dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // view_box_iso
@@ -1491,7 +1495,8 @@ namespace TreeDim.StackBuilder.Reporting
             Truck truck = new Truck(truckProp);
             truck.DrawBegin(graphics);
             truck.DrawEnd(graphics);
-            graphics.AddDimensions(new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height));
+            DimensionCube dc = new DimensionCube(truckProp.Length, truckProp.Width, truckProp.Height);      dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // view_truck_iso
@@ -1677,7 +1682,8 @@ namespace TreeDim.StackBuilder.Reporting
             graphics.Target = Vector3D.Zero;
             Box box = new Box(0, caseProperties);
             graphics.AddBox(box);
-            graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+            DimensionCube dc = new DimensionCube(box.Length, box.Width, box.Height);        dc.FontSize = 6.0f;
+            graphics.AddDimensions(dc);
             graphics.Flush();
             // ---
             // view_case_iso

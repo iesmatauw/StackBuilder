@@ -192,10 +192,10 @@
       <Value Profile="(Default)">..\..\..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl</Value>
     </Setting>
     <Setting Name="CultureToUse" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">en-us</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="HasPluginINTEX" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

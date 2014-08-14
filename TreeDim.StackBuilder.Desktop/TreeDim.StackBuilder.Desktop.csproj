@@ -321,6 +321,12 @@
     <Compile Include="OptionPanelDebugging.Designer.cs">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionPanelDimensions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanelDimensions.Designer.cs">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionPanelPlugins.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -869,6 +875,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelDebugging.resx">
       <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelDimensions.fr-FR.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanelDimensions.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionPanelPlugins.fr-FR.resx">
       <DependentUpon>OptionPanelPlugins.cs</DependentUpon>

@@ -70,23 +70,27 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.AddBox(box);
                 }
             }
-            bool showAxes = false;
-            if (showAxes)
-            {
-                // draw axis
-                graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(2000.0, 0.0, 0.0), Color.Red));
-                graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 2000.0, 0.0), Color.Green));
-                graphics.AddSegment(new Segment(Vector3D.Zero, new Vector3D(0.0, 0.0, 2000.0), Color.Blue));
-            }
-
             if (_showDimensions)
             {
-                graphics.AddDimensions(new DimensionCube(_solution.BoundingBox, Color.Black, false));
-                graphics.AddDimensions(new DimensionCube(_solution.LoadBoundingBox, Color.Red, true));
+                graphics.AddDimensions(
+                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol1)
+                    , Color.Black, false));
+                graphics.AddDimensions(
+                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
+                    , Color.Red, true));
             }
 
             // flush
             graphics.Flush();
+        }
+        BBox3D BoundingBoxDim(int index)
+        {
+            switch (index)
+            {
+                case 0: return _solution.BoundingBox;
+                case 1: return _solution.LoadBoundingBox;
+                default: return _analysis.PalletProperties.BoundingBox;
+            }
         }
         /// <summary>
         ///  Use this method when solution does not refer an analysis (e.g. when displaying CaseOptimizer result)

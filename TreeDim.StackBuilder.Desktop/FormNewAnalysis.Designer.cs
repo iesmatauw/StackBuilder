@@ -393,6 +393,7 @@
             // nudPalletOverhangX
             // 
             resources.ApplyResources(this.nudPalletOverhangX, "nudPalletOverhangX");
+            this.nudPalletOverhangX.DecimalPlaces = 1;
             this.nudPalletOverhangX.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -408,6 +409,7 @@
             // nudPalletOverhangY
             // 
             resources.ApplyResources(this.nudPalletOverhangY, "nudPalletOverhangY");
+            this.nudPalletOverhangY.DecimalPlaces = 1;
             this.nudPalletOverhangY.Maximum = new decimal(new int[] {
             1000,
             0,

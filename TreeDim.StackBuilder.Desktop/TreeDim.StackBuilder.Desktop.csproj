@@ -1157,7 +1157,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solution.bmp" />
-    <Content Include="FAQ\FAQ.html" />
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />

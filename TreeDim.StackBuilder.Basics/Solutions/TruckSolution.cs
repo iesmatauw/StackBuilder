@@ -38,7 +38,10 @@ namespace TreeDim.StackBuilder.Basics
                 if (!_parentTruckAnalysis.ConstraintSet.MultilayerAllowed)
                     return 1;
                 else
-                    return (int)Math.Floor(_parentTruckAnalysis.TruckProperties.Height / _parentTruckAnalysis.ParentSolution.PalletHeight);
+                    return (int)Math.Floor(
+                        (_parentTruckAnalysis.TruckProperties.Height - _parentTruckAnalysis.ConstraintSet.MinDistancePalletTruckRoof)
+                        / _parentTruckAnalysis.ParentSolution.PalletHeight
+                        );
             }
         }
         #endregion

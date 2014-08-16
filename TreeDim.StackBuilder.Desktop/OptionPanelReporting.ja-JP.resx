@@ -112,97 +112,13 @@
 		<value>2.0</value>
 	</resheader>
 	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
 	<data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
 		<value>133, 13</value>
-	</data>
-	<data name="lbReportTemplatesDir.Text" xml:space="preserve">
-    <value>Report templates directory</value>
-  </data>
-	<data name="chkShowLogConsole.Text" xml:space="preserve">
-		<value>Show  log console</value>
-	</data>
-	<data name="lbStaticBCT.Text" xml:space="preserve">
-		<value>Static BCT</value>
-	</data>
-	<data name="lbValueStiffnessY.Text" xml:space="preserve">
-		<value>stiffnessY</value>
-	</data>
-	<data name="lbStiffnessYUnit.Text" xml:space="preserve">
-		<value>N.m</value>
-	</data>
-	<data name="lbThicknessUnit.Text" xml:space="preserve">
-		<value>mm</value>
-	</data>
-	<data name="label2.Text" xml:space="preserve">
-		<value>厚み</value>
-	</data>
-	<data name="lbPrintedSurface.Text" xml:space="preserve">
-		<value>印刷面</value>
-	</data>
-	<data name="gbFormula.Text" xml:space="preserve">
-		<value>McKee 式</value>
-	</data>
-	<data name="label3.Text" xml:space="preserve">
-		<value>X 剛性</value>
-	</data>
-	<data name="label5.Text" xml:space="preserve">
-		<value>daN</value>
-	</data>
-	<data name="lbCaseType.Text" xml:space="preserve">
-		<value>ケース種類</value>
-	</data>
-	<data name="lbECTCoefficient.Text" xml:space="preserve">
-		<value>ECT 係数</value>
-	</data>
-	<data name="lbValueThickness.Text" xml:space="preserve">
-		<value>lbValueThickness</value>
-	</data>
-	<data name="gbResults.Text" xml:space="preserve">
-		<value>結果</value>
-	</data>
-	<data name="gbCardboardProperties.Text" xml:space="preserve">
-		<value>板紙</value>
-	</data>
-	<data name="lbECTCoefUnit.Text" xml:space="preserve">
-		<value>kN/m</value>
-	</data>
-	<data name="rbFormula2.Text" xml:space="preserve">
-		<value>改良式 ( 段ボール係数を使用する )</value>
-	</data>
-	<data name="label1.Text" xml:space="preserve">
-		<value>板紙種類</value>
-	</data>
-	<data name="lbStaticBCTValue.Text" xml:space="preserve">
-		<value>lbStaticBCTValue</value>
-	</data>
-	<data name="gbCase.Text" xml:space="preserve">
-		<value>ケース</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
-		<value>Edge Crush Test 解析</value>
-	</data>
-	<data name="lbStiffnessY.Text" xml:space="preserve">
-		<value>Y 剛性</value>
-	</data>
-	<data name="lbValueStiffnessX.Text" xml:space="preserve">
-		<value>stiffnessX</value>
-	</data>
-	<data name="rbFormula1.Text" xml:space="preserve">
-		<value>従来式 ( ECT 係数を使用する )</value>
-	</data>
-	<data name="lbDynamicBCT.Text" xml:space="preserve">
-		<value>Dynamic BCT (daN) ( 湿度 / 保管期間 )</value>
-	</data>
-	<data name="btReportTemplateDir.Text" xml:space="preserve">
-		<value>...</value>
-	</data>
-	<data name="lbStiffnessXUnit.Text" xml:space="preserve">
-		<value>N.m</value>
 	</data>
 </root>

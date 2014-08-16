@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
+    <value>tbDescription</value>
+  </data>
+	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="chkAllFaces.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="chkAllFaces.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 20</value>
+	</data>
+	<data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+		<value>86, 22</value>
+	</data>
+	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
+	<data name="lbFace.Size" type="System.Drawing.Size, System.Drawing">
+		<value>31, 13</value>
+	</data>
+	<data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+		<value>490, 34</value>
+	</data>
+	<data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="&gt;&gt;pictureBoxCaseDefinition.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="pictureBoxCaseDefinition.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="&gt;&gt;pictureBoxCase.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
+    <value>lbDescription</value>
+  </data>
+	<data name="pictureBoxCaseDefinition.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="&gt;&gt;bnOK.Name" xml:space="preserve">
+    <value>bnOK</value>
+  </data>
+	<data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<data name="gbFaceColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Bottom, Left</value>
+	</data>
+	<data name="&gt;&gt;cbFace.Name" xml:space="preserve">
+    <value>cbFace</value>
+  </data>
+	<data name="&gt;&gt;btBitmaps.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel2.Name" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes.Panel2</value>
+  </data>
+	<data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
+		<value>7</value>
+	</data>
+	<data name="&gt;&gt;pictureBoxCaseDefinition.Name" xml:space="preserve">
+    <value>pictureBoxCaseDefinition</value>
+  </data>
+	<data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
+		<value>397, 20</value>
+	</data>
+	<data name="&gt;&gt;lbFace.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+	<data name="&gt;&gt;pictureBoxCaseDefinition.Parent" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes.Panel1</value>
+  </data>
+	<data name="&gt;&gt;lbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
+		<value>7, 222</value>
+	</data>
+	<data name="&gt;&gt;chkAllFaces.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+		<value>35, 13</value>
+	</data>
+	<data name="&gt;&gt;cbFace.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="splitContainerCaseOfBoxes.SplitterDistance" type="System.Int32, mscorlib">
+		<value>294</value>
+	</data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;cbColor.Name" xml:space="preserve">
+    <value>cbColor</value>
+  </data>
+	<data name="lbFace.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbDescription.Size" type="System.Drawing.Size, System.Drawing">
+		<value>60, 13</value>
+	</data>
+	<data name="splitContainerCaseOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+		<value>-2, 63</value>
+	</data>
+	<data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+	<data name="lbDescription.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
+		<value>345, 70</value>
+	</data>
+	<data name="&gt;&gt;cbColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.4449.16727, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Name" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes</value>
+  </data>
+	<data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
+		<value>289, 45</value>
+	</data>
+	<data name="lbName.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="bnOK.Location" type="System.Drawing.Point, System.Drawing">
+		<value>490, 8</value>
+	</data>
+	<data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
+		<value>7, 265</value>
+	</data>
+	<data name="lbFace.Location" type="System.Drawing.Point, System.Drawing">
+		<value>6, 41</value>
+	</data>
+	<data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 340</value>
+	</data>
+	<data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;gbFaceColor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="pictureBoxCase.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
+    <value>trackBarHorizAngle</value>
+  </data>
+	<data name="bnOK.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 22</value>
+	</data>
+	<data name="&gt;&gt;btBitmaps.Name" xml:space="preserve">
+    <value>btBitmaps</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;gbFaceColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="&gt;&gt;lbFace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormNewCaseOfBoxes</value>
+  </data>
+	<data name="lbDescription.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="&gt;&gt;tbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;chkAllFaces.Name" xml:space="preserve">
+    <value>chkAllFaces</value>
+  </data>
+	<data name="lbDescription.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 35</value>
+	</data>
+	<data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="tbName.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+		<value>600, 400</value>
+	</data>
+	<data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Right</value>
+	</data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="splitContainerCaseOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
+		<value>587, 153</value>
+	</data>
+	<data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 11</value>
+	</data>
+	<data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
+		<value>16</value>
+	</data>
+	<data name="&gt;&gt;pictureBoxCase.Parent" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes.Panel2</value>
+  </data>
+	<data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+	<data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="chkAllFaces.Size" type="System.Drawing.Size, System.Drawing">
+		<value>156, 17</value>
+	</data>
+	<data name="&gt;&gt;pictureBoxCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="splitContainerCaseOfBoxes.TabIndex" type="System.Int32, mscorlib">
+		<value>6</value>
+	</data>
+	<data name="&gt;&gt;chkAllFaces.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+	<data name="&gt;&gt;lbFace.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+	<data name="btBitmaps.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes</value>
+  </data>
+	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+		<value>6, 13</value>
+	</data>
+	<data name="pictureBoxCase.Size" type="System.Drawing.Size, System.Drawing">
+		<value>289, 153</value>
+	</data>
+	<data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
+		<value>137, 20</value>
+	</data>
+	<data name="&gt;&gt;gbFaceColor.Name" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="btBitmaps.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;bnOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;gbFaceColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel1.Name" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes.Panel1</value>
+  </data>
+	<data name="chkAllFaces.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="&gt;&gt;btBitmaps.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerCaseOfBoxes</value>
+  </data>
+	<data name="&gt;&gt;bnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+	<data name="btBitmaps.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 23</value>
+	</data>
+	<data name="cbColor.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;chkAllFaces.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Bottom, Left, Right</value>
+	</data>
+	<data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+		<value>False</value>
+	</data>
+	<data name="&gt;&gt;lbFace.Name" xml:space="preserve">
+    <value>lbFace</value>
+  </data>
+	<data name="&gt;&gt;lbName.Name" xml:space="preserve">
+    <value>lbName</value>
+  </data>
+	<data name="btBitmaps.Location" type="System.Drawing.Point, System.Drawing">
+		<value>259, 38</value>
+	</data>
+	<data name="&gt;&gt;splitContainerCaseOfBoxes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="pictureBoxCaseDefinition.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+	<data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="bnOK.Size" type="System.Drawing.Size, System.Drawing">
+		<value>86, 22</value>
+	</data>
+	<data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="lbFace.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+		<value>87, 11</value>
+	</data>
+	<data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
+		<value>76, 38</value>
+	</data>
+	<data name="&gt;&gt;tbName.Name" xml:space="preserve">
+    <value>tbName</value>
+  </data>
+	<data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="cbFace.Size" type="System.Drawing.Size, System.Drawing">
+		<value>96, 21</value>
+	</data>
+	<data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
+		<value>9</value>
+	</data>
+	<data name="lbFace.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="splitContainerCaseOfBoxes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Bottom, Left, Right</value>
+	</data>
+	<data name="pictureBoxCase.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;cbFace.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="pictureBoxCaseDefinition.Size" type="System.Drawing.Size, System.Drawing">
+		<value>294, 153</value>
+	</data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>584, 362</value>
+	</data>
+	<data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+	<data name="&gt;&gt;pictureBoxCaseDefinition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;pictureBoxCase.Name" xml:space="preserve">
+    <value>pictureBoxCase</value>
+  </data>
+	<data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+	<data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Left, Right</value>
+	</data>
+	<data name="tbName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Left, Right</value>
+	</data>
+	<data name="lbName.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+		<value>Top, Right</value>
+	</data>
+	<data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+		<value>177, 38</value>
+	</data>
+	<data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="chkAllFaces.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
+		<value>584, 22</value>
+	</data>
+	<data name="pictureBoxCase.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
+		<value>87, 35</value>
+	</data>
+	<data name="cbFace.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
+		<value>8</value>
+	</data>
+	<data name="&gt;&gt;btBitmaps.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+		<value>130, 17</value>
+	</data>
+	<data name="&gt;&gt;cbFace.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+	<data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>0, 340</value>
+	</metadata>
+	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>de-DE</value>
+	</metadata>
+</root>

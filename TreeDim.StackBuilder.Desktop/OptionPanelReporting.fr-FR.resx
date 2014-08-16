@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,159 +59,177 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="fileSelectCtrlReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 11</value>
-  </data>
-  <data name="fileSelectCtrlReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 20</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 50</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="fileSelectCtrlReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+		<value>96, 11</value>
+	</data>
+	<data name="fileSelectCtrlReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+		<value>242, 20</value>
+	</data>
+	<data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+		<value>5, 50</value>
+	</data>
+	<data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>80, 13</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
     <value>Logo entreprise</value>
   </data>
-  <data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 46</value>
-  </data>
-  <data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 20</value>
-  </data>
-  <data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 84</value>
-  </data>
-  <data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 13</value>
-  </data>
-  <data name="lbImageSizes.Text" xml:space="preserve">
+	<data name="fileSelectCompanyLogo.Location" type="System.Drawing.Point, System.Drawing">
+		<value>96, 46</value>
+	</data>
+	<data name="fileSelectCompanyLogo.Size" type="System.Drawing.Size, System.Drawing">
+		<value>242, 20</value>
+	</data>
+	<data name="lbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+		<value>5, 84</value>
+	</data>
+	<data name="lbImageSizes.Size" type="System.Drawing.Size, System.Drawing">
+		<value>73, 13</value>
+	</data>
+	<data name="lbImageSizes.Text" xml:space="preserve">
     <value>Tailles images</value>
   </data>
-  <data name="cbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 80</value>
-  </data>
-  <data name="lbReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 15</value>
-  </data>
-  <data name="lbReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
-  </data>
-  <data name="lbReportTemplate.Text" xml:space="preserve">
+	<data name="cbImageSizes.Location" type="System.Drawing.Point, System.Drawing">
+		<value>96, 80</value>
+	</data>
+	<data name="lbReportTemplate.Location" type="System.Drawing.Point, System.Drawing">
+		<value>5, 15</value>
+	</data>
+	<data name="lbReportTemplate.Size" type="System.Drawing.Size, System.Drawing">
+		<value>89, 13</value>
+	</data>
+	<data name="lbReportTemplate.Text" xml:space="preserve">
     <value>Patron de rapport</value>
   </data>
-  <data name="lbCmRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 54</value>
-  </data>
-  <data name="lbCmLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 26</value>
-  </data>
-  <data name="lbcmBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 54</value>
-  </data>
-  <data name="lbcm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 26</value>
-  </data>
-  <data name="nudRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 50</value>
-  </data>
-  <data name="nudLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 22</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 54</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
+	<data name="lbCmRight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>286, 54</value>
+	</data>
+	<data name="lbCmLeft.Location" type="System.Drawing.Point, System.Drawing">
+		<value>286, 26</value>
+	</data>
+	<data name="lbcmBottom.Location" type="System.Drawing.Point, System.Drawing">
+		<value>107, 54</value>
+	</data>
+	<data name="lbcm.Location" type="System.Drawing.Point, System.Drawing">
+		<value>107, 26</value>
+	</data>
+	<data name="nudRight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>238, 50</value>
+	</data>
+	<data name="nudLeft.Location" type="System.Drawing.Point, System.Drawing">
+		<value>238, 22</value>
+	</data>
+	<data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+		<value>166, 54</value>
+	</data>
+	<data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+		<value>35, 13</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
     <value>Droite</value>
   </data>
-  <data name="lbLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 26</value>
-  </data>
-  <data name="lbLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="lbLeft.Text" xml:space="preserve">
+	<data name="lbLeft.Location" type="System.Drawing.Point, System.Drawing">
+		<value>166, 26</value>
+	</data>
+	<data name="lbLeft.Size" type="System.Drawing.Size, System.Drawing">
+		<value>45, 13</value>
+	</data>
+	<data name="lbLeft.Text" xml:space="preserve">
     <value>Gauche</value>
   </data>
-  <data name="lbBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
-  </data>
-  <data name="lbBottom.Text" xml:space="preserve">
+	<data name="lbBottom.Size" type="System.Drawing.Size, System.Drawing">
+		<value>25, 13</value>
+	</data>
+	<data name="lbBottom.Text" xml:space="preserve">
     <value>Bas</value>
   </data>
-  <data name="lbTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 13</value>
-  </data>
-  <data name="lbTop.Text" xml:space="preserve">
+	<data name="lbTop.Size" type="System.Drawing.Size, System.Drawing">
+		<value>30, 13</value>
+	</data>
+	<data name="lbTop.Text" xml:space="preserve">
     <value>Haut</value>
   </data>
-  <data name="gbMSWordMargins.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 87</value>
-  </data>
-  <data name="gbMSWordMargins.Text" xml:space="preserve">
+	<data name="gbMSWordMargins.Size" type="System.Drawing.Size, System.Drawing">
+		<value>328, 87</value>
+	</data>
+	<data name="gbMSWordMargins.Text" xml:space="preserve">
     <value>Marges (pour Microsoft Word seulement)</value>
   </data>
+	<data name="cbImageSizes.Items1" xml:space="preserve">
+		<value>Petites images (384*384 &amp; 128*128)</value>
+	</data>
+	<data name="lbCmLeft.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="lbcm.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="lbcmBottom.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="lbCmRight.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="cbImageSizes.Items" xml:space="preserve">
+		<value>Images par défaut (768*768 &amp; 256*256)</value>
+	</data>
 </root>

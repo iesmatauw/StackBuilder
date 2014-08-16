@@ -134,8 +134,8 @@ namespace TreeDim.StackBuilder.Engine
                 case 1: _axisOrtho = HalfAxis.HAxis.AXIS_Z_N; break;
                 default: _axisOrtho = HalfAxis.HAxis.AXIS_Z_P; break;
             }
-            _palletLength = truckProperties.Length;
-            _palletWidth = truckProperties.Width;
+            _palletLength = truckProperties.Length - 2.0 * constraintSet.MinDistancePalletTruckWall;
+            _palletWidth = truckProperties.Width - 2.0 * constraintSet.MinDistancePalletTruckWall;
             Initialize(sol);
         }
         /// <summary>

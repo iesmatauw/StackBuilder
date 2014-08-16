@@ -136,7 +136,7 @@
     <value>Améliorée</value>
   </data>
 	<data name="MESSAGE_CARDBOARDQUALITYDBNOTFOUND" xml:space="preserve">
-    <value>Cardboard quality database file  could Le fichier de la base de donnée de qualité carton n'a pas pu être trouvé.</value>
+    <value>Le fichier de la base de donnée de qualité carton n'a pas pu être trouvé.</value>
   </data>
 	<data name="PRINTEDSURFACE_COMPLEX" xml:space="preserve">
     <value>Complexe</value>

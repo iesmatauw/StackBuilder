@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{F2DEFE3C-291D-4F9B-A01C-4EEA7988A183}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML Help", "HTML Help", "{59115AF3-A2B9-4FBB-9525-B5BD9C2AE34D}"
+	ProjectSection(SolutionItems) = preProject
+		StartPage\Page de Démarage.htm = StartPage\Page de Démarage.htm
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.Engine", "TreeDim.StackBuilder.Engine\TreeDim.StackBuilder.Engine.csproj", "{2E646606-052D-4063-9218-1379430B070E}"
 EndProject

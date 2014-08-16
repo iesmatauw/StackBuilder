@@ -160,7 +160,7 @@ namespace TreeDim.StackBuilder.Desktop
                 gridSolutions[iIndex, 0] = new SourceGrid.Cells.Cell(string.Format("{0}", iIndex));
                 // Layout
                 {
-                    Graphics2DImage graphics = new Graphics2DImage(new Size(300, 75));
+                    Graphics2DImage graphics = new Graphics2DImage(new Size(300, 30));
                     TruckSolutionViewer sv = new TruckSolutionViewer(sol);
                     sv.Draw(graphics);
                     gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);

@@ -82,8 +82,15 @@ namespace TreeDim.StackBuilder.Engine
 
         private void LoadPatterns()
         {
-            _patterns.Add(new LayerPatternColumn());
-            _patterns.Add(new LayerPatternInterlocked());
+            if (0 == _patterns.Count)
+            {
+                _patterns.Add(new LayerPatternColumn());
+                _patterns.Add(new LayerPatternInterlocked());
+                _patterns.Add(new LayerPatternTrilock());
+                _patterns.Add(new LayerPatternDiagonale());
+                _patterns.Add(new LayerPatternSpirale());
+                _patterns.Add(new LayerPatternEnlargedSpirale());
+            }
         }
         #endregion
     }

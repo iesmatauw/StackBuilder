@@ -21,7 +21,6 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewBoxCaseAnalysis : Form
     {
         #region Data members
-        private BoxProperties[] _boxes, _cases;
         private TreeDim.StackBuilder.Basics.Document _document;
         private BoxCaseAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBoxCaseAnalysis));
@@ -73,9 +72,9 @@ namespace TreeDim.StackBuilder.Desktop
                     tbDescription.Text = _analysis.Description;
                 }
                 // fill boxes combo
-                ComboBoxHelpers.FillCombo(_boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
+                ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
                 // fill case properties
-                ComboBoxHelpers.FillCombo(_cases, cbCase, null == _analysis ? null : _analysis.CaseProperties);
+                ComboBoxHelpers.FillCombo(Cases, cbCase, null == _analysis ? null : _analysis.CaseProperties);
 
                 // allowed position box + allowed patterns
                 if (null == _analysis)
@@ -115,14 +114,14 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public BoxProperties SelectedBox
         {
-            get { return _boxes[cbBox.SelectedIndex]; }
+            get { return Boxes[cbBox.SelectedIndex]; }
         }
         /// <summary>
         /// Selected case
         /// </summary>
         public BoxProperties SelectedCase
         {
-            get { return _cases[cbCase.SelectedIndex]; }
+            get { return Cases[cbCase.SelectedIndex]; }
         }
         #endregion
 
@@ -218,22 +217,6 @@ namespace TreeDim.StackBuilder.Desktop
             set { checkBoxPositionZ.Checked = value; }
         }
         /// <summary>
-        /// List of boxes
-        /// </summary>
-        public BoxProperties[] Boxes
-        {
-            get { return _boxes; }
-            set { _boxes = value; }
-        }
-        /// <summary>
-        /// List of cases
-        /// </summary>
-        public BoxProperties[] Cases
-        {
-            get { return _cases; }
-            set { _cases = value; }
-        }
-        /// <summary>
         /// Use maximum number of boxes criterion?
         /// </summary>
         public bool UseMaximumNumberOfBoxes
@@ -275,6 +258,26 @@ namespace TreeDim.StackBuilder.Desktop
             BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_X_P, pictureBoxPositionX);
             BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Y_P, pictureBoxPositionY);
             BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
+        }
+        #endregion
+
+        #region Helpers
+        private BoxProperties[] Cases
+        {
+            get
+            {
+                return _document.Cases.ToArray();
+            }
+        }
+        private BoxProperties[] Boxes
+        {
+            get
+            {
+                List<BoxProperties> listProperties = new List<BoxProperties>();
+                listProperties.AddRange(_document.Boxes);
+                listProperties.AddRange(_document.Cases);
+                return listProperties.ToArray();
+            }
         }
         #endregion
     }

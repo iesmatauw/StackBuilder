@@ -122,6 +122,15 @@ namespace TreeDim.StackBuilder.Desktop
                     System.Net.IPHostEntry objIPHE = System.Net.Dns.GetHostEntry(uri.DnsSafeHost);
                     return true;
                 }
+                catch (System.Net.Sockets.SocketException /*ex*/)
+                {
+                    _log.Info(
+                        string.Format(
+                        "Url '{0}' could not be accessed : is the computer connected to the web?"
+                        , Settings.Default.StartPageUrl
+                        ));
+                    return false;
+                }
                 catch (Exception ex)
                 {
                     _log.Error(ex.ToString());

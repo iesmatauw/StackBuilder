@@ -385,8 +385,6 @@ namespace TreeDim.StackBuilder.Desktop
         public BoxCaseAnalysis CreateNewBoxCaseAnalysisUI()
         {
             FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(this);
-            form.Boxes = Boxes.ToArray();
-            form.Cases = Cases.ToArray();
 
             if (DialogResult.OK == form.ShowDialog())
             { 
@@ -650,8 +648,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             bool recomputeRequired = false;
             FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
-            form.Boxes = Boxes.ToArray();
-            form.Cases = Cases.ToArray();
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
             { 
                 // analysis name / description

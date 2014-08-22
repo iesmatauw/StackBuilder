@@ -71,17 +71,19 @@ namespace TreeDim.StackBuilder.Desktop
                     tbName.Text = _analysis.Name;
                     tbDescription.Text = _analysis.Description;
                 }
+                if (null != _analysis)
+                    IncludeCaseAsBoxes = _analysis.BoxProperties.HasInsideDimensions;
                 // fill boxes combo
                 ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
                 // fill case properties
                 ComboBoxHelpers.FillCombo(Cases, cbCase, null == _analysis ? null : _analysis.CaseProperties);
-
                 // allowed position box + allowed patterns
                 if (null == _analysis)
                 {
                     AllowVerticalX = Settings.Default.AllowVerticalX;
                     AllowVerticalY = Settings.Default.AllowVerticalY;
                     AllowVerticalZ = Settings.Default.AllowVerticalZ;
+                    IncludeCaseAsBoxes = Settings.Default.IncludeCaseAsBoxes;
                 }
                 else
                 {
@@ -101,6 +103,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             try
             {
+                Settings.Default.IncludeCaseAsBoxes = IncludeCaseAsBoxes;
             }
             catch (Exception ex)
             { _log.Error(ex.ToString()); }
@@ -172,6 +175,12 @@ namespace TreeDim.StackBuilder.Desktop
             // status bar
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+        }
+
+        private void chkIncludeCases_CheckedChanged(object sender, EventArgs e)
+        {
+            // fill boxes combo
+            ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
         }
         #endregion
 
@@ -248,6 +257,19 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudMaximumCaseWeight.Value; }
             set { nudMaximumCaseWeight.Value = (decimal)value; }
         }
+        /// <summary>
+        /// Include case as boxes
+        /// </summary>
+        public bool IncludeCaseAsBoxes
+        {
+            get { return chkIncludeCases.Checked; }
+            set
+            {
+                if (chkIncludeCases.Checked != value)
+                    ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
+                chkIncludeCases.Checked = value;
+            }
+        }
         #endregion
 
         #region Box position drawings
@@ -262,6 +284,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Helpers
+        /// <summary>
+        /// Build list of cases
+        /// </summary>
         private BoxProperties[] Cases
         {
             get
@@ -269,16 +294,21 @@ namespace TreeDim.StackBuilder.Desktop
                 return _document.Cases.ToArray();
             }
         }
+        /// <summary>
+        /// Build list of boxes
+        /// </summary>
         private BoxProperties[] Boxes
         {
             get
             {
                 List<BoxProperties> listProperties = new List<BoxProperties>();
                 listProperties.AddRange(_document.Boxes);
-                listProperties.AddRange(_document.Cases);
+                if (IncludeCaseAsBoxes)
+                    listProperties.AddRange(_document.Cases);
                 return listProperties.ToArray();
             }
         }
         #endregion
+
     }
 }

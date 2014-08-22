@@ -857,7 +857,7 @@ namespace TreeDim.StackBuilder.Basics
         /// Returns true if a box case analysis can be created i.e. if document contains at list one box and one case
         /// </summary>
         public bool CanCreateBoxCaseAnalysis
-        { get { return this.Boxes.Count > 0 && this.Cases.Count > 0; } }
+        { get { return (this.Boxes.Count > 0 && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
         /// <summary>
         /// Returns true if a case analysis can be created i.e. if documents contains at list a box and pallet solutions database is not empty
         /// </summary>

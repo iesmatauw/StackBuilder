@@ -91,6 +91,7 @@ namespace TreeDim.StackBuilder.Desktop
     {
         static public void FillCombo(ItemBase[] items, ComboBox cb, ItemBase item)
         {
+            cb.Items.Clear();
             foreach (ItemBase it in items)
                 cb.Items.Add(new ItemBaseCB(it));
             if (cb.Items.Count > 0)

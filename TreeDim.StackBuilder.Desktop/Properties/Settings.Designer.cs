@@ -676,18 +676,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int UnitSystem {
-            get {
-                return ((int)(this["UnitSystem"]));
-            }
-            set {
-                this["UnitSystem"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ReportInitialDirectory {
             get {
@@ -758,15 +746,6 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CultureToUse {
-            get {
-                return ((string)(this["CultureToUse"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -776,6 +755,39 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
             }
             set {
                 this["HasPluginINTEX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-us")]
+        public string CultureToUse {
+            get {
+                return ((string)(this["CultureToUse"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UnitSystem {
+            get {
+                return ((int)(this["UnitSystem"]));
+            }
+            set {
+                this["UnitSystem"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IncludeCaseAsBoxes {
+            get {
+                return ((bool)(this["IncludeCaseAsBoxes"]));
+            }
+            set {
+                this["IncludeCaseAsBoxes"] = value;
             }
         }
     }

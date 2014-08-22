@@ -55,6 +55,7 @@
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
             this.lbStopStacking = new System.Windows.Forms.Label();
             this.checkBoxMaximumNumberOfBoxes = new System.Windows.Forms.CheckBox();
+            this.chkIncludeCases = new System.Windows.Forms.CheckBox();
             this.gbAllowedBoxPositions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
@@ -260,10 +261,18 @@
             this.checkBoxMaximumNumberOfBoxes.UseVisualStyleBackColor = true;
             this.checkBoxMaximumNumberOfBoxes.CheckedChanged += new System.EventHandler(this.onFormContentChanged);
             // 
+            // chkIncludeCases
+            // 
+            resources.ApplyResources(this.chkIncludeCases, "chkIncludeCases");
+            this.chkIncludeCases.Name = "chkIncludeCases";
+            this.chkIncludeCases.UseVisualStyleBackColor = true;
+            this.chkIncludeCases.CheckedChanged += new System.EventHandler(this.chkIncludeCases_CheckedChanged);
+            // 
             // FormNewBoxCaseAnalysis
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkIncludeCases);
             this.Controls.Add(this.gbStopStackingCondition);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.gbAllowedBoxPositions);
@@ -328,5 +337,6 @@
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
         private System.Windows.Forms.Label lbStopStacking;
         private System.Windows.Forms.CheckBox checkBoxMaximumNumberOfBoxes;
+        private System.Windows.Forms.CheckBox chkIncludeCases;
     }
 }

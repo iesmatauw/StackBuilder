@@ -100,6 +100,7 @@ namespace treeDiM.StackBuilder.Plugin
             Properties.Settings.Default.IntermediatePacking = UseIntermediatePacking;
             Properties.Settings.Default.DefaultCaseThickness = DefaultCaseThickness;
             Properties.Settings.Default.PalletHeight = PalletHeight;
+            Properties.Settings.Default.Save();
         } 
         #endregion
 

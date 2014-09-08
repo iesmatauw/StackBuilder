@@ -628,6 +628,17 @@ namespace TreeDim.StackBuilder.Graphics
             }
             return true;
         }
+
+        public void ApplyElong(double d)
+        {
+            _dim[0] += d;
+            _dim[1] += d;
+            _dim[2] += d;
+
+            _position.X -= 0.5 * d;
+            _position.Y -= 0.5 * d;
+            _position.Z -= 0.5 * d;
+        }
         #endregion
     }
     #endregion

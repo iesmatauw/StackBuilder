@@ -9,7 +9,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PalletHeight" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">152</Value>
+      <Value Profile="(Default)">160</Value>
     </Setting>
     <Setting Name="IntermediatePacking" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

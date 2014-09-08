@@ -49,7 +49,7 @@ namespace treeDiM.StackBuilder.Plugin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("152")]
+        [global::System.Configuration.DefaultSettingValueAttribute("160")]
         public double PalletHeight {
             get {
                 return ((double)(this["PalletHeight"]));

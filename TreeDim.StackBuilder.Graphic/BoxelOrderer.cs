@@ -185,7 +185,10 @@ namespace TreeDim.StackBuilder.Graphics
 
         #region Private methods
         private void SortLayer(ref List<Box> layerList)
-        { 
+        {
+            foreach (Box b in layerList)
+                b.ApplyElong(-0.2);
+
             // build y list
             List<double> yList = new List<double>();
             foreach (Box b in layerList)
@@ -268,6 +271,9 @@ namespace TreeDim.StackBuilder.Graphics
             layerList.Clear();
             resList.Reverse();
             layerList.AddRange(resList);
+
+            foreach (Box b in layerList)
+                b.ApplyElong(0.2);
         }
 
         private List<Box> GetByYMin(List<Box> inList, double y)

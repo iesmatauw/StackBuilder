@@ -1191,7 +1191,7 @@ namespace TreeDim.StackBuilder.Reporting
                         viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail;
                         break;
                     case 4:
-                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true;
+                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_180; imageWidth = ImageSizeWide; showDimensions = true;
                         break;
                     default:
                         break;

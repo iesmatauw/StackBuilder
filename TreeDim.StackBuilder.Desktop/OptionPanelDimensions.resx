@@ -170,6 +170,9 @@
   <data name="&gt;&gt;cbDim1.Name" xml:space="preserve">
     <value>cbDim1</value>
   </data>
+  <data name="cbDim1.Items3" xml:space="preserve">
+    <value>Pallet dimensions (wo height)</value>
+  </data>
   <data name="cbDim1.Items2" xml:space="preserve">
     <value>Pallet dimensions</value>
   </data>
@@ -205,6 +208,9 @@
   </data>
   <data name="cbDim2.Items2" xml:space="preserve">
     <value>Pallet dimensions</value>
+  </data>
+  <data name="cbDim2.Items3" xml:space="preserve">
+    <value>Pallet dimensions (wo height)</value>
   </data>
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>

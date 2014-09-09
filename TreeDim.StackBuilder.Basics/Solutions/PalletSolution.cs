@@ -361,8 +361,8 @@ namespace TreeDim.StackBuilder.Basics
                 return 100.0 * CaseCount * Analysis.BProperties.Volume
                     /
                     (
-                        (Analysis.PalletProperties.Length - Analysis.ConstraintSet.OverhangX)
-                        * (Analysis.PalletProperties.Width - Analysis.ConstraintSet.OverhangY)
+                        (Analysis.PalletProperties.Length + Analysis.ConstraintSet.OverhangX)
+                        * (Analysis.PalletProperties.Width + Analysis.ConstraintSet.OverhangY)
                         * (Analysis.ConstraintSet.MaximumHeight - Analysis.PalletProperties.Height)
                     );
             }
@@ -380,8 +380,8 @@ namespace TreeDim.StackBuilder.Basics
                 return 100.0 * CaseCount * caseOfBoxes.NumberOfBoxes * caseOfBoxes.InsideBoxProperties.Volume
                     /
                     (
-                        (Analysis.PalletProperties.Length - Analysis.ConstraintSet.OverhangX)
-                        * (Analysis.PalletProperties.Width - Analysis.ConstraintSet.OverhangY)
+                        (Analysis.PalletProperties.Length + Analysis.ConstraintSet.OverhangX)
+                        * (Analysis.PalletProperties.Width + Analysis.ConstraintSet.OverhangY)
                         * (Analysis.ConstraintSet.MaximumHeight - Analysis.PalletProperties.Height)
                     );
             }

@@ -89,7 +89,9 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 case 0: return _solution.BoundingBox;
                 case 1: return _solution.LoadBoundingBox;
-                default: return _analysis.PalletProperties.BoundingBox;
+                case 2: return _analysis.PalletProperties.BoundingBox;
+                case 3: return new BBox3D(0.0, 0.0, 0.0, _analysis.PalletProperties.Length, _analysis.PalletProperties.Width, 0.0);
+                default: return _solution.BoundingBox;
             }
         }
         /// <summary>

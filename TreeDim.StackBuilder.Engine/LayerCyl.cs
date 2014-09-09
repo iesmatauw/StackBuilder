@@ -22,8 +22,8 @@ namespace TreeDim.StackBuilder.Engine
         #region Constructor
         public LayerCyl(CylinderProperties cylProperties, PalletProperties palletProperties, CylinderPalletConstraintSet constraintSet)
         {
-            _palletLength = palletProperties.Length + 2.0 * constraintSet.OverhangX;
-            _palletWidth = palletProperties.Width + 2.0 * constraintSet.OverhangY;
+            _palletLength = palletProperties.Length + constraintSet.OverhangX;
+            _palletWidth = palletProperties.Width + constraintSet.OverhangY;
             Initialize(cylProperties);
         }
         #endregion

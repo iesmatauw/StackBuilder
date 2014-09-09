@@ -53,7 +53,8 @@
             this.cbDim1.Items.AddRange(new object[] {
             resources.GetString("cbDim1.Items"),
             resources.GetString("cbDim1.Items1"),
-            resources.GetString("cbDim1.Items2")});
+            resources.GetString("cbDim1.Items2"),
+            resources.GetString("cbDim1.Items3")});
             this.cbDim1.Name = "cbDim1";
             // 
             // cbDim2
@@ -64,7 +65,8 @@
             this.cbDim2.Items.AddRange(new object[] {
             resources.GetString("cbDim2.Items"),
             resources.GetString("cbDim2.Items1"),
-            resources.GetString("cbDim2.Items2")});
+            resources.GetString("cbDim2.Items2"),
+            resources.GetString("cbDim2.Items3")});
             this.cbDim2.Name = "cbDim2";
             // 
             // OptionPanelDimensions

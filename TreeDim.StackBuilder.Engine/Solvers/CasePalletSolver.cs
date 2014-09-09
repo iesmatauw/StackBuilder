@@ -236,8 +236,8 @@ namespace TreeDim.StackBuilder.Engine
                                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                             BoxPosition boxPos = new BoxPosition(
                                                 layerPosTemp.Position
-                                                    - _constraintSet.OverhangX * Vector3D.XAxis
-                                                    - _constraintSet.OverhangY * Vector3D.YAxis
+                                                    - 0.5 *_constraintSet.OverhangX * Vector3D.XAxis
+                                                    - 0.5 *_constraintSet.OverhangY * Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
                                                 , layerPosTemp.LengthAxis
                                                 , layerPosTemp.WidthAxis
@@ -291,8 +291,8 @@ namespace TreeDim.StackBuilder.Engine
                                                 LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                                 BoxPosition boxPos = new BoxPosition(
                                                     layerPosTemp.Position
-                                                    - _constraintSet.OverhangX * Vector3D.XAxis
-                                                    - _constraintSet.OverhangY * Vector3D.YAxis
+                                                    - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
+                                                    - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
                                                     , layerPosTemp.LengthAxis
                                                     , layerPosTemp.WidthAxis
@@ -397,8 +397,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - _constraintSet.OverhangX * Vector3D.XAxis
-                                - _constraintSet.OverhangY * Vector3D.YAxis
+                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
+                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis
@@ -415,8 +415,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - _constraintSet.OverhangX * Vector3D.XAxis
-                                - _constraintSet.OverhangY * Vector3D.YAxis
+                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
+                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis
@@ -439,8 +439,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - _constraintSet.OverhangX * Vector3D.XAxis
-                                - _constraintSet.OverhangY * Vector3D.YAxis
+                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
+                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis
@@ -457,8 +457,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - _constraintSet.OverhangX * Vector3D.XAxis
-                                - _constraintSet.OverhangY * Vector3D.YAxis
+                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
+                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis

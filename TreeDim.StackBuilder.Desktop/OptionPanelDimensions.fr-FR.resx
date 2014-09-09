@@ -140,6 +140,9 @@
   <data name="cbDim1.Items2" xml:space="preserve">
     <value>Dimensions palette</value>
   </data>
+  <data name="cbDim1.Items3" xml:space="preserve">
+    <value>Dimensions palette (sans hauteur)</value>
+  </data>
   <data name="cbDim2.Items" xml:space="preserve">
     <value>Dimensions Hors Tout</value>
   </data>
@@ -148,5 +151,8 @@
   </data>
   <data name="cbDim2.Items2" xml:space="preserve">
     <value>Dimensions palette</value>
+  </data>
+  <data name="cbDim2.Items3" xml:space="preserve">
+    <value>Dimensions palette (sans hauteur)</value>
   </data>
 </root>

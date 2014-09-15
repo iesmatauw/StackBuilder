@@ -159,9 +159,8 @@ namespace TreeDim.StackBuilder.Desktop
                     cbInterlayers.Items.Add(new InterlayerItem(interlayer));
                 if (cbInterlayers.Items.Count > 0)
                 {
-                    if (null == _analysis)
-                        cbInterlayers.SelectedIndex = 0;
-                    else
+                    cbInterlayers.SelectedIndex = 0;
+                    if (null != _analysis)
                     {
                         for (int i = 0; i < cbInterlayers.Items.Count; ++i)
                         {

@@ -40,13 +40,13 @@ namespace TreeDim.StackBuilder.Basics
             , CylinderPalletConstraintSet constraintSet)
             : base(cylProperties.ParentDocument)
         {
-            // has interrlayer ?
-            _constraintSet.HasInterlayer = null != interlayerProperties;
             // setting members
             _cylinderProperties = cylProperties;
             _palletProperties = palletProperties;
             _interlayerProperties = interlayerProperties;
             _constraintSet = constraintSet;
+            // has interlayer ?
+            _constraintSet.HasInterlayer = null != interlayerProperties;
         }
         #endregion
 

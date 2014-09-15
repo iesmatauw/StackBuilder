@@ -72,7 +72,10 @@ namespace TreeDim.StackBuilder.Basics
         public bool HasInterlayer
         {
             get { return _hasInterlayer; }
-            set { _hasInterlayer = value; }
+            set
+            {
+                _hasInterlayer = value; 
+            }
         }
         public int InterlayerPeriod
         {

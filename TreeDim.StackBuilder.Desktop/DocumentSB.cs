@@ -518,7 +518,7 @@ namespace TreeDim.StackBuilder.Desktop
                     // analysis name / description
                     analysis.Name = form.AnalysisName;
                     analysis.Description = form.AnalysisDescription;
-                    // box / applet / interlayer
+                    // box / palet / interlayer
                     analysis.BProperties = form.SelectedBox;
                     analysis.PalletProperties = form.SelectedPallet;
                     analysis.InterlayerProperties = form.SelectedInterlayer;
@@ -615,6 +615,9 @@ namespace TreeDim.StackBuilder.Desktop
 
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
             {
+                analysis.CylinderProperties = form.SelectedCylinder;
+                analysis.PalletProperties = form.SelectedPallet;
+                analysis.InterlayerProperties = form.SelectedInterlayer;
                 // analysis name / description
                 analysis.Name = form.AnalysisName;
                 analysis.Description = form.AnalysisDescription;

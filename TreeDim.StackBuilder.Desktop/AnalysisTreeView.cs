@@ -959,6 +959,7 @@ namespace TreeDim.StackBuilder.Desktop
             TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
+            parentNode.Expand();
             CylinderPalletAnalysis_InsertSubNodes(doc, analysis, nodeAnalysis);
             // add event handlers for solution selection
             analysis.Modified += new CylinderPalletAnalysis.ModifyAnalysis(onCylinderAnalysisModified);
@@ -969,6 +970,8 @@ namespace TreeDim.StackBuilder.Desktop
         { 
             // sanity check
             if (null == nodeAnalysis) return;
+            // remove any existing subnodes
+            nodeAnalysis.Nodes.Clear();
             // insert sub cylinder node
             int indexIconBoxAnalysis = 6;
             TreeNode subCylNode = new TreeNode(analysis.CylinderProperties.Name, indexIconBoxAnalysis, indexIconBoxAnalysis);
@@ -1285,9 +1288,11 @@ namespace TreeDim.StackBuilder.Desktop
             // retrieve parent document
             Document doc = analysis.ParentDocument;
             // get parent node
-            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
+            TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis));
             // remove & insert sub nodes
             CylinderPalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
+            // expand tree node
+            parentNode.Expand();
         }
         private void onCylinderAnalysisSolutionSelected(CylinderPalletAnalysis analysis, SelCylinderPalletSolution selSolution)
         { 

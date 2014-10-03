@@ -136,10 +136,10 @@
 		<value>幅</value>
 	</data>
 	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
-		<value>分。ケース寸法（mm）</value>
+		<value>最小ケース寸法（mm）</value>
 	</data>
 	<data name="btSetMinimum.Text" xml:space="preserve">
-		<value>最小値を設定します。</value>
+		<value>最小値を設定</value>
 	</data>
 	<data name="lbLength.Text" xml:space="preserve">
 		<value>長さ</value>
@@ -151,7 +151,7 @@
 		<value>ケースの寸法を最適化する...</value>
 	</data>
 	<data name="btSetMaximum.Text" xml:space="preserve">
-		<value>最大値を設定する</value>
+		<value>最大値を設定</value>
 	</data>
 	<data name="lbWallThickness.Text" xml:space="preserve">
 		<value>壁の厚さ（mm）</value>
@@ -163,7 +163,7 @@
 		<value>高さ</value>
 	</data>
 	<data name="lbWalls.Text" xml:space="preserve">
-		<value>壁の数</value>
+		<value>側面の数</value>
 	</data>
 	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
 		<value>toolStripStatusLabelDef</value>
@@ -191,5 +191,17 @@
 	</data>
 	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
 		<value>箱は垂直方向のみ使用する</value>
+	</data>
+	<data name="uSurfaceMassCase.Text" xml:space="preserve">
+		<value>uSurfaceMass</value>
+	</data>
+	<data name="lbSurfaceMass.Text" xml:space="preserve">
+		<value>面の集まり</value>
+	</data>
+	<data name="uLengthWallThickness.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthPalletHeight.Text" xml:space="preserve">
+		<value>uLength</value>
 	</data>
 </root>

@@ -121,4 +121,46 @@
 	<data name="lbReportTemplatesDir.Size" type="System.Drawing.Size, System.Drawing">
 		<value>133, 13</value>
 	</data>
+	<data name="lbLeft.Text" xml:space="preserve">
+		<value>左</value>
+	</data>
+	<data name="cbImageSizes.Items1" xml:space="preserve">
+		<value>小さいイメージ (384*384 &amp; 128*128)</value>
+	</data>
+	<data name="lbReportTemplate.Text" xml:space="preserve">
+		<value>リポートのテンプレート</value>
+	</data>
+	<data name="lbCmLeft.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="lbcm.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="lbcmBottom.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="lbCmRight.Text" xml:space="preserve">
+		<value>cm</value>
+	</data>
+	<data name="gbMSWordMargins.Text" xml:space="preserve">
+		<value>マージン (Microsoft Word 用)</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Right</value>
+	</data>
+	<data name="lbImageSizes.Text" xml:space="preserve">
+		<value>イメージの大きさ</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Company logo</value>
+	</data>
+	<data name="cbImageSizes.Items" xml:space="preserve">
+		<value>イメージの既定値 (768*768 &amp; 256*256)</value>
+	</data>
+	<data name="lbTop.Text" xml:space="preserve">
+		<value>トップ</value>
+	</data>
+	<data name="lbBottom.Text" xml:space="preserve">
+		<value>下</value>
+	</data>
 </root>

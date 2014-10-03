@@ -136,12 +136,12 @@
 		<value>toolStripStatusLabelDef</value>
 	</data>
 	<data name="lbName.Text" xml:space="preserve">
-		<value>の名前</value>
+		<value>名前</value>
 	</data>
 	<data name="bnOk.Text" xml:space="preserve">
 		<value>[OK]</value>
 	</data>
 	<data name="lbAuthor.Text" xml:space="preserve">
-		<value>著者</value>
+		<value>作者</value>
 	</data>
 </root>

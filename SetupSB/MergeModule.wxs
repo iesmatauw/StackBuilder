@@ -21,10 +21,11 @@
     <ComponentRef Id="ReportTemplate_INTEX"/>
     <ComponentRef Id="PalletSolutionsDB" />
     <ComponentRef Id="resources_fr_FR" />
-    <ComponentRef Id="resources_ja_JP" />
     <ComponentRef Id="resources_de_DE" />
     <ComponentRef Id="resources_es_ES" />
     <ComponentRef Id="resources_ca_ES" />
+    <ComponentRef Id="resources_it_IT" />
+    <ComponentRef Id="resources_ja_JP" />
     <ComponentRef Id="Samples" />
     <ComponentRef Id="XmlSchemas" />
     <ComponentRef Id="CardboardQualityData" />

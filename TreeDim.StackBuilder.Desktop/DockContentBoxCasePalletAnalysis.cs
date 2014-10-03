@@ -156,6 +156,8 @@ namespace TreeDim.StackBuilder.Desktop
             int iIndex = 0;
             foreach (BoxCasePalletSolution sol in _caseAnalysis.Solutions)
             {
+                if (null == sol.PalletSolutionDesc.LoadPalletSolution())
+                    continue;
                 // insert new row
                 gridSolutions.Rows.Insert(++iIndex);
                 // # (index)

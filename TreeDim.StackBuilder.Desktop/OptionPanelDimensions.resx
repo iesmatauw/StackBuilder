@@ -127,12 +127,12 @@
   <data name="cbDim1.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 21</value>
   </data>
+  <data name="cbDim1.Items3" xml:space="preserve">
+    <value>Pallet dimensions (wo height)</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbDim1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbDim2.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbDim2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -158,29 +158,35 @@
   <data name="&gt;&gt;lbDimensions1.Name" xml:space="preserve">
     <value>lbDimensions1</value>
   </data>
+  <data name="lbDimensions1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 22</value>
+  </data>
   <data name="&gt;&gt;lbDimensions1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="&gt;&gt;lbDimensions2.Name" xml:space="preserve">
     <value>lbDimensions2</value>
   </data>
+  <data name="&gt;&gt;lbDimensions1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="cbDim1.Items1" xml:space="preserve">
     <value>Load dimensions</value>
-  </data>
-  <data name="&gt;&gt;cbDim1.Name" xml:space="preserve">
-    <value>cbDim1</value>
-  </data>
-  <data name="cbDim1.Items3" xml:space="preserve">
-    <value>Pallet dimensions (wo height)</value>
-  </data>
-  <data name="cbDim1.Items2" xml:space="preserve">
-    <value>Pallet dimensions</value>
   </data>
   <data name="lbDimensions2.Text" xml:space="preserve">
     <value>Dimensions 2</value>
   </data>
+  <data name="cbDim1.Items2" xml:space="preserve">
+    <value>Pallet dimensions</value>
+  </data>
+  <data name="&gt;&gt;cbDim1.Name" xml:space="preserve">
+    <value>cbDim1</value>
+  </data>
   <data name="&gt;&gt;lbDimensions1.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="cbDim1.Items" xml:space="preserve">
+    <value>Overall dimensions</value>
   </data>
   <data name="lbDimensions2.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 50</value>
@@ -193,9 +199,6 @@
   </data>
   <data name="cbDim2.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 46</value>
-  </data>
-  <data name="&gt;&gt;cbDim1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbDimensions1.Text" xml:space="preserve">
     <value>Dimensions 1</value>
@@ -212,14 +215,11 @@
   <data name="cbDim2.Items3" xml:space="preserve">
     <value>Pallet dimensions (wo height)</value>
   </data>
-  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
   <data name="cbDim2.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 21</value>
   </data>
-  <data name="lbDimensions1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 22</value>
+  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;lbDimensions2.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -227,8 +227,8 @@
   <data name="cbDim2.Items" xml:space="preserve">
     <value>Overall dimensions</value>
   </data>
-  <data name="&gt;&gt;lbDimensions1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbDim1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDimensions2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -239,8 +239,8 @@
   <data name="cbDim1.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 18</value>
   </data>
-  <data name="cbDim1.Items" xml:space="preserve">
-    <value>Overall dimensions</value>
+  <data name="&gt;&gt;cbDim2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbDim1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -249,6 +249,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr-FR</value>
+    <value>es-ES</value>
   </metadata>
 </root>

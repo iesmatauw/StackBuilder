@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,409 +59,412 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
-		<value>442, 9</value>
-	</data>
-	<data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
-		<value>73, 26</value>
-	</data>
-	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="bnOk.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="bnOk.Text" xml:space="preserve">
-    <value>OK</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;bnOk.Name" xml:space="preserve">
-    <value>bnOk</value>
-  </data>
-	<data name="&gt;&gt;bnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-	<data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-		<value>442, 39</value>
-	</data>
-	<data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
-		<value>73, 26</value>
-	</data>
-	<data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-	<data name="labelTruck.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="labelTruck.Location" type="System.Drawing.Point, System.Drawing">
-		<value>11, 16</value>
-	</data>
-	<data name="labelTruck.Size" type="System.Drawing.Size, System.Drawing">
-		<value>35, 13</value>
-	</data>
-	<data name="labelTruck.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="labelTruck.Text" xml:space="preserve">
-    <value>Truck</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;labelTruck.Name" xml:space="preserve">
-    <value>labelTruck</value>
-  </data>
-	<data name="&gt;&gt;labelTruck.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;labelTruck.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;labelTruck.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-	<data name="cbTruck.Location" type="System.Drawing.Point, System.Drawing">
-		<value>103, 12</value>
-	</data>
-	<data name="cbTruck.Size" type="System.Drawing.Size, System.Drawing">
-		<value>121, 21</value>
-	</data>
-	<data name="cbTruck.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
-	</data>
-	<data name="&gt;&gt;cbTruck.Name" xml:space="preserve">
-    <value>cbTruck</value>
-  </data>
-	<data name="&gt;&gt;cbTruck.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;cbTruck.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;cbTruck.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-	<data name="checkBoxAllowSeveralLayers.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="checkBoxAllowSeveralLayers.Location" type="System.Drawing.Point, System.Drawing">
-		<value>11, 49</value>
-	</data>
-	<data name="checkBoxAllowSeveralLayers.Size" type="System.Drawing.Size, System.Drawing">
-		<value>146, 17</value>
-	</data>
-	<data name="checkBoxAllowSeveralLayers.TabIndex" type="System.Int32, mscorlib">
-		<value>4</value>
-	</data>
-	<data name="checkBoxAllowSeveralLayers.Text" xml:space="preserve">
-    <value>Allow several pallet layers</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;checkBoxAllowSeveralLayers.Name" xml:space="preserve">
-    <value>checkBoxAllowSeveralLayers</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowSeveralLayers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowSeveralLayers.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowSeveralLayers.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-	<data name="checkBoxAllowPalletOrientationX.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationX.Location" type="System.Drawing.Point, System.Drawing">
-		<value>11, 118</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationX.Size" type="System.Drawing.Size, System.Drawing">
-		<value>166, 17</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationX.TabIndex" type="System.Int32, mscorlib">
-		<value>5</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationX.Text" xml:space="preserve">
-    <value>Allow default pallet orientation</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationX.Name" xml:space="preserve">
-    <value>checkBoxAllowPalletOrientationX</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationX.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationX.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-	<data name="checkBoxAllowPalletOrientationY.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationY.Location" type="System.Drawing.Point, System.Drawing">
-		<value>11, 141</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationY.Size" type="System.Drawing.Size, System.Drawing">
-		<value>184, 17</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationY.TabIndex" type="System.Int32, mscorlib">
-		<value>6</value>
-	</data>
-	<data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
-    <value>Allow orthogonal pallet orientation</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationY.Name" xml:space="preserve">
-    <value>checkBoxAllowPalletOrientationY</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationY.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;checkBoxAllowPalletOrientationY.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-	<data name="labelMinimalDistPalletWall.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="labelMinimalDistPalletWall.Location" type="System.Drawing.Point, System.Drawing">
-		<value>11, 204</value>
-	</data>
-	<data name="labelMinimalDistPalletWall.Size" type="System.Drawing.Size, System.Drawing">
-		<value>231, 13</value>
-	</data>
-	<data name="labelMinimalDistPalletWall.TabIndex" type="System.Int32, mscorlib">
-		<value>7</value>
-	</data>
-	<data name="labelMinimalDistPalletWall.Text" xml:space="preserve">
-    <value>Minimal distance between pallet and truck walls</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;labelMinimalDistPalletWall.Name" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;labelMinimalDistPalletWall.Name" xml:space="preserve">
     <value>labelMinimalDistPalletWall</value>
   </data>
-	<data name="&gt;&gt;labelMinimalDistPalletWall.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>522, 258</value>
   </data>
-	<data name="&gt;&gt;labelMinimalDistPalletWall.Parent" xml:space="preserve">
-    <value>$this</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="nudDistancePalletWall.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-	<data name="&gt;&gt;labelMinimalDistPalletWall.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="nudDistancePalletWall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
   </data>
-	<data name="labelMinimalDistPalletRoof.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="labelMinimalDistPalletRoof.Location" type="System.Drawing.Point, System.Drawing">
-		<value>11, 235</value>
-	</data>
-	<data name="labelMinimalDistPalletRoof.Size" type="System.Drawing.Size, System.Drawing">
-		<value>169, 13</value>
-	</data>
-	<data name="labelMinimalDistPalletRoof.TabIndex" type="System.Int32, mscorlib">
-		<value>8</value>
-	</data>
-	<data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
-    <value>Minimal distance pallet / truck roof</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;labelMinimalDistPalletRoof.Name" xml:space="preserve">
-    <value>labelMinimalDistPalletRoof</value>
-  </data>
-	<data name="&gt;&gt;labelMinimalDistPalletRoof.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;labelMinimalDistPalletRoof.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;labelMinimalDistPalletRoof.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-	<data name="nudDistancePalletWall.Location" type="System.Drawing.Point, System.Drawing">
-		<value>288, 200</value>
-	</data>
-	<data name="nudDistancePalletWall.Size" type="System.Drawing.Size, System.Drawing">
-		<value>79, 20</value>
-	</data>
-	<data name="nudDistancePalletWall.TabIndex" type="System.Int32, mscorlib">
-		<value>9</value>
-	</data>
-	<data name="&gt;&gt;nudDistancePalletWall.Name" xml:space="preserve">
-    <value>nudDistancePalletWall</value>
-  </data>
-	<data name="&gt;&gt;nudDistancePalletWall.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;nudDistancePalletWall.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;nudDistancePalletWall.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-	<data name="nudDistancePalletRoof.Location" type="System.Drawing.Point, System.Drawing">
-		<value>288, 231</value>
-	</data>
-	<data name="nudDistancePalletRoof.Size" type="System.Drawing.Size, System.Drawing">
-		<value>79, 20</value>
-	</data>
-	<data name="nudDistancePalletRoof.TabIndex" type="System.Int32, mscorlib">
-		<value>10</value>
-	</data>
-	<data name="&gt;&gt;nudDistancePalletRoof.Name" xml:space="preserve">
+  <data name="&gt;&gt;nudDistancePalletRoof.Name" xml:space="preserve">
     <value>nudDistancePalletRoof</value>
   </data>
-	<data name="&gt;&gt;nudDistancePalletRoof.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;nudDistancePalletRoof.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;nudDistancePalletRoof.ZOrder" xml:space="preserve">
+  <data name="labelTruck.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-	<data name="uLengthDistancePalletWalls.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="uLengthDistancePalletWalls.Location" type="System.Drawing.Point, System.Drawing">
-		<value>370, 204</value>
-	</data>
-	<data name="uLengthDistancePalletWalls.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="uLengthDistancePalletWalls.TabIndex" type="System.Int32, mscorlib">
-		<value>11</value>
-	</data>
-	<data name="uLengthDistancePalletWalls.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthDistancePalletWalls.Name" xml:space="preserve">
-    <value>uLengthDistancePalletWalls</value>
+  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
-	<data name="&gt;&gt;uLengthDistancePalletWalls.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkBoxAllowSeveralLayers.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-	<data name="&gt;&gt;uLengthDistancePalletWalls.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;uLengthDistancePalletWalls.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="uLengthTruckRoof.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="uLengthTruckRoof.Location" type="System.Drawing.Point, System.Drawing">
-		<value>370, 235</value>
-	</data>
-	<data name="uLengthTruckRoof.Size" type="System.Drawing.Size, System.Drawing">
-		<value>46, 13</value>
-	</data>
-	<data name="uLengthTruckRoof.TabIndex" type="System.Int32, mscorlib">
-		<value>12</value>
-	</data>
-	<data name="uLengthTruckRoof.Text" xml:space="preserve">
-    <value>uLength</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;uLengthTruckRoof.Name" xml:space="preserve">
+  <data name="&gt;&gt;uLengthTruckRoof.Name" xml:space="preserve">
     <value>uLengthTruckRoof</value>
   </data>
-	<data name="&gt;&gt;uLengthTruckRoof.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;uLengthTruckRoof.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDistancePalletWalls.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-	<data name="&gt;&gt;uLengthTruckRoof.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDistancePalletWalls.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uLengthTruckRoof.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletRoof.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbTruck.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationY.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="checkBoxAllowSeveralLayers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 49</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationY.Text" xml:space="preserve">
+    <value>Allow orthogonal pallet orientation</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationY.Name" xml:space="preserve">
+    <value>checkBoxAllowPalletOrientationY</value>
+  </data>
+  <data name="labelMinimalDistPalletWall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 13</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowSeveralLayers.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationX.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;uLengthDistancePalletWalls.Name" xml:space="preserve">
+    <value>uLengthDistancePalletWalls</value>
+  </data>
+  <data name="labelTruck.Text" xml:space="preserve">
+    <value>Truck</value>
+  </data>
+  <data name="checkBoxAllowSeveralLayers.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="labelMinimalDistPalletRoof.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="labelMinimalDistPalletWall.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationX.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowSeveralLayers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uLengthDistancePalletWalls.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthTruckRoof.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="labelMinimalDistPalletWall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 204</value>
+  </data>
+  <data name="&gt;&gt;labelMinimalDistPalletRoof.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;labelTruck.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="labelTruck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 16</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 118</value>
+  </data>
+  <data name="uLengthDistancePalletWalls.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="labelMinimalDistPalletRoof.Text" xml:space="preserve">
+    <value>Minimal distance pallet / truck roof</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationX.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletRoof.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bnOk.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>True</value>
-	</metadata>
-	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-		<value>6, 13</value>
-	</data>
-	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-		<value>522, 258</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
-    <value>Create a new truck/container analysis...</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;$this.Name" xml:space="preserve">
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationX.Name" xml:space="preserve">
+    <value>checkBoxAllowPalletOrientationX</value>
+  </data>
+  <data name="cbTruck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 12</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationY.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletWall.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uLengthTruckRoof.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="nudDistancePalletRoof.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="labelMinimalDistPalletRoof.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 39</value>
+  </data>
+  <data name="cbTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletWall.Name" xml:space="preserve">
+    <value>nudDistancePalletWall</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbTruck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowSeveralLayers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelTruck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="&gt;&gt;uLengthTruckRoof.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxAllowSeveralLayers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 17</value>
+  </data>
+  <data name="&gt;&gt;labelMinimalDistPalletRoof.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nudDistancePalletWall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 200</value>
+  </data>
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 9</value>
+  </data>
+  <data name="labelMinimalDistPalletRoof.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 235</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 141</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationX.Text" xml:space="preserve">
+    <value>Allow default pallet orientation</value>
+  </data>
+  <data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 26</value>
+  </data>
+  <data name="&gt;&gt;labelTruck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelTruck.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxAllowSeveralLayers.Text" xml:space="preserve">
+    <value>Allow several pallet layers</value>
+  </data>
+  <data name="&gt;&gt;labelTruck.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="labelMinimalDistPalletRoof.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 13</value>
+  </data>
+  <data name="labelMinimalDistPalletWall.Text" xml:space="preserve">
+    <value>Minimal distance between pallet and truck walls</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewTruckAnalysis</value>
   </data>
-	<data name="&gt;&gt;$this.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelMinimalDistPalletWall.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Create a new truck/container analysis...</value>
+  </data>
+  <data name="&gt;&gt;labelMinimalDistPalletRoof.Name" xml:space="preserve">
+    <value>labelMinimalDistPalletRoof</value>
+  </data>
+  <data name="&gt;&gt;cbTruck.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 26</value>
+  </data>
+  <data name="uLengthDistancePalletWalls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 204</value>
+  </data>
+  <data name="uLengthTruckRoof.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="uLengthTruckRoof.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="&gt;&gt;labelMinimalDistPalletRoof.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletWall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
+  </data>
+  <data name="uLengthTruckRoof.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 235</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAllowPalletOrientationY.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="labelMinimalDistPalletWall.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;uLengthTruckRoof.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="nudDistancePalletRoof.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 231</value>
+  </data>
+  <data name="&gt;&gt;uLengthDistancePalletWalls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 17</value>
+  </data>
+  <data name="&gt;&gt;labelMinimalDistPalletWall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletRoof.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="uLengthDistancePalletWalls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="cbTruck.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;checkBoxAllowSeveralLayers.Name" xml:space="preserve">
+    <value>checkBoxAllowSeveralLayers</value>
+  </data>
+  <data name="nudDistancePalletRoof.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationY.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthDistancePalletWalls.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxAllowPalletOrientationX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 17</value>
+  </data>
+  <data name="&gt;&gt;labelTruck.Name" xml:space="preserve">
+    <value>labelTruck</value>
+  </data>
+  <data name="&gt;&gt;labelMinimalDistPalletWall.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;nudDistancePalletWall.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbTruck.Name" xml:space="preserve">
+    <value>cbTruck</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>it-IT</value>
+  </metadata>
 </root>

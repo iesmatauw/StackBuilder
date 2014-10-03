@@ -131,6 +131,9 @@
 	<data name="toolStripCornerView0.Size" type="System.Drawing.Size, System.Drawing">
 		<value>23, 22</value>
 	</data>
+	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
+    <value>Left view</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -168,6 +171,9 @@
 	<data name="pictureBoxTruckSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Top, Bottom, Left, Right</value>
 	</data>
+	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
+    <value>Back view</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;toolStripShowImages.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -228,12 +234,18 @@
 	<data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="toolStripCornerView0.Text" xml:space="preserve">
+    <value>Corner view 0°</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="btSelectSolution.Size" type="System.Drawing.Size, System.Drawing">
 		<value>100, 28</value>
 	</data>
+	<data name="toolStripTopView.Text" xml:space="preserve">
+    <value>Top view</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
     <value>gridSolutions</value>
   </data>
@@ -249,6 +261,9 @@
 	<data name="gridSolutions.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
 		<value>GrowAndShrink</value>
 	</data>
+	<data name="btSelectSolution.Text" xml:space="preserve">
+    <value>Select</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
     <value>splitContainerHoriz</value>
   </data>
@@ -258,12 +273,24 @@
 	<data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>
   </data>
+	<data name="toolStripRightView.Text" xml:space="preserve">
+    <value>Back view</value>
+  <comment></comment></data>
 	<data name="toolStripRightView.Size" type="System.Drawing.Size, System.Drawing">
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 25</value>
 	</data>
+	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
+    <value>Right view</value>
+  <comment></comment></data>
+	<data name="toolStripBackView.Text" xml:space="preserve">
+    <value>Rear view</value>
+  <comment></comment></data>
+	<data name="toolStripFrontView.Text" xml:space="preserve">
+    <value>Front view</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;toolStripCornerView0.Name" xml:space="preserve">
     <value>toolStripCornerView0</value>
   </data>
@@ -273,6 +300,15 @@
 	<data name="&gt;&gt;toolStripViews.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+	<data name="toolStripCornerView1.Text" xml:space="preserve">
+    <value>Corner view 90°</value>
+  <comment></comment></data>
+	<data name="toolStripCornerView2.Text" xml:space="preserve">
+    <value>Corner view 180°</value>
+  <comment></comment></data>
+	<data name="toolStripCornerView3.Text" xml:space="preserve">
+    <value>Corner view 270°</value>
+  <comment></comment></data>
 	<data name="toolStripCornerView1.Size" type="System.Drawing.Size, System.Drawing">
 		<value>23, 22</value>
 	</data>
@@ -282,6 +318,9 @@
 	<data name="&gt;&gt;btSelectSolution.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+	<data name="toolStripShowImages.Text" xml:space="preserve">
+    <value>Show images</value>
+  <comment></comment></data>
 	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
 		<value>604, 642</value>
 	</data>
@@ -316,6 +355,9 @@
 	<data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
 		<value>0, 0</value>
 	</data>
+	<data name="toolStripViews.Text" xml:space="preserve">
+    <value>Views</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
     <value>splitContainerHoriz</value>
   </data>
@@ -334,6 +376,9 @@
 	<data name="toolStripFrontView.Size" type="System.Drawing.Size, System.Drawing">
 		<value>23, 22</value>
 	</data>
+	<data name="$this.Text" xml:space="preserve">
+    <value>Truck/Container analysis</value>
+  <comment></comment></data>
 	<data name="pictureBoxTruckSolution.Size" type="System.Drawing.Size, System.Drawing">
 		<value>601, 431</value>
 	</data>
@@ -343,6 +388,9 @@
 	<data name="&gt;&gt;toolStripRightView.Name" xml:space="preserve">
     <value>toolStripRightView</value>
   </data>
+	<data name="toolStripLeftView.Text" xml:space="preserve">
+    <value>Right view</value>
+  <comment></comment></data>
 	<data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 25</value>
 	</data>

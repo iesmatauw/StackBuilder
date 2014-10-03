@@ -117,4 +117,61 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="CASETYPE_AMERICANCASE" xml:space="preserve">
+    <value>American case</value>
+  <comment></comment></data>
+	<data name="EXCEPTION_INVALIDCARDBOARDID" xml:space="preserve">
+    <value>Unknown cardboard id: {0}</value>
+  <comment></comment></data>
+	<data name="EXCEPTION_INVALIDCASETYPE" xml:space="preserve">
+    <value>Unknown case type: {0}</value>
+  <comment></comment></data>
+	<data name="EXCEPTION_INVALIDFORMULA" xml:space="preserve">
+    <value>Invalid formula type (Should be either CLASSIC or IMPROVED)</value>
+  <comment></comment></data>
+	<data name="MCKEEFORMULA_CLASSIC" xml:space="preserve">
+    <value>Classic</value>
+  <comment></comment></data>
+	<data name="MCKEEFORMULA_IMPROVED" xml:space="preserve">
+    <value>Improved</value>
+  <comment></comment></data>
+	<data name="MESSAGE_CARDBOARDQUALITYDBNOTFOUND" xml:space="preserve">
+    <value>Cardboard quality database file  could not be found.</value>
+  <comment></comment></data>
+	<data name="PRINTEDSURFACE_COMPLEX" xml:space="preserve">
+    <value>Complex</value>
+  <comment></comment></data>
+	<data name="PRINTEDSURFACE_COVERED" xml:space="preserve">
+    <value>Covered</value>
+  <comment></comment></data>
+	<data name="PRINTEDSURFACE_DISTRIBUTED" xml:space="preserve">
+    <value>Distributed</value>
+  <comment></comment></data>
+	<data name="PRINTEDSURFACE_SIMPLE" xml:space="preserve">
+    <value>Simple</value>
+  <comment></comment></data>
+	<data name="PRINTEDSURFACE_UNKNOWN" xml:space="preserve">
+    <value>Unknown</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_0DAY" xml:space="preserve">
+    <value>0 day</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_11_30DAYS" xml:space="preserve">
+    <value>11-30 days</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_1_3DAYS" xml:space="preserve">
+    <value>1-3 days</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_1_3MONTHES" xml:space="preserve">
+    <value>1-3 monthes</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_3_4MONTHES" xml:space="preserve">
+    <value>3-4 monthes</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_4_10DAYS" xml:space="preserve">
+    <value>4-10 days</value>
+  <comment></comment></data>
+	<data name="STORAGEDURATION_4_MONTHES" xml:space="preserve">
+    <value>more than 4 monthes</value>
+  <comment></comment></data>
 </root>

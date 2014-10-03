@@ -104,13 +104,13 @@
             // 
             // gbDimensions
             // 
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uLengthHeight);
             this.gbDimensions.Controls.Add(this.uLengthRadius);
             this.gbDimensions.Controls.Add(this.nudRadius);
             this.gbDimensions.Controls.Add(this.nudHeight);
             this.gbDimensions.Controls.Add(this.lbHeight);
             this.gbDimensions.Controls.Add(this.lbLength);
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -126,8 +126,8 @@
             // 
             // nudRadius
             // 
-            this.nudRadius.DecimalPlaces = 1;
             resources.ApplyResources(this.nudRadius, "nudRadius");
+            this.nudRadius.DecimalPlaces = 1;
             this.nudRadius.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -148,8 +148,8 @@
             // 
             // nudHeight
             // 
-            this.nudHeight.DecimalPlaces = 1;
             resources.ApplyResources(this.nudHeight, "nudHeight");
+            this.nudHeight.DecimalPlaces = 1;
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -180,10 +180,10 @@
             // 
             // gbWeight
             // 
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uMassWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -194,13 +194,13 @@
             // 
             // nudWeight
             // 
+            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.DecimalPlaces = 3;
             this.nudWeight.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -231,36 +231,36 @@
             // 
             // statusStripDef
             // 
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbFaceColor
             // 
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.cbColorWall);
             this.gbFaceColor.Controls.Add(this.lbWallColor);
             this.gbFaceColor.Controls.Add(this.cbColorTop);
             this.gbFaceColor.Controls.Add(this.lbTop);
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
             // cbColorWall
             // 
+            resources.ApplyResources(this.cbColorWall, "cbColorWall");
             this.cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
             this.cbColorWall.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorWall.DropDownHeight = 1;
             this.cbColorWall.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorWall.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColorWall, "cbColorWall");
             this.cbColorWall.Items.AddRange(new object[] {
             resources.GetString("cbColorWall.Items"),
             resources.GetString("cbColorWall.Items1"),
@@ -332,7 +332,14 @@
             resources.GetString("cbColorWall.Items67"),
             resources.GetString("cbColorWall.Items68"),
             resources.GetString("cbColorWall.Items69"),
-            resources.GetString("cbColorWall.Items70")});
+            resources.GetString("cbColorWall.Items70"),
+            resources.GetString("cbColorWall.Items71"),
+            resources.GetString("cbColorWall.Items72"),
+            resources.GetString("cbColorWall.Items73"),
+            resources.GetString("cbColorWall.Items74"),
+            resources.GetString("cbColorWall.Items75"),
+            resources.GetString("cbColorWall.Items76"),
+            resources.GetString("cbColorWall.Items77")});
             this.cbColorWall.Name = "cbColorWall";
             this.cbColorWall.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -343,12 +350,12 @@
             // 
             // cbColorTop
             // 
+            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Color = System.Drawing.Color.Gray;
             this.cbColorTop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorTop.DropDownHeight = 1;
             this.cbColorTop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorTop.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Items.AddRange(new object[] {
             resources.GetString("cbColorTop.Items"),
             resources.GetString("cbColorTop.Items1"),
@@ -419,7 +426,14 @@
             resources.GetString("cbColorTop.Items66"),
             resources.GetString("cbColorTop.Items67"),
             resources.GetString("cbColorTop.Items68"),
-            resources.GetString("cbColorTop.Items69")});
+            resources.GetString("cbColorTop.Items69"),
+            resources.GetString("cbColorTop.Items70"),
+            resources.GetString("cbColorTop.Items71"),
+            resources.GetString("cbColorTop.Items72"),
+            resources.GetString("cbColorTop.Items73"),
+            resources.GetString("cbColorTop.Items74"),
+            resources.GetString("cbColorTop.Items75"),
+            resources.GetString("cbColorTop.Items76")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 

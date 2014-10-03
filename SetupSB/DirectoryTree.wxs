@@ -10,10 +10,11 @@
             <Directory Id="INSTALLLOCATION" Name="StackBuilder">
               <Directory Id="BIN" Name="Bin">
                 <Directory Id="LOCALIZATION_FR" Name="fr-FR" />
-                <Directory Id="LOCALIZATION_JP" Name="ja-JP" />
                 <Directory Id="LOCALIZATION_DE" Name="de-DE" />
                 <Directory Id="LOCALIZATION_ES" Name="es-ES" />
                 <Directory Id="LOCALIZATION_CA" Name="ca-CA" />
+                <Directory Id="LOCALIZATION_IT" Name="it-IT" />
+                <Directory Id="LOCALIZATION_JP" Name="ja-JP" />
               </Directory>
               <Directory Id="REPORTTEMPLATES" Name="ReportTemplates" />
               <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB" />

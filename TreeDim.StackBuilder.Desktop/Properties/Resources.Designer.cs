@@ -411,6 +411,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis {0} has no valid solution..
+        /// </summary>
+        internal static string ID_ANALYSISHASNOVALIDSOLUTION {
+            get {
+                return ResourceManager.GetString("ID_ANALYSISHASNOVALIDSOLUTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Area.
         /// </summary>
         internal static string ID_AREA {

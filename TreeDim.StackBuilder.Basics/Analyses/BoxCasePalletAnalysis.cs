@@ -95,6 +95,20 @@ namespace TreeDim.StackBuilder.Basics
         {
             set { _solver = value; }
         }
+
+        public bool HasValidSolutions
+        {
+            get
+            {
+                int iCountValidSolutions = 0;
+                foreach (BoxCasePalletSolution caseSolution in _caseSolutions)
+                {
+                    if (caseSolution.PalletSolutionDesc.LoadPalletSolution() != null)
+                        ++iCountValidSolutions;
+                }
+                return iCountValidSolutions > 0;
+            }
+        }
         #endregion
 
         #region Solution selection

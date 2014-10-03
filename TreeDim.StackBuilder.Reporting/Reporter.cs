@@ -1600,6 +1600,9 @@ namespace TreeDim.StackBuilder.Reporting
                 return;
             BoxCasePalletAnalysis caseAnalysis = inputData.CaseAnalysis;
             SelBoxCasePalletSolution selSolution = inputData.SelCaseSolution;
+
+            if (null == selSolution.Solution.PalletSolutionDesc.LoadPalletSolution())
+                return;
             
             // namespace
             string ns = xmlDoc.DocumentElement.NamespaceURI;

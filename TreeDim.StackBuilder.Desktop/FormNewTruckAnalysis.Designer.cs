@@ -48,15 +48,15 @@
             // 
             // bnOk
             // 
-            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             resources.ApplyResources(this.bnOk, "bnOk");
+            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.bnCancel, "bnCancel");
+            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
@@ -67,9 +67,9 @@
             // 
             // cbTruck
             // 
+            resources.ApplyResources(this.cbTruck, "cbTruck");
             this.cbTruck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTruck.FormattingEnabled = true;
-            resources.ApplyResources(this.cbTruck, "cbTruck");
             this.cbTruck.Name = "cbTruck";
             // 
             // checkBoxAllowSeveralLayers

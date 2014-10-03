@@ -166,7 +166,7 @@
 		<value>カラー</value>
 	</data>
 	<data name="lblName.Text" xml:space="preserve">
-		<value>の名前</value>
+		<value>名前</value>
 	</data>
 	<data name="cbColor.Items6" xml:space="preserve">
 		<value>カラー</value>
@@ -229,7 +229,7 @@
 		<value>statusStripDef</value>
 	</data>
 	<data name="lbThickness.Text" xml:space="preserve">
-		<value>厚</value>
+		<value>厚み</value>
 	</data>
 	<data name="lbWeight.Text" xml:space="preserve">
 		<value>重さ</value>
@@ -242,5 +242,38 @@
 	</data>
 	<data name="cbColor.Items11" xml:space="preserve">
 		<value>カラー</value>
+	</data>
+	<data name="uLengthThickness.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthWidth.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthLength.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="cbColor.Items23" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items29" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="uMassWeight.Text" xml:space="preserve">
+		<value>uMass</value>
 	</data>
 </root>

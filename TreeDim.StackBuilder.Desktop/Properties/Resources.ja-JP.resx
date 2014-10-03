@@ -212,10 +212,10 @@
 		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_LOADHEIGHT" xml:space="preserve">
-    <value>負荷の高さ（mm）</value>
+    <value>積載の高さ（mm）</value>
   </data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
-    <value>矛盾：最大{0}は最小{1}よりも低いです。</value>
+    <value>矛盾：最大値は {0} は最小値 {1} よりも小さいです</value>
   </data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>パレットの高さ（mm）</value>
@@ -233,7 +233,7 @@
     <value>ボックス</value>
   </data>
 	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
-    <value>整列及び/または交互層を許可する</value>
+    <value>代替のレイヤーに沿わせる</value>
   </data>
 	<data name="ID_SENDTODATABASE" xml:space="preserve">
     <value>データベースに送る</value>
@@ -245,13 +245,13 @@
     <value>{0}を削除します。</value>
   </data>
 	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
-    <value>新しいケースの分析を追加...</value>
+    <value>新しいケースの解析を追加...</value>
   </data>
 	<data name="ID_SELECTED" xml:space="preserve">
     <value>選択</value>
   </data>
 	<data name="ID_AREA" xml:space="preserve">
-    <value>エリア</value>
+    <value>面積</value>
   </data>
 	<data name="ID_CASECOUNT" xml:space="preserve">
     <value>ケース数</value>
@@ -263,13 +263,13 @@
     <value>新しいボックスを追加...</value>
   </data>
 	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
-    <value>[名前]フィールドは空です</value>
+    <value>[名前] フィールドは空です</value>
   </data>
 	<data name="ID_EFFICIENCY" xml:space="preserve">
     <value>効率（％）</value>
   </data>
 	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
-    <value>内側の長さ（{0}）は長さよりも低くなるはずである（{1}）</value>
+    <value>内側の長さ（{0}）は長さ （{1}） よりも小さいはずです</value>
   </data>
 	<data name="ID_A3" xml:space="preserve">
     <value>A3</value>
@@ -297,13 +297,13 @@
     <value>内側の高さ（{0}）は高さ（{1}）よりも低くなるはずである</value>
   </data>
 	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
-    <value>新しい分析を追加...</value>
+    <value>新しい解析を追加...</value>
   </data>
 	<data name="ID_LAYERPATTERN" xml:space="preserve">
-    <value>層のパターン</value>
+    <value>レイヤー パターン</value>
   </data>
 	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
-    <value>少なくとも一つのストップスタッキング基準を定義します。</value>
+    <value>少なくとも一つのストップスタッキング基準を定義します</value>
   </data>
 	<data name="ID_NODE_CASES" xml:space="preserve">
     <value>ケース</value>
@@ -321,10 +321,10 @@
     <value>レイヤー</value>
   </data>
 	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
-    <value>内側の幅（{0}）は幅（{1}）よりも低くなるはずである</value>
+    <value>内側の幅（{0}）は幅（{1}）よりも小さくしてください</value>
   </data>
 	<data name="ID_ABOUT" xml:space="preserve">
-    <value>{0}について</value>
+    <value>{0} について</value>
   </data>
 	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
     <value>少なくとも一つのスタッキングのパターンを定義します。</value>
@@ -333,7 +333,7 @@
     <value>A1</value>
   </data>
 	<data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>負荷量（kg）</value>
+    <value>積載（kg）</value>
   </data>
 	<data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>{0}のレポートを生成</value>
@@ -345,10 +345,10 @@
     <value>バンドル</value>
   </data>
 	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
-    <value>[説明]フィールドは空です</value>
+    <value>[詳細]フィールドは空です</value>
   </data>
 	<data name="ID_READY" xml:space="preserve">
-    <value>レディ</value>
+    <value>準備</value>
   </data>
 	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>新しいバンドルを追加...</value>
@@ -369,10 +369,10 @@
     <value>ケース/レイヤ</value>
   </data>
 	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
-    <value>中間層</value>
+    <value>インターレイヤー</value>
   </data>
 	<data name="ID_NODE_ANALYSES" xml:space="preserve">
-    <value>分析</value>
+    <value>解析</value>
   </data>
 	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
     <value>{0}のいくつかによって分析されています。
@@ -432,5 +432,116 @@
 	</data>
 	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
 		<value>重さ</value>
+	</data>
+	<data name="ID_CASEDIMENSIONS" xml:space="preserve">
+		<value>ケースの大きさ</value>
+	</data>
+	<data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+		<value>ケースの内寸</value>
+	</data>
+	<data name="ID_PALLETLIMIT" xml:space="preserve">
+		<value>限界に達しました</value>
+	</data>
+	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+		<value>効率 (%)</value>
+	</data>
+	<data name="ID_GENERATECOLLADA" xml:space="preserve">
+		<value>{0} の 3D アニメーションファイルの生成</value>
+	</data>
+	<data name="ID_CASEPERPALLET" xml:space="preserve">
+		<value>ケース/パレット</value>
+	</data>
+	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+		<value>Collada/webGL アニメーションをみるには Google Chrome をインストールして下さい。</value>
+	</data>
+	<data name="ID_NAME" xml:space="preserve">
+		<value>名前</value>
+	</data>
+	<data name="ID_ORIENTATION" xml:space="preserve">
+		<value>目的</value>
+	</data>
+	<data name="ID_EDGECRUSHTEST" xml:space="preserve">
+		<value>エッジ・クラッシュ解析</value>
+	</data>
+	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+		<value>ナンバー</value>
+	</data>
+	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+		<value>高さ</value>
+	</data>
+	<data name="ID_WEIGHT" xml:space="preserve">
+		<value>重さ</value>
+	</data>
+	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+		<value>効率 (%)</value>
+	</data>
+	<data name="ID_SELECT" xml:space="preserve">
+		<value>選択してください</value>
+	</data>
+	<data name="ID_LAYERPATTERNS" xml:space="preserve">
+		<value>レイヤー・パターン</value>
+	</data>
+	<data name="ID_BOXCOUNT" xml:space="preserve">
+		<value>ボックス/ケース</value>
+	</data>
+	<data name="ID_NODE_CYLINDERS" xml:space="preserve">
+		<value>シリンダー</value>
+	</data>
+	<data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+		<value>新しいボックス/ケース/パレット解析を追加</value>
+	</data>
+	<data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+		<value>新しいシリンダーを追加…</value>
+	</data>
+	<data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+		<value>新しいシリンダー解析を追加…</value>
+	</data>
+	<data name="ID_CASELIMIT" xml:space="preserve">
+		<value>限界に達しました</value>
+	</data>
+	<data name="ID_CASEWEIGHT" xml:space="preserve">
+		<value>ケース重量 ({0})</value>
+	</data>
+	<data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+		<value>ケースの最大重量 {0} {1} を超えています</value>
+	</data>
+	<data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+		<value>パレットが選択されていません</value>
+	</data>
+	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+		<value>最大のパレット高さ ({0} {1}) に対して {2} {3} は大き過ぎます。</value>
+	</data>
+	<data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+		<value>{0} の PDF リポートを生成</value>
+	</data>
+	<data name="ID_BOX" xml:space="preserve">
+		<value>ボックス</value>
+	</data>
+	<data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+		<value>この名前は既に使われています</value>
+	</data>
+	<data name="ID_TRUCK" xml:space="preserve">
+		<value>トラック</value>
+	</data>
+	<data name="ID_ANALYSIS" xml:space="preserve">
+		<value>解析</value>
+	</data>
+	<data name="ID_BUNDLE" xml:space="preserve">
+		<value>バンドル</value>
+	</data>
+	<data name="ID_CYLINDER" xml:space="preserve">
+		<value>シリンダー</value>
+	</data>
+	<data name="ID_INTERLAYER" xml:space="preserve">
+		<value>インターレイヤー</value>
+	</data>
+	<data name="ID_CASEOFBOXES" xml:space="preserve">
+		<value>ボックスのケース</value>
+	</data>
+	<data name="ID_FILTER_MSWORD" xml:space="preserve">
+		<value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
+	</data>
+	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+		<value>ボックス {0} はケース {1} に適合しません</value>
 	</data>
 </root>

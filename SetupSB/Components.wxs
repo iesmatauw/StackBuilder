@@ -84,14 +84,6 @@
         <File Id="treeDiM.StackBuilder.Plugin_INTEX.dll_fr.FR" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\fr-FR\treeDiM.StackBuilder.Plugin_INTEX.resources.dll" />
       </Component>
     </DirectoryRef>
-    <DirectoryRef Id="LOCALIZATION_JP">
-      <Component Id="resources_ja_JP" Guid="{38DB11A6-D128-441A-A7BF-079B4B23FB74}">
-        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll" />
-        <File Id="TreeDim.EdgeCrushTest.resources.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.EdgeCrushTest.resources.dll" />
-        <File Id="TreeDim.AutoUpdater.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.AutoUpdater.resources.dll" />
-        <File Id="TreeDim.Update.dll_ja.JP" Source="..\TreeDim.Update\Bin\Release\ja-JP\TreeDim.Update.resources.dll" />
-      </Component>
-    </DirectoryRef>
     <DirectoryRef Id="LOCALIZATION_DE">
       <Component Id="resources_de_DE" Guid="{17A7F347-A84E-448C-89D9-91E6CCFD5F27}">
         <File Id="TreeDim.StackBuilder.Desktop.resources.dll_de.DE" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\de-DE\TreeDim.StackBuilder.Desktop.resources.dll" />
@@ -116,6 +108,22 @@
         <File Id="TreeDim.Update.dll_ca.ES" Source="..\TreeDim.Update\Bin\Release\ca-ES\TreeDim.Update.resources.dll" />
       </Component>
     </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_IT">
+      <Component Id="resources_it_IT" Guid="{D9B441F3-4078-47B3-A7BC-D6058207F3AD}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_it.IT" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\it-IT\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_it.IT" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\it-IT\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_it.IT" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\it-IT\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_it.IT" Source="..\TreeDim.Update\Bin\Release\it-IT\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="LOCALIZATION_JP">
+      <Component Id="resources_ja_JP" Guid="{38DB11A6-D128-441A-A7BF-079B4B23FB74}">
+        <File Id="TreeDim.StackBuilder.Desktop.resources.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.StackBuilder.Desktop.resources.dll" />
+        <File Id="TreeDim.EdgeCrushTest.resources.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.EdgeCrushTest.resources.dll" />
+        <File Id="TreeDim.AutoUpdater.dll_ja.JP" Source="..\TreeDim.StackBuilder.Desktop\Bin\Release\ja-JP\TreeDim.AutoUpdater.resources.dll" />
+        <File Id="TreeDim.Update.dll_ja.JP" Source="..\TreeDim.Update\Bin\Release\ja-JP\TreeDim.Update.resources.dll" />
+      </Component>
+    </DirectoryRef>
     <DirectoryRef Id="REPORTTEMPLATES">
       <Component Id="ReportTemplates" Guid="{08CB4826-0A0B-4c82-9783-E037106599AE}">
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl" Checksum="yes" />
@@ -124,6 +132,8 @@
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\DEU.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\CAT.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ESP.xml" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\JPN.xml" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ITA.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes" />
         <util:XmlFile Id="SetReportTemplate" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value" Value="[REPORTTEMPLATES]ReportTemplateHtml.xsl"/>
       </Component>
@@ -151,13 +161,7 @@
         <File Source="..\Samples\Case_44_28_29.stb" />
         <!-- Xml file processor samples -->
         <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Samples\Input1.xml" />
-        <!--util:XmlFile Id="SetOutput1ReportPath" File="[SAMPLES]Input1.xml" Action="setValue"
-                      ElementPath="/STACKBUILDER/output/reportSolution/reportParameters/outputPath"
-                      Value="[SAMPLES]Output1\case_0_report.doc" Sequence="1"/-->
         <File Source="..\TreeDim.StackBuilder.XmlFileProcessor\Samples\Input2.xml" />
-        <!--util:XmlFile Id="SetOutput2ReportPath" File="[SAMPLES]Input2.xml" Action="setValue" 
-                      ElementPath="/STACKBUILDER/output/reportSolution/reportParameters/outputPath"
-                      Value="[SAMPLES]Output2\bundle_0_report.doc" Sequence="1"/-->
         <File Source="..\Samples\TestXmlFileProcessor.bat" />
       </Component>
     </DirectoryRef>

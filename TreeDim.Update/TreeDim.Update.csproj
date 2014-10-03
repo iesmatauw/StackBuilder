@@ -89,6 +89,9 @@
     <EmbeddedResource Include="FormUpdate.fr-FR.resx">
       <DependentUpon>FormUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdate.it-IT.resx">
+      <DependentUpon>FormUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUpdate.ja-JP.resx">
       <DependentUpon>FormUpdate.cs</DependentUpon>
     </EmbeddedResource>

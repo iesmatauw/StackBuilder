@@ -145,6 +145,12 @@
 	<data name="&gt;&gt;rbKeepReplace1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  <comment></comment></data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormAppendSolutionToDB</value>
   </data>
@@ -206,9 +212,15 @@
 	<data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
 		<value>7</value>
 	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;lbFriendlyName.Name" xml:space="preserve">
     <value>lbFriendlyName</value>
   </data>
+	<data name="rbKeepReplace2.Text" xml:space="preserve">
+    <value>Replace any existing solutions</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>
@@ -218,6 +230,12 @@
 	<data name="tbFriendlyName.TabIndex" type="System.Int32, mscorlib">
 		<value>1</value>
 	</data>
+	<data name="labelQuestion.Text" xml:space="preserve">
+    <value>Database already contains some solution(s) for a case with these dimensions:</value>
+  <comment></comment></data>
+	<data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -254,6 +272,9 @@
 	<data name="labelQuestion.Location" type="System.Drawing.Point, System.Drawing">
 		<value>9, 36</value>
 	</data>
+	<data name="rbKeepReplace1.Text" xml:space="preserve">
+    <value>Keep any existing solutions and also save this one</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;rbKeepReplace1.Name" xml:space="preserve">
     <value>rbKeepReplace1</value>
   </data>
@@ -263,6 +284,9 @@
 	<data name="bnOk.Size" type="System.Drawing.Size, System.Drawing">
 		<value>78, 26</value>
 	</data>
+	<data name="lbFriendlyName.Text" xml:space="preserve">
+    <value>Friendly name</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;lbFriendlyName.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
@@ -297,6 +321,9 @@
 	<data name="&gt;&gt;bnOk.Name" xml:space="preserve">
     <value>bnOk</value>
   </data>
+	<data name="$this.Text" xml:space="preserve">
+    <value>Append solution to database...</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;rbKeepReplace1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

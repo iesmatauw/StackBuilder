@@ -150,13 +150,13 @@
 		<value>フロントビュー</value>
 	</data>
 	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
-		<value>戻る表示</value>
+		<value>背面ビュー</value>
 	</data>
 	<data name="toolStripCornerView180.Text" xml:space="preserve">
 		<value>コー​​ナービュー180 °</value>
 	</data>
 	<data name="toolStripRightView.Text" xml:space="preserve">
-		<value>戻る表示</value>
+		<value>右側のビュー</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
 		<value>パレットの分析...</value>
@@ -171,7 +171,7 @@
 		<value>左のビュー</value>
 	</data>
 	<data name="toolStripLeftView.Text" xml:space="preserve">
-		<value>右側のビュー</value>
+		<value>左のビュー</value>
 	</data>
 	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
 		<value>右側のビュー</value>

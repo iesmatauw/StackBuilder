@@ -101,6 +101,9 @@
     <EmbeddedResource Include="FormEditCardboardQualityData.fr-FR.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.it-IT.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.ja-JP.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +117,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resource.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resource.de-DE.resx" />
+    <EmbeddedResource Include="Properties\Resource.it-IT.resx" />
+    <EmbeddedResource Include="Properties\Resource.es-ES.resx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -146,6 +146,12 @@
 	<data name="&gt;&gt;lbDateCreated.Name" xml:space="preserve">
     <value>lbDateCreated</value>
   </data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  <comment></comment></data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;tbAuthor.Name" xml:space="preserve">
     <value>tbAuthor</value>
   </data>
@@ -168,6 +174,9 @@
 	<data name="lbDateCreated.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Bottom, Left, Right</value>
 	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
     <value>tbDescription</value>
   </data>
@@ -183,6 +192,9 @@
 	<data name="&gt;&gt;tbAuthor.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+	<data name="lbAuthor.Text" xml:space="preserve">
+    <value>Author</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -240,6 +252,9 @@
 	<data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
 		<value>13, 9</value>
 	</data>
+	<data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
     <value>lbDescription</value>
   </data>
@@ -249,12 +264,18 @@
 	<data name="&gt;&gt;tbAuthor.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+	<data name="lbDateCreated.Text" xml:space="preserve">
+    <value>Date created</value>
+  <comment></comment></data>
 	<data name="bnOk.TabIndex" type="System.Int32, mscorlib">
 		<value>8</value>
 	</data>
 	<data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
 		<value>35, 13</value>
 	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  <comment></comment></data>
 	<data name="&gt;&gt;lbDateCreated.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -318,6 +339,9 @@
 	<data name="tbDateCreated.Size" type="System.Drawing.Size, System.Drawing">
 		<value>279, 20</value>
 	</data>
+	<data name="lbName.Text" xml:space="preserve">
+    <value>Name</value>
+  <comment></comment></data>
 	<data name="lbAuthor.TabIndex" type="System.Int32, mscorlib">
 		<value>4</value>
 	</data>
@@ -342,6 +366,9 @@
 	<data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
+	<data name="$this.Text" xml:space="preserve">
+    <value>Create a new document...</value>
+  <comment></comment></data>
 	<data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Top, Right</value>
 	</data>

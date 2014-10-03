@@ -133,7 +133,7 @@
 		<value>前</value>
 	</data>
 	<data name="cbFace.Items2" xml:space="preserve">
-		<value>右</value>
+		<value>Right</value>
 	</data>
 	<data name="cbFace.Items3" xml:space="preserve">
 		<value>左</value>
@@ -188,5 +188,17 @@
 	</data>
 	<data name="$this.Text" xml:space="preserve">
 		<value>面の画像を編集する</value>
+	</data>
+	<data name="uLengthOriginX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthSizeX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthOriginY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthSizeY.Text" xml:space="preserve">
+		<value>uLength</value>
 	</data>
 </root>

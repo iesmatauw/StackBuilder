@@ -197,6 +197,7 @@ $RECYCLE.BIN/
 # StackBuilder
 #############
 *.stb
+*.xls
 
 #############
 #HelpNDoc generated help files

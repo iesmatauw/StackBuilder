@@ -544,4 +544,7 @@ Continue?</value>
 	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
     <value>Box {0} does not fit in case {1}.</value>
   </data>
+	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analysis {0} has no valid solution.</value>
+  </data>
 </root>

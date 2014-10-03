@@ -167,6 +167,13 @@ namespace TreeDim.StackBuilder.Desktop
         /// <returns></returns>
         public DockContentBoxCasePalletAnalysis CreateCaseAnalysisView(BoxCasePalletAnalysis analysis)
         {
+            // check if analysis has valid solutions
+            if (!analysis.HasValidSolutions)
+            {
+                MessageBox.Show(Properties.Resources.ID_ANALYSISHASNOVALIDSOLUTION, analysis.Name);
+                return null;
+            }
+            // show Box/Case/Pallet analysis view
             DockContentBoxCasePalletAnalysis form = new DockContentBoxCasePalletAnalysis(this, analysis);
             AddView(form);
             return form;

@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptionsSettings));
             this.SuspendLayout();
             // 
-            // OptionsFormSettings
+            // FormOptionsSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 379);
-            this.Name = "OptionsFormSettings";
+            this.Name = "FormOptionsSettings";
             this.ShowCategoryDescription = true;
             this.ShowCategoryHeader = true;
             this.ShowOptionsPanelPath = true;
-            this.Text = "Settings...";
             this.ResumeLayout(false);
 
         }

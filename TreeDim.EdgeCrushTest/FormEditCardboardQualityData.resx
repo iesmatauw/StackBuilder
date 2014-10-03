@@ -112,20 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lbThickness.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 73</value>
   </data>
   <data name="lbRigidityY.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>
+  </data>
+  <data name="&gt;&gt;lbThicknessUnit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 23</value>
@@ -137,23 +140,23 @@
     <value>401, 36</value>
   </data>
   <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbRigidityX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 139</value>
   </data>
   <data name="lbStiffnessYUnit.Text" xml:space="preserve">
     <value>N.m</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="nudRigidityX.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
+  <data name="&gt;&gt;nudECT.Name" xml:space="preserve">
+    <value>nudECT</value>
+  </data>
   <data name="lbStiffnessXUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 138</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormEditCardboardQualityData</value>
-  </data>
-  <data name="&gt;&gt;lbECTUnit.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;lbRigidityY.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -161,11 +164,8 @@
   <data name="lbECTUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 108</value>
   </data>
-  <data name="nudThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 20</value>
-  </data>
-  <data name="lbProfile.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;lbStiffnessYUnit.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="nudThickness.Location" type="System.Drawing.Point, System.Drawing">
     <value>82, 74</value>
@@ -175,9 +175,6 @@
   </data>
   <data name="lbRigidityX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lbStiffnessXUnit.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
   </data>
   <data name="lbThickness.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -206,20 +203,23 @@
   <data name="&gt;&gt;lbRigidityX.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="lbRigidityX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 139</value>
-  </data>
   <data name="&gt;&gt;lbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbECTUnit.Text" xml:space="preserve">
     <value>kN/m</value>
   </data>
   <data name="&gt;&gt;lbECT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbThicknessUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 77</value>
+  <data name="&gt;&gt;nudThickness.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;lbStiffnessYUnit.Name" xml:space="preserve">
+    <value>lbStiffnessYUnit</value>
   </data>
   <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -245,56 +245,65 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
+  <data name="lbProfile.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;lbThickness.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <data name="nudECT.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;nudThickness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudThickness.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbProfile.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="lbRigidityX.Text" xml:space="preserve">
-    <value>Rigidity X</value>
+  <data name="lbECTUnit.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="lbRigidityX.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>
   </data>
+  <data name="&gt;&gt;lbThickness.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lbECTUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;lbECTUnit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;nudThickness.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="lbRigidityY.Text" xml:space="preserve">
     <value>Rigidity Y</value>
   </data>
-  <data name="&gt;&gt;lbThickness.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="nudRigidityX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 135</value>
   </data>
-  <data name="lbRigidityY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 139</value>
+  <data name="lbRigidityX.Text" xml:space="preserve">
+    <value>Rigidity X</value>
   </data>
-  <data name="lbThicknessUnit.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lbStiffnessYUnit.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lbThicknessUnit.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;nudRigidityY.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;lbProfile.Name" xml:space="preserve">
     <value>lbProfile</value>
   </data>
   <data name="&gt;&gt;lbECT.ZOrder" xml:space="preserve">
     <value>12</value>
+  </data>
+  <data name="lbProfile.Text" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="lbThicknessUnit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbStiffnessXUnit.Text" xml:space="preserve">
     <value>N.m</value>
@@ -305,23 +314,23 @@
   <data name="lbECTUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 13</value>
   </data>
+  <data name="lbProfile.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;lbECTUnit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbThicknessUnit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormEditCardboardQualityData</value>
   </data>
-  <data name="lbStiffnessYUnit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
+  <data name="&gt;&gt;lbECTUnit.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;nudRigidityX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
     <value>17</value>
-  </data>
-  <data name="&gt;&gt;nudRigidityY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbECT.Name" xml:space="preserve">
     <value>lbECT</value>
@@ -335,11 +344,14 @@
   <data name="lbECT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="nudThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
+  </data>
   <data name="nudECT.Location" type="System.Drawing.Point, System.Drawing">
     <value>81, 105</value>
   </data>
   <data name="&gt;&gt;lbProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 12</value>
@@ -347,8 +359,8 @@
   <data name="lbProfile.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 13</value>
   </data>
-  <data name="&gt;&gt;nudECT.Name" xml:space="preserve">
-    <value>nudECT</value>
+  <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
   </data>
   <data name="lbECT.Text" xml:space="preserve">
     <value>ECT</value>
@@ -356,14 +368,8 @@
   <data name="&gt;&gt;nudECT.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;nudRigidityY.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;nudECT.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="&gt;&gt;lbRigidityY.Name" xml:space="preserve">
     <value>lbRigidityY</value>
@@ -375,10 +381,7 @@
     <value>15</value>
   </data>
   <data name="&gt;&gt;lbStiffnessYUnit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="nudRigidityX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 135</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -386,20 +389,23 @@
   <data name="&gt;&gt;lbStiffnessXUnit.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lbThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
-  </data>
   <data name="&gt;&gt;nudRigidityX.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbStiffnessXUnit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbECT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 105</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbStiffnessXUnit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
+  </data>
+  <data name="lbStiffnessXUnit.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="&gt;&gt;lbRigidityX.Name" xml:space="preserve">
     <value>lbRigidityX</value>
@@ -422,8 +428,11 @@
   <data name="lbThicknessUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
   </data>
-  <data name="lbECTUnit.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="lbStiffnessYUnit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 13</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
   </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
@@ -431,14 +440,14 @@
   <data name="lbStiffnessXUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 20</value>
+  <data name="&gt;&gt;nudRigidityY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbProfile.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -449,11 +458,8 @@
   <data name="lbProfile.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 41</value>
   </data>
-  <data name="&gt;&gt;lbStiffnessYUnit.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;lbThickness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="nudThickness.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -461,14 +467,17 @@
   <data name="bnOk.Text" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="&gt;&gt;lbECTUnit.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbThicknessUnit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 77</value>
   </data>
   <data name="&gt;&gt;lbName.Name" xml:space="preserve">
     <value>lbName</value>
   </data>
+  <data name="lbRigidityY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 139</value>
+  </data>
   <data name="&gt;&gt;lbRigidityY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudRigidityX.Name" xml:space="preserve">
     <value>nudRigidityX</value>
@@ -485,8 +494,8 @@
   <data name="lbThicknessUnit.Text" xml:space="preserve">
     <value>mm</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;lbProfile.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="nudRigidityY.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -494,8 +503,8 @@
   <data name="nudRigidityY.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 137</value>
   </data>
-  <data name="lbProfile.Text" xml:space="preserve">
-    <value>Profile</value>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbECT.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -507,7 +516,7 @@
     <value>bnOk</value>
   </data>
   <data name="&gt;&gt;lbRigidityX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
     <value>401, 7</value>
@@ -516,7 +525,10 @@
     <value>3</value>
   </data>
   <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbStiffnessYUnit.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>484, 163</value>
@@ -527,29 +539,20 @@
   <data name="&gt;&gt;nudThickness.Name" xml:space="preserve">
     <value>nudThickness</value>
   </data>
-  <data name="lbThicknessUnit.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
   <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="lbName.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lbProfile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbECT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 105</value>
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>306, 20</value>
   </data>
   <data name="&gt;&gt;nudECT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudRigidityY.Name" xml:space="preserve">
     <value>nudRigidityY</value>
-  </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>306, 20</value>
   </data>
   <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -569,19 +572,16 @@
   <data name="&gt;&gt;lbThicknessUnit.Name" xml:space="preserve">
     <value>lbThicknessUnit</value>
   </data>
-  <data name="&gt;&gt;lbStiffnessYUnit.Name" xml:space="preserve">
-    <value>lbStiffnessYUnit</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 20</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ca-ES</value>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>it-IT</value>
   </metadata>
 </root>

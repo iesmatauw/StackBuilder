@@ -117,4 +117,22 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="ID_CANCELING" xml:space="preserve">
+    <value>Canceling...</value>
+  </data>
+	<data name="ID_DOWNLOADCOMPLETE" xml:space="preserve">
+    <value>Download complete!</value>
+  </data>
+	<data name="ID_DOWNLOADINGFILE" xml:space="preserve">
+    <value>Downloading file {0} ({1}%)...</value>
+  </data>
+	<data name="ID_ERROROCCURRED" xml:space="preserve">
+    <value>An error occured. Abandoning update...</value>
+  </data>
+	<data name="ID_LAUNCHINGSETUP" xml:space="preserve">
+    <value>Launching setup {0}...</value>
+  </data>
+	<data name="ID_STOPPINGPROCESS" xml:space="preserve">
+    <value>Stopping process {0}...</value>
+  </data>
 </root>

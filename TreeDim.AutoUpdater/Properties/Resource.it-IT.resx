@@ -117,4 +117,12 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="ID_UPDATEAPPLICATION" xml:space="preserve">
+    <value>An updated version of {0} is available.
+You are running version {1}.
+Would you like to download and install version {2}?</value>
+  </data>
+	<data name="ID_UPDATERNOTFOUND" xml:space="preserve">
+    <value>Could not find updater application!</value>
+  </data>
 </root>

@@ -82,7 +82,6 @@
             this.Name = "OptionPanelDimensions";
             this.Load += new System.EventHandler(this.OptionPanelDimensions_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

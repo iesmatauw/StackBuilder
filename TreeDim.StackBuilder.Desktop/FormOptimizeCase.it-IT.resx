@@ -112,16 +112,16 @@
 		<value>2.0</value>
 	</resheader>
 	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
 	<data name="splitContainerCasePallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Bottom, Left, Right</value>
 	</data>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
 	<data name="splitContainerCasePallet.Location" type="System.Drawing.Point, System.Drawing">
 		<value>0, 496</value>
 	</data>
@@ -134,7 +134,7 @@
 	<data name="pbBoxesLayout.Size" type="System.Drawing.Size, System.Drawing">
 		<value>292, 159</value>
 	</data>
-	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
 	<data name="pbBoxesLayout.TabIndex" type="System.Int32, mscorlib">
 		<value>0</value>
 	</data>
@@ -142,7 +142,7 @@
     <value>pbBoxesLayout</value>
   </data>
 	<data name="&gt;&gt;pbBoxesLayout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;pbBoxesLayout.Parent" xml:space="preserve">
     <value>splitContainerCasePallet.Panel1</value>
@@ -154,7 +154,7 @@
     <value>splitContainerCasePallet.Panel1</value>
   </data>
 	<data name="&gt;&gt;splitContainerCasePallet.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;splitContainerCasePallet.Panel1.Parent" xml:space="preserve">
     <value>splitContainerCasePallet</value>
@@ -178,7 +178,7 @@
     <value>pbPallet</value>
   </data>
 	<data name="&gt;&gt;pbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;pbPallet.Parent" xml:space="preserve">
     <value>splitContainerCasePallet.Panel2</value>
@@ -190,7 +190,7 @@
     <value>splitContainerCasePallet.Panel2</value>
   </data>
 	<data name="&gt;&gt;splitContainerCasePallet.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;splitContainerCasePallet.Panel2.Parent" xml:space="preserve">
     <value>splitContainerCasePallet</value>
@@ -211,7 +211,7 @@
     <value>splitContainerCasePallet</value>
   </data>
 	<data name="&gt;&gt;splitContainerCasePallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;splitContainerCasePallet.Parent" xml:space="preserve">
     <value>$this</value>
@@ -231,11 +231,14 @@
 	<data name="btClose.TabIndex" type="System.Int32, mscorlib">
 		<value>0</value>
 	</data>
+	<data name="btClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
 	<data name="&gt;&gt;btClose.Name" xml:space="preserve">
     <value>btClose</value>
   </data>
 	<data name="&gt;&gt;btClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;btClose.Parent" xml:space="preserve">
     <value>$this</value>
@@ -253,7 +256,7 @@
 		<value>NoControl</value>
 	</data>
 	<data name="chkVerticalOrientationOnly.Location" type="System.Drawing.Point, System.Drawing">
-		<value>16, 109</value>
+		<value>16, 84</value>
 	</data>
 	<data name="chkVerticalOrientationOnly.Size" type="System.Drawing.Size, System.Drawing">
 		<value>183, 17</value>
@@ -261,11 +264,14 @@
 	<data name="chkVerticalOrientationOnly.TabIndex" type="System.Int32, mscorlib">
 		<value>5</value>
 	</data>
+	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
+    <value>Only allow vertical box orientation</value>
+  </data>
 	<data name="&gt;&gt;chkVerticalOrientationOnly.Name" xml:space="preserve">
     <value>chkVerticalOrientationOnly</value>
   </data>
 	<data name="&gt;&gt;chkVerticalOrientationOnly.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;chkVerticalOrientationOnly.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -274,7 +280,7 @@
     <value>0</value>
   </data>
 	<data name="nudNumber.Location" type="System.Drawing.Point, System.Drawing">
-		<value>191, 78</value>
+		<value>191, 59</value>
 	</data>
 	<data name="nudNumber.Size" type="System.Drawing.Size, System.Drawing">
 		<value>66, 20</value>
@@ -286,7 +292,7 @@
     <value>nudNumber</value>
   </data>
 	<data name="&gt;&gt;nudNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudNumber.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -298,7 +304,7 @@
 		<value>True</value>
 	</data>
 	<data name="lbNumber.Location" type="System.Drawing.Point, System.Drawing">
-		<value>13, 78</value>
+		<value>13, 63</value>
 	</data>
 	<data name="lbNumber.Size" type="System.Drawing.Size, System.Drawing">
 		<value>131, 13</value>
@@ -306,11 +312,14 @@
 	<data name="lbNumber.TabIndex" type="System.Int32, mscorlib">
 		<value>3</value>
 	</data>
+	<data name="lbNumber.Text" xml:space="preserve">
+    <value>Number of boxes per case</value>
+  </data>
 	<data name="&gt;&gt;lbNumber.Name" xml:space="preserve">
     <value>lbNumber</value>
   </data>
 	<data name="&gt;&gt;lbNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbNumber.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -330,11 +339,14 @@
 	<data name="lbBoxDimensions.TabIndex" type="System.Int32, mscorlib">
 		<value>2</value>
 	</data>
+	<data name="lbBoxDimensions.Text" xml:space="preserve">
+    <value>Create case and pallet analysis</value>
+  </data>
 	<data name="&gt;&gt;lbBoxDimensions.Name" xml:space="preserve">
     <value>lbBoxDimensions</value>
   </data>
 	<data name="&gt;&gt;lbBoxDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbBoxDimensions.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -355,7 +367,7 @@
     <value>cbBoxes</value>
   </data>
 	<data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -375,11 +387,14 @@
 	<data name="lbBox.TabIndex" type="System.Int32, mscorlib">
 		<value>0</value>
 	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+    <value>Box</value>
+  </data>
 	<data name="&gt;&gt;lbBox.Name" xml:space="preserve">
     <value>lbBox</value>
   </data>
 	<data name="&gt;&gt;lbBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -391,16 +406,19 @@
 		<value>4, 27</value>
 	</data>
 	<data name="groupBox.Size" type="System.Drawing.Size, System.Drawing">
-		<value>285, 132</value>
+		<value>285, 108</value>
 	</data>
 	<data name="groupBox.TabIndex" type="System.Int32, mscorlib">
 		<value>1</value>
 	</data>
+	<data name="groupBox.Text" xml:space="preserve">
+    <value>Box (inner product)</value>
+  </data>
 	<data name="&gt;&gt;groupBox.Name" xml:space="preserve">
     <value>groupBox</value>
   </data>
 	<data name="&gt;&gt;groupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;groupBox.Parent" xml:space="preserve">
     <value>$this</value>
@@ -411,6 +429,108 @@
 	<data name="gbCase.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Top, Left, Right</value>
 	</data>
+	<data name="uSurfaceMassCase.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="uSurfaceMassCase.Location" type="System.Drawing.Point, System.Drawing">
+		<value>245, 134</value>
+	</data>
+	<data name="uSurfaceMassCase.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 13</value>
+	</data>
+	<data name="uSurfaceMassCase.TabIndex" type="System.Int32, mscorlib">
+		<value>22</value>
+	</data>
+	<data name="uSurfaceMassCase.Text" xml:space="preserve">
+    <value>uSurfaceMass</value>
+  </data>
+	<data name="&gt;&gt;uSurfaceMassCase.Name" xml:space="preserve">
+    <value>uSurfaceMassCase</value>
+  </data>
+	<data name="&gt;&gt;uSurfaceMassCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;uSurfaceMassCase.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;uSurfaceMassCase.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="nudWallSurfaceMass.Location" type="System.Drawing.Point, System.Drawing">
+		<value>176, 130</value>
+	</data>
+	<data name="nudWallSurfaceMass.Size" type="System.Drawing.Size, System.Drawing">
+		<value>62, 20</value>
+	</data>
+	<data name="nudWallSurfaceMass.TabIndex" type="System.Int32, mscorlib">
+		<value>21</value>
+	</data>
+	<data name="&gt;&gt;nudWallSurfaceMass.Name" xml:space="preserve">
+    <value>nudWallSurfaceMass</value>
+  </data>
+	<data name="&gt;&gt;nudWallSurfaceMass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;nudWallSurfaceMass.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;nudWallSurfaceMass.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="lbSurfaceMass.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbSurfaceMass.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 134</value>
+	</data>
+	<data name="lbSurfaceMass.Size" type="System.Drawing.Size, System.Drawing">
+		<value>71, 13</value>
+	</data>
+	<data name="lbSurfaceMass.TabIndex" type="System.Int32, mscorlib">
+		<value>20</value>
+	</data>
+	<data name="lbSurfaceMass.Text" xml:space="preserve">
+    <value>Surface mass</value>
+  </data>
+	<data name="&gt;&gt;lbSurfaceMass.Name" xml:space="preserve">
+    <value>lbSurfaceMass</value>
+  </data>
+	<data name="&gt;&gt;lbSurfaceMass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbSurfaceMass.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;lbSurfaceMass.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+	<data name="uLengthWallThickness.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="uLengthWallThickness.Location" type="System.Drawing.Point, System.Drawing">
+		<value>245, 110</value>
+	</data>
+	<data name="uLengthWallThickness.Size" type="System.Drawing.Size, System.Drawing">
+		<value>46, 13</value>
+	</data>
+	<data name="uLengthWallThickness.TabIndex" type="System.Int32, mscorlib">
+		<value>19</value>
+	</data>
+	<data name="uLengthWallThickness.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+	<data name="&gt;&gt;uLengthWallThickness.Name" xml:space="preserve">
+    <value>uLengthWallThickness</value>
+  </data>
+	<data name="&gt;&gt;uLengthWallThickness.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;uLengthWallThickness.Parent" xml:space="preserve">
+    <value>gbCase</value>
+  </data>
+	<data name="&gt;&gt;uLengthWallThickness.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
 	<data name="btSetMaximum.Location" type="System.Drawing.Point, System.Drawing">
 		<value>390, 57</value>
 	</data>
@@ -420,17 +540,20 @@
 	<data name="btSetMaximum.TabIndex" type="System.Int32, mscorlib">
 		<value>18</value>
 	</data>
+	<data name="btSetMaximum.Text" xml:space="preserve">
+    <value>Set maximum</value>
+  </data>
 	<data name="&gt;&gt;btSetMaximum.Name" xml:space="preserve">
     <value>btSetMaximum</value>
   </data>
 	<data name="&gt;&gt;btSetMaximum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;btSetMaximum.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;btSetMaximum.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
 	<data name="btSetMinimum.Location" type="System.Drawing.Point, System.Drawing">
 		<value>389, 33</value>
@@ -441,20 +564,23 @@
 	<data name="btSetMinimum.TabIndex" type="System.Int32, mscorlib">
 		<value>17</value>
 	</data>
+	<data name="btSetMinimum.Text" xml:space="preserve">
+    <value>Set minimum</value>
+  </data>
 	<data name="&gt;&gt;btSetMinimum.Name" xml:space="preserve">
     <value>btSetMinimum</value>
   </data>
 	<data name="&gt;&gt;btSetMinimum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;btSetMinimum.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;btSetMinimum.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
 	<data name="nudWallThickness.Location" type="System.Drawing.Point, System.Drawing">
-		<value>176, 108</value>
+		<value>176, 106</value>
 	</data>
 	<data name="nudWallThickness.Size" type="System.Drawing.Size, System.Drawing">
 		<value>62, 20</value>
@@ -466,40 +592,46 @@
     <value>nudWallThickness</value>
   </data>
 	<data name="&gt;&gt;nudWallThickness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudWallThickness.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudWallThickness.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
 	<data name="lbWallThickness.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>
+	<data name="lbWallThickness.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
 	<data name="lbWallThickness.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 108</value>
+		<value>8, 110</value>
 	</data>
 	<data name="lbWallThickness.Size" type="System.Drawing.Size, System.Drawing">
-		<value>101, 13</value>
+		<value>76, 13</value>
 	</data>
 	<data name="lbWallThickness.TabIndex" type="System.Int32, mscorlib">
 		<value>15</value>
 	</data>
+	<data name="lbWallThickness.Text" xml:space="preserve">
+    <value>Wall thickness</value>
+  </data>
 	<data name="&gt;&gt;lbWallThickness.Name" xml:space="preserve">
     <value>lbWallThickness</value>
   </data>
 	<data name="&gt;&gt;lbWallThickness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbWallThickness.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;lbWallThickness.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
 	<data name="nudWallsHeightDir.Location" type="System.Drawing.Point, System.Drawing">
-		<value>317, 82</value>
+		<value>317, 81</value>
 	</data>
 	<data name="nudWallsHeightDir.Size" type="System.Drawing.Size, System.Drawing">
 		<value>62, 20</value>
@@ -511,16 +643,16 @@
     <value>nudWallsHeightDir</value>
   </data>
 	<data name="&gt;&gt;nudWallsHeightDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudWallsHeightDir.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudWallsHeightDir.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
 	<data name="nudWallsWidthDir.Location" type="System.Drawing.Point, System.Drawing">
-		<value>246, 82</value>
+		<value>246, 81</value>
 	</data>
 	<data name="nudWallsWidthDir.Size" type="System.Drawing.Size, System.Drawing">
 		<value>62, 20</value>
@@ -532,16 +664,16 @@
     <value>nudWallsWidthDir</value>
   </data>
 	<data name="&gt;&gt;nudWallsWidthDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudWallsWidthDir.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudWallsWidthDir.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
 	<data name="nudWallsLengthDir.Location" type="System.Drawing.Point, System.Drawing">
-		<value>176, 82</value>
+		<value>176, 81</value>
 	</data>
 	<data name="nudWallsLengthDir.Size" type="System.Drawing.Size, System.Drawing">
 		<value>62, 20</value>
@@ -553,13 +685,13 @@
     <value>nudWallsLengthDir</value>
   </data>
 	<data name="&gt;&gt;nudWallsLengthDir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudWallsLengthDir.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudWallsLengthDir.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
 	<data name="nudMaxCaseHeight.Location" type="System.Drawing.Point, System.Drawing">
 		<value>317, 57</value>
@@ -574,13 +706,13 @@
     <value>nudMaxCaseHeight</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseHeight.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseHeight.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
 	<data name="nudMaxCaseWidth.Location" type="System.Drawing.Point, System.Drawing">
 		<value>246, 57</value>
@@ -595,13 +727,13 @@
     <value>nudMaxCaseWidth</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseWidth.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseWidth.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
 	<data name="nudMaxCaseLength.Location" type="System.Drawing.Point, System.Drawing">
 		<value>176, 57</value>
@@ -616,13 +748,13 @@
     <value>nudMaxCaseLength</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseLength.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudMaxCaseLength.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
 	<data name="nudMinCaseHeight.Location" type="System.Drawing.Point, System.Drawing">
 		<value>317, 33</value>
@@ -637,13 +769,13 @@
     <value>nudMinCaseHeight</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseHeight.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseHeight.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>14</value>
   </data>
 	<data name="nudMinCaseWidth.Location" type="System.Drawing.Point, System.Drawing">
 		<value>246, 33</value>
@@ -658,13 +790,13 @@
     <value>nudMinCaseWidth</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseWidth.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseWidth.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>15</value>
   </data>
 	<data name="nudMinCaseLength.Location" type="System.Drawing.Point, System.Drawing">
 		<value>176, 33</value>
@@ -679,13 +811,13 @@
     <value>nudMinCaseLength</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseLength.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;nudMinCaseLength.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>16</value>
   </data>
 	<data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
@@ -699,17 +831,20 @@
 	<data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
 		<value>5</value>
 	</data>
+	<data name="lbHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
 	<data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
     <value>lbHeight</value>
   </data>
 	<data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>17</value>
   </data>
 	<data name="label3.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
@@ -723,17 +858,20 @@
 	<data name="label3.TabIndex" type="System.Int32, mscorlib">
 		<value>4</value>
 	</data>
+	<data name="label3.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
 	<data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
   </data>
 	<data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>18</value>
   </data>
 	<data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
@@ -747,23 +885,26 @@
 	<data name="lbLength.TabIndex" type="System.Int32, mscorlib">
 		<value>3</value>
 	</data>
+	<data name="lbLength.Text" xml:space="preserve">
+    <value>Length</value>
+  </data>
 	<data name="&gt;&gt;lbLength.Name" xml:space="preserve">
     <value>lbLength</value>
   </data>
 	<data name="&gt;&gt;lbLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>19</value>
   </data>
 	<data name="lbWalls.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>
 	<data name="lbWalls.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 82</value>
+		<value>8, 85</value>
 	</data>
 	<data name="lbWalls.Size" type="System.Drawing.Size, System.Drawing">
 		<value>82, 13</value>
@@ -771,80 +912,92 @@
 	<data name="lbWalls.TabIndex" type="System.Int32, mscorlib">
 		<value>2</value>
 	</data>
+	<data name="lbWalls.Text" xml:space="preserve">
+    <value>Number of walls</value>
+  </data>
 	<data name="&gt;&gt;lbWalls.Name" xml:space="preserve">
     <value>lbWalls</value>
   </data>
 	<data name="&gt;&gt;lbWalls.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbWalls.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;lbWalls.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>20</value>
   </data>
 	<data name="lbMaxCaseDimensions.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>
 	<data name="lbMaxCaseDimensions.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 57</value>
+		<value>8, 61</value>
 	</data>
 	<data name="lbMaxCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>136, 13</value>
+		<value>111, 13</value>
 	</data>
 	<data name="lbMaxCaseDimensions.TabIndex" type="System.Int32, mscorlib">
 		<value>1</value>
 	</data>
+	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+    <value>Max. case dimensions</value>
+  </data>
 	<data name="&gt;&gt;lbMaxCaseDimensions.Name" xml:space="preserve">
     <value>lbMaxCaseDimensions</value>
   </data>
 	<data name="&gt;&gt;lbMaxCaseDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbMaxCaseDimensions.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;lbMaxCaseDimensions.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>21</value>
   </data>
 	<data name="lbMinCaseDimensions.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>
 	<data name="lbMinCaseDimensions.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 33</value>
+		<value>8, 37</value>
 	</data>
 	<data name="lbMinCaseDimensions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>133, 13</value>
+		<value>108, 13</value>
 	</data>
 	<data name="lbMinCaseDimensions.TabIndex" type="System.Int32, mscorlib">
 		<value>0</value>
 	</data>
+	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
+    <value>Min. case dimensions</value>
+  </data>
 	<data name="&gt;&gt;lbMinCaseDimensions.Name" xml:space="preserve">
     <value>lbMinCaseDimensions</value>
   </data>
 	<data name="&gt;&gt;lbMinCaseDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbMinCaseDimensions.Parent" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;lbMinCaseDimensions.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>22</value>
   </data>
 	<data name="gbCase.Location" type="System.Drawing.Point, System.Drawing">
-		<value>4, 163</value>
+		<value>4, 141</value>
 	</data>
 	<data name="gbCase.Size" type="System.Drawing.Size, System.Drawing">
-		<value>574, 133</value>
+		<value>574, 155</value>
 	</data>
 	<data name="gbCase.TabIndex" type="System.Int32, mscorlib">
 		<value>2</value>
 	</data>
+	<data name="gbCase.Text" xml:space="preserve">
+    <value>Case constraints</value>
+  </data>
 	<data name="&gt;&gt;gbCase.Name" xml:space="preserve">
     <value>gbCase</value>
   </data>
 	<data name="&gt;&gt;gbCase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;gbCase.Parent" xml:space="preserve">
     <value>$this</value>
@@ -855,8 +1008,35 @@
 	<data name="gbPallet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Top, Left, Right</value>
 	</data>
+	<data name="uLengthPalletHeight.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="uLengthPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>228, 63</value>
+	</data>
+	<data name="uLengthPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>46, 13</value>
+	</data>
+	<data name="uLengthPalletHeight.TabIndex" type="System.Int32, mscorlib">
+		<value>5</value>
+	</data>
+	<data name="uLengthPalletHeight.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+	<data name="&gt;&gt;uLengthPalletHeight.Name" xml:space="preserve">
+    <value>uLengthPalletHeight</value>
+  </data>
+	<data name="&gt;&gt;uLengthPalletHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;uLengthPalletHeight.Parent" xml:space="preserve">
+    <value>gbPallet</value>
+  </data>
+	<data name="&gt;&gt;uLengthPalletHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
 	<data name="nudPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>194, 77</value>
+		<value>163, 59</value>
 	</data>
 	<data name="nudPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
 		<value>62, 20</value>
@@ -868,37 +1048,43 @@
     <value>nudPalletHeight</value>
   </data>
 	<data name="&gt;&gt;nudPalletHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;nudPalletHeight.Parent" xml:space="preserve">
     <value>gbPallet</value>
   </data>
 	<data name="&gt;&gt;nudPalletHeight.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
 	<data name="lbPalletHeight.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
 	</data>
+	<data name="lbPalletHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
 	<data name="lbPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-		<value>8, 77</value>
+		<value>8, 63</value>
 	</data>
 	<data name="lbPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-		<value>136, 13</value>
+		<value>111, 13</value>
 	</data>
 	<data name="lbPalletHeight.TabIndex" type="System.Int32, mscorlib">
 		<value>3</value>
 	</data>
+	<data name="lbPalletHeight.Text" xml:space="preserve">
+    <value>Maximum pallet height</value>
+  </data>
 	<data name="&gt;&gt;lbPalletHeight.Name" xml:space="preserve">
     <value>lbPalletHeight</value>
   </data>
 	<data name="&gt;&gt;lbPalletHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbPalletHeight.Parent" xml:space="preserve">
     <value>gbPallet</value>
   </data>
 	<data name="&gt;&gt;lbPalletHeight.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
 	<data name="lbPalletDimensions.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
@@ -912,17 +1098,20 @@
 	<data name="lbPalletDimensions.TabIndex" type="System.Int32, mscorlib">
 		<value>2</value>
 	</data>
+	<data name="lbPalletDimensions.Text" xml:space="preserve">
+    <value>(dimensions)</value>
+  </data>
 	<data name="&gt;&gt;lbPalletDimensions.Name" xml:space="preserve">
     <value>lbPalletDimensions</value>
   </data>
 	<data name="&gt;&gt;lbPalletDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbPalletDimensions.Parent" xml:space="preserve">
     <value>gbPallet</value>
   </data>
 	<data name="&gt;&gt;lbPalletDimensions.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
 	<data name="cbPallet.Location" type="System.Drawing.Point, System.Drawing">
 		<value>70, 19</value>
@@ -937,13 +1126,13 @@
     <value>cbPallet</value>
   </data>
 	<data name="&gt;&gt;cbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;cbPallet.Parent" xml:space="preserve">
     <value>gbPallet</value>
   </data>
 	<data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
 	<data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
 		<value>True</value>
@@ -957,32 +1146,38 @@
 	<data name="lbPallet.TabIndex" type="System.Int32, mscorlib">
 		<value>0</value>
 	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
 	<data name="&gt;&gt;lbPallet.Name" xml:space="preserve">
     <value>lbPallet</value>
   </data>
 	<data name="&gt;&gt;lbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;lbPallet.Parent" xml:space="preserve">
     <value>gbPallet</value>
   </data>
 	<data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
 	<data name="gbPallet.Location" type="System.Drawing.Point, System.Drawing">
 		<value>295, 28</value>
 	</data>
 	<data name="gbPallet.Size" type="System.Drawing.Size, System.Drawing">
-		<value>283, 131</value>
+		<value>283, 107</value>
 	</data>
 	<data name="gbPallet.TabIndex" type="System.Int32, mscorlib">
 		<value>3</value>
 	</data>
+	<data name="gbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
 	<data name="&gt;&gt;gbPallet.Name" xml:space="preserve">
     <value>gbPallet</value>
   </data>
 	<data name="&gt;&gt;gbPallet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;gbPallet.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1002,11 +1197,14 @@
 	<data name="btOptimize.TabIndex" type="System.Int32, mscorlib">
 		<value>4</value>
 	</data>
+	<data name="btOptimize.Text" xml:space="preserve">
+    <value>Optimize</value>
+  </data>
 	<data name="&gt;&gt;btOptimize.Name" xml:space="preserve">
     <value>btOptimize</value>
   </data>
 	<data name="&gt;&gt;btOptimize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;btOptimize.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1053,11 +1251,14 @@
 	<data name="btAddSolution.TabIndex" type="System.Int32, mscorlib">
 		<value>6</value>
 	</data>
+	<data name="btAddSolution.Text" xml:space="preserve">
+    <value>Create case and pallet analysis</value>
+  </data>
 	<data name="&gt;&gt;btAddSolution.Name" xml:space="preserve">
     <value>btAddSolution</value>
   </data>
 	<data name="&gt;&gt;btAddSolution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;btAddSolution.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1065,12 +1266,15 @@
 	<data name="&gt;&gt;btAddSolution.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-	<metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+	<metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
 		<value>0, 689</value>
 	</metadata>
 	<data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
 		<value>130, 17</value>
 	</data>
+	<data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
 	<data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
 		<value>0, 689</value>
 	</data>
@@ -1080,11 +1284,14 @@
 	<data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
 		<value>7</value>
 	</data>
+	<data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
 	<data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
 	<data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1092,13 +1299,10 @@
 	<data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>True</value>
 	</metadata>
-	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>de-DE</value>
-	</metadata>
-	<metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+	<metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>42</value>
 	</metadata>
 	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
@@ -1107,16 +1311,19 @@
 	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
 		<value>584, 711</value>
 	</data>
+	<data name="$this.Text" xml:space="preserve">
+    <value>Optimize case dimensions...</value>
+  </data>
 	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>
 	<data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormOptimizeCase</value>
   </data>
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

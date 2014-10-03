@@ -130,7 +130,7 @@
 		<value>カラー</value>
 	</data>
 	<data name="gbFaceColor.Text" xml:space="preserve">
-		<value>顔の色</value>
+		<value>面の色</value>
 	</data>
 	<data name="cbColor.Items16" xml:space="preserve">
 		<value>カラー</value>
@@ -157,7 +157,7 @@
 		<value>新しいバンドルを作成する...</value>
 	</data>
 	<data name="lblName.Text" xml:space="preserve">
-		<value>の名前</value>
+		<value>名前</value>
 	</data>
 	<data name="lbThickness.Text" xml:space="preserve">
 		<value>厚み</value>
@@ -247,6 +247,42 @@
 		<value>キャンセル</value>
 	</data>
 	<data name="cbColor.Items23" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="uLengthLength.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="cbColor.Items30" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items25" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items29" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items24" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="uLengthWidth.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="uLengthThickness.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uMassWeight.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
+	<data name="cbColor.Items31" xml:space="preserve">
 		<value>カラー</value>
 	</data>
 </root>

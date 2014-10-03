@@ -130,7 +130,7 @@
 		<value>説明</value>
 	</data>
 	<data name="lbName.Text" xml:space="preserve">
-		<value>の名前</value>
+		<value>名前</value>
 	</data>
 	<data name="radioButtonTruck2.Text" xml:space="preserve">
 		<value>新しいトラックを作成します。</value>
@@ -248,5 +248,44 @@
 	</data>
 	<data name="cbColor.Items24" xml:space="preserve">
 		<value>カラー</value>
+	</data>
+	<data name="uLengthHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthWidth.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthLength.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="cbColor.Items26" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items27" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items28" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items29" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items30" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items31" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items32" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items33" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="cbColor.Items34" xml:space="preserve">
+		<value>カラー</value>
+	</data>
+	<data name="uMassAdmissibleLoad.Text" xml:space="preserve">
+		<value>uMass</value>
 	</data>
 </root>

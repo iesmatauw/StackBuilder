@@ -11,6 +11,7 @@
                     <Directory Id="LOCALIZATION_DE" Name="de-DE" />
                     <Directory Id="LOCALIZATION_ES" Name="es-ES" />
                     <Directory Id="LOCALIZATION_CA" Name="ca-CA" />
+                    <Directory Id="LOCALIZATION_IT" Name="it-IT" />
                   </Directory>
                   <Directory Id="REPORTTEMPLATES" Name="ReportTemplates" />
                   <Directory Id="PALLETSOLUTIONSDB" Name="PalletSolutionsDB" />

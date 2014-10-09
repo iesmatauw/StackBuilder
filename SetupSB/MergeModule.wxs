@@ -32,5 +32,6 @@
     <ComponentRef Id="WEBGL_GLGE" />
     <ComponentRef Id="AutoUpdater" />
     <ComponentRef Id="Plugins"/>
+    <ComponentRef Id="CompanyLogoTreeDiM"/>
   </Module>
 </Wix>

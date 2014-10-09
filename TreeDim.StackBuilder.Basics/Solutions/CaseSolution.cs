@@ -109,7 +109,13 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Pallet weight
         /// </summary>
-        public double PalletWeight { get { return _palletSolutionDesc.CaseCount * CaseWeight + _palletSolutionDesc.PalletWeight; } }
+        public double PalletWeight
+        {
+            get
+            {
+                return _palletSolutionDesc.CaseCount * CaseWeight + _palletSolutionDesc.PalletWeight; 
+            } 
+        }
         /// <summary>
         /// PalletSolution loaded from file
         /// </summary>

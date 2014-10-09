@@ -178,7 +178,7 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Constextual help
+        #region Contextual help
         internal class MessageFilter : IMessageFilter
         {
             #region IMessageFilter Members

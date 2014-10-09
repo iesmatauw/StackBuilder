@@ -6,7 +6,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
+// docking
 using WeifenLuo.WinFormsUI.Docking;
+// log4net
 using log4net;
 
 using Sharp3D.Math.Core;
@@ -125,7 +128,7 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 1] = columnHeader;
             // case dimensions
-            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASEDIMENSIONS);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_CASE);
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 2] = columnHeader;
@@ -140,7 +143,7 @@ namespace TreeDim.StackBuilder.Desktop
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 4] = columnHeader;
             // weights
-            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.MassUnitString) + @"\" + Properties.Resources.ID_CASEPERPALLET);
+            columnHeader = new SourceGrid.Cells.ColumnHeader(string.Format(Properties.Resources.ID_WEIGHT, UnitsManager.MassUnitString));
             columnHeader.AutomaticSortEnabled = false;
             columnHeader.View = viewColumnHeader;
             gridSolutions[0, 5] = columnHeader;
@@ -170,13 +173,13 @@ namespace TreeDim.StackBuilder.Desktop
                     gridSolutions[iIndex, 1] = new SourceGrid.Cells.Image(graphics.Bitmap);
                 }
                 // case dimensions
-                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format("{0:0.#}*{1:0.#}*{2:0.#}", sol.CaseLength, sol.CaseWidth, sol.CaseHeight));
+                gridSolutions[iIndex, 2] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0}\n({1:0.#}*{2:0.#}*{3:0.#})", sol.PalletSolutionDesc.FriendlyName, sol.CaseLength, sol.CaseWidth, sol.CaseHeight));
                 // box / case count
                 gridSolutions[iIndex, 3] = new SourceGrid.Cells.Cell(string.Format("Boxes/case: {0}\nCases/pallet: {1}\nBoxes/pallet:{2}", sol.BoxPerCaseCount, sol.CasePerPalletCount, sol.BoxPerPalletCount));
                 // efficiency
-                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format("Case :{0:0.#}\nPallet :{1:0.#}", sol.CaseEfficiency, sol.PalletEfficiency));
+                gridSolutions[iIndex, 4] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "Case :{0:0.#}\nPallet :{1:0.#}", sol.CaseEfficiency, sol.PalletEfficiency));
                 // weights
-                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format("Case :{0:0.#}\nPallet :{1:0.#}", sol.CaseWeight, sol.PalletWeight));
+                gridSolutions[iIndex, 5] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "Case :{0:0.#}\nPallet :{1:0.#}", sol.CaseWeight, sol.PalletWeight));
                 // selected
                 gridSolutions[iIndex, 6] = new SourceGrid.Cells.CheckBox(null, _caseAnalysis.HasSolutionSelected(iIndex - 1));
 
@@ -190,9 +193,15 @@ namespace TreeDim.StackBuilder.Desktop
 
                 gridSolutions[iIndex, 6].AddController(solCheckboxClickEvent);
             }
-            gridSolutions.AutoStretchColumnsToFitWidth = true;
-            gridSolutions.AutoSizeCells();
-            gridSolutions.Columns.StretchToFit();
+            try
+            {
+                gridSolutions.AutoStretchColumnsToFitWidth = true;
+                gridSolutions.AutoSizeCells();
+                gridSolutions.Columns.StretchToFit();
+            }
+            catch (Exception /*ex*/)
+            { 
+            }
 
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);

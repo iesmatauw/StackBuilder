@@ -1206,7 +1206,7 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weight.
+        ///   Looks up a localized string similar to Weight ({0}).
         /// </summary>
         internal static string ID_WEIGHT {
             get {

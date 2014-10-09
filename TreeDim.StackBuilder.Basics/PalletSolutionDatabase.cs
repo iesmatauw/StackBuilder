@@ -657,11 +657,11 @@ namespace TreeDim.StackBuilder.Basics
                 solutionElt.Attributes.Append(caseInsideDimensions);
                 // case weight
                 XmlAttribute caseWeightAttribute = xmlDoc.CreateAttribute("CaseWeight");
-                caseWeightAttribute.Value = string.Format("{0:0.00}", desc.CaseWeight);
+                caseWeightAttribute.Value = UnitsManager.ConvertMassTo(desc.CaseWeight, UnitsManager.UnitSystem.UNIT_METRIC1).ToString(CultureInfo.InvariantCulture);
                 solutionElt.Attributes.Append(caseWeightAttribute);
                 // palletWeight
                 XmlAttribute palletWeightAttribute = xmlDoc.CreateAttribute("PalletWeight");
-                palletWeightAttribute.Value = string.Format("{0:0.00}", desc.PalletWeight);
+                palletWeightAttribute.Value = UnitsManager.ConvertMassTo(desc.PalletWeight, UnitsManager.UnitSystem.UNIT_METRIC1).ToString(CultureInfo.InvariantCulture);
                 solutionElt.Attributes.Append(palletWeightAttribute);
                 // case count
                 XmlAttribute caseCount = xmlDoc.CreateAttribute("CaseCount");

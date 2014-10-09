@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,489 +59,489 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="PatternCollumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\PatternCollumn.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="PatternInterlocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\PatternInterlocked.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
-	<data name="ID_LOADHEIGHT" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Analysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PatternCollumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PatternCollumn.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PatternInterlocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PatternInterlocked.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Truck.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileSaveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View270" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OptimalCase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileOpen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AnalysisStackingStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
     <value>積載の高さ（mm）</value>
   </data>
-	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>矛盾：最大値は {0} は最小値 {1} よりも小さいです</value>
   </data>
-	<data name="ID_PALLETHEIGHT" xml:space="preserve">
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>パレットの高さ（mm）</value>
   </data>
-	<data name="ID_FILENOTFOUND" xml:space="preserve">
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
     <value>ファイル{0}が見つかりませんでした</value>
   </data>
-	<data name="ID_PALLETCOUNT" xml:space="preserve">
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
     <value>パレットの数</value>
   </data>
-	<data name="ID_CLOSE" xml:space="preserve">
+  <data name="ID_CLOSE" xml:space="preserve">
     <value>閉じる</value>
   </data>
-	<data name="ID_NODE_BOXES" xml:space="preserve">
+  <data name="ID_NODE_BOXES" xml:space="preserve">
     <value>ボックス</value>
   </data>
-	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
     <value>代替のレイヤーに沿わせる</value>
   </data>
-	<data name="ID_SENDTODATABASE" xml:space="preserve">
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
     <value>データベースに送る</value>
   </data>
-	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
     <value>少なくとも1つの垂直軸を定義する</value>
   </data>
-	<data name="ID_DELETE" xml:space="preserve">
+  <data name="ID_DELETE" xml:space="preserve">
     <value>{0}を削除します。</value>
   </data>
-	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
     <value>新しいケースの解析を追加...</value>
   </data>
-	<data name="ID_SELECTED" xml:space="preserve">
+  <data name="ID_SELECTED" xml:space="preserve">
     <value>選択</value>
   </data>
-	<data name="ID_AREA" xml:space="preserve">
+  <data name="ID_AREA" xml:space="preserve">
     <value>面積</value>
   </data>
-	<data name="ID_CASECOUNT" xml:space="preserve">
+  <data name="ID_CASECOUNT" xml:space="preserve">
     <value>ケース数</value>
   </data>
-	<data name="ID_CASESPALLET" xml:space="preserve">
+  <data name="ID_CASESPALLET" xml:space="preserve">
     <value>ケース/パレット</value>
   </data>
-	<data name="ID_ADDNEWBOX" xml:space="preserve">
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
     <value>新しいボックスを追加...</value>
   </data>
-	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
     <value>[名前] フィールドは空です</value>
   </data>
-	<data name="ID_EFFICIENCY" xml:space="preserve">
+  <data name="ID_EFFICIENCY" xml:space="preserve">
     <value>効率（％）</value>
   </data>
-	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
     <value>内側の長さ（{0}）は長さ （{1}） よりも小さいはずです</value>
   </data>
-	<data name="ID_A3" xml:space="preserve">
+  <data name="ID_A3" xml:space="preserve">
     <value>A3</value>
   </data>
-	<data name="ID_DATABASEEMPTY" xml:space="preserve">
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>パレットのソリューションのデータベースは空です。
 の閉会のフォーム...</value>
   </data>
-	<data name="ID_WIDTH" xml:space="preserve">
+  <data name="ID_WIDTH" xml:space="preserve">
     <value>幅</value>
   </data>
-	<data name="ID_LAYOUT" xml:space="preserve">
+  <data name="ID_LAYOUT" xml:space="preserve">
     <value>レイアウト</value>
   </data>
-	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
     <value>新しい中間層を追加...</value>
   </data>
-	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
     <value>選択を解除ソリューション{0}</value>
   </data>
-	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
     <value>新しいトラックの解析を追加...</value>
   </data>
-	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
     <value>内側の高さ（{0}）は高さ（{1}）よりも低くなるはずである</value>
   </data>
-	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
     <value>新しい解析を追加...</value>
   </data>
-	<data name="ID_LAYERPATTERN" xml:space="preserve">
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>レイヤー パターン</value>
   </data>
-	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
     <value>少なくとも一つのストップスタッキング基準を定義します</value>
   </data>
-	<data name="ID_NODE_CASES" xml:space="preserve">
+  <data name="ID_NODE_CASES" xml:space="preserve">
     <value>ケース</value>
   </data>
-	<data name="ID_NODE_PALLETS" xml:space="preserve">
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>パレット</value>
   </data>
-	<data name="ID_INVALIDNAME" xml:space="preserve">
+  <data name="ID_INVALIDNAME" xml:space="preserve">
     <value>指定された名前（{0}）が無効です。</value>
   </data>
-	<data name="ID_A2" xml:space="preserve">
+  <data name="ID_A2" xml:space="preserve">
     <value>A2</value>
   </data>
-	<data name="ID_LAYERS" xml:space="preserve">
+  <data name="ID_LAYERS" xml:space="preserve">
     <value>レイヤー</value>
   </data>
-	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
     <value>内側の幅（{0}）は幅（{1}）よりも小さくしてください</value>
   </data>
-	<data name="ID_ABOUT" xml:space="preserve">
+  <data name="ID_ABOUT" xml:space="preserve">
     <value>{0} について</value>
   </data>
-	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
     <value>少なくとも一つのスタッキングのパターンを定義します。</value>
   </data>
-	<data name="ID_A1" xml:space="preserve">
+  <data name="ID_A1" xml:space="preserve">
     <value>A1</value>
   </data>
-	<data name="ID_LOADWEIGHT" xml:space="preserve">
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
     <value>積載（kg）</value>
   </data>
-	<data name="ID_GENERATEREPORT" xml:space="preserve">
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
     <value>{0}のレポートを生成</value>
   </data>
-	<data name="ID_NODE_TRUCKS" xml:space="preserve">
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
     <value>トラック</value>
   </data>
-	<data name="ID_NODE_BUNDLES" xml:space="preserve">
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
     <value>バンドル</value>
   </data>
-	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
     <value>[詳細]フィールドは空です</value>
   </data>
-	<data name="ID_READY" xml:space="preserve">
+  <data name="ID_READY" xml:space="preserve">
     <value>準備</value>
   </data>
-	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
     <value>新しいバンドルを追加...</value>
   </data>
-	<data name="ID_INDEX" xml:space="preserve">
+  <data name="ID_INDEX" xml:space="preserve">
     <value>インデックス</value>
   </data>
-	<data name="ID_EDIT" xml:space="preserve">
+  <data name="ID_EDIT" xml:space="preserve">
     <value>編集{0} ...</value>
   </data>
-	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
     <value>新しいバンドルの解析を追加...</value>
   </data>
-	<data name="ID_HEIGHT" xml:space="preserve">
+  <data name="ID_HEIGHT" xml:space="preserve">
     <value>高さ</value>
   </data>
-	<data name="ID_CASESLAYER" xml:space="preserve">
+  <data name="ID_CASESLAYER" xml:space="preserve">
     <value>ケース/レイヤ</value>
   </data>
-	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
     <value>インターレイヤー</value>
   </data>
-	<data name="ID_NODE_ANALYSES" xml:space="preserve">
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
     <value>解析</value>
   </data>
-	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
     <value>{0}のいくつかによって分析されています。
 もし変更を続行、分析を再計算し、選択された任意のソリューションが削除されます。
 続行は？</value>
   </data>
-	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>ファイル{0}を保存しますか？</value>
   </data>
-	<data name="ID_PALLETWEIGHT" xml:space="preserve">
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>パレットの重量（kg）</value>
   </data>
-	<data name="ID_ADDNEWCASE" xml:space="preserve">
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
     <value>新しいケースを追加...</value>
   </data>
-	<data name="ID_LENGTH" xml:space="preserve">
+  <data name="ID_LENGTH" xml:space="preserve">
     <value>長さ</value>
   </data>
-	<data name="ID_ADDNEWPALLET" xml:space="preserve">
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
     <value>新しいパレットを追加...</value>
   </data>
-	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
     <value>{0} {1}をパックするのに十分な最大ボリュームです。</value>
   </data>
-	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>新しいトラックを追加...</value>
   </data>
-	<data name="ID_VERSION" xml:space="preserve">
+  <data name="ID_VERSION" xml:space="preserve">
     <value>バージョン：{0}</value>
   </data>
-	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
-		<value>{0} のWord版レポートを作成</value>
-	</data>
-	<data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
-		<value>パレット {0} の編集...</value>
-	</data>
-	<data name="ID_GENERATEREPORTHTML" xml:space="preserve">
-		<value>{0} のHTML版レポートを作成</value>
-	</data>
-	<data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
-		<value>新規の ECT 解析を追加...</value>
-	</data>
-	<data name="ID_ECT" xml:space="preserve">
-		<value>ECT</value>
-	</data>
-	<data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
-		<value>無効な制約があるので分析できません</value>
-	</data>
-	<data name="ID_DESELECT" xml:space="preserve">
-		<value>選択解除</value>
-	</data>
-	<data name="ID_BOXCASECOUNT" xml:space="preserve">
-		<value>ボックス</value>
-	</data>
-	<data name="ID_CASE" xml:space="preserve">
-		<value>ケース</value>
-	</data>
-	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
-		<value>重さ</value>
-	</data>
-	<data name="ID_CASEDIMENSIONS" xml:space="preserve">
-		<value>ケースの大きさ</value>
-	</data>
-	<data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
-		<value>ケースの内寸</value>
-	</data>
-	<data name="ID_PALLETLIMIT" xml:space="preserve">
-		<value>限界に達しました</value>
-	</data>
-	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
-		<value>効率 (%)</value>
-	</data>
-	<data name="ID_GENERATECOLLADA" xml:space="preserve">
-		<value>{0} の 3D アニメーションファイルの生成</value>
-	</data>
-	<data name="ID_CASEPERPALLET" xml:space="preserve">
-		<value>ケース/パレット</value>
-	</data>
-	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
-		<value>Collada/webGL アニメーションをみるには Google Chrome をインストールして下さい。</value>
-	</data>
-	<data name="ID_NAME" xml:space="preserve">
-		<value>名前</value>
-	</data>
-	<data name="ID_ORIENTATION" xml:space="preserve">
-		<value>目的</value>
-	</data>
-	<data name="ID_EDGECRUSHTEST" xml:space="preserve">
-		<value>エッジ・クラッシュ解析</value>
-	</data>
-	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
-		<value>ナンバー</value>
-	</data>
-	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
-		<value>高さ</value>
-	</data>
-	<data name="ID_WEIGHT" xml:space="preserve">
-		<value>重さ</value>
-	</data>
-	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
-		<value>効率 (%)</value>
-	</data>
-	<data name="ID_SELECT" xml:space="preserve">
-		<value>選択してください</value>
-	</data>
-	<data name="ID_LAYERPATTERNS" xml:space="preserve">
-		<value>レイヤー・パターン</value>
-	</data>
-	<data name="ID_BOXCOUNT" xml:space="preserve">
-		<value>ボックス/ケース</value>
-	</data>
-	<data name="ID_NODE_CYLINDERS" xml:space="preserve">
-		<value>シリンダー</value>
-	</data>
-	<data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
-		<value>新しいボックス/ケース/パレット解析を追加</value>
-	</data>
-	<data name="ID_ADDNEWCYLINDER" xml:space="preserve">
-		<value>新しいシリンダーを追加…</value>
-	</data>
-	<data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
-		<value>新しいシリンダー解析を追加…</value>
-	</data>
-	<data name="ID_CASELIMIT" xml:space="preserve">
-		<value>限界に達しました</value>
-	</data>
-	<data name="ID_CASEWEIGHT" xml:space="preserve">
-		<value>ケース重量 ({0})</value>
-	</data>
-	<data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
-		<value>ケースの最大重量 {0} {1} を超えています</value>
-	</data>
-	<data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
-		<value>パレットが選択されていません</value>
-	</data>
-	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-		<value>最大のパレット高さ ({0} {1}) に対して {2} {3} は大き過ぎます。</value>
-	</data>
-	<data name="ID_GENERATEREPORTPDF" xml:space="preserve">
-		<value>{0} の PDF リポートを生成</value>
-	</data>
-	<data name="ID_BOX" xml:space="preserve">
-		<value>ボックス</value>
-	</data>
-	<data name="ID_FIELDNAMEINVALID" xml:space="preserve">
-		<value>この名前は既に使われています</value>
-	</data>
-	<data name="ID_TRUCK" xml:space="preserve">
-		<value>トラック</value>
-	</data>
-	<data name="ID_ANALYSIS" xml:space="preserve">
-		<value>解析</value>
-	</data>
-	<data name="ID_BUNDLE" xml:space="preserve">
-		<value>バンドル</value>
-	</data>
-	<data name="ID_CYLINDER" xml:space="preserve">
-		<value>シリンダー</value>
-	</data>
-	<data name="ID_INTERLAYER" xml:space="preserve">
-		<value>インターレイヤー</value>
-	</data>
-	<data name="ID_CASEOFBOXES" xml:space="preserve">
-		<value>ボックスのケース</value>
-	</data>
-	<data name="ID_FILTER_MSWORD" xml:space="preserve">
-		<value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
-	</data>
-	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
-		<value>ボックス {0} はケース {1} に適合しません</value>
-	</data>
+  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+    <value>{0} のWord版レポートを作成</value>
+  </data>
+  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+    <value>パレット {0} の編集...</value>
+  </data>
+  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+    <value>{0} のHTML版レポートを作成</value>
+  </data>
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+    <value>新規の ECT 解析を追加...</value>
+  </data>
+  <data name="ID_ECT" xml:space="preserve">
+    <value>ECT</value>
+  </data>
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+    <value>無効な制約があるので分析できません</value>
+  </data>
+  <data name="ID_DESELECT" xml:space="preserve">
+    <value>選択解除</value>
+  </data>
+  <data name="ID_BOXCASECOUNT" xml:space="preserve">
+    <value>ボックス</value>
+  </data>
+  <data name="ID_CASE" xml:space="preserve">
+    <value>ケース</value>
+  </data>
+  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>重さ</value>
+  </data>
+  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
+    <value>ケースの大きさ</value>
+  </data>
+  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+    <value>ケースの内寸</value>
+  </data>
+  <data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>限界に達しました</value>
+  </data>
+  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>効率 (%)</value>
+  </data>
+  <data name="ID_GENERATECOLLADA" xml:space="preserve">
+    <value>{0} の 3D アニメーションファイルの生成</value>
+  </data>
+  <data name="ID_CASEPERPALLET" xml:space="preserve">
+    <value>ケース/パレット</value>
+  </data>
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+    <value>Collada/webGL アニメーションをみるには Google Chrome をインストールして下さい。</value>
+  </data>
+  <data name="ID_NAME" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="ID_ORIENTATION" xml:space="preserve">
+    <value>目的</value>
+  </data>
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+    <value>エッジ・クラッシュ解析</value>
+  </data>
+  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>ナンバー</value>
+  </data>
+  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>高さ</value>
+  </data>
+  <data name="ID_WEIGHT" xml:space="preserve">
+    <value>重さ ({0})</value>
+  </data>
+  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>効率 (%)</value>
+  </data>
+  <data name="ID_SELECT" xml:space="preserve">
+    <value>選択してください</value>
+  </data>
+  <data name="ID_LAYERPATTERNS" xml:space="preserve">
+    <value>レイヤー・パターン</value>
+  </data>
+  <data name="ID_BOXCOUNT" xml:space="preserve">
+    <value>ボックス/ケース</value>
+  </data>
+  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
+    <value>シリンダー</value>
+  </data>
+  <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+    <value>新しいボックス/ケース/パレット解析を追加</value>
+  </data>
+  <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+    <value>新しいシリンダーを追加…</value>
+  </data>
+  <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+    <value>新しいシリンダー解析を追加…</value>
+  </data>
+  <data name="ID_CASELIMIT" xml:space="preserve">
+    <value>限界に達しました</value>
+  </data>
+  <data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>ケース重量 ({0})</value>
+  </data>
+  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+    <value>ケースの最大重量 {0} {1} を超えています</value>
+  </data>
+  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+    <value>パレットが選択されていません</value>
+  </data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>最大のパレット高さ ({0} {1}) に対して {2} {3} は大き過ぎます。</value>
+  </data>
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+    <value>{0} の PDF リポートを生成</value>
+  </data>
+  <data name="ID_BOX" xml:space="preserve">
+    <value>ボックス</value>
+  </data>
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+    <value>この名前は既に使われています</value>
+  </data>
+  <data name="ID_TRUCK" xml:space="preserve">
+    <value>トラック</value>
+  </data>
+  <data name="ID_ANALYSIS" xml:space="preserve">
+    <value>解析</value>
+  </data>
+  <data name="ID_BUNDLE" xml:space="preserve">
+    <value>バンドル</value>
+  </data>
+  <data name="ID_CYLINDER" xml:space="preserve">
+    <value>シリンダー</value>
+  </data>
+  <data name="ID_INTERLAYER" xml:space="preserve">
+    <value>インターレイヤー</value>
+  </data>
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
+    <value>ボックスのケース</value>
+  </data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
+  </data>
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+    <value>ボックス {0} はケース {1} に適合しません</value>
+  </data>
 </root>

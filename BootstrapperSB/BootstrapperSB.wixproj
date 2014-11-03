@@ -20,6 +20,21 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+  <!-- this makes wix sign everything it can -->
+  <SignOutput>true</SignOutput>
+ </PropertyGroup>
+  <PropertyGroup>
+  <!-- signtool configuration -->
+  <signTool>"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe"</signTool>
+  <timeStampServer>http://timestamp.comodoca.com/authenticode</timeStampServer>
+  <signKey>"K:\GitHub\StackBuilder\Signing\treeDiM.pfx"</signKey>
+  <signToolCall>$(signtool) sign  /f $(signKey) /p Knowledge_1 /t $(timeStampServer)</signToolCall>
+  </PropertyGroup>
+  <PropertyGroup>
+  <!-- this makes wix sign everything it can -->
+  <SignOutput>true</SignOutput>
+ </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bundle.wxs" />
   </ItemGroup>
@@ -37,6 +52,18 @@
     <Content Include="RtfTheme.xml" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
+  <Target Name="SignCabs">
+  <Exec Command="$(signToolCall) &quot;%(SignCabs.FullPath)&quot;" />
+ </Target>
+  <Target Name="SignMsi">
+  <Exec Command="$(signToolCall) &quot;%(SignMsi.FullPath)&quot;" />
+ </Target>
+  <Target Name="SignBundleEngine">
+  <Exec Command="$(signToolCall) &quot;@(SignBundleEngine)&quot;" />
+ </Target>
+  <Target Name="SignBundle" >
+  <Exec Command="$(signToolCall) &quot;@(SignBundle)&quot;" />
+ </Target>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
 	Other similar extension points exist, see Wix.targets.
@@ -44,8 +71,8 @@
 	</Target>
 	<Target Name="AfterBuild">
 	</Target>
-	-->
-  <Target Name="AfterBuild">
+  -->
+  <Target Name="AfterSigning" DependsOnTargets="SignBundle">
     <GetAssemblyIdentity AssemblyFiles="..\TreeDim.StackBuilder.Desktop\bin\$(Configuration)\TreeDim.StackBuilder.Desktop.exe">
       <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
     </GetAssemblyIdentity>

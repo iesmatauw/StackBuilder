@@ -58,10 +58,6 @@
       <Project>{444C01D0-53FD-49A1-9D55-267B49161357}</Project>
       <Name>TreeDim.StackBuilder.Basics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.SQLite\TreeDim.StackBuilder.SQLite.csproj">
-      <Project>{7F2C7280-F996-4548-A856-D2DFBF37489E}</Project>
-      <Name>TreeDim.StackBuilder.SQLite</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

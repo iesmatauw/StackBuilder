@@ -75,8 +75,6 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BootstrapperSB", "Bootstrap
 		{125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B} = {125DBC33-AA7A-4F67-BD19-3D0BD6C6BA9B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.SQLite", "TreeDim.StackBuilder.SQLite\TreeDim.StackBuilder.SQLite.csproj", "{7F2C7280-F996-4548-A856-D2DFBF37489E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.SQLite.Test", "TreeDim.StackBuilder.SQLite.Test\TreeDim.StackBuilder.SQLite.Test.csproj", "{62F4E02B-4CBD-4DBA-9A19-C307C0DF3993}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDim.StackBuilder.GUIExtension", "TreeDim.StackBuilder.GUIExtension\TreeDim.StackBuilder.GUIExtension.csproj", "{E335B93B-F816-44E9-B4BB-612FF1673637}"
@@ -329,16 +327,6 @@ Global
 		{A4249447-3954-42AB-AF4A-AEEB007BA105}.Release|Mixed Platforms.Build.0 = Release|x86
 		{A4249447-3954-42AB-AF4A-AEEB007BA105}.Release|x86.ActiveCfg = Release|x86
 		{A4249447-3954-42AB-AF4A-AEEB007BA105}.Release|x86.Build.0 = Release|x86
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7F2C7280-F996-4548-A856-D2DFBF37489E}.Release|x86.ActiveCfg = Release|Any CPU
 		{62F4E02B-4CBD-4DBA-9A19-C307C0DF3993}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{62F4E02B-4CBD-4DBA-9A19-C307C0DF3993}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{62F4E02B-4CBD-4DBA-9A19-C307C0DF3993}.Debug|Mixed Platforms.Build.0 = Debug|x86

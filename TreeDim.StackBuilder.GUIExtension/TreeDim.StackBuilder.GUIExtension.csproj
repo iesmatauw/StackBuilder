@@ -120,10 +120,6 @@
       <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
       <Name>TreeDim.StackBuilder.Reporting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TreeDim.StackBuilder.SQLite\TreeDim.StackBuilder.SQLite.csproj">
-      <Project>{7F2C7280-F996-4548-A856-D2DFBF37489E}</Project>
-      <Name>TreeDim.StackBuilder.SQLite</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TreeDim.UserControls\TreeDim.UserControls.csproj">
       <Project>{7FF9B713-8D36-4887-BF50-2B9E2B28808D}</Project>
       <Name>TreeDim.UserControls</Name>
@@ -169,6 +165,9 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)\Signing\signtool.exe sign /f "$(SolutionDir)\Signing\treeDiM.pfx" /p Knowledge_1 /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

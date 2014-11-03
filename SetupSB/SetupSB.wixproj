@@ -67,6 +67,6 @@
     <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="My Application Name" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="$(DevEnvDir)..\..\..\Microsoft SDKs\Windows\v7.0A\Bootstrapper\" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent />
+    <PostBuildEvent>$(SolutionDir)\Signing\signtool.exe sign /f "$(SolutionDir)\Signing\treeDiM.pfx" /p Knowledge_1 /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
 </Project>

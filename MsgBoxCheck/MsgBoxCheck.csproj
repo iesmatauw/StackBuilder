@@ -146,7 +146,6 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>$(SolutionDir)\Signing\signtool.exe sign /f "$(SolutionDir)\Signing\treeDiM.pfx" /p Knowledge_1 /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
 </Project>

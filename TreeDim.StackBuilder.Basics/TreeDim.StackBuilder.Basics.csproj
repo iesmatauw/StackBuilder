@@ -74,6 +74,7 @@
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="Analyses\BoxCaseAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
+    <Compile Include="Helpers\CylinderPosition.cs" />
     <Compile Include="Solutions\BoxCaseSolution.cs" />
     <Compile Include="Analyses\CaseOptimAnalysis.cs" />
     <Compile Include="Analyses\ECTAnalysis.cs" />
@@ -150,6 +151,9 @@
     <Folder Include="Schemas\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)\Signing\signtool.exe sign /f "$(SolutionDir)\Signing\treeDiM.pfx" /p Knowledge_1 /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

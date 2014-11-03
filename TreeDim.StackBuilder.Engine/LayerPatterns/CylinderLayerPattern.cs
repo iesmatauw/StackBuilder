@@ -9,6 +9,7 @@ using log4net;
 
 namespace TreeDim.StackBuilder.Engine
 {
+    #region CylinderLayerPattern
     internal abstract class CylinderLayerPattern
     {
         #region Abstract methods
@@ -81,4 +82,14 @@ namespace TreeDim.StackBuilder.Engine
         protected static readonly ILog _log = LogManager.GetLogger(typeof(CylinderLayerPattern));
         #endregion
     }
+    #endregion
+
+    #region CylinderLayerPatternHorizontal
+    internal abstract class CylinderLayerPatternHorizontal
+    {
+        #region Data members
+
+        #endregion
+    }
+    #endregion
 }

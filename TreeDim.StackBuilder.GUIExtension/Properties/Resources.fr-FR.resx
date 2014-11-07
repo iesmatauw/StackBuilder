@@ -123,11 +123,29 @@
   <data name="ID_ANALYSISNAME" xml:space="preserve">
     <value>{0}_sur_{1}</value>
   </data>
+  <data name="ID_AREA" xml:space="preserve">
+    <value>Surface</value>
+  </data>
   <data name="ID_CASECOUNT" xml:space="preserve">
     <value>Caisses</value>
   </data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Caisses/Couches</value>
+  </data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Caisses/Palettes</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+    <value>Hauteur</value>
+  </data>
   <data name="ID_INDEX" xml:space="preserve">
     <value>Index</value>
+  </data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>La hauteur maximale de la palette ({0}{1}) devrait être supérieur à  {1}{2}</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Le volume maximum est insuffisant pour emballer {0} {1}.</value>
   </data>
   <data name="ID_LAYERPATTERN" xml:space="preserve">
     <value>Couches</value>
@@ -149,6 +167,9 @@
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Masse</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Prêt</value>
   </data>
   <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Efficacité volumique (%)</value>

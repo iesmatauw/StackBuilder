@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="MergeRedirectFolder">
+        <Directory Id="BIN32" Name="Bin32"/>
+        <Directory Id="REPORTTEMPLATES" Name="ReportTemplates"/>
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>

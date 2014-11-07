@@ -125,7 +125,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbReportType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 11</value>
+    <value>101, 10</value>
   </data>
   <data name="cbReportType.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 21</value>
@@ -198,7 +198,7 @@
     <value>4</value>
   </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 39</value>
+    <value>473, 36</value>
   </data>
   <data name="bnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -225,7 +225,7 @@
     <value>True</value>
   </data>
   <data name="lbPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 39</value>
+    <value>15, 41</value>
   </data>
   <data name="lbPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 13</value>
@@ -249,7 +249,7 @@
     <value>2</value>
   </data>
   <data name="fileSelectCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 41</value>
+    <value>101, 37</value>
   </data>
   <data name="fileSelectCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>361, 20</value>
@@ -261,7 +261,7 @@
     <value>fileSelectCtrl</value>
   </data>
   <data name="&gt;&gt;fileSelectCtrl.Type" xml:space="preserve">
-    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.4793.26962, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.UserControls.FileSelect, TreeDim.UserControls, Version=1.0.5422.38419, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fileSelectCtrl.Parent" xml:space="preserve">
     <value>$this</value>

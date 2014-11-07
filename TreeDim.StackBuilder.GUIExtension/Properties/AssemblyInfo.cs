@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("treeDiM")]
 [assembly: AssemblyProduct("TreeDim.StackBuilder.GUIExtension")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2013")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
+[assembly: AssemblyTrademark("treeDiM")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

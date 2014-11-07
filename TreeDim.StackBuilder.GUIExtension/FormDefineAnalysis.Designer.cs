@@ -53,7 +53,6 @@
             this.bnRevertX = new System.Windows.Forms.Button();
             this.gbPallet = new System.Windows.Forms.GroupBox();
             this.lbDescription = new System.Windows.Forms.Label();
-            this.bnEditPalletList = new System.Windows.Forms.Button();
             this.lbPalletDescription = new System.Windows.Forms.Label();
             this.pbPallet = new System.Windows.Forms.PictureBox();
             this.cbPallet = new System.Windows.Forms.ComboBox();
@@ -293,7 +292,6 @@
             // gbPallet
             // 
             this.gbPallet.Controls.Add(this.lbDescription);
-            this.gbPallet.Controls.Add(this.bnEditPalletList);
             this.gbPallet.Controls.Add(this.lbPalletDescription);
             this.gbPallet.Controls.Add(this.pbPallet);
             this.gbPallet.Controls.Add(this.cbPallet);
@@ -306,13 +304,6 @@
             // 
             resources.ApplyResources(this.lbDescription, "lbDescription");
             this.lbDescription.Name = "lbDescription";
-            // 
-            // bnEditPalletList
-            // 
-            resources.ApplyResources(this.bnEditPalletList, "bnEditPalletList");
-            this.bnEditPalletList.Name = "bnEditPalletList";
-            this.bnEditPalletList.UseVisualStyleBackColor = true;
-            this.bnEditPalletList.Click += new System.EventHandler(this.bnEditPalletList_Click);
             // 
             // lbPalletDescription
             // 
@@ -525,7 +516,6 @@
         private System.Windows.Forms.Button bnRevertX;
         private System.Windows.Forms.GroupBox gbPallet;
         private System.Windows.Forms.Label lbDescription;
-        private System.Windows.Forms.Button bnEditPalletList;
         private System.Windows.Forms.Label lbPalletDescription;
         private System.Windows.Forms.PictureBox pbPallet;
         private System.Windows.Forms.ComboBox cbPallet;

@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
@@ -41,14 +41,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.90.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Data.SQLite.1.0.90.0\lib\net40\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.90.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Data.SQLite.1.0.90.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -126,19 +118,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormDefineAnalysis.fr.resx">
+    <EmbeddedResource Include="FormDefineAnalysis.fr-FR.resx">
       <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineAnalysis.resx">
       <DependentUpon>FormDefineAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineCaseOptimization.fr-FR.resx">
+      <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDefineCaseOptimization.resx">
       <DependentUpon>FormDefineCaseOptimization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDefineReport.fr-FR.resx">
+      <DependentUpon>FormDefineReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDefineReport.resx">
       <DependentUpon>FormDefineReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSelectSolution.fr.resx">
+    <EmbeddedResource Include="FormSelectSolution.fr-FR.resx">
       <DependentUpon>FormSelectSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectSolution.resx">
@@ -166,7 +164,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)\Signing\signtool.exe sign /f "$(SolutionDir)\Signing\treeDiM.pfx" /p Knowledge_1 /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\signtool.exe" sign /f "$(SolutionDir)\Signing\treeDiM.pfx" /p Knowledge_1 /t http://timestamp.comodoca.com/authenticode $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

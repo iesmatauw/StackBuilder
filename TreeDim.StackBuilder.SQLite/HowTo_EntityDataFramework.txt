@@ -1,8 +1,0 @@
-1 - download sqlite-netFx40-binary-bundle-Win32-2010-1.0.86.0.zip from:
-	http://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki
-2 - extract to a folder
-3 - open Visual Studio command prompt and go to folder where files were extracted.
-4 - mark the installer.exe as 32 bit using the following command:
-	corflags /32BIT+ /Force Installer.exe
-5 - install data provider using the following command:
-	installer -confirm true -whatif false -install true

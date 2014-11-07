@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
-using TreeDim.StackBuilder.SQLite;
 
 #endregion
 
@@ -147,10 +146,6 @@ namespace TreeDim.StackBuilder.GUIExtension
             // update pallet image
             DrawPallet();
         }
-        private void bnEditPalletList_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CaseDimensionChanged(object sender, EventArgs e)
         {
@@ -174,18 +169,23 @@ namespace TreeDim.StackBuilder.GUIExtension
         {
             string palletName = Properties.Settings.Default.PalletName;
             int selectedIndex = -1;
+            List<PalletProperties> pallets = new List<PalletProperties>();
 
-            using (ItemStore itemStore = new ItemStore())
+            pallets.Add(new PalletProperties(null, "BLOCK", 1200.0, 1000.0, 150.0)); pallets[0].Name = "Block";  pallets[0].Description = "Wood block";
+            pallets.Add(new PalletProperties(null, "UK Standard", 1200.0, 1000.0, 150.0)); pallets[1].Name = "Standard UK"; pallets[1].Description = "Standard UK pallet";
+            pallets.Add(new PalletProperties(null, "GMA 48x40", 1219.2, 1016.0, 120.7)); pallets[2].Name = "GMA 48x40"; pallets[2].Description = "Grocery Manufacturer Association (North America)";
+            pallets.Add(new PalletProperties(null, "EUR", 1200.0, 800.0, 144.0)); pallets[3].Name = "EUR"; pallets[3].Description = "EUR-EPAL (European Pallet Association)";
+            pallets.Add(new PalletProperties(null, "EUR2", 1200.0, 1000.0, 144.0)); pallets[4].Name = "EUR2"; pallets[4].Description = "EUR2-EPAL (European Pallet Association)";
+            pallets.Add(new PalletProperties(null, "EUR3", 1200.0, 1000.0, 144.0)); pallets[5].Name = "EUR3"; pallets[5].Description = "EUR3-EPAL (European Pallet Association)";
+            pallets.Add(new PalletProperties(null, "EUR6", 800.0, 600.0, 144.0)); pallets[6].Name = "EUR6"; pallets[6].Description = "EUR6-EPAL (European Pallet Association)";
+
+            int i = 0;
+            foreach (PalletProperties pallet in pallets)
             {
-                List<PalletProperties> pallets = itemStore.GetAllPallets();
-                int i = 0;
-                foreach (PalletProperties pallet in pallets)
-                {
-                    cbPallet.Items.Add(new PalletItem(pallet));
-                    if (palletName == pallet.Name)
-                        selectedIndex = i;
-                    ++i;
-                }
+                cbPallet.Items.Add(new PalletItem(pallet));
+                if (palletName == pallet.Name)
+                    selectedIndex = i;
+                ++i;
             }
 
             cbPallet.SelectedIndex = selectedIndex;

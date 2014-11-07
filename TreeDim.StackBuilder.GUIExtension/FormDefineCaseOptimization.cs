@@ -7,13 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
 
 using log4net;
 
 using TreeDim.StackBuilder.Basics;
 using TreeDim.StackBuilder.Graphics;
-using TreeDim.StackBuilder.SQLite;
 using TreeDim.StackBuilder.Engine;
+using TreeDim.StackBuilder.Reporting;
 
 using Sharp3D.Math.Core;
 
@@ -191,7 +193,7 @@ namespace TreeDim.StackBuilder.GUIExtension
 
                 // fill grid using solutions
                 FillGrid();
-                UpdateButtonAddSolutionStatus();
+                UpdateToolbarButtons();
             }
             catch (Exception ex)
             {
@@ -214,7 +216,7 @@ namespace TreeDim.StackBuilder.GUIExtension
                 // redraw
                 Draw();
                 // update "Add solution" button status
-                UpdateButtonAddSolutionStatus();
+                UpdateToolbarButtons();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -232,24 +234,181 @@ namespace TreeDim.StackBuilder.GUIExtension
         }
         #endregion
 
+        #region Toolbar handlers
+        private void toolStripButtonReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Document doc;
+                CasePalletAnalysis analysis;
+                CasePalletSolution casePalletSol;
+                if (!GenerateProject(out doc, out analysis, out casePalletSol))
+                    return;
+                SelCasePalletSolution selSolution = new SelCasePalletSolution(doc, analysis, casePalletSol);
+
+                // define report
+                FormDefineReport formReport = new FormDefineReport();
+                formReport.ProjectName = doc.Name;
+                if (DialogResult.OK != formReport.ShowDialog())
+                    return;
+
+                Reporter.CompanyLogo = string.Empty;
+                Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
+                Reporter reporter;
+
+                ReportData reportData = new ReportData(analysis, selSolution);
+
+                if (formReport.FileExtension == "doc")
+                {
+                    // create "MS Word" report file
+                    reporter = new ReporterMSWord(
+                        reportData
+                        , Settings.Default.ReportTemplatePath
+                        , formReport.FilePath
+                        , new Margins());
+                }
+                else if (formReport.FileExtension == "html")
+                {
+                    // create "html" report file
+                    reporter = new ReporterHtml(
+                        reportData
+                        , Settings.Default.ReportTemplatePath
+                        , formReport.FilePath);
+                }
+                else
+                    return;
+
+                // open file
+                if (formReport.OpenGeneratedFile)
+                    Process.Start(new ProcessStartInfo(formReport.FilePath));
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString()); 
+            }
+        }
+
+        private void toolStripButtonStackBuilder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Document doc;
+                CasePalletAnalysis analysis;
+                CasePalletSolution casePalletSol;
+                if (!GenerateProject(out doc, out analysis, out casePalletSol))
+                    return;
+                if (DialogResult.OK == saveFileDialogAsStb.ShowDialog())
+                {
+                    // save as stb document
+                    doc.Write(saveFileDialogAsStb.FileName);
+                    // open file
+                    Process.Start(new ProcessStartInfo(saveFileDialogAsStb.FileName));
+                }
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+
+        private bool GenerateProject(out Document doc, out CasePalletAnalysis analysis, out CasePalletSolution casePalletSolution)
+        {
+            doc = null;
+            analysis = null;
+            casePalletSolution = null;
+
+            try
+            {
+                // build solution
+                doc = new Document(
+                    _boxName,
+                    string.Format(Properties.Resources.ID_OPTDOCUMENTDESCRIPTION, _boxName),
+                    string.Empty,
+                    DateTime.Now,
+                    null);
+                // box
+                BoxProperties boxProperties = doc.CreateNewBox(SelectedBox);
+                // pallet
+                PalletProperties palletProperties = doc.CreateNewPallet(SelectedPallet);
+                // get selected caseOptimSolution
+                CaseOptimSolution sol = SelectedSolution;
+                CaseOptimArrangement arrangement = sol.CaseDefinition.Arrangement;
+                // build new case name
+                string arrangName = string.Format("{0}_{1}x{2}x{3}_{4}{5}"
+                    , boxProperties.Name
+                    , arrangement._iLength
+                    , arrangement._iWidth
+                    , arrangement._iHeight
+                    , sol.CaseDefinition.Dim0
+                    , sol.CaseDefinition.Dim1);
+                // build new case description
+                string description = string.Format(
+                    Properties.Resources.ID_OPTCASEDESCRIPTION
+                    , boxProperties.Name
+                    , palletProperties.Name);
+                // add new case
+                CaseOfBoxesProperties caseProperties = doc.CreateNewCaseOfBoxes(
+                    arrangName, description
+                    , boxProperties
+                    , sol.CaseDefinition
+                    , BuildCaseOptimConstraintSet());
+                // set color
+                caseProperties.SetColor(Color.Chocolate);
+                // add new pallet analysis
+                string analysisName = string.Format(
+                    Properties.Resources.ID_OPTANALYSISNAME
+                    , boxProperties.Name
+                    , boxProperties.Name
+                    , arrangement._iLength
+                    , arrangement._iWidth
+                    , arrangement._iHeight
+                    , sol.CaseDefinition.Dim0
+                    , sol.CaseDefinition.Dim1);
+                string analysisDescription = string.Format(
+                    Properties.Resources.ID_OPTANALYSISDESCRIPTION
+                    , boxProperties.Name
+                    , palletProperties.Name);
+                List<CasePalletSolution> palletSolutionList = new List<CasePalletSolution>();
+                palletSolutionList.Add(sol.PalletSolution);
+                analysis = doc.CreateNewCasePalletAnalysis(
+                    analysisName
+                    , analysisDescription
+                    , caseProperties
+                    , palletProperties
+                    , null
+                    , BuildPalletConstraintSet()
+                    , palletSolutionList);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
         #region Helpers
         private void LoadPallets()
         {
             string palletName = Properties.Settings.Default.PalletName;
             int selectedIndex = -1;
 
-            using (ItemStore itemStore = new ItemStore())
+            List<PalletProperties> pallets = new List<PalletProperties>();
+
+            pallets.Add(new PalletProperties(null, "BLOCK", 1200.0, 1000.0, 150.0)); pallets[0].Name = "Block"; pallets[0].Description = "Wood block";
+            pallets.Add(new PalletProperties(null, "UK Standard", 1200.0, 1000.0, 150.0)); pallets[1].Name = "Standard UK"; pallets[1].Description = "Standard UK pallet";
+            pallets.Add(new PalletProperties(null, "GMA 48*40", 1219.2, 1016.0, 120.7)); pallets[2].Name = "GMA 48*40"; pallets[2].Description = "Grocery Manufacturer Association (North America)";
+            pallets.Add(new PalletProperties(null, "EUR", 1200.0, 800.0, 144.0)); pallets[3].Name = "EUR"; pallets[3].Description = "EUR-EPAL (European Pallet Association)";
+            pallets.Add(new PalletProperties(null, "EUR2", 1200.0, 1000.0, 144.0)); pallets[4].Name = "EUR2"; pallets[4].Description = "EUR2-EPAL (European Pallet Association)";
+            pallets.Add(new PalletProperties(null, "EUR3", 1200.0, 1000.0, 144.0)); pallets[5].Name = "EUR3"; pallets[5].Description = "EUR3-EPAL (European Pallet Association)";
+            pallets.Add(new PalletProperties(null, "EUR6", 800.0, 600.0, 144.0)); pallets[6].Name = "EUR6"; pallets[6].Description = "EUR6-EPAL (European Pallet Association)";
+
+            int i = 0;
+            foreach (PalletProperties pallet in pallets)
             {
-                List<PalletProperties> pallets = itemStore.GetAllPallets();
-                int i = 0;
-                foreach (PalletProperties pallet in pallets)
-                {
-                    cbPallet.Items.Add(new PalletItem(pallet));
-                    if (palletName == pallet.Name)
-                        selectedIndex = i;
-                    ++i;
-                }           
-            }
+                cbPallet.Items.Add(new PalletItem(pallet));
+                if (palletName == pallet.Name)
+                    selectedIndex = i;
+                ++i;
+            }           
             cbPallet.SelectedIndex = selectedIndex;
         }
 
@@ -518,7 +677,7 @@ namespace TreeDim.StackBuilder.GUIExtension
             catch (Exception ex)
             {   _log.Error(ex.ToString()); }
             Draw();
-            UpdateButtonAddSolutionStatus();
+            UpdateToolbarButtons();
         }
         #endregion
 
@@ -625,11 +784,12 @@ namespace TreeDim.StackBuilder.GUIExtension
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
 
-        private void UpdateButtonAddSolutionStatus()
+        private void UpdateToolbarButtons()
         {
+            bool solutionSelected = (-1 != SelectedSolutionIndex);
+            toolStripButtonReport.Enabled = solutionSelected;
+            toolStripButtonStackBuilder.Enabled = solutionSelected;
         }
         #endregion
-
-
     }
 }

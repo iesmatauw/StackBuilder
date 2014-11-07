@@ -680,30 +680,6 @@
   <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="bnEditPalletList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 19</value>
-  </data>
-  <data name="bnEditPalletList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 21</value>
-  </data>
-  <data name="bnEditPalletList.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="bnEditPalletList.Text" xml:space="preserve">
-    <value>Edit...</value>
-  </data>
-  <data name="&gt;&gt;bnEditPalletList.Name" xml:space="preserve">
-    <value>bnEditPalletList</value>
-  </data>
-  <data name="&gt;&gt;bnEditPalletList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnEditPalletList.Parent" xml:space="preserve">
-    <value>gbPallet</value>
-  </data>
-  <data name="&gt;&gt;bnEditPalletList.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lbPalletDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -729,13 +705,13 @@
     <value>gbPallet</value>
   </data>
   <data name="&gt;&gt;lbPalletDescription.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="pbPallet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 12</value>
+    <value>334, 12</value>
   </data>
   <data name="pbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 87</value>
+    <value>185, 87</value>
   </data>
   <data name="pbPallet.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -750,13 +726,13 @@
     <value>gbPallet</value>
   </data>
   <data name="&gt;&gt;pbPallet.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="cbPallet.Location" type="System.Drawing.Point, System.Drawing">
     <value>73, 19</value>
   </data>
   <data name="cbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 21</value>
+    <value>255, 21</value>
   </data>
   <data name="cbPallet.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -771,7 +747,7 @@
     <value>gbPallet</value>
   </data>
   <data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -798,7 +774,7 @@
     <value>gbPallet</value>
   </data>
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="gbPallet.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 216</value>

@@ -42,7 +42,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ReportTemplatePath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">K:\Codeplex\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NumberWallsLength" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>

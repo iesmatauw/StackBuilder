@@ -268,7 +268,6 @@ namespace TreeDim.StackBuilder.Desktop
                     , BuildCaseOptimConstraintSet());
                 // set color
                 caseProperties.SetColor(Color.Chocolate);
-
                 // add new pallet analysis
                 string analysisName = string.Format("OptimAnalysis{0}_{1}*{2}*{3}_{4}{5}"
                     , boxProperties.Name

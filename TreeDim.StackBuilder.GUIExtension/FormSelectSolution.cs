@@ -234,16 +234,22 @@ namespace TreeDim.StackBuilder.GUIExtension
                 Reporter.CompanyLogo = string.Empty;
                 Reporter.ImageSizeSetting = Reporter.eImageSize.IMAGESIZE_DEFAULT;
                 Reporter reporter;
-                string reportTemplatePath = string.Empty;
                 if (formReport.FileExtension == "doc")
                 {
                    // create "MS Word" report file
-                    reporter = new ReporterMSWord(reportData, Settings.Default.ReportTemplatePath, formReport.FilePath, new Margins());
+                    reporter = new ReporterMSWord(
+                        reportData
+                        , Settings.Default.ReportTemplatePath
+                        , formReport.FilePath
+                        , new Margins());
                 }
                 else if (formReport.FileExtension == "html")
                 {
                     // create "html" report file
-                    reporter = new ReporterHtml(reportData, Settings.Default.ReportTemplatePath, formReport.FilePath);
+                    reporter = new ReporterHtml(
+                        reportData
+                        , Settings.Default.ReportTemplatePath
+                        , formReport.FilePath);
                 }
                 else
                     return;

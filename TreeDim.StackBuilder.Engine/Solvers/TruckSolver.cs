@@ -40,9 +40,9 @@ namespace TreeDim.StackBuilder.Engine
             // build layer using truck length / width
             foreach (LayerPattern pattern in _patterns)
             {
-                for (int swapPos = 0; swapPos < (pattern.CanBeSwaped ? 2 : 1); ++swapPos)
+                for (int swapPos = 0; swapPos < (pattern.CanBeSwapped ? 2 : 1); ++swapPos)
                 {
-                    pattern.Swaped = swapPos == 1;
+                    pattern.Swapped = swapPos == 1;
 
                     for (int orientation = 0; orientation < 2; ++orientation)
                     {

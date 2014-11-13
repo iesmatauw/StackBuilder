@@ -16,7 +16,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Mixed121"; }
         }
-        public override bool CanBeSwaped
+        public override bool CanBeSwapped
         {
             get { return true; }
         }

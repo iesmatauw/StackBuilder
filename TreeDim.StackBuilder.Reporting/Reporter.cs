@@ -689,7 +689,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemDescription.InnerText = cylProperties.Description;
             elemCylinder.AppendChild(elemDescription);
 
-            AppendElementValue(xmlDoc, elemCylinder, "radius", UnitsManager.LengthUnitString, cylProperties.Radius);
+            AppendElementValue(xmlDoc, elemCylinder, "radius", UnitsManager.LengthUnitString, cylProperties.RadiusOuter);
             AppendElementValue(xmlDoc, elemCylinder, "width", UnitsManager.LengthUnitString, cylProperties.Height);
             AppendElementValue(xmlDoc, elemCylinder, "height", UnitsManager.MassUnitString, cylProperties.Weight);
             // --- build image

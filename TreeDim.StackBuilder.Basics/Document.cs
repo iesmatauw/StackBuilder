@@ -2214,7 +2214,7 @@ namespace TreeDim.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(descAttribute);
             // length
             XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Radius");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.Radius);
+            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusOuter);
             xmlBoxProperties.Attributes.Append(lengthAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");

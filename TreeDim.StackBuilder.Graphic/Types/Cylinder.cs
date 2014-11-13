@@ -32,7 +32,7 @@ namespace TreeDim.StackBuilder.Graphics
         public Cylinder(uint pickId, CylinderProperties cylProperties)
         {
             _pickId = pickId;
-            _radius = cylProperties.Radius;
+            _radius = cylProperties.RadiusOuter;
             _height = cylProperties.Height;
             _colorTop = cylProperties.ColorTop;
             _colorWall = cylProperties.ColorWall;
@@ -40,7 +40,7 @@ namespace TreeDim.StackBuilder.Graphics
         public Cylinder(uint pickId, CylinderProperties cylProperties, Vector3D position)
         {
             _pickId = pickId;
-            _radius = cylProperties.Radius;
+            _radius = cylProperties.RadiusOuter;
             _height = cylProperties.Height;
             _colorTop = cylProperties.ColorTop;
             _colorWall = cylProperties.ColorWall;

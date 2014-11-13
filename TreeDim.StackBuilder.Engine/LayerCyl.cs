@@ -31,7 +31,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Private methods
         private void Initialize(CylinderProperties cylProperties)
         {
-            _cylinderRadius = cylProperties.Radius;
+            _cylinderRadius = cylProperties.RadiusOuter;
             _cylinderHeight = cylProperties.Height;
         }
         #endregion

@@ -124,14 +124,100 @@
   <data name="lblName.Text" xml:space="preserve">
     <value>Name </value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uLengthRadiusInner.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uLengthRadiusInner.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="uLengthRadiusInner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 46</value>
+  </data>
+  <data name="uLengthRadiusInner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthRadiusInner.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="nudRadiusInner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 42</value>
+  </data>
+  <data name="nudRadiusInner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="lbRadiusInner.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbRadiusInner.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbRadiusInner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="lbRadiusInner.Text" xml:space="preserve">
+    <value>Inner radius</value>
+  </data>
+  <data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 72</value>
+  </data>
+  <data name="uLengthRadiusOuter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthRadiusOuter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="uLengthRadiusOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 20</value>
+  </data>
+  <data name="uLengthRadiusOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthRadiusOuter.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="nudRadiusOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 16</value>
+  </data>
+  <data name="nudRadiusOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 68</value>
+  </data>
+  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 72</value>
+  </data>
+  <data name="lbRadiusOuter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbRadiusOuter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbRadiusOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 13</value>
+  </data>
+  <data name="lbRadiusOuter.Text" xml:space="preserve">
+    <value>Outer radius</value>
+  </data>
+  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 61</value>
+  </data>
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 95</value>
+  </data>
   <data name="cbColorWall.Items68" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColorWall.Items69" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items74" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="cbColorWall.Items70" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 38</value>
   </data>
   <data name="cbColorTop.Items67" xml:space="preserve">
     <value>Color</value>
@@ -139,7 +225,13 @@
   <data name="cbColorTop.Items68" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorTop.Items73" xml:space="preserve">
-    <value>Farbe</value>
+  <data name="cbColorTop.Items69" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 165</value>
   </data>
 </root>

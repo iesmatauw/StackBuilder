@@ -317,7 +317,7 @@ namespace TreeDim.StackBuilder.Desktop
                         }
                         cylinderProperties.Name = form.CylinderName;
                         cylinderProperties.Description = form.Description;
-                        cylinderProperties.Radius = form.Radius;
+                        cylinderProperties.RadiusOuter = form.Radius;
                         cylinderProperties.Height = form.CylinderHeight;
                         cylinderProperties.Weight = form.Weight;
                         cylinderProperties.ColorTop = form.ColorTop;

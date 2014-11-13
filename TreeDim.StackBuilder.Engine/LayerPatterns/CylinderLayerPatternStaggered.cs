@@ -16,7 +16,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Staggered"; }
         }
-        public override bool CanBeSwaped
+        public override bool CanBeSwapped
         {
             get { return true; }
         }

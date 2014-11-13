@@ -36,12 +36,15 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
+            this.uLengthRadiusOuter = new System.Windows.Forms.Label();
+            this.uLengthRadiusInner = new System.Windows.Forms.Label();
             this.uLengthHeight = new System.Windows.Forms.Label();
-            this.uLengthRadius = new System.Windows.Forms.Label();
-            this.nudRadius = new System.Windows.Forms.NumericUpDown();
+            this.nudRadiusOuter = new System.Windows.Forms.NumericUpDown();
+            this.nudRadiusInner = new System.Windows.Forms.NumericUpDown();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
+            this.lbRadiusOuter = new System.Windows.Forms.Label();
+            this.lbRadiusInner = new System.Windows.Forms.Label();
             this.lbHeight = new System.Windows.Forms.Label();
-            this.lbLength = new System.Windows.Forms.Label();
             this.gbWeight = new System.Windows.Forms.GroupBox();
             this.uMassWeight = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
@@ -56,7 +59,8 @@
             this.cbColorTop = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbTop = new System.Windows.Forms.Label();
             this.gbDimensions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRadius)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusOuter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusInner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
@@ -104,52 +108,81 @@
             // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
+            this.gbDimensions.Controls.Add(this.uLengthRadiusOuter);
+            this.gbDimensions.Controls.Add(this.uLengthRadiusInner);
             this.gbDimensions.Controls.Add(this.uLengthHeight);
-            this.gbDimensions.Controls.Add(this.uLengthRadius);
-            this.gbDimensions.Controls.Add(this.nudRadius);
+            this.gbDimensions.Controls.Add(this.nudRadiusOuter);
+            this.gbDimensions.Controls.Add(this.nudRadiusInner);
             this.gbDimensions.Controls.Add(this.nudHeight);
+            this.gbDimensions.Controls.Add(this.lbRadiusOuter);
+            this.gbDimensions.Controls.Add(this.lbRadiusInner);
             this.gbDimensions.Controls.Add(this.lbHeight);
-            this.gbDimensions.Controls.Add(this.lbLength);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
+            // 
+            // uLengthRadiusOuter
+            // 
+            resources.ApplyResources(this.uLengthRadiusOuter, "uLengthRadiusOuter");
+            this.uLengthRadiusOuter.Name = "uLengthRadiusOuter";
+            // 
+            // uLengthRadiusInner
+            // 
+            resources.ApplyResources(this.uLengthRadiusInner, "uLengthRadiusInner");
+            this.uLengthRadiusInner.Name = "uLengthRadiusInner";
             // 
             // uLengthHeight
             // 
             resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
             this.uLengthHeight.Name = "uLengthHeight";
             // 
-            // uLengthRadius
+            // nudRadiusOuter
             // 
-            resources.ApplyResources(this.uLengthRadius, "uLengthRadius");
-            this.uLengthRadius.Name = "uLengthRadius";
-            // 
-            // nudRadius
-            // 
-            resources.ApplyResources(this.nudRadius, "nudRadius");
-            this.nudRadius.DecimalPlaces = 1;
-            this.nudRadius.Maximum = new decimal(new int[] {
+            this.nudRadiusOuter.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudRadiusOuter, "nudRadiusOuter");
+            this.nudRadiusOuter.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nudRadius.Minimum = new decimal(new int[] {
+            this.nudRadiusOuter.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudRadius.Name = "nudRadius";
-            this.nudRadius.Value = new decimal(new int[] {
+            this.nudRadiusOuter.Name = "nudRadiusOuter";
+            this.nudRadiusOuter.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudRadius.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            this.nudRadiusOuter.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            // 
+            // nudRadiusInner
+            // 
+            this.nudRadiusInner.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudRadiusInner, "nudRadiusInner");
+            this.nudRadiusInner.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudRadiusInner.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudRadiusInner.Name = "nudRadiusInner";
+            this.nudRadiusInner.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nudHeight
             // 
-            resources.ApplyResources(this.nudHeight, "nudHeight");
             this.nudHeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudHeight, "nudHeight");
             this.nudHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -168,22 +201,27 @@
             0});
             this.nudHeight.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
+            // lbRadiusOuter
+            // 
+            resources.ApplyResources(this.lbRadiusOuter, "lbRadiusOuter");
+            this.lbRadiusOuter.Name = "lbRadiusOuter";
+            // 
+            // lbRadiusInner
+            // 
+            resources.ApplyResources(this.lbRadiusInner, "lbRadiusInner");
+            this.lbRadiusInner.Name = "lbRadiusInner";
+            // 
             // lbHeight
             // 
             resources.ApplyResources(this.lbHeight, "lbHeight");
             this.lbHeight.Name = "lbHeight";
             // 
-            // lbLength
-            // 
-            resources.ApplyResources(this.lbLength, "lbLength");
-            this.lbLength.Name = "lbLength";
-            // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uMassWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -194,13 +232,13 @@
             // 
             // nudWeight
             // 
-            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.DecimalPlaces = 3;
             this.nudWeight.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
+            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -231,36 +269,36 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // gbFaceColor
             // 
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.cbColorWall);
             this.gbFaceColor.Controls.Add(this.lbWallColor);
             this.gbFaceColor.Controls.Add(this.cbColorTop);
             this.gbFaceColor.Controls.Add(this.lbTop);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
             // cbColorWall
             // 
-            resources.ApplyResources(this.cbColorWall, "cbColorWall");
             this.cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
             this.cbColorWall.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorWall.DropDownHeight = 1;
             this.cbColorWall.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorWall.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorWall, "cbColorWall");
             this.cbColorWall.Items.AddRange(new object[] {
             resources.GetString("cbColorWall.Items"),
             resources.GetString("cbColorWall.Items1"),
@@ -339,7 +377,10 @@
             resources.GetString("cbColorWall.Items74"),
             resources.GetString("cbColorWall.Items75"),
             resources.GetString("cbColorWall.Items76"),
-            resources.GetString("cbColorWall.Items77")});
+            resources.GetString("cbColorWall.Items77"),
+            resources.GetString("cbColorWall.Items78"),
+            resources.GetString("cbColorWall.Items79"),
+            resources.GetString("cbColorWall.Items80")});
             this.cbColorWall.Name = "cbColorWall";
             this.cbColorWall.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -350,12 +391,12 @@
             // 
             // cbColorTop
             // 
-            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Color = System.Drawing.Color.Gray;
             this.cbColorTop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColorTop.DropDownHeight = 1;
             this.cbColorTop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColorTop.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorTop, "cbColorTop");
             this.cbColorTop.Items.AddRange(new object[] {
             resources.GetString("cbColorTop.Items"),
             resources.GetString("cbColorTop.Items1"),
@@ -433,7 +474,10 @@
             resources.GetString("cbColorTop.Items73"),
             resources.GetString("cbColorTop.Items74"),
             resources.GetString("cbColorTop.Items75"),
-            resources.GetString("cbColorTop.Items76")});
+            resources.GetString("cbColorTop.Items76"),
+            resources.GetString("cbColorTop.Items77"),
+            resources.GetString("cbColorTop.Items78"),
+            resources.GetString("cbColorTop.Items79")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -465,7 +509,8 @@
             this.ShowInTaskbar = false;
             this.gbDimensions.ResumeLayout(false);
             this.gbDimensions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRadius)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusOuter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusInner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             this.gbWeight.ResumeLayout(false);
             this.gbWeight.PerformLayout();
@@ -491,11 +536,11 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbDimensions;
         private System.Windows.Forms.Label uLengthHeight;
-        private System.Windows.Forms.Label uLengthRadius;
-        private System.Windows.Forms.NumericUpDown nudRadius;
+        private System.Windows.Forms.Label uLengthRadiusOuter;
+        private System.Windows.Forms.NumericUpDown nudRadiusOuter;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.Label lbHeight;
-        private System.Windows.Forms.Label lbLength;
+        private System.Windows.Forms.Label lbRadiusOuter;
         private System.Windows.Forms.GroupBox gbWeight;
         private System.Windows.Forms.Label uMassWeight;
         private System.Windows.Forms.NumericUpDown nudWeight;
@@ -509,5 +554,8 @@
         private System.Windows.Forms.Label lbWallColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorTop;
         private System.Windows.Forms.Label lbTop;
+        private System.Windows.Forms.Label uLengthRadiusInner;
+        private System.Windows.Forms.NumericUpDown nudRadiusInner;
+        private System.Windows.Forms.Label lbRadiusInner;
     }
 }

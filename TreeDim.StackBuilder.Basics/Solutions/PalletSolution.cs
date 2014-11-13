@@ -164,7 +164,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             BBox3D bbox = new BBox3D();
 
-            double radius = cylProperties.Radius;
+            double radius = cylProperties.RadiusOuter;
             double height = cylProperties.Height;
 
             foreach (Vector3D pos in this)

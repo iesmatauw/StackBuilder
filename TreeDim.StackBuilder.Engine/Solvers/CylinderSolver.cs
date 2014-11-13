@@ -52,7 +52,7 @@ namespace TreeDim.StackBuilder.Engine
             // loop through all patterns
             foreach (CylinderLayerPattern pattern in _patterns)
             {
-                for (int iDir = 0; iDir < (pattern.CanBeSwaped ? 2 : 1); ++iDir)
+                for (int iDir = 0; iDir < (pattern.CanBeSwapped ? 2 : 1); ++iDir)
                 {
                     // alternate pallet direction
                     LayerCyl layer = new LayerCyl(_cylProperties, _palletProperties, _constraintSet);
@@ -61,7 +61,7 @@ namespace TreeDim.StackBuilder.Engine
                     CylinderPalletSolution sol = new CylinderPalletSolution(null, title, true);
  
                     double actualLength = 0.0, actualWidth = 0.0;
-                    pattern.Swaped = (iDir % 2 != 0);
+                    pattern.Swapped = (iDir % 2 != 0);
                     pattern.GetLayerDimensions(layer, out actualLength, out actualWidth);
                     try
                     {

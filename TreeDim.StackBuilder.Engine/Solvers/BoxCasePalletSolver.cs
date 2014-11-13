@@ -54,10 +54,10 @@ namespace TreeDim.StackBuilder.Engine
                     if (!_constraintSet.AllowPattern(pattern.Name))
                         continue;
 
-                    // loop through all swap positions (if layer can be swaped)
-                    for (int swapPos = 0; swapPos < (pattern.CanBeSwaped ? 2 : 1); ++swapPos)
+                    // loop through all swap positions (if layer can be swapped)
+                    for (int swapPos = 0; swapPos < (pattern.CanBeSwapped ? 2 : 1); ++swapPos)
                     {
-                        pattern.Swaped = swapPos == 1;
+                        pattern.Swapped = swapPos == 1;
 
                         // loop through all vertical axes
                         for (int i = 0; i < 3; ++i)
@@ -119,7 +119,7 @@ namespace TreeDim.StackBuilder.Engine
                                         case 2: axisName = "Z"; break;
                                         default: break;
                                     }
-                                    string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swaped" : "");
+                                    string title = string.Format("{0}-{1}-{2}{3}", pattern.Name, axisName, layerAlignment, swapPos == 1 ? "-swapped" : "");
 
                                     BoxCasePalletSolution sol = new BoxCasePalletSolution(null, title, desc, layer1T == layer2T);
                                     int iLayerIndex = 0;
@@ -189,7 +189,7 @@ namespace TreeDim.StackBuilder.Engine
                                 _log.Error(string.Format("Exception caught: {0}", ex.Message));
                             }
                         }// loop through all vertical axes
-                    }// loop through all swap positions (if layer can be swaped)
+                    }// loop through all swap positions (if layer can be swapped)
                 }// loop through all patterns
             }// loop through all pallet solutions
             // sort solutions

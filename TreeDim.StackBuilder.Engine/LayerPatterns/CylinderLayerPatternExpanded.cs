@@ -12,7 +12,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Expanded"; }
         }
-        public override bool CanBeSwaped
+        public override bool CanBeSwapped
         {
             get { return true; }
         }

@@ -10,7 +10,8 @@ namespace TreeDim.StackBuilder.Basics
     public class CylinderProperties : ItemBase
     {
         #region Data members
-        protected double _radius, _height;
+        protected double _radiusOuter = 0.0, _radiusInner = 0.0;
+        private double _height = 0.0;
         private double _weight;
         private Color _colorTop;
         private Color _colorWall;
@@ -22,10 +23,10 @@ namespace TreeDim.StackBuilder.Basics
         {
         }
         public CylinderProperties(Document document, string name, string description
-            , double radius, double height, double weight, Color colorTop, Color colorWall)
+            , double radiusOuter, double height, double weight, Color colorTop, Color colorWall)
             : base(document, name, description)
         {
-            _radius = radius;
+            _radiusOuter = radiusOuter;
             _height = height;
             _weight = weight;
             _colorTop = colorTop;
@@ -34,10 +35,15 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public double Radius
+        public double RadiusOuter
         {
-            get { return _radius; }
-            set { _radius = value; Modify(); }
+            get { return _radiusOuter; }
+            set { _radiusOuter = value; Modify(); }
+        }
+        public double RadiusInner
+        {
+            get { return _radiusInner; }
+            set { _radiusInner = value; Modify(); }
         }
         public double Height
         {
@@ -46,7 +52,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         public double Volume
         {
-            get { return _height * Math.PI * _radius * _radius; }
+            get { return _height * Math.PI * _radiusOuter * _radiusOuter; }
         }
         public virtual double Weight
         {
@@ -74,7 +80,8 @@ namespace TreeDim.StackBuilder.Basics
         {
             StringBuilder sBuilder = new StringBuilder();
             sBuilder.Append(base.ToString());
-            sBuilder.Append(string.Format("Cylinder => Radius = {0} Height = {1} Weight = {2}", _radius, _height, _weight) );
+            sBuilder.Append(string.Format("Cylinder => Outer radius = {0} Inner radius = {1} Height = {2} Weight = {3}"
+                , _radiusOuter, _radiusInner, _height, _weight) );
             return sBuilder.ToString();
         }
         #endregion

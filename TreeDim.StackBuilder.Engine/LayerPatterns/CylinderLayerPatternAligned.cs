@@ -15,7 +15,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             get { return "Aligned"; }
         }
-        public override bool CanBeSwaped
+        public override bool CanBeSwapped
         {
             get { return false; }
         }

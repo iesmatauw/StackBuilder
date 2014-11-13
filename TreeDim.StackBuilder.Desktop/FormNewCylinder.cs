@@ -38,7 +38,7 @@ namespace TreeDim.StackBuilder.Desktop
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_CYLINDER);
             tbDescription.Text = tbName.Text;
             // properties
-            nudRadius.Value = (decimal)UnitsManager.ConvertLengthFrom(75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            nudRadiusOuter.Value = (decimal)UnitsManager.ConvertLengthFrom(75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
             cbColorTop.Color = System.Drawing.Color.Gray;
@@ -58,7 +58,7 @@ namespace TreeDim.StackBuilder.Desktop
             // properties
             tbName.Text = cylinder.Name;
             tbDescription.Text = cylinder.Description;
-            nudRadius.Value = (decimal)cylinder.Radius;
+            nudRadiusOuter.Value = (decimal)cylinder.RadiusOuter;
             nudHeight.Value = (decimal)cylinder.Height;
             cbColorWall.Color = cylinder.ColorWall;
             cbColorTop.Color = cylinder.ColorTop;
@@ -83,8 +83,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public double Radius
         {
-            get { return (double)nudRadius.Value; }
-            set { nudRadius.Value = (decimal)value; }
+            get { return (double)nudRadiusOuter.Value; }
+            set { nudRadiusOuter.Value = (decimal)value; }
         }
         public double CylinderHeight
         {

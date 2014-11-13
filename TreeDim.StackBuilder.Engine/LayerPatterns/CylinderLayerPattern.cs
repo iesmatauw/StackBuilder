@@ -16,21 +16,21 @@ namespace TreeDim.StackBuilder.Engine
         abstract public string Name { get; }
         abstract public void GetLayerDimensions(LayerCyl layer, out double length, out double width); 
         abstract public void GenerateLayer(LayerCyl layer, double actualLength, double actualWidth);
-        abstract public bool CanBeSwaped { get; }
+        abstract public bool CanBeSwapped { get; }
         #endregion
 
         #region Public properties
-        public bool Swaped
+        public bool Swapped
         {
-            get { return _swaped; }
-            set { _swaped = value; }
+            get { return _swapped; }
+            set { _swapped = value; }
         }
         #endregion
 
         #region Private methods
         protected double GetPalletLength(LayerCyl layer)
         {
-            if (!_swaped)
+            if (!_swapped)
                 return layer.PalletLength;
             else
                 return layer.PalletWidth;
@@ -38,7 +38,7 @@ namespace TreeDim.StackBuilder.Engine
 
         protected double GetPalletWidth(LayerCyl layer)
         {
-            if (!_swaped)
+            if (!_swapped)
                 return layer.PalletWidth;
             else
                 return layer.PalletLength;
@@ -49,7 +49,7 @@ namespace TreeDim.StackBuilder.Engine
             Matrix4D matRot = Matrix4D.Identity;
             Vector3D vTranslation = Vector3D.Zero;
 
-            if (_swaped)
+            if (_swapped)
             {
                 matRot = new Matrix4D(
                     0.0, -1.0, 0.0, 0.0
@@ -70,7 +70,7 @@ namespace TreeDim.StackBuilder.Engine
 
             if (!layer.IsValidPosition(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y)))
             {
-                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swaped = true", this.Name));
+                _log.Warn(string.Format("Attempt to add an invalid position in pattern = {0}, Swapped = true", this.Name));
                 return;
             }
             layer.Add(new Vector2D(vPositionSwapped.X, vPositionSwapped.Y));
@@ -78,17 +78,8 @@ namespace TreeDim.StackBuilder.Engine
         #endregion
 
         #region Data members
-        private bool _swaped = false;
+        private bool _swapped = false;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(CylinderLayerPattern));
-        #endregion
-    }
-    #endregion
-
-    #region CylinderLayerPatternHorizontal
-    internal abstract class CylinderLayerPatternHorizontal
-    {
-        #region Data members
-
         #endregion
     }
     #endregion

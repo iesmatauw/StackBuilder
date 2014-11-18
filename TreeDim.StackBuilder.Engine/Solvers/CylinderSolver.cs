@@ -109,6 +109,12 @@ namespace TreeDim.StackBuilder.Engine
 
                         maxHeightReached = _constraintSet.UseMaximumPalletHeight && (zLayer + _cylProperties.Height > _constraintSet.MaximumPalletHeight);
                     }
+                    // limit reached
+                    if (maxWeightReached) sol.LimitReached = Limit.LIMIT_MAXWEIGHTREACHED;
+                    else if (maxNumberReached) sol.LimitReached = Limit.LIMIT_MAXNUMBERREACHED;
+                    else if (maxHeightReached) sol.LimitReached = Limit.LIMIT_MAXHEIGHTREACHED;
+                    else sol.LimitReached = Limit.LIMIT_UNKNOWN;
+
                     solutions.Add(sol);
                 }
             }
@@ -129,6 +135,101 @@ namespace TreeDim.StackBuilder.Engine
                 _patterns.Add(new CylinderLayerPatternAligned());
                 _patterns.Add(new CylinderLayerPatternStaggered());
                 _patterns.Add(new CylinderLayerPatternMixed12());
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region HCylinderSolver
+    public class HCylinderSolver : IHCylinderAnalysisSolver
+    {
+        #region Data members
+        private static List<HCylinderLoadPattern> _patterns = new List<HCylinderLoadPattern>();
+        private CylinderProperties _cylProperties;
+        private PalletProperties _palletProperties;
+        private HCylinderPalletConstraintSet _constraintSet;
+        static readonly ILog _log = LogManager.GetLogger(typeof(HCylinderSolver));
+
+        #endregion
+
+        #region Constructor
+        public HCylinderSolver()
+        {
+            HCylinderSolver.LoadPatterns();
+        }
+        #endregion
+
+        #region Processing methods
+        public void ProcessAnalysis(HCylinderPalletAnalysis analysis)
+        {
+            _cylProperties = analysis.CylinderProperties;
+            _palletProperties = analysis.PalletProperties;
+            _constraintSet = analysis.ConstraintSet;
+            if (!_constraintSet.IsValid)
+                throw new EngineException("Constraint set is invalid!");
+
+            analysis.Solutions = GenerateSolutions(); 
+        }
+        private List<HCylinderPalletSolution> GenerateSolutions()
+        {
+            List<HCylinderPalletSolution> solutions = new List<HCylinderPalletSolution>();
+
+            // loop through all patterns
+            foreach (HCylinderLoadPattern pattern in _patterns)
+            {
+                // loop through directions
+                for (int iDir = 0; iDir < (pattern.CanBeSwapped ? 2 : 1); ++iDir)
+                {
+                    string title = string.Format("{0}-{1}", pattern.Name, iDir);
+                    HCylinderPalletSolution sol = new HCylinderPalletSolution(null, title);
+
+                    double actualLength = 0.0, actualWidth = 0.0;
+                    double maxHeight = _constraintSet.UseMaximumPalletHeight ? _constraintSet.MaximumPalletHeight : -1;
+
+                    pattern.Swapped = (iDir % 2 != 0);
+
+                    int maxCount = -1;
+                    try
+                    {
+                        CylLoad load = new CylLoad(_cylProperties, _palletProperties, _constraintSet);
+                        pattern.GetDimensions(load, maxCount, out actualLength, out actualWidth);
+                        pattern.Generate(load, maxCount, actualLength, actualWidth, maxHeight);
+
+                        foreach (CylPosition pos in load)
+                            sol.Add(pos);
+
+
+                    }
+                    catch (NotImplementedException ex)
+                    {
+                        _log.Debug(ex.Message);
+                        continue;
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Error(ex.Message);
+                        continue;
+                    }
+                    // add solution
+                    if (sol.Count > 0)
+                        solutions.Add(sol);
+                } // loop on directions
+            } // loop through all patterns
+            // sort solution
+            solutions.Sort();
+            return solutions;
+        }
+        #endregion
+
+        #region Static methods
+        private static void LoadPatterns()
+        {
+            if (0 == _patterns.Count)
+            {
+                _patterns.Add(new HCylinderLoadPatternColumn());
+                _patterns.Add(new HCylinderLoadPatternStaggered());
+                _patterns.Add(new HCylinderLoadPatternPyramid());
             }
         }
         #endregion

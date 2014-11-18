@@ -14,7 +14,7 @@ namespace TreeDim.StackBuilder.Basics
         private double _height = 0.0;
         private double _weight;
         private Color _colorTop;
-        private Color _colorWall;
+        private Color _colorWallOuter, _colorWallInner;
         #endregion
 
         #region Constructor
@@ -23,14 +23,17 @@ namespace TreeDim.StackBuilder.Basics
         {
         }
         public CylinderProperties(Document document, string name, string description
-            , double radiusOuter, double height, double weight, Color colorTop, Color colorWall)
+            , double radiusOuter, double radiusInner, double height, double weight
+            , Color colorTop, Color colorWallOuter, Color colorWallInner)
             : base(document, name, description)
         {
             _radiusOuter = radiusOuter;
+            _radiusInner = radiusInner;
             _height = height;
             _weight = weight;
             _colorTop = colorTop;
-            _colorWall = colorWall;
+            _colorWallOuter = colorWallOuter;
+            _colorWallInner = colorWallInner;
         }
         #endregion
 
@@ -64,10 +67,15 @@ namespace TreeDim.StackBuilder.Basics
             get { return _colorTop; }
             set { _colorTop = value; Modify(); }
         }
-        public Color ColorWall
+        public Color ColorWallOuter
         {
-            get { return _colorWall; }
-            set { _colorWall = value; Modify(); }
+            get { return _colorWallOuter; }
+            set { _colorWallOuter = value; Modify(); }
+        }
+        public Color ColorWallInner
+        {
+            get { return _colorWallInner; }
+            set { _colorWallInner = value; Modify(); }
         }
         #endregion
 

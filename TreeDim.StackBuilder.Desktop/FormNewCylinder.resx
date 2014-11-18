@@ -133,7 +133,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -163,7 +163,7 @@
     <value>75, 23</value>
   </data>
   <data name="bnOK.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="bnOK.Text" xml:space="preserve">
     <value>OK</value>
@@ -190,7 +190,7 @@
     <value>399, 20</value>
   </data>
   <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
     <value>tbDescription</value>
@@ -211,7 +211,7 @@
     <value>143, 20</value>
   </data>
   <data name="tbName.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tbName.Name" xml:space="preserve">
     <value>tbName</value>
@@ -238,7 +238,7 @@
     <value>60, 13</value>
   </data>
   <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>2</value>
   </data>
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Description</value>
@@ -268,7 +268,7 @@
     <value>35, 13</value>
   </data>
   <data name="lblName.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>0</value>
   </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Name</value>
@@ -285,58 +285,58 @@
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="uLengthRadiusOuter.AutoSize" type="System.Boolean, mscorlib">
+  <data name="uLengthDiameterOuter.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="uLengthRadiusOuter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 20</value>
+  <data name="uLengthDiameterOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 20</value>
   </data>
-  <data name="uLengthRadiusOuter.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="uLengthDiameterOuter.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 13</value>
   </data>
-  <data name="uLengthRadiusOuter.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="uLengthDiameterOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="uLengthRadiusOuter.Text" xml:space="preserve">
+  <data name="uLengthDiameterOuter.Text" xml:space="preserve">
     <value>uLength</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusOuter.Name" xml:space="preserve">
-    <value>uLengthRadiusOuter</value>
+  <data name="&gt;&gt;uLengthDiameterOuter.Name" xml:space="preserve">
+    <value>uLengthDiameterOuter</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusOuter.Type" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDiameterOuter.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusOuter.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDiameterOuter.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusOuter.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDiameterOuter.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="uLengthRadiusInner.AutoSize" type="System.Boolean, mscorlib">
+  <data name="uLengthDiameterInner.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="uLengthRadiusInner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 44</value>
+  <data name="uLengthDiameterInner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 44</value>
   </data>
-  <data name="uLengthRadiusInner.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="uLengthDiameterInner.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 13</value>
   </data>
-  <data name="uLengthRadiusInner.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="uLengthDiameterInner.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="uLengthRadiusInner.Text" xml:space="preserve">
+  <data name="uLengthDiameterInner.Text" xml:space="preserve">
     <value>uLength</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusInner.Name" xml:space="preserve">
-    <value>uLengthRadiusInner</value>
+  <data name="&gt;&gt;uLengthDiameterInner.Name" xml:space="preserve">
+    <value>uLengthDiameterInner</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusInner.Type" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDiameterInner.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusInner.Parent" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDiameterInner.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;uLengthRadiusInner.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;uLengthDiameterInner.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="uLengthHeight.AutoSize" type="System.Boolean, mscorlib">
@@ -346,13 +346,13 @@
     <value>NoControl</value>
   </data>
   <data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 71</value>
+    <value>169, 71</value>
   </data>
   <data name="uLengthHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 13</value>
   </data>
   <data name="uLengthHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>8</value>
   </data>
   <data name="uLengthHeight.Text" xml:space="preserve">
     <value>uLength</value>
@@ -369,56 +369,56 @@
   <data name="&gt;&gt;uLengthHeight.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="nudRadiusOuter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 16</value>
+  <data name="nudDiameterOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 16</value>
   </data>
-  <data name="nudRadiusOuter.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nudDiameterOuter.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 20</value>
   </data>
-  <data name="nudRadiusOuter.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="nudDiameterOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;nudRadiusOuter.Name" xml:space="preserve">
-    <value>nudRadiusOuter</value>
+  <data name="&gt;&gt;nudDiameterOuter.Name" xml:space="preserve">
+    <value>nudDiameterOuter</value>
   </data>
-  <data name="&gt;&gt;nudRadiusOuter.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudDiameterOuter.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudRadiusOuter.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudDiameterOuter.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;nudRadiusOuter.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;nudDiameterOuter.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="nudRadiusInner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 42</value>
+  <data name="nudDiameterInner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 42</value>
   </data>
-  <data name="nudRadiusInner.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nudDiameterInner.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 20</value>
   </data>
-  <data name="nudRadiusInner.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="nudDiameterInner.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;nudRadiusInner.Name" xml:space="preserve">
-    <value>nudRadiusInner</value>
+  <data name="&gt;&gt;nudDiameterInner.Name" xml:space="preserve">
+    <value>nudDiameterInner</value>
   </data>
-  <data name="&gt;&gt;nudRadiusInner.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudDiameterInner.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudRadiusInner.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudDiameterInner.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;nudRadiusInner.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;nudDiameterInner.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="nudHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 69</value>
+    <value>94, 69</value>
   </data>
   <data name="nudHeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 20</value>
   </data>
   <data name="nudHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;nudHeight.Name" xml:space="preserve">
     <value>nudHeight</value>
@@ -432,58 +432,58 @@
   <data name="&gt;&gt;nudHeight.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lbRadiusOuter.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbDiameterOuter.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbRadiusOuter.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lbDiameterOuter.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 20</value>
   </data>
-  <data name="lbRadiusOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 13</value>
+  <data name="lbDiameterOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
   </data>
-  <data name="lbRadiusOuter.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="lbDiameterOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="lbRadiusOuter.Text" xml:space="preserve">
-    <value>Outer radius</value>
+  <data name="lbDiameterOuter.Text" xml:space="preserve">
+    <value>Outer diameter</value>
   </data>
-  <data name="&gt;&gt;lbRadiusOuter.Name" xml:space="preserve">
-    <value>lbRadiusOuter</value>
+  <data name="&gt;&gt;lbDiameterOuter.Name" xml:space="preserve">
+    <value>lbDiameterOuter</value>
   </data>
-  <data name="&gt;&gt;lbRadiusOuter.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbDiameterOuter.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbRadiusOuter.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbDiameterOuter.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;lbRadiusOuter.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbDiameterOuter.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lbRadiusInner.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbDiameterInner.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbRadiusInner.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lbDiameterInner.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 44</value>
   </data>
-  <data name="lbRadiusInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
+  <data name="lbDiameterInner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
   </data>
-  <data name="lbRadiusInner.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="lbDiameterInner.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="lbRadiusInner.Text" xml:space="preserve">
-    <value>Inner radius</value>
+  <data name="lbDiameterInner.Text" xml:space="preserve">
+    <value>Inner diameter</value>
   </data>
-  <data name="&gt;&gt;lbRadiusInner.Name" xml:space="preserve">
-    <value>lbRadiusInner</value>
+  <data name="&gt;&gt;lbDiameterInner.Name" xml:space="preserve">
+    <value>lbDiameterInner</value>
   </data>
-  <data name="&gt;&gt;lbRadiusInner.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbDiameterInner.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbRadiusInner.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbDiameterInner.Parent" xml:space="preserve">
     <value>gbDimensions</value>
   </data>
-  <data name="&gt;&gt;lbRadiusInner.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbDiameterInner.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
@@ -499,7 +499,7 @@
     <value>38, 13</value>
   </data>
   <data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="lbHeight.Text" xml:space="preserve">
     <value>Height</value>
@@ -523,7 +523,7 @@
     <value>354, 96</value>
   </data>
   <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>4</value>
   </data>
   <data name="gbDimensions.Text" xml:space="preserve">
     <value>Dimensions</value>
@@ -628,7 +628,7 @@
     <value>354, 78</value>
   </data>
   <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>6</value>
   </data>
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Weight</value>
@@ -658,7 +658,7 @@
     <value>210, 45</value>
   </data>
   <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
     <value>trackBarHorizAngle</value>
@@ -715,7 +715,7 @@
     <value>584, 22</value>
   </data>
   <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+    <value>10</value>
   </data>
   <data name="statusStripDef.Text" xml:space="preserve">
     <value>statusStripDef</value>
@@ -732,290 +732,611 @@
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="cbColorWall.IntegralHeight" type="System.Boolean, mscorlib">
+  <data name="cbColorWallInner.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="cbColorWall.ItemHeight" type="System.Int32, mscorlib">
+  <data name="cbColorWallInner.ItemHeight" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="cbColorWall.Items" xml:space="preserve">
+  <data name="cbColorWallInner.Items" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items1" xml:space="preserve">
+  <data name="cbColorWallInner.Items1" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items2" xml:space="preserve">
+  <data name="cbColorWallInner.Items2" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items3" xml:space="preserve">
+  <data name="cbColorWallInner.Items3" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items4" xml:space="preserve">
+  <data name="cbColorWallInner.Items4" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items5" xml:space="preserve">
+  <data name="cbColorWallInner.Items5" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items6" xml:space="preserve">
+  <data name="cbColorWallInner.Items6" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items7" xml:space="preserve">
+  <data name="cbColorWallInner.Items7" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items8" xml:space="preserve">
+  <data name="cbColorWallInner.Items8" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items9" xml:space="preserve">
+  <data name="cbColorWallInner.Items9" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items10" xml:space="preserve">
+  <data name="cbColorWallInner.Items10" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items11" xml:space="preserve">
+  <data name="cbColorWallInner.Items11" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items12" xml:space="preserve">
+  <data name="cbColorWallInner.Items12" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items13" xml:space="preserve">
+  <data name="cbColorWallInner.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items14" xml:space="preserve">
+  <data name="cbColorWallInner.Items14" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items15" xml:space="preserve">
+  <data name="cbColorWallInner.Items15" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items16" xml:space="preserve">
+  <data name="cbColorWallInner.Items16" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items17" xml:space="preserve">
+  <data name="cbColorWallInner.Items17" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items18" xml:space="preserve">
+  <data name="cbColorWallInner.Items18" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items19" xml:space="preserve">
+  <data name="cbColorWallInner.Items19" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items20" xml:space="preserve">
+  <data name="cbColorWallInner.Items20" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items21" xml:space="preserve">
+  <data name="cbColorWallInner.Items21" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items22" xml:space="preserve">
+  <data name="cbColorWallInner.Items22" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items23" xml:space="preserve">
+  <data name="cbColorWallInner.Items23" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items24" xml:space="preserve">
+  <data name="cbColorWallInner.Items24" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items25" xml:space="preserve">
+  <data name="cbColorWallInner.Items25" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items26" xml:space="preserve">
+  <data name="cbColorWallInner.Items26" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items27" xml:space="preserve">
+  <data name="cbColorWallInner.Items27" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items28" xml:space="preserve">
+  <data name="cbColorWallInner.Items28" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items29" xml:space="preserve">
+  <data name="cbColorWallInner.Items29" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items30" xml:space="preserve">
+  <data name="cbColorWallInner.Items30" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items31" xml:space="preserve">
+  <data name="cbColorWallInner.Items31" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items32" xml:space="preserve">
+  <data name="cbColorWallInner.Items32" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items33" xml:space="preserve">
+  <data name="cbColorWallInner.Items33" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items34" xml:space="preserve">
+  <data name="cbColorWallInner.Items34" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items35" xml:space="preserve">
+  <data name="cbColorWallInner.Items35" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items36" xml:space="preserve">
+  <data name="cbColorWallInner.Items36" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items37" xml:space="preserve">
+  <data name="cbColorWallInner.Items37" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items38" xml:space="preserve">
+  <data name="cbColorWallInner.Items38" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items39" xml:space="preserve">
+  <data name="cbColorWallInner.Items39" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items40" xml:space="preserve">
+  <data name="cbColorWallInner.Items40" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items41" xml:space="preserve">
+  <data name="cbColorWallInner.Items41" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items42" xml:space="preserve">
+  <data name="cbColorWallInner.Items42" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items43" xml:space="preserve">
+  <data name="cbColorWallInner.Items43" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items44" xml:space="preserve">
+  <data name="cbColorWallInner.Items44" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items45" xml:space="preserve">
+  <data name="cbColorWallInner.Items45" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items46" xml:space="preserve">
+  <data name="cbColorWallInner.Items46" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items47" xml:space="preserve">
+  <data name="cbColorWallInner.Items47" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items48" xml:space="preserve">
+  <data name="cbColorWallInner.Items48" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items49" xml:space="preserve">
+  <data name="cbColorWallInner.Items49" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items50" xml:space="preserve">
+  <data name="cbColorWallInner.Items50" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items51" xml:space="preserve">
+  <data name="cbColorWallInner.Items51" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items52" xml:space="preserve">
+  <data name="cbColorWallInner.Items52" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items53" xml:space="preserve">
+  <data name="cbColorWallInner.Items53" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items54" xml:space="preserve">
+  <data name="cbColorWallInner.Items54" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items55" xml:space="preserve">
+  <data name="cbColorWallInner.Items55" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items56" xml:space="preserve">
+  <data name="cbColorWallInner.Items56" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items57" xml:space="preserve">
+  <data name="cbColorWallInner.Items57" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items58" xml:space="preserve">
+  <data name="cbColorWallInner.Items58" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items59" xml:space="preserve">
+  <data name="cbColorWallInner.Items59" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items60" xml:space="preserve">
+  <data name="cbColorWallInner.Items60" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items61" xml:space="preserve">
+  <data name="cbColorWallInner.Items61" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items62" xml:space="preserve">
+  <data name="cbColorWallInner.Items62" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items63" xml:space="preserve">
+  <data name="cbColorWallInner.Items63" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items64" xml:space="preserve">
+  <data name="cbColorWallInner.Items64" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items65" xml:space="preserve">
+  <data name="cbColorWallInner.Items65" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items66" xml:space="preserve">
+  <data name="cbColorWallInner.Items66" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items67" xml:space="preserve">
+  <data name="cbColorWallInner.Items67" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items68" xml:space="preserve">
+  <data name="cbColorWallInner.Items68" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items69" xml:space="preserve">
+  <data name="cbColorWallInner.Items69" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items70" xml:space="preserve">
+  <data name="cbColorWallInner.Items70" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallInner.Items71" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallInner.Items72" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallInner.Items73" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallInner.Items74" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColorWall.Items71" xml:space="preserve">
+  <data name="cbColorWallInner.Items75" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items72" xml:space="preserve">
+  <data name="cbColorWallInner.Items76" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items73" xml:space="preserve">
+  <data name="cbColorWallInner.Items77" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items74" xml:space="preserve">
+  <data name="cbColorWallInner.Items78" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items75" xml:space="preserve">
+  <data name="cbColorWallInner.Items79" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColorWall.Items76" xml:space="preserve">
+  <data name="cbColorWallInner.Items80" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColorWall.Items77" xml:space="preserve">
+  <data name="cbColorWallInner.Items81" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColorWall.Items78" xml:space="preserve">
+  <data name="cbColorWallInner.Items82" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColorWall.Items79" xml:space="preserve">
+  <data name="cbColorWallInner.Items83" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColorWall.Items80" xml:space="preserve">
+  <data name="cbColorWallInner.Items84" xml:space="preserve">
     <value>Farbe</value>
   </data>
-  <data name="cbColorWall.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 38</value>
+  <data name="cbColorWallInner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 64</value>
   </data>
-  <data name="cbColorWall.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cbColorWallInner.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
   </data>
-  <data name="cbColorWall.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="cbColorWallInner.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;cbColorWall.Name" xml:space="preserve">
-    <value>cbColorWall</value>
+  <data name="&gt;&gt;cbColorWallInner.Name" xml:space="preserve">
+    <value>cbColorWallInner</value>
   </data>
-  <data name="&gt;&gt;cbColorWall.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5417.30629, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;cbColorWallInner.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5431.20842, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;cbColorWall.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cbColorWallInner.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
   </data>
-  <data name="&gt;&gt;cbColorWall.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cbColorWallInner.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 67</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Inner wall color</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbColorWallOuter.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbColorWallOuter.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="cbColorWallOuter.Items" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items1" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items10" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items12" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items15" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items16" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items17" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items18" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items19" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items20" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items21" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items22" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items23" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items24" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items25" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items26" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items27" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items28" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items29" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items30" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items31" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items32" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items33" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items34" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items35" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items36" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items38" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items39" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items40" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items42" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items43" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items44" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items45" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items46" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items47" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items48" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items49" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items50" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items51" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items52" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items53" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items54" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items55" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items56" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items57" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items58" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items59" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items60" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items61" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items62" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items63" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items64" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items65" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items66" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items67" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items68" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items69" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items70" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items71" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items72" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items73" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items74" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items75" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items76" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items77" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items78" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColorWallOuter.Items79" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items80" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items81" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items82" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items83" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 38</value>
+  </data>
+  <data name="cbColorWallOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="cbColorWallOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbColorWallOuter.Name" xml:space="preserve">
+    <value>cbColorWallOuter</value>
+  </data>
+  <data name="&gt;&gt;cbColorWallOuter.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5431.20842, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbColorWallOuter.Parent" xml:space="preserve">
+    <value>gbFaceColor</value>
+  </data>
+  <data name="&gt;&gt;cbColorWallOuter.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lbWallColor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbWallColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 41</value>
+    <value>5, 41</value>
   </data>
   <data name="lbWallColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 13</value>
+    <value>80, 13</value>
   </data>
   <data name="lbWallColor.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>2</value>
   </data>
   <data name="lbWallColor.Text" xml:space="preserve">
-    <value>Wall color</value>
+    <value>Outer wall color</value>
   </data>
   <data name="&gt;&gt;lbWallColor.Name" xml:space="preserve">
     <value>lbWallColor</value>
@@ -1027,7 +1348,7 @@
     <value>gbFaceColor</value>
   </data>
   <data name="&gt;&gt;lbWallColor.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="cbColorTop.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1243,13 +1564,13 @@
     <value>Color</value>
   </data>
   <data name="cbColorTop.Items69" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items70" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items71" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items72" xml:space="preserve">
     <value>Farbe</value>
@@ -1275,26 +1596,35 @@
   <data name="cbColorTop.Items79" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbColorTop.Items80" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items81" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items82" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbColorTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 13</value>
+    <value>90, 13</value>
   </data>
   <data name="cbColorTop.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 22</value>
   </data>
   <data name="cbColorTop.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Name" xml:space="preserve">
     <value>cbColorTop</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5417.30629, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5431.20842, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
   </data>
   <data name="&gt;&gt;cbColorTop.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="lbTop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1303,7 +1633,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 16</value>
+    <value>5, 16</value>
   </data>
   <data name="lbTop.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 13</value>
@@ -1324,16 +1654,16 @@
     <value>gbFaceColor</value>
   </data>
   <data name="&gt;&gt;lbTop.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 199</value>
+    <value>8, 169</value>
   </data>
   <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 67</value>
+    <value>354, 90</value>
   </data>
   <data name="gbFaceColor.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+    <value>5</value>
   </data>
   <data name="gbFaceColor.Text" xml:space="preserve">
     <value>Colors</value>

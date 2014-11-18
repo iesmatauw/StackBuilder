@@ -49,8 +49,8 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentCylinderPalletAnalysis(IDocument document, CylinderPalletAnalysis analysis)
         {
             _document = document;
-
             _analysis = analysis;
+
             _analysis.AddListener(this);
 
             _analysis.SolutionSelected += new CylinderPalletAnalysis.SelectSolution(onSolutionSelectionChanged);
@@ -169,7 +169,7 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 // build case count string
                 string sCaseCount = string.Empty;
-                if (sol.HasSameCountLayers && sol.LimitReached == CylinderPalletSolution.Limit.LIMIT_MAXHEIGHTREACHED)
+                if (sol.HasSameCountLayers && sol.LimitReached == Limit.LIMIT_MAXHEIGHTREACHED)
                     sCaseCount = string.Format("{0}\n({1} * {2})", sol.CylinderCount, sol.CylinderPerLayerCount, sol.CylinderLayersCount);
                 else
                     sCaseCount = string.Format("{0}", sol.CylinderCount);
@@ -214,13 +214,13 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Helpers
-        private string PalletSolutionLimitToString(CylinderPalletSolution.Limit limit)
+        private string PalletSolutionLimitToString(Limit limit)
         { 
             switch (limit)
             {
-                case CylinderPalletSolution.Limit.LIMIT_MAXHEIGHTREACHED: return Resources.ID_PALLETMAXHEIGHT;
-                case CylinderPalletSolution.Limit.LIMIT_MAXWEIGHTREACHED: return Resources.ID_PALLETMAXWEIGHT;
-                case CylinderPalletSolution.Limit.LIMIT_MAXNUMBERREACHED: return Resources.ID_PALLETMAXNUMBER;
+                case Limit.LIMIT_MAXHEIGHTREACHED: return Resources.ID_PALLETMAXHEIGHT;
+                case Limit.LIMIT_MAXWEIGHTREACHED: return Resources.ID_PALLETMAXWEIGHT;
+                case Limit.LIMIT_MAXNUMBERREACHED: return Resources.ID_PALLETMAXNUMBER;
                 default: return string.Empty;
             }
         }

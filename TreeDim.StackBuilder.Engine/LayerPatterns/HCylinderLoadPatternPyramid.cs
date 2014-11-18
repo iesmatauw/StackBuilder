@@ -36,10 +36,11 @@ namespace TreeDim.StackBuilder.Engine
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
+            double offsetZ = load.PalletHeight + radius;
 
-            for (int iLayer = 0; iLayer < sizeX; ++iLayer)
+            for (int iLayer = 0; iLayer < sizeY; ++iLayer)
             {
-                if ((iLayer+1) * diameter > maxHeight)
+                if ( maxHeight > 0 && ((iLayer+1) * diameter > maxHeight))
                     return;
 
                 for (int j = 0; j < sizeY-iLayer; ++j)
@@ -52,14 +53,13 @@ namespace TreeDim.StackBuilder.Engine
                                 new Vector3D(
                                     offsetX + i * length
                                     , offsetY + (1 + iLayer) * radius + j * diameter
-                                    , radius + iLayer * diameter)
+                                    , offsetZ + iLayer * radius * Math.Sqrt(3.0))
                                 , HalfAxis.HAxis.AXIS_X_P)
                             );
                         if (maxCount > 0 && load.Count >= maxCount)
                             return;
                     }
                 }
-                ++iLayer;
             }
         }
         #endregion

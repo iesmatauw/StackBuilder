@@ -38,9 +38,11 @@ namespace TreeDim.StackBuilder.Desktop
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_CYLINDER);
             tbDescription.Text = tbName.Text;
             // properties
-            nudRadiusOuter.Value = (decimal)UnitsManager.ConvertLengthFrom(75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            nudDiameterOuter.Value = (decimal)UnitsManager.ConvertLengthFrom(2.0*75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            nudDiameterInner.Value = (decimal)UnitsManager.ConvertLengthFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-            cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
+            cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
+            cbColorWallInner.Color = System.Drawing.Color.Chocolate;
             cbColorTop.Color = System.Drawing.Color.Gray;
             // set horizontal angle
             trackBarHorizAngle.Value = 225;
@@ -58,9 +60,11 @@ namespace TreeDim.StackBuilder.Desktop
             // properties
             tbName.Text = cylinder.Name;
             tbDescription.Text = cylinder.Description;
-            nudRadiusOuter.Value = (decimal)cylinder.RadiusOuter;
+            nudDiameterOuter.Value = 2.0M * (decimal)cylinder.RadiusOuter;
+            nudDiameterInner.Value = 2.0M * (decimal)cylinder.RadiusInner;
             nudHeight.Value = (decimal)cylinder.Height;
-            cbColorWall.Color = cylinder.ColorWall;
+            cbColorWallOuter.Color = cylinder.ColorWallOuter;
+            cbColorWallInner.Color = cylinder.ColorWallInner;
             cbColorTop.Color = cylinder.ColorTop;
             nudWeight.Value = (decimal)cylinder.Weight;
             // set horizontal angle
@@ -81,10 +85,15 @@ namespace TreeDim.StackBuilder.Desktop
             get { return tbDescription.Text; }
             set { tbDescription.Text = value; }
         }
-        public double Radius
+        public double RadiusOuter
         {
-            get { return (double)nudRadiusOuter.Value; }
-            set { nudRadiusOuter.Value = (decimal)value; }
+            get { return 0.5 * (double)nudDiameterOuter.Value; }
+            set { nudDiameterOuter.Value = 2.0M * (decimal)value; }
+        }
+        public double RadiusInner
+        {
+            get { return 0.5 * (double)nudDiameterInner.Value; }
+            set { nudDiameterInner.Value = 2.0M * (decimal)value; }
         }
         public double CylinderHeight
         {
@@ -100,12 +109,16 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return cbColorTop.Color; }
             set { cbColorTop.Color = value; }
-
         }
-        public Color ColorWall
+        public Color ColorWallOuter
         {
-            get { return cbColorWall.Color; }
-            set { cbColorWall.Color = value; }
+            get { return cbColorWallOuter.Color; }
+            set { cbColorWallOuter.Color = value; }
+        }
+        public Color ColorWallInner
+        {
+            get { return cbColorWallInner.Color; }
+            set { cbColorWallInner.Color = value; }
         }
         #endregion
 
@@ -131,6 +144,8 @@ namespace TreeDim.StackBuilder.Desktop
             // description
             else if (string.IsNullOrEmpty(tbDescription.Text))
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
+            else if (RadiusInner > RadiusOuter)
+                message = Resources.ID_INVALIDDIAMETER;
             // accept
             bnOK.Enabled = string.IsNullOrEmpty(message);
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
@@ -165,8 +180,8 @@ namespace TreeDim.StackBuilder.Desktop
                 // draw
                 CylinderProperties cylProperties = new CylinderProperties(
                     null, CylinderName, Description
-                    , Radius, CylinderHeight, Weight
-                    , ColorTop, ColorWall);
+                    , RadiusOuter, RadiusInner, CylinderHeight, Weight
+                    , ColorTop, ColorWallOuter, ColorWallInner);
                 Cylinder cyl = new Cylinder(0, cylProperties);
                 graphics.AddCylinder(cyl);
                 graphics.Flush();
@@ -178,7 +193,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-
         #endregion
     }
 }

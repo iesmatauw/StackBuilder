@@ -36,7 +36,7 @@ namespace TreeDim.StackBuilder.Basics
             if (!constraintSet.IsValid)
                 throw new Exception("Using invalid case constraintset -> Can not instantiate case analysis!");
             _boxProperties = boxProperties;
-            boxProperties.AddDependancie(this);
+            boxProperties.AddDependancy(this);
             _palletSolutionsList = palletSolutionList;
             _constraintSet = constraintSet;
         }
@@ -162,7 +162,7 @@ namespace TreeDim.StackBuilder.Basics
 
         protected override void RemoveItselfFromDependancies()
         {
-            _boxProperties.RemoveDependancie(this);
+            _boxProperties.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         public override void OnAttributeModified(ItemBase modifiedAttribute)

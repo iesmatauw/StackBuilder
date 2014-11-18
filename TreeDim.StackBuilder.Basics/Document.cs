@@ -29,6 +29,7 @@ namespace TreeDim.StackBuilder.Basics
         void OnNewTypeCreated(Document doc, ItemBase itemBase);
         void OnNewCasePalletAnalysisCreated(Document doc, CasePalletAnalysis analysis);
         void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis);
+        void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis);
         void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis);
         void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis);
         void OnNewTruckAnalysisCreated(Document doc, CasePalletAnalysis analysis, SelCasePalletSolution selSolution, TruckAnalysis truckAnalysis);
@@ -57,6 +58,7 @@ namespace TreeDim.StackBuilder.Basics
         private List<ItemBase> _typeList = new List<ItemBase>();
         private List<CasePalletAnalysis> _casePalletAnalyses = new List<CasePalletAnalysis>();
         private List<CylinderPalletAnalysis> _cylinderPalletAnalyses = new List<CylinderPalletAnalysis>();
+        private List<HCylinderPalletAnalysis> _hCylinderPalletAnalyses = new List<HCylinderPalletAnalysis>();
         private List<BoxCaseAnalysis> _boxCaseAnalyses = new List<BoxCaseAnalysis>();
         private List<BoxCasePalletAnalysis> _boxCasePalletOptimizations = new List<BoxCasePalletAnalysis>();
         private List<IDocumentListener> _listeners = new List<IDocumentListener>();
@@ -303,12 +305,13 @@ namespace TreeDim.StackBuilder.Basics
 
         public CylinderProperties CreateNewCylinder(
             string name, string description
-            , double radius, double height
+            , double radiusOuter, double radiusInner, double height
             , double weight
-            , Color colorTop
-            , Color colorWall)
+            , Color colorTop, Color colorWallOuter, Color colorWallInner)
         {
-            CylinderProperties cylinder = new CylinderProperties(this, name, description, radius, height, weight, colorTop, colorWall);
+            CylinderProperties cylinder = new CylinderProperties(this, name, description
+                , radiusOuter, radiusInner, height, weight
+                , colorTop, colorWallOuter, colorWallInner);
             // insert in list
             _typeList.Add(cylinder);
             // notify listeners
@@ -523,6 +526,30 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return analysis;
         }
+        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysis(
+            string name, string description,
+            CylinderProperties cylinder, PalletProperties pallet,
+            HCylinderPalletConstraintSet constraintSet,
+            IHCylinderAnalysisSolver solver)
+        {
+            HCylinderPalletAnalysis analysis = new HCylinderPalletAnalysis(cylinder, pallet, constraintSet);
+            analysis.Name = name;
+            analysis.Description = description;
+            // insert in list
+            _hCylinderPalletAnalyses.Add(analysis);
+            // compute analysis
+            solver.ProcessAnalysis(analysis);
+            if (analysis.Solutions.Count < 1)
+            {   // remove analysis from list if it has no valid solution
+                _hCylinderPalletAnalyses.Remove(analysis);
+                return null;
+            }
+            // notify listeners
+            NotifyOnNewHCylinderPalletAnalysisCreated(analysis);
+            Modify();
+            return analysis;
+        }
+
         /// <summary>
         /// Creates a new cylinder/pallet analysis without generating solutions
         /// </summary>
@@ -1056,20 +1083,43 @@ namespace TreeDim.StackBuilder.Basics
             string sid = eltCylinderProperties.Attributes["Id"].Value;
             string sname = eltCylinderProperties.Attributes["Name"].Value;
             string sdescription = eltCylinderProperties.Attributes["Description"].Value;
-            string sradius = eltCylinderProperties.Attributes["Radius"].Value;
+            string sRadiusOuter = string.Empty, sRadiusInner = string.Empty;
+            if (eltCylinderProperties.HasAttribute("RadiusOuter"))
+            {
+                sRadiusOuter = eltCylinderProperties.Attributes["RadiusOuter"].Value;
+                sRadiusInner = eltCylinderProperties.Attributes["RadiusInner"].Value;
+            }
+            else
+            {
+                sRadiusOuter = eltCylinderProperties.Attributes["Radius"].Value;
+                sRadiusInner = "0.0";
+            }
             string sheight = eltCylinderProperties.Attributes["Height"].Value;
             string sweight = eltCylinderProperties.Attributes["Weight"].Value;
             string sColorTop = eltCylinderProperties.Attributes["ColorTop"].Value;
-            string sColorWall = eltCylinderProperties.Attributes["ColorWall"].Value;
+            string sColorWallOuter = string.Empty, sColorWallInner = string.Empty;
+            if (eltCylinderProperties.HasAttribute("ColorWall"))
+            {
+                sColorWallOuter = eltCylinderProperties.Attributes["ColorWall"].Value;
+                sColorWallInner = eltCylinderProperties.Attributes["ColorWall"].Value;
+            }
+            else
+            { 
+                sColorWallOuter = eltCylinderProperties.Attributes["ColorWallOuter"].Value;
+                sColorWallInner = eltCylinderProperties.Attributes["ColorWallInner"].Value;
+            }
 
             CylinderProperties cylinderProperties = CreateNewCylinder(
                 sname,
                 sdescription,
-                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sradius, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusOuter, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sRadiusInner, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
                 UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
                 UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
                 Color.FromArgb(System.Convert.ToInt32(sColorTop)),
-                Color.FromArgb(System.Convert.ToInt32(sColorWall)));
+                Color.FromArgb(System.Convert.ToInt32(sColorWallOuter)),
+                Color.FromArgb(System.Convert.ToInt32(sColorWallInner))
+                );
             cylinderProperties.Guid = new Guid(sid);
         }
 
@@ -1763,7 +1813,7 @@ namespace TreeDim.StackBuilder.Basics
             if (eltSolution.HasAttribute("LimitReached"))
             {
                 string sLimitReached = eltSolution.Attributes["LimitReached"].Value;
-                sol.LimitReached = (CylinderPalletSolution.Limit)(int.Parse(sLimitReached));
+                sol.LimitReached = (Limit)(int.Parse(sLimitReached));
             }
             // layers
             XmlElement eltLayers = eltSolution.ChildNodes[0] as XmlElement;
@@ -2212,10 +2262,14 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
             descAttribute.Value = cylinderProperties.Description;
             xmlBoxProperties.Attributes.Append(descAttribute);
-            // length
-            XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Radius");
-            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusOuter);
-            xmlBoxProperties.Attributes.Append(lengthAttribute);
+            // radius outer
+            XmlAttribute radiusOuterAttribute = xmlDoc.CreateAttribute("RadiusOuter");
+            radiusOuterAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusOuter);
+            xmlBoxProperties.Attributes.Append(radiusOuterAttribute);
+            // radius inner
+            XmlAttribute radiusInnerAttribute = xmlDoc.CreateAttribute("RadiusInner");
+            radiusInnerAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.RadiusInner);
+            xmlBoxProperties.Attributes.Append(radiusInnerAttribute);
             // height
             XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
             heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.Height);
@@ -2230,7 +2284,7 @@ namespace TreeDim.StackBuilder.Basics
             xmlBoxProperties.Attributes.Append(topAttribute);
             // colorWall
             XmlAttribute wallAttribute = xmlDoc.CreateAttribute("ColorWall");
-            wallAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWall.ToArgb());
+            wallAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallOuter.ToArgb());
             xmlBoxProperties.Attributes.Append(wallAttribute);
         }
 
@@ -3483,6 +3537,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewCylinderPalletAnalysisCreated(this, analysis);
+        }
+        private void NotifyOnNewHCylinderPalletAnalysisCreated(HCylinderPalletAnalysis analysis)
+        {
+            foreach (IDocumentListener listener in _listeners)
+                listener.OnNewHCylinderPalletAnalysisCreated(this, analysis);
         }
         private void NotifyOnNewBoxCaseAnalysis(BoxCaseAnalysis analysis)
         {

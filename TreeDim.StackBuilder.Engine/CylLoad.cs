@@ -17,7 +17,7 @@ namespace TreeDim.StackBuilder.Engine
     {
         #region Data members
         protected static readonly ILog _log = LogManager.GetLogger(typeof(CylLoad));
-        private double _palletLength = 0.0, _palletWidth = 0.0;
+        private double _palletLength = 0.0, _palletWidth = 0.0, _palletHeight = 0.0;
         private double _cylinderRadius = 0.0, _cylinderLength = 0.0;
         #endregion
 
@@ -26,6 +26,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             _palletLength = palletProperties.Length + constraintSet.OverhangX;
             _palletWidth = palletProperties.Width + constraintSet.OverhangY;
+            _palletHeight = palletProperties.Height;
             Initialize(cylProperties);
         }
         #endregion
@@ -44,28 +45,28 @@ namespace TreeDim.StackBuilder.Engine
             switch (cylPosition.Direction)
             {
                 case HalfAxis.HAxis.AXIS_X_N:
-                    if (cylPosition.Position.X - _cylinderLength < 0.0) return false;
-                    if (cylPosition.Position.X > _palletLength) return false;
-                    if (cylPosition.Position.Y - _cylinderRadius < 0.0) return false;
-                    if (cylPosition.Position.Y + _cylinderRadius > _palletWidth) return false;
+                    if (cylPosition.XYZ.X - _cylinderLength < 0.0) return false;
+                    if (cylPosition.XYZ.X > _palletLength) return false;
+                    if (cylPosition.XYZ.Y - _cylinderRadius < 0.0) return false;
+                    if (cylPosition.XYZ.Y + _cylinderRadius > _palletWidth) return false;
                     break;
                 case HalfAxis.HAxis.AXIS_X_P:
-                    if (cylPosition.Position.X < 0.0) return false;
-                    if (cylPosition.Position.X - _cylinderLength > _palletLength) return false;
-                    if (cylPosition.Position.Y - _cylinderRadius < 0.0) return false;
-                    if (cylPosition.Position.Y + _cylinderRadius > _palletWidth) return false;
+                    if (cylPosition.XYZ.X < 0.0) return false;
+                    if (cylPosition.XYZ.X - _cylinderLength > _palletLength) return false;
+                    if (cylPosition.XYZ.Y - _cylinderRadius < 0.0) return false;
+                    if (cylPosition.XYZ.Y + _cylinderRadius > _palletWidth) return false;
                     break;
                 case HalfAxis.HAxis.AXIS_Y_N:
-                    if (cylPosition.Position.Y - _cylinderLength < 0) return false;
-                    if (cylPosition.Position.Y > _palletWidth) return false;
-                    if (cylPosition.Position.X - _cylinderRadius < 0) return false;
-                    if (cylPosition.Position.X + _cylinderRadius > _palletLength) return false;
+                    if (cylPosition.XYZ.Y - _cylinderLength < 0) return false;
+                    if (cylPosition.XYZ.Y > _palletWidth) return false;
+                    if (cylPosition.XYZ.X - _cylinderRadius < 0) return false;
+                    if (cylPosition.XYZ.X + _cylinderRadius > _palletLength) return false;
                     break;
                 case HalfAxis.HAxis.AXIS_Y_P:
-                    if (cylPosition.Position.Y < 0) return false;
-                    if (cylPosition.Position.Y + _cylinderLength > _palletWidth) return false;
-                    if (cylPosition.Position.X - _cylinderRadius < 0) return false;
-                    if (cylPosition.Position.X + _cylinderRadius > _palletLength) return false;
+                    if (cylPosition.XYZ.Y < 0) return false;
+                    if (cylPosition.XYZ.Y + _cylinderLength > _palletWidth) return false;
+                    if (cylPosition.XYZ.X - _cylinderRadius < 0) return false;
+                    if (cylPosition.XYZ.X + _cylinderRadius > _palletLength) return false;
                     break;
                 default:
                     return false;
@@ -78,7 +79,7 @@ namespace TreeDim.StackBuilder.Engine
 
             foreach (CylPosition c in this)
             {
-                Vector3D vDiff = c.Position - cylPosition.Position;
+                Vector3D vDiff = c.XYZ - cylPosition.XYZ;
                 double axisProj = Vector3D.DotProduct(cylDirection, vDiff);
                 Vector3D vDiffProj = vDiff - axisProj * cylDirection;
                 if (axisProj < _cylinderLength && vDiffProj.GetLength() < _cylinderRadius)
@@ -96,6 +97,10 @@ namespace TreeDim.StackBuilder.Engine
         public double PalletWidth
         {
             get { return _palletWidth; }
+        }
+        public double PalletHeight
+        {
+            get { return _palletHeight; }
         }
         public double CylinderRadius
         {

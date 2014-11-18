@@ -93,6 +93,16 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AnalysisHCylinder {
+            get {
+                object obj = ResourceManager.GetObject("AnalysisHCylinder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AnalysisStackingStrength {
             get {
                 object obj = ResourceManager.GetObject("AnalysisStackingStrength", resourceCulture);
@@ -600,6 +610,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cylinder count.
+        /// </summary>
+        internal static string ID_CYLINDERCOUNT {
+            get {
+                return ResourceManager.GetString("ID_CYLINDERCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallet solution database is empty.
         ///Closing form....
         /// </summary>
@@ -824,6 +843,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_INTERLAYER {
             get {
                 return ResourceManager.GetString("ID_INTERLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inner diameter ought to be smaller than outer diameter..
+        /// </summary>
+        internal static string ID_INVALIDDIAMETER {
+            get {
+                return ResourceManager.GetString("ID_INVALIDDIAMETER", resourceCulture);
             }
         }
         

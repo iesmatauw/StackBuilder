@@ -73,7 +73,7 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Dependancies
-        public void AddDependancie(ItemBase dependancie)
+        public void AddDependancy(ItemBase dependancie)
         {
             if (_dependancies.Contains(dependancie))
             {
@@ -84,7 +84,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         public bool HasDependingAnalyses
         { get { return _dependancies.Count > 0; } }
-        public void RemoveDependancie(ItemBase dependancie)
+        public void RemoveDependancy(ItemBase dependancie)
         {   _dependancies.Remove(dependancie);  }
         protected void Modify()
         {

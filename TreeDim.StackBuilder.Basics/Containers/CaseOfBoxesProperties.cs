@@ -30,7 +30,7 @@ namespace TreeDim.StackBuilder.Basics
             : base(document)
         {
             _boxProperties = boxProperties;
-            _boxProperties.AddDependancie(this);
+            _boxProperties.AddDependancy(this);
             _caseDefinition = caseDefinition;
             _constraintSet = constraintSet;
 
@@ -76,7 +76,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         protected override void RemoveItselfFromDependancies()
         {
-            _boxProperties.RemoveDependancie(this);
+            _boxProperties.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         public override void OnEndUpdate(ItemBase updatedAttribute)

@@ -134,6 +134,17 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         /// <param name="analysis"></param>
         /// <returns></returns>
+        public DockContentHCylinderPalletAnalysis CreateAnalysisViewHCylinderPallet(HCylinderPalletAnalysis analysis)
+        {
+            DockContentHCylinderPalletAnalysis form = new DockContentHCylinderPalletAnalysis(this, analysis);
+            AddView(form);
+            return form;
+        }
+        /// <summary>
+        /// Creates new DockContentAnalysis view
+        /// </summary>
+        /// <param name="analysis"></param>
+        /// <returns></returns>
         public DockContentAnalysisCaseOfBoxes CreateAnalysisViewCaseOfBoxes(CasePalletAnalysis analysis)
         {
             DockContentAnalysisCaseOfBoxes form = new DockContentAnalysisCaseOfBoxes(this, analysis);
@@ -232,8 +243,8 @@ namespace TreeDim.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewCylinder(
                     form.CylinderName, form.Description
-                    , form.Radius, form.CylinderHeight, form.Weight
-                    , form.ColorTop, form.ColorWall);
+                    , form.RadiusOuter, form.RadiusInner, form.CylinderHeight, form.Weight
+                    , form.ColorTop, form.ColorWallOuter, form.ColorWallInner);
 
         }
         /// <summary>
@@ -445,6 +456,33 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.SelectedCylinder, form.SelectedPallet, form.SelectedInterlayer
                     , constraintSet
                     , new CylinderSolver());
+            }
+            return null;
+        }
+        public HCylinderPalletAnalysis CreateNewHCylinderPalletAnalysisUI()
+        {
+            FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this);
+            form.Cylinders = Cylinders.ToArray();
+            form.Pallets = Pallets.ToArray();
+
+            if (DialogResult.OK == form.ShowDialog())
+            { 
+                // build constraint set
+                HCylinderPalletConstraintSet constraintSet = new HCylinderPalletConstraintSet();
+                // stop criterion
+                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
+                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+
+                return CreateNewHCylinderPalletAnalysis(
+                    form.AnalysisName, form.AnalysisDescription,
+                    form.SelectedCylinder, form.SelectedPallet,
+                    constraintSet,
+                    new HCylinderSolver());
+
             }
             return null;
         }

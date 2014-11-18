@@ -36,14 +36,14 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
-            this.uLengthRadiusOuter = new System.Windows.Forms.Label();
-            this.uLengthRadiusInner = new System.Windows.Forms.Label();
+            this.uLengthDiameterOuter = new System.Windows.Forms.Label();
+            this.uLengthDiameterInner = new System.Windows.Forms.Label();
             this.uLengthHeight = new System.Windows.Forms.Label();
-            this.nudRadiusOuter = new System.Windows.Forms.NumericUpDown();
-            this.nudRadiusInner = new System.Windows.Forms.NumericUpDown();
+            this.nudDiameterOuter = new System.Windows.Forms.NumericUpDown();
+            this.nudDiameterInner = new System.Windows.Forms.NumericUpDown();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
-            this.lbRadiusOuter = new System.Windows.Forms.Label();
-            this.lbRadiusInner = new System.Windows.Forms.Label();
+            this.lbDiameterOuter = new System.Windows.Forms.Label();
+            this.lbDiameterInner = new System.Windows.Forms.Label();
             this.lbHeight = new System.Windows.Forms.Label();
             this.gbWeight = new System.Windows.Forms.GroupBox();
             this.uMassWeight = new System.Windows.Forms.Label();
@@ -54,13 +54,15 @@
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
-            this.cbColorWall = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.cbColorWallInner = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbColorWallOuter = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbWallColor = new System.Windows.Forms.Label();
             this.cbColorTop = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbTop = new System.Windows.Forms.Label();
             this.gbDimensions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusOuter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusInner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiameterOuter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiameterInner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
@@ -108,76 +110,67 @@
             // 
             // gbDimensions
             // 
-            this.gbDimensions.Controls.Add(this.uLengthRadiusOuter);
-            this.gbDimensions.Controls.Add(this.uLengthRadiusInner);
+            this.gbDimensions.Controls.Add(this.uLengthDiameterOuter);
+            this.gbDimensions.Controls.Add(this.uLengthDiameterInner);
             this.gbDimensions.Controls.Add(this.uLengthHeight);
-            this.gbDimensions.Controls.Add(this.nudRadiusOuter);
-            this.gbDimensions.Controls.Add(this.nudRadiusInner);
+            this.gbDimensions.Controls.Add(this.nudDiameterOuter);
+            this.gbDimensions.Controls.Add(this.nudDiameterInner);
             this.gbDimensions.Controls.Add(this.nudHeight);
-            this.gbDimensions.Controls.Add(this.lbRadiusOuter);
-            this.gbDimensions.Controls.Add(this.lbRadiusInner);
+            this.gbDimensions.Controls.Add(this.lbDiameterOuter);
+            this.gbDimensions.Controls.Add(this.lbDiameterInner);
             this.gbDimensions.Controls.Add(this.lbHeight);
             resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
-            // uLengthRadiusOuter
+            // uLengthDiameterOuter
             // 
-            resources.ApplyResources(this.uLengthRadiusOuter, "uLengthRadiusOuter");
-            this.uLengthRadiusOuter.Name = "uLengthRadiusOuter";
+            resources.ApplyResources(this.uLengthDiameterOuter, "uLengthDiameterOuter");
+            this.uLengthDiameterOuter.Name = "uLengthDiameterOuter";
             // 
-            // uLengthRadiusInner
+            // uLengthDiameterInner
             // 
-            resources.ApplyResources(this.uLengthRadiusInner, "uLengthRadiusInner");
-            this.uLengthRadiusInner.Name = "uLengthRadiusInner";
+            resources.ApplyResources(this.uLengthDiameterInner, "uLengthDiameterInner");
+            this.uLengthDiameterInner.Name = "uLengthDiameterInner";
             // 
             // uLengthHeight
             // 
             resources.ApplyResources(this.uLengthHeight, "uLengthHeight");
             this.uLengthHeight.Name = "uLengthHeight";
             // 
-            // nudRadiusOuter
+            // nudDiameterOuter
             // 
-            this.nudRadiusOuter.DecimalPlaces = 1;
-            resources.ApplyResources(this.nudRadiusOuter, "nudRadiusOuter");
-            this.nudRadiusOuter.Maximum = new decimal(new int[] {
+            this.nudDiameterOuter.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudDiameterOuter, "nudDiameterOuter");
+            this.nudDiameterOuter.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nudRadiusOuter.Minimum = new decimal(new int[] {
+            this.nudDiameterOuter.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudRadiusOuter.Name = "nudRadiusOuter";
-            this.nudRadiusOuter.Value = new decimal(new int[] {
+            this.nudDiameterOuter.Name = "nudDiameterOuter";
+            this.nudDiameterOuter.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudRadiusOuter.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            this.nudDiameterOuter.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
-            // nudRadiusInner
+            // nudDiameterInner
             // 
-            this.nudRadiusInner.DecimalPlaces = 1;
-            resources.ApplyResources(this.nudRadiusInner, "nudRadiusInner");
-            this.nudRadiusInner.Maximum = new decimal(new int[] {
+            this.nudDiameterInner.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudDiameterInner, "nudDiameterInner");
+            this.nudDiameterInner.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nudRadiusInner.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudRadiusInner.Name = "nudRadiusInner";
-            this.nudRadiusInner.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudDiameterInner.Name = "nudDiameterInner";
+            this.nudDiameterInner.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
             // nudHeight
             // 
@@ -201,15 +194,15 @@
             0});
             this.nudHeight.ValueChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
-            // lbRadiusOuter
+            // lbDiameterOuter
             // 
-            resources.ApplyResources(this.lbRadiusOuter, "lbRadiusOuter");
-            this.lbRadiusOuter.Name = "lbRadiusOuter";
+            resources.ApplyResources(this.lbDiameterOuter, "lbDiameterOuter");
+            this.lbDiameterOuter.Name = "lbDiameterOuter";
             // 
-            // lbRadiusInner
+            // lbDiameterInner
             // 
-            resources.ApplyResources(this.lbRadiusInner, "lbRadiusInner");
-            this.lbRadiusInner.Name = "lbRadiusInner";
+            resources.ApplyResources(this.lbDiameterInner, "lbDiameterInner");
+            this.lbDiameterInner.Name = "lbDiameterInner";
             // 
             // lbHeight
             // 
@@ -283,7 +276,9 @@
             // 
             // gbFaceColor
             // 
-            this.gbFaceColor.Controls.Add(this.cbColorWall);
+            this.gbFaceColor.Controls.Add(this.cbColorWallInner);
+            this.gbFaceColor.Controls.Add(this.label1);
+            this.gbFaceColor.Controls.Add(this.cbColorWallOuter);
             this.gbFaceColor.Controls.Add(this.lbWallColor);
             this.gbFaceColor.Controls.Add(this.cbColorTop);
             this.gbFaceColor.Controls.Add(this.lbTop);
@@ -291,98 +286,203 @@
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
-            // cbColorWall
+            // cbColorWallInner
             // 
-            this.cbColorWall.Color = System.Drawing.Color.LightSkyBlue;
-            this.cbColorWall.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbColorWall.DropDownHeight = 1;
-            this.cbColorWall.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbColorWall.DropDownWidth = 1;
-            resources.ApplyResources(this.cbColorWall, "cbColorWall");
-            this.cbColorWall.Items.AddRange(new object[] {
-            resources.GetString("cbColorWall.Items"),
-            resources.GetString("cbColorWall.Items1"),
-            resources.GetString("cbColorWall.Items2"),
-            resources.GetString("cbColorWall.Items3"),
-            resources.GetString("cbColorWall.Items4"),
-            resources.GetString("cbColorWall.Items5"),
-            resources.GetString("cbColorWall.Items6"),
-            resources.GetString("cbColorWall.Items7"),
-            resources.GetString("cbColorWall.Items8"),
-            resources.GetString("cbColorWall.Items9"),
-            resources.GetString("cbColorWall.Items10"),
-            resources.GetString("cbColorWall.Items11"),
-            resources.GetString("cbColorWall.Items12"),
-            resources.GetString("cbColorWall.Items13"),
-            resources.GetString("cbColorWall.Items14"),
-            resources.GetString("cbColorWall.Items15"),
-            resources.GetString("cbColorWall.Items16"),
-            resources.GetString("cbColorWall.Items17"),
-            resources.GetString("cbColorWall.Items18"),
-            resources.GetString("cbColorWall.Items19"),
-            resources.GetString("cbColorWall.Items20"),
-            resources.GetString("cbColorWall.Items21"),
-            resources.GetString("cbColorWall.Items22"),
-            resources.GetString("cbColorWall.Items23"),
-            resources.GetString("cbColorWall.Items24"),
-            resources.GetString("cbColorWall.Items25"),
-            resources.GetString("cbColorWall.Items26"),
-            resources.GetString("cbColorWall.Items27"),
-            resources.GetString("cbColorWall.Items28"),
-            resources.GetString("cbColorWall.Items29"),
-            resources.GetString("cbColorWall.Items30"),
-            resources.GetString("cbColorWall.Items31"),
-            resources.GetString("cbColorWall.Items32"),
-            resources.GetString("cbColorWall.Items33"),
-            resources.GetString("cbColorWall.Items34"),
-            resources.GetString("cbColorWall.Items35"),
-            resources.GetString("cbColorWall.Items36"),
-            resources.GetString("cbColorWall.Items37"),
-            resources.GetString("cbColorWall.Items38"),
-            resources.GetString("cbColorWall.Items39"),
-            resources.GetString("cbColorWall.Items40"),
-            resources.GetString("cbColorWall.Items41"),
-            resources.GetString("cbColorWall.Items42"),
-            resources.GetString("cbColorWall.Items43"),
-            resources.GetString("cbColorWall.Items44"),
-            resources.GetString("cbColorWall.Items45"),
-            resources.GetString("cbColorWall.Items46"),
-            resources.GetString("cbColorWall.Items47"),
-            resources.GetString("cbColorWall.Items48"),
-            resources.GetString("cbColorWall.Items49"),
-            resources.GetString("cbColorWall.Items50"),
-            resources.GetString("cbColorWall.Items51"),
-            resources.GetString("cbColorWall.Items52"),
-            resources.GetString("cbColorWall.Items53"),
-            resources.GetString("cbColorWall.Items54"),
-            resources.GetString("cbColorWall.Items55"),
-            resources.GetString("cbColorWall.Items56"),
-            resources.GetString("cbColorWall.Items57"),
-            resources.GetString("cbColorWall.Items58"),
-            resources.GetString("cbColorWall.Items59"),
-            resources.GetString("cbColorWall.Items60"),
-            resources.GetString("cbColorWall.Items61"),
-            resources.GetString("cbColorWall.Items62"),
-            resources.GetString("cbColorWall.Items63"),
-            resources.GetString("cbColorWall.Items64"),
-            resources.GetString("cbColorWall.Items65"),
-            resources.GetString("cbColorWall.Items66"),
-            resources.GetString("cbColorWall.Items67"),
-            resources.GetString("cbColorWall.Items68"),
-            resources.GetString("cbColorWall.Items69"),
-            resources.GetString("cbColorWall.Items70"),
-            resources.GetString("cbColorWall.Items71"),
-            resources.GetString("cbColorWall.Items72"),
-            resources.GetString("cbColorWall.Items73"),
-            resources.GetString("cbColorWall.Items74"),
-            resources.GetString("cbColorWall.Items75"),
-            resources.GetString("cbColorWall.Items76"),
-            resources.GetString("cbColorWall.Items77"),
-            resources.GetString("cbColorWall.Items78"),
-            resources.GetString("cbColorWall.Items79"),
-            resources.GetString("cbColorWall.Items80")});
-            this.cbColorWall.Name = "cbColorWall";
-            this.cbColorWall.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            this.cbColorWallInner.Color = System.Drawing.Color.LightSkyBlue;
+            this.cbColorWallInner.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbColorWallInner.DropDownHeight = 1;
+            this.cbColorWallInner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColorWallInner.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorWallInner, "cbColorWallInner");
+            this.cbColorWallInner.Items.AddRange(new object[] {
+            resources.GetString("cbColorWallInner.Items"),
+            resources.GetString("cbColorWallInner.Items1"),
+            resources.GetString("cbColorWallInner.Items2"),
+            resources.GetString("cbColorWallInner.Items3"),
+            resources.GetString("cbColorWallInner.Items4"),
+            resources.GetString("cbColorWallInner.Items5"),
+            resources.GetString("cbColorWallInner.Items6"),
+            resources.GetString("cbColorWallInner.Items7"),
+            resources.GetString("cbColorWallInner.Items8"),
+            resources.GetString("cbColorWallInner.Items9"),
+            resources.GetString("cbColorWallInner.Items10"),
+            resources.GetString("cbColorWallInner.Items11"),
+            resources.GetString("cbColorWallInner.Items12"),
+            resources.GetString("cbColorWallInner.Items13"),
+            resources.GetString("cbColorWallInner.Items14"),
+            resources.GetString("cbColorWallInner.Items15"),
+            resources.GetString("cbColorWallInner.Items16"),
+            resources.GetString("cbColorWallInner.Items17"),
+            resources.GetString("cbColorWallInner.Items18"),
+            resources.GetString("cbColorWallInner.Items19"),
+            resources.GetString("cbColorWallInner.Items20"),
+            resources.GetString("cbColorWallInner.Items21"),
+            resources.GetString("cbColorWallInner.Items22"),
+            resources.GetString("cbColorWallInner.Items23"),
+            resources.GetString("cbColorWallInner.Items24"),
+            resources.GetString("cbColorWallInner.Items25"),
+            resources.GetString("cbColorWallInner.Items26"),
+            resources.GetString("cbColorWallInner.Items27"),
+            resources.GetString("cbColorWallInner.Items28"),
+            resources.GetString("cbColorWallInner.Items29"),
+            resources.GetString("cbColorWallInner.Items30"),
+            resources.GetString("cbColorWallInner.Items31"),
+            resources.GetString("cbColorWallInner.Items32"),
+            resources.GetString("cbColorWallInner.Items33"),
+            resources.GetString("cbColorWallInner.Items34"),
+            resources.GetString("cbColorWallInner.Items35"),
+            resources.GetString("cbColorWallInner.Items36"),
+            resources.GetString("cbColorWallInner.Items37"),
+            resources.GetString("cbColorWallInner.Items38"),
+            resources.GetString("cbColorWallInner.Items39"),
+            resources.GetString("cbColorWallInner.Items40"),
+            resources.GetString("cbColorWallInner.Items41"),
+            resources.GetString("cbColorWallInner.Items42"),
+            resources.GetString("cbColorWallInner.Items43"),
+            resources.GetString("cbColorWallInner.Items44"),
+            resources.GetString("cbColorWallInner.Items45"),
+            resources.GetString("cbColorWallInner.Items46"),
+            resources.GetString("cbColorWallInner.Items47"),
+            resources.GetString("cbColorWallInner.Items48"),
+            resources.GetString("cbColorWallInner.Items49"),
+            resources.GetString("cbColorWallInner.Items50"),
+            resources.GetString("cbColorWallInner.Items51"),
+            resources.GetString("cbColorWallInner.Items52"),
+            resources.GetString("cbColorWallInner.Items53"),
+            resources.GetString("cbColorWallInner.Items54"),
+            resources.GetString("cbColorWallInner.Items55"),
+            resources.GetString("cbColorWallInner.Items56"),
+            resources.GetString("cbColorWallInner.Items57"),
+            resources.GetString("cbColorWallInner.Items58"),
+            resources.GetString("cbColorWallInner.Items59"),
+            resources.GetString("cbColorWallInner.Items60"),
+            resources.GetString("cbColorWallInner.Items61"),
+            resources.GetString("cbColorWallInner.Items62"),
+            resources.GetString("cbColorWallInner.Items63"),
+            resources.GetString("cbColorWallInner.Items64"),
+            resources.GetString("cbColorWallInner.Items65"),
+            resources.GetString("cbColorWallInner.Items66"),
+            resources.GetString("cbColorWallInner.Items67"),
+            resources.GetString("cbColorWallInner.Items68"),
+            resources.GetString("cbColorWallInner.Items69"),
+            resources.GetString("cbColorWallInner.Items70"),
+            resources.GetString("cbColorWallInner.Items71"),
+            resources.GetString("cbColorWallInner.Items72"),
+            resources.GetString("cbColorWallInner.Items73"),
+            resources.GetString("cbColorWallInner.Items74"),
+            resources.GetString("cbColorWallInner.Items75"),
+            resources.GetString("cbColorWallInner.Items76"),
+            resources.GetString("cbColorWallInner.Items77"),
+            resources.GetString("cbColorWallInner.Items78"),
+            resources.GetString("cbColorWallInner.Items79"),
+            resources.GetString("cbColorWallInner.Items80"),
+            resources.GetString("cbColorWallInner.Items81"),
+            resources.GetString("cbColorWallInner.Items82"),
+            resources.GetString("cbColorWallInner.Items83"),
+            resources.GetString("cbColorWallInner.Items84")});
+            this.cbColorWallInner.Name = "cbColorWallInner";
+            this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // cbColorWallOuter
+            // 
+            this.cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
+            this.cbColorWallOuter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbColorWallOuter.DropDownHeight = 1;
+            this.cbColorWallOuter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColorWallOuter.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColorWallOuter, "cbColorWallOuter");
+            this.cbColorWallOuter.Items.AddRange(new object[] {
+            resources.GetString("cbColorWallOuter.Items"),
+            resources.GetString("cbColorWallOuter.Items1"),
+            resources.GetString("cbColorWallOuter.Items2"),
+            resources.GetString("cbColorWallOuter.Items3"),
+            resources.GetString("cbColorWallOuter.Items4"),
+            resources.GetString("cbColorWallOuter.Items5"),
+            resources.GetString("cbColorWallOuter.Items6"),
+            resources.GetString("cbColorWallOuter.Items7"),
+            resources.GetString("cbColorWallOuter.Items8"),
+            resources.GetString("cbColorWallOuter.Items9"),
+            resources.GetString("cbColorWallOuter.Items10"),
+            resources.GetString("cbColorWallOuter.Items11"),
+            resources.GetString("cbColorWallOuter.Items12"),
+            resources.GetString("cbColorWallOuter.Items13"),
+            resources.GetString("cbColorWallOuter.Items14"),
+            resources.GetString("cbColorWallOuter.Items15"),
+            resources.GetString("cbColorWallOuter.Items16"),
+            resources.GetString("cbColorWallOuter.Items17"),
+            resources.GetString("cbColorWallOuter.Items18"),
+            resources.GetString("cbColorWallOuter.Items19"),
+            resources.GetString("cbColorWallOuter.Items20"),
+            resources.GetString("cbColorWallOuter.Items21"),
+            resources.GetString("cbColorWallOuter.Items22"),
+            resources.GetString("cbColorWallOuter.Items23"),
+            resources.GetString("cbColorWallOuter.Items24"),
+            resources.GetString("cbColorWallOuter.Items25"),
+            resources.GetString("cbColorWallOuter.Items26"),
+            resources.GetString("cbColorWallOuter.Items27"),
+            resources.GetString("cbColorWallOuter.Items28"),
+            resources.GetString("cbColorWallOuter.Items29"),
+            resources.GetString("cbColorWallOuter.Items30"),
+            resources.GetString("cbColorWallOuter.Items31"),
+            resources.GetString("cbColorWallOuter.Items32"),
+            resources.GetString("cbColorWallOuter.Items33"),
+            resources.GetString("cbColorWallOuter.Items34"),
+            resources.GetString("cbColorWallOuter.Items35"),
+            resources.GetString("cbColorWallOuter.Items36"),
+            resources.GetString("cbColorWallOuter.Items37"),
+            resources.GetString("cbColorWallOuter.Items38"),
+            resources.GetString("cbColorWallOuter.Items39"),
+            resources.GetString("cbColorWallOuter.Items40"),
+            resources.GetString("cbColorWallOuter.Items41"),
+            resources.GetString("cbColorWallOuter.Items42"),
+            resources.GetString("cbColorWallOuter.Items43"),
+            resources.GetString("cbColorWallOuter.Items44"),
+            resources.GetString("cbColorWallOuter.Items45"),
+            resources.GetString("cbColorWallOuter.Items46"),
+            resources.GetString("cbColorWallOuter.Items47"),
+            resources.GetString("cbColorWallOuter.Items48"),
+            resources.GetString("cbColorWallOuter.Items49"),
+            resources.GetString("cbColorWallOuter.Items50"),
+            resources.GetString("cbColorWallOuter.Items51"),
+            resources.GetString("cbColorWallOuter.Items52"),
+            resources.GetString("cbColorWallOuter.Items53"),
+            resources.GetString("cbColorWallOuter.Items54"),
+            resources.GetString("cbColorWallOuter.Items55"),
+            resources.GetString("cbColorWallOuter.Items56"),
+            resources.GetString("cbColorWallOuter.Items57"),
+            resources.GetString("cbColorWallOuter.Items58"),
+            resources.GetString("cbColorWallOuter.Items59"),
+            resources.GetString("cbColorWallOuter.Items60"),
+            resources.GetString("cbColorWallOuter.Items61"),
+            resources.GetString("cbColorWallOuter.Items62"),
+            resources.GetString("cbColorWallOuter.Items63"),
+            resources.GetString("cbColorWallOuter.Items64"),
+            resources.GetString("cbColorWallOuter.Items65"),
+            resources.GetString("cbColorWallOuter.Items66"),
+            resources.GetString("cbColorWallOuter.Items67"),
+            resources.GetString("cbColorWallOuter.Items68"),
+            resources.GetString("cbColorWallOuter.Items69"),
+            resources.GetString("cbColorWallOuter.Items70"),
+            resources.GetString("cbColorWallOuter.Items71"),
+            resources.GetString("cbColorWallOuter.Items72"),
+            resources.GetString("cbColorWallOuter.Items73"),
+            resources.GetString("cbColorWallOuter.Items74"),
+            resources.GetString("cbColorWallOuter.Items75"),
+            resources.GetString("cbColorWallOuter.Items76"),
+            resources.GetString("cbColorWallOuter.Items77"),
+            resources.GetString("cbColorWallOuter.Items78"),
+            resources.GetString("cbColorWallOuter.Items79"),
+            resources.GetString("cbColorWallOuter.Items80"),
+            resources.GetString("cbColorWallOuter.Items81"),
+            resources.GetString("cbColorWallOuter.Items82"),
+            resources.GetString("cbColorWallOuter.Items83")});
+            this.cbColorWallOuter.Name = "cbColorWallOuter";
+            this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
             // lbWallColor
             // 
@@ -477,7 +577,10 @@
             resources.GetString("cbColorTop.Items76"),
             resources.GetString("cbColorTop.Items77"),
             resources.GetString("cbColorTop.Items78"),
-            resources.GetString("cbColorTop.Items79")});
+            resources.GetString("cbColorTop.Items79"),
+            resources.GetString("cbColorTop.Items80"),
+            resources.GetString("cbColorTop.Items81"),
+            resources.GetString("cbColorTop.Items82")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -509,8 +612,8 @@
             this.ShowInTaskbar = false;
             this.gbDimensions.ResumeLayout(false);
             this.gbDimensions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusOuter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRadiusInner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiameterOuter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiameterInner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             this.gbWeight.ResumeLayout(false);
             this.gbWeight.PerformLayout();
@@ -536,11 +639,11 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbDimensions;
         private System.Windows.Forms.Label uLengthHeight;
-        private System.Windows.Forms.Label uLengthRadiusOuter;
-        private System.Windows.Forms.NumericUpDown nudRadiusOuter;
+        private System.Windows.Forms.Label uLengthDiameterOuter;
+        private System.Windows.Forms.NumericUpDown nudDiameterOuter;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.Label lbHeight;
-        private System.Windows.Forms.Label lbRadiusOuter;
+        private System.Windows.Forms.Label lbDiameterOuter;
         private System.Windows.Forms.GroupBox gbWeight;
         private System.Windows.Forms.Label uMassWeight;
         private System.Windows.Forms.NumericUpDown nudWeight;
@@ -550,12 +653,14 @@
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.GroupBox gbFaceColor;
-        private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorWall;
-        private System.Windows.Forms.Label lbWallColor;
+        private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorWallOuter;
+        private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorWallInner;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorTop;
+        private System.Windows.Forms.Label lbWallColor;
         private System.Windows.Forms.Label lbTop;
-        private System.Windows.Forms.Label uLengthRadiusInner;
-        private System.Windows.Forms.NumericUpDown nudRadiusInner;
-        private System.Windows.Forms.Label lbRadiusInner;
+        private System.Windows.Forms.Label uLengthDiameterInner;
+        private System.Windows.Forms.NumericUpDown nudDiameterInner;
+        private System.Windows.Forms.Label lbDiameterInner;
+        private System.Windows.Forms.Label label1;
     }
 }

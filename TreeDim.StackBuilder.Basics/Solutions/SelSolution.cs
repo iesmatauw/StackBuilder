@@ -21,7 +21,7 @@ namespace TreeDim.StackBuilder.Basics
             : base(document)
         {
             _analysis = analysis;
-            _analysis.AddDependancie(this);
+            _analysis.AddDependancy(this);
 
             _solution = sol;
             Name = sol.Title; 
@@ -44,7 +44,7 @@ namespace TreeDim.StackBuilder.Basics
             truckAnalysis.Name = name;
             truckAnalysis.Description = description;
             _truckAnalyses.Add(truckAnalysis);
-            AddDependancie(truckAnalysis);
+            AddDependancy(truckAnalysis);
             solver.ProcessAnalysis(truckAnalysis);
             ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();
@@ -68,7 +68,7 @@ namespace TreeDim.StackBuilder.Basics
             truckAnalysis.Description = description;
             truckAnalysis.Solutions = solutions;
             _truckAnalyses.Add(truckAnalysis);
-            AddDependancie(truckAnalysis);
+            AddDependancy(truckAnalysis);
             ParentDocument.NotifyOnNewTruckAnalysisCreated(_analysis, this, truckAnalysis);
             ParentDocument.Modify();
 
@@ -98,7 +98,7 @@ namespace TreeDim.StackBuilder.Basics
         {
             ECTAnalysis ectAnalysis = new ECTAnalysis(this.ParentDocument, _analysis, this);
             _ectAnalyses.Add(ectAnalysis);
-            AddDependancie(ectAnalysis);
+            AddDependancy(ectAnalysis);
             ParentDocument.NotifyOnNewECTAnalysisCreated(_analysis, this, ectAnalysis);
             ParentDocument.Modify();
 
@@ -155,7 +155,7 @@ namespace TreeDim.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancie(this);
+            _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion
@@ -176,7 +176,7 @@ namespace TreeDim.StackBuilder.Basics
             : base(document)
         {
             _analysis = analysis;
-            _analysis.AddDependancie(this);
+            _analysis.AddDependancy(this);
 
             _solution = sol;
             Name = sol.Title;
@@ -213,12 +213,65 @@ namespace TreeDim.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancie(this);
+            _analysis.RemoveDependancy(this);
+            base.RemoveItselfFromDependancies();
+        }
+        #endregion
+    }
+    public class SelHCylinderPalletSolution : ItemBase
+    {
+        #region Data members
+        private HCylinderPalletAnalysis _analysis;
+        private HCylinderPalletSolution _solution;
+        private List<TruckAnalysis> _truckAnalyses = new List<TruckAnalysis>();
+        #endregion
+
+        #region Constructor
+        public SelHCylinderPalletSolution(Document document, HCylinderPalletAnalysis analysis, HCylinderPalletSolution sol)
+            : base(document)
+        {
+            _analysis = analysis;
+            _analysis.AddDependancy(this);
+
+            _solution = sol;
+            Name = sol.Title;
+        }
+        #endregion
+
+        #region Public properties
+        /// <summary>
+        /// Encapsulated solution
+        /// </summary>
+        public HCylinderPalletSolution Solution
+        {
+            get { return _solution; }
+        }
+        /// <summary>
+        /// Parent analysis
+        /// </summary>
+        public HCylinderPalletAnalysis Analysis
+        {
+            get { return _analysis; }
+        }
+        /// <summary>
+        /// List of depending truck analyses
+        /// </summary>
+        public List<TruckAnalysis> TruckAnalyses
+        {
+            get { return _truckAnalyses; }
+        }
+        #endregion
+
+        #region ItemBase override
+        protected override void RemoveItselfFromDependancies()
+        {
+            _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion
     }
     #endregion
+
 
     #region Box / case selected solution
     public class SelBoxCaseSolution : ItemBase
@@ -233,7 +286,7 @@ namespace TreeDim.StackBuilder.Basics
             : base(document)
         {
             _analysis = analysis;
-            _analysis.AddDependancie(this);
+            _analysis.AddDependancy(this);
 
             _solution = sol;
             Name = sol.Title;
@@ -284,7 +337,7 @@ namespace TreeDim.StackBuilder.Basics
         #region ItemBase override
         protected override void RemoveItselfFromDependancies()
         {
-            _analysis.RemoveDependancie(this);
+            _analysis.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion

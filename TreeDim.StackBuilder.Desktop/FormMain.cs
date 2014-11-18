@@ -317,11 +317,13 @@ namespace TreeDim.StackBuilder.Desktop
                         }
                         cylinderProperties.Name = form.CylinderName;
                         cylinderProperties.Description = form.Description;
-                        cylinderProperties.RadiusOuter = form.Radius;
+                        cylinderProperties.RadiusOuter = form.RadiusOuter;
+                        cylinderProperties.RadiusInner = form.RadiusInner;
                         cylinderProperties.Height = form.CylinderHeight;
                         cylinderProperties.Weight = form.Weight;
                         cylinderProperties.ColorTop = form.ColorTop;
-                        cylinderProperties.ColorWall = form.ColorWall;
+                        cylinderProperties.ColorWallOuter = form.ColorWallOuter;
+                        cylinderProperties.ColorWallInner = form.ColorWallInner;
                         cylinderProperties.EndUpdate();
                     }
                 }
@@ -733,6 +735,8 @@ namespace TreeDim.StackBuilder.Desktop
             // new cylinder/pallet analysis
             newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
             toolStripButtonCreateNewCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            newToolStripMenuItemHCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            toolStripButtonCreateNewHCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
             // new box/case analysis
             newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             toolStripButtonCreateNewBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
@@ -973,6 +977,10 @@ namespace TreeDim.StackBuilder.Desktop
         {
             CreateOrActivateViewCylinderPalletAnalysis(analysis);
         }
+        public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
+        {
+            CreateOrActivateViewHCylinderPalletAnalysis(analysis);
+        }
         public void OnNewBoxCasePalletAnalysisCreated(Document doc, BoxCasePalletAnalysis caseAnalysis)
         {
             CreateOrActivateViewCaseAnalysis(caseAnalysis); 
@@ -1118,6 +1126,11 @@ namespace TreeDim.StackBuilder.Desktop
             try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void toolAddNewHCylinderPalletAnalysis(object sender, EventArgs e)
+        {
+            try { HCylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewHCylinderPalletAnalysisUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         private void toolAddNewBoxCasePalletOptimization(object sender, EventArgs e)
         {
             try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
@@ -1212,6 +1225,31 @@ namespace TreeDim.StackBuilder.Desktop
             DockContentCylinderPalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewCylinderPallet(analysis);
             formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
         }
+        public void CreateOrActivateViewHCylinderPalletAnalysis(HCylinderPalletAnalysis analysis)
+        { 
+            // ---> search among existing views
+            // ---> activate if found
+            foreach (IDocument doc in Documents)
+                foreach (IView view in doc.Views)
+                {
+                    DockContentHCylinderPalletAnalysis form = view as DockContentHCylinderPalletAnalysis;
+                    if (null == form) continue;
+                    if (analysis == form.Analysis)
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+            // ---> not found
+            // ---> create new form
+            // get document
+            DocumentSB parentDocument = (DocumentSB)analysis.ParentDocument;
+            DockContentHCylinderPalletAnalysis formAnalysis = parentDocument.CreateAnalysisViewHCylinderPallet(analysis);
+            formAnalysis.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+
+
+        }
+
         public void CreateOrActivateViewPalletAnalysisWithBox(CasePalletAnalysis analysis)
         {
             // ---> search among existing views
@@ -1416,5 +1454,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
     }
 }

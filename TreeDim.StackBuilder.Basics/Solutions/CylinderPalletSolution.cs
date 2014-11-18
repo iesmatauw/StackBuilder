@@ -8,18 +8,33 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class CylinderPalletSolution : List<ILayer>, IComparable
+    #region Limit enum : the different reasons the stacking process might be stopped
+    public enum Limit
     {
-        #region Limit enum : the different reasons the stacking process might be stopped
-        public enum Limit
-        {
-            LIMIT_MAXHEIGHTREACHED
-            , LIMIT_MAXWEIGHTREACHED
-            , LIMIT_MAXNUMBERREACHED
-            , LIMIT_UNKNOWN
-        };
-        #endregion
+        LIMIT_MAXHEIGHTREACHED
+        , LIMIT_MAXWEIGHTREACHED
+        , LIMIT_MAXNUMBERREACHED
+        , LIMIT_UNKNOWN
+    };
+    #endregion
 
+    #region ISolution
+    public interface ISolution
+    { 
+        string Title { get; }
+        Limit LimitReached { get; set; }
+        double PalletWeight { get; }
+        BBox3D BoundingBox { get; }
+        BBox3D LoadBoundingBox { get; }
+        double PalletLength { get; }
+        double PalletWidth { get; }
+        double PalletHeight { get; }
+    }
+    #endregion
+
+    #region CylinderPalletSolution
+    public class CylinderPalletSolution : List<ILayer>, IComparable, ISolution
+    {
         #region Data members
         private string _title;
         private bool _homogeneousLayer = false;
@@ -304,4 +319,105 @@ namespace TreeDim.StackBuilder.Basics
         }
         #endregion
     }
+    #endregion
+
+    #region HCylinderPalletSolution
+    public class HCylinderPalletSolution : List<CylPosition>, ISolution, IComparable 
+    {
+        #region Data members
+        private string _title;
+        private HCylinderPalletAnalysis _parentAnalysis;
+        private Limit _limitReached = Limit.LIMIT_UNKNOWN;
+        private BBox3D _bbox = new BBox3D();
+        #endregion
+
+        #region Constructor
+        public HCylinderPalletSolution(HCylinderPalletAnalysis parentAnalysis, string title)
+        {
+            _parentAnalysis = parentAnalysis;
+            _title = title;
+        }
+        #endregion
+
+        #region Public properties
+        public string Title { get { return _title; } }
+        public int CylinderCount { get { return Count; } }
+        public HCylinderPalletAnalysis Analysis
+        {
+            get { return _parentAnalysis; }
+            set { _parentAnalysis = value; }
+        }
+        public BBox3D BoundingBox
+        {
+            get
+            {
+                BBox3D bbox = new BBox3D();
+                // --- extend
+                // pallet
+                bbox.Extend(Vector3D.Zero);
+                bbox.Extend(new Vector3D(Analysis.PalletProperties.Length, Analysis.PalletProperties.Width, Analysis.PalletProperties.Height));
+                // load
+                bbox.Extend(LoadBoundingBox);
+                // --- extend
+                return bbox;                
+            }
+        }
+        public BBox3D LoadBoundingBox
+        {
+            get
+            {
+                if (!_bbox.IsValid)
+                {
+                    foreach (CylPosition pos in this)
+                        _bbox.Extend(pos.BBox(_parentAnalysis.CylinderProperties.RadiusOuter, _parentAnalysis.CylinderProperties.Height));
+                }
+                return _bbox;
+            }
+        }
+
+        #endregion
+
+        #region Limit reached
+        public Limit LimitReached
+        {
+            get { return _limitReached; }
+            set { _limitReached = value; }
+        }
+
+        public double PalletWeight
+        {
+            get
+            {
+                return _parentAnalysis.PalletProperties.Weight + Count * _parentAnalysis.CylinderProperties.Weight;
+            }
+        }
+
+        public double PalletLength { get { return BoundingBox.Length; } }
+        public double PalletWidth { get { return BoundingBox.Width; } }
+        public double PalletHeight { get { return BoundingBox.Height; } }
+        #endregion
+
+        #region IComparable
+        public int CompareTo(object obj)
+        {
+            HCylinderPalletSolution sol = (HCylinderPalletSolution)obj;
+            if (this.CylinderCount > sol.CylinderCount)
+                return -1;
+            else if (this.CylinderCount == sol.CylinderCount)
+                return 0;
+            else
+                return 1;
+        }
+        #endregion
+
+        #region Object method overrides
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("=== Solution ===> {0} cylinders", this.Count));
+            return sb.ToString();
+        }
+        #endregion
+    }
+    #endregion
 }

@@ -23,7 +23,7 @@ namespace TreeDim.StackBuilder.Graphics
         private bool _showDimensions = true;
         #endregion
 
-        #region Constructors
+        #region Constructor
         public CylinderPalletSolutionViewer(CylinderPalletSolution solution)
         {
             _analysis = null != solution ? solution.Analysis : null;
@@ -32,10 +32,9 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Public methods
-               /// <summary>
+        /// <summary>
         /// Use this method when drawing a solution that belongs an analysis
         /// </summary>
-        /// <param name="graphics"></param>
         public void Draw(Graphics3D graphics)
         {
             if (null == _solution)
@@ -55,7 +54,9 @@ namespace TreeDim.StackBuilder.Graphics
                 if (null != cylLayer)
                 {
                     foreach (Vector3D pos in cylLayer)
-                        graphics.AddCylinder(new Cylinder(pickId++, _analysis.CylinderProperties, pos));
+                        graphics.AddCylinder(
+                            new Cylinder(pickId++, _analysis.CylinderProperties, new CylPosition(pos, HalfAxis.HAxis.AXIS_Z_P))
+                            );
                 }
 
                 InterlayerPos interlayerPos = layer as InterlayerPos;
@@ -98,7 +99,9 @@ namespace TreeDim.StackBuilder.Graphics
                 graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_analysis.PalletProperties.Length, _analysis.PalletProperties.Width), Color.Black);
                 uint pickId = 0;
                 foreach (Vector3D pos in cylLayer)
-                    graphics.DrawCylinder(new Cylinder(pickId++, _analysis.CylinderProperties, pos));
+                    graphics.DrawCylinder(
+                        new Cylinder(pickId++, _analysis.CylinderProperties, new CylPosition(pos, HalfAxis.HAxis.AXIS_Z_P))
+                        );
 
                 // draw axes
                 if (showAxis)
@@ -132,11 +135,75 @@ namespace TreeDim.StackBuilder.Graphics
             if (cylLayer != null)
             {
                 foreach (Vector3D pos in cylLayer)
-                    graphics.AddCylinder(new Cylinder(pickId++, _analysis.CylinderProperties, pos));
+                    graphics.AddCylinder(new Cylinder(pickId++, _analysis.CylinderProperties, new CylPosition(pos, HalfAxis.HAxis.AXIS_Z_P)));
             }
             // flush
             graphics.Flush();
         }
+        #endregion
+
+        #region Public properties
+        public bool ShowDimensions
+        {
+            get { return _showDimensions; }
+            set { _showDimensions = value; }
+        }
+        #endregion
+    }
+
+    public class HCylinderPalletSolutionViewer
+    {
+        #region Data members
+        private HCylinderPalletSolution _solution;
+        private HCylinderPalletAnalysis _analysis;
+        private bool _showDimensions = true;
+        #endregion
+
+        #region Constructor
+        public HCylinderPalletSolutionViewer(HCylinderPalletSolution solution)
+        {
+            _analysis = null != solution ? solution.Analysis : null;
+            _solution = solution;
+        }
+        #endregion
+
+        #region Public methods
+        public void Draw(Graphics3D graphics)
+        {
+            if (null == _solution)
+                return;
+            // initialize Graphics3D object
+            if (!graphics.ShowBoxIds)
+            {
+                // draw pallet
+                Pallet pallet = new Pallet(_analysis.PalletProperties);
+                pallet.Draw(graphics, Transform3D.Identity);
+            }
+            // draw solution
+            uint pickId = 0;
+            foreach (CylPosition pos in _solution)
+                graphics.AddCylinder(new Cylinder(pickId++, _analysis.CylinderProperties, pos));
+    
+            if (_showDimensions)
+            {
+                graphics.AddDimensions(new DimensionCube(_solution.BoundingBox, Color.Black, false));
+                graphics.AddDimensions(new DimensionCube(_solution.LoadBoundingBox, Color.Red, true));
+            }
+            // flush
+            graphics.Flush();
+        }
+
+        public void Draw(Graphics2D graphics)
+        {
+            if (null == _solution || _solution.Count == 0)
+                return;
+
+            bool showAxis = false;
+
+
+        }
+
+
         #endregion
 
         #region Public properties

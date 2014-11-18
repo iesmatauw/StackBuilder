@@ -56,9 +56,9 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (value == _truckProperties) return;
-                if (null != _truckProperties) _truckProperties.RemoveDependancie(this);
+                if (null != _truckProperties) _truckProperties.RemoveDependancy(this);
                 _truckProperties = value;
-                _truckProperties.AddDependancie(this);
+                _truckProperties.AddDependancy(this);
             }
         }
         /// <summary>
@@ -128,8 +128,8 @@ namespace TreeDim.StackBuilder.Basics
         #region Override
         protected override void RemoveItselfFromDependancies()
         {
-            _truckProperties.RemoveDependancie(this);
-            _selSolution.RemoveDependancie(this);
+            _truckProperties.RemoveDependancy(this);
+            _selSolution.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion

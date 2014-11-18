@@ -138,7 +138,7 @@ namespace TreeDim.StackBuilder.Basics
         #region ItemBase overrides
         protected override void RemoveItselfFromDependancies()
         {
-            _selSolution.RemoveDependancie(this);
+            _selSolution.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         #endregion

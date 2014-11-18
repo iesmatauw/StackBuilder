@@ -183,6 +183,12 @@
     <Compile Include="DockContentECTAnalysis.Designer.cs">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContentHCylinderPalletAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentHCylinderPalletAnalysis.Designer.cs">
+      <DependentUpon>DockContentHCylinderPalletAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContentLogConsole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     </Compile>
     <Compile Include="FormNewAnalysisCylinder.Designer.cs">
       <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylinder.Designer.cs">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewBox.cs">
       <SubType>Form</SubType>
@@ -577,6 +589,9 @@
     <EmbeddedResource Include="DockContentECTAnalysis.resx">
       <DependentUpon>DockContentECTAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentHCylinderPalletAnalysis.resx">
+      <DependentUpon>DockContentHCylinderPalletAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentLogConsole.ca-ES.resx">
       <DependentUpon>DockContentLogConsole.cs</DependentUpon>
     </EmbeddedResource>
@@ -796,6 +811,9 @@
     <EmbeddedResource Include="FormNewAnalysisCylinder.resx">
       <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.ca-ES.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
@@ -1438,6 +1456,7 @@
     <Content Include="Resources\AnalysisBundle.bmp" />
     <None Include="Resources\Case.bmp" />
     <None Include="Resources\AnalysisCylinder.bmp" />
+    <None Include="Resources\AnalysisHCylinder.bmp" />
     <Content Include="Resources\AnalysisStackingStrength.ico" />
     <None Include="Resources\AnalysisStackingStrength.png" />
     <None Include="Resources\BoxCaseAnalysis.bmp" />

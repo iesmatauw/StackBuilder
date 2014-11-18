@@ -36,6 +36,7 @@ namespace TreeDim.StackBuilder.Engine
 
             double offsetX = 0.5 * (palletLength - actualLength);
             double offsetY = 0.5 * (palletWidth - actualWidth);
+            double offsetZ = load.PalletHeight + radius;
 
             int iLayer = 0;
             while (true)
@@ -52,8 +53,8 @@ namespace TreeDim.StackBuilder.Engine
                             , new CylPosition(
                                 new Vector3D(
                                     offsetX + i * length
-                                    , offsetY  + radius + (iLayer % 2) * radius * Math.Sqrt(3.0) + j * diameter
-                                    , radius + iLayer * radius * Math.Sqrt(3.0))
+                                    , offsetY  + radius + (iLayer % 2) * radius + j * diameter
+                                    , offsetZ + iLayer * radius * Math.Sqrt(3.0))
                                 , HalfAxis.HAxis.AXIS_X_P)
                             );
                         if (maxCount > 0 && load.Count >= maxCount)

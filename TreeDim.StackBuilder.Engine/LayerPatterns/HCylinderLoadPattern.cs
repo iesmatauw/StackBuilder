@@ -90,17 +90,22 @@ namespace TreeDim.StackBuilder.Engine
                     , 0.0, 0.0, 0.0, 1.0
                     );
                 vTranslation = new Vector3D(load.PalletLength, 0.0, 0.0);
+
+                matRot.M14 = vTranslation[0];
+                matRot.M24 = vTranslation[1];
+                matRot.M34 = vTranslation[2];
             }
+
+            load.Add(pos.Transform(new Transform3D(matRot)));
+
+
+            /*
             Transform3D transfRot = new Transform3D(matRot);
-
-            matRot.M14 = vTranslation[0];
-            matRot.M24 = vTranslation[1];
-            matRot.M34 = vTranslation[2];
-
             Transform3D transfRotTranslation = new Transform3D(matRot);
-            Vector3D vPositionSwapped = transfRotTranslation.transform(pos.Position);
+            Vector3D vPositionSwapped = transfRotTranslation.transform(pos.XYZ);
             Vector3D vDirSwapped = transfRotTranslation.transformRot(HalfAxis.ToVector3D(pos.Direction));
             load.Add(new CylPosition(vPositionSwapped, HalfAxis.ToHalfAxis(vDirSwapped)));
+            */ 
         }
         #endregion
     }

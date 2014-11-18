@@ -698,7 +698,7 @@ namespace TreeDim.StackBuilder.Reporting
             graphics.Target = Vector3D.Zero;
             Cylinder cyl = new Cylinder(0, cylProperties);
             graphics.AddCylinder(cyl);
-            DimensionCube dc = new DimensionCube(cyl.Diameter, cyl.Diameter, cyl.Height);   dc.FontSize = 6.0f;
+            DimensionCube dc = new DimensionCube(cyl.DiameterOuter, cyl.DiameterOuter, cyl.Height);   dc.FontSize = 6.0f;
             graphics.AddDimensions(dc);
             graphics.Flush();
             // ---

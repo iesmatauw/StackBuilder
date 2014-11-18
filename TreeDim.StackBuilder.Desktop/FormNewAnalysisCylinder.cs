@@ -26,49 +26,10 @@ namespace TreeDim.StackBuilder.Desktop
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCylinder));
         #endregion
 
-        #region Combo box item private classes
-        private class CylinderItem
-        {
-            private CylinderProperties _cylinderProperties;
-            public CylinderItem(CylinderProperties cylinderProperties)
-            {
-                _cylinderProperties = cylinderProperties;
-            }
-            public CylinderProperties Item
-            {
-                get { return _cylinderProperties; }
-            }
-            public override string ToString()
-            {
-                return _cylinderProperties.Name;
-            }
-        }
-        private class PalletItem
-        {
-            private PalletProperties _palletProperties;
-
-            public PalletItem(PalletProperties palletProperties)
-            {
-                _palletProperties = palletProperties;
-            }
-
-            public PalletProperties Item
-            {
-                get { return _palletProperties; }
-            }
-
-            public override string ToString()
-            {
-                return _palletProperties.Name;
-            }
-        }
-        #endregion
-
         #region Constructors
         /// <summary>
         /// Default constructor used for creating analysis 
         /// </summary>
-        /// <param name="document"></param>
         public FormNewAnalysisCylinder(Document document)
         {
             InitializeComponent();

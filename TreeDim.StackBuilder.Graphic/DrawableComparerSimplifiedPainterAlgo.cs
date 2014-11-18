@@ -37,7 +37,7 @@ namespace TreeDim.StackBuilder.Graphics
             Box b = d as Box;
             if (null != b) return b.Position;
             Cylinder c = d as Cylinder;
-            if (null != c) return c.Position;
+            if (null != c) return c.Position.XYZ;
             return Vector3D.Zero;        
         }
         #endregion

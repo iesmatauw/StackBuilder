@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+
 using log4net;
 
 using Sharp3D.Math.Core;
@@ -28,9 +29,7 @@ namespace TreeDim.StackBuilder.Desktop
         public DockContentAnalysisCylinder(IDocument document, CylinderPalletAnalysis analysis)
         {
             _document = document;
-
             _analysis = analysis;
-
             InitializeComponent();
         }
         #endregion

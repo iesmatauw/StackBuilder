@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace TreeDim.StackBuilder.Desktop
 {
     #region Combo box item private classes
+    #region BoxItem
     public class BoxItem
     {
         private BProperties _boxProperties;
@@ -29,6 +30,8 @@ namespace TreeDim.StackBuilder.Desktop
             return _boxProperties.Name;
         }
     }
+    #endregion
+    #region PalletItem
     public class PalletItem
     {
         private PalletProperties _palletProperties;
@@ -48,7 +51,9 @@ namespace TreeDim.StackBuilder.Desktop
             return _palletProperties.Name;
         }
     }
-    public class InterlayerItem
+    #endregion
+    #region InterlayerItem
+    internal class InterlayerItem
     {
         private InterlayerProperties _interlayerProperties;
 
@@ -56,17 +61,35 @@ namespace TreeDim.StackBuilder.Desktop
         {
             _interlayerProperties = interlayerProperties;
         }
-
         public InterlayerProperties Item
         {
             get { return _interlayerProperties; }
         }
-
         public override string ToString()
         {
             return _interlayerProperties.Name;
         }
     }
+    #endregion
+    #region CylinderItem
+    internal class CylinderItem
+    {
+        private CylinderProperties _cylinderProperties;
+        public CylinderItem(CylinderProperties cylinderProperties)
+        {
+            _cylinderProperties = cylinderProperties;
+        }
+        public CylinderProperties Item
+        {
+            get { return _cylinderProperties; }
+        }
+        public override string ToString()
+        {
+            return _cylinderProperties.Name;
+        }
+    }
+    #endregion
+    #region ItemBaseCB
     public class ItemBaseCB
     {
         private ItemBase _itemBase;
@@ -84,6 +107,7 @@ namespace TreeDim.StackBuilder.Desktop
             return _itemBase.Name;
         }
     }
+    #endregion
     #endregion
 
     #region ComboBoxHelpers

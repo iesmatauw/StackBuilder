@@ -748,25 +748,26 @@ namespace TreeDim.StackBuilder.Graphics
 
             // build pen path
             Brush brushPath = new SolidBrush(cyl.ColorPath);
-            Pen penPathThick = new Pen(brushPath, 1.8f);
+            Pen penPathThick = new Pen(brushPath, 1.7f);
             Pen penPathThin = new Pen(brushPath, 1.5f);
 
             // bottom (draw only path)
             Point[] ptsBottom = TransformPoint(GetCurrentTransformation(), cyl.BottomPoints);
             g.DrawPolygon(penPathThick, ptsBottom);
-
-            // wall
-            Face[] faces = cyl.Faces;
-            foreach (Face face in faces)
+            // top
+            Point[] ptsTop = TransformPoint(GetCurrentTransformation(), cyl.TopPoints);
+            g.DrawPolygon(penPathThick, ptsTop);
+             
+            // outer wall
+            Face[] facesWalls = cyl.FacesWalls;
+            foreach (Face face in facesWalls)
             {
                 Vector3D normal = face.Normal;
-
                 // visible ?
                 if (!face.IsVisible(_vTarget - _vCameraPos))
                     continue;
 
                 // color
-                face.ColorFill = cyl.ColorWall;
                 double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
                 Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
                 // brush
@@ -776,12 +777,40 @@ namespace TreeDim.StackBuilder.Graphics
                 g.FillPolygon(brush, ptsFace);
             }
             // top
-            double cosTop = System.Math.Abs(Vector3D.DotProduct(Vector3D.ZAxis, _vLight));
+            double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vLight));
             Color colorTop = Color.FromArgb((int)(cyl.ColorTop.R * cosTop), (int)(cyl.ColorTop.G * cosTop), (int)(cyl.ColorTop.B * cosTop));
             Brush brushTop = new SolidBrush(colorTop);
-            Point[] ptsTop = TransformPoint(GetCurrentTransformation(), cyl.TopPoints);
-            g.FillPolygon(brushTop, ptsTop);
-            g.DrawPolygon(penPathThin, ptsTop);
+
+            if (cyl.DiameterInner > 0)
+            {
+                Face[] facesTop = cyl.FacesTop;
+                foreach (Face face in facesTop)
+                {
+                    Vector3D normal = face.Normal;
+
+                    // visible ?
+                    if (!face.IsVisible(_vTarget - _vCameraPos))
+                        continue;
+                    // color
+                    // draw polygon
+                    Point[] ptsFace = TransformPoint(GetCurrentTransformation(), face.Points);
+                    g.FillPolygon(brushTop, ptsFace);
+                }
+            }
+            else
+            {
+                bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vTarget - _vCameraPos) < 0;
+                if (topVisible)
+                {
+                    g.FillPolygon(brushTop, ptsTop);
+                    g.DrawPolygon(penPathThin, ptsTop);
+                }
+                else
+                {
+                    g.FillPolygon(brushTop, ptsBottom);
+                    g.DrawPolygon(penPathThin, ptsBottom);
+                }
+            }
 
             ++_boxDrawingCounter;        
         }

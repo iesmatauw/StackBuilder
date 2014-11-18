@@ -82,23 +82,23 @@
             // 
             // bnOK
             // 
-            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.bnOK, "bnOK");
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
             // 
             // bnCancel
             // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.bnCancel, "bnCancel");
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.UseVisualStyleBackColor = true;
             // 
             // cbPallets
             // 
-            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallets.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallets, "cbPallets");
             this.cbPallets.Name = "cbPallets";
             this.cbPallets.TextChanged += new System.EventHandler(this.onFormContentChanged);
             // 
@@ -166,7 +166,6 @@
             // 
             // gbOverhangUnderhang
             // 
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbMm2);
@@ -175,6 +174,7 @@
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
@@ -225,8 +225,8 @@
             // 
             // nudMaximumLoadOnBox
             // 
-            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumLoadOnBox, "nudMaximumLoadOnBox");
             this.nudMaximumLoadOnBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -236,7 +236,6 @@
             // 
             // gbStopStackingCondition
             // 
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Controls.Add(this.uLengthPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.uMassPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.uMassLoadOnLower);
@@ -249,13 +248,14 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfItems);
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
             // nudMaximumPalletWeight
             // 
-            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.DecimalPlaces = 1;
+            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -318,9 +318,9 @@
             // 
             // cbCylinders
             // 
-            resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCylinders.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCylinders, "cbCylinders");
             this.cbCylinders.Name = "cbCylinders";
             this.cbCylinders.TextChanged += new System.EventHandler(this.onFormContentChanged);
             // 
@@ -334,9 +334,9 @@
             // 
             // cbInterlayers
             // 
-            resources.ApplyResources(this.cbInterlayers, "cbInterlayers");
             this.cbInterlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInterlayers.FormattingEnabled = true;
+            resources.ApplyResources(this.cbInterlayers, "cbInterlayers");
             this.cbInterlayers.Name = "cbInterlayers";
             this.cbInterlayers.TextChanged += new System.EventHandler(this.onFormContentChanged);
             // 
@@ -368,16 +368,16 @@
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewAnalysisCylinder
             // 

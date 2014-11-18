@@ -8,6 +8,7 @@ using log4net;
 
 namespace TreeDim.StackBuilder.Basics
 {
+    #region CylinderPalletAnalysis
     public class CylinderPalletAnalysis : ItemBase
     {
         #region Data members
@@ -41,9 +42,9 @@ namespace TreeDim.StackBuilder.Basics
             : base(cylProperties.ParentDocument)
         {
             // setting members
-            _cylinderProperties = cylProperties;
-            _palletProperties = palletProperties;
-            _interlayerProperties = interlayerProperties;
+            CylinderProperties = cylProperties;
+            PalletProperties = palletProperties;
+            InterlayerProperties = interlayerProperties;
             _constraintSet = constraintSet;
             // has interlayer ?
             _constraintSet.HasInterlayer = null != interlayerProperties;
@@ -58,9 +59,9 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (value == _cylinderProperties) return;
-                if (null != _cylinderProperties) _cylinderProperties.RemoveDependancie(this);
+                if (null != _cylinderProperties) _cylinderProperties.RemoveDependancy(this);
                 _cylinderProperties = value;
-                _cylinderProperties.AddDependancie(this);
+                _cylinderProperties.AddDependancy(this);
             }
         }
         public PalletProperties PalletProperties
@@ -69,9 +70,9 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (_palletProperties == value) return;
-                if (null != _palletProperties) _palletProperties.RemoveDependancie(this);
+                if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
                 _palletProperties = value;
-                _palletProperties.AddDependancie(this);
+                _palletProperties.AddDependancy(this);
             }
         }
         public bool HasInterlayer
@@ -84,10 +85,10 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (_interlayerProperties == value) return;
-                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancie(this);
+                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancy(this);
                 _interlayerProperties = value;
                 if (null != _interlayerProperties)
-                    _interlayerProperties.AddDependancie(this);
+                    _interlayerProperties.AddDependancy(this);
             }
         }
         public CylinderPalletConstraintSet ConstraintSet
@@ -174,12 +175,162 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
         }
         #endregion
-
-
     }
 
     public interface ICylinderAnalysisSolver
     {
         void ProcessAnalysis(CylinderPalletAnalysis analysis);
     }
+    #endregion
+
+    #region HCylinderPalletAnalysis
+    public class HCylinderPalletAnalysis : ItemBase
+    {
+        #region Data members
+        private CylinderProperties _cylinderProperties;
+        private PalletProperties _palletProperties;
+        private HCylinderPalletConstraintSet _constraintSet;
+        private List<HCylinderPalletSolution> _solutions = new List<HCylinderPalletSolution>();
+        private List<SelHCylinderPalletSolution> _selectedSolutions = new List<SelHCylinderPalletSolution>();
+        private static IHCylinderAnalysisSolver _solver;
+        static readonly ILog _log = LogManager.GetLogger(typeof(HCylinderPalletAnalysis));
+        #endregion
+
+        #region Constructor
+        public HCylinderPalletAnalysis(
+            CylinderProperties cylProperties,
+            PalletProperties palletProperties,
+            HCylinderPalletConstraintSet constraintSet)
+            : base(cylProperties.ParentDocument)
+        {
+            CylinderProperties = cylProperties;
+            PalletProperties = palletProperties;
+            _constraintSet = constraintSet;
+        }
+        #endregion
+
+        #region Delegates
+        public delegate void ModifyAnalysis(HCylinderPalletAnalysis analysis);
+        public delegate void SelectSolution(HCylinderPalletAnalysis analysis, SelHCylinderPalletSolution selSolution);
+        #endregion
+
+        #region Events
+        public event ModifyAnalysis Modified;
+        public event SelectSolution SolutionSelected;
+        public event SelectSolution SolutionSelectionRemoved;
+        #endregion
+
+        #region Public properties
+        public CylinderProperties CylinderProperties
+        {
+            get { return _cylinderProperties; }
+            set
+            {
+                if (value == _cylinderProperties) return;
+                if (null != _cylinderProperties) _cylinderProperties.RemoveDependancy(this);
+                _cylinderProperties = value;
+                _cylinderProperties.AddDependancy(this);
+            }
+        }
+        public PalletProperties PalletProperties
+        {
+            get { return _palletProperties; }
+            set
+            {
+                if (_palletProperties == value) return;
+                if (null != _palletProperties) _palletProperties.RemoveDependancy(this);
+                _palletProperties = value;
+                _palletProperties.AddDependancy(this);
+            }
+        }
+        public HCylinderPalletConstraintSet ConstraintSet
+        {
+            set { _constraintSet = value; }
+            get { return _constraintSet; }
+        }
+        public List<HCylinderPalletSolution> Solutions
+        {
+            get { return _solutions; }
+            set
+            {
+                _solutions = value;
+                foreach (HCylinderPalletSolution sol in _solutions)
+                    sol.Analysis = this;
+            }
+        }
+        public static IHCylinderAnalysisSolver Solver
+        { set { _solver = value; } }
+        #endregion
+
+        #region Solution selection
+        public void SelectSolutionByIndex(int index)
+        {
+            if (index < 0 || index > _solutions.Count)
+                return;  // no solution with this index
+            if (HasSolutionSelected(index)) return;             // solution already selected
+            // instantiate new SelSolution
+            SelHCylinderPalletSolution selSolution = new SelHCylinderPalletSolution(ParentDocument, this, _solutions[index]);
+            // insert in list
+            _selectedSolutions.Add(selSolution);
+            // fire event
+            if (null != SolutionSelected)
+                SolutionSelected(this, selSolution);
+            // set document modified (not analysis, otherwise selected solutions are erased)
+            ParentDocument.Modify();
+        }
+        public void UnselectSolutionByIndex(int index)
+        {
+            UnSelectSolution(GetSelSolutionBySolutionIndex(index));
+        }
+        public void UnSelectSolution(SelHCylinderPalletSolution selSolution)
+        {
+            if (null == selSolution) return; // this solution not selected
+            // remove from list
+            _selectedSolutions.Remove(selSolution);
+            ParentDocument.RemoveItem(selSolution);
+            // fire event
+            if (null != SolutionSelectionRemoved)
+                SolutionSelectionRemoved(this, selSolution);
+            // set document modified (not analysis, otherwise selected solutions are erased)
+            ParentDocument.Modify();
+        }
+        public bool HasSolutionSelected(int index)
+        {
+            return (null != GetSelSolutionBySolutionIndex(index));
+        }
+        public SelHCylinderPalletSolution GetSelSolutionBySolutionIndex(int index)
+        {
+            if (index < 0 || index > _solutions.Count) return null;  // no solution with this index
+            return _selectedSolutions.Find(delegate(SelHCylinderPalletSolution selSol) { return selSol.Solution == _solutions[index]; });
+        }
+        #endregion
+
+        #region Dependancies
+        public override void OnEndUpdate(ItemBase updatedAttribute)
+        {
+            if (null != Modified)
+                Modified(this);
+            // clear selected solutions
+            while (_selectedSolutions.Count > 0)
+                UnSelectSolution(_selectedSolutions[0]);
+            // clear solutions
+            _solutions.Clear();
+            // get default analysis solver
+            if (null != _solver)
+                _solver.ProcessAnalysis(this);
+            else
+                _log.Error("_solver == null : solver was not set");
+            if (_solutions.Count == 0)
+                _log.Debug("Recomputed analysis has no solutions");
+            // set modified / propagate modifications
+            Modify();
+        }
+        #endregion
+    }
+    
+    public interface IHCylinderAnalysisSolver
+    {
+        void ProcessAnalysis(HCylinderPalletAnalysis analysis);
+    }
+    #endregion
 }

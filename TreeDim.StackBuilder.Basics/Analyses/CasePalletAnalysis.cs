@@ -72,9 +72,9 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (value == _bProperties)  return;
-                if (null != _bProperties) _bProperties.RemoveDependancie(this);
+                if (null != _bProperties) _bProperties.RemoveDependancy(this);
                 _bProperties = value;
-                _bProperties.AddDependancie(this);
+                _bProperties.AddDependancy(this);
             }
         }
 
@@ -84,9 +84,9 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (_palletProperties == value) return;
-                if (null != _palletProperties)  _palletProperties.RemoveDependancie(this);
+                if (null != _palletProperties)  _palletProperties.RemoveDependancy(this);
                 _palletProperties = value;
-                _palletProperties.AddDependancie(this);
+                _palletProperties.AddDependancy(this);
             }
         }
 
@@ -101,10 +101,10 @@ namespace TreeDim.StackBuilder.Basics
             set
             {
                 if (_interlayerProperties == value) return;
-                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancie(this);
+                if (null != _interlayerProperties) _interlayerProperties.RemoveDependancy(this);
                 _interlayerProperties = value;
                 if (null != _interlayerProperties)
-                    _interlayerProperties.AddDependancie(this);
+                    _interlayerProperties.AddDependancy(this);
             }
         }
 
@@ -173,10 +173,10 @@ namespace TreeDim.StackBuilder.Basics
 
         protected override void RemoveItselfFromDependancies()
         {
-            _bProperties.RemoveDependancie(this);
-            _palletProperties.RemoveDependancie(this);
+            _bProperties.RemoveDependancy(this);
+            _palletProperties.RemoveDependancy(this);
             if (null != _interlayerProperties)
-                _interlayerProperties.RemoveDependancie(this);
+                _interlayerProperties.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }
         public override void OnAttributeModified(ItemBase modifiedAttribute)

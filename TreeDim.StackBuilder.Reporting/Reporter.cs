@@ -529,6 +529,8 @@ namespace TreeDim.StackBuilder.Reporting
             AppendCasePalletAnalysisElement(inputData, elemDocument, xmlDoc);
             // cylinder/pallet analysis
             AppendCylinderPalletAnalysisElement(inputData, elemDocument, xmlDoc);
+            // hcylinder/pallet analysis
+            AppendHCylinderPalletAnalysisElement(inputData, elemDocument, xmlDoc);
             // truckAnalysis
             AppendTruckAnalysisElement(inputData, elemDocument, xmlDoc);
             // ectAnalysis

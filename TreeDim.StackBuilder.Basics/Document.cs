@@ -764,6 +764,8 @@ namespace TreeDim.StackBuilder.Basics
             else if (item.GetType() == typeof(SelCasePalletSolution))            {}
             else if (item.GetType() == typeof(SelBoxCasePalletSolution))         {}
             else if (item.GetType() == typeof(SelBoxCaseSolution))               {}
+            else if (item.GetType() == typeof(SelCylinderPalletSolution))        {}
+            else if (item.GetType() == typeof(SelHCylinderPalletSolution))       {}
             else
                 Debug.Assert(false);
             Modify();

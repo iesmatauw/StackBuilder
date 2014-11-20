@@ -314,6 +314,7 @@ namespace TreeDim.StackBuilder.Graphics
         public void Flush()
         {
             // initialize
+            _vLight = _vCameraPos - _vTarget; _vLight.Normalize();
             _boxDrawingCounter = 0;
             _currentTransf = null;
             System.Drawing.Graphics g = Graphics;
@@ -769,6 +770,7 @@ namespace TreeDim.StackBuilder.Graphics
 
                 // color
                 double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
+                if (cosA < 0 || cosA > 1) cosA = 1.0;
                 Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
                 // brush
                 Brush brush = new SolidBrush(color);
@@ -780,6 +782,7 @@ namespace TreeDim.StackBuilder.Graphics
             double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vLight));
             Color colorTop = Color.FromArgb((int)(cyl.ColorTop.R * cosTop), (int)(cyl.ColorTop.G * cosTop), (int)(cyl.ColorTop.B * cosTop));
             Brush brushTop = new SolidBrush(colorTop);
+            bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vTarget - _vCameraPos) < 0;
 
             if (cyl.DiameterInner > 0)
             {
@@ -799,18 +802,16 @@ namespace TreeDim.StackBuilder.Graphics
             }
             else
             {
-                bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vTarget - _vCameraPos) < 0;
                 if (topVisible)
-                {
                     g.FillPolygon(brushTop, ptsTop);
-                    g.DrawPolygon(penPathThin, ptsTop);
-                }
                 else
-                {
                     g.FillPolygon(brushTop, ptsBottom);
-                    g.DrawPolygon(penPathThin, ptsBottom);
-                }
             }
+
+            if (topVisible)
+                g.DrawPolygon(penPathThin, ptsTop);
+            else
+                g.DrawPolygon(penPathThin, ptsBottom);
 
             ++_boxDrawingCounter;        
         }

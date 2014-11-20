@@ -100,6 +100,7 @@
         <xsl:apply-templates select="boxCaseAnalysis"/>
         <xsl:apply-templates select="casePalletAnalysis"/>
         <xsl:apply-templates select="cylinderPalletAnalysis"/>
+        <xsl:apply-templates select="hCylinderPalletAnalysis"/>
         <xsl:apply-templates select="truckAnalysis"/>
         <xsl:apply-templates select="ectAnalysis"/>
       </body>

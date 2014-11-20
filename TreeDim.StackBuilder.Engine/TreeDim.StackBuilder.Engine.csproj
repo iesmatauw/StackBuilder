@@ -72,7 +72,7 @@
     <Compile Include="LayerPatterns\CylinderLayerPatternMixed212.cs" />
     <Compile Include="LayerPatterns\HCylinderLoadPattern.cs" />
     <Compile Include="LayerPatterns\HCylinderLoadPatternColumnized.cs" />
-    <Compile Include="LayerPatterns\HCylinderLoadPatternPyramid.cs" />
+    <Compile Include="LayerPatterns\HCylinderLoadPatternDefault.cs" />
     <Compile Include="LayerPatterns\HCylinderLoadPatternStaggered.cs" />
     <Compile Include="Solvers\CylinderSolver.cs" />
     <Compile Include="Solvers\BoxCaseSolver.cs" />

@@ -10,12 +10,12 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Engine
 {
-    class HCylinderLoadPatternPyramid : HCylinderLoadPattern
+    class HCylinderLoadPatternDefault : HCylinderLoadPattern
     {
         #region Implementation of HCylinderLoadPattern abstract properties
         public override string Name
         {
-            get { return "Pyramid"; }
+            get { return "Default"; }
         }
         public override bool CanBeSwapped
         {

@@ -54,7 +54,7 @@ namespace TreeDim.StackBuilder.Engine
                                 new Vector3D(
                                     offsetX + i * length
                                     , offsetY + radius + j * diameter
-                                    , offsetZ + iLayer * diameter)
+                                    , offsetZ + iLayer * (diameter + load.RowSpacing))
                                 , HalfAxis.HAxis.AXIS_X_P)
                             );
                         if (maxCount > 0 && load.Count >= maxCount)

@@ -484,6 +484,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Weight limit can not be used because {0} as no mass..
+        /// </summary>
+        internal static string ID_CANNOTUSEWEIGHTLIMIT {
+            get {
+                return ResourceManager.GetString("ID_CANNOTUSEWEIGHTLIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case.
         /// </summary>
         internal static string ID_CASE {
@@ -879,6 +888,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_INVALIDINSIDEWIDTH {
             get {
                 return ResourceManager.GetString("ID_INVALIDINSIDEWIDTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mass value ought to be positive.
+        /// </summary>
+        internal static string ID_INVALIDMASS {
+            get {
+                return ResourceManager.GetString("ID_INVALIDMASS", resourceCulture);
             }
         }
         

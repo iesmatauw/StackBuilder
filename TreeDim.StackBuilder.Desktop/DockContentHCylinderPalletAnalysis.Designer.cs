@@ -83,6 +83,7 @@
             this.toolStripCornerView0.Name = "toolStripCornerView0";
             this.toolStripCornerView0.Size = new System.Drawing.Size(23, 22);
             this.toolStripCornerView0.Text = "Corner view 0°";
+            this.toolStripCornerView0.Click += new System.EventHandler(this.onViewCorner_0);
             // 
             // toolStripCornerView90
             // 
@@ -92,6 +93,7 @@
             this.toolStripCornerView90.Name = "toolStripCornerView90";
             this.toolStripCornerView90.Size = new System.Drawing.Size(23, 22);
             this.toolStripCornerView90.Text = "Corner view 90°";
+            this.toolStripCornerView90.Click += new System.EventHandler(this.onViewCorner_90);
             // 
             // toolStripCornerView180
             // 
@@ -101,6 +103,7 @@
             this.toolStripCornerView180.Name = "toolStripCornerView180";
             this.toolStripCornerView180.Size = new System.Drawing.Size(23, 22);
             this.toolStripCornerView180.Text = "Corner view 180°";
+            this.toolStripCornerView180.Click += new System.EventHandler(this.onViewCorner_180);
             // 
             // toolStripCornerView270
             // 
@@ -110,6 +113,7 @@
             this.toolStripCornerView270.Name = "toolStripCornerView270";
             this.toolStripCornerView270.Size = new System.Drawing.Size(23, 22);
             this.toolStripCornerView270.Text = "Corner view 270°";
+            this.toolStripCornerView270.Click += new System.EventHandler(this.onViewCorner_270);
             // 
             // toolStripSeparator1
             // 
@@ -124,6 +128,7 @@
             this.toolStripFrontView.Name = "toolStripFrontView";
             this.toolStripFrontView.Size = new System.Drawing.Size(23, 22);
             this.toolStripFrontView.Text = "Front view";
+            this.toolStripFrontView.Click += new System.EventHandler(this.onViewSideFront);
             // 
             // toolStripRightView
             // 
@@ -134,6 +139,7 @@
             this.toolStripRightView.Size = new System.Drawing.Size(23, 22);
             this.toolStripRightView.Text = "Back view";
             this.toolStripRightView.ToolTipText = "Right view";
+            this.toolStripRightView.Click += new System.EventHandler(this.onViewSideRight);
             // 
             // toolStripBackView
             // 
@@ -144,6 +150,7 @@
             this.toolStripBackView.Size = new System.Drawing.Size(23, 22);
             this.toolStripBackView.Text = "Rear view";
             this.toolStripBackView.ToolTipText = "Back view";
+            this.toolStripBackView.Click += new System.EventHandler(this.onViewSideRear);
             // 
             // toolStripLeftView
             // 
@@ -154,6 +161,7 @@
             this.toolStripLeftView.Size = new System.Drawing.Size(23, 22);
             this.toolStripLeftView.Text = "Right view";
             this.toolStripLeftView.ToolTipText = "Left view";
+            this.toolStripLeftView.Click += new System.EventHandler(this.onViewSideLeft);
             // 
             // toolStripTopView
             // 
@@ -163,6 +171,7 @@
             this.toolStripTopView.Name = "toolStripTopView";
             this.toolStripTopView.Size = new System.Drawing.Size(23, 22);
             this.toolStripTopView.Text = "Top view";
+            this.toolStripTopView.Click += new System.EventHandler(this.onViewTop);
             // 
             // splitContainer1
             // 
@@ -264,9 +273,11 @@
             this.ClientSize = new System.Drawing.Size(604, 652);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip_view);
+            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DockContentHCylinderPalletAnalysis";
+            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.Text = "Cylinder/pallet analysis...";
             this.toolStrip_view.ResumeLayout(false);
             this.toolStrip_view.PerformLayout();

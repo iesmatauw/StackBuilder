@@ -97,15 +97,6 @@ namespace TreeDim.StackBuilder.Engine
             }
 
             load.Add(pos.Transform(new Transform3D(matRot)));
-
-
-            /*
-            Transform3D transfRot = new Transform3D(matRot);
-            Transform3D transfRotTranslation = new Transform3D(matRot);
-            Vector3D vPositionSwapped = transfRotTranslation.transform(pos.XYZ);
-            Vector3D vDirSwapped = transfRotTranslation.transformRot(HalfAxis.ToVector3D(pos.Direction));
-            load.Add(new CylPosition(vPositionSwapped, HalfAxis.ToHalfAxis(vDirSwapped)));
-            */ 
         }
         #endregion
     }

@@ -59,6 +59,13 @@
             this.nudMaximumPalletHeight = new System.Windows.Forms.NumericUpDown();
             this.nudMaximumNumberOfItems = new System.Windows.Forms.NumericUpDown();
             this.checkBoxMaximumPalletWeight = new System.Windows.Forms.CheckBox();
+            this.gbPatterns = new System.Windows.Forms.GroupBox();
+            this.chkPatternDefault = new System.Windows.Forms.CheckBox();
+            this.chkPatternStaggered = new System.Windows.Forms.CheckBox();
+            this.chkPatternColumnized = new System.Windows.Forms.CheckBox();
+            this.lbRowSpacing = new System.Windows.Forms.Label();
+            this.nudRowSpacing = new System.Windows.Forms.NumericUpDown();
+            this.uLengthRowSpacing = new System.Windows.Forms.Label();
             this.statusStripDef.SuspendLayout();
             this.gbOverhangUnderhang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangY)).BeginInit();
@@ -67,6 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfItems)).BeginInit();
+            this.gbPatterns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRowSpacing)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStripDef
@@ -318,9 +327,9 @@
             this.checkBoxMaximumNumberOfItems.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkBoxMaximumNumberOfItems.Location = new System.Drawing.Point(8, 39);
             this.checkBoxMaximumNumberOfItems.Name = "checkBoxMaximumNumberOfItems";
-            this.checkBoxMaximumNumberOfItems.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxMaximumNumberOfItems.Size = new System.Drawing.Size(187, 17);
             this.checkBoxMaximumNumberOfItems.TabIndex = 19;
-            this.checkBoxMaximumNumberOfItems.Text = "when number of boxes reaches";
+            this.checkBoxMaximumNumberOfItems.Text = "when number of cylinders reaches";
             this.checkBoxMaximumNumberOfItems.UseVisualStyleBackColor = true;
             // 
             // gbStopStackingCondition
@@ -336,7 +345,7 @@
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfItems);
             this.gbStopStackingCondition.Location = new System.Drawing.Point(285, 85);
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
-            this.gbStopStackingCondition.Size = new System.Drawing.Size(304, 154);
+            this.gbStopStackingCondition.Size = new System.Drawing.Size(304, 122);
             this.gbStopStackingCondition.TabIndex = 66;
             this.gbStopStackingCondition.TabStop = false;
             this.gbStopStackingCondition.Text = "Additional stop stacking condition";
@@ -409,11 +418,84 @@
             this.checkBoxMaximumPalletWeight.Text = "when total pallet weight reaches";
             this.checkBoxMaximumPalletWeight.UseVisualStyleBackColor = true;
             // 
+            // gbPatterns
+            // 
+            this.gbPatterns.Controls.Add(this.uLengthRowSpacing);
+            this.gbPatterns.Controls.Add(this.nudRowSpacing);
+            this.gbPatterns.Controls.Add(this.lbRowSpacing);
+            this.gbPatterns.Controls.Add(this.chkPatternColumnized);
+            this.gbPatterns.Controls.Add(this.chkPatternStaggered);
+            this.gbPatterns.Controls.Add(this.chkPatternDefault);
+            this.gbPatterns.Location = new System.Drawing.Point(0, 169);
+            this.gbPatterns.Name = "gbPatterns";
+            this.gbPatterns.Size = new System.Drawing.Size(279, 118);
+            this.gbPatterns.TabIndex = 67;
+            this.gbPatterns.TabStop = false;
+            this.gbPatterns.Text = "Patterns";
+            // 
+            // chkPatternDefault
+            // 
+            this.chkPatternDefault.AutoSize = true;
+            this.chkPatternDefault.Location = new System.Drawing.Point(9, 20);
+            this.chkPatternDefault.Name = "chkPatternDefault";
+            this.chkPatternDefault.Size = new System.Drawing.Size(60, 17);
+            this.chkPatternDefault.TabIndex = 0;
+            this.chkPatternDefault.Text = "Default";
+            this.chkPatternDefault.UseVisualStyleBackColor = true;
+            // 
+            // chkPatternStaggered
+            // 
+            this.chkPatternStaggered.AutoSize = true;
+            this.chkPatternStaggered.Location = new System.Drawing.Point(9, 43);
+            this.chkPatternStaggered.Name = "chkPatternStaggered";
+            this.chkPatternStaggered.Size = new System.Drawing.Size(103, 17);
+            this.chkPatternStaggered.TabIndex = 1;
+            this.chkPatternStaggered.Text = "Pallet with frame";
+            this.chkPatternStaggered.UseVisualStyleBackColor = true;
+            // 
+            // chkPatternColumnized
+            // 
+            this.chkPatternColumnized.AutoSize = true;
+            this.chkPatternColumnized.Location = new System.Drawing.Point(9, 66);
+            this.chkPatternColumnized.Name = "chkPatternColumnized";
+            this.chkPatternColumnized.Size = new System.Drawing.Size(233, 17);
+            this.chkPatternColumnized.TabIndex = 2;
+            this.chkPatternColumnized.Text = "With special interlayers for columnized pallet";
+            this.chkPatternColumnized.UseVisualStyleBackColor = true;
+            this.chkPatternColumnized.CheckedChanged += new System.EventHandler(this.chkPatternColumnized_CheckedChanged);
+            // 
+            // lbRowSpacing
+            // 
+            this.lbRowSpacing.AutoSize = true;
+            this.lbRowSpacing.Location = new System.Drawing.Point(31, 86);
+            this.lbRowSpacing.Name = "lbRowSpacing";
+            this.lbRowSpacing.Size = new System.Drawing.Size(69, 13);
+            this.lbRowSpacing.TabIndex = 3;
+            this.lbRowSpacing.Text = "Row spacing";
+            // 
+            // nudRowSpacing
+            // 
+            this.nudRowSpacing.Location = new System.Drawing.Point(169, 82);
+            this.nudRowSpacing.Name = "nudRowSpacing";
+            this.nudRowSpacing.Size = new System.Drawing.Size(56, 20);
+            this.nudRowSpacing.TabIndex = 4;
+            // 
+            // uLengthRowSpacing
+            // 
+            this.uLengthRowSpacing.AutoSize = true;
+            this.uLengthRowSpacing.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.uLengthRowSpacing.Location = new System.Drawing.Point(229, 86);
+            this.uLengthRowSpacing.Name = "uLengthRowSpacing";
+            this.uLengthRowSpacing.Size = new System.Drawing.Size(46, 13);
+            this.uLengthRowSpacing.TabIndex = 43;
+            this.uLengthRowSpacing.Text = "uLength";
+            // 
             // FormNewAnalysisHCylinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 312);
+            this.Controls.Add(this.gbPatterns);
             this.Controls.Add(this.gbStopStackingCondition);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.cbCylinders);
@@ -448,6 +530,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfItems)).EndInit();
+            this.gbPatterns.ResumeLayout(false);
+            this.gbPatterns.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRowSpacing)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +571,12 @@
         private System.Windows.Forms.NumericUpDown nudMaximumPalletHeight;
         private System.Windows.Forms.NumericUpDown nudMaximumNumberOfItems;
         private System.Windows.Forms.CheckBox checkBoxMaximumPalletWeight;
+        private System.Windows.Forms.GroupBox gbPatterns;
+        private System.Windows.Forms.CheckBox chkPatternColumnized;
+        private System.Windows.Forms.CheckBox chkPatternStaggered;
+        private System.Windows.Forms.CheckBox chkPatternDefault;
+        private System.Windows.Forms.Label uLengthRowSpacing;
+        private System.Windows.Forms.NumericUpDown nudRowSpacing;
+        private System.Windows.Forms.Label lbRowSpacing;
     }
 }

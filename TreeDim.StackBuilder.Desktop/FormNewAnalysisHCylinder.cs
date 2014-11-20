@@ -132,6 +132,10 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumNumberOfItems = 500;
                     MaximumPalletHeight = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                     MaximumPalletWeight = UnitsManager.ConvertMassFrom(1000.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+
+                    AllowPatternDefault = true;
+                    AllowPatternStaggered = false;
+                    AllowPatternColumn = false;
                 }
                 else
                 {
@@ -142,7 +146,13 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumNumberOfItems = _analysis.ConstraintSet.MaximumNumberOfItems;
                     MaximumPalletHeight = _analysis.ConstraintSet.MaximumPalletHeight;
                     MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
+                    // patterns
+                    AllowPatternDefault = _analysis.ConstraintSet.AllowPattern("Default");
+                    AllowPatternColumn = _analysis.ConstraintSet.AllowPattern("Column");
+                    AllowPatternStaggered = _analysis.ConstraintSet.AllowPattern("Staggered");
                 }
+                
+                chkPatternColumnized_CheckedChanged(this, null);
                 UpdateButtonOkStatus();
             }
             catch (Exception ex)
@@ -230,6 +240,27 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudPalletOverhangY.Value; }
             set { nudPalletOverhangY.Value = (decimal)value; }
         }
+
+        public bool AllowPatternDefault
+        {
+            get { return chkPatternDefault.Checked; }
+            set { chkPatternDefault.Checked = value; }
+        }
+        public bool AllowPatternColumn
+        {
+            get { return chkPatternColumnized.Checked; }
+            set { chkPatternColumnized.Checked = value; }
+        }
+        public bool AllowPatternStaggered
+        {
+            get { return chkPatternStaggered.Checked; }
+            set { chkPatternStaggered.Checked = value; }
+        }
+        public double RowSpacing
+        {
+            get { return (double)nudRowSpacing.Value; }
+            set { nudRowSpacing.Value = (decimal)value; }
+        }
         #endregion
 
         #region Stop criterions
@@ -281,11 +312,20 @@ namespace TreeDim.StackBuilder.Desktop
             // name validity
             else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
                 message = string.Format(Resources.ID_INVALIDNAME, tbName.Text);
+            else if (UseMaximumPalletWeight && SelectedCylinder.Weight < 1.0E-06)
+                message = string.Format(Resources.ID_CANNOTUSEWEIGHTLIMIT, SelectedCylinder.Name);
+
             // button OK
             bnOK.Enabled = string.IsNullOrEmpty(message);
             // status bar
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+        }
+        private void chkPatternColumnized_CheckedChanged(object sender, EventArgs e)
+        {
+            nudRowSpacing.Enabled = AllowPatternColumn;
+            lbRowSpacing.Enabled = AllowPatternColumn;
+            uLengthRowSpacing.Enabled = AllowPatternColumn;
         }
         #endregion
     }

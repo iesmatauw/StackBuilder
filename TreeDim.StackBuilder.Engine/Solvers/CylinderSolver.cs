@@ -102,7 +102,11 @@ namespace TreeDim.StackBuilder.Engine
                             maxWeightReached = _constraintSet.UseMaximumPalletWeight && ((iCount * _cylProperties.Weight + _palletProperties.Weight) > _constraintSet.MaximumPalletWeight);
                             maxNumberReached = _constraintSet.UseMaximumNumberOfItems && (iCount > _constraintSet.MaximumNumberOfItems);
                             if (!maxWeightReached && !maxNumberReached)
-                                cylLayer.Add(new Vector3D(layerPos.X, layerPos.Y, zLayer));
+                                cylLayer.Add(
+                                    new Vector3D(
+                                        layerPos.X - 0.5 * _constraintSet.OverhangX,
+                                        layerPos.Y - 0.5 * _constraintSet.OverhangY,
+                                        zLayer));
                         }
                         // increment zLayer
                         zLayer += _cylProperties.Height;
@@ -150,7 +154,6 @@ namespace TreeDim.StackBuilder.Engine
         private PalletProperties _palletProperties;
         private HCylinderPalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(HCylinderSolver));
-
         #endregion
 
         #region Constructor
@@ -178,6 +181,8 @@ namespace TreeDim.StackBuilder.Engine
             // loop through all patterns
             foreach (HCylinderLoadPattern pattern in _patterns)
             {
+                if (!_constraintSet.AllowPattern(pattern.Name))
+                    continue;
                 // loop through directions
                 for (int iDir = 0; iDir < (pattern.CanBeSwapped ? 2 : 1); ++iDir)
                 {
@@ -189,17 +194,30 @@ namespace TreeDim.StackBuilder.Engine
 
                     pattern.Swapped = (iDir % 2 != 0);
 
+                    int maxCountNoItems = -1;
+                    if (_constraintSet.UseMaximumNumberOfItems) maxCountNoItems = _constraintSet.MaximumNumberOfItems;
+                    int maxCountWeight = -1;
+                    if (_constraintSet.UseMaximumPalletWeight)
+                        maxCountWeight = (int)Math.Floor((_constraintSet.MaximumPalletWeight - _palletProperties.Weight) / _cylProperties.Weight);
                     int maxCount = -1;
+                    if (-1 != maxCountNoItems && -1 == maxCountWeight) maxCount = maxCountNoItems;
+                    else if (-1 == maxCountNoItems && -1 != maxCountWeight) maxCount = maxCountWeight;
+                    else if (-1 != maxCountNoItems && -1 != maxCountWeight) maxCount = Math.Min(maxCountWeight, maxCountNoItems);
                     try
                     {
                         CylLoad load = new CylLoad(_cylProperties, _palletProperties, _constraintSet);
                         pattern.GetDimensions(load, maxCount, out actualLength, out actualWidth);
-                        pattern.Generate(load, maxCount, actualLength, actualWidth, maxHeight);
+                        pattern.Generate(load, maxCount, actualLength, actualWidth, maxHeight - _palletProperties.Height);
 
                         foreach (CylPosition pos in load)
-                            sol.Add(pos);
-
-
+                        {
+                            sol.Add(new CylPosition(
+                                pos.XYZ
+                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
+                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis,
+                                pos.Direction
+                                ));
+                        }
                     }
                     catch (NotImplementedException ex)
                     {
@@ -229,7 +247,7 @@ namespace TreeDim.StackBuilder.Engine
             {
                 _patterns.Add(new HCylinderLoadPatternColumn());
                 _patterns.Add(new HCylinderLoadPatternStaggered());
-                _patterns.Add(new HCylinderLoadPatternPyramid());
+                _patterns.Add(new HCylinderLoadPatternDefault());
             }
         }
         #endregion

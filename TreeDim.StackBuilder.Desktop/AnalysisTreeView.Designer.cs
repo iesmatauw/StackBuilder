@@ -244,5 +244,13 @@ namespace TreeDim.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap HCylinderPalletAnalysis
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("AnalysisHCylinder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

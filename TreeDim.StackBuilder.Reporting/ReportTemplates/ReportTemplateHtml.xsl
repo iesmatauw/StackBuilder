@@ -118,6 +118,7 @@
         <xsl:apply-templates select="boxCasePalletAnalysis"></xsl:apply-templates>
         <xsl:apply-templates select="casePalletAnalysis"></xsl:apply-templates>
         <xsl:apply-templates select="cylinderPalletAnalysis"></xsl:apply-templates>
+        <xsl:apply-templates select="hCylinderPalletAnalysis"></xsl:apply-templates>
         <xsl:apply-templates select="truckAnalysis"></xsl:apply-templates>
         <xsl:apply-templates select="ectAnalysis"></xsl:apply-templates>
       </body>
@@ -1015,6 +1016,30 @@
       <xsl:apply-templates select="maximumNumberOfItemsGroup">
       </xsl:apply-templates>
       <xsl:apply-templates select="admissibleLoadOnTopGroup">
+      </xsl:apply-templates>
+    </table>
+  </xsl:template>
+  <!-- #### HCYLINDER PALLET CONSTRAINT SET #### -->
+  <xsl:template match="hCylinderPalletConstraintSet">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='Constraint set']"/>
+    </h3>
+    <table class="style1" cellpadding="2">
+      <tr>
+        <td class="style2" width="20%">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Overhang Length / Width']"/> (<xsl:value-of select="overhangX/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3">
+          <xsl:value-of select="overhangX/value"></xsl:value-of> / <xsl:value-of select="overhangY/value"></xsl:value-of>
+        </td>
+      </tr>
+      <xsl:apply-templates select="maximumPalletWeightGroup">
+      </xsl:apply-templates>
+      <xsl:apply-templates select="maximumPalletHeightGroup">
+      </xsl:apply-templates>
+      <xsl:apply-templates select="maximumNumberOfItemsGroup">
       </xsl:apply-templates>
     </table>
   </xsl:template>

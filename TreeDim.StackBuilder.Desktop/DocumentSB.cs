@@ -470,19 +470,20 @@ namespace TreeDim.StackBuilder.Desktop
                 // build constraint set
                 HCylinderPalletConstraintSet constraintSet = new HCylinderPalletConstraintSet();
                 // stop criterion
-                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
                 constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
-                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                constraintSet.SetAllowedPatterns(form.AllowPatternDefault, form.AllowPatternStaggered, form.AllowPatternColumn);
+                constraintSet.RowSpacing = form.RowSpacing;
 
                 return CreateNewHCylinderPalletAnalysis(
                     form.AnalysisName, form.AnalysisDescription,
                     form.SelectedCylinder, form.SelectedPallet,
                     constraintSet,
                     new HCylinderSolver());
-
             }
             return null;
         }
@@ -683,6 +684,40 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
                 constraintSet.UseMaximumLoadOnLowerCylinder = form.UseMaximumLoadOnLowerCylinder;
                 constraintSet.MaximumLoadOnLowerCylinder = form.MaximumLoadOnLowerCylinder;
+            }
+            if (recomputeRequired)
+                analysis.OnEndUpdate(null);
+        }
+        public void EditHCylinderPalletAnalysis(HCylinderPalletAnalysis analysis)
+        {
+            bool recomputeRequired = false;
+            FormNewAnalysisHCylinder form = new FormNewAnalysisHCylinder(this, analysis);
+            form.Cylinders = Cylinders.ToArray();
+            form.Pallets = Pallets.ToArray();
+
+            if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
+            {
+                analysis.CylinderProperties = form.SelectedCylinder;
+                analysis.PalletProperties = form.SelectedPallet;
+                // analysis name / description
+                analysis.Name = form.AnalysisName;
+                analysis.Description = form.AnalysisDescription;
+                // constraint set
+                HCylinderPalletConstraintSet constraintSet = analysis.ConstraintSet;
+                // overhang / underhang
+                constraintSet.OverhangX = form.OverhangX;
+                constraintSet.OverhangY = form.OverhangY;
+                // stop criterions
+                constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
+                constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
+                constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
+                constraintSet.UseMaximumPalletWeight = form.UseMaximumPalletWeight;
+                constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
+                constraintSet.UseMaximumNumberOfItems = form.UseMaximumNumberOfItems;
+                // allowed patterns
+                constraintSet.SetAllowedPatterns(form.AllowPatternDefault, form.AllowPatternStaggered, form.AllowPatternColumn);
+                constraintSet.RowSpacing = form.RowSpacing;
+
             }
             if (recomputeRequired)
                 analysis.OnEndUpdate(null);

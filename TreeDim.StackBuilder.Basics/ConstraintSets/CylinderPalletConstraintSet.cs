@@ -168,6 +168,14 @@ namespace TreeDim.StackBuilder.Basics
         /// Overhang in direction X and Y
         /// </summary>
         private double _overhangX, _overhangY;
+        /// <summary>
+        /// Allowed patterns
+        /// </summary>
+        private bool _allowPatternDefault = true, _allowPatternColumn = false, _allowPatternStaggered = false;
+        /// <summary>
+        /// Vertical spacing between rows with column pattern
+        /// </summary>
+        private double _rowSpacing = 0.0;
         #endregion
 
         #region Constructor
@@ -186,6 +194,34 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _overhangY; }
             set { _overhangY = value; }
+        }
+        #endregion
+
+        #region Allowed patterns
+        public void SetAllowedPatterns(bool patternDefault, bool patternStaggered, bool patternColumn)
+        {
+            _allowPatternDefault = patternDefault;
+            _allowPatternStaggered = patternStaggered;
+            _allowPatternColumn = patternColumn;
+        }
+        public bool IsPatternDefaultAllowed() { return _allowPatternDefault; }
+        public bool IsPatternStaggeredAllowed() { return _allowPatternStaggered; }
+        public bool IsPatternColumnAllowed() { return _allowPatternColumn; }
+        public bool AllowPattern(string name)
+        {
+            Dictionary<string, bool> dict = new Dictionary<string, bool>();
+            dict["default"] = _allowPatternDefault;
+            dict["staggered"] = _allowPatternStaggered;
+            dict["column"] = _allowPatternColumn;
+            if (dict.Keys.Contains(name.ToLower()))
+                return dict[name.ToLower()];
+            else
+                return false;
+        }
+        public double RowSpacing
+        {
+            get { return _rowSpacing; }
+            set { _rowSpacing = value; }
         }
         #endregion
 

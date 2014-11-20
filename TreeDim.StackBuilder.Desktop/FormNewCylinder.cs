@@ -41,6 +41,7 @@ namespace TreeDim.StackBuilder.Desktop
             nudDiameterOuter.Value = (decimal)UnitsManager.ConvertLengthFrom(2.0*75.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             nudDiameterInner.Value = (decimal)UnitsManager.ConvertLengthFrom(0.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             nudHeight.Value = (decimal)UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+            nudWeight.Value = (decimal)UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
             cbColorWallInner.Color = System.Drawing.Color.Chocolate;
             cbColorTop.Color = System.Drawing.Color.Gray;
@@ -146,6 +147,8 @@ namespace TreeDim.StackBuilder.Desktop
                 message = Resources.ID_FIELDDESCRIPTIONEMPTY;
             else if (RadiusInner > RadiusOuter)
                 message = Resources.ID_INVALIDDIAMETER;
+            else if (Weight < 1.0E-06)
+                message = Resources.ID_INVALIDMASS;
             // accept
             bnOK.Enabled = string.IsNullOrEmpty(message);
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
@@ -154,10 +157,6 @@ namespace TreeDim.StackBuilder.Desktop
         private void onHorizAngleChanged(object sender, EventArgs e)
         {
             DrawCylinder();
-        }
-        private void btBitmapsWall_Click(object sender, EventArgs e)
-        {
-
         }
         #endregion
 

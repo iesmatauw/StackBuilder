@@ -58,6 +58,7 @@ namespace TreeDim.StackBuilder.Desktop
             // set analysis solver
             CasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.CasePalletSolver();
             CylinderPalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.CylinderSolver();
+            HCylinderPalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.HCylinderSolver();
             BoxCasePalletAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCasePalletSolver();
             BoxCaseAnalysis.Solver = new TreeDim.StackBuilder.Engine.BoxCaseSolver();
             // load content
@@ -261,10 +262,17 @@ namespace TreeDim.StackBuilder.Desktop
                 else
                     CreateOrActivateViewCasePalletAnalysis(eventArg.Analysis);
             }
-            else if ((null == eventArg.ItemBase) && (null == eventArg.Analysis) && (null != eventArg.CylinderAnalysis)
+            else if ((null == eventArg.ItemBase) && (null == eventArg.Analysis)
+                && (null != eventArg.CylinderAnalysis) && (null == eventArg.HCylinderAnalysis)
                 && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
             {
                 CreateOrActivateViewCylinderPalletAnalysis(eventArg.CylinderAnalysis);
+            }
+            else if ((null == eventArg.ItemBase) && (null == eventArg.Analysis)
+                && (null == eventArg.CylinderAnalysis) && (null != eventArg.HCylinderAnalysis)
+                && (null == eventArg.TruckAnalysis) && (null == eventArg.ECTAnalysis))
+            {
+                CreateOrActivateViewHCylinderPalletAnalysis(eventArg.HCylinderAnalysis);
             }
             else if (null != eventArg.ItemBase)
             {
@@ -489,6 +497,7 @@ namespace TreeDim.StackBuilder.Desktop
                 else if (null != eventArg.BoxCaseAnalysis) analysisName = eventArg.BoxCaseAnalysis.Name;
                 else if (null != eventArg.BoxCasePalletAnalysis) analysisName = eventArg.BoxCasePalletAnalysis.Name;
                 else if (null != eventArg.CylinderAnalysis) analysisName = eventArg.CylinderAnalysis.Name;
+                else if (null != eventArg.HCylinderAnalysis) analysisName = eventArg.HCylinderAnalysis.Name;
                 else
                 {
                     _log.Error("Unsupported analysis type ?");
@@ -514,6 +523,7 @@ namespace TreeDim.StackBuilder.Desktop
                     ReportData reportObject = new ReportData(
                             eventArg.Analysis, eventArg.SelSolution
                             , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
+                            , eventArg.HCylinderAnalysis, eventArg.SelHCylinderPalletSolution
                             , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                             , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                             );
@@ -570,6 +580,7 @@ namespace TreeDim.StackBuilder.Desktop
                 ReportData reportObject = new ReportData(
                         eventArg.Analysis, eventArg.SelSolution
                         , eventArg.CylinderAnalysis, eventArg.SelCylinderPalletSolution
+                        , eventArg.HCylinderAnalysis, eventArg.SelHCylinderPalletSolution
                         , eventArg.BoxCaseAnalysis, eventArg.SelBoxCaseSolution
                         , eventArg.BoxCasePalletAnalysis, eventArg.SelBoxCasePalletSolution
                         );

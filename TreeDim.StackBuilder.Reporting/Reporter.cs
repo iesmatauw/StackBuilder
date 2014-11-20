@@ -46,6 +46,9 @@ namespace TreeDim.StackBuilder.Reporting
         private CylinderPalletAnalysis _cylinderPalletAnalysis;
         private SelCylinderPalletSolution _selCylinderPalletSolution;
 
+        private HCylinderPalletAnalysis _hCylinderPalletAnalysis;
+        private SelHCylinderPalletSolution _selHCylinderPalletSolution;
+
         private BoxCasePalletAnalysis _caseAnalysis;
         private SelBoxCasePalletSolution _selCaseSolution;
 
@@ -71,6 +74,7 @@ namespace TreeDim.StackBuilder.Reporting
         }
         public ReportData(CasePalletAnalysis palletAnalysis, SelCasePalletSolution selSolution
             , CylinderPalletAnalysis cylinderPalletAnalysis, SelCylinderPalletSolution selCylinderPalletSolution
+            , HCylinderPalletAnalysis hCylinderPalletAnalysis, SelHCylinderPalletSolution selHCylinderPalletSolution
             , BoxCaseAnalysis boxCaseAnalysis, SelBoxCaseSolution selBoxCaseSolution
             , BoxCasePalletAnalysis caseAnalysis, SelBoxCasePalletSolution selCaseSolution
             )
@@ -81,6 +85,8 @@ namespace TreeDim.StackBuilder.Reporting
             _selCaseSolution = selCaseSolution;
             _cylinderPalletAnalysis = cylinderPalletAnalysis;
             _selCylinderPalletSolution = selCylinderPalletSolution;
+            _hCylinderPalletAnalysis = hCylinderPalletAnalysis;
+            _selHCylinderPalletSolution = selHCylinderPalletSolution;
             _boxCaseAnalysis = boxCaseAnalysis;
             _selBoxCaseSolution = selBoxCaseSolution;
         }
@@ -95,6 +101,8 @@ namespace TreeDim.StackBuilder.Reporting
                     return _palletAnalysis.ParentDocument;
                 if (null != _cylinderPalletAnalysis)
                     return _cylinderPalletAnalysis.ParentDocument;
+                if (null != _hCylinderPalletAnalysis)
+                    return _hCylinderPalletAnalysis.ParentDocument;
                 if (null != _caseAnalysis)
                     return _caseAnalysis.ParentDocument;
                 if (null != _boxCaseAnalysis)
@@ -134,12 +142,9 @@ namespace TreeDim.StackBuilder.Reporting
             }
         }
         public CylinderPalletAnalysis CylinderPalletAnalysis
-        {
-            get
-            {
-                return _cylinderPalletAnalysis;
-            }
-        }
+        { get { return _cylinderPalletAnalysis; } }
+        public HCylinderPalletAnalysis HCylinderPalletAnalysis
+        { get { return _hCylinderPalletAnalysis; } }
         public SelCasePalletSolution SelSolution
         {
             get
@@ -161,7 +166,16 @@ namespace TreeDim.StackBuilder.Reporting
                     return null;
             }
         }
-
+        public SelHCylinderPalletSolution SelHCylinderPalletSolution
+        {
+            get
+            {
+                if (null != _hCylinderPalletAnalysis)
+                    return _selHCylinderPalletSolution;
+                else
+                    return null;
+            }        
+        }
         public SelBoxCasePalletSolution SelCaseSolution
         {   get { return _selCaseSolution; } }
 
@@ -173,10 +187,12 @@ namespace TreeDim.StackBuilder.Reporting
         { get { return (null != _palletAnalysis) && (null != _selSolution);} }
         public bool IsCylinderPalletAnalysis
         { get { return (null != _cylinderPalletAnalysis) && (null != _selCylinderPalletSolution); } }
+        public bool IsHCylinderPalletAnalysis
+        { get { return (null != _hCylinderPalletAnalysis) && (null != _selHCylinderPalletSolution); } }
         public bool IsBoxCasePalletAnalysis
         { get { return (null != _caseAnalysis) && (null != _selCaseSolution); } }
         public bool IsValid
-        { get { return IsBoxCasePalletAnalysis ^ IsBoxCaseAnalysis ^ IsCasePalletAnalysis ^ IsCylinderPalletAnalysis; } }
+        { get { return IsBoxCasePalletAnalysis ^ IsBoxCaseAnalysis ^ IsCasePalletAnalysis ^ IsCylinderPalletAnalysis ^ IsHCylinderPalletAnalysis; } }
         public double ActualCaseWeight
         {
             get
@@ -197,6 +213,8 @@ namespace TreeDim.StackBuilder.Reporting
                     return _selSolution.Solution.PalletWeight;
                 else if (IsCylinderPalletAnalysis)
                     return _selCylinderPalletSolution.Solution.PalletWeight;
+                else if (IsHCylinderPalletAnalysis)
+                    return _selHCylinderPalletSolution.Solution.PalletWeight;
                 else if (IsBoxCasePalletAnalysis)
                     return _selCaseSolution.Solution.PalletWeight;
                 else
@@ -268,6 +286,16 @@ namespace TreeDim.StackBuilder.Reporting
             {
                 if (null != _selCylinderPalletSolution)
                     return _selCylinderPalletSolution.Solution;
+                else
+                    return null;
+            }
+        }
+        public HCylinderPalletSolution HCylinderPalletSolution
+        {
+            get
+            {
+                if (null != _selHCylinderPalletSolution)
+                    return _selHCylinderPalletSolution.Solution;
                 else
                     return null;
             }
@@ -583,6 +611,37 @@ namespace TreeDim.StackBuilder.Reporting
             AppendCylinderPalletSolutionElement(inputData, elemCylinderPalletAnalysis, xmlDoc);
         }
 
+        private void AppendHCylinderPalletAnalysisElement(ReportData inputData, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            if (!inputData.IsHCylinderPalletAnalysis)
+                return;
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // cylinder/pallet analysis
+            HCylinderPalletAnalysis analysis = inputData.HCylinderPalletAnalysis;
+            SelHCylinderPalletSolution selSolution = inputData.SelHCylinderPalletSolution;
+
+            // cylinder/pallet analysis
+            XmlElement elemCylinderPalletAnalysis = xmlDoc.CreateElement("hCylinderPalletAnalysis", ns);
+            elemDocument.AppendChild(elemCylinderPalletAnalysis);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = analysis.Name;
+            elemCylinderPalletAnalysis.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = analysis.Description;
+            elemCylinderPalletAnalysis.AppendChild(elemDescription);
+            // pallet
+            AppendPalletElement(analysis.PalletProperties, elemCylinderPalletAnalysis, xmlDoc);
+            // cylinder
+            AppendCylinderElement(analysis.CylinderProperties, elemCylinderPalletAnalysis, xmlDoc);
+            // constraintSet
+            AppendHCylinderPalletConstraintSet(analysis.ConstraintSet, elemCylinderPalletAnalysis, xmlDoc);
+            // solution
+            AppendHCylinderPalletSolutionElement(inputData, elemCylinderPalletAnalysis, xmlDoc);      
+        
+        }
+
         private void AppendPalletElement(PalletProperties palletProp, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
@@ -889,6 +948,39 @@ namespace TreeDim.StackBuilder.Reporting
                 elemConstraintSet.AppendChild(maximumWeightOnBoxGroup);
                 // admissible load on top
                 AppendElementValue(xmlDoc, maximumWeightOnBoxGroup, "maximumPalletHeight", UnitsManager.MassUnitString, cs.MaximumLoadOnLowerCylinder);
+            }
+        }
+
+        private void AppendHCylinderPalletConstraintSet(HCylinderPalletConstraintSet cs, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // solution
+            XmlElement elemConstraintSet = xmlDoc.CreateElement("constraintSet", ns);
+            elemPalletAnalysis.AppendChild(elemConstraintSet);
+            AppendElementValue(xmlDoc, elemConstraintSet, "overhangX", UnitsManager.LengthUnitString, cs.OverhangX);
+            AppendElementValue(xmlDoc, elemConstraintSet, "overhangY", UnitsManager.LengthUnitString, cs.OverhangY);
+            // stopCriterion
+            if (cs.UseMaximumPalletHeight)
+            {
+                XmlElement maximumPalletHeightGroup = xmlDoc.CreateElement("maximumPalletHeightGroup", ns);
+                elemConstraintSet.AppendChild(maximumPalletHeightGroup);
+                // max pallet height
+                AppendElementValue(xmlDoc, maximumPalletHeightGroup, "maximumPalletHeight", UnitsManager.LengthUnitString, cs.MaximumPalletHeight);
+            }
+            if (cs.UseMaximumNumberOfItems)
+            {
+                XmlElement maximumNumberOfItemsGroup = xmlDoc.CreateElement("maximumNumberOfItemsGroup", ns);
+                elemConstraintSet.AppendChild(maximumNumberOfItemsGroup);
+                XmlElement maximumNumberOfItems = xmlDoc.CreateElement("maximumNumberOfItems", ns);
+                maximumNumberOfItems.InnerText = string.Format("{0}", cs.MaximumNumberOfItems);
+                maximumNumberOfItemsGroup.AppendChild(maximumNumberOfItems);
+            }
+            if (cs.UseMaximumPalletWeight)
+            {
+                XmlElement maximumPalletWeightGroup = xmlDoc.CreateElement("maximumPalletWeightGroup", ns);
+                elemConstraintSet.AppendChild(maximumPalletWeightGroup);
+                // max pallet weight
+                AppendElementValue(xmlDoc, maximumPalletWeightGroup, "maximumPalletHeight", UnitsManager.MassUnitString, cs.MaximumPalletWeight);
             }
         }
 
@@ -1323,6 +1415,79 @@ namespace TreeDim.StackBuilder.Reporting
                 graphics.CameraPosition = cameraPos;
                 // instantiate solution viewer
                 CylinderPalletSolutionViewer sv = new CylinderPalletSolutionViewer(sol);
+                sv.ShowDimensions = showDimensions;
+                sv.Draw(graphics);
+                // ---
+                XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+                elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+                XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+                styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
+                elemImage.Attributes.Append(styleAttribute);
+                elemSolution.AppendChild(elemImage);
+                // Save image ?
+                SaveImageAs(graphics.Bitmap, viewName + ".png");
+            }
+        }
+
+        private void AppendHCylinderPalletSolutionElement(ReportData inputData, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        {
+            if (!inputData.IsHCylinderPalletAnalysis) return;
+
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+
+            SelHCylinderPalletSolution selSolution = inputData.SelHCylinderPalletSolution;
+            HCylinderPalletSolution sol = inputData.HCylinderPalletSolution;
+
+            // solution
+            XmlElement elemSolution = xmlDoc.CreateElement("palletSolution", ns);
+            elemPalletAnalysis.AppendChild(elemSolution);
+            // title
+            XmlElement elemTitle = xmlDoc.CreateElement("title", ns);
+            elemTitle.InnerText = sol.Title;
+            elemSolution.AppendChild(elemTitle);
+
+            AppendElementValue(xmlDoc, elemSolution, "palletWeight", UnitsManager.MassUnitString, inputData.ActualPalletWeight);
+            AppendElementValue(xmlDoc, elemSolution, "palletHeight", UnitsManager.LengthUnitString, sol.PalletHeight);
+
+            // cylinderCount
+            XmlElement elemCaseCount = xmlDoc.CreateElement("cylinderCount", ns);
+            elemCaseCount.InnerText = string.Format("{0}", sol.CylinderCount);
+            elemSolution.AppendChild(elemCaseCount);
+            // --- pallet images
+            for (int i = 0; i < 5; ++i)
+            {
+                // initialize drawing values
+                string viewName = string.Empty;
+                Vector3D cameraPos = Vector3D.Zero;
+                int imageWidth = ImageSizeDetail;
+                bool showDimensions = false;
+                switch (i)
+                {
+                    case 0:
+                        viewName = "view_palletsolution_front"; cameraPos = Graphics3D.Front; imageWidth = ImageSizeDetail;
+                        break;
+                    case 1:
+                        viewName = "view_palletsolution_left"; cameraPos = Graphics3D.Left; imageWidth = ImageSizeDetail;
+                        break;
+                    case 2:
+                        viewName = "view_palletsolution_right"; cameraPos = Graphics3D.Right; imageWidth = ImageSizeDetail;
+                        break;
+                    case 3:
+                        viewName = "view_palletsolution_back"; cameraPos = Graphics3D.Back; imageWidth = ImageSizeDetail;
+                        break;
+                    case 4:
+                        viewName = "view_palletsolution_iso"; cameraPos = Graphics3D.Corner_0; imageWidth = ImageSizeWide; showDimensions = true;
+                        break;
+                    default:
+                        break;
+                }
+                // instantiate graphics
+                Graphics3DImage graphics = new Graphics3DImage(new Size(imageWidth, imageWidth));
+                // set camera position 
+                graphics.CameraPosition = cameraPos;
+                // instantiate solution viewer
+                HCylinderPalletSolutionViewer sv = new HCylinderPalletSolutionViewer(sol);
                 sv.ShowDimensions = showDimensions;
                 sv.Draw(graphics);
                 // ---

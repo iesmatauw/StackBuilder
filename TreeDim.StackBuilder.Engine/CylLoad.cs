@@ -19,7 +19,8 @@ namespace TreeDim.StackBuilder.Engine
         protected static readonly ILog _log = LogManager.GetLogger(typeof(CylLoad));
         private double _palletLength = 0.0, _palletWidth = 0.0, _palletHeight = 0.0;
         private double _cylinderRadius = 0.0, _cylinderLength = 0.0;
-        private double _rowSpacing = 0.0; 
+        private double _rowSpacing = 0.0;
+        private Limit _limitReached = Limit.LIMIT_UNKNOWN;
         #endregion
 
         #region Constructor
@@ -115,6 +116,12 @@ namespace TreeDim.StackBuilder.Engine
         public double RowSpacing
         {
             get { return _rowSpacing; }
+        }
+
+        public Limit LimitReached
+        {
+            get { return _limitReached; }
+            set { _limitReached = value; }
         }
         #endregion
     }

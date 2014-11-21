@@ -439,6 +439,12 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateButtonOkStatus();
         }
+
+        private void cbPalletDimensions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // fill grid
+            FillGrid();
+        }
         #endregion
 
         #region Control update methods
@@ -653,10 +659,5 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        private void cbPalletDimensions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // fill grid
-            FillGrid();
-        }
     }
 }

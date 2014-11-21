@@ -209,6 +209,13 @@ namespace TreeDim.StackBuilder.Engine
                         pattern.GetDimensions(load, maxCount, out actualLength, out actualWidth);
                         pattern.Generate(load, maxCount, actualLength, actualWidth, maxHeight - _palletProperties.Height);
 
+                        // Limit reached ?
+                        sol.LimitReached = load.LimitReached;
+                        // maxCount might actually max weight reached
+                        if (load.LimitReached == Limit.LIMIT_MAXNUMBERREACHED && maxCount == maxCountWeight)
+                            sol.LimitReached = Limit.LIMIT_MAXWEIGHTREACHED;
+
+                        // copies all cylinder positions
                         foreach (CylPosition pos in load)
                         {
                             sol.Add(new CylPosition(

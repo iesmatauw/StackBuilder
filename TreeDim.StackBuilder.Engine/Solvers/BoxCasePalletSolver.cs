@@ -126,6 +126,7 @@ namespace TreeDim.StackBuilder.Engine
                                     bool innerLoopStop = false;
                                     double zLayer = 0.0; // caseProperties.Height;
                                     int iInterlayer = 0;
+                                    int boxCount = 0;
 
                                     while (
                                         !innerLoopStop
@@ -151,8 +152,8 @@ namespace TreeDim.StackBuilder.Engine
                                         foreach (LayerPosition layerPos in currentLayer)
                                         {
                                             int iCount = sol.Count + 1;
-                                            innerLoopStop = (_constraintSet.UseMaximumCaseWeight && (iCount * _boxProperties.Weight + caseProperties.Weight > _constraintSet.MaximumCaseWeight))
-                                            || (_constraintSet.UseMaximumNumberOfItems && (iCount > _constraintSet.MaximumNumberOfItems));
+                                            innerLoopStop = (_constraintSet.UseMaximumCaseWeight && ((boxCount+1) * _boxProperties.Weight + caseProperties.Weight > _constraintSet.MaximumCaseWeight))
+                                            || (_constraintSet.UseMaximumNumberOfItems && ((boxCount+1) > _constraintSet.MaximumNumberOfItems));
 
                                             if (!innerLoopStop)
                                             {
@@ -161,8 +162,8 @@ namespace TreeDim.StackBuilder.Engine
                                                     , layerPos.LengthAxis
                                                     , layerPos.WidthAxis
                                                     );
-
                                                 layer.Add(boxPos);
+                                                ++boxCount;
                                             }
                                             else
                                                 break;

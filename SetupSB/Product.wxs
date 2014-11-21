@@ -17,8 +17,13 @@
              Comments="$(var.Version)"
              Manufacturer="$(var.Manufacturer)"
              InstallerVersion="300"
-             Compressed="yes" />
+             Compressed="yes"
+             InstallScope="perMachine"/>
     <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <!-- MAJOR UPGRADE -->
+    <MajorUpgrade AllowDowngrades="no"
+                  AllowSameVersionUpgrades="no"
+                  DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
     <!-- ADD/REMOVE Programs icon -->
     <Icon Id="Stackbuilder.ico" SourceFile="Stackbuilder.ico" />
     <Property Id="ARPPRODUCTICON" Value="Stackbuilder.ico" />
@@ -30,14 +35,10 @@
     <!--Properties-->
     <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
-    <Property Id="ALLUSERS" Value="1" />
     <!-- Conditions-->
     <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
     <Condition Message="This application is only supported on Windows XP, Windows Vista, Windows 7 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
     <!-- Tell WiX to install the files -->
-    <MajorUpgrade AllowDowngrades="no"
-                  AllowSameVersionUpgrades="no"
-                  DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
     <Feature Id="ProductFeature" Title="StackBuilder" Level="1" Absent="disallow" AllowAdvertise="no">
       <ComponentRef Id="References" />
       <ComponentRef Id="Application" />
@@ -77,13 +78,5 @@
     <Property Id="WixShellExecTarget" Value="[#TreeDim.StackBuilder.Desktop.exe]" />
     <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
     <?endif?>
-    <!-- Prevent downgrade custom action -->
-    <CustomAction Id="NoDownGrade" Error="A later version of [ProductName] is already installed." />
-    <!-- Install execute sequence -->
-    <InstallExecuteSequence>
-      <LaunchConditions After="AppSearch" />
-      <Custom Action="NoDownGrade" After="FindRelatedProducts"><![CDATA[PROJECT_DOWNGRADE]]></Custom>
-    </InstallExecuteSequence>
-    <!---->
   </Product>
 </Wix>

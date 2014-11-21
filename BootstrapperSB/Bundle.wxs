@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--definitions : beg-->
-<?define SkuName = "StackBuilder"?>
-<?define ProductVersion = "1.0.39.0"?>
-<?define Manufacturer="treeDiM"?>
-<?define ProductName = "StackBuilder"?>
-<?define UpgradeCode="3b6ab985-d566-4400-93c3-7a17e720eebf"?>
-<!--definitions : end-->
+<?include $(sys.CURRENTDIR)\..\SetupSB\Config.wxi?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <Bundle Name="$(var.ProductName)"
-          Version="$(var.ProductVersion)"
+          Version="$(var.Version)"
           Manufacturer="$(var.Manufacturer)"
           UpgradeCode="$(var.UpgradeCode)"
           IconSourceFile="StackBuilder.ico"

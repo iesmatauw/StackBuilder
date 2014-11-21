@@ -42,7 +42,10 @@ namespace TreeDim.StackBuilder.Engine
             while (true)
             {
                 if ((iLayer + 1) * diameter >= maxHeight)
+                {
+                    load.LimitReached = Limit.LIMIT_MAXHEIGHTREACHED;
                     return;
+                }
 
                 for (int j = 0; j < sizeY - (iLayer % 2); ++j)
                 {
@@ -58,7 +61,10 @@ namespace TreeDim.StackBuilder.Engine
                                 , HalfAxis.HAxis.AXIS_X_P)
                             );
                         if (maxCount > 0 && load.Count >= maxCount)
+                        {
+                            load.LimitReached = Limit.LIMIT_MAXNUMBERREACHED;
                             return;
+                        }
                     }
                 }
                 ++iLayer;

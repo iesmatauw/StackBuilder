@@ -2,7 +2,7 @@
 <!-- Product manufacturer -->
 <?define Manufacturer = "treeDiM"?>
 <!-- Product version -->
-<?define Version = "1.0.39.0"?>
+<?define Version = "1.0.40.0"?>
 <!-- Company URL -->
 <?define CompanyURL = "http://www.picador.fr/"?>
 <!-- Product name as it appears in Add/Remove Programs-->

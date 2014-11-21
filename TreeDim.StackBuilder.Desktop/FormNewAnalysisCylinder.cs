@@ -163,8 +163,8 @@ namespace TreeDim.StackBuilder.Desktop
                     UseMaximumLoadOnLowerCylinder = false;
 
                     MaximumNumberOfItems = 500;
-                    MaximumPalletHeight = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    MaximumPalletWeight = UnitsManager.ConvertMassFrom(1000.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    MaximumPalletHeight = UnitsManager.ConvertLengthFrom(Settings.Default.MaximumPalletHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    MaximumPalletWeight = UnitsManager.ConvertMassFrom(Settings.Default.MaximumPalletWeight, UnitsManager.UnitSystem.UNIT_METRIC1);
                     MaximumLoadOnLowerCylinder = UnitsManager.ConvertMassFrom(100.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 }
                 else
@@ -194,6 +194,10 @@ namespace TreeDim.StackBuilder.Desktop
                 if (null == Settings.Default.FormNewAnalysisPosition)
                     Settings.Default.FormNewAnalysisPosition = new WindowSettings();
                 Settings.Default.FormNewAnalysisPosition.Record(this);
+
+                // Maximum pallet height / weight
+                Settings.Default.MaximumPalletHeight = UnitsManager.ConvertLengthTo(MaximumPalletHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
+                Settings.Default.MaximumPalletWeight = UnitsManager.ConvertMassTo(MaximumPalletWeight, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
             catch (Exception ex)
             {

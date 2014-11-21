@@ -74,8 +74,15 @@ namespace TreeDim.StackBuilder.Graphics
             }
             if (_showDimensions)
             {
-                graphics.AddDimensions(new DimensionCube(_solution.BoundingBox, Color.Black, false));
-                graphics.AddDimensions(new DimensionCube(_solution.LoadBoundingBox, Color.Red, true));
+                if (_showDimensions)
+                {
+                    graphics.AddDimensions(
+                        new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol1)
+                        , Color.Black, false));
+                    graphics.AddDimensions(
+                        new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
+                        , Color.Red, true));
+                }
             }
 
             // flush
@@ -140,6 +147,18 @@ namespace TreeDim.StackBuilder.Graphics
             // flush
             graphics.Flush();
         }
+
+        BBox3D BoundingBoxDim(int index)
+        {
+            switch (index)
+            {
+                case 0: return _solution.BoundingBox;
+                case 1: return _solution.LoadBoundingBox;
+                case 2: return _analysis.PalletProperties.BoundingBox;
+                case 3: return new BBox3D(0.0, 0.0, 0.0, _analysis.PalletProperties.Length, _analysis.PalletProperties.Width, 0.0);
+                default: return _solution.BoundingBox;
+            }
+        }
         #endregion
 
         #region Public properties
@@ -183,11 +202,15 @@ namespace TreeDim.StackBuilder.Graphics
             uint pickId = 0;
             foreach (CylPosition pos in _solution)
                 graphics.AddCylinder(new Cylinder(pickId++, _analysis.CylinderProperties, pos));
-    
+
             if (_showDimensions)
             {
-                graphics.AddDimensions(new DimensionCube(_solution.BoundingBox, Color.Black, false));
-                graphics.AddDimensions(new DimensionCube(_solution.LoadBoundingBox, Color.Red, true));
+                graphics.AddDimensions(
+                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol1)
+                    , Color.Black, false));
+                graphics.AddDimensions(
+                    new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
+                    , Color.Red, true));
             }
             // flush
             graphics.Flush();
@@ -203,7 +226,17 @@ namespace TreeDim.StackBuilder.Graphics
 
         }
 
-
+        BBox3D BoundingBoxDim(int index)
+        {
+            switch (index)
+            {
+                case 0: return _solution.BoundingBox;
+                case 1: return _solution.LoadBoundingBox;
+                case 2: return _analysis.PalletProperties.BoundingBox;
+                case 3: return new BBox3D(0.0, 0.0, 0.0, _analysis.PalletProperties.Length, _analysis.PalletProperties.Width, 0.0);
+                default: return _solution.BoundingBox;
+            }
+        }
         #endregion
 
         #region Public properties

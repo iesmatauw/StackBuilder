@@ -196,8 +196,8 @@ namespace TreeDim.StackBuilder.Desktop
                     UseMaximumLoadOnBox = false;
 
                     MaximumNumberOfBoxes = 500;
-                    MaximumPalletHeight = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                    MaximumPalletWeight = UnitsManager.ConvertMassFrom(1000.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    MaximumPalletHeight = UnitsManager.ConvertLengthFrom(Properties.Settings.Default.MaximumPalletHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
+                    MaximumPalletWeight = UnitsManager.ConvertMassFrom(Properties.Settings.Default.MaximumPalletWeight, UnitsManager.UnitSystem.UNIT_METRIC1);
                     MaximumLoadOnBox = 100.0;
                 }
                 else
@@ -259,7 +259,10 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.AllowedPatterns = AllowedPatternsString;
                 // keep best solutions
                 Settings.Default.KeepBestSolutions = UseNumberOfSolutionsKept;
-                Settings.Default.NoSolutionsToKeep = NumberOfSolutionsKept;                
+                Settings.Default.NoSolutionsToKeep = NumberOfSolutionsKept;
+                // Maximum pallet height / weight
+                Settings.Default.MaximumPalletHeight = UnitsManager.ConvertLengthTo(MaximumPalletHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
+                Settings.Default.MaximumPalletWeight = UnitsManager.ConvertMassTo(MaximumPalletWeight, UnitsManager.UnitSystem.UNIT_METRIC1);
                 // window position
                 if (null == Settings.Default.FormNewAnalysisPosition)
                     Settings.Default.FormNewAnalysisPosition = new WindowSettings();

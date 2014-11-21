@@ -41,19 +41,19 @@
             this.toolStripLeftView = new System.Windows.Forms.ToolStripButton();
             this.toolStripTopView = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.trackBarAngleHoriz = new System.Windows.Forms.TrackBar();
             this.btSelectSolution = new System.Windows.Forms.Button();
             this.trackBarAngleVert = new System.Windows.Forms.TrackBar();
-            this.pictureBoxSolution = new System.Windows.Forms.PictureBox();
             this.gridSolutions = new SourceGrid.Grid();
             this.toolStrip_view.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip_view
@@ -182,10 +182,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBoxSolution);
             this.splitContainer1.Panel1.Controls.Add(this.trackBarAngleHoriz);
             this.splitContainer1.Panel1.Controls.Add(this.btSelectSolution);
             this.splitContainer1.Panel1.Controls.Add(this.trackBarAngleVert);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBoxSolution);
             // 
             // splitContainer1.Panel2
             // 
@@ -193,6 +193,19 @@
             this.splitContainer1.Size = new System.Drawing.Size(604, 627);
             this.splitContainer1.SplitterDistance = 508;
             this.splitContainer1.TabIndex = 17;
+            // 
+            // pictureBoxSolution
+            // 
+            this.pictureBoxSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSolution.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBoxSolution.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxSolution.Name = "pictureBoxSolution";
+            this.pictureBoxSolution.Size = new System.Drawing.Size(598, 455);
+            this.pictureBoxSolution.TabIndex = 17;
+            this.pictureBoxSolution.TabStop = false;
+            this.pictureBoxSolution.SizeChanged += new System.EventHandler(this.pictureBoxSolution_SizeChanged);
             // 
             // trackBarAngleHoriz
             // 
@@ -238,18 +251,6 @@
             this.trackBarAngleVert.Value = 45;
             this.trackBarAngleVert.ValueChanged += new System.EventHandler(this.onAngleVertChanged);
             // 
-            // pictureBoxSolution
-            // 
-            this.pictureBoxSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSolution.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBoxSolution.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxSolution.Name = "pictureBoxSolution";
-            this.pictureBoxSolution.Size = new System.Drawing.Size(598, 455);
-            this.pictureBoxSolution.TabIndex = 17;
-            this.pictureBoxSolution.TabStop = false;
-            // 
             // gridSolutions
             // 
             this.gridSolutions.AcceptsInputChar = false;
@@ -286,9 +287,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleHoriz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAngleVert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolution)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

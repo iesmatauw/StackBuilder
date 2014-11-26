@@ -171,7 +171,7 @@
     <value>0</value>
   </data>
 	<data name="toolStripTopView.Text" xml:space="preserve">
-    <value>Top view</value>
+    <value>Vista superiore</value>
   <comment></comment></data>
 	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
 	<data name="gridSolutions.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
@@ -193,7 +193,7 @@
 		<value>301, 401</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Box/Case/Pallet analysis...</value>
+    <value>Analisi Scatola/Astuccio/Pallet...</value>
   <comment></comment></data>
 	<data name="&gt;&gt;splitContainerVertInside.Panel2.Parent" xml:space="preserve">
     <value>splitContainerVertInside</value>
@@ -268,7 +268,7 @@
     <value>0</value>
   </data>
 	<data name="toolStripLeftView.Text" xml:space="preserve">
-    <value>Left view</value>
+    <value>Vista sinistra</value>
   <comment></comment></data>
 	<data name="&gt;&gt;splitContainerHorizInside.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -277,7 +277,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="toolStripCornerView_0.Text" xml:space="preserve">
-    <value>Corner view 0°</value>
+    <value>Vista angolare 0°</value>
   <comment></comment></data>
 	<data name="toolStripFrontView.Size" type="System.Drawing.Size, System.Drawing">
 		<value>23, 22</value>
@@ -379,7 +379,7 @@
     <value>$this</value>
   </data>
 	<data name="toolStripBackView.Text" xml:space="preserve">
-    <value>Rear view</value>
+    <value>Vista posteriore</value>
   <comment></comment></data>
 	<data name="&gt;&gt;toolStrip_view.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -388,7 +388,7 @@
 		<value>604, 401</value>
 	</data>
 	<data name="toolStripRightView.Text" xml:space="preserve">
-    <value>Right view</value>
+    <value>Vista destra</value>
   <comment></comment></data>
 	<data name="&gt;&gt;splitContainerHorizInside.Panel1.Parent" xml:space="preserve">
     <value>splitContainerHorizInside</value>
@@ -433,7 +433,7 @@
     <value>splitContainerVertInside</value>
   </data>
 	<data name="toolStripCornerView_180.Text" xml:space="preserve">
-    <value>Corner view 180°</value>
+    <value>Vista angolare 180°</value>
   <comment></comment></data>
 	<data name="trackBarAngleHoriz.TabIndex" type="System.Int32, mscorlib">
 		<value>0</value>
@@ -448,7 +448,7 @@
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="toolStripCornerView_90.ToolTipText" xml:space="preserve">
-    <value>Corner view 90°</value>
+    <value>Vista angolare 90°</value>
   <comment></comment></data>
 	<data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel2</value>
@@ -496,7 +496,7 @@
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
-    <value>Left view</value>
+    <value>Vista sinistra</value>
   <comment></comment></data>
 	<data name="&gt;&gt;splitContainerVertInside.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -511,7 +511,7 @@
 		<value>Fill</value>
 	</data>
 	<data name="toolStrip_view.Text" xml:space="preserve">
-    <value>Views</value>
+    <value>Viste</value>
   <comment></comment></data>
 	<data name="splitContainerVertInside.SplitterDistance" type="System.Int32, mscorlib">
 		<value>299</value>
@@ -523,7 +523,7 @@
 		<value>0, 0</value>
 	</data>
 	<data name="toolStripShowImages.Text" xml:space="preserve">
-    <value>Show images</value>
+    <value>Mostra immagini</value>
   <comment></comment></data>
 	<data name="&gt;&gt;toolStripBackView.Name" xml:space="preserve">
     <value>toolStripBackView</value>
@@ -538,13 +538,13 @@
 		<value>0, 0</value>
 	</data>
 	<data name="toolStripFrontView.Text" xml:space="preserve">
-    <value>Front view</value>
+    <value>Vista frontale</value>
   <comment></comment></data>
 	<data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
 	<data name="toolStripCornerView_270.Text" xml:space="preserve">
-    <value>Corner view 270°</value>
+    <value>Vista angolare 270°</value>
   <comment></comment></data>
 	<data name="&gt;&gt;toolStripCornerView_270.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -586,7 +586,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
-    <value>Right view</value>
+    <value>Vista destra</value>
   <comment></comment></data>
 	<data name="toolStrip_view.Size" type="System.Drawing.Size, System.Drawing">
 		<value>604, 25</value>
@@ -595,7 +595,7 @@
     <value>gridSolutions</value>
   </data>
 	<data name="toolStripCornerView_90.Text" xml:space="preserve">
-    <value>Corner view 90°</value>
+    <value>Vista angolare 90°</value>
   <comment></comment></data>
 	<data name="trackBarAngleHoriz.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Top, Bottom, Left, Right</value>
@@ -619,7 +619,7 @@
 		<value>14</value>
 	</data>
 	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
-    <value>Back view</value>
+    <value>Vista retro</value>
   <comment></comment></data>
 	<data name="&gt;&gt;toolStripCornerView_180.Name" xml:space="preserve">
     <value>toolStripCornerView_180</value>

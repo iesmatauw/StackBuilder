@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,112 +59,217 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="nudPalletOverhangY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 47</value>
-  </data>
-  <data name="nudPalletOverhangX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 20</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="checkBoxMaximumLoadOnCylinder.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="checkBoxMaximumLoadOnCylinder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 31</value>
-  </data>
-  <data name="checkBoxMaximumLoadOnCylinder.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="nudPalletOverhangY.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 47</value>
+	</data>
+	<data name="nudPalletOverhangX.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 20</value>
+	</data>
+	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="checkBoxMaximumLoadOnCylinder.AutoSize" type="System.Boolean, mscorlib">
+		<value>False</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnCylinder.Size" type="System.Drawing.Size, System.Drawing">
+		<value>203, 31</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnCylinder.Text" xml:space="preserve">
     <value>le poids au dessus des cylindres les plus bas atteint</value>
   </data>
-  <data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 17</value>
-  </data>
-  <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+	<data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>180, 17</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
     <value>le poids total de la pallette atteint</value>
   </data>
-  <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 13</value>
-  </data>
-  <data name="lbStopStacking.Text" xml:space="preserve">
+	<data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
+		<value>138, 13</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
     <value>Arrêter l'empilement lorsque:</value>
   </data>
-  <data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 17</value>
-  </data>
-  <data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+	<data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 17</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
     <value>la hauteur de la palette atteint</value>
   </data>
-  <data name="checkBoxMaximumNumberOfItems.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 17</value>
-  </data>
-  <data name="checkBoxMaximumNumberOfItems.Text" xml:space="preserve">
+	<data name="checkBoxMaximumNumberOfItems.Size" type="System.Drawing.Size, System.Drawing">
+		<value>158, 17</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfItems.Text" xml:space="preserve">
     <value>le nombre de cylindre atteint</value>
   </data>
-  <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 171</value>
-  </data>
-  <data name="gbStopStackingCondition.Text" xml:space="preserve">
+	<data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
+		<value>304, 171</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
     <value>Condition d'arrêt de l'empilement</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>596, 265</value>
-  </data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>596, 265</value>
+	</data>
+	<data name="uMassPalletWeight.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
+		<value>Créer une nouvelle analyse liasse palette...</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Colonnes</value>
+	</data>
+	<data name="uLengthPalletHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Nom</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Motif de couches autorisées</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>autoriser l'alignement des couches</value>
+	</data>
+	<data name="gbAdditionalData.Text" xml:space="preserve">
+		<value>Données additionnelles</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>le nombre de bundle atteint</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palette</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>meilleure(s) solution(s)</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Annuler</value>
+	</data>
+	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
+		<value>Débord pallette</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="uLengthPalletOverhangX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>Diagonale</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Interbloqués</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Spirale élargie</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Spirale</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>autoriser l'alternance des couches</value>
+	</data>
+	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
+		<value>Longueur</value>
+	</data>
+	<data name="uLengthPalletOverhangY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="gbLayerAlignment.Text" xml:space="preserve">
+		<value>Alignement des couches</value>
+	</data>
+	<data name="lbBundle.Text" xml:space="preserve">
+		<value>Liasse</value>
+	</data>
+	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
+		<value>Afficher le nombre de pallettes requis pour</value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>caisses</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>qui sont parmis les</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+		<value>Largeur</value>
+	</data>
+	<data name="bnAccept.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbMm.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
+		<value>Nom</value>
+	</data>
 </root>

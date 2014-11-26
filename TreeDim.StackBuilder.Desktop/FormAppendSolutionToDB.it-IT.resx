@@ -219,7 +219,7 @@
     <value>lbFriendlyName</value>
   </data>
 	<data name="rbKeepReplace2.Text" xml:space="preserve">
-    <value>Replace any existing solutions</value>
+    <value>Sostituire le soluzioni esistenti</value>
   <comment></comment></data>
 	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
@@ -231,10 +231,10 @@
 		<value>1</value>
 	</data>
 	<data name="labelQuestion.Text" xml:space="preserve">
-    <value>Database already contains some solution(s) for a case with these dimensions:</value>
+    <value>Il database contiene già qualche soluzione(i) per un astuccio di queste dimensioni:</value>
   <comment></comment></data>
 	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancella</value>
   <comment></comment></data>
 	<data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
     <value>$this</value>
@@ -273,7 +273,7 @@
 		<value>9, 36</value>
 	</data>
 	<data name="rbKeepReplace1.Text" xml:space="preserve">
-    <value>Keep any existing solutions and also save this one</value>
+    <value>Mantieni tutte le soluzioni esistenti e salva anche questa</value>
   <comment></comment></data>
 	<data name="&gt;&gt;rbKeepReplace1.Name" xml:space="preserve">
     <value>rbKeepReplace1</value>
@@ -285,7 +285,7 @@
 		<value>78, 26</value>
 	</data>
 	<data name="lbFriendlyName.Text" xml:space="preserve">
-    <value>Friendly name</value>
+    <value>Nome amichevole</value>
   <comment></comment></data>
 	<data name="&gt;&gt;lbFriendlyName.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -322,7 +322,7 @@
     <value>bnOk</value>
   </data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Append solution to database...</value>
+    <value>Aggiungi soluzione al database</value>
   <comment></comment></data>
 	<data name="&gt;&gt;rbKeepReplace1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -175,7 +175,7 @@
 		<value>Bottom, Left, Right</value>
 	</data>
 	<data name="lbDescription.Text" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrizione</value>
   <comment></comment></data>
 	<data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
     <value>tbDescription</value>
@@ -193,7 +193,7 @@
     <value>3</value>
   </data>
 	<data name="lbAuthor.Text" xml:space="preserve">
-    <value>Author</value>
+    <value>Autore</value>
   <comment></comment></data>
 	<data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -265,7 +265,7 @@
     <value>$this</value>
   </data>
 	<data name="lbDateCreated.Text" xml:space="preserve">
-    <value>Date created</value>
+    <value>Data della creazione</value>
   <comment></comment></data>
 	<data name="bnOk.TabIndex" type="System.Int32, mscorlib">
 		<value>8</value>
@@ -274,7 +274,7 @@
 		<value>35, 13</value>
 	</data>
 	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancella</value>
   <comment></comment></data>
 	<data name="&gt;&gt;lbDateCreated.Parent" xml:space="preserve">
     <value>$this</value>
@@ -340,7 +340,7 @@
 		<value>279, 20</value>
 	</data>
 	<data name="lbName.Text" xml:space="preserve">
-    <value>Name</value>
+    <value>Nome</value>
   <comment></comment></data>
 	<data name="lbAuthor.TabIndex" type="System.Int32, mscorlib">
 		<value>4</value>
@@ -367,7 +367,7 @@
     <value>statusStripDef</value>
   </data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Create a new document...</value>
+    <value>Crea nuovo documento...</value>
   <comment></comment></data>
 	<data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
 		<value>Top, Right</value>

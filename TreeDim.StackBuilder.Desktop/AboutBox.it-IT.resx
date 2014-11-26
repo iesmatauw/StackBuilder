@@ -993,7 +993,7 @@
 		<value>19</value>
 	</data>
 	<data name="labelProductName.Text" xml:space="preserve">
-    <value>Product Name</value>
+    <value>Nome Prodotto</value>
   <comment></comment></data>
 	<data name="labelProductName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
 		<value>MiddleLeft</value>
@@ -1029,7 +1029,7 @@
 		<value>0</value>
 	</data>
 	<data name="labelVersion.Text" xml:space="preserve">
-    <value>Version</value>
+    <value>Versione</value>
   <comment></comment></data>
 	<data name="labelVersion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
 		<value>MiddleLeft</value>
@@ -1101,7 +1101,7 @@
 		<value>22</value>
 	</data>
 	<data name="labelCompanyName.Text" xml:space="preserve">
-    <value>Company Name</value>
+    <value>Nome Azienda</value>
   <comment></comment></data>
 	<data name="labelCompanyName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
 		<value>MiddleLeft</value>
@@ -1140,7 +1140,7 @@
 		<value>23</value>
 	</data>
 	<data name="textBoxDescription.Text" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrizione</value>
   <comment></comment></data>
 	<data name="&gt;&gt;textBoxDescription.Name" xml:space="preserve">
     <value>textBoxDescription</value>
@@ -1191,7 +1191,7 @@
 		<value>23</value>
 	</data>
 	<data name="linkLabelUrl.Text" xml:space="preserve">
-    <value>CompanyWebSiteUrl</value>
+    <value>UrlSitoWebAziendale</value>
   <comment></comment></data>
 	<data name="&gt;&gt;linkLabelUrl.Name" xml:space="preserve">
     <value>linkLabelUrl</value>
@@ -1275,7 +1275,7 @@
 		<value>CenterParent</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>About StackBuilder...</value>
+    <value>A proposito di StackBuilder...</value>
   <comment></comment></data>
 	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutBox</value>

@@ -166,7 +166,7 @@
 		<value>1</value>
 	</data>
 	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancella</value>
   </data>
 	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
     <value>bnCancel</value>
@@ -196,7 +196,7 @@
 		<value>2</value>
 	</data>
 	<data name="labelFace.Text" xml:space="preserve">
-    <value>Face</value>
+    <value>Faccia</value>
   </data>
 	<data name="&gt;&gt;labelFace.Name" xml:space="preserve">
     <value>labelFace</value>
@@ -211,22 +211,22 @@
     <value>22</value>
   </data>
 	<data name="cbFace.Items" xml:space="preserve">
-    <value>Rear</value>
+    <value>Posteriore</value>
   </data>
 	<data name="cbFace.Items1" xml:space="preserve">
-    <value>Front</value>
+    <value>Fronte</value>
   </data>
 	<data name="cbFace.Items2" xml:space="preserve">
-    <value>Right</value>
+    <value>Destra</value>
   </data>
 	<data name="cbFace.Items3" xml:space="preserve">
-    <value>Left</value>
+    <value>Sinistra</value>
   </data>
 	<data name="cbFace.Items4" xml:space="preserve">
-    <value>Bottom</value>
+    <value>Inferiore</value>
   </data>
 	<data name="cbFace.Items5" xml:space="preserve">
-    <value>Top</value>
+    <value>Superiore</value>
   </data>
 	<data name="cbFace.Location" type="System.Drawing.Point, System.Drawing">
 		<value>80, 9</value>
@@ -319,7 +319,7 @@
 		<value>8</value>
 	</data>
 	<data name="lbOrigin.Text" xml:space="preserve">
-    <value>Origin</value>
+    <value>Origine</value>
   </data>
 	<data name="&gt;&gt;lbOrigin.Name" xml:space="preserve">
     <value>lbOrigin</value>
@@ -349,7 +349,7 @@
 		<value>9</value>
 	</data>
 	<data name="lbSize.Text" xml:space="preserve">
-    <value>Size</value>
+    <value>Misura</value>
   </data>
 	<data name="&gt;&gt;lbSize.Name" xml:space="preserve">
     <value>lbSize</value>
@@ -379,7 +379,7 @@
 		<value>10</value>
 	</data>
 	<data name="lbAngle.Text" xml:space="preserve">
-    <value>Angle</value>
+    <value>Angolo</value>
   </data>
 	<data name="&gt;&gt;lbAngle.Name" xml:space="preserve">
     <value>lbAngle</value>
@@ -514,7 +514,7 @@
 		<value>16</value>
 	</data>
 	<data name="uLengthOriginX.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthOriginX.Name" xml:space="preserve">
     <value>uLengthOriginX</value>
@@ -544,7 +544,7 @@
 		<value>17</value>
 	</data>
 	<data name="uLengthSizeX.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthSizeX.Name" xml:space="preserve">
     <value>uLengthSizeX</value>
@@ -604,7 +604,7 @@
 		<value>19</value>
 	</data>
 	<data name="uLengthOriginY.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthOriginY.Name" xml:space="preserve">
     <value>uLengthOriginY</value>
@@ -634,7 +634,7 @@
 		<value>20</value>
 	</data>
 	<data name="uLengthSizeY.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthSizeY.Name" xml:space="preserve">
     <value>uLengthSizeY</value>
@@ -661,7 +661,7 @@
 		<value>21</value>
 	</data>
 	<data name="bnMoveUp.Text" xml:space="preserve">
-    <value>Move up</value>
+    <value>Muovi in su</value>
   </data>
 	<data name="&gt;&gt;bnMoveUp.Name" xml:space="preserve">
     <value>bnMoveUp</value>
@@ -688,7 +688,7 @@
 		<value>22</value>
 	</data>
 	<data name="bnMoveDown.Text" xml:space="preserve">
-    <value>Move down</value>
+    <value>Muovi in giù</value>
   </data>
 	<data name="&gt;&gt;bnMoveDown.Name" xml:space="preserve">
     <value>bnMoveDown</value>
@@ -715,7 +715,7 @@
 		<value>23</value>
 	</data>
 	<data name="bnAdd.Text" xml:space="preserve">
-    <value>Add texture...</value>
+    <value>Aggiungi texture...</value>
   </data>
 	<data name="&gt;&gt;bnAdd.Name" xml:space="preserve">
     <value>bnAdd</value>
@@ -742,7 +742,7 @@
 		<value>24</value>
 	</data>
 	<data name="bnRemove.Text" xml:space="preserve">
-    <value>Remove</value>
+    <value>Rimuovi</value>
   </data>
 	<data name="&gt;&gt;bnRemove.Name" xml:space="preserve">
     <value>bnRemove</value>
@@ -760,7 +760,7 @@
 		<value>17, 17</value>
 	</metadata>
 	<data name="openImageFileDialog.Filter" xml:space="preserve">
-    <value>Image Files (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
+    <value>File immagini (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
   </data>
 	<data name="listBoxTextures.Location" type="System.Drawing.Point, System.Drawing">
 		<value>17, 62</value>
@@ -796,7 +796,7 @@
 		<value>25</value>
 	</data>
 	<data name="lbImage.Text" xml:space="preserve">
-    <value>Images</value>
+    <value>Immagini</value>
   </data>
 	<data name="&gt;&gt;lbImage.Name" xml:space="preserve">
     <value>lbImage</value>
@@ -820,7 +820,7 @@
 		<value>584, 362</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Edit face images</value>
+    <value>Modifica faccia immagini</value>
   </data>
 	<data name="&gt;&gt;openImageFileDialog.Name" xml:space="preserve">
     <value>openImageFileDialog</value>

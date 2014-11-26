@@ -193,7 +193,7 @@
 		<value>15</value>
 	</data>
 	<data name="btSelectSolution.Text" xml:space="preserve">
-    <value>Select</value>
+    <value>Seleziona</value>
   </data>
 	<data name="&gt;&gt;btSelectSolution.Name" xml:space="preserve">
     <value>btSelectSolution</value>
@@ -316,7 +316,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripCornerView0.Text" xml:space="preserve">
-    <value>Corner view 0°</value>
+    <value>Vista angolare 0°</value>
   </data>
 	<data name="toolStripCornerView90.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -325,7 +325,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripCornerView90.Text" xml:space="preserve">
-    <value>Corner view 90°</value>
+    <value>Vista angolare 90°</value>
   </data>
 	<data name="toolStripCornerView180.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -334,7 +334,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripCornerView180.Text" xml:space="preserve">
-    <value>Corner view 180°</value>
+    <value>Vista angolare 180°</value>
   </data>
 	<data name="toolStripCornerView270.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -343,7 +343,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripCornerView270.Text" xml:space="preserve">
-    <value>Corner view 270°</value>
+    <value>Vista angolare 270°</value>
   </data>
 	<data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 25</value>
@@ -355,7 +355,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripFrontView.Text" xml:space="preserve">
-    <value>Front view</value>
+    <value>Vista frontale</value>
   </data>
 	<data name="toolStripRightView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -364,10 +364,10 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripRightView.Text" xml:space="preserve">
-    <value>Right view</value>
+    <value>Vista destra</value>
   </data>
 	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
-    <value>Right view</value>
+    <value>Vista destra</value>
   </data>
 	<data name="toolStripBackView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -376,10 +376,10 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripBackView.Text" xml:space="preserve">
-    <value>Rear view</value>
+    <value>Vista posteriore</value>
   </data>
 	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
-    <value>Rear view</value>
+    <value>Vista posteriore</value>
   </data>
 	<data name="toolStripLeftView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -388,10 +388,10 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripLeftView.Text" xml:space="preserve">
-    <value>Left view</value>
+    <value>Vista sinistra</value>
   </data>
 	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
-    <value>Left view</value>
+    <value>Vista sinistra</value>
   </data>
 	<data name="toolStripTopView.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -400,7 +400,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripTopView.Text" xml:space="preserve">
-    <value>Top view</value>
+    <value>Vista superiore</value>
   </data>
 	<data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 25</value>
@@ -409,7 +409,7 @@
 		<value>23, 22</value>
 	</data>
 	<data name="toolStripShowImages.Text" xml:space="preserve">
-    <value>Show images</value>
+    <value>Mostra immagini</value>
   </data>
 	<data name="toolStrip_view.Location" type="System.Drawing.Point, System.Drawing">
 		<value>0, 0</value>
@@ -421,7 +421,7 @@
 		<value>14</value>
 	</data>
 	<data name="toolStrip_view.Text" xml:space="preserve">
-    <value>Views</value>
+    <value>Viste</value>
   </data>
 	<data name="&gt;&gt;toolStrip_view.Name" xml:space="preserve">
     <value>toolStrip_view</value>
@@ -576,7 +576,7 @@
 </value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Case/Pallet analysis...</value>
+    <value>Analisi Astuccio/Pallet...</value>
   </data>
 	<data name="&gt;&gt;toolStripCornerView0.Name" xml:space="preserve">
     <value>toolStripCornerView0</value>

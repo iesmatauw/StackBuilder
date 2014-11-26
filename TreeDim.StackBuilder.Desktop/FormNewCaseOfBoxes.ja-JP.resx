@@ -352,4 +352,79 @@
 	<data name="cbColor.Items56" xml:space="preserve">
 		<value>カラー</value>
 	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>ボックス</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>カラム</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>許可された層パターン</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>整列レイヤーを許可する</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>箱の数に達するときの</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>パレット</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>最良の解決策（S）</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+		<value>許可されたボックスの位置</value>
+	</data>
+	<data name="checkBoxPositionX.Text" xml:space="preserve">
+		<value>X</value>
+	</data>
+	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
+		<value>総重量が以下に達する場合</value>
+	</data>
+	<data name="checkBoxPositionZ.Text" xml:space="preserve">
+		<value>Z</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>追加のストップスタッキング状態</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>トリロック</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>対角</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>インタロックした</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>スパイラル</value>
+	</data>
+	<data name="lbFilterSolutions.Text" xml:space="preserve">
+		<value>ソリューションを維持する</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>スタッキング停止します。</value>
+	</data>
+	<data name="checkBoxPositionY.Text" xml:space="preserve">
+		<value>Y</value>
+	</data>
+	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
+		<value>最低限、ケースに含まれる</value>
+	</data>
+	<data name="gbSolutionFiltering.Text" xml:space="preserve">
+		<value>追加のデータ</value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>ボックス</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>別の層を許可する</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>の間にあることを</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>キロ</value>
+	</data>
 </root>

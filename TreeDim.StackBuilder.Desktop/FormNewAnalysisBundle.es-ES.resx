@@ -1024,7 +1024,7 @@
 		<value>de-DE</value>
 	</metadata>
 	<data name="$this.Text" xml:space="preserve">
-		<value>Crear nuevo análisis de bulto</value>
+		<value>Create new cylinder analysis...</value>
 	</data>
 	<data name="lbBundle.Text" xml:space="preserve">
 		<value>Bulto</value>

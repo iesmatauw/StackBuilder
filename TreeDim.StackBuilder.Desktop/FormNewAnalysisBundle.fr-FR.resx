@@ -298,4 +298,10 @@
 	<data name="uMassPalletWeight.Text" xml:space="preserve">
 		<value>uMass</value>
 	</data>
+	<data name="checkBoxMaximumLoadOnCylinder.Text" xml:space="preserve">
+		<value>le poids au dessus des cylindres les plus bas atteint</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfItems.Text" xml:space="preserve">
+		<value>le nombre de cylindre atteint</value>
+	</data>
 </root>

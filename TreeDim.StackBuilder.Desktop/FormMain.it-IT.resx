@@ -171,10 +171,10 @@
 		<value>145, 22</value>
 	</data>
 	<data name="newToolStripMenuItem.Text" xml:space="preserve">
-    <value>New</value>
+    <value>Nuovo</value>
   </data>
 	<data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Create new file</value>
+    <value>Crea nuovo file</value>
   </data>
 	<data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -196,10 +196,10 @@
 		<value>145, 22</value>
 	</data>
 	<data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open</value>
+    <value>Apri</value>
   </data>
 	<data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Open file</value>
+    <value>Apri file</value>
   </data>
 	<data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -220,10 +220,10 @@
 		<value>145, 22</value>
 	</data>
 	<data name="saveToolStripMenuItem.Text" xml:space="preserve">
-    <value>Save</value>
+    <value>Salva</value>
   </data>
 	<data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Save file</value>
+    <value>Sava file</value>
   </data>
 	<data name="saveAsToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -232,10 +232,10 @@
 		<value>145, 22</value>
 	</data>
 	<data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Save as...</value>
+    <value>Salva come...</value>
   </data>
 	<data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Save As...</value>
+    <value>Salva come...</value>
   </data>
 	<data name="saveAllToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -256,7 +256,7 @@
 		<value>145, 22</value>
 	</data>
 	<data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
-    <value>Save All</value>
+    <value>Salva tutto</value>
   </data>
 	<data name="closeToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -265,10 +265,10 @@
 		<value>145, 22</value>
 	</data>
 	<data name="closeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Close</value>
+    <value>Chiudi</value>
   </data>
 	<data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Close active document</value>
+    <value>Chiudi documento attivo</value>
   </data>
 	<data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
 		<value>142, 6</value>
@@ -277,7 +277,7 @@
 		<value>145, 22</value>
 	</data>
 	<data name="mnuFileMRU.Text" xml:space="preserve">
-    <value>Recent Files...</value>
+    <value>File Recente...</value>
   </data>
 	<data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
 		<value>142, 6</value>
@@ -289,10 +289,10 @@
 		<value>145, 22</value>
 	</data>
 	<data name="exitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
+    <value>Esci</value>
   </data>
 	<data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Exit the application</value>
+    <value>Esci dall'applicazione</value>
   </data>
 	<data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>37, 20</value>
@@ -315,7 +315,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Box</value>
+    <value>Nuova Scatola</value>
   </data>
 	<data name="newCaseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -332,7 +332,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Case</value>
+    <value>Nuovo Astuccio</value>
   </data>
 	<data name="newCylinderToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -341,7 +341,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newCylinderToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Cylinder</value>
+    <value>Nuovo Cilindro</value>
   </data>
 	<data name="newInterlayerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -357,7 +357,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Interlayer</value>
+    <value>Nuovo Interstrato</value>
   </data>
 	<data name="newBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -374,7 +374,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Bundle</value>
+    <value>Nuovo Fascicolo</value>
   </data>
 	<data name="newPalletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -391,7 +391,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Pallet</value>
+    <value>Nuovo Pallet</value>
   </data>
 	<data name="newTruckToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -413,7 +413,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Truck</value>
+    <value>Nuovo Camion</value>
   </data>
 	<data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
 		<value>258, 6</value>
@@ -433,7 +433,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Case/Pallet Analysis</value>
+    <value>Nuova Analisi Astuccio/Pallet</value>
   </data>
 	<data name="newAnalysisBundleToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -451,19 +451,19 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Bundle/Pallet Analysis</value>
+    <value>Nuova Analisi Fascicolo/Pallet</value>
   </data>
 	<data name="newToolStripMenuItemCylinderPalletAnalysis.Size" type="System.Drawing.Size, System.Drawing">
 		<value>261, 22</value>
 	</data>
 	<data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
-    <value>New Cylinder/Pallet Analysis</value>
+    <value>Nuova Analisi Cilindro/Pallet</value>
   </data>
 	<data name="newBoxCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>261, 22</value>
 	</data>
 	<data name="newBoxCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Box/Case Analysis</value>
+    <value>Nuova Analisi Scatola/Astuccio</value>
   </data>
 	<data name="newBoxCasePalletOptimizationToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -481,7 +481,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="newBoxCasePalletOptimizationToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Box/Case/Pallet optimization</value>
+    <value>Nuova ottimizzazione Scatola/Astuccio/Pallet</value>
   </data>
 	<data name="caseOptimisationToolStripMenu.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
 		<value>White</value>
@@ -490,10 +490,10 @@
 		<value>261, 22</value>
 	</data>
 	<data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
-    <value>Search for optimal case dimensions</value>
+    <value>Ricerca ottimale per dimensioni astuccio</value>
   </data>
 	<data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
-    <value>Search for optimal case</value>
+    <value>Ricerca ottimale astuccio</value>
   </data>
 	<data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
 		<value>258, 6</value>
@@ -518,7 +518,7 @@
 		<value>261, 22</value>
 	</data>
 	<data name="editPaletSolutionsDB.Text" xml:space="preserve">
-    <value>&amp;Edit pallet solutions database...</value>
+    <value>&amp;Modifica la soluzione pallet del database...</value>
   </data>
 	<data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
 		<value>258, 6</value>
@@ -527,13 +527,13 @@
 		<value>261, 22</value>
 	</data>
 	<data name="settingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Settings...</value>
+    <value>Impostazioni…</value>
   </data>
 	<data name="toolStripMenuItemTools.Size" type="System.Drawing.Size, System.Drawing">
 		<value>48, 20</value>
 	</data>
 	<data name="toolStripMenuItemTools.Text" xml:space="preserve">
-    <value>Tools</value>
+    <value>Strumenti</value>
   </data>
 	<data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -557,7 +557,7 @@
 		<value>184, 22</value>
 	</data>
 	<data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>Help</value>
+    <value>Aiuto</value>
   </data>
 	<data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>184, 22</value>
@@ -572,13 +572,13 @@
 		<value>184, 22</value>
 	</data>
 	<data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
-    <value>About StackBuilder...</value>
+    <value>A proposito di StackBuilder...</value>
   </data>
 	<data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>44, 20</value>
 	</data>
 	<data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
+    <value>Aiuto</value>
   </data>
 	<data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
 		<value>0, 0</value>
@@ -611,7 +611,7 @@
 		<value>152, 22</value>
 	</data>
 	<data name="toolStripMenuNewFile.Text" xml:space="preserve">
-    <value>New...</value>
+    <value>Nuovo...</value>
   </data>
 	<data name="toolStripSplitButtonNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -636,7 +636,7 @@
 		<value>48, 36</value>
 	</data>
 	<data name="toolStripSplitButtonNew.Text" xml:space="preserve">
-    <value>Create a new file...</value>
+    <value>Crea nuovo file...</value>
   </data>
 	<data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -663,10 +663,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-    <value>Open file</value>
+    <value>Apri file</value>
   </data>
 	<data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-    <value>Open file</value>
+    <value>Apri file</value>
   </data>
 	<data name="toolStripButtonFileSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -694,7 +694,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonFileSave.Text" xml:space="preserve">
-    <value>Save file</value>
+    <value>Sava file</value>
   </data>
 	<data name="toolStripButtonFileSaveAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -718,7 +718,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
-    <value>Save All Files</value>
+    <value>Salva tutti i file</value>
   </data>
 	<data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 39</value>
@@ -747,7 +747,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
-    <value>Add New Box</value>
+    <value>Aggiungi nuova scatola</value>
   </data>
 	<data name="toolStripButtonAddNewCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -770,7 +770,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
-    <value>Add new case...</value>
+    <value>Aggiungi nuovo astuccio...</value>
   </data>
 	<data name="toolStripButtonCreateNewBundle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -792,7 +792,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
-    <value>Add New Bundle</value>
+    <value>Aggiungi nuovo fascicolo</value>
   </data>
 	<data name="toolStripButtonAddNewCylinder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -817,7 +817,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonAddNewCylinder.Text" xml:space="preserve">
-    <value>Add new cylinder</value>
+    <value>Aggiungi nuovo cilindro</value>
   </data>
 	<data name="toolStripButtonCreateNewInterlayer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -839,10 +839,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
-    <value>Add New Interlayer</value>
+    <value>Aggiungi nuovo interstrato</value>
   </data>
 	<data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
-    <value>Add New Interlayer</value>
+    <value>Aggiungi nuovo interstrato</value>
   </data>
 	<data name="toolStripButtonAddNewPallet.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -863,10 +863,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
-    <value>Add New Pallet</value>
+    <value>Aggiungi nuovo pallet</value>
   </data>
 	<data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
-    <value>Add a new pallet</value>
+    <value>Aggiungi a nuovo pallet</value>
   </data>
 	<data name="toolStripButtonAddNewTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -887,7 +887,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
-    <value>Add New Truck</value>
+    <value>Aggiungi nuovo camion</value>
   </data>
 	<data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 39</value>
@@ -911,10 +911,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
-    <value>Create new case/pallet analysis</value>
+    <value>Crea nuova analisi astuccio/pallet</value>
   </data>
 	<data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
-    <value>Add a new pallet analysis</value>
+    <value>Aggiungi nuova analisi pallet</value>
   </data>
 	<data name="toolStripButtonCreateNewBundleAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -934,10 +934,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
-    <value>Create new bundle/pallet analysis</value>
+    <value>Crea nuova analisi fascicolo/pallet</value>
   </data>
 	<data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
-    <value>Add a new bundle analysis</value>
+    <value>Aggiungi nuona analisi fascicolo</value>
   </data>
 	<data name="toolStripButtonCreateNewCylinderPalletAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -958,10 +958,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewCylinderPalletAnalysis.Text" xml:space="preserve">
-    <value>Create new cylinder/pallet analysis</value>
+    <value>Crea nuova analisi cilindro/pallet</value>
   </data>
 	<data name="toolStripButtonCreateNewCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
-    <value>Add new cylinder/pallet analysis</value>
+    <value>Aggiungi nuova analisi cilindro/pallet</value>
   </data>
 	<data name="toolStripButtonCreateNewBoxCaseAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -986,10 +986,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewBoxCaseAnalysis.Text" xml:space="preserve">
-    <value>Create new box/case analysis...</value>
+    <value>Crea nuova analisi scatola/astuccio...</value>
   </data>
 	<data name="toolStripButtonCreateNewBoxCaseAnalysis.ToolTipText" xml:space="preserve">
-    <value>Add new box/case analysis...</value>
+    <value>Aggiungi nuova analisi scatola/astuccio...</value>
   </data>
 	<data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 39</value>
@@ -1016,7 +1016,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonCreateNewBoxCasePalletOptimization.Text" xml:space="preserve">
-    <value>Create new box/case/pallet optimization</value>
+    <value>Crea nuova ottimizzazione scatola/astuccio/pallet</value>
   </data>
 	<data name="toolStripButtonOptimiseCase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 		<value>
@@ -1037,7 +1037,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
-    <value>Search for optimal case</value>
+    <value>Ricerca ottimale astuccio</value>
   </data>
 	<data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 39</value>
@@ -1069,7 +1069,7 @@
 		<value>36, 36</value>
 	</data>
 	<data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Edit pallet solution database</value>
+    <value>Modifica la soluzione pallet del database</value>
   </data>
 	<data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
 		<value>6, 39</value>
@@ -1102,10 +1102,10 @@
 		<value>36, 36</value>
 	</data>
 	<data name="toolStripButtonHelp.Text" xml:space="preserve">
-    <value>Help</value>
+    <value>Aiuto</value>
   </data>
 	<data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
-    <value>Help</value>
+    <value>Aiuto</value>
   </data>
 	<data name="toolStripStandard.Location" type="System.Drawing.Point, System.Drawing">
 		<value>0, 24</value>
@@ -1135,31 +1135,31 @@
 		<value>179, 22</value>
 	</data>
 	<data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
-    <value>New (INTEX Corp)...</value>
+    <value>Nuovo (INTEX Corp)...</value>
   </data>
 	<metadata name="openFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
 		<value>280, 17</value>
 	</metadata>
 	<data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder files (*.stb)|*.stb|All files (*.*)|*.*</value>
+    <value>File di StackBuilder (*.stb)|*.stb|All files (*.*)|*.*</value>
   </data>
 	<data name="openFileDialogSB.Title" xml:space="preserve">
-    <value>Open file...</value>
+    <value>Apri file...</value>
   </data>
 	<metadata name="saveFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
 		<value>427, 17</value>
 	</metadata>
 	<data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder files (*.stb)|*.stb</value>
+    <value>File di StackBuilder (*.stb)|*.stb</value>
   </data>
 	<data name="saveFileDialogSB.Title" xml:space="preserve">
-    <value>Save file...</value>
+    <value>Salva file...</value>
   </data>
 	<metadata name="saveFileDialogWebGL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
 		<value>570, 17</value>
 	</metadata>
 	<data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-    <value>Htlm file (*.html)|*.html</value>
+    <value>File Htlm (*.html)|*.html</value>
   </data>
 	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 		<value>True</value>
@@ -1637,4 +1637,10 @@
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="toolStripButtonCreateNewHCylinderPalletAnalysis.Text" xml:space="preserve">
+		<value>Crea nuova analisi cilindro/pallet</value>
+	</data>
+	<data name="toolStripButtonCreateNewHCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
+		<value>Aggiungi nuova analisi cilindro/pallet</value>
+	</data>
 </root>

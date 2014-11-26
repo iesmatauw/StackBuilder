@@ -122,37 +122,37 @@
 		<value>..\Resources\CaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_NODE_CASES" xml:space="preserve">
-    <value>Cases</value>
+    <value>Astucci</value>
   </data>
 	<data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Delete.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
-    <value>Allow aligned and/or alternate layers</value>
+    <value>Consentilivelli allineati o alternati</value>
   </data>
 	<data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
-    <value>Description field is empty</value>
+    <value>Il campo della descrizione è vuoto</value>
   </data>
 	<data name="ID_CASEDIMENSIONS" xml:space="preserve">
-    <value>Case dimensions</value>
+    <value>Dimensioni astuccio</value>
   </data>
 	<data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
-    <value>Generate Word report for {0}</value>
+    <value>Genera report Word per {0}</value>
   </data>
 	<data name="ID_LAYOUT" xml:space="preserve">
-    <value>Layout</value>
+    <value>Impaginazione</value>
   </data>
 	<data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
-    <value>Case inside dimensions</value>
+    <value>Dimensioni interno astuccio</value>
   </data>
 	<data name="AnalysisBundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\AnalysisBundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_EDIT" xml:space="preserve">
-    <value>Edit {0}...</value>
+    <value>Modifica {0}...</value>
   </data>
 	<data name="ID_ADDNEWPALLET" xml:space="preserve">
-    <value>Add new pallet...</value>
+    <value>Aggiungi nuovo pallet...</value>
   </data>
 	<data name="FileNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\FileNew.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -161,92 +161,92 @@
 		<value>..\Resources\FileSaveAll.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
-    <value>Maximum volume is insufficient to pack {0} {1} .</value>
+    <value>Il volume massimo è sufficiente per il confezionamento di {0} {1}.</value>
   </data>
 	<data name="View180" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View180.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_NODE_BOXES" xml:space="preserve">
-    <value>Boxes</value>
+    <value>Scatole</value>
   </data>
 	<data name="ID_INVALIDNAME" xml:space="preserve">
-    <value>Given name ({0}) is invalid</value>
+    <value>Il nome dato ({0}) non è valido</value>
   </data>
 	<data name="ID_PALLETLIMIT" xml:space="preserve">
-    <value>Limit reached</value>
+    <value>Limite raggiunto</value>
   </data>
 	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
-    <value>Efficiency (%)</value>
+    <value>Efficienza (%)</value>
   </data>
 	<data name="ID_GENERATECOLLADA" xml:space="preserve">
-    <value>Generate 3D animation file for {0}</value>
+    <value>Genera file di animazione 3D per {0}</value>
   </data>
 	<data name="ID_GENERATEREPORT" xml:space="preserve">
-    <value>Generate a report for {0}</value>
+    <value>Generare un report per {0}</value>
   </data>
 	<data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
-    <value>Define at least one vertical axis</value>
+    <value>Definire almeno un asse verticale</value>
   </data>
 	<data name="ID_LOADHEIGHT" xml:space="preserve">
-    <value>Load height</value>
+    <value>Altezza del carico</value>
   </data>
 	<data name="Bundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Bundle.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
-    <value>Add new interlayer...</value>
+    <value>Aggiungi nuovo intestrato…</value>
   </data>
 	<data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Database.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
-    <value>Define at least one stop stacking criterion</value>
+    <value>Definire almeno un criterio di fermata per l'impilamento</value>
   </data>
 	<data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
-    <value>Save file {0}?</value>
+    <value>Salva il file {0}?</value>
   </data>
 	<data name="ID_DELETE" xml:space="preserve">
-    <value>Delete {0}</value>
+    <value>Elimina {0}</value>
   </data>
 	<data name="ID_DESELECT" xml:space="preserve">
-    <value>Deselect</value>
+    <value>Deseleziona</value>
   </data>
 	<data name="ID_NODE_ANALYSES" xml:space="preserve">
-    <value>Analyses</value>
+    <value>Analisi</value>
   </data>
 	<data name="ID_ECT" xml:space="preserve">
     <value>ECT</value>
   </data>
 	<data name="ID_CASEPERPALLET" xml:space="preserve">
-    <value>Case/pallet</value>
+    <value>Astuccio/Pallet</value>
   </data>
 	<data name="ID_CASESPALLET" xml:space="preserve">
-    <value>Cases/Pallet</value>
+    <value>Scatole/Pallet</value>
   </data>
 	<data name="ID_ADDNEWBUNDLE" xml:space="preserve">
-    <value>Add new bundle...</value>
+    <value>Aggiungi nuovo fascicolo…</value>
   </data>
 	<data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
-    <value>Inconsistency:Maximum {0} is lower than minimum {1}.</value>
+    <value>Incoerenza: Massimo {0} è inferiore al minimo {1}.</value>
   </data>
 	<data name="ID_HEIGHT" xml:space="preserve">
-    <value>Height</value>
+    <value>Altezza</value>
   </data>
 	<data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
-    <value>Inside length ({0}) ought to be lower than length ({1})</value>
+    <value>L'interno della lunghezza ({0}) dovrebbe essere inferiore alla lunghezza ({1})</value>
   </data>
 	<data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
-    <value>Add new bundle analysis...</value>
+    <value>Aggiungi nuova analisi fascicolo...</value>
   </data>
 	<data name="ID_DATABASEEMPTY" xml:space="preserve">
     <value>Pallet solution database is empty.
 Closing form...</value>
   </data>
 	<data name="ID_LAYERPATTERN" xml:space="preserve">
-    <value>Layer pattern</value>
+    <value>Impaginazione pattern</value>
   </data>
 	<data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
-    <value>The Google Chrome browser needs to be installed to visualize collada/webGL animations.</value>
+    <value>Deve essere installato il browser Google Chrome per visualizzare l'animazione Collada/WebGL.</value>
   </data>
 	<data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallets</value>
@@ -255,72 +255,70 @@ Closing form...</value>
 		<value>..\Resources\View270.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_DEPENDINGANALYSES" xml:space="preserve">
-    <value>{0} has some depending analyses.
-If you proceed with the modifications, analyses will be recomputed and any selected solutions removed.
-Continue?</value>
+    <value>"{0} ha alcune analisi in funzione. Se si procede con le modifiche, le analisi saranno ricalcolate e le eventuali soluzioni selezionate rimosse. Desideri Continuare? "</value>
   </data>
 	<data name="ID_CLOSE" xml:space="preserve">
-    <value>Close</value>
+    <value>Chiudi</value>
   </data>
 	<data name="ID_A2" xml:space="preserve">
     <value>A2</value>
   </data>
 	<data name="ID_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>Nome</value>
   </data>
 	<data name="ID_CASESLAYER" xml:space="preserve">
-    <value>Cases/Layer</value>
+    <value>Astucci/Livello</value>
   </data>
 	<data name="ID_FILENOTFOUND" xml:space="preserve">
-    <value>File {0} could not be found</value>
+    <value>Il file {0} non è stato trovato</value>
   </data>
 	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
-    <value>Define at least one stacking pattern</value>
+    <value>Definire almeno un pattern impilabile</value>
   </data>
 	<data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
-    <value>Cannot create case analysis as the constraint set appears to be invalid.</value>
+    <value>Impossibile creare un'analisi del caso in quanto il vincolo impostato sembra non essere valido.</value>
   </data>
 	<data name="ID_WIDTH" xml:space="preserve">
-    <value>Width</value>
+    <value>Larghezza</value>
   </data>
 	<data name="ID_NODE_TRUCKS" xml:space="preserve">
-    <value>Trucks</value>
+    <value>Camion</value>
   </data>
 	<data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
-    <value>Weight</value>
+    <value>Peso</value>
   </data>
 	<data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_SENDTODATABASE" xml:space="preserve">
-    <value>Send to database</value>
+    <value>Invia al database</value>
   </data>
 	<data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
-    <value>Inside height ({0}) ought to be lower than height ({1})</value>
+    <value>L'altezza interna ({0}) dovrebbe essere inferiore a quella dell'altezza ({1})</value>
   </data>
 	<data name="ID_VERSION" xml:space="preserve">
-    <value>Version : {0}</value>
+    <value>Versione : {0}</value>
   </data>
 	<data name="ID_ORIENTATION" xml:space="preserve">
-    <value>Orientation</value>
+    <value>Orientamento</value>
   </data>
 	<data name="ID_EDGECRUSHTEST" xml:space="preserve">
-    <value>Edge Crush Test Analysis</value>
+    <value>Analisi Crush Test Bordi</value>
   </data>
 	<data name="ID_UNSELECTSOLUTION" xml:space="preserve">
-    <value>Unselect solution {0}</value>
+    <value>Deseleziona soluzione {0}</value>
   </data>
 	<data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Help.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_PALLETMAXNUMBER" xml:space="preserve">
-    <value>Number</value>
+    <value>Numero</value>
   </data>
 	<data name="ID_A3" xml:space="preserve">
     <value>A3</value>
@@ -329,7 +327,7 @@ Continue?</value>
 		<value>..\Resources\OptimalCase.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_NODE_BUNDLES" xml:space="preserve">
-    <value>Bundles</value>
+    <value>Fascicoli</value>
   </data>
 	<data name="View0" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View0.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -347,37 +345,37 @@ Continue?</value>
 		<value>..\Resources\FileSave.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_LOADWEIGHT" xml:space="preserve">
-    <value>Load</value>
+    <value>Carico</value>
   </data>
 	<data name="ID_BOXCASECOUNT" xml:space="preserve">
-    <value>Box/Case count</value>
+    <value>Conteggio Scatola/Astuccio</value>
   </data>
 	<data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Pallet weight ({0})</value>
+    <value>Peso Pallet ({0})</value>
   </data>
 	<data name="Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
-    <value>Add new case analysis...</value>
+    <value>Aggiungi nuova analisi astuccio...</value>
   </data>
 	<data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
-    <value>Inside width ({0}) ought to be lower than width ({1})</value>
+    <value>La larghezza interna ({0}) dovrebbe essere inferiore alla larghezza ({1})</value>
   </data>
 	<data name="ID_GENERATEREPORTHTML" xml:space="preserve">
-    <value>Generate HTML report for {0}</value>
+    <value>Genera report HTML per {0}</value>
   </data>
 	<data name="View90" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View90.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
-    <value>Edit pallet {0}...</value>
+    <value>Modifica pallet {0}...</value>
   </data>
 	<data name="ID_SELECTED" xml:space="preserve">
-    <value>Selected</value>
+    <value>Selezionato</value>
   </data>
 	<data name="ID_INDEX" xml:space="preserve">
-    <value>Index</value>
+    <value>Indice</value>
   </data>
 	<data name="View_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -386,13 +384,13 @@ Continue?</value>
 		<value>..\Resources\AnalysisStackingStrength.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_READY" xml:space="preserve">
-    <value>Ready</value>
+    <value>Pronto</value>
   </data>
 	<data name="ID_AREA" xml:space="preserve">
     <value>Area</value>
   </data>
 	<data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
-    <value>Height</value>
+    <value>Altezza</value>
   </data>
 	<data name="Interlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Interlayer.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -401,25 +399,25 @@ Continue?</value>
 		<value>..\Resources\Analysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ADDNEWCASE" xml:space="preserve">
-    <value>Add new case...</value>
+    <value>Aggiungi nuovo astuccio...</value>
   </data>
 	<data name="ID_CASECOUNT" xml:space="preserve">
-    <value>Case count</value>
+    <value>Conteggio astuccio</value>
   </data>
 	<data name="ID_A1" xml:space="preserve">
     <value>A1</value>
   </data>
 	<data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
-    <value>Add new truck analysis...</value>
+    <value>Aggiungi nuova analisi camion...</value>
   </data>
 	<data name="ID_WEIGHT" xml:space="preserve">
     <value>Weight</value>
   </data>
 	<data name="ID_CASE" xml:space="preserve">
-    <value>Case</value>
+    <value>Astuccio</value>
   </data>
 	<data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
-    <value>Efficiency (%)</value>
+    <value>Efficienza (%)</value>
   </data>
 	<data name="Case" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Case.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -428,49 +426,49 @@ Continue?</value>
 		<value>..\Resources\View_3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
-    <value>Add new ECT analysis...</value>
+    <value>Aggiungi nuova analisi ECT...</value>
   </data>
 	<data name="ID_LENGTH" xml:space="preserve">
-    <value>Length</value>
+    <value>Lunghezza </value>
   </data>
 	<data name="ID_ADDNEWTRUCK" xml:space="preserve">
-    <value>Add new truck...</value>
+    <value>Aggiungi nuovo camion...</value>
   </data>
 	<data name="ID_ADDNEWANALYSIS" xml:space="preserve">
-    <value>Add new analysis...</value>
+    <value>Aggiungi nuova analisi...</value>
   </data>
 	<data name="ID_SELECT" xml:space="preserve">
-    <value>Select</value>
+    <value>Seleziona</value>
   </data>
 	<data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Pallet height ({0})</value>
+    <value>Altezza Pallet ({0})</value>
   </data>
 	<data name="ID_ADDNEWBOX" xml:space="preserve">
-    <value>Add new box...</value>
+    <value>Aggiungi nuova scatola…</value>
   </data>
 	<data name="ID_ABOUT" xml:space="preserve">
-    <value>About {0}</value>
+    <value>A proposito di {0}</value>
   </data>
 	<data name="ID_LAYERS" xml:space="preserve">
-    <value>Layers</value>
+    <value>Livelli</value>
   </data>
 	<data name="ID_PALLETCOUNT" xml:space="preserve">
-    <value>Pallet count</value>
+    <value>Conteggio Pallet</value>
   </data>
 	<data name="ID_LAYERPATTERNS" xml:space="preserve">
-    <value>Layer pattern(s)</value>
+    <value>Livello pattern(s)</value>
   </data>
 	<data name="View_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\View_2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
-    <value>Name field is empty</value>
+    <value>Il campo del Nome è vuoto</value>
   </data>
 	<data name="ID_NODE_INTERLAYERS" xml:space="preserve">
-    <value>Interlayers</value>
+    <value>Interstrati</value>
   </data>
 	<data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\Cylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -479,70 +477,70 @@ Continue?</value>
 		<value>..\Resources\AnalysisCylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_BOXCOUNT" xml:space="preserve">
-    <value>Box/Case</value>
+    <value>Scatola/Astuccio</value>
   </data>
 	<data name="ID_NODE_CYLINDERS" xml:space="preserve">
-    <value>Cylinders</value>
+    <value>Cilindri</value>
   </data>
 	<data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
-    <value>Add new box/case analysis...</value>
+    <value>Aggiungi nuova analisi scatola/astuccio...</value>
   </data>
 	<data name="ID_ADDNEWCYLINDER" xml:space="preserve">
-    <value>Add new cylinder...</value>
+    <value>Aggiungi nuovo cilindro…</value>
   </data>
 	<data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
-    <value>Add new cylinder analysis...</value>
+    <value>Aggiungi nuova analisi cilindro...</value>
   </data>
 	<data name="BoxCaseAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\BoxCaseAnalysis.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 	</data>
 	<data name="ID_CASELIMIT" xml:space="preserve">
-    <value>Limit reached</value>
+    <value>Limite raggiunto</value>
   </data>
 	<data name="ID_CASEWEIGHT" xml:space="preserve">
-    <value>Case weight ({0})</value>
+    <value>Peso astuccio ({0})</value>
   </data>
 	<data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
-    <value>Maximum case weight should exceed {0} {1}.</value>
+    <value>Il peso massimo dell'astuccio deve superare {0} {1}.</value>
   </data>
 	<data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
-    <value>No pallet solution selected</value>
+    <value>Nessuna soluzione Pallet selezionata</value>
   </data>
 	<data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
-    <value>Maximal pallet height ({0} {1}) ought to exceed {2} {3}</value>
+    <value>L'altezza massima del pallet ({0} {1}) dovrebbe superare {2} {3}</value>
   </data>
 	<data name="ID_GENERATEREPORTPDF" xml:space="preserve">
-    <value>Generate PDF report for {0}</value>
+    <value>Genera report PDF per {0}</value>
   </data>
 	<data name="ID_BOX" xml:space="preserve">
-    <value>Box</value>
+    <value>Scatola</value>
   </data>
 	<data name="ID_FIELDNAMEINVALID" xml:space="preserve">
-    <value>Name already exists.</value>
+    <value>Il nome esiste già.</value>
   </data>
 	<data name="ID_TRUCK" xml:space="preserve">
-    <value>Truck</value>
+    <value>Camion</value>
   </data>
 	<data name="ID_ANALYSIS" xml:space="preserve">
-    <value>Analysis</value>
+    <value>Analisi</value>
   </data>
 	<data name="ID_BUNDLE" xml:space="preserve">
-    <value>Bundle</value>
+    <value>Fascicolo</value>
   </data>
 	<data name="ID_CYLINDER" xml:space="preserve">
-    <value>Cylinder</value>
+    <value>Cilindro</value>
   </data>
 	<data name="ID_INTERLAYER" xml:space="preserve">
-    <value>Interlayer</value>
+    <value>Interstrato</value>
   </data>
 	<data name="ID_CASEOFBOXES" xml:space="preserve">
-    <value>Case of boxes</value>
+    <value>Astuccio delle scatole</value>
   </data>
 	<data name="ID_FILTER_MSWORD" xml:space="preserve">
-    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*</value>
+    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|Tutti i file (*.*)|*.*</value>
   </data>
 	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
-    <value>Box {0} does not fit in case {1}.</value>
+    <value>La scatola {0} non va bene per l'astuccio {1}.</value>
   </data>
 	<data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
     <value>Analysis {0} has no valid solution.</value>

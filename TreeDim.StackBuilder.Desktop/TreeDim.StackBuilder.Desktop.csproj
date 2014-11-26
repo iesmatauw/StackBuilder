@@ -812,6 +812,9 @@
       <DependentUpon>FormNewAnalysisCylinder.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylinder.it-IT.resx">
+      <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylinder.resx">
       <DependentUpon>FormNewAnalysisHCylinder.cs</DependentUpon>
     </EmbeddedResource>

@@ -331,4 +331,61 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Bearbeite Farbe/Textur der Schachtel/Umverpackung…</value>
   </data>
+	<data name="lbBox.Text" xml:space="preserve">
+		<value>Schachtel</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Spalten</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Erlaubte Lagen Muster</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>Erlaube ausgerichtete Lagen</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>Maximale Anzahl Schachteln erreicht</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palette</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>Beste Lösung(en)</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+		<value>Erlaubte Schachtel Positionen</value>
+	</data>
+	<data name="checkBoxMaximumCaseWeight.Text" xml:space="preserve">
+		<value>Maximum Umverpackung Gewicht erreicht</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>Erweiterte Stapel Endbedingung</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Verschachtelt</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Spirale</value>
+	</data>
+	<data name="lbFilterSolutions.Text" xml:space="preserve">
+		<value>Ergebnisse behalten:</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>Stapel Endbedingung:</value>
+	</data>
+	<data name="checkBoxMinNumberOfItems.Text" xml:space="preserve">
+		<value>Mindestanzahl Umverpackungen erreicht</value>
+	</data>
+	<data name="gbSolutionFiltering.Text" xml:space="preserve">
+		<value>Zusätzliche Daten</value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>Schachtel(n)</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>Erlaube alternierende Lagen</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>die unter den</value>
+	</data>
 </root>

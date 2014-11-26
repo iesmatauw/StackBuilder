@@ -153,7 +153,7 @@
 		<value>1</value>
 	</data>
 	<data name="label1.Text" xml:space="preserve">
-    <value>Company logo</value>
+    <value>Logo Azienda</value>
   </data>
 	<data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -261,7 +261,7 @@
 		<value>8</value>
 	</data>
 	<data name="lbThicknessUnit.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;lbThicknessUnit.Name" xml:space="preserve">
     <value>lbThicknessUnit</value>
@@ -285,7 +285,7 @@
 		<value>7</value>
 	</data>
 	<data name="lbECTCoefficient.Text" xml:space="preserve">
-    <value>ECT coefficient</value>
+    <value>Coefficiente ECT </value>
   </data>
 	<data name="&gt;&gt;lbECTCoefficient.Name" xml:space="preserve">
     <value>lbECTCoefficient</value>
@@ -312,7 +312,7 @@
 		<value>6</value>
 	</data>
 	<data name="lbEctCoef.Text" xml:space="preserve">
-    <value>ECT coefficient</value>
+    <value>Coefficiente ECT </value>
   </data>
 	<data name="&gt;&gt;lbEctCoef.Name" xml:space="preserve">
     <value>lbEctCoef</value>
@@ -336,7 +336,7 @@
 		<value>5</value>
 	</data>
 	<data name="lbValueStiffnessY.Text" xml:space="preserve">
-    <value>stiffnessY</value>
+    <value>rigiditàY</value>
   </data>
 	<data name="&gt;&gt;lbValueStiffnessY.Name" xml:space="preserve">
     <value>lbValueStiffnessY</value>
@@ -360,7 +360,7 @@
 		<value>4</value>
 	</data>
 	<data name="lbValueStiffnessX.Text" xml:space="preserve">
-    <value>stiffnessX</value>
+    <value>rigiditàX</value>
   </data>
 	<data name="&gt;&gt;lbValueStiffnessX.Name" xml:space="preserve">
     <value>lbValueStiffnessX</value>
@@ -384,7 +384,7 @@
 		<value>3</value>
 	</data>
 	<data name="lbValueThickness.Text" xml:space="preserve">
-    <value>lbValueThickness</value>
+    <value>lbValoreSpessore</value>
   </data>
 	<data name="&gt;&gt;lbValueThickness.Name" xml:space="preserve">
     <value>lbValueThickness</value>
@@ -411,7 +411,7 @@
 		<value>2</value>
 	</data>
 	<data name="lbStiffnessY.Text" xml:space="preserve">
-    <value>Stiffness Y</value>
+    <value>Rigidità Y</value>
   </data>
 	<data name="&gt;&gt;lbStiffnessY.Name" xml:space="preserve">
     <value>lbStiffnessY</value>
@@ -438,7 +438,7 @@
 		<value>1</value>
 	</data>
 	<data name="label3.Text" xml:space="preserve">
-    <value>Stiffness X</value>
+    <value>Rigidità X</value>
   </data>
 	<data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -465,7 +465,7 @@
 		<value>0</value>
 	</data>
 	<data name="label2.Text" xml:space="preserve">
-    <value>Right</value>
+    <value>Destra</value>
   </data>
 	<data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -489,7 +489,7 @@
 		<value>2</value>
 	</data>
 	<data name="gbCardboardProperties.Text" xml:space="preserve">
-    <value>Cardboard</value>
+    <value>Cartone</value>
   </data>
 	<data name="&gt;&gt;gbCardboardProperties.Name" xml:space="preserve">
     <value>gbCardboardProperties</value>
@@ -516,7 +516,7 @@
 		<value>3</value>
 	</data>
 	<data name="lbPrintedSurface.Text" xml:space="preserve">
-    <value>Printed surface</value>
+    <value>Superficie stampata</value>
   </data>
 	<data name="&gt;&gt;lbPrintedSurface.Name" xml:space="preserve">
     <value>lbPrintedSurface</value>
@@ -592,7 +592,7 @@
 		<value>5</value>
 	</data>
 	<data name="lbCaseType.Text" xml:space="preserve">
-    <value>Case type</value>
+    <value>Tipo di astuccio</value>
   </data>
 	<data name="&gt;&gt;lbCaseType.Name" xml:space="preserve">
     <value>lbCaseType</value>
@@ -616,7 +616,7 @@
 		<value>5</value>
 	</data>
 	<data name="gbCase.Text" xml:space="preserve">
-    <value>Case</value>
+    <value>Astuccio</value>
   </data>
 	<data name="&gt;&gt;gbCase.Name" xml:space="preserve">
     <value>gbCase</value>
@@ -646,7 +646,7 @@
 		<value>1</value>
 	</data>
 	<data name="rbFormula2.Text" xml:space="preserve">
-    <value>Improved (uses cardboard stiffnesses)</value>
+    <value>Perfezionato (usa rigidità del cartone)</value>
   </data>
 	<data name="&gt;&gt;rbFormula2.Name" xml:space="preserve">
     <value>rbFormula2</value>
@@ -673,7 +673,7 @@
 		<value>0</value>
 	</data>
 	<data name="rbFormula1.Text" xml:space="preserve">
-    <value>Classic (uses on ECT coefficient)</value>
+    <value>Classico (utilizza il coefficiente ECT)</value>
   </data>
 	<data name="&gt;&gt;rbFormula1.Name" xml:space="preserve">
     <value>rbFormula1</value>
@@ -697,7 +697,7 @@
 		<value>6</value>
 	</data>
 	<data name="gbFormula.Text" xml:space="preserve">
-    <value>McKee Formula</value>
+    <value>Formula di McKee</value>
   </data>
 	<data name="&gt;&gt;gbFormula.Name" xml:space="preserve">
     <value>gbFormula</value>
@@ -775,7 +775,7 @@
 		<value>2</value>
 	</data>
 	<data name="lbStaticBCTValue.Text" xml:space="preserve">
-    <value>lbStaticBCTValue</value>
+    <value>ValoreBTClbStatico</value>
   </data>
 	<data name="&gt;&gt;lbStaticBCTValue.Name" xml:space="preserve">
     <value>lbStaticBCTValue</value>
@@ -802,7 +802,7 @@
 		<value>1</value>
 	</data>
 	<data name="lbDynamicBCT.Text" xml:space="preserve">
-    <value>Dynamic BCT (daN) (Rate of humidity / Storage duration)</value>
+    <value>BCT Dinamico (daN) (Tasso di umidità / Durata di stoccaggio)</value>
   </data>
 	<data name="&gt;&gt;lbDynamicBCT.Name" xml:space="preserve">
     <value>lbDynamicBCT</value>
@@ -829,7 +829,7 @@
 		<value>0</value>
 	</data>
 	<data name="lbStaticBCT.Text" xml:space="preserve">
-    <value>Static BCT</value>
+    <value>BCT Statico</value>
   </data>
 	<data name="&gt;&gt;lbStaticBCT.Name" xml:space="preserve">
     <value>lbStaticBCT</value>
@@ -853,7 +853,7 @@
 		<value>7</value>
 	</data>
 	<data name="gbResults.Text" xml:space="preserve">
-    <value>Results</value>
+    <value>Risultati</value>
   </data>
 	<data name="&gt;&gt;gbResults.Name" xml:space="preserve">
     <value>gbResults</value>
@@ -890,7 +890,7 @@
 </value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Edge Crush Test Analysis</value>
+    <value>Analisi Crush Test Bordi</value>
   </data>
 	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentECTAnalysis</value>

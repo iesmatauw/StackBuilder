@@ -232,7 +232,7 @@
 		<value>0</value>
 	</data>
 	<data name="btClose.Text" xml:space="preserve">
-    <value>Close</value>
+    <value>Chiudi</value>
   </data>
 	<data name="&gt;&gt;btClose.Name" xml:space="preserve">
     <value>btClose</value>
@@ -265,7 +265,7 @@
 		<value>5</value>
 	</data>
 	<data name="chkVerticalOrientationOnly.Text" xml:space="preserve">
-    <value>Only allow vertical box orientation</value>
+    <value>Consenti solo l'orientamento verticale della scatola</value>
   </data>
 	<data name="&gt;&gt;chkVerticalOrientationOnly.Name" xml:space="preserve">
     <value>chkVerticalOrientationOnly</value>
@@ -313,7 +313,7 @@
 		<value>3</value>
 	</data>
 	<data name="lbNumber.Text" xml:space="preserve">
-    <value>Number of boxes per case</value>
+    <value>Numero di scatole per astuccio</value>
   </data>
 	<data name="&gt;&gt;lbNumber.Name" xml:space="preserve">
     <value>lbNumber</value>
@@ -340,7 +340,7 @@
 		<value>2</value>
 	</data>
 	<data name="lbBoxDimensions.Text" xml:space="preserve">
-    <value>Create case and pallet analysis</value>
+    <value>Crea analisi astuccio e pallet</value>
   </data>
 	<data name="&gt;&gt;lbBoxDimensions.Name" xml:space="preserve">
     <value>lbBoxDimensions</value>
@@ -388,7 +388,7 @@
 		<value>0</value>
 	</data>
 	<data name="lbBox.Text" xml:space="preserve">
-    <value>Box</value>
+    <value>Scatola</value>
   </data>
 	<data name="&gt;&gt;lbBox.Name" xml:space="preserve">
     <value>lbBox</value>
@@ -412,7 +412,7 @@
 		<value>1</value>
 	</data>
 	<data name="groupBox.Text" xml:space="preserve">
-    <value>Box (inner product)</value>
+    <value>Scatola (interno prodotto)</value>
   </data>
 	<data name="&gt;&gt;groupBox.Name" xml:space="preserve">
     <value>groupBox</value>
@@ -442,7 +442,7 @@
 		<value>22</value>
 	</data>
 	<data name="uSurfaceMassCase.Text" xml:space="preserve">
-    <value>uSurfaceMass</value>
+    <value>uMassa della Superficie</value>
   </data>
 	<data name="&gt;&gt;uSurfaceMassCase.Name" xml:space="preserve">
     <value>uSurfaceMassCase</value>
@@ -490,7 +490,7 @@
 		<value>20</value>
 	</data>
 	<data name="lbSurfaceMass.Text" xml:space="preserve">
-    <value>Surface mass</value>
+    <value>Massa della Superficie</value>
   </data>
 	<data name="&gt;&gt;lbSurfaceMass.Name" xml:space="preserve">
     <value>lbSurfaceMass</value>
@@ -517,7 +517,7 @@
 		<value>19</value>
 	</data>
 	<data name="uLengthWallThickness.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthWallThickness.Name" xml:space="preserve">
     <value>uLengthWallThickness</value>
@@ -541,7 +541,7 @@
 		<value>18</value>
 	</data>
 	<data name="btSetMaximum.Text" xml:space="preserve">
-    <value>Set maximum</value>
+    <value>Set massimo</value>
   </data>
 	<data name="&gt;&gt;btSetMaximum.Name" xml:space="preserve">
     <value>btSetMaximum</value>
@@ -565,7 +565,7 @@
 		<value>17</value>
 	</data>
 	<data name="btSetMinimum.Text" xml:space="preserve">
-    <value>Set minimum</value>
+    <value>Set minimo</value>
   </data>
 	<data name="&gt;&gt;btSetMinimum.Name" xml:space="preserve">
     <value>btSetMinimum</value>
@@ -616,7 +616,7 @@
 		<value>15</value>
 	</data>
 	<data name="lbWallThickness.Text" xml:space="preserve">
-    <value>Wall thickness</value>
+    <value>Spessore parete</value>
   </data>
 	<data name="&gt;&gt;lbWallThickness.Name" xml:space="preserve">
     <value>lbWallThickness</value>
@@ -832,7 +832,7 @@
 		<value>5</value>
 	</data>
 	<data name="lbHeight.Text" xml:space="preserve">
-    <value>Height</value>
+    <value>Altezza</value>
   </data>
 	<data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
     <value>lbHeight</value>
@@ -859,7 +859,7 @@
 		<value>4</value>
 	</data>
 	<data name="label3.Text" xml:space="preserve">
-    <value>Width</value>
+    <value>Larghezza</value>
   </data>
 	<data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -886,7 +886,7 @@
 		<value>3</value>
 	</data>
 	<data name="lbLength.Text" xml:space="preserve">
-    <value>Length</value>
+    <value>Lunghezza </value>
   </data>
 	<data name="&gt;&gt;lbLength.Name" xml:space="preserve">
     <value>lbLength</value>
@@ -913,7 +913,7 @@
 		<value>2</value>
 	</data>
 	<data name="lbWalls.Text" xml:space="preserve">
-    <value>Number of walls</value>
+    <value>Numero delle pareti</value>
   </data>
 	<data name="&gt;&gt;lbWalls.Name" xml:space="preserve">
     <value>lbWalls</value>
@@ -940,7 +940,7 @@
 		<value>1</value>
 	</data>
 	<data name="lbMaxCaseDimensions.Text" xml:space="preserve">
-    <value>Max. case dimensions</value>
+    <value>Dimensione massima astuccio</value>
   </data>
 	<data name="&gt;&gt;lbMaxCaseDimensions.Name" xml:space="preserve">
     <value>lbMaxCaseDimensions</value>
@@ -967,7 +967,7 @@
 		<value>0</value>
 	</data>
 	<data name="lbMinCaseDimensions.Text" xml:space="preserve">
-    <value>Min. case dimensions</value>
+    <value>Dimensione minima astuccio</value>
   </data>
 	<data name="&gt;&gt;lbMinCaseDimensions.Name" xml:space="preserve">
     <value>lbMinCaseDimensions</value>
@@ -991,7 +991,7 @@
 		<value>2</value>
 	</data>
 	<data name="gbCase.Text" xml:space="preserve">
-    <value>Case constraints</value>
+    <value>Astuccio vincolato</value>
   </data>
 	<data name="&gt;&gt;gbCase.Name" xml:space="preserve">
     <value>gbCase</value>
@@ -1021,7 +1021,7 @@
 		<value>5</value>
 	</data>
 	<data name="uLengthPalletHeight.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthPalletHeight.Name" xml:space="preserve">
     <value>uLengthPalletHeight</value>
@@ -1072,7 +1072,7 @@
 		<value>3</value>
 	</data>
 	<data name="lbPalletHeight.Text" xml:space="preserve">
-    <value>Maximum pallet height</value>
+    <value>Altezza massima pallet</value>
   </data>
 	<data name="&gt;&gt;lbPalletHeight.Name" xml:space="preserve">
     <value>lbPalletHeight</value>
@@ -1099,7 +1099,7 @@
 		<value>2</value>
 	</data>
 	<data name="lbPalletDimensions.Text" xml:space="preserve">
-    <value>(dimensions)</value>
+    <value>(dimensioni)</value>
   </data>
 	<data name="&gt;&gt;lbPalletDimensions.Name" xml:space="preserve">
     <value>lbPalletDimensions</value>
@@ -1198,7 +1198,7 @@
 		<value>4</value>
 	</data>
 	<data name="btOptimize.Text" xml:space="preserve">
-    <value>Optimize</value>
+    <value>Ottimizzazione</value>
   </data>
 	<data name="&gt;&gt;btOptimize.Name" xml:space="preserve">
     <value>btOptimize</value>
@@ -1252,7 +1252,7 @@
 		<value>6</value>
 	</data>
 	<data name="btAddSolution.Text" xml:space="preserve">
-    <value>Create case and pallet analysis</value>
+    <value>Crea analisi astuccio e pallet</value>
   </data>
 	<data name="&gt;&gt;btAddSolution.Name" xml:space="preserve">
     <value>btAddSolution</value>
@@ -1312,7 +1312,7 @@
 		<value>584, 711</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Optimize case dimensions...</value>
+    <value>Ottimizzazione dimensioni astuccio…</value>
   </data>
 	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>

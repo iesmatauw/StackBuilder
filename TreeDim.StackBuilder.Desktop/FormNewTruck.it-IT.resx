@@ -133,7 +133,7 @@
 		<value>3</value>
 	</data>
 	<data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancella</value>
   </data>
 	<data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
     <value>bnCancel</value>
@@ -316,7 +316,7 @@
 		<value>17</value>
 	</data>
 	<data name="lbDescription.Text" xml:space="preserve">
-    <value>Description</value>
+    <value>Descrizione</value>
   </data>
 	<data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
     <value>lbDescription</value>
@@ -346,7 +346,7 @@
 		<value>15</value>
 	</data>
 	<data name="lbName.Text" xml:space="preserve">
-    <value>Name</value>
+    <value>Nome</value>
   </data>
 	<data name="&gt;&gt;lbName.Name" xml:space="preserve">
     <value>lbName</value>
@@ -376,7 +376,7 @@
 		<value>14</value>
 	</data>
 	<data name="radioButtonTruck2.Text" xml:space="preserve">
-    <value>Create new truck</value>
+    <value>Crea nuovo camion</value>
   </data>
 	<data name="&gt;&gt;radioButtonTruck2.Name" xml:space="preserve">
     <value>radioButtonTruck2</value>
@@ -406,7 +406,7 @@
 		<value>11</value>
 	</data>
 	<data name="radioButtonTruck1.Text" xml:space="preserve">
-    <value>Insert truck from database</value>
+    <value>Inserisci camion per database</value>
   </data>
 	<data name="&gt;&gt;radioButtonTruck1.Name" xml:space="preserve">
     <value>radioButtonTruck1</value>
@@ -436,7 +436,7 @@
 		<value>35</value>
 	</data>
 	<data name="uLengthHeight.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthHeight.Name" xml:space="preserve">
     <value>uLengthHeight</value>
@@ -466,7 +466,7 @@
 		<value>32</value>
 	</data>
 	<data name="uLengthWidth.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthWidth.Name" xml:space="preserve">
     <value>uLengthWidth</value>
@@ -496,7 +496,7 @@
 		<value>29</value>
 	</data>
 	<data name="uLengthLength.Text" xml:space="preserve">
-    <value>uLength</value>
+    <value>uLunghezza</value>
   </data>
 	<data name="&gt;&gt;uLengthLength.Name" xml:space="preserve">
     <value>uLengthLength</value>
@@ -598,7 +598,7 @@
 		<value>33</value>
 	</data>
 	<data name="lbHeight.Text" xml:space="preserve">
-    <value>Height</value>
+    <value>Altezza</value>
   </data>
 	<data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
     <value>lbHeight</value>
@@ -628,7 +628,7 @@
 		<value>30</value>
 	</data>
 	<data name="lbWidth.Text" xml:space="preserve">
-    <value>Width</value>
+    <value>Larghezza</value>
   </data>
 	<data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
     <value>lbWidth</value>
@@ -658,7 +658,7 @@
 		<value>27</value>
 	</data>
 	<data name="lbLength.Text" xml:space="preserve">
-    <value>Length</value>
+    <value>Lunghezza </value>
   </data>
 	<data name="&gt;&gt;lbLength.Name" xml:space="preserve">
     <value>lbLength</value>
@@ -682,109 +682,109 @@
 		<value>16</value>
 	</data>
 	<data name="cbColor.Items" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items1" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items2" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items3" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items8" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items9" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items10" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items11" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items12" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items13" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items14" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items15" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items16" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items17" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items18" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items19" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items20" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items21" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items22" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items23" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items24" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items25" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items26" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items27" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items28" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items29" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items30" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items31" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items32" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items33" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Items34" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
 		<value>130, 428</value>
@@ -823,7 +823,7 @@
 		<value>36</value>
 	</data>
 	<data name="lbColor.Text" xml:space="preserve">
-    <value>Color</value>
+    <value>Colore</value>
   </data>
 	<data name="&gt;&gt;lbColor.Name" xml:space="preserve">
     <value>lbColor</value>
@@ -877,7 +877,7 @@
 		<value>38</value>
 	</data>
 	<data name="label1.Text" xml:space="preserve">
-    <value>Admissible load weight</value>
+    <value>Peso del carico consentito</value>
   </data>
 	<data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -931,7 +931,7 @@
 		<value>40</value>
 	</data>
 	<data name="uMassAdmissibleLoad.Text" xml:space="preserve">
-    <value>uMass</value>
+    <value>uMassa</value>
   </data>
 	<data name="&gt;&gt;uMassAdmissibleLoad.Name" xml:space="preserve">
     <value>uMassAdmissibleLoad</value>
@@ -994,7 +994,7 @@
 		<value>500, 650</value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Create a new truck/container...</value>
+    <value>Crea nuovo camion/container...</value>
   </data>
 	<data name="&gt;&gt;toolStripStatusLabelDef.Name" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>

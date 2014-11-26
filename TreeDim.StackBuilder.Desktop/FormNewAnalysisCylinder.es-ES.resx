@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,65 +59,161 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="$this.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="$this.Text" xml:space="preserve">
     <value>Create new cylinder analysis...</value>
   </data>
+	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+		<value>cuando el peso total del palet llegue a</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+		<value>Columna</value>
+	</data>
+	<data name="lbName.Text" xml:space="preserve">
+		<value>Nombre</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+		<value>Patrones de capas permitidos</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+		<value>permitir capa alineada</value>
+	</data>
+	<data name="gbAdditionalData.Text" xml:space="preserve">
+		<value>Datos adicionales</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+		<value>cuando el número de cajas llegue a</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
+		<value>Palet</value>
+	</data>
+	<data name="lbSolutions.Text" xml:space="preserve">
+		<value>Mejor solución(es)</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+		<value>Condición adicional de fin de apilado</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+		<value>cuando la altura del palet alcance</value>
+	</data>
+	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
+		<value>Pallet saliente / colgando en</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Descripción</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
+		<value>Trilock</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+		<value>Diagonal</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+		<value>Interlocked</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+		<value>Espiral ampliado</value>
+	</data>
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+		<value>Espiral</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+		<value>permitir capas alternas</value>
+	</data>
+	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
+		<value>Longitud</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+		<value>Fin de apilamiento:</value>
+	</data>
+	<data name="lbBundle.Text" xml:space="preserve">
+		<value>Bulto</value>
+	</data>
+	<data name="checkBoxNumberOfPallets.Text" xml:space="preserve">
+		<value>Mostrar el número de palets que se tienen que apilar</value>
+	</data>
+	<data name="lbBoxes.Text" xml:space="preserve">
+		<value>caja(s)</value>
+	</data>
+	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
+		<value>que se encuentran entre los</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+		<value>Ancho</value>
+	</data>
+	<data name="bnAccept.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbMm2.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbMm1.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
+	<data name="lbKg1.Text" xml:space="preserve">
+		<value>kg</value>
+	</data>
+	<data name="lbMm.Text" xml:space="preserve">
+		<value>mm</value>
+	</data>
 </root>

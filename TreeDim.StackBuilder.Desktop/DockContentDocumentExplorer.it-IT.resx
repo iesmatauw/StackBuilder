@@ -125,37 +125,37 @@
 		<value>173, 22</value>
 	</data>
 	<data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Floating</value>
+    <value>Mobile</value>
   <comment></comment></data>
 	<data name="DockableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
 	<data name="DockableToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dockable</value>
+    <value>Agganciato</value>
   <comment></comment></data>
 	<data name="TabbedDocumentToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
 	<data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tabbed Document</value>
+    <value>Scheda documento</value>
   <comment></comment></data>
 	<data name="AutoHideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
 	<data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Auto Hide</value>
+    <value>Nascondi automaticamente</value>
   <comment></comment></data>
 	<data name="HideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
 		<value>173, 22</value>
 	</data>
 	<data name="HideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hide</value>
+    <value>Nascondi</value>
   <comment></comment></data>
 	<data name="ContextMenuDock.Size" type="System.Drawing.Size, System.Drawing">
 		<value>174, 114</value>
 	</data>
 	<data name="ContextMenuDock.Text" xml:space="preserve">
-    <value>Window Position</value>
+    <value>Finestra di posizione</value>
   <comment></comment></data>
 	<data name="&gt;&gt;ContextMenuDock.Name" xml:space="preserve">
     <value>ContextMenuDock</value>
@@ -2881,7 +2881,7 @@
 </value>
 	</data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Document explorer</value>
+    <value>Documento d'esplorazione</value>
   <comment></comment></data>
 	<data name="&gt;&gt;FloatingToolStripMenuItem.Name" xml:space="preserve">
     <value>FloatingToolStripMenuItem</value>

@@ -7,7 +7,7 @@ namespace TreeDim.StackBuilder.Basics
     public class CasePalletConstraintSet : PalletConstraintSet
     {
         #region Data members
-        private bool _hasInterlayer;
+        private bool _hasInterlayer = false, _hasInterlayerAntiSlip = false;
         private int _interlayerPeriod;
         private bool[] _allowedOrthoAxis = new bool[6];
         private bool _useMaximumWeightOnBox;
@@ -32,6 +32,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _interlayerPeriod; }
             set { _interlayerPeriod = value; }
+        }
+        public override bool HasInterlayerAntiSlip
+        {
+            get { return _hasInterlayerAntiSlip; }
+            set { _hasInterlayerAntiSlip = value; }
         }
         #endregion
 

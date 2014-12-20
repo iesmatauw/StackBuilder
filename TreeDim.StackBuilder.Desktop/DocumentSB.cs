@@ -352,9 +352,10 @@ namespace TreeDim.StackBuilder.Desktop
 
                 return CreateNewCasePalletAnalysis(
                     form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedBox, form.SelectedPallet, form.SelectedInterlayer
-                    , constraintSet
-                    , new CasePalletSolver());
+                    form.SelectedBox, form.SelectedPallet,
+                    form.SelectedInterlayer, form.SelectedInterlayerAntiSlip,
+                    constraintSet,
+                    new CasePalletSolver());
             }
             return null;
         }
@@ -393,9 +394,9 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
  
                 return CreateNewCasePalletAnalysis(form.AnalysisName, form.AnalysisDescription,
-                    form.SelectedBundle, form.SelectedPallet, null
-                    , constraintSet
-                    , new CasePalletSolver());
+                    form.SelectedBundle, form.SelectedPallet, null, null,
+                    constraintSet, 
+                    new CasePalletSolver());
             }                
             return null;
         }

@@ -197,9 +197,10 @@ namespace treeDiM.StackBuilder.Plugin
                 {
                     // create analysis
                     CasePalletSolver solver = new CasePalletSolver();
-                    CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(item._ref, item.ToString()
+                    CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(
+                        item._ref, item.ToString()
                         , form.UseIntermediatePacking ? currentCase : itemProperties
-                        , currentPallet, null, constraintSet, solver);
+                        , currentPallet, null, null, constraintSet, solver);
                 }
                 // save document
                 fileName = form.FilePath;

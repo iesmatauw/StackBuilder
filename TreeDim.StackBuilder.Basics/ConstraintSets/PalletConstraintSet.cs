@@ -191,6 +191,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Interlayer
         abstract public bool HasInterlayer { get; set; }
         abstract public int InterlayerPeriod { get; set; }
+        abstract public bool HasInterlayerAntiSlip { get; set; }
         #endregion
 
         #region Number of solutions kept

@@ -288,6 +288,7 @@ namespace TreeDim.StackBuilder.Desktop
                     , caseProperties
                     , palletProperties
                     , null
+                    , null
                     , BuildPalletConstraintSet()
                     , palletSolutionList);
             }

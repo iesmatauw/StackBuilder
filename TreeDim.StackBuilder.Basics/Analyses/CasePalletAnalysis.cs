@@ -13,7 +13,7 @@ namespace TreeDim.StackBuilder.Basics
         #region Data members
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties;
+        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
         private PalletConstraintSet _constraintSet;
         private List<CasePalletSolution> _solutions;
         private List<SelCasePalletSolution> _selectedSolutions = new List<SelCasePalletSolution>();
@@ -33,7 +33,12 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public CasePalletAnalysis(BProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
+        public CasePalletAnalysis(
+            BProperties boxProperties,
+            PalletProperties palletProperties,
+            InterlayerProperties interlayerProperties,
+            InterlayerProperties interlayerPropertiesAntiSlip,
+            PalletConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
             // sanity checks
@@ -49,6 +54,7 @@ namespace TreeDim.StackBuilder.Basics
             this.BProperties = boxProperties;
             this.PalletProperties = palletProperties;
             this.InterlayerProperties = interlayerProperties;
+            this.InterlayerPropertiesAntiSlip = interlayerPropertiesAntiSlip;
             this.ConstraintSet = constraintSet;
         }
         #endregion
@@ -105,6 +111,19 @@ namespace TreeDim.StackBuilder.Basics
                 _interlayerProperties = value;
                 if (null != _interlayerProperties)
                     _interlayerProperties.AddDependancy(this);
+            }
+        }
+
+        public InterlayerProperties InterlayerPropertiesAntiSlip
+        {
+            get { return _interlayerProperties; }
+            set
+            {
+                if (_interlayerPropertiesAntiSlip == value) return;
+                if (null != _interlayerPropertiesAntiSlip) _interlayerPropertiesAntiSlip.RemoveDependancy(this);
+                _interlayerPropertiesAntiSlip = value;
+                if (null != _interlayerPropertiesAntiSlip)
+                    _interlayerPropertiesAntiSlip.AddDependancy(this);
             }
         }
 

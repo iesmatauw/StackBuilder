@@ -11,10 +11,15 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return false; }
             set { }
-        }
+        } 
         public override int InterlayerPeriod
         {
             get { return 0; }
+            set { }
+        }
+        public override bool HasInterlayerAntiSlip
+        {
+            get {  return false; }
             set { }
         }
         #endregion

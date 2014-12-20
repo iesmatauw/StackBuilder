@@ -447,11 +447,12 @@ namespace TreeDim.StackBuilder.Basics
         /// <returns>An analysis</returns>
         public CasePalletAnalysis CreateNewCasePalletAnalysis(
             string name, string description
-            , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
+            , BProperties box, PalletProperties pallet
+            , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
             , PalletConstraintSet constraintSet
             , ICasePalletAnalysisSolver solver)
         {
-            CasePalletAnalysis analysis = new CasePalletAnalysis(box, pallet, interlayer, constraintSet);
+            CasePalletAnalysis analysis = new CasePalletAnalysis(box, pallet, interlayer, interlayerAntiSlip, constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -481,11 +482,12 @@ namespace TreeDim.StackBuilder.Basics
         /// <returns>CasePalletAnalysis generated using input parameters</returns>
         public CasePalletAnalysis CreateNewCasePalletAnalysis(
             string name, string description
-            , BProperties box, PalletProperties pallet, InterlayerProperties interlayer
+            , BProperties box, PalletProperties pallet
+            , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
             , PalletConstraintSet constraintSet
             , List<CasePalletSolution> solutions)
         {
-            CasePalletAnalysis analysis = new CasePalletAnalysis(box, pallet, interlayer, constraintSet);
+            CasePalletAnalysis analysis = new CasePalletAnalysis(box, pallet, interlayer, interlayerAntiSlip, constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -1402,6 +1404,9 @@ namespace TreeDim.StackBuilder.Basics
             string sInterlayerId = string.Empty;
             if (eltAnalysis.HasAttribute("InterlayerId"))
                 sInterlayerId = eltAnalysis.Attributes["InterlayerId"].Value;
+            string sInterlayerAntiSlipId = string.Empty;
+            if (eltAnalysis.HasAttribute("InterlayerAntiSlipId"))
+                sInterlayerAntiSlipId = eltAnalysis.Attributes["InterlayerAntiSlipId"].Value;
 
             if (string.Equals(eltAnalysis.Name, "AnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1445,6 +1450,7 @@ namespace TreeDim.StackBuilder.Basics
                     , GetTypeByGuid(new Guid(sBoxId)) as BProperties
                     , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
                     , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
+                    , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid( new Guid(sInterlayerAntiSlipId) ) as InterlayerProperties
                     , constraintSet
                     , solutions);
                 // save selected solutions

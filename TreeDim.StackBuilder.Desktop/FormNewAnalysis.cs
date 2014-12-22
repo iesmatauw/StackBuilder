@@ -551,6 +551,11 @@ namespace TreeDim.StackBuilder.Desktop
             get { return checkBoxInterlayer.Checked; }
             set { checkBoxInterlayer.Checked = value; }
         }
+        public bool HasInterlayerAntiSlip
+        {
+            get { return checkBoxAntiSlipInterlayer.Checked; }
+            set { checkBoxAntiSlipInterlayer.Checked = value; }
+        }
         /// <summary>
         /// Interlayer period
         /// </summary>

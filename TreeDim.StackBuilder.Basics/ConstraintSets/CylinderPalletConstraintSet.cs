@@ -29,7 +29,7 @@ namespace TreeDim.StackBuilder.Basics
         /// <summary>
         /// Interlayer
         /// </summary>
-        private bool _hasInterlayer;
+        private bool _hasInterlayer, _hasInterlayerAntiSlip;
         private int _interlayerPeriod;
 
         private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
@@ -71,11 +71,13 @@ namespace TreeDim.StackBuilder.Basics
         #region Interlayer
         public bool HasInterlayer
         {
-            get { return _hasInterlayer; }
-            set
-            {
-                _hasInterlayer = value; 
-            }
+            get {   return _hasInterlayer; }
+            set {   _hasInterlayer = value; }
+        }
+        public bool HasInterlayerAntiSlip
+        {
+            get {   return _hasInterlayerAntiSlip; }
+            set { _hasInterlayerAntiSlip = value; }
         }
         public int InterlayerPeriod
         {

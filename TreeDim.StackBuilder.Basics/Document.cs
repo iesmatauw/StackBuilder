@@ -514,11 +514,15 @@ namespace TreeDim.StackBuilder.Basics
         /// <returns>Cylinder/pallet analysis</returns>
         public CylinderPalletAnalysis CreateNewCylinderPalletAnalysis(
             string name, string description
-            , CylinderProperties cylinder, PalletProperties pallet, InterlayerProperties interlayer
+            , CylinderProperties cylinder, PalletProperties pallet
+            , InterlayerProperties interlayer, InterlayerProperties interlayerPropertiesAntiSlip
             , CylinderPalletConstraintSet constraintSet
             , ICylinderAnalysisSolver solver)
         {
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer, constraintSet);
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(
+                cylinder, pallet,
+                interlayer, interlayerPropertiesAntiSlip,
+                constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -572,11 +576,15 @@ namespace TreeDim.StackBuilder.Basics
         /// <returns>Cylinder/pallet analysis</returns>
         public CylinderPalletAnalysis CreateNewCylinderPalletAnalysis(
             string name, string description
-            , CylinderProperties cylinder, PalletProperties pallet, InterlayerProperties interlayer
+            , CylinderProperties cylinder, PalletProperties pallet
+            , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
             , CylinderPalletConstraintSet constraintSet
             , List<CylinderPalletSolution> solutions)
         {
-            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylinder, pallet, interlayer, constraintSet);
+            CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(
+                cylinder, pallet,
+                interlayer, interlayerAntiSlip,
+                constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -1539,6 +1547,7 @@ namespace TreeDim.StackBuilder.Basics
                     , GetTypeByGuid(new Guid(sCylinderId)) as CylinderProperties
                     , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
                     , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
+                    , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid(new Guid(sInterlayerAntiSlipId)) as InterlayerProperties
                     , constraintSet
                     , solutions);
                 // save selected solutions
@@ -2041,7 +2050,12 @@ namespace TreeDim.StackBuilder.Basics
                 }
             }
             else if (string.Equals(eltLayer.Name, "InterLayer", StringComparison.CurrentCultureIgnoreCase))
-                layer = new InterlayerPos(UnitsManager.ConvertLengthFrom(zLow, _unitSystem));
+            {
+                int typeId = 0;
+                if (eltLayer.HasAttribute("TypeId"))
+                    typeId = Convert.ToInt32(eltLayer.Attributes["TypeId"].Value);
+                layer = new InterlayerPos(UnitsManager.ConvertLengthFrom(zLow, _unitSystem), typeId);
+            }
 
             return layer;
         }
@@ -2925,6 +2939,12 @@ namespace TreeDim.StackBuilder.Basics
                 interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
+            if (null != analysis.InterlayerPropertiesAntiSlip)
+            {
+                XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.Guid);
+                xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
+            }
             // ###
             // ConstraintSet
             bool bundleAnalysis = (analysis.ConstraintSet.GetType() == typeof(BundlePalletConstraintSet));
@@ -3039,6 +3059,12 @@ namespace TreeDim.StackBuilder.Basics
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerId");
                 interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
+                xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
+            }
+            if (null != analysis.InterlayerPropertiesAntiSlip)
+            {
+                XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
+                interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.Guid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSet");
@@ -3286,6 +3312,12 @@ namespace TreeDim.StackBuilder.Basics
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerId");
                 interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
+                xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
+            }
+            if (null != analysis.InterlayerPropertiesAntiSlip)
+            {
+                XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
+                interlayerIdAttribute.Value = string.Format("{1}", analysis.InterlayerPropertiesAntiSlip.Guid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
             // ###

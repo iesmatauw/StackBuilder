@@ -138,7 +138,7 @@ namespace TreeDim.StackBuilder.Engine
                                         {
                                             if (iInterlayer >= _constraintSet.InterlayerPeriod)
                                             {
-                                                InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
+                                                InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer, 0);
                                                 zLayer += _interlayerProperties.Thickness;
                                                 iInterlayer = 0;
                                             }

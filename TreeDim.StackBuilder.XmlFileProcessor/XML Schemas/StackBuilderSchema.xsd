@@ -10,7 +10,7 @@
   <xs:annotation>
     <xs:documentation>
       PLMPack STACKBUILDER input Schema
-      Version 1.0.41.0 (June, 2013)
+      Version 1.0.42.0 (June, 2013)
 
       Note that this software document is distributed on an "AS IS" basis, with ALL EXPRESS AND
       IMPLIED WARRANTIES AND CONDITIONS DISCLAIMED, INCLUDING, WITHOUT LIMITATION, ANY IMPLIED
@@ -447,6 +447,7 @@
       <xs:attribute name="bundleId" type="xs:NCName" use="optional"/>
       <xs:attribute name="palletId" type="xs:NCName" use="required"/>
       <xs:attribute name="interlayerId" type="xs:NCName" use="optional"/>
+      <xs:attribute name="interlayerAntiSlipId" type="xs:NCName" use="optional"/>
       <xs:attribute name ="interlayerPeriod" type="int" use="optional"/>
       <xs:attribute name="overhang" type="float2" use="optional"/>
       <xs:attribute name="allowedLayerPatterns" type="ListOfPatterns" use="optional"/>

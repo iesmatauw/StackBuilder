@@ -100,7 +100,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return (null != _interlayerProperties); }
         }
-
+        public bool HasInterlayerAntiSlip
+        {
+            get { return (null != _interlayerPropertiesAntiSlip); }
+        }
         public InterlayerProperties InterlayerProperties
         {
             get { return _interlayerProperties; }
@@ -116,7 +119,7 @@ namespace TreeDim.StackBuilder.Basics
 
         public InterlayerProperties InterlayerPropertiesAntiSlip
         {
-            get { return _interlayerProperties; }
+            get { return _interlayerPropertiesAntiSlip; }
             set
             {
                 if (_interlayerPropertiesAntiSlip == value) return;

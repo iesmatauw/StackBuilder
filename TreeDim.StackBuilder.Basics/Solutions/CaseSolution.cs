@@ -129,9 +129,9 @@ namespace TreeDim.StackBuilder.Basics
             Add(layer);
             return layer;
         }
-        public InterlayerPos CreateNewInterlayer(double zLow)
+        public InterlayerPos CreateNewInterlayer(double zLow, int typeId)
         {
-            InterlayerPos layer = new InterlayerPos(zLow);
+            InterlayerPos layer = new InterlayerPos(zLow, typeId);
             Add(layer);
             return layer;
         }

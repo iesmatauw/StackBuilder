@@ -336,6 +336,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // interlayers
                 constraintSet.HasInterlayer = form.HasInterlayers;
                 constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
                 // stop criterion
                 constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
                 constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
@@ -445,6 +446,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // interlayer period
                 constraintSet.HasInterlayer = form.HasInterlayer;
                 constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
                 // stop criterion
                 constraintSet.UseMaximumPalletHeight = form.UseMaximumPalletHeight;
                 constraintSet.MaximumPalletHeight = form.MaximumPalletHeight;
@@ -454,7 +456,8 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfItems;
 
                 return CreateNewCylinderPalletAnalysis(form.AnalysisName, form.AnalysisDescription
-                    , form.SelectedCylinder, form.SelectedPallet, form.SelectedInterlayer
+                    , form.SelectedCylinder, form.SelectedPallet
+                    , form.SelectedInterlayer, form.SelectedInterlayerAntiSlip
                     , constraintSet
                     , new CylinderSolver());
             }
@@ -594,6 +597,7 @@ namespace TreeDim.StackBuilder.Desktop
                     // interlayers
                     constraintSet.HasInterlayer = form.HasInterlayers;
                     constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                    constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
                     // stop criterion
                     constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
                     constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
@@ -673,6 +677,7 @@ namespace TreeDim.StackBuilder.Desktop
                 // interlayers
                 constraintSet.HasInterlayer = form.HasInterlayer;
                 constraintSet.InterlayerPeriod = form.InterlayerPeriod;
+                constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
                 // overhang / underhang
                 constraintSet.OverhangX = form.OverhangX;
                 constraintSet.OverhangY = form.OverhangY;

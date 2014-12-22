@@ -12,7 +12,7 @@ namespace TreeDim.StackBuilder.Basics
     public class CylinderPalletAnalysis : ItemBase
     {
         #region Data members
-        private InterlayerProperties _interlayerProperties;
+        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
         private CylinderProperties _cylinderProperties;
         private PalletProperties _palletProperties;
         private CylinderPalletConstraintSet _constraintSet;
@@ -38,6 +38,7 @@ namespace TreeDim.StackBuilder.Basics
             CylinderProperties cylProperties
             , PalletProperties palletProperties
             , InterlayerProperties interlayerProperties
+            , InterlayerProperties interlayerPropertiesAntiSlip
             , CylinderPalletConstraintSet constraintSet)
             : base(cylProperties.ParentDocument)
         {
@@ -45,9 +46,11 @@ namespace TreeDim.StackBuilder.Basics
             CylinderProperties = cylProperties;
             PalletProperties = palletProperties;
             InterlayerProperties = interlayerProperties;
+            InterlayerPropertiesAntiSlip = interlayerPropertiesAntiSlip;
             _constraintSet = constraintSet;
             // has interlayer ?
             _constraintSet.HasInterlayer = null != interlayerProperties;
+            _constraintSet.HasInterlayerAntiSlip = null != interlayerPropertiesAntiSlip;
         }
         #endregion
 
@@ -79,6 +82,10 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return (null != _interlayerProperties); }
         }
+        public bool HasInterlayerAntiSlip
+        {
+            get { return (null != _interlayerPropertiesAntiSlip); }
+        }
         public InterlayerProperties InterlayerProperties
         {
             get { return _interlayerProperties; }
@@ -89,6 +96,18 @@ namespace TreeDim.StackBuilder.Basics
                 _interlayerProperties = value;
                 if (null != _interlayerProperties)
                     _interlayerProperties.AddDependancy(this);
+            }
+        }
+        public InterlayerProperties InterlayerPropertiesAntiSlip
+        {
+            get { return _interlayerPropertiesAntiSlip; }
+            set
+            {
+                if (_interlayerPropertiesAntiSlip == value) return;
+                if (null != _interlayerPropertiesAntiSlip) _interlayerPropertiesAntiSlip.RemoveDependancy(this);
+                _interlayerPropertiesAntiSlip = value;
+                if (null != _interlayerPropertiesAntiSlip)
+                    _interlayerPropertiesAntiSlip.AddDependancy(this);
             }
         }
         public CylinderPalletConstraintSet ConstraintSet

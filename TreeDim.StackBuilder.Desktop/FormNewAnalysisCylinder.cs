@@ -39,6 +39,7 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             // update interlayer UI
             onInterlayerChecked(this, null);
+            onInterlayerAntiSlipChecked(this, null);
         }
         /// <summary>
         /// Constructor used while browsing/editing existing analysis
@@ -55,6 +56,7 @@ namespace TreeDim.StackBuilder.Desktop
             Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
             // update interlayer UI
             onInterlayerChecked(this, null);
+            onInterlayerAntiSlipChecked(this, null);
         }
         #endregion
 
@@ -135,6 +137,34 @@ namespace TreeDim.StackBuilder.Desktop
 
                         checkBoxInterlayer.Checked = _analysis.ConstraintSet.HasInterlayer;
                         checkBoxInterlayer.Enabled = true;
+                    }
+                }
+                else
+                {
+                    checkBoxInterlayer.Checked = false;
+                    checkBoxInterlayer.Enabled = false;
+                }
+
+                // fill interlayer combo
+                foreach (InterlayerProperties interlayer in _interlayerProperties)
+                    cbInterlayersAntiSlip.Items.Add(new InterlayerItem(interlayer));
+                if (cbInterlayersAntiSlip.Items.Count > 0)
+                {
+                    cbInterlayersAntiSlip.SelectedIndex = 0;
+                    if (null != _analysis)
+                    {
+                        for (int i = 0; i < cbInterlayersAntiSlip.Items.Count; ++i)
+                        {
+                            InterlayerItem interlayerItem = cbInterlayersAntiSlip.Items[i] as InterlayerItem;
+                            if (interlayerItem.Item == _analysis.InterlayerPropertiesAntiSlip)
+                            {
+                                cbInterlayersAntiSlip.SelectedIndex = i;
+                                break;
+                            }
+                        }
+
+                        checkBoxInterlayerAntiSlip.Checked = _analysis.ConstraintSet.HasInterlayerAntiSlip;
+                        checkBoxInterlayerAntiSlip.Enabled = true;
                     }
                 }
                 else
@@ -281,6 +311,19 @@ namespace TreeDim.StackBuilder.Desktop
                     return _interlayerProperties[cbInterlayers.SelectedIndex];
             }
         }
+        public InterlayerProperties SelectedInterlayerAntiSlip
+        {
+            get
+            {
+                if (null == _interlayerProperties
+                    || _interlayerProperties.Length == 0
+                    || !checkBoxInterlayerAntiSlip.Checked
+                    || -1 == cbInterlayersAntiSlip.SelectedIndex)
+                    return null;
+                else
+                    return _interlayerProperties[cbInterlayersAntiSlip.SelectedIndex];
+            }
+        }
         /// <summary>
         /// Has interlayer ?
         /// </summary>
@@ -288,6 +331,11 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return checkBoxInterlayer.Checked; }
             set { checkBoxInterlayer.Checked = value; }
+        }
+        public bool HasInterlayerAntiSlip
+        {
+            get { return checkBoxInterlayerAntiSlip.Checked; }
+            set { checkBoxInterlayerAntiSlip.Checked = value; }
         }
         /// <summary>
         /// Interlayer period
@@ -402,6 +450,12 @@ namespace TreeDim.StackBuilder.Desktop
             lbInterlayerFreq2.Enabled = checkBoxInterlayer.Checked;
             nudInterlayerFreq.Enabled = checkBoxInterlayer.Checked;
         }
+        private void onInterlayerAntiSlipChecked(object sender, EventArgs e)
+        {
+            cbInterlayersAntiSlip.Enabled = checkBoxInterlayerAntiSlip.Checked;
+        }
         #endregion
+
+
     }
 }

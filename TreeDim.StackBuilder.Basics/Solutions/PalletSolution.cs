@@ -25,20 +25,23 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         private double _zLower = 0.0;
+        private int _typeId = 0;
         #endregion
 
         #region Constructor
-        public InterlayerPos(double zLow)
+        public InterlayerPos(double zLow, int typeId)
         {
             _zLower = zLow;
+            _typeId = typeId;
         }
         #endregion
 
+        #region Interlayer specific properties
+        public int TypeId { get { return _typeId; } }
+        #endregion
+
         #region ILayer implementation
-        public double ZLow
-        {
-            get { return _zLower; }
-        }
+        public double ZLow { get { return _zLower; } }
         public int BoxCount { get { return 0; } }
         public int InterlayerCount {  get { return 1; } }
         public int CylinderCount {  get { return 0; } }
@@ -536,9 +539,9 @@ namespace TreeDim.StackBuilder.Basics
             Add(layer);
             return layer;
         }
-        public InterlayerPos CreateNewInterlayer(double zLow)
+        public InterlayerPos CreateNewInterlayer(double zLow, int typeId)
         {
-            InterlayerPos layer = new InterlayerPos(zLow);
+            InterlayerPos layer = new InterlayerPos(zLow, typeId);
             Add(layer);
             return layer;
         }

@@ -136,6 +136,8 @@ namespace TreeDim.StackBuilder.Basics
         { get { return false; } }
         public int InterlayerPeriod
         { get { throw new NotImplementedException(); } }
+        public bool HasInterlayerAntiSlip
+        { get { return false; } }
         #endregion
 
         #region Minimum number of box

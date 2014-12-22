@@ -60,11 +60,13 @@ namespace TreeDim.StackBuilder.Graphics
                 InterlayerPos interlayerPos = layer as InterlayerPos;
                 if (null != interlayerPos)
                 {
-                    Box box = new Box(pickId++, _analysis.InterlayerProperties);
+                    InterlayerProperties currInterlayerProperties = (0 == interlayerPos.TypeId)
+                        ? _analysis.InterlayerProperties : _analysis.InterlayerPropertiesAntiSlip;
+                    Box box = new Box(pickId++, currInterlayerProperties);
                     // set position
                     box.Position = new Vector3D(
-                        0.5 * (_analysis.PalletProperties.Length-_analysis.InterlayerProperties.Length)
-                        , 0.5 * (_analysis.PalletProperties.Width - _analysis.InterlayerProperties.Width)
+                        0.5 * (_analysis.PalletProperties.Length - currInterlayerProperties.Length)
+                        , 0.5 * (_analysis.PalletProperties.Width - currInterlayerProperties.Width)
                         , interlayerPos.ZLow);
                     // draw
                     graphics.AddBox(box);

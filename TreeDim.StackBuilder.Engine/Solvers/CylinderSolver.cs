@@ -18,7 +18,7 @@ namespace TreeDim.StackBuilder.Engine
         private static List<CylinderLayerPattern> _patterns = new List<CylinderLayerPattern>();
         private CylinderProperties _cylProperties;
         private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties;
+        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
         private CylinderPalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(CylinderSolver));
         #endregion
@@ -36,6 +36,7 @@ namespace TreeDim.StackBuilder.Engine
             _cylProperties = analysis.CylinderProperties;
             _palletProperties = analysis.PalletProperties;
             _interlayerProperties = analysis.InterlayerProperties;
+            _interlayerPropertiesAntiSlip = analysis.InterlayerPropertiesAntiSlip;
             _constraintSet = analysis.ConstraintSet;
             if (!_constraintSet.IsValid)
                 throw new EngineException("Constraint set is invalid!");
@@ -86,12 +87,19 @@ namespace TreeDim.StackBuilder.Engine
 
                     int iCount = 0;
 
+                    // insert anti-slip interlayer
+                    if (_constraintSet.HasInterlayerAntiSlip)
+                    {
+                        sol.CreateNewInterlayer(zLayer, 1);
+                        zLayer += _interlayerPropertiesAntiSlip.Thickness;
+                    }
+
                     while (!maxWeightReached && !maxHeightReached && !maxNumberReached)
                     {
                         // interlayer
                         if (_constraintSet.HasInterlayer && (sol.Count > 0))
                         {
-                            sol.CreateNewInterlayer(zLayer);
+                            sol.CreateNewInterlayer(zLayer, 0);
                             zLayer += _interlayerProperties.Thickness;
                         }
                         // select current layer type

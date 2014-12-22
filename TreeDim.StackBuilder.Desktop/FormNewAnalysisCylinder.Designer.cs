@@ -68,6 +68,8 @@
             this.lbInterlayerFreq2 = new System.Windows.Forms.Label();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
+            this.checkBoxInterlayerAntiSlip = new System.Windows.Forms.CheckBox();
+            this.cbInterlayersAntiSlip = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangY)).BeginInit();
             this.gbOverhangUnderhang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangX)).BeginInit();
@@ -379,12 +381,28 @@
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
             resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
+            // checkBoxInterlayerAntiSlip
+            // 
+            resources.ApplyResources(this.checkBoxInterlayerAntiSlip, "checkBoxInterlayerAntiSlip");
+            this.checkBoxInterlayerAntiSlip.Name = "checkBoxInterlayerAntiSlip";
+            this.checkBoxInterlayerAntiSlip.UseVisualStyleBackColor = true;
+            this.checkBoxInterlayerAntiSlip.CheckedChanged += new System.EventHandler(this.onInterlayerAntiSlipChecked);
+            // 
+            // cbInterlayersAntiSlip
+            // 
+            this.cbInterlayersAntiSlip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbInterlayersAntiSlip.FormattingEnabled = true;
+            resources.ApplyResources(this.cbInterlayersAntiSlip, "cbInterlayersAntiSlip");
+            this.cbInterlayersAntiSlip.Name = "cbInterlayersAntiSlip";
+            // 
             // FormNewAnalysisCylinder
             // 
             this.AcceptButton = this.bnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
+            this.Controls.Add(this.cbInterlayersAntiSlip);
+            this.Controls.Add(this.checkBoxInterlayerAntiSlip);
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.lbInterlayerFreq2);
             this.Controls.Add(this.nudInterlayerFreq);
@@ -470,5 +488,7 @@
         private System.Windows.Forms.Label lbInterlayerFreq2;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
+        private System.Windows.Forms.CheckBox checkBoxInterlayerAntiSlip;
+        private System.Windows.Forms.ComboBox cbInterlayersAntiSlip;
     }
 }

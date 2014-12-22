@@ -5046,6 +5046,8 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
 
         private long interlayerPeriodField;
 
+        private string interlayerAntiSlipIdField;
+
         private bool interlayerPeriodFieldSpecified;
 
         private List<double> overhangField;
@@ -5167,7 +5169,18 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 this.interlayerIdField = value;
             }
         }
-
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType = "NCName")]
+        public string interlayerAntiSlipId
+        {
+            get
+            {
+                return this.interlayerAntiSlipIdField;
+            }
+            set
+            {
+                this.interlayerAntiSlipIdField = value;
+            }
+        }
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public long interlayerPeriod
         {

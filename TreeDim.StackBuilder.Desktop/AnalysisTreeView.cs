@@ -993,6 +993,12 @@ namespace TreeDim.StackBuilder.Desktop
                 subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerProperties);
                 nodeAnalysis.Nodes.Add(subInterlayer);
             }
+            if (analysis.HasInterlayerAntiSlip && (analysis.InterlayerProperties != analysis.InterlayerPropertiesAntiSlip))
+            {
+                TreeNode subInterlayer = new TreeNode(analysis.InterlayerPropertiesAntiSlip.Name, 8, 8);
+                subInterlayer.Tag = new NodeTag(NodeTag.NodeType.NT_ANALYSISINTERLAYER, doc, analysis, analysis.InterlayerPropertiesAntiSlip);
+                nodeAnalysis.Nodes.Add(subInterlayer);            
+            }
             nodeAnalysis.Expand();        
         }
         #endregion

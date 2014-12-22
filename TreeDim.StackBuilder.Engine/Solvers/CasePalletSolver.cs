@@ -21,7 +21,7 @@ namespace TreeDim.StackBuilder.Engine
         private static List<LayerPattern> _patterns = new List<LayerPattern>();
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
-        private InterlayerProperties _interlayerProperties;
+        private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
         private PalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
         #endregion
@@ -43,6 +43,7 @@ namespace TreeDim.StackBuilder.Engine
             _bProperties = analysis.BProperties;
             _palletProperties = analysis.PalletProperties;
             _interlayerProperties = analysis.InterlayerProperties;
+            _interlayerPropertiesAntiSlip = analysis.InterlayerPropertiesAntiSlip;
             _constraintSet = analysis.ConstraintSet;
             // check contraint set validity
             if (!_constraintSet.IsValid)
@@ -51,11 +52,15 @@ namespace TreeDim.StackBuilder.Engine
             analysis.Solutions = GenerateSolutions();
         }
 
-        public List<CasePalletSolution> Process(BoxProperties boxProperties, PalletProperties palletProperties, InterlayerProperties interlayerProperties, PalletConstraintSet constraintSet)
+        public List<CasePalletSolution> Process(
+            BoxProperties boxProperties, PalletProperties palletProperties,
+            InterlayerProperties interlayerProperties, InterlayerProperties interlayerPropertiesAntiSlip,
+            PalletConstraintSet constraintSet)
         {
             _bProperties = boxProperties;
             _palletProperties = palletProperties;
             _interlayerProperties = interlayerProperties;
+            _interlayerPropertiesAntiSlip = interlayerPropertiesAntiSlip;
             _constraintSet = constraintSet;
             // check constraint set validity
             if (!_constraintSet.IsValid)
@@ -207,13 +212,20 @@ namespace TreeDim.StackBuilder.Engine
                                 bool maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + _bProperties.Dimension(axisOrtho1) > _constraintSet.MaximumHeight);
                                 bool maxNumberReached = false;
 
+                                // insert anti-slip interlayer id there is one
+                                if (_constraintSet.HasInterlayerAntiSlip)
+                                {
+                                    InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer, 1);
+                                    zLayer += _interlayerPropertiesAntiSlip.Thickness;
+                                }
+
                                 while (!maxWeightReached && !maxHeightReached && !maxNumberReached)
                                 {
                                     if (_constraintSet.HasInterlayer)
                                     {
                                         if (iInterlayer >= _constraintSet.InterlayerPeriod)
                                         {
-                                            InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer);
+                                            InterlayerPos interlayerPos = sol.CreateNewInterlayer(zLayer, 0);
                                             zLayer += _interlayerProperties.Thickness;
                                             iInterlayer = 0;
                                         }

@@ -480,6 +480,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                 CasePalletConstraintSet caseConstraintSet = new CasePalletConstraintSet();
                 // interlayer
                 caseConstraintSet.HasInterlayer = xmlAnalysis.interlayerPeriodSpecified;
+                caseConstraintSet.HasInterlayerAntiSlip = false;
  
                 // allowed ortho axes
                 caseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, true);
@@ -574,6 +575,7 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     , bProperties
                     , LoadPalletById(doc, _root.data.items.library_pallets, xmlAnalysis.palletId)
                     , LoadInterlayerById(doc, _root.data.items.library_interlayers, xmlAnalysis.interlayerId)
+                    , LoadInterlayerById(doc, _root.data.items.library_interlayers, xmlAnalysis.interlayerAntiSlipId)
                     , constraintSet
                     , new TreeDim.StackBuilder.Engine.CasePalletSolver());
             }

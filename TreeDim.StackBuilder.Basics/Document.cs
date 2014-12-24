@@ -335,7 +335,6 @@ namespace TreeDim.StackBuilder.Basics
             NotifyOnNewTypeCreated(item);
             Modify();
         }
-
         public InterlayerProperties CreateNewInterlayer(
             string name, string description
             , double length, double width, double thickness
@@ -353,6 +352,42 @@ namespace TreeDim.StackBuilder.Basics
             NotifyOnNewTypeCreated(interlayer);
             Modify();
             return interlayer;
+        }
+        public PalletCornerProperties CreateNewPalletCorners()
+        {
+            // instantiate and initialize
+            PalletCornerProperties palletCorners = new PalletCornerProperties(
+                this);
+            // insert in list
+            _typeList.Add(palletCorners);
+            // notify listeners
+            NotifyOnNewTypeCreated(palletCorners);
+            Modify();
+            return palletCorners;
+        }
+        public PalletCapProperties CreateNewPalletCap()
+        {
+            // instantiate and initialize
+            PalletCapProperties palletCap = new PalletCapProperties(
+                this);
+            // insert in list
+            _typeList.Add(palletCap);
+            // notify listeners
+            NotifyOnNewTypeCreated(palletCap);
+            Modify();
+            return palletCap;
+        }
+        public PalletFilmProperties CreateNewPalletFilm()
+        {
+            // instantiate and initialize
+            PalletFilmProperties palletFilm = new PalletFilmProperties(
+                this);
+            // insert in list
+            _typeList.Add(palletFilm);
+            // notify listeners
+            NotifyOnNewTypeCreated(palletFilm);
+            Modify();
+            return palletFilm;
         }
         public InterlayerProperties CreateNewInterlayer(InterlayerProperties interlayerProp)
         {

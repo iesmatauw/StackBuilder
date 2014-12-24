@@ -7,9 +7,9 @@ using System.Drawing;
 using Sharp3D.Math.Core;
 #endregion
 
-namespace TreeDim.StackBuilder.Basics.PalletDecoration
+namespace TreeDim.StackBuilder.Basics
 {
-    public class Corner : ItemBase
+    public class PalletCornerProperties : ItemBase
     {
         #region Data members
         private double _width;
@@ -21,7 +21,7 @@ namespace TreeDim.StackBuilder.Basics.PalletDecoration
         /// Constructor 1
         /// </summary>
         /// <param name="document">Parent document</param>
-        public Corner(Document document)
+        public PalletCornerProperties(Document document)
             : base(document)
         { 
         }
@@ -31,7 +31,7 @@ namespace TreeDim.StackBuilder.Basics.PalletDecoration
         /// <param name="document">Parent document</param>
         /// <param name="width">Width</param>
         /// <param name="color">Color</param>
-        public Corner(Document document, double width, Color color)
+        public PalletCornerProperties(Document document, double width, Color color)
             : base(document)
         { 
         }

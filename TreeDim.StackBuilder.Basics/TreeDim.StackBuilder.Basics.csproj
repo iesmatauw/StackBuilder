@@ -75,7 +75,9 @@
     <Compile Include="Analyses\BoxCaseAnalysis.cs" />
     <Compile Include="ConstraintSets\BoxCaseConstraintSet.cs" />
     <Compile Include="Helpers\CylinderPosition.cs" />
-    <Compile Include="PalletDecoration\Corner.cs" />
+    <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
+    <Compile Include="PalletDecoration\PalletCapProperties.cs" />
+    <Compile Include="PalletDecoration\PalletFilmProperties.cs" />
     <Compile Include="Solutions\BoxCaseSolution.cs" />
     <Compile Include="Analyses\CaseOptimAnalysis.cs" />
     <Compile Include="Analyses\ECTAnalysis.cs" />

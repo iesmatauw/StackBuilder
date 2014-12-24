@@ -275,6 +275,33 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.Color);
         }
         /// <summary>
+        /// Creates a new pallet cap
+        /// </summary>
+        public void CreateNewPalletCapUI()
+        {
+            FormNewPalletCap form = new FormNewPalletCap();
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewPalletCap();
+        }
+        /// <summary>
+        /// Creates new pallet corners
+        /// </summary>
+        public void CreateNewPalletCornersUI()
+        {
+            FormNewPalletCorners form = new FormNewPalletCorners();
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewPalletCorners();
+        }
+        /// <summary>
+        /// Creates new pallet film
+        /// </summary>
+        public void CreateNewPalletFilmUI()
+        {
+            FormNewPalletFilm form = new FormNewPalletFilm();
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewPalletFilm();
+        }
+        /// <summary>
         /// creates a new PalletProperties object
         /// </summary>
         public void CreateNewPalletUI()

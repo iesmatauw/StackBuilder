@@ -734,6 +734,12 @@ namespace TreeDim.StackBuilder.Desktop
             // new interlayer
             newInterlayerToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonCreateNewInterlayer.Enabled = (null != doc);
+            // pallet cap
+            newToolStripMenuItemPalletCap.Enabled = (null != doc);
+            toolStripButtonPalletCap.Enabled = (null != doc);
+            // pallet corners
+            newToolStripMenuItemPalletCorners.Enabled = (null != doc);
+            toolStripButtonPalletCorners.Enabled = (null != doc);
             // new bundle
             newBundleToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonCreateNewBundle.Enabled = (null != doc);
@@ -1147,6 +1153,21 @@ namespace TreeDim.StackBuilder.Desktop
             try { BoxCasePalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCasePalletOptimizationUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void toolAddNewPalletCap(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewPalletCapUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString());  Program.SendCrashReport(ex); }
+        }
+        private void toolAddNewPalletCorners(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewPalletCornersUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString());  Program.SendCrashReport(ex); }
+        }
+        private void toolAddNewPalletFilm(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewPalletFilmUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         private void toolEditPalletSolutionsDB(object sender, EventArgs e)
         {
             try
@@ -1465,6 +1486,8 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
 
 
     }

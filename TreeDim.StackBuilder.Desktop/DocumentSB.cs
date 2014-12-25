@@ -279,9 +279,9 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public void CreateNewPalletCapUI()
         {
-            FormNewPalletCap form = new FormNewPalletCap();
+            FormNewPalletCap form = new FormNewPalletCap(this);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletCap();
+                CreateNewPalletCap(form.ItemName, form.ItemDescription);
         }
         /// <summary>
         /// Creates new pallet corners
@@ -290,16 +290,17 @@ namespace TreeDim.StackBuilder.Desktop
         {
             FormNewPalletCorners form = new FormNewPalletCorners();
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletCorners();
+                CreateNewPalletCorners(form.ItemName, form.ItemDescription,
+                    form.Width, form.Color);
         }
         /// <summary>
         /// Creates new pallet film
         /// </summary>
         public void CreateNewPalletFilmUI()
         {
-            FormNewPalletFilm form = new FormNewPalletFilm();
+            FormNewPalletFilm form = new FormNewPalletFilm(this);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletFilm();
+                CreateNewPalletFilm(form.ItemName, form.ItemDescription);
         }
         /// <summary>
         /// creates a new PalletProperties object

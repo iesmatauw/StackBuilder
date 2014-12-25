@@ -1,19 +1,35 @@
-﻿using System;
+﻿#region Using directives
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using TreeDim.StackBuilder.Basics;
+#endregion
+
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewPalletFilm : Form
+    public partial class FormNewPalletFilm : FormNewBase
     {
-        public FormNewPalletFilm()
+        #region Constructor
+        public FormNewPalletFilm(Document document)
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region FormNewBase overrides
+        public override ItemBase Item
+        {
+            get
+            {
+                PalletFilmProperties palletFilm = new PalletFilmProperties(_document);
+                return palletFilm;
+            }
+        }
+        #endregion
     }
 }

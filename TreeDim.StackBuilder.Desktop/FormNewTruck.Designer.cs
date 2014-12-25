@@ -32,14 +32,10 @@
             this.bnCancel = new System.Windows.Forms.Button();
             this.bnOK = new System.Windows.Forms.Button();
             this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
-            this.tbPalletProperties = new System.Windows.Forms.TextBox();
-            this.cbTruck = new System.Windows.Forms.ComboBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.lbDescription = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.radioButtonTruck2 = new System.Windows.Forms.RadioButton();
-            this.radioButtonTruck1 = new System.Windows.Forms.RadioButton();
             this.uLengthHeight = new System.Windows.Forms.Label();
             this.uLengthWidth = new System.Windows.Forms.Label();
             this.uLengthLength = new System.Windows.Forms.Label();
@@ -89,19 +85,6 @@
             this.trackBarHorizAngle.Value = 225;
             this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
-            // tbPalletProperties
-            // 
-            resources.ApplyResources(this.tbPalletProperties, "tbPalletProperties");
-            this.tbPalletProperties.Name = "tbPalletProperties";
-            this.tbPalletProperties.ReadOnly = true;
-            // 
-            // cbTruck
-            // 
-            resources.ApplyResources(this.cbTruck, "cbTruck");
-            this.cbTruck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTruck.FormattingEnabled = true;
-            this.cbTruck.Name = "cbTruck";
-            // 
             // tbName
             // 
             resources.ApplyResources(this.tbName, "tbName");
@@ -123,20 +106,6 @@
             // 
             resources.ApplyResources(this.lbName, "lbName");
             this.lbName.Name = "lbName";
-            // 
-            // radioButtonTruck2
-            // 
-            resources.ApplyResources(this.radioButtonTruck2, "radioButtonTruck2");
-            this.radioButtonTruck2.Name = "radioButtonTruck2";
-            this.radioButtonTruck2.TabStop = true;
-            this.radioButtonTruck2.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonTruck1
-            // 
-            resources.ApplyResources(this.radioButtonTruck1, "radioButtonTruck1");
-            this.radioButtonTruck1.Name = "radioButtonTruck1";
-            this.radioButtonTruck1.TabStop = true;
-            this.radioButtonTruck1.UseVisualStyleBackColor = true;
             // 
             // uLengthHeight
             // 
@@ -248,7 +217,9 @@
             resources.GetString("cbColor.Items31"),
             resources.GetString("cbColor.Items32"),
             resources.GetString("cbColor.Items33"),
-            resources.GetString("cbColor.Items34")});
+            resources.GetString("cbColor.Items34"),
+            resources.GetString("cbColor.Items35"),
+            resources.GetString("cbColor.Items36")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -317,14 +288,10 @@
             this.Controls.Add(this.lbHeight);
             this.Controls.Add(this.lbWidth);
             this.Controls.Add(this.lbLength);
-            this.Controls.Add(this.tbPalletProperties);
-            this.Controls.Add(this.cbTruck);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.radioButtonTruck2);
-            this.Controls.Add(this.radioButtonTruck1);
             this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.bnCancel);
@@ -355,14 +322,10 @@
         private System.Windows.Forms.Button bnOK;
         private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.TextBox tbPalletProperties;
-        private System.Windows.Forms.ComboBox cbTruck;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label lbDescription;
         private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.RadioButton radioButtonTruck2;
-        private System.Windows.Forms.RadioButton radioButtonTruck1;
         private System.Windows.Forms.Label uLengthHeight;
         private System.Windows.Forms.Label uLengthWidth;
         private System.Windows.Forms.Label uLengthLength;

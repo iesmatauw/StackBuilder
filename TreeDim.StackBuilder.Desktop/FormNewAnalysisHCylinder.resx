@@ -1140,9 +1140,6 @@
 	<metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
 		<value>17, 17</value>
 	</metadata>
-	<data name="bnOk.Text" xml:space="preserve">
-		<value>OK</value>
-	</data>
 	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
 		<value>Column</value>
 	</data>

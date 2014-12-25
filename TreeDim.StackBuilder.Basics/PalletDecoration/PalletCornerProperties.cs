@@ -31,7 +31,9 @@ namespace TreeDim.StackBuilder.Basics
         /// <param name="document">Parent document</param>
         /// <param name="width">Width</param>
         /// <param name="color">Color</param>
-        public PalletCornerProperties(Document document, double width, Color color)
+        public PalletCornerProperties(Document document,
+            string name, string description,
+            double width, Color color)
             : base(document)
         { 
         }

@@ -37,8 +37,6 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
-            radioButtonTruck1.Checked = false;
-            radioButtonTruck2.Checked = true;
 
             // initialize data
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_TRUCK);
@@ -65,9 +63,6 @@ namespace TreeDim.StackBuilder.Desktop
             // save document reference
             _document = document;
             _truckProperties = truckProperties;
-
-            radioButtonTruck1.Checked = false;
-            radioButtonTruck2.Checked = true;
             // set caption text
             Text = string.Format(Properties.Resources.ID_EDIT, _truckProperties.Name);
             // initialize data
@@ -78,10 +73,8 @@ namespace TreeDim.StackBuilder.Desktop
             TruckHeight = _truckProperties.Height;
             TruckAdmissibleLoadWeight = _truckProperties.AdmissibleLoadWeight;
             TruckColor = _truckProperties.Color;
-
             // disable Ok button
             UpdateButtonOkStatus();
-
         }
         #endregion
 

@@ -11,6 +11,11 @@ namespace TreeDim.StackBuilder.Basics
     {
         public PalletCapProperties(Document doc)
             : base(doc)
+        { 
+        }
+        public PalletCapProperties(Document doc,
+            string name, string description)
+            : base(doc)
         {
         }
     }

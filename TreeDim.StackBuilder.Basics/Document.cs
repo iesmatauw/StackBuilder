@@ -353,11 +353,13 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return interlayer;
         }
-        public PalletCornerProperties CreateNewPalletCorners()
+        public PalletCornerProperties CreateNewPalletCorners(string name, string description,
+            double width, Color color)
         {
             // instantiate and initialize
             PalletCornerProperties palletCorners = new PalletCornerProperties(
-                this);
+                this,
+                Name, description, width, color);
             // insert in list
             _typeList.Add(palletCorners);
             // notify listeners
@@ -365,11 +367,12 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return palletCorners;
         }
-        public PalletCapProperties CreateNewPalletCap()
+        public PalletCapProperties CreateNewPalletCap(string name, string description)
         {
             // instantiate and initialize
             PalletCapProperties palletCap = new PalletCapProperties(
-                this);
+                this,
+                name, description);
             // insert in list
             _typeList.Add(palletCap);
             // notify listeners
@@ -377,11 +380,12 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return palletCap;
         }
-        public PalletFilmProperties CreateNewPalletFilm()
+        public PalletFilmProperties CreateNewPalletFilm(string name, string description)
         {
             // instantiate and initialize
             PalletFilmProperties palletFilm = new PalletFilmProperties(
-                this);
+                this,
+                name, description);
             // insert in list
             _typeList.Add(palletFilm);
             // notify listeners

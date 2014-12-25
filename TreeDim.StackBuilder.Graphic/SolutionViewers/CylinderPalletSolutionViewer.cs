@@ -220,10 +220,6 @@ namespace TreeDim.StackBuilder.Graphics
         {
             if (null == _solution || _solution.Count == 0)
                 return;
-
-            bool showAxis = false;
-
-
         }
 
         BBox3D BoundingBoxDim(int index)

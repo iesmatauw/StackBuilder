@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +18,12 @@ namespace TreeDim.StackBuilder.Desktop
 
         public double CornerWidth
         {
-            get { return 0.0; }
+            get { return (double)nudThickness.Value; }
         }
 
         public Color Color
         {
-            get { return Color.Brown; }
+            get { return cbColorCorners.Color; }
         }
     }
 }

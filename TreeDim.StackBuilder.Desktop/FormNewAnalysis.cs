@@ -23,6 +23,9 @@ namespace TreeDim.StackBuilder.Desktop
         private BProperties[] _cases;
         private PalletProperties[] _palletProperties;
         private InterlayerProperties[] _interlayerProperties;
+        private ItemBase[] _palletCornerProperties;
+        private ItemBase[] _palletCapProperties;
+        private ItemBase[] _palletFilmProperties;
         private Document _document;
         private CasePalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysis));
@@ -119,63 +122,12 @@ namespace TreeDim.StackBuilder.Desktop
                         }
                     }
                 }
-                // fill interlayer combo
-                foreach (InterlayerProperties interlayer in _interlayerProperties)
-                    cbInterlayer.Items.Add(new InterlayerItem(interlayer));
-                if (cbInterlayer.Items.Count > 0)
-                {
-                    if (null == _analysis)
-                        cbInterlayer.SelectedIndex = 0;
-                    else
-                    {
-                        for (int i = 0; i < cbInterlayer.Items.Count; ++i)
-                        {
-                            InterlayerItem interlayerItem = cbInterlayer.Items[i] as InterlayerItem;
-                            if (interlayerItem.Item == _analysis.InterlayerProperties)
-                            {
-                                cbInterlayer.SelectedIndex = i;
-                                break;
-                            }
-                        }
-
-                        checkBoxInterlayer.Checked = _analysis.ConstraintSet.HasInterlayer;
-                        checkBoxInterlayer.Enabled = true;
-                    }
-                }
-                else
-                {
-                    checkBoxInterlayer.Checked = false;
-                    checkBoxInterlayer.Enabled = false;
-                }
-
-                // fill anti-slip interlayer combo
-                foreach (InterlayerProperties interlayer in _interlayerProperties)
-                    cbInterlayerAntiSlip.Items.Add(new InterlayerItem(interlayer));
-                if (cbInterlayerAntiSlip.Items.Count > 0)
-                {
-                    if (null == _analysis)
-                        cbInterlayerAntiSlip.SelectedIndex = 0;
-                    else
-                    {
-                        for (int i = 0; i < cbInterlayerAntiSlip.Items.Count; ++i)
-                        {
-                            InterlayerItem interlayerItem = cbInterlayerAntiSlip.Items[i] as InterlayerItem;
-                            if (interlayerItem.Item == _analysis.InterlayerPropertiesAntiSlip)
-                            {
-                                cbInterlayerAntiSlip.SelectedIndex = i;
-                                break;
-                            }
-                        }
-                        checkBoxAntiSlipInterlayer.Checked = _analysis.ConstraintSet.HasInterlayerAntiSlip;
-                        checkBoxAntiSlipInterlayer.Enabled = true;
-                    }
-                }
-                else
-                { 
-                    checkBoxAntiSlipInterlayer.Checked = false;
-                    checkBoxAntiSlipInterlayer.Enabled = false;                
-                }
-
+                // fill other combo
+                FillCombo(checkBoxInterlayer, cbInterlayer, _interlayerProperties, (null == _analysis) ? null : _analysis.InterlayerProperties);
+                FillCombo(checkBoxAntiSlipInterlayer, cbInterlayerAntiSlip, _interlayerProperties, (null == _analysis) ? null : _analysis.InterlayerPropertiesAntiSlip);
+                FillCombo(chkbCorners, cbCorners, _palletCornerProperties, (null == _analysis) ? null : _analysis.PalletCornerProperties);
+                FillCombo(chkbPalletCap, cbPalletCap, _palletCapProperties, (null == _analysis) ? null : _analysis.PalletCapProperties);
+                FillCombo(chkbFilm, cbPalletFilm, _palletFilmProperties, (null == _analysis) ? null : _analysis.PalletFilmProperties);
                 // overhang
                 if (null == _analysis)
                 {
@@ -245,19 +197,6 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumLoadOnBox = _analysis.ConstraintSet.MaximumWeightOnBox;
                 }
 
-                // keep best solutions
-                if (null == _analysis)
-                {
-                    UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
-                    NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;                
-                }
-                else
-                {
-                    UseNumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept;
-                    NumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept ? _analysis.ConstraintSet.NumberOfSolutionsKept : Settings.Default.NoSolutionsToKeep;
-                }
-
-                UpdateSolutionsToKeep();
                 UpdateCriterionFields();
                 UpdateButtonOkStatus();
 
@@ -269,6 +208,31 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
+        }
+
+        private void FillCombo(CheckBox chkb, ComboBox cb, ItemBase[] items, ItemBase selectedItem)
+        {
+            foreach (ItemBase item in items)
+                cb.Items.Add(new ItemBaseEncapsulator(item));
+            if (cb.Items.Count > 0)
+            {
+                if (null == selectedItem)
+                    cb.SelectedIndex = 0;
+                else
+                {
+                    for (int i = 0; i < cb.Items.Count; ++i)
+                    {
+                        ItemBaseEncapsulator itemEncapsulator = cbInterlayer.Items[i] as ItemBaseEncapsulator;
+                        if (itemEncapsulator.Item == selectedItem)
+                        {
+                            cb.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            chkb.Checked = null != selectedItem;
+            chkb.Enabled = null != selectedItem;
         }
 
         private void FormNewAnalysis_FormClosing(object sender, FormClosingEventArgs e)
@@ -287,9 +251,6 @@ namespace TreeDim.StackBuilder.Desktop
                 Settings.Default.AllowAlternateLayer = AllowAlternateLayers;
                 // allowed patterns
                 Settings.Default.AllowedPatterns = AllowedPatternsString;
-                // keep best solutions
-                Settings.Default.KeepBestSolutions = UseNumberOfSolutionsKept;
-                Settings.Default.NoSolutionsToKeep = NumberOfSolutionsKept;
                 // Maximum pallet height / weight
                 Settings.Default.MaximumPalletHeight = UnitsManager.ConvertLengthTo(MaximumPalletHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
                 Settings.Default.MaximumPalletWeight = UnitsManager.ConvertMassTo(MaximumPalletWeight, UnitsManager.UnitSystem.UNIT_METRIC1);
@@ -341,6 +302,21 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return _interlayerProperties; }
             set { _interlayerProperties = value; }
+        }
+        public ItemBase[] PalletCorners
+        {
+            get { return _palletCornerProperties; }
+            set { _palletCornerProperties = value; }
+        }
+        public ItemBase[] PalletCaps
+        {
+            get { return _palletCapProperties; }
+            set { _palletCapProperties = value; }
+        }
+        public ItemBase[] PalletFilms
+        {
+            get { return _palletFilmProperties; }
+            set { _palletFilmProperties = value; }
         }
         /// <summary>
         /// Selected box
@@ -596,22 +572,6 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudPalletOverhangY.Value; }
             set { nudPalletOverhangY.Value = (decimal)value; }
         }
-        /// <summary>
-        /// Keep on the best solutions ?
-        /// </summary>
-        public bool UseNumberOfSolutionsKept
-        {
-            get { return checkBoxKeepSolutions.Checked; }
-            set { checkBoxKeepSolutions.Checked = value; }
-        }
-        /// <summary>
-        ///  Number of solutions to keep
-        /// </summary>
-        public int NumberOfSolutionsKept
-        {
-            get { return (int)nudSolutions.Value; }
-            set { nudSolutions.Value = (decimal)value; }
-        }
         #endregion
 
         #region Handlers
@@ -665,14 +625,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateCriterionFields();
         }
-        private void UpdateSolutionsToKeep()
-        { 
-            nudSolutions.Enabled = checkBoxKeepSolutions.Checked;
-        }
-        private void onCheckedChangedKeepSolutions(object sender, EventArgs e)
-        {
-            UpdateSolutionsToKeep();
-        }
         private void onInterlayerChecked(object sender, EventArgs e)
         {
             cbInterlayer.Enabled = checkBoxInterlayer.Checked;
@@ -708,6 +660,5 @@ namespace TreeDim.StackBuilder.Desktop
             BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
         }
         #endregion
-
     }
 }

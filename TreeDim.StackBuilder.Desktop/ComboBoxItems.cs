@@ -53,21 +53,21 @@ namespace TreeDim.StackBuilder.Desktop
     }
     #endregion
     #region InterlayerItem
-    internal class InterlayerItem
+    internal class ItemBaseEncapsulator
     {
-        private InterlayerProperties _interlayerProperties;
+        private ItemBase _itemBase;
 
-        public InterlayerItem(InterlayerProperties interlayerProperties)
+        public ItemBaseEncapsulator(ItemBase interlayerProperties)
         {
-            _interlayerProperties = interlayerProperties;
+            _itemBase = interlayerProperties;
         }
-        public InterlayerProperties Item
+        public ItemBase Item
         {
-            get { return _interlayerProperties; }
+            get { return _itemBase; }
         }
         public override string ToString()
         {
-            return _interlayerProperties.Name;
+            return _itemBase.Name;
         }
     }
     #endregion

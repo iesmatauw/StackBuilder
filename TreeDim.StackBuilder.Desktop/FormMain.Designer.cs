@@ -67,6 +67,7 @@
             this.newInterlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItemPalletCap = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItemPalletCorners = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItemPalletFilm = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.newTruckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -273,6 +274,7 @@
             this.newInterlayerToolStripMenuItem,
             this.newToolStripMenuItemPalletCap,
             this.newToolStripMenuItemPalletCorners,
+            this.newToolStripMenuItemPalletFilm,
             this.toolStripSeparator14,
             this.newTruckToolStripMenuItem,
             this.toolStripSeparator5,
@@ -334,15 +336,20 @@
             // 
             // newToolStripMenuItemPalletCap
             // 
-            this.newToolStripMenuItemPalletCap.Name = "newToolStripMenuItemPalletCap";
             resources.ApplyResources(this.newToolStripMenuItemPalletCap, "newToolStripMenuItemPalletCap");
+            this.newToolStripMenuItemPalletCap.Name = "newToolStripMenuItemPalletCap";
             this.newToolStripMenuItemPalletCap.Click += new System.EventHandler(this.toolAddNewPalletCap);
             // 
             // newToolStripMenuItemPalletCorners
             // 
-            this.newToolStripMenuItemPalletCorners.Name = "newToolStripMenuItemPalletCorners";
             resources.ApplyResources(this.newToolStripMenuItemPalletCorners, "newToolStripMenuItemPalletCorners");
+            this.newToolStripMenuItemPalletCorners.Name = "newToolStripMenuItemPalletCorners";
             this.newToolStripMenuItemPalletCorners.Click += new System.EventHandler(this.toolAddNewPalletCorners);
+            // 
+            // newToolStripMenuItemPalletFilm
+            // 
+            resources.ApplyResources(this.newToolStripMenuItemPalletFilm, "newToolStripMenuItemPalletFilm");
+            this.newToolStripMenuItemPalletFilm.Name = "newToolStripMenuItemPalletFilm";
             // 
             // toolStripSeparator14
             // 
@@ -475,8 +482,8 @@
             this.toolStripButtonAddNewPallet,
             this.toolStripSeparator12,
             this.toolStripButtonCreateNewInterlayer,
-            this.toolStripButtonPalletCap,
             this.toolStripButtonPalletCorners,
+            this.toolStripButtonPalletCap,
             this.toolStripButtonPalletFilm,
             this.toolStripSeparator13,
             this.toolStripButtonAddNewTruck,
@@ -819,5 +826,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripButton toolStripButtonPalletFilm;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItemPalletFilm;
     }
 }

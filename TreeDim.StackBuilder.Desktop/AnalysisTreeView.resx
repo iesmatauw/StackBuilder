@@ -196,4 +196,13 @@
   <data name="AnalysisHCylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\AnalysisHCylinder.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PalletCap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\PalletCap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PalletCorners" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\PalletCorners.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PalletFilm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\PalletFilm.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

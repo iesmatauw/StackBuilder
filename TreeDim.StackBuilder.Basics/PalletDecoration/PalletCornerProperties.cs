@@ -12,8 +12,8 @@ namespace TreeDim.StackBuilder.Basics
     public class PalletCornerProperties : ItemBase
     {
         #region Data members
-        private double _width;
-        private Color _color;
+        public double _length, _width, _thickness, _weight;
+        public Color _color;
         #endregion
 
         #region Constructors
@@ -33,17 +33,38 @@ namespace TreeDim.StackBuilder.Basics
         /// <param name="color">Color</param>
         public PalletCornerProperties(Document document,
             string name, string description,
-            double width, Color color)
-            : base(document)
-        { 
+            double length, double width, double thickness,
+            double weight,
+            Color color)
+            : base(document, name, description)
+        {
+            _length = length;
+            _width = width;
+            _thickness = thickness;
+            _weight = weight;
         }
         #endregion
 
         #region Properties
+        public double Length
+        {
+            get { return _length; }
+            set { _length = value; }
+        }
         public double Width
         {
             get { return _width; }
             set { _width = value; }
+        }
+        public double Thickness
+        {
+            get { return _thickness; }
+            set { _thickness = value; }
+        }
+        public double Weight
+        {
+            get { return _weight; }
+            set { _weight = value; }
         }
         public Color Color
         {

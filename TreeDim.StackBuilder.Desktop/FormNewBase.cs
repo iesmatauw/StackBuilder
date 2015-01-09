@@ -18,21 +18,18 @@ namespace TreeDim.StackBuilder.Desktop
     {
         #region Data members
         protected Document _document;
+        protected ItemBase _item;
         #endregion
 
         #region Constructor
         /// <summary>
-        /// 
+        /// constructor
         /// </summary>
-        public FormNewBase()
-        { 
-            InitializeComponent();
-            _document = null;        
-        }
-        public FormNewBase(Document document)
+        public FormNewBase(Document document, ItemBase item)
         {
             InitializeComponent();
             _document = document;
+            _item = item;
         }
         #endregion
 
@@ -47,10 +44,10 @@ namespace TreeDim.StackBuilder.Desktop
             get { return tbDescription.Text; }
             set { tbDescription.Text = value; }
         }
-        public virtual ItemBase Item { get { return null; } }
+        public virtual ItemBase Item { get { return _item; } }
         #endregion
 
-        public void UpdateStatus(string message)
+        public virtual void UpdateStatus(string message)
         {
             // status + message
             if (string.IsNullOrEmpty(tbName.Text))
@@ -63,6 +60,11 @@ namespace TreeDim.StackBuilder.Desktop
             bnOk.Enabled = string.IsNullOrEmpty(message);
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+        }
+
+        private void onTextChanged(object sender, EventArgs e)
+        {
+            UpdateStatus(string.Empty);
         }
     }
 }

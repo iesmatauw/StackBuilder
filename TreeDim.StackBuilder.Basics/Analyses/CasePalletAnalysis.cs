@@ -14,6 +14,9 @@ namespace TreeDim.StackBuilder.Basics
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
+        private PalletCornerProperties _palletCornerProperties;
+        private PalletCapProperties _palletCapProperties;
+        private PalletFilmProperties _palletFilmProperties;
         private PalletConstraintSet _constraintSet;
         private List<CasePalletSolution> _solutions;
         private List<SelCasePalletSolution> _selectedSolutions = new List<SelCasePalletSolution>();
@@ -96,6 +99,42 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
+        public PalletCornerProperties PalletCornerProperties
+        {
+            get { return _palletCornerProperties; }
+            set
+            {
+                if (_palletCornerProperties == value) return;
+                if (null != _palletCornerProperties) _palletCornerProperties.RemoveDependancy(this);
+                _palletCornerProperties = value;
+                _palletCornerProperties.AddDependancy(this);
+            }
+        }
+
+        public PalletCapProperties PalletCapProperties
+        {
+            get { return _palletCapProperties; }
+            set
+            {
+                if (_palletCapProperties == value) return;
+                if (null != _palletCapProperties) _palletCapProperties.RemoveDependancy(this);
+                _palletCapProperties = value;
+                _palletCapProperties.AddDependancy(this);
+            }
+        }
+
+        public PalletFilmProperties PalletFilmProperties
+        {
+            get { return _palletFilmProperties; }
+            set
+            {
+                if (_palletFilmProperties == value) return;
+                if (null != _palletFilmProperties) _palletFilmProperties.RemoveDependancy(this);
+                _palletFilmProperties = value;
+                _palletFilmProperties.AddDependancy(this);            
+            }
+        }
+
         public bool HasInterlayer
         {
             get { return (null != _interlayerProperties); }
@@ -103,6 +142,18 @@ namespace TreeDim.StackBuilder.Basics
         public bool HasInterlayerAntiSlip
         {
             get { return (null != _interlayerPropertiesAntiSlip); }
+        }
+        public bool HasPalletCorners
+        {
+            get { return (null != _palletCornerProperties); }
+        }
+        public bool HasPalletCap
+        {
+            get { return (null != _palletCapProperties); }
+        }
+        public bool HasPalletFilm
+        {
+            get { return (null != _palletFilmProperties); }
         }
         public InterlayerProperties InterlayerProperties
         {

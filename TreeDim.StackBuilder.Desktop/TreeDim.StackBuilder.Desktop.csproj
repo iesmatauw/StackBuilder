@@ -1065,6 +1065,9 @@
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.fr-FR.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletCap.resx">
       <DependentUpon>FormNewPalletCap.cs</DependentUpon>
     </EmbeddedResource>
@@ -1514,6 +1517,9 @@
     <Content Include="Resources\Image.bmp" />
     <None Include="Resources\OptimalCase.bmp" />
     <None Include="Resources\PDF.bmp" />
+    <None Include="Resources\PalletCap.bmp" />
+    <None Include="Resources\PalletCorners.bmp" />
+    <None Include="Resources\PalletFilm.bmp" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
     <Content Include="Resources\AnalysisStackingStrength.bmp" />

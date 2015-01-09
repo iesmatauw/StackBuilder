@@ -67,6 +67,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Corner.cs" />
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

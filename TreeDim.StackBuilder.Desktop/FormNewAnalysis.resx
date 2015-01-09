@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>16</value>
   </data>
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>15</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -199,7 +199,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>14</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -226,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>13</value>
   </data>
   <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 10</value>
@@ -247,7 +247,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>12</value>
   </data>
   <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 36</value>
@@ -268,7 +268,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>11</value>
   </data>
   <data name="pictureBoxPositionX.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 18</value>
@@ -469,7 +469,7 @@
     <value>1</value>
   </data>
   <data name="gbAllowedBoxPositions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 237</value>
+    <value>5, 280</value>
   </data>
   <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
     <value>377, 186</value>
@@ -490,7 +490,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbAllowedBoxPositions.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>10</value>
   </data>
   <data name="lbBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -499,13 +499,13 @@
     <value>13, 63</value>
   </data>
   <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
+    <value>31, 13</value>
   </data>
   <data name="lbBox.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
   <data name="lbBox.Text" xml:space="preserve">
-    <value>Box</value>
+    <value>Case</value>
   </data>
   <data name="&gt;&gt;lbBox.Name" xml:space="preserve">
     <value>lbBox</value>
@@ -517,7 +517,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>9</value>
   </data>
   <data name="lbPallet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -544,7 +544,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbPallet.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>8</value>
   </data>
   <data name="cbBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 63</value>
@@ -565,7 +565,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbBox.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>7</value>
   </data>
   <data name="cbPallet.Location" type="System.Drawing.Point, System.Drawing">
     <value>362, 63</value>
@@ -586,7 +586,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPallet.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>6</value>
   </data>
   <data name="checkedListBoxPatterns.Items" xml:space="preserve">
     <value>Column</value>
@@ -628,7 +628,7 @@
     <value>0</value>
   </data>
   <data name="gbAllowedLayerPatterns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>388, 237</value>
+    <value>388, 280</value>
   </data>
   <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 186</value>
@@ -649,7 +649,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbAllowedLayerPatterns.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>5</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -955,7 +955,7 @@
     <value>True</value>
   </data>
   <data name="checkBoxInterlayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 93</value>
+    <value>9, 6</value>
   </data>
   <data name="checkBoxInterlayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 17</value>
@@ -973,13 +973,13 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxInterlayer.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayer</value>
   </data>
   <data name="&gt;&gt;checkBoxInterlayer.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>1</value>
   </data>
   <data name="cbInterlayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 93</value>
+    <value>124, 10</value>
   </data>
   <data name="cbInterlayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -994,16 +994,16 @@
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>0</value>
   </data>
   <data name="lbInterlayerFreq1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbInterlayerFreq1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 97</value>
+    <value>258, 10</value>
   </data>
   <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 13</value>
@@ -1021,13 +1021,13 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayer</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>2</value>
   </data>
   <data name="nudInterlayerFreq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>308, 93</value>
+    <value>304, 6</value>
   </data>
   <data name="nudInterlayerFreq.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -1042,16 +1042,16 @@
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudInterlayerFreq.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayer</value>
   </data>
   <data name="&gt;&gt;nudInterlayerFreq.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="lbInterlayerFreq2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbInterlayerFreq2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 97</value>
+    <value>364, 10</value>
   </data>
   <data name="lbInterlayerFreq2.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 13</value>
@@ -1069,10 +1069,10 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq2.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayer</value>
   </data>
   <data name="&gt;&gt;lbInterlayerFreq2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="lbPalletOverhangLength.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1225,7 +1225,7 @@
     <value>1</value>
   </data>
   <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 153</value>
+    <value>5, 196</value>
   </data>
   <data name="gbOverhangUnderhang.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 78</value>
@@ -1246,7 +1246,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbOverhangUnderhang.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="checkBoxAllowAlignedLayer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1303,7 +1303,7 @@
     <value>0</value>
   </data>
   <data name="gbLayerAlignment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 153</value>
+    <value>258, 196</value>
   </data>
   <data name="gbLayerAlignment.Size" type="System.Drawing.Size, System.Drawing">
     <value>317, 78</value>
@@ -1324,13 +1324,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbLayerAlignment.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 429</value>
+    <value>5, 472</value>
   </data>
   <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 138</value>
+    <value>377, 138</value>
   </data>
   <data name="gbStopStackingCondition.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
@@ -1348,106 +1348,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbStopStackingCondition.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lbSolutions.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 19</value>
-  </data>
-  <data name="lbSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 13</value>
-  </data>
-  <data name="lbSolutions.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="lbSolutions.Text" xml:space="preserve">
-    <value>best solution(s)</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.Name" xml:space="preserve">
-    <value>lbSolutions</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;lbSolutions.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="nudSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 15</value>
-  </data>
-  <data name="nudSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
-  </data>
-  <data name="nudSolutions.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.Name" xml:space="preserve">
-    <value>nudSolutions</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;nudSolutions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkBoxKeepSolutions.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 17</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 17</value>
-  </data>
-  <data name="checkBoxKeepSolutions.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="checkBoxKeepSolutions.Text" xml:space="preserve">
-    <value>that are among the</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Name" xml:space="preserve">
-    <value>checkBoxKeepSolutions</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.Parent" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeepSolutions.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="gbAdditionalData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 569</value>
-  </data>
-  <data name="gbAdditionalData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>568, 40</value>
-  </data>
-  <data name="gbAdditionalData.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="gbAdditionalData.Text" xml:space="preserve">
-    <value>Additional data</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.Name" xml:space="preserve">
-    <value>gbAdditionalData</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbAdditionalData.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 579</value>
@@ -1459,7 +1360,7 @@
     <value>toolStripStatusLabelDef</value>
   </data>
   <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 614</value>
+    <value>0, 620</value>
   </data>
   <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 22</value>
@@ -1480,13 +1381,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="checkBoxAntiSlipInterlayer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxAntiSlipInterlayer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 123</value>
+    <value>8, 8</value>
   </data>
   <data name="checkBoxAntiSlipInterlayer.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 17</value>
@@ -1504,13 +1405,13 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxAntiSlipInterlayer.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayerAntiSlip</value>
   </data>
   <data name="&gt;&gt;checkBoxAntiSlipInterlayer.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="cbInterlayerAntiSlip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 123</value>
+    <value>124, 6</value>
   </data>
   <data name="cbInterlayerAntiSlip.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -1525,9 +1426,366 @@
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbInterlayerAntiSlip.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>tabPageInterlayerAntiSlip</value>
   </data>
   <data name="&gt;&gt;cbInterlayerAntiSlip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabControlAddFeat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tabPageInterlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageInterlayer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
+  </data>
+  <data name="tabPageInterlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Interlayers</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.Name" xml:space="preserve">
+    <value>tabPageInterlayer</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.Parent" xml:space="preserve">
+    <value>tabControlAddFeat</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageInterlayerAntiSlip.Text" xml:space="preserve">
+    <value>Anti-slip interlayer</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayerAntiSlip.Name" xml:space="preserve">
+    <value>tabPageInterlayerAntiSlip</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayerAntiSlip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayerAntiSlip.Parent" xml:space="preserve">
+    <value>tabControlAddFeat</value>
+  </data>
+  <data name="&gt;&gt;tabPageInterlayerAntiSlip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbStart2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbStart2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 55</value>
+  </data>
+  <data name="rbStart2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 17</value>
+  </data>
+  <data name="rbStart2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="rbStart2.Text" xml:space="preserve">
+    <value>Start from first layer mid height</value>
+  </data>
+  <data name="&gt;&gt;rbStart2.Name" xml:space="preserve">
+    <value>rbStart2</value>
+  </data>
+  <data name="&gt;&gt;rbStart2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbStart2.Parent" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;rbStart2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbStart1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rbStart1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 31</value>
+  </data>
+  <data name="rbStart1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 17</value>
+  </data>
+  <data name="rbStart1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="rbStart1.Text" xml:space="preserve">
+    <value>Start from pallet</value>
+  </data>
+  <data name="&gt;&gt;rbStart1.Name" xml:space="preserve">
+    <value>rbStart1</value>
+  </data>
+  <data name="&gt;&gt;rbStart1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbStart1.Parent" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;rbStart1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 9</value>
+  </data>
+  <data name="cbCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbCorners.Name" xml:space="preserve">
+    <value>cbCorners</value>
+  </data>
+  <data name="&gt;&gt;cbCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCorners.Parent" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;cbCorners.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chkbCorners.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 9</value>
+  </data>
+  <data name="chkbCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 17</value>
+  </data>
+  <data name="chkbCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkbCorners.Text" xml:space="preserve">
+    <value>Corners</value>
+  </data>
+  <data name="&gt;&gt;chkbCorners.Name" xml:space="preserve">
+    <value>chkbCorners</value>
+  </data>
+  <data name="&gt;&gt;chkbCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbCorners.Parent" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;chkbCorners.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPagePalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePalletCorners.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPagePalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
+  </data>
+  <data name="tabPagePalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Corners</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.Name" xml:space="preserve">
+    <value>tabPagePalletCorners</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.Parent" xml:space="preserve">
+    <value>tabControlAddFeat</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCorners.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 10</value>
+  </data>
+  <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
+    <value>cbPalletCap</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 10</value>
+  </data>
+  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="chkbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Pallet cap</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.Name" xml:space="preserve">
+    <value>chkbPalletCap</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletCap.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabPagePalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePalletCap.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
+  </data>
+  <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Pallet cap</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Name" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.Parent" xml:space="preserve">
+    <value>tabControlAddFeat</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletCap.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 9</value>
+  </data>
+  <data name="cbPalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cbPalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbPalletFilm.Name" xml:space="preserve">
+    <value>cbPalletFilm</value>
+  </data>
+  <data name="&gt;&gt;cbPalletFilm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbPalletFilm.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkbFilm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 9</value>
+  </data>
+  <data name="chkbFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="chkbFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkbFilm.Text" xml:space="preserve">
+    <value>Pallet film</value>
+  </data>
+  <data name="&gt;&gt;chkbFilm.Name" xml:space="preserve">
+    <value>chkbFilm</value>
+  </data>
+  <data name="&gt;&gt;chkbFilm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbFilm.Parent" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;chkbFilm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabPagePalletFilm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPagePalletFilm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>559, 76</value>
+  </data>
+  <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Name" xml:space="preserve">
+    <value>tabPagePalletFilm</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.Parent" xml:space="preserve">
+    <value>tabControlAddFeat</value>
+  </data>
+  <data name="&gt;&gt;tabPagePalletFilm.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabControlAddFeat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 90</value>
+  </data>
+  <data name="tabControlAddFeat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>567, 102</value>
+  </data>
+  <data name="tabControlAddFeat.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="&gt;&gt;tabControlAddFeat.Name" xml:space="preserve">
+    <value>tabControlAddFeat</value>
+  </data>
+  <data name="&gt;&gt;tabControlAddFeat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControlAddFeat.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControlAddFeat.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1537,10 +1795,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 636</value>
+    <value>584, 642</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 620</value>
+    <value>600, 680</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Create new case/pallet analysis</value>

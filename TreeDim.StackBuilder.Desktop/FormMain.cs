@@ -725,6 +725,9 @@ namespace TreeDim.StackBuilder.Desktop
             // new case
             newCaseToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewCase.Enabled = (null != doc);
+            // new bundle
+            newBundleToolStripMenuItem.Enabled = (null != doc);
+            toolStripButtonCreateNewBundle.Enabled = (null != doc);
             // new cylinder
             newCylinderToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewCylinder.Enabled = (null != doc);
@@ -737,12 +740,12 @@ namespace TreeDim.StackBuilder.Desktop
             // pallet cap
             newToolStripMenuItemPalletCap.Enabled = (null != doc);
             toolStripButtonPalletCap.Enabled = (null != doc);
-            // pallet corners
+            // pallet film
+            newToolStripMenuItemPalletFilm.Enabled = (null != doc);
+            toolStripButtonPalletFilm.Enabled = (null != doc);
+             // pallet corners
             newToolStripMenuItemPalletCorners.Enabled = (null != doc);
             toolStripButtonPalletCorners.Enabled = (null != doc);
-            // new bundle
-            newBundleToolStripMenuItem.Enabled = (null != doc);
-            toolStripButtonCreateNewBundle.Enabled = (null != doc);
             // new truck
             newTruckToolStripMenuItem.Enabled = (null != doc);
             toolStripButtonAddNewTruck.Enabled = (null != doc);

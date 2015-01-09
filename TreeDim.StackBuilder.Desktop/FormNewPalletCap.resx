@@ -117,10 +117,632 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="nudCapLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 65</value>
+  </data>
+  <data name="nudCapLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="nudCapLength.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;nudCapLength.Name" xml:space="preserve">
+    <value>nudCapLength</value>
+  </data>
+  <data name="&gt;&gt;nudCapLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapLength.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapLength.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="nudCapInnerLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 65</value>
+  </data>
+  <data name="nudCapInnerLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="nudCapInnerLength.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerLength.Name" xml:space="preserve">
+    <value>nudCapInnerLength</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerLength.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerLength.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="nudCapWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 88</value>
+  </data>
+  <data name="nudCapWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="nudCapWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;nudCapWidth.Name" xml:space="preserve">
+    <value>nudCapWidth</value>
+  </data>
+  <data name="&gt;&gt;nudCapWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapWidth.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapWidth.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="nudCapInnerWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 88</value>
+  </data>
+  <data name="nudCapInnerWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="nudCapInnerWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerWidth.Name" xml:space="preserve">
+    <value>nudCapInnerWidth</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerWidth.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerWidth.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="nudCapHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 112</value>
+  </data>
+  <data name="nudCapHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="nudCapHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;nudCapHeight.Name" xml:space="preserve">
+    <value>nudCapHeight</value>
+  </data>
+  <data name="&gt;&gt;nudCapHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapHeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapHeight.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="nudCapInnerHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 112</value>
+  </data>
+  <data name="nudCapInnerHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="nudCapInnerHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerHeight.Name" xml:space="preserve">
+    <value>nudCapInnerHeight</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerHeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapInnerHeight.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="nudCapWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 139</value>
+  </data>
+  <data name="nudCapWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="nudCapWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;nudCapWeight.Name" xml:space="preserve">
+    <value>nudCapWeight</value>
+  </data>
+  <data name="&gt;&gt;nudCapWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCapWeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nudCapWeight.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="lbLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 69</value>
+  </data>
+  <data name="lbLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="lbLength.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Name" xml:space="preserve">
+    <value>lbLength</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="lbWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 92</value>
+  </data>
+  <data name="lbWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="lbWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
+    <value>lbWidth</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbWidth.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="lbHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 116</value>
+  </data>
+  <data name="lbHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="lbHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
+    <value>lbHeight</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="lbWeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 143</value>
+  </data>
+  <data name="lbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="lbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.Name" xml:space="preserve">
+    <value>lbWeight</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbWeight.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 167</value>
+  </data>
+  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 22</value>
+  </data>
+  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
+    <value>cbColor</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5437.17761, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 172</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lbInsideLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInsideLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 69</value>
+  </data>
+  <data name="lbInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="lbInsideLength.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="lbInsideLength.Text" xml:space="preserve">
+    <value>Inside length</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.Name" xml:space="preserve">
+    <value>lbInsideLength</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbInsideLength.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 92</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Inside width</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 116</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Inside height</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="pbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 144</value>
+  </data>
+  <data name="pbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 187</value>
+  </data>
+  <data name="pbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;pbPalletCap.Name" xml:space="preserve">
+    <value>pbPalletCap</value>
+  </data>
+  <data name="&gt;&gt;pbPalletCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbPalletCap.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbPalletCap.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="uLengthLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 69</value>
+  </data>
+  <data name="uLengthLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthLength.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="uLengthLength.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.Name" xml:space="preserve">
+    <value>uLengthLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uLengthLength.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="uLengthWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 92</value>
+  </data>
+  <data name="uLengthWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="uLengthWidth.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.Name" xml:space="preserve">
+    <value>uLengthWidth</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uLengthWidth.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="uLengthHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 116</value>
+  </data>
+  <data name="uLengthHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="uLengthHeight.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.Name" xml:space="preserve">
+    <value>uLengthHeight</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uLengthHeight.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="uMassWeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uMassWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 143</value>
+  </data>
+  <data name="uMassWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="uMassWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value>uMass</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.Name" xml:space="preserve">
+    <value>uMassWeight</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uMassWeight.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="uLengthInsideLength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthInsideLength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 69</value>
+  </data>
+  <data name="uLengthInsideLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthInsideLength.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="uLengthInsideLength.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideLength.Name" xml:space="preserve">
+    <value>uLengthInsideLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideLength.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideLength.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 92</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uLengthInsideHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uLengthInsideHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 116</value>
+  </data>
+  <data name="uLengthInsideHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="uLengthInsideHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="uLengthInsideHeight.Text" xml:space="preserve">
+    <value>uLength</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideHeight.Name" xml:space="preserve">
+    <value>uLengthInsideHeight</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideHeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uLengthInsideHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -134,6 +756,6 @@
     <value>FormNewPalletCap</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Desktop.FormNewBase, TreeDim.StackBuilder.Desktop, Version=1.0.42.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Desktop.FormNewBase, TreeDim.StackBuilder.Desktop, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

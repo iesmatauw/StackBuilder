@@ -118,6 +118,33 @@ namespace TreeDim.StackBuilder.Desktop {
             }
         }
 
+        internal static System.Drawing.Bitmap PalletCorners
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("PalletCorners", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap PalletCap
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("PalletCap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap PalletFilm
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("PalletFilm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         internal static System.Drawing.Bitmap Bundle {
             get {
                 object obj = ResourceManager.GetObject("Bundle", resourceCulture);

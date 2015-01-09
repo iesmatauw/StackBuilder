@@ -385,6 +385,33 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new pallet cap....
+        /// </summary>
+        internal static string ID_ADDNEWPALLETCAP {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWPALLETCAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new pallet corners....
+        /// </summary>
+        internal static string ID_ADDNEWPALLETCORNERS {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWPALLETCORNERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new pallet film....
+        /// </summary>
+        internal static string ID_ADDNEWPALLETFILM {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWPALLETFILM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new truck....
         /// </summary>
         internal static string ID_ADDNEWTRUCK {
@@ -1050,6 +1077,33 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_NODE_INTERLAYERS {
             get {
                 return ResourceManager.GetString("ID_NODE_INTERLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet caps.
+        /// </summary>
+        internal static string ID_NODE_PALLETCAPS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETCAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet corners.
+        /// </summary>
+        internal static string ID_NODE_PALLETCORNERS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETCORNERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet films.
+        /// </summary>
+        internal static string ID_NODE_PALLETFILMS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETFILMS", resourceCulture);
             }
         }
         

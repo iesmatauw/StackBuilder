@@ -40,10 +40,14 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.lbColor = new System.Windows.Forms.Label();
             this.cbColorCorners = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.lbWeight = new System.Windows.Forms.Label();
+            this.nudWeight = new System.Windows.Forms.NumericUpDown();
+            this.uMassWeight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // lbWidth
@@ -154,7 +158,7 @@
             // lbColor
             // 
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(13, 160);
+            this.lbColor.Location = new System.Drawing.Point(13, 204);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(31, 13);
             this.lbColor.TabIndex = 21;
@@ -170,16 +174,52 @@
             this.cbColorCorners.IntegralHeight = false;
             this.cbColorCorners.ItemHeight = 16;
             this.cbColorCorners.Items.AddRange(new object[] {
+            "Color",
+            "Color",
             "Color"});
-            this.cbColorCorners.Location = new System.Drawing.Point(111, 155);
+            this.cbColorCorners.Location = new System.Drawing.Point(111, 201);
             this.cbColorCorners.Name = "cbColorCorners";
             this.cbColorCorners.Size = new System.Drawing.Size(66, 22);
             this.cbColorCorners.TabIndex = 22;
+            // 
+            // lbWeight
+            // 
+            this.lbWeight.AutoSize = true;
+            this.lbWeight.Location = new System.Drawing.Point(13, 155);
+            this.lbWeight.Name = "lbWeight";
+            this.lbWeight.Size = new System.Drawing.Size(41, 13);
+            this.lbWeight.TabIndex = 23;
+            this.lbWeight.Text = "Weight";
+            // 
+            // nudWeight
+            // 
+            this.nudWeight.DecimalPlaces = 2;
+            this.nudWeight.Location = new System.Drawing.Point(111, 153);
+            this.nudWeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudWeight.Name = "nudWeight";
+            this.nudWeight.Size = new System.Drawing.Size(66, 20);
+            this.nudWeight.TabIndex = 24;
+            // 
+            // uMassWeight
+            // 
+            this.uMassWeight.AutoSize = true;
+            this.uMassWeight.Location = new System.Drawing.Point(184, 159);
+            this.uMassWeight.Name = "uMassWeight";
+            this.uMassWeight.Size = new System.Drawing.Size(38, 13);
+            this.uMassWeight.TabIndex = 25;
+            this.uMassWeight.Text = "uMass";
             // 
             // FormNewPalletCorners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(584, 362);
+            this.Controls.Add(this.uMassWeight);
+            this.Controls.Add(this.nudWeight);
+            this.Controls.Add(this.lbWeight);
             this.Controls.Add(this.cbColorCorners);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.pictureBox);
@@ -206,10 +246,14 @@
             this.Controls.SetChildIndex(this.pictureBox, 0);
             this.Controls.SetChildIndex(this.lbColor, 0);
             this.Controls.SetChildIndex(this.cbColorCorners, 0);
+            this.Controls.SetChildIndex(this.lbWeight, 0);
+            this.Controls.SetChildIndex(this.nudWeight, 0);
+            this.Controls.SetChildIndex(this.uMassWeight, 0);
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +273,8 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorCorners;
+        private System.Windows.Forms.Label lbWeight;
+        private System.Windows.Forms.NumericUpDown nudWeight;
+        private System.Windows.Forms.Label uMassWeight;
     }
 }

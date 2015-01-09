@@ -273,6 +273,12 @@
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
   <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 340</value>
   </data>
@@ -296,12 +302,6 @@
   </data>
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

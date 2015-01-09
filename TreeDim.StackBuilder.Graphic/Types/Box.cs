@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Sharp3D.Math.Core;
 using System.Drawing;
 using System.Diagnostics;
 
+using Sharp3D.Math.Core;
 using TreeDim.StackBuilder.Basics;
 #endregion
 
@@ -642,6 +642,19 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
     }
     #endregion
+    /*
+    #region Corner
+    public class Corner : Drawable
+    {
+        #region Data members
+        private Color _color;
+        #endregion
+
+        #region Constructor
+        #endregion
+    }
+    #endregion
+    */ 
 
     #region TriangleIndices
     public class TriangleIndices
@@ -655,6 +668,7 @@ namespace TreeDim.StackBuilder.Graphics
         }
         #endregion
 
+        #region Convert to string
         public string ConvertToString(ulong iTriangleIndex)
         {
             return string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} "
@@ -663,6 +677,7 @@ namespace TreeDim.StackBuilder.Graphics
                 , _vertex[2] + iTriangleIndex * 8, _normal[2], _UV[2]
                 );
         }
+        #endregion
 
         #region Data members
         public ulong[] _vertex = new ulong[3];

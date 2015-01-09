@@ -354,12 +354,17 @@ namespace TreeDim.StackBuilder.Basics
             return interlayer;
         }
         public PalletCornerProperties CreateNewPalletCorners(string name, string description,
-            double width, Color color)
+            double length, double width, double thickness,
+            double weight,
+            Color color)
         {
             // instantiate and initialize
             PalletCornerProperties palletCorners = new PalletCornerProperties(
                 this,
-                Name, description, width, color);
+                name, description,
+                length, width, thickness,
+                weight,
+                color);
             // insert in list
             _typeList.Add(palletCorners);
             // notify listeners
@@ -367,7 +372,12 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return palletCorners;
         }
-        public PalletCapProperties CreateNewPalletCap(string name, string description)
+        public PalletCapProperties CreateNewPalletCap(
+            string name, string description,
+            double length, double width, double height,
+            double innerLength, double innerWidth, double innerHeight,
+            double weight,
+            Color color)
         {
             // instantiate and initialize
             PalletCapProperties palletCap = new PalletCapProperties(
@@ -380,12 +390,19 @@ namespace TreeDim.StackBuilder.Basics
             Modify();
             return palletCap;
         }
-        public PalletFilmProperties CreateNewPalletFilm(string name, string description)
+        public PalletFilmProperties CreateNewPalletFilm(
+            string name, string description,
+            bool useTransparency,
+            bool useHatching, double hatchSpacing,
+            Color color)
         {
             // instantiate and initialize
             PalletFilmProperties palletFilm = new PalletFilmProperties(
                 this,
-                name, description);
+                name, description,
+                useTransparency,
+                useHatching, hatchSpacing,
+                color);
             // insert in list
             _typeList.Add(palletFilm);
             // notify listeners
@@ -944,6 +961,16 @@ namespace TreeDim.StackBuilder.Basics
                 return interlayerList;
             }
         }
+        public List<ItemBase> ListByType(Type t)
+        {
+            List<ItemBase> itemList = new List<ItemBase>();
+            foreach (ItemBase item in _typeList)
+            {
+                if (item.GetType() == t)
+                    itemList.Add(item);
+            }
+            return itemList;
+        }
         /// <summary>
         /// Build and returns a list of trucks
         /// </summary>
@@ -1068,6 +1095,12 @@ namespace TreeDim.StackBuilder.Basics
                                 LoadPalletProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "InterlayerProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadInterlayerProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "PalletCornerProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadPalletCornerProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "PalletCapProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadPalletCapProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "PalletFilmProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadPalletFilmProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "BundleProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadBundleProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "TruckProperties", StringComparison.CurrentCultureIgnoreCase))
@@ -1384,6 +1417,72 @@ namespace TreeDim.StackBuilder.Basics
                 , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
                 , Color.FromArgb(System.Convert.ToInt32(sColor)));
             interlayerProperties.Guid = new Guid(sid);
+        }
+        private void LoadPalletCornerProperties(XmlElement eltPalletCornerProperties)
+        {
+            string sid = eltPalletCornerProperties.Attributes["Id"].Value;
+            string sname = eltPalletCornerProperties.Attributes["Name"].Value;
+            string sdescription = eltPalletCornerProperties.Attributes["Description"].Value;
+            string slength = eltPalletCornerProperties.Attributes["Length"].Value;
+            string swidth = eltPalletCornerProperties.Attributes["Width"].Value;
+            string sthickness = eltPalletCornerProperties.Attributes["Thickness"].Value;
+            string sweight = eltPalletCornerProperties.Attributes["Weight"].Value;
+            string sColor = eltPalletCornerProperties.Attributes["Color"].Value;
+
+            // create new PalletCornerProperties instance
+            PalletCornerProperties palletCornerProperties = CreateNewPalletCorners(
+                sname
+                , sdescription
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sthickness, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(System.Convert.ToInt32(sColor))
+                );
+            palletCornerProperties.Guid = new Guid(sid);
+        }
+        private void LoadPalletCapProperties(XmlElement eltPalletCapProperties)
+        {
+            string sid = eltPalletCapProperties.Attributes["Id"].Value;
+            string sname = eltPalletCapProperties.Attributes["Name"].Value;
+            string sdescription = eltPalletCapProperties.Attributes["Description"].Value;
+            string slength = eltPalletCapProperties.Attributes["Length"].Value;
+            string swidth = eltPalletCapProperties.Attributes["Width"].Value;
+            string sheight = eltPalletCapProperties.Attributes["Height"].Value;
+            string sinnerlength = eltPalletCapProperties.Attributes["InnerLength"].Value;
+            string sinnerwidth = eltPalletCapProperties.Attributes["InnerWidth"].Value;
+            string sinnerheight = eltPalletCapProperties.Attributes["InnerHeight"].Value;
+            string sweight = eltPalletCapProperties.Attributes["Weight"].Value;
+            string sColor = eltPalletCapProperties.Attributes["Color"].Value;
+
+            PalletCapProperties palletCapProperties = CreateNewPalletCap(
+                sname
+                , sdescription
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(slength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(swidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerlength, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerwidth, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sinnerheight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, System.Globalization.CultureInfo.InvariantCulture), _unitSystem)
+                , Color.FromArgb(System.Convert.ToInt32(sColor))
+                );
+            palletCapProperties.Guid = new Guid(sid);
+        }
+        private void LoadPalletFilmProperties(XmlElement eltPalletFilmProperties)
+        {
+            string sid = eltPalletFilmProperties.Attributes["Id"].Value;
+            string sname = eltPalletFilmProperties.Attributes["Name"].Value;
+            string sdescription = eltPalletFilmProperties.Attributes["Description"].Value;
+
+            PalletFilmProperties palletFilmProperties = CreateNewPalletFilm(
+                sname,
+                sdescription,
+                eltPalletFilmProperties.Attributes["Transparency"].Value,
+                eltPalletFilmProperties.Attributes["Hatching"].Value,
+
+                );
+            palletFilmProperties.Guid = new Guid(sid);
         }
         private void LoadBundleProperties(XmlElement eltBundleProperties)
         {
@@ -2276,6 +2375,15 @@ namespace TreeDim.StackBuilder.Basics
                     InterlayerProperties interlayerProperties = itemProperties as InterlayerProperties;
                     if (null != interlayerProperties)
                         Save(interlayerProperties, xmlItemPropertiesElt, xmlDoc);
+                    PalletCornerProperties cornerProperties = itemProperties as PalletCornerProperties;
+                    if (null != cornerProperties)
+                        Save(cornerProperties, xmlItemPropertiesElt, xmlDoc);
+                    PalletCapProperties capProperties = itemProperties as PalletCapProperties;
+                    if (null != capProperties)
+                        Save(capProperties, xmlItemPropertiesElt, xmlDoc);
+                    PalletFilmProperties filmProperties = itemProperties as PalletFilmProperties;
+                    if (null != filmProperties)
+                        Save(filmProperties, xmlItemPropertiesElt, xmlDoc);
                     TruckProperties truckProperties = itemProperties as TruckProperties;
                     if (null != truckProperties)
                         Save(truckProperties, xmlItemPropertiesElt, xmlDoc);
@@ -2350,6 +2458,7 @@ namespace TreeDim.StackBuilder.Basics
                 InterlayerProperties interlayerProperties = sol.Analysis.InterlayerProperties as InterlayerProperties;
                 if (null != interlayerProperties)
                     Save(interlayerProperties, xmlItemPropertiesElt, xmlDoc);
+
                 if (null != selSolution && selSolution.TruckAnalyses.Count > 0)
                 {
                     TruckProperties truckProperties = selSolution.TruckAnalyses[0].TruckProperties;
@@ -2694,6 +2803,120 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
             colorAttribute.Value = string.Format("{0}", interlayerProperties.Color.ToArgb());
             xmlInterlayerProperties.Attributes.Append(colorAttribute);
+        }
+
+        public void Save(PalletCornerProperties cornerProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create PalletCornerProperties element
+            XmlElement xmlCornerProperties = xmlDoc.CreateElement("PalletCornerProperties");
+            parentElement.AppendChild(xmlCornerProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = cornerProperties.Guid.ToString();
+            xmlCornerProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = cornerProperties.Name;
+            xmlCornerProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = cornerProperties.Description;
+            xmlCornerProperties.Attributes.Append(descAttribute);
+            // length
+            XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
+            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Length);
+            xmlCornerProperties.Attributes.Append(lengthAttribute);
+            // width
+            XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
+            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Width);
+            xmlCornerProperties.Attributes.Append(widthAttribute);
+            // height
+            XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Thickness");
+            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Thickness);
+            xmlCornerProperties.Attributes.Append(heightAttribute);
+            // weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", cornerProperties.Weight);
+            xmlCornerProperties.Attributes.Append(weightAttribute);
+            // color
+            XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
+            colorAttribute.Value = string.Format("{0}", cornerProperties.Color.ToArgb());
+            xmlCornerProperties.Attributes.Append(colorAttribute);
+        }
+
+        public void Save(PalletCapProperties capProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create PalletCornerProperties element
+            XmlElement xmlCapProperties = xmlDoc.CreateElement("PalletCaproperties");
+            parentElement.AppendChild(xmlCapProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = capProperties.Guid.ToString();
+            xmlCapProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = capProperties.Name;
+            xmlCapProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = capProperties.Description;
+            xmlCapProperties.Attributes.Append(descAttribute);
+            // length
+            XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
+            lengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Length);
+            xmlCapProperties.Attributes.Append(lengthAttribute);
+            // width
+            XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
+            widthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Width);
+            xmlCapProperties.Attributes.Append(widthAttribute);
+            // height
+            XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
+            heightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Height);
+            xmlCapProperties.Attributes.Append(heightAttribute);
+            // inside length
+            XmlAttribute insideLengthAttribute = xmlDoc.CreateAttribute("InsideLength");
+            insideLengthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Length);
+            xmlCapProperties.Attributes.Append(insideLengthAttribute);
+            // inside width
+            XmlAttribute insideWidthAttribute = xmlDoc.CreateAttribute("InsideWidth");
+            insideWidthAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Width);
+            xmlCapProperties.Attributes.Append(insideWidthAttribute);
+            // inside height
+            XmlAttribute insideHeightAttribute = xmlDoc.CreateAttribute("InsideHeight");
+            insideHeightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Height);
+            xmlCapProperties.Attributes.Append(insideHeightAttribute);
+            // weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", capProperties.Weight);
+            xmlCapProperties.Attributes.Append(weightAttribute);
+            // color
+            XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
+            colorAttribute.Value = string.Format("{0}", capProperties.Color.ToArgb());
+            xmlCapProperties.Attributes.Append(colorAttribute); 
+        }
+
+        public void Save(PalletFilmProperties filmProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create PalletFilmProperties element
+            XmlElement xmlFilmProperties = xmlDoc.CreateElement("PalletFilmProperties");
+            parentElement.AppendChild(xmlFilmProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = filmProperties.Guid.ToString();
+            xmlFilmProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = filmProperties.Name;
+            xmlFilmProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = filmProperties.Description;
+            xmlFilmProperties.Attributes.Append(descAttribute);
+            // color
+            XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
+            colorAttribute.Value = string.Format("{0}", filmProperties.Color.ToArgb());
+            xmlFilmProperties.Attributes.Append(colorAttribute); 
+
         }
 
         public void Save(BundleProperties bundleProperties, XmlElement parentElement, XmlDocument xmlDoc)

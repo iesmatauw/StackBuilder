@@ -275,23 +275,28 @@ namespace TreeDim.StackBuilder.Desktop
                     , form.Color);
         }
         /// <summary>
-        /// Creates a new pallet cap
-        /// </summary>
-        public void CreateNewPalletCapUI()
-        {
-            FormNewPalletCap form = new FormNewPalletCap(this);
-            if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletCap(form.ItemName, form.ItemDescription);
-        }
-        /// <summary>
         /// Creates new pallet corners
         /// </summary>
         public void CreateNewPalletCornersUI()
         {
-            FormNewPalletCorners form = new FormNewPalletCorners();
+            FormNewPalletCorners form = new FormNewPalletCorners(this);
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewPalletCorners(form.ItemName, form.ItemDescription,
-                    form.Width, form.Color);
+                    form.CornerLength, form.CornerWidth, form.CornerThickness,
+                    form.CornerWeight,
+                    form.Color);
+        }
+        /// <summary>
+        /// Creates a new pallet cap
+        /// </summary>
+        public void CreateNewPalletCapUI()
+        {
+            FormNewPalletCap form = new FormNewPalletCap(this, null);
+            if (DialogResult.OK == form.ShowDialog())
+                CreateNewPalletCap(form.ItemName, form.ItemDescription, 
+                    form.CapLength, form.CapWidth, form.CapHeight,
+                    form.CapInnerLength, form.CapInnerWidth, form.CapInnerHeight,
+                    form.CapWeight, form.Color);
         }
         /// <summary>
         /// Creates new pallet film
@@ -300,7 +305,10 @@ namespace TreeDim.StackBuilder.Desktop
         {
             FormNewPalletFilm form = new FormNewPalletFilm(this);
             if (DialogResult.OK == form.ShowDialog())
-                CreateNewPalletFilm(form.ItemName, form.ItemDescription);
+                CreateNewPalletFilm(form.ItemName, form.ItemDescription,
+                    form.UseTransparency,
+                    form.UseHatching, form.HatchSpacing,
+                    form.Color);
         }
         /// <summary>
         /// creates a new PalletProperties object
@@ -340,6 +348,10 @@ namespace TreeDim.StackBuilder.Desktop
             form.Cases = Cases.ToArray();
             form.Pallets = Pallets.ToArray();
             form.Interlayers = Interlayers.ToArray();
+            form.PalletCorners = ListByType(typeof(PalletCornerProperties)).ToArray();
+            form.PalletCaps = ListByType(typeof(PalletCapProperties)).ToArray();
+            form.PalletFilms = ListByType(typeof(PalletFilmProperties)).ToArray();
+
             if (DialogResult.OK == form.ShowDialog())
             {
                 // build constraint set
@@ -375,9 +387,9 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
                 constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
                 // number of solution kept
-                constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
-                if (form.UseNumberOfSolutionsKept)
-                    constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+                constraintSet.UseNumberOfSolutionsKept = Properties.Settings.Default.KeepBestSolutions;
+                if (constraintSet.UseNumberOfSolutionsKept)
+                    constraintSet.NumberOfSolutionsKept = Properties.Settings.Default.NoSolutionsToKeep;
 
                 return CreateNewCasePalletAnalysis(
                     form.AnalysisName, form.AnalysisDescription,
@@ -636,9 +648,9 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
                     constraintSet.MaximumWeightOnBox = form.MaximumLoadOnBox;
                     // number of solution kept
-                    constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
-                    if (form.UseNumberOfSolutionsKept)
-                        constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
+                    constraintSet.UseNumberOfSolutionsKept = Properties.Settings.Default.KeepBestSolutions;
+                    if (constraintSet.UseNumberOfSolutionsKept)
+                        constraintSet.NumberOfSolutionsKept = Properties.Settings.Default.NoSolutionsToKeep;
                 }
             }
             else if (analysis.IsBundleAnalysis)

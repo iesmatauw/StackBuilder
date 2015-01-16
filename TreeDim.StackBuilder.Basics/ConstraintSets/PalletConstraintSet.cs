@@ -24,6 +24,7 @@ namespace TreeDim.StackBuilder.Basics
         private System.Collections.Specialized.StringCollection _allowedPatterns = new System.Collections.Specialized.StringCollection();
         private bool _useNoSolutionsKept;
         private int _noSolutionsKept;
+        private int _noPalletFilmTurns = 1;
         #endregion
 
         #region Constructor
@@ -208,6 +209,14 @@ namespace TreeDim.StackBuilder.Basics
                 _noSolutionsKept = value;
             }
             get { return _noSolutionsKept; }
+        }
+        #endregion
+
+        #region Pallet films
+        public int PalletFilmTurns
+        {
+            get { return _noPalletFilmTurns; }
+            set { _noPalletFilmTurns = value; }
         }
         #endregion
 

@@ -244,7 +244,6 @@ namespace Sharp3D.Math.Geometry2D
 				Segment l = (Segment)value;
 				return l.ToString();
 			}
-
 			return base.ConvertTo(context, culture, value, destinationType);
 		}
 		/// <summary>
@@ -261,7 +260,6 @@ namespace Sharp3D.Math.Geometry2D
 			{
 				return Segment.Parse((string)value);
 			}
-
 			return base.ConvertFrom(context, culture, value);
 		}
 	}

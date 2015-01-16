@@ -15,7 +15,7 @@ namespace TreeDim.StackBuilder.Graphics
     {
         #region Enums
         enum PaintingAlgorithm
-        { 
+        {
             ALGO_PAINTER,
             ALGO_BSPTREE
         }
@@ -56,6 +56,10 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         private Color _backgroundColor = Color.White;
         /// <summary>
+        /// face in the background
+        /// </summary>
+        private List<Face> _facesBackground = new List<Face>();
+        /// <summary>
         /// face buffer used for drawing
         /// </summary>
         private List<Face> _faces = new List<Face>();
@@ -71,6 +75,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// segments
         /// </summary>
         private List<Segment> _segments = new List<Segment>();
+        private List<Segment> _segmentsBackground = new List<Segment>();
         /// <summary>
         /// dimensions cube
         /// </summary>
@@ -79,7 +84,6 @@ namespace TreeDim.StackBuilder.Graphics
         /// Current transformation
         /// </summary>
         private Transform3D _currentTransf;
-        private PaintingAlgorithm _algo = PaintingAlgorithm.ALGO_PAINTER;
         /// <summary>
         /// Show box Ids (used of debugging purposes)
         /// </summary>
@@ -87,6 +91,7 @@ namespace TreeDim.StackBuilder.Graphics
         private bool _showTextures = true;
         private bool _useBoxelOrderer = true;
         private uint _boxDrawingCounter = 0;
+        private bool _enableFaceSorting = true;
 
         public static readonly Vector3D Front = new Vector3D(10000.0, 0.0, 0.0);
         public static readonly Vector3D Back = new Vector3D(-10000.0, 0.0, 0.0);
@@ -130,7 +135,11 @@ namespace TreeDim.StackBuilder.Graphics
             get { return _backgroundColor; }
             set { _backgroundColor = value; }
         }
-
+        public bool EnableFaceSorting
+        {
+            get { return _enableFaceSorting; }
+            set { _enableFaceSorting = value; }
+        }
         /// <summary>
         /// View point (position of the observer's eye)
         /// </summary>
@@ -183,7 +192,7 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         public bool UseBoxelOrderer
         {
-            get {  return _useBoxelOrderer; }
+            get { return _useBoxelOrderer; }
             set { _useBoxelOrderer = value; }
         }
 
@@ -193,7 +202,7 @@ namespace TreeDim.StackBuilder.Graphics
             set { _showTextures = value; }
         }
         #endregion
-        
+
         #region Helpers
         private Point[] TransformPoint(Transform3D transform, Vector3D[] points3d)
         {
@@ -202,7 +211,7 @@ namespace TreeDim.StackBuilder.Graphics
             foreach (Vector3D v in points3d)
             {
                 Vector3D vt = transform.transform(v);
-                points[i] = new Point( (int)vt.X, (int)vt.Y);
+                points[i] = new Point((int)vt.X, (int)vt.Y);
                 ++i;
             }
             return points;
@@ -226,21 +235,21 @@ namespace TreeDim.StackBuilder.Graphics
 
             ps = Mvp*Morth*Mcam*Mm*po
             */
-		    Vector3D zaxis = _vCameraPos-_vTarget;
+            Vector3D zaxis = _vCameraPos - _vTarget;
             zaxis.Normalize();
             Vector3D up = Vector3D.ZAxis;
-		    Vector3D xaxis = Vector3D.CrossProduct(up, zaxis);
+            Vector3D xaxis = Vector3D.CrossProduct(up, zaxis);
             if (Vector3D.CrossProduct(up, zaxis).GetLengthSquared() < 0.0001)
             {
                 up = Vector3D.ZAxis;
                 xaxis = Vector3D.XAxis;
             }
-		    xaxis.Normalize();
-		    Vector3D yaxis = Vector3D.CrossProduct(zaxis,xaxis);
+            xaxis.Normalize();
+            Vector3D yaxis = Vector3D.CrossProduct(zaxis, xaxis);
             Matrix4D Mcam = new Matrix4D(
-                    xaxis.X, xaxis.Y, xaxis.Z, -Vector3D.DotProduct(_vCameraPos-_vTarget, xaxis),
-                    yaxis.X, yaxis.Y, yaxis.Z, -Vector3D.DotProduct(_vCameraPos-_vTarget, yaxis),
-                    -zaxis.X, -zaxis.Y, -zaxis.Z, -Vector3D.DotProduct(_vCameraPos-_vTarget, -zaxis),
+                    xaxis.X, xaxis.Y, xaxis.Z, -Vector3D.DotProduct(_vCameraPos - _vTarget, xaxis),
+                    yaxis.X, yaxis.Y, yaxis.Z, -Vector3D.DotProduct(_vCameraPos - _vTarget, yaxis),
+                    -zaxis.X, -zaxis.Y, -zaxis.Z, -Vector3D.DotProduct(_vCameraPos - _vTarget, -zaxis),
                     0.0, 0.0, 0.0, 1.0
                 );
             return new Transform3D(Mcam);
@@ -259,6 +268,14 @@ namespace TreeDim.StackBuilder.Graphics
             sizeMax[2] = 1.0;
 
             return Transform3D.OrthographicProjection(vecMin, vecMax, sizeMin, sizeMax);
+        }
+        /// <summary>
+        /// Background faces
+        /// </summary>
+        /// <param name="face">Face to be drawn before other faces</param>
+        public void AddFaceBackground(Face face)
+        {
+            _facesBackground.Add(face);
         }
         /// <summary>
         /// add face
@@ -320,127 +337,124 @@ namespace TreeDim.StackBuilder.Graphics
             System.Drawing.Graphics g = Graphics;
             g.Clear(_backgroundColor);
 
-            if (PaintingAlgorithm.ALGO_PAINTER == _algo)
+            if (EnableFaceSorting)
             {
                 // sort face list
                 FaceComparison faceComparer = new FaceComparison(GetWorldToEyeTransformation());
                 _faces.Sort(faceComparer);
-                // draw all faces
-                foreach (Face face in _faces)
-                    Draw(face, FaceDir.BACK);
+            }
+            // draw background segments
+            foreach (Segment s in _segmentsBackground)
+                Draw(s);
+            // draw background faces
+            foreach (Face face in _facesBackground)
+                Draw(face, FaceDir.FRONT);
+            // draw all faces using solid / transparency depending on 
+            foreach (Face face in _faces)
+                Draw(face, FaceDir.BACK);
 
-                // sort box list
-                if (_useBoxelOrderer)
+            // sort box list
+            if (_useBoxelOrderer)
+            {
+                BoxelOrderer boxelOrderer = new BoxelOrderer(_boxes);
+                boxelOrderer.Direction = _vTarget - _vCameraPos;
+                _boxes = boxelOrderer.GetSortedList();
+            }
+            else
+                _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+
+            // sort cylinder list
+            _cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+
+            if (_cylinders.Count > 0)
+            {
+                // sort by Z
+                List<Drawable> drawableList = new List<Drawable>();
+                drawableList.AddRange(_boxes);
+                drawableList.AddRange(_cylinders);
+                drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo());
+
+                List<Box> boxes = new List<Box>();
+                List<Cylinder> cylinders = new List<Cylinder>();
+                bool processingBox = drawableList[0] is Box;
+                foreach (Drawable drawable in drawableList)
                 {
-                    BoxelOrderer boxelOrderer = new BoxelOrderer(_boxes);
-                    boxelOrderer.Direction = _vTarget - _vCameraPos;
-                    _boxes = boxelOrderer.GetSortedList();
-                }
-                else
-                    _boxes.Sort(new BoxComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                    Box b = drawable as Box;
+                    Cylinder c = drawable as Cylinder;
 
-                // sort cylinder list
-                _cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
-
-                if (_cylinders.Count > 0)
-                {
-                    // sort by Z
-                    List<Drawable> drawableList = new List<Drawable>();
-                    drawableList.AddRange(_boxes);
-                    drawableList.AddRange(_cylinders);
-                    drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo());
-
-                    List<Box> boxes = new List<Box>();
-                    List<Cylinder> cylinders = new List<Cylinder>();
-                    bool processingBox = drawableList[0] is Box;
-                    foreach (Drawable drawable in drawableList)
+                    if ((null != b) && processingBox)
+                        boxes.Add(b);
+                    else if ((null == b) && !processingBox)
+                        cylinders.Add(c);
+                    else
                     {
-                        Box b = drawable as Box;
-                        Cylinder c = drawable as Cylinder;
-
-                        if ((null != b) && processingBox)
+                        if (boxes.Count > 0)
+                        {
+                            BoxelOrderer boxelOrderer = new BoxelOrderer(boxes);
+                            boxelOrderer.Direction = _vTarget - _vCameraPos;
+                            boxes = boxelOrderer.GetSortedList();
+                            // draw boxes
+                            foreach (Box bb in boxes)
+                                Draw(bb);
+                            // clear
+                            boxes.Clear();
+                        }
+                        if (cylinders.Count > 0)
+                        {
+                            cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                            // draw cylinders
+                            foreach (Cylinder cc in cylinders)
+                                Draw(cc);
+                            // clear
+                            cylinders.Clear();
+                        }
+                        if (null != b)
+                        {
                             boxes.Add(b);
-                        else if ((null == b) && !processingBox)
-                            cylinders.Add(c);
+                            processingBox = true;
+                        }
                         else
                         {
-                            if (boxes.Count > 0)
-                            {
-                                BoxelOrderer boxelOrderer = new BoxelOrderer(boxes);
-                                boxelOrderer.Direction = _vTarget - _vCameraPos;
-                                boxes = boxelOrderer.GetSortedList();
-                                // draw boxes
-                                foreach (Box bb in boxes)
-                                    Draw(bb);
-                                // clear
-                                boxes.Clear();
-                            }
-                            if (cylinders.Count > 0)
-                            {
-                                cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
-                                // draw cylinders
-                                foreach (Cylinder cc in cylinders)
-                                    Draw(cc);
-                                // clear
-                                cylinders.Clear();
-                            }
-                            if (null != b)
-                            {
-                                boxes.Add(b);
-                                processingBox = true;
-                            }
-                            else
-                            {
-                                cylinders.Add(c);
-                                processingBox = false;
-                            }
+                            cylinders.Add(c);
+                            processingBox = false;
                         }
                     }
-
-                    // remaining boxes
-                    BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes);
-                    boxelOrdererRem.Direction = _vTarget - _vCameraPos;
-                    boxes = boxelOrdererRem.GetSortedList();
-                    // draw boxes
-                    foreach (Box bb in boxes)
-                        Draw(bb);
-
-                    // remaining cylinders
-                    cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
-                    // draw cylinders
-                    foreach (Cylinder cc in cylinders)
-                        Draw(cc);
-                    // clear
-                    boxes.Clear();
-                }
-                else
-                {
-                    // draw all boxes
-                    foreach (Box box in _boxes)
-                        Draw(box);
                 }
 
-                // draw faces : end
-                foreach (Face face in _faces)
-                    Draw(face, FaceDir.FRONT);
+                // remaining boxes
+                BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes);
+                boxelOrdererRem.Direction = _vTarget - _vCameraPos;
+                boxes = boxelOrdererRem.GetSortedList();
+                // draw boxes
+                foreach (Box bb in boxes)
+                    Draw(bb);
 
-                // draw segment list
-                foreach (Segment seg in _segments)
-                    Draw(seg);
-
-                // draw cotation cubes
-                foreach (DimensionCube qc in _dimensions)
-                    qc.Draw(this);
+                // remaining cylinders
+                cylinders.Sort(new CylinderComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
+                // draw cylinders
+                foreach (Cylinder cc in cylinders)
+                    Draw(cc);
+                // clear
+                boxes.Clear();
             }
             else
             {
-                // build BSP tree
-                BSPTree tree = new BSPTree();
-                foreach (Face face in _faces)
-                    tree.insert(face);
-                // draw
-                tree.draw(_vCameraPos - _vTarget, this);
+                // draw all boxes
+                foreach (Box box in _boxes)
+                    Draw(box);
             }
+
+            // draw faces : end
+            foreach (Face face in _faces)
+                Draw(face, FaceDir.FRONT);
+
+            // draw segment list (e.g. hatching)
+            foreach (Segment seg in _segments)
+                Draw(seg);
+
+            // draw cotation cubes
+            foreach (DimensionCube qc in _dimensions)
+                qc.Draw(this);
         }
 
         private Transform3D GetCurrentTransformation()
@@ -531,7 +545,7 @@ namespace TreeDim.StackBuilder.Graphics
                             vecMin.Z = Math.Min(vecMin.Z, ptT.Z);
                             vecMax.X = Math.Max(vecMax.X, ptT.X);
                             vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
-                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);                           
+                            vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                         }
 
                     Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
@@ -562,10 +576,13 @@ namespace TreeDim.StackBuilder.Graphics
             }
             return _currentTransf;
         }
-
+        public void AddSegmentBackgound(Segment seg)
+        { 
+            _segmentsBackground.Add(seg);
+        }
         public void AddSegment(Segment seg)
         {
-            _segments.Add(seg);        
+            _segments.Add(seg);
         }
         #endregion
 
@@ -598,8 +615,8 @@ namespace TreeDim.StackBuilder.Graphics
             g.DrawString(text
                 , font
                 , new SolidBrush(color)
-                , new Point(pt.X - (int)(0.5f*sizeF.Width), pt.Y - (int)(0.5f * sizeF.Height))
-                , StringFormat.GenericDefault);  
+                , new Point(pt.X - (int)(0.5f * sizeF.Width), pt.Y - (int)(0.5f * sizeF.Height))
+                , StringFormat.GenericDefault);
         }
 
         /// <summary>
@@ -618,7 +635,7 @@ namespace TreeDim.StackBuilder.Graphics
             // compute face color
             double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
             Color color = Color.FromArgb(
-                dir == FaceDir.FRONT ? 64 : 255
+                face.IsSolid ? 255 : (dir == FaceDir.FRONT ? 64 : 255)
                 , (int)(face.ColorFill.R * cosA)
                 , (int)(face.ColorFill.G * cosA)
                 , (int)(face.ColorFill.B * cosA));
@@ -646,14 +663,14 @@ namespace TreeDim.StackBuilder.Graphics
             Vector3D[] points = box.Points;
 
             Face[] faces = box.Faces;
-            for (int i=0; i<6; ++i)
+            for (int i = 0; i < 6; ++i)
             {
                 // Face
-                Face face =  faces[i];
+                Face face = faces[i];
                 // face normal
-                Vector3D normal =face.Normal;
+                Vector3D normal = face.Normal;
                 // visible ?
-                if (! faces[i].IsVisible(_vTarget - _vCameraPos))
+                if (!faces[i].IsVisible(_vTarget - _vCameraPos))
                     continue;
                 // color
                 faces[i].ColorFill = box.Colors[i];
@@ -684,7 +701,7 @@ namespace TreeDim.StackBuilder.Graphics
                     g.DrawLine(penPathThick, pt[j - 1], pt[j]);
                 g.DrawLine(penPathThick, pt[ptCount - 1], pt[0]);
                 // draw bundle lines
-                if (box.IsBundle && i<4)
+                if (box.IsBundle && i < 4)
                 {
                     Pen penPathThin = new Pen(brushPath, 1.5f);
                     int noSlice = box.BundleFlats;
@@ -695,11 +712,11 @@ namespace TreeDim.StackBuilder.Graphics
                         ptSlice[1] = points3D[1] + ((double)(iSlice + 1) / (double)noSlice) * (points3D[2] - points3D[1]);
 
                         Point[] pt2D = TransformPoint(GetCurrentTransformation(), ptSlice);
-                        g.DrawLine(penPathThin, pt2D[0], pt2D[1]);                        
+                        g.DrawLine(penPathThin, pt2D[0], pt2D[1]);
                     }
                 }
             }
-  
+
             // draw box tape
             if (box.ShowTape && faces[5].IsVisible(_vTarget - _vCameraPos))
             {
@@ -758,7 +775,7 @@ namespace TreeDim.StackBuilder.Graphics
             // top
             Point[] ptsTop = TransformPoint(GetCurrentTransformation(), cyl.TopPoints);
             g.DrawPolygon(penPathThick, ptsTop);
-             
+
             // outer wall
             Face[] facesWalls = cyl.FacesWalls;
             foreach (Face face in facesWalls)
@@ -813,7 +830,7 @@ namespace TreeDim.StackBuilder.Graphics
             else
                 g.DrawPolygon(penPathThin, ptsBottom);
 
-            ++_boxDrawingCounter;        
+            ++_boxDrawingCounter;
         }
         #endregion
     }

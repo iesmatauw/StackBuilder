@@ -580,4 +580,22 @@ Closing form...</value>
   <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
     <value>Pallet films</value>
   </data>
+  <data name="ID_PALLETCAP" xml:space="preserve">
+    <value>Cap</value>
+  </data>
+  <data name="ID_PALLETCORNERS" xml:space="preserve">
+    <value>Corners</value>
+  </data>
+  <data name="ID_PALLETFILM" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+    <value>Use transparency and/or hatching</value>
+  </data>
+  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+    <value>Pallet cap length should exceed pallet length + overhang X...</value>
+  </data>
+  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+    <value>Pallet cap width should exceed pallet width + overhang Y...</value>
+  </data>
 </root>

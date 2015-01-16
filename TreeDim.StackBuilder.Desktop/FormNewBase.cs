@@ -25,11 +25,29 @@ namespace TreeDim.StackBuilder.Desktop
         /// <summary>
         /// constructor
         /// </summary>
+        public FormNewBase()
+        {
+            InitializeComponent();
+        }
         public FormNewBase(Document document, ItemBase item)
         {
             InitializeComponent();
+
             _document = document;
             _item = item;
+        }
+        private void FormNewBase_Load(object sender, EventArgs e)
+        {
+            if (null != _item)
+            {
+                tbName.Text = _item.Name;
+                tbDescription.Text = _item.Description;
+            }
+            else if (null != _document)
+            {
+                tbName.Text = _document.GetValidNewTypeName(ItemDefaultName);
+                tbDescription.Text = tbName.Text;
+            }
         }
         #endregion
 
@@ -45,6 +63,8 @@ namespace TreeDim.StackBuilder.Desktop
             set { tbDescription.Text = value; }
         }
         public virtual ItemBase Item { get { return _item; } }
+
+        public virtual string ItemDefaultName { get { return "Item"; } }
         #endregion
 
         public virtual void UpdateStatus(string message)
@@ -66,5 +86,7 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateStatus(string.Empty);
         }
+
+
     }
 }

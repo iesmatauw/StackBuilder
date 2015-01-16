@@ -279,7 +279,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         public void CreateNewPalletCornersUI()
         {
-            FormNewPalletCorners form = new FormNewPalletCorners(this);
+            FormNewPalletCorners form = new FormNewPalletCorners(this, null);
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewPalletCorners(form.ItemName, form.ItemDescription,
                     form.CornerLength, form.CornerWidth, form.CornerThickness,
@@ -296,19 +296,19 @@ namespace TreeDim.StackBuilder.Desktop
                 CreateNewPalletCap(form.ItemName, form.ItemDescription, 
                     form.CapLength, form.CapWidth, form.CapHeight,
                     form.CapInnerLength, form.CapInnerWidth, form.CapInnerHeight,
-                    form.CapWeight, form.Color);
+                    form.CapWeight, form.CapColor);
         }
         /// <summary>
         /// Creates new pallet film
         /// </summary>
         public void CreateNewPalletFilmUI()
         {
-            FormNewPalletFilm form = new FormNewPalletFilm(this);
+            FormNewPalletFilm form = new FormNewPalletFilm(this, null);
             if (DialogResult.OK == form.ShowDialog())
                 CreateNewPalletFilm(form.ItemName, form.ItemDescription,
                     form.UseTransparency,
-                    form.UseHatching, form.HatchSpacing,
-                    form.Color);
+                    form.UseHatching, form.HatchSpacing, form.HatchAngle,
+                    form.FilmColor);
         }
         /// <summary>
         /// creates a new PalletProperties object
@@ -390,11 +390,14 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.UseNumberOfSolutionsKept = Properties.Settings.Default.KeepBestSolutions;
                 if (constraintSet.UseNumberOfSolutionsKept)
                     constraintSet.NumberOfSolutionsKept = Properties.Settings.Default.NoSolutionsToKeep;
+                // number of pallet film turns
+                constraintSet.PalletFilmTurns = form.PalletFilmTurns;
 
                 return CreateNewCasePalletAnalysis(
                     form.AnalysisName, form.AnalysisDescription,
                     form.SelectedBox, form.SelectedPallet,
                     form.SelectedInterlayer, form.SelectedInterlayerAntiSlip,
+                    form.SelectedPalletCorners, form.SelectedPalletCap, form.SelectedPalletFilm,
                     constraintSet,
                     new CasePalletSolver());
             }
@@ -436,6 +439,7 @@ namespace TreeDim.StackBuilder.Desktop
  
                 return CreateNewCasePalletAnalysis(form.AnalysisName, form.AnalysisDescription,
                     form.SelectedBundle, form.SelectedPallet, null, null,
+                    null, null, null,
                     constraintSet, 
                     new CasePalletSolver());
             }                
@@ -602,6 +606,9 @@ namespace TreeDim.StackBuilder.Desktop
                 form.Cases = Cases.ToArray();
                 form.Pallets = Pallets.ToArray();
                 form.Interlayers = Interlayers.ToArray();
+                form.PalletCorners = ListByType(typeof(PalletCornerProperties)).ToArray();
+                form.PalletCaps = ListByType(typeof(PalletCapProperties)).ToArray();
+                form.PalletFilms = ListByType(typeof(PalletFilmProperties)).ToArray();
 
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
@@ -638,6 +645,12 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.HasInterlayer = form.HasInterlayers;
                     constraintSet.InterlayerPeriod = form.InterlayerPeriod;
                     constraintSet.HasInterlayerAntiSlip = form.HasInterlayerAntiSlip;
+                    // pallet corner
+                    analysis.PalletCornerProperties = form.SelectedPalletCorners;
+                    // pallet cap
+                    analysis.PalletCapProperties = form.SelectedPalletCap;
+                    // pallet film
+                    analysis.PalletFilmProperties = form.SelectedPalletFilm;
                     // stop criterion
                     constraintSet.UseMaximumHeight = form.UseMaximumPalletHeight;
                     constraintSet.UseMaximumNumberOfCases = form.UseMaximumNumberOfBoxes;
@@ -651,6 +664,8 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.UseNumberOfSolutionsKept = Properties.Settings.Default.KeepBestSolutions;
                     if (constraintSet.UseNumberOfSolutionsKept)
                         constraintSet.NumberOfSolutionsKept = Properties.Settings.Default.NoSolutionsToKeep;
+                    // pallet film turns
+                    constraintSet.PalletFilmTurns = form.PalletFilmTurns;
                 }
             }
             else if (analysis.IsBundleAnalysis)

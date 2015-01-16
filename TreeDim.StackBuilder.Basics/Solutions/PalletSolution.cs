@@ -421,6 +421,43 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
 
+        public BBox3D LoadBoundingBoxWDeco
+        {
+            get
+            {
+                BBox3D bbox = new BBox3D(LoadBoundingBox);
+                double zMax = bbox.PtMax.Z;
+                // extend ?
+                if (Analysis.HasPalletCorners)
+                {
+                    double thickness = Analysis.PalletCornerProperties.Thickness;
+                    Vector3D ptMin = bbox.PtMin;
+                    ptMin.X -= thickness;
+                    ptMin.Y -= thickness;
+                    Vector3D ptMax = bbox.PtMax;
+                    ptMax.X += thickness;
+                    ptMax.Y += thickness;
+                    bbox.Extend(ptMin);
+                    bbox.Extend(ptMax);
+                }
+                // extend ?
+                if (Analysis.HasPalletCap)
+                {
+                    Vector3D v0 = new Vector3D(
+                        0.5 * (Analysis.PalletProperties.Length - Analysis.PalletCapProperties.Length),
+                        0.5 * (Analysis.PalletProperties.Width - Analysis.PalletCapProperties.Width),
+                        zMax + Analysis.PalletCapProperties.Height - Analysis.PalletCapProperties.InsideHeight);
+                    bbox.Extend(v0);
+                    Vector3D v1 = new Vector3D(
+                        0.5 * (Analysis.PalletProperties.Length + Analysis.PalletCapProperties.Length),
+                        0.5 * (Analysis.PalletProperties.Width + Analysis.PalletCapProperties.Width),
+                        zMax + Analysis.PalletCapProperties.Height - Analysis.PalletCapProperties.InsideHeight);
+                    bbox.Extend(v1);
+                }
+                return bbox;
+            }
+        }
+
         public BBox3D BoundingBox
         {
             get
@@ -432,6 +469,22 @@ namespace TreeDim.StackBuilder.Basics
                 bbox.Extend(new Vector3D(Analysis.PalletProperties.Length, Analysis.PalletProperties.Width, Analysis.PalletProperties.Height));
                 // load
                 bbox.Extend(LoadBoundingBox);
+                // --- extend
+                return bbox;
+            }
+        }
+
+        public BBox3D BoundingBoxWDeco
+        {
+            get
+            {
+                BBox3D bbox = new BBox3D();
+                // --- extend
+                // pallet
+                bbox.Extend(Vector3D.Zero);
+                bbox.Extend(new Vector3D(Analysis.PalletProperties.Length, Analysis.PalletProperties.Width, Analysis.PalletProperties.Height));
+                // load
+                bbox.Extend(LoadBoundingBoxWDeco);
                 // --- extend
                 return bbox;
             }

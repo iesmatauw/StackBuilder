@@ -23,9 +23,17 @@ namespace TreeDim.StackBuilder.Basics
         { 
         }
         public PalletCapProperties(Document doc,
-            string name, string description)
-            : base(doc)
+            string name, string description,
+            double length, double width, double height,
+            double insideLength, double insideWidth, double insideHeight,
+            double weight,
+            Color color)
+            : base(doc, name, description)
         {
+            _length = length; _width = width; _height = height;
+            _insideLength = insideLength; _insideWidth = insideWidth; _insideHeight = insideHeight;
+            _weight = weight;
+            _color = color;
         }
         #endregion
 
@@ -36,8 +44,16 @@ namespace TreeDim.StackBuilder.Basics
         public double InsideLength { get { return _insideLength; } }
         public double InsideWidth { get { return _insideWidth; } }
         public double InsideHeight { get { return _insideHeight; } }
-        public double Weight { get { return _weight; } }
-        public Color Color { get { return _color; } }
+        public double Weight
+        {
+            get { return _weight; }
+            set { _weight = value; }
+        }
+        public Color Color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
         #endregion
     }
 }

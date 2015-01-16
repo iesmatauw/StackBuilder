@@ -35,7 +35,10 @@
             this.nudHatchSpacing = new System.Windows.Forms.NumericUpDown();
             this.uLengthHatchSpacing = new System.Windows.Forms.Label();
             this.lbHatchSpacing = new System.Windows.Forms.Label();
+            this.lbHatchAngle = new System.Windows.Forms.Label();
+            this.nudHatchAngle = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudHatchSpacing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHatchAngle)).BeginInit();
             this.SuspendLayout();
             // 
             // cbColor
@@ -48,6 +51,8 @@
             this.cbColor.IntegralHeight = false;
             this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
+            "Color",
+            "Color",
             "Color",
             "Color",
             "Color",
@@ -113,19 +118,42 @@
             this.uLengthHatchSpacing.TabIndex = 29;
             this.uLengthHatchSpacing.Text = "uLength";
             // 
-            // lbSpacing
+            // lbHatchSpacing
             // 
             this.lbHatchSpacing.AutoSize = true;
-            this.lbHatchSpacing.Location = new System.Drawing.Point(37, 166);
-            this.lbHatchSpacing.Name = "lbSpacing";
+            this.lbHatchSpacing.Location = new System.Drawing.Point(40, 166);
+            this.lbHatchSpacing.Name = "lbHatchSpacing";
             this.lbHatchSpacing.Size = new System.Drawing.Size(46, 13);
             this.lbHatchSpacing.TabIndex = 30;
             this.lbHatchSpacing.Text = "Spacing";
+            // 
+            // lbHatchAngle
+            // 
+            this.lbHatchAngle.AutoSize = true;
+            this.lbHatchAngle.Location = new System.Drawing.Point(40, 193);
+            this.lbHatchAngle.Name = "lbHatchAngle";
+            this.lbHatchAngle.Size = new System.Drawing.Size(34, 13);
+            this.lbHatchAngle.TabIndex = 31;
+            this.lbHatchAngle.Text = "Angle";
+            // 
+            // nudHatchAngle
+            // 
+            this.nudHatchAngle.Location = new System.Drawing.Point(111, 189);
+            this.nudHatchAngle.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.nudHatchAngle.Name = "nudHatchAngle";
+            this.nudHatchAngle.Size = new System.Drawing.Size(75, 20);
+            this.nudHatchAngle.TabIndex = 32;
             // 
             // FormNewPalletFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(584, 362);
+            this.Controls.Add(this.nudHatchAngle);
+            this.Controls.Add(this.lbHatchAngle);
             this.Controls.Add(this.lbHatchSpacing);
             this.Controls.Add(this.uLengthHatchSpacing);
             this.Controls.Add(this.nudHatchSpacing);
@@ -142,7 +170,10 @@
             this.Controls.SetChildIndex(this.nudHatchSpacing, 0);
             this.Controls.SetChildIndex(this.uLengthHatchSpacing, 0);
             this.Controls.SetChildIndex(this.lbHatchSpacing, 0);
+            this.Controls.SetChildIndex(this.lbHatchAngle, 0);
+            this.Controls.SetChildIndex(this.nudHatchAngle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.nudHatchSpacing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHatchAngle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +188,7 @@
         private System.Windows.Forms.NumericUpDown nudHatchSpacing;
         private System.Windows.Forms.Label uLengthHatchSpacing;
         private System.Windows.Forms.Label lbHatchSpacing;
+        private System.Windows.Forms.Label lbHatchAngle;
+        private System.Windows.Forms.NumericUpDown nudHatchAngle;
     }
 }

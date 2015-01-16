@@ -7,22 +7,45 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TreeDim.StackBuilder.Basics;
+
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewPalletCorners : TreeDim.StackBuilder.Desktop.FormNewBase
+    public partial class FormNewPalletCorners : FormNewBase
     {
         #region Constructor
-        public FormNewPalletCorners(Document doc)
-            : base(doc, null)
+        public FormNewPalletCorners(Document doc, PalletCornerProperties palletCorners)
+            : base(doc, palletCorners)
         {
             InitializeComponent();
+
+            if (null != palletCorners)
+            {
+                CornerLength = palletCorners.Length;
+                CornerWidth = palletCorners.Width;
+                CornerThickness = palletCorners.Thickness;
+                CornerWeight = palletCorners.Weight;
+                Color = palletCorners.Color;
+            }
+            else
+            { 
+                CornerLength = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);;
+                CornerWidth = UnitsManager.ConvertLengthFrom(40.0, UnitsManager.UnitSystem.UNIT_METRIC1);;
+                CornerThickness = UnitsManager.ConvertLengthFrom(5.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                CornerWeight = UnitsManager.ConvertMassFrom(0.050, UnitsManager.UnitSystem.UNIT_METRIC1);           
+            }
+            UpdateStatus(string.Empty);
+            // units
+            UnitsManager.AdaptUnitLabels(this);
         }
-        public FormNewPalletCorners(Document doc, PalletCornerProperties item)
-            : base(doc, item)
+        #endregion
+
+        #region FormNewBase overrides
+        public override string ItemDefaultName
         {
-            InitializeComponent();
+            get { return Resources.ID_PALLETCORNERS; }
         }
         #endregion
 

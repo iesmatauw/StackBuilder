@@ -287,8 +287,8 @@ namespace TreeDim.StackBuilder.Desktop
                     , analysisDescription
                     , caseProperties
                     , palletProperties
-                    , null
-                    , null
+                    , null, null
+                    , null, null, null
                     , BuildPalletConstraintSet()
                     , palletSolutionList);
             }

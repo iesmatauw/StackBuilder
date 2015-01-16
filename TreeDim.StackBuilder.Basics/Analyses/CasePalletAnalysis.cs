@@ -41,6 +41,7 @@ namespace TreeDim.StackBuilder.Basics
             PalletProperties palletProperties,
             InterlayerProperties interlayerProperties,
             InterlayerProperties interlayerPropertiesAntiSlip,
+            PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm,
             PalletConstraintSet constraintSet)
             : base(boxProperties.ParentDocument)
         {
@@ -58,6 +59,9 @@ namespace TreeDim.StackBuilder.Basics
             this.PalletProperties = palletProperties;
             this.InterlayerProperties = interlayerProperties;
             this.InterlayerPropertiesAntiSlip = interlayerPropertiesAntiSlip;
+            this.PalletCornerProperties = palletCorners;
+            this.PalletCapProperties = palletCap;
+            this.PalletFilmProperties = palletFilm;
             this.ConstraintSet = constraintSet;
         }
         #endregion

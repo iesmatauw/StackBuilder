@@ -200,7 +200,10 @@ namespace treeDiM.StackBuilder.Plugin
                     CasePalletAnalysis palletAnalysis = document.CreateNewCasePalletAnalysis(
                         item._ref, item.ToString()
                         , form.UseIntermediatePacking ? currentCase : itemProperties
-                        , currentPallet, null, null, constraintSet, solver);
+                        , currentPallet,
+                        null, null,
+                        null, null, null,
+                        constraintSet, solver);
                 }
                 // save document
                 fileName = form.FilePath;

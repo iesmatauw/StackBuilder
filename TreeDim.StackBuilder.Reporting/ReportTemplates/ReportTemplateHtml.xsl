@@ -670,6 +670,9 @@
       </tr>
     </table>
   </xsl:template>
+  <!--#### PALLET CORNER ####-->
+  <!--#### PALLET CAP ####-->
+  <!--#### PALLET FILM ####-->
   <!--#### BUNDLE ####-->
   <xsl:template match="bundle">
     <h3>

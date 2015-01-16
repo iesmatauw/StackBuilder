@@ -42,6 +42,7 @@ namespace TreeDim.StackBuilder.Basics
             _width = width;
             _thickness = thickness;
             _weight = weight;
+            _color = color;
         }
         #endregion
 

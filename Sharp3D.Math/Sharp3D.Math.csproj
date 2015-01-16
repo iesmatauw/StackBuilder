@@ -112,6 +112,7 @@
     <Compile Include="Geometry2D\OrientedBox.cs" />
     <Compile Include="Geometry2D\Polygon.cs" />
     <Compile Include="Geometry2D\Ray.cs" />
+    <Compile Include="Geometry2D\Rectangle.cs" />
     <Compile Include="Geometry2D\Segment.cs" />
     <Compile Include="Geometry2D\Triangle.cs" />
     <Compile Include="Geometry2D\VerticalDistance.cs" />

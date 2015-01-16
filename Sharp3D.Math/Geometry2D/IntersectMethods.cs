@@ -8,17 +8,19 @@ namespace Sharp3D.Math.Geometry2D
 {
 	#region Intersection2D
 	public class Intersection2D
-	{
-		public enum IntersectionType
+    {
+        #region Enums
+        public enum IntersectionType
 		{
 			I2D_NONE
 			, I2D_POINT
 			, I2D_SEGMENT
 			, I2D_ARC
 		};
+        #endregion
 
-		#region Private fields
-		IntersectionType _iType;
+        #region Private fields
+        IntersectionType _iType;
 		Vector2D _vec;
 		Segment _seg;
 		#endregion
@@ -108,13 +110,13 @@ namespace Sharp3D.Math.Geometry2D
 
 		public static bool Intersect(Segment s0, Segment s1, out Intersection2D interObj)
 		{ 
-		//    (Ay-Cy)(Dx-Cx)-(Ax-Cx)(Dy-Cy)
-		//r = -----------------------------  (eqn 1)
-		//    (Bx-Ax)(Dy-Cy)-(By-Ay)(Dx-Cx)
+		    //    (Ay-Cy)(Dx-Cx)-(Ax-Cx)(Dy-Cy)
+		    //r = -----------------------------  (eqn 1)
+		    //    (Bx-Ax)(Dy-Cy)-(By-Ay)(Dx-Cx)
 
-		//    (Ay-Cy)(Bx-Ax)-(Ax-Cx)(By-Ay)
-		//s = -----------------------------  (eqn 2)
-		//    (Bx-Ax)(Dy-Cy)-(By-Ay)(Dx-Cx)
+		    //    (Ay-Cy)(Bx-Ax)-(Ax-Cx)(By-Ay)
+		    //s = -----------------------------  (eqn 2)
+		    //    (Bx-Ax)(Dy-Cy)-(By-Ay)(Dx-Cx)
 
             double den = (s0.P1.X - s0.P0.X) * (s1.P1.Y - s1.P0.Y) - (s0.P1.Y - s0.P0.Y) * (s1.P1.X - s1.P0.X);
             double r = (s0.P0.Y - s1.P0.Y) * (s1.P1.X - s1.P0.X) - (s0.P0.X - s1.P0.X) * (s1.P1.Y - s1.P0.Y);
@@ -163,6 +165,49 @@ namespace Sharp3D.Math.Geometry2D
 			interObj = new Intersection2D();
 			return false;
 		}
+
+        public static bool Intersect(Segment seg, Ray ray, out Intersection2D interObj)
+        {
+            //    (Ay-Cy)(Dx-Cx)-(Ax-Cx)(Dy-Cy)
+            //r = -----------------------------  (eqn 1)
+            //    (Bx-Ax)(Dy-Cy)-(By-Ay)(Dx-Cx)
+
+            //    (Ay-Cy)(Bx-Ax)-(Ax-Cx)(By-Ay)
+            //s = -----------------------------  (eqn 2)
+            //    (Bx-Ax)(Dy-Cy)-(By-Ay)(Dx-Cx)
+
+            double den = (seg.P1.X - seg.P0.X) * ray.Direction.Y - (seg.P1.Y - seg.P0.Y) * ray.Direction.X;
+            double r = (seg.P0.Y - ray.Origin.Y) * ((ray.Origin + ray.Direction).X - ray.Origin.X) - (seg.P0.X - ray.Origin.X) * ((ray.Origin + ray.Direction).Y - ray.Origin.Y);
+
+            // If the denominator in eqn 1 is zero, AB & CD are parallel
+            if (System.Math.Abs(den) < MathFunctions.EpsilonF)
+            {
+                // If the numerator in eqn 1 is also zero, AB & CD are collinear.
+                if (System.Math.Abs(r) < MathFunctions.EpsilonF)
+                {
+                    interObj = new Intersection2D(new Segment(seg));
+                    return true;
+                }
+                else
+                {
+                    interObj = new Intersection2D();
+                    return false;
+                }
+            }
+            else
+            {
+                r /= den;
+                // Let P be the position vector of the intersection point, then
+                // P=A+r(B-A)
+                if (0 <= r && r <= 1)
+                {
+                    interObj = new Intersection2D(new Vector2D(seg.P0 + r * (seg.P1 - seg.P0)));
+                    return true;
+                }
+            }
+            interObj = new Intersection2D();
+            return false;
+        }
 		#endregion
 	}
 }

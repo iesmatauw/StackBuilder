@@ -81,7 +81,7 @@ namespace TreeDim.StackBuilder.Graphics
                         vertices[1] = t.transform(_radiusInner * vRadiusBeg + _height * Vector3D.XAxis);
                         vertices[2] = t.transform(_radiusInner * vRadiusEnd + _height * Vector3D.XAxis);
                         vertices[3] = t.transform(_radiusInner * vRadiusEnd);
-                        faces[i] = new Face(_pickId, vertices);
+                        faces[i] = new Face(_pickId, vertices, true);
                         faces[i].ColorFill = ColorWallInner;
                     }
                 }
@@ -98,7 +98,7 @@ namespace TreeDim.StackBuilder.Graphics
                     vertices[1] = t.transform(_radiusOuter * vRadiusEnd);
                     vertices[2] = t.transform(_radiusOuter * vRadiusEnd + _height * Vector3D.XAxis);
                     vertices[3] = t.transform(_radiusOuter * vRadiusBeg + _height * Vector3D.XAxis);
-                    faces[(showInnerFaces ? _noFaces : 0) + i] = new Face(_pickId, vertices);
+                    faces[(showInnerFaces ? _noFaces : 0) + i] = new Face(_pickId, vertices, true);
                     faces[(showInnerFaces ? _noFaces : 0) + i].ColorFill = ColorWallOuter;
                 }
                 return faces;
@@ -122,7 +122,7 @@ namespace TreeDim.StackBuilder.Graphics
                     vertices[1] = t.transform(_radiusOuter * vRadiusBeg + _height * Vector3D.XAxis);
                     vertices[2] = t.transform(_radiusOuter * vRadiusEnd + _height * Vector3D.XAxis);
                     vertices[3] = t.transform(_radiusInner * vRadiusEnd + _height * Vector3D.XAxis);
-                    faces[i] = new Face(_pickId, vertices);
+                    faces[i] = new Face(_pickId, vertices, true);
                     faces[i].ColorFill = ColorTop;
                 }
 
@@ -138,7 +138,7 @@ namespace TreeDim.StackBuilder.Graphics
                     vertices[1] = t.transform(_radiusOuter * vRadiusEnd);
                     vertices[2] = t.transform(_radiusOuter * vRadiusBeg);
                     vertices[3] = t.transform(_radiusInner * vRadiusBeg);
-                    faces[_noFaces + i] = new Face(_pickId, vertices);
+                    faces[_noFaces + i] = new Face(_pickId, vertices, true);
                     faces[_noFaces + i].ColorFill = ColorTop; 
                 }
                 return faces;

@@ -46,9 +46,12 @@ namespace TreeDim.StackBuilder.Desktop
             // name / description
             tbName.Text = document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
             tbDescription.Text = tbName.Text;
-            // update interlayer UI
+            // update combo boxes
             onInterlayerChecked(this, null);
             onAntiSlipInterlayerChecked(this, null);
+            onPalletCornersChecked(this, null);
+            onPalletCapChecked(this, null);
+            onPalletFilmChecked(this, null);
         }
         /// <summary>
         /// Constructor used while browsing/editing existing analysis
@@ -65,9 +68,12 @@ namespace TreeDim.StackBuilder.Desktop
             _analysis = analysis;
             // set caption text
             Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
-
+            // update combo boxes
             onInterlayerChecked(this, null);
             onAntiSlipInterlayerChecked(this, null);
+            onPalletCornersChecked(this, null);
+            onPalletCapChecked(this, null);
+            onPalletFilmChecked(this, null);
         }
         #endregion
 
@@ -125,9 +131,9 @@ namespace TreeDim.StackBuilder.Desktop
                 // fill other combo
                 FillCombo(checkBoxInterlayer, cbInterlayer, _interlayerProperties, (null == _analysis) ? null : _analysis.InterlayerProperties);
                 FillCombo(checkBoxAntiSlipInterlayer, cbInterlayerAntiSlip, _interlayerProperties, (null == _analysis) ? null : _analysis.InterlayerPropertiesAntiSlip);
-                FillCombo(chkbCorners, cbCorners, _palletCornerProperties, (null == _analysis) ? null : _analysis.PalletCornerProperties);
+                FillCombo(chkbPalletCorners, cbPalletCorners, _palletCornerProperties, (null == _analysis) ? null : _analysis.PalletCornerProperties);
                 FillCombo(chkbPalletCap, cbPalletCap, _palletCapProperties, (null == _analysis) ? null : _analysis.PalletCapProperties);
-                FillCombo(chkbFilm, cbPalletFilm, _palletFilmProperties, (null == _analysis) ? null : _analysis.PalletFilmProperties);
+                FillCombo(chkbPalletFilm, cbPalletFilm, _palletFilmProperties, (null == _analysis) ? null : _analysis.PalletFilmProperties);
                 // overhang
                 if (null == _analysis)
                 {
@@ -151,7 +157,6 @@ namespace TreeDim.StackBuilder.Desktop
 
                     AllowTwoLayerOrientations = Settings.Default.AllowLayerOrientChange;
                     AllowLastLayerOrientationChange = Settings.Default.AllowLayerOrientChangeLastOnly;
-
                 }
                 else
                 {
@@ -197,6 +202,11 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumLoadOnBox = _analysis.ConstraintSet.MaximumWeightOnBox;
                 }
 
+                if (null != _analysis)
+                {
+                    PalletFilmTurns = _analysis.ConstraintSet.PalletFilmTurns;
+                }
+
                 UpdateCriterionFields();
                 UpdateButtonOkStatus();
 
@@ -222,7 +232,7 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                     for (int i = 0; i < cb.Items.Count; ++i)
                     {
-                        ItemBaseEncapsulator itemEncapsulator = cbInterlayer.Items[i] as ItemBaseEncapsulator;
+                        ItemBaseEncapsulator itemEncapsulator = cb.Items[i] as ItemBaseEncapsulator;
                         if (itemEncapsulator.Item == selectedItem)
                         {
                             cb.SelectedIndex = i;
@@ -232,7 +242,7 @@ namespace TreeDim.StackBuilder.Desktop
                 }
             }
             chkb.Checked = null != selectedItem;
-            chkb.Enabled = null != selectedItem;
+            chkb.Enabled = (cb.Items.Count > 0);
         }
 
         private void FormNewAnalysis_FormClosing(object sender, FormClosingEventArgs e)
@@ -362,6 +372,45 @@ namespace TreeDim.StackBuilder.Desktop
                     return null;
                 else
                     return _interlayerProperties[cbInterlayerAntiSlip.SelectedIndex];
+            }
+        }
+        public PalletCornerProperties SelectedPalletCorners
+        {
+            get
+            {
+                if (null == _palletCornerProperties
+                    || _palletCornerProperties.Length == 0
+                    || !chkbPalletCorners.Checked
+                    || -1 == cbPalletCorners.SelectedIndex)
+                    return null;
+                else
+                    return _palletCornerProperties[cbPalletCorners.SelectedIndex] as PalletCornerProperties;
+            }
+        }
+        public PalletCapProperties SelectedPalletCap
+        {
+            get
+            {
+                if (null == _palletCapProperties
+                    || _palletCapProperties.Length == 0
+                    || !chkbPalletCap.Checked
+                    || -1 == cbPalletCap.SelectedIndex)
+                    return null;
+                else
+                    return _palletCapProperties[cbPalletCap.SelectedIndex] as PalletCapProperties;
+            }
+        }
+        public PalletFilmProperties SelectedPalletFilm
+        {
+            get
+            {
+                if (null == _palletFilmProperties
+                    || _palletFilmProperties.Length == 0
+                    || !chkbPalletFilm.Checked
+                    || -1 == cbPalletFilm.SelectedIndex)
+                    return null;
+                else
+                    return _palletFilmProperties[cbPalletFilm.SelectedIndex] as PalletFilmProperties;
             }
         }
         /// <summary>
@@ -572,6 +621,12 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudPalletOverhangY.Value; }
             set { nudPalletOverhangY.Value = (decimal)value; }
         }
+
+        public int PalletFilmTurns
+        {
+            get { return (int)nudNumberOfTurns.Value; }
+            set { nudNumberOfTurns.Value = (decimal)value; }
+        }
         #endregion
 
         #region Handlers
@@ -603,6 +658,15 @@ namespace TreeDim.StackBuilder.Desktop
                 message = Resources.ID_ALLOWALIGNEDORALTERNATELAYERS;
             else if (!UseMaximumLoadOnBox && !UseMaximumNumberOfBoxes && !UseMaximumPalletHeight && !UseMaximumPalletWeight)
                 message = Resources.ID_USEATLEASTONESTOPSTACKINGCRITERION;
+            else if (chkbPalletCap.Checked)
+            {
+                PalletCapProperties capProperties = SelectedPalletCap;
+                PalletProperties palletProperties = SelectedPallet;
+                if (capProperties.InsideLength < palletProperties.Length + OverhangX)
+                    message = Resources.ID_PALLETCAPNOTLONGENOUGH;
+                else if (capProperties.InsideWidth < palletProperties.Width + OverhangY)
+                    message = Resources.ID_PALLETCAPNOTWIDEENOUGH;
+            }
             //---
             // button OK
             bnOk.Enabled = string.IsNullOrEmpty(message);
@@ -646,6 +710,26 @@ namespace TreeDim.StackBuilder.Desktop
         {
             if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
                 checkBoxAllowAlignedLayer.Checked = true;
+            UpdateButtonOkStatus();
+        }
+        private void onPalletCornersChecked(object sender, EventArgs e)
+        {
+            cbPalletCorners.Enabled = chkbPalletCorners.Enabled && chkbPalletCorners.Checked;
+            UpdateButtonOkStatus();
+        }
+
+        private void onPalletCapChecked(object sender, EventArgs e)
+        {
+            cbPalletCap.Enabled = chkbPalletCap.Enabled && chkbPalletCap.Checked;
+            UpdateButtonOkStatus();
+        }
+
+        private void onPalletFilmChecked(object sender, EventArgs e)
+        {
+            bool palletFilmEnabled = chkbPalletFilm.Enabled && chkbPalletFilm.Checked;
+            cbPalletFilm.Enabled = palletFilmEnabled;
+            lbNumberOfTurns.Enabled = palletFilmEnabled;
+            nudNumberOfTurns.Enabled = palletFilmEnabled;
             UpdateButtonOkStatus();
         }
         #endregion

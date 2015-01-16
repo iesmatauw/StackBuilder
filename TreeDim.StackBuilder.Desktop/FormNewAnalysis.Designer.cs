@@ -86,16 +86,16 @@
             this.tabPageInterlayer = new System.Windows.Forms.TabPage();
             this.tabPageInterlayerAntiSlip = new System.Windows.Forms.TabPage();
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
-            this.rbStart2 = new System.Windows.Forms.RadioButton();
-            this.rbStart1 = new System.Windows.Forms.RadioButton();
-            this.cbCorners = new System.Windows.Forms.ComboBox();
-            this.chkbCorners = new System.Windows.Forms.CheckBox();
+            this.cbPalletCorners = new System.Windows.Forms.ComboBox();
+            this.chkbPalletCorners = new System.Windows.Forms.CheckBox();
             this.tabPagePalletCap = new System.Windows.Forms.TabPage();
             this.cbPalletCap = new System.Windows.Forms.ComboBox();
             this.chkbPalletCap = new System.Windows.Forms.CheckBox();
             this.tabPagePalletFilm = new System.Windows.Forms.TabPage();
             this.cbPalletFilm = new System.Windows.Forms.ComboBox();
-            this.chkbFilm = new System.Windows.Forms.CheckBox();
+            this.chkbPalletFilm = new System.Windows.Forms.CheckBox();
+            this.lbNumberOfTurns = new System.Windows.Forms.Label();
+            this.nudNumberOfTurns = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -118,6 +118,7 @@
             this.tabPagePalletCorners.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfTurns)).BeginInit();
             this.SuspendLayout();
             // 
             // bnOk
@@ -560,40 +561,25 @@
             // 
             // tabPagePalletCorners
             // 
-            this.tabPagePalletCorners.Controls.Add(this.rbStart2);
-            this.tabPagePalletCorners.Controls.Add(this.rbStart1);
-            this.tabPagePalletCorners.Controls.Add(this.cbCorners);
-            this.tabPagePalletCorners.Controls.Add(this.chkbCorners);
+            this.tabPagePalletCorners.Controls.Add(this.cbPalletCorners);
+            this.tabPagePalletCorners.Controls.Add(this.chkbPalletCorners);
             resources.ApplyResources(this.tabPagePalletCorners, "tabPagePalletCorners");
             this.tabPagePalletCorners.Name = "tabPagePalletCorners";
             this.tabPagePalletCorners.UseVisualStyleBackColor = true;
             // 
-            // rbStart2
+            // cbPalletCorners
             // 
-            resources.ApplyResources(this.rbStart2, "rbStart2");
-            this.rbStart2.Name = "rbStart2";
-            this.rbStart2.TabStop = true;
-            this.rbStart2.UseVisualStyleBackColor = true;
+            this.cbPalletCorners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletCorners.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPalletCorners, "cbPalletCorners");
+            this.cbPalletCorners.Name = "cbPalletCorners";
             // 
-            // rbStart1
+            // chkbPalletCorners
             // 
-            resources.ApplyResources(this.rbStart1, "rbStart1");
-            this.rbStart1.Name = "rbStart1";
-            this.rbStart1.TabStop = true;
-            this.rbStart1.UseVisualStyleBackColor = true;
-            // 
-            // cbCorners
-            // 
-            this.cbCorners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCorners.FormattingEnabled = true;
-            resources.ApplyResources(this.cbCorners, "cbCorners");
-            this.cbCorners.Name = "cbCorners";
-            // 
-            // chkbCorners
-            // 
-            resources.ApplyResources(this.chkbCorners, "chkbCorners");
-            this.chkbCorners.Name = "chkbCorners";
-            this.chkbCorners.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.chkbPalletCorners, "chkbPalletCorners");
+            this.chkbPalletCorners.Name = "chkbPalletCorners";
+            this.chkbPalletCorners.UseVisualStyleBackColor = true;
+            this.chkbPalletCorners.CheckedChanged += new System.EventHandler(this.onPalletCornersChecked);
             // 
             // tabPagePalletCap
             // 
@@ -614,14 +600,16 @@
             resources.ApplyResources(this.chkbPalletCap, "chkbPalletCap");
             this.chkbPalletCap.Name = "chkbPalletCap";
             this.chkbPalletCap.UseVisualStyleBackColor = true;
+            this.chkbPalletCap.CheckedChanged += new System.EventHandler(this.onPalletCapChecked);
             // 
             // tabPagePalletFilm
             // 
+            this.tabPagePalletFilm.Controls.Add(this.nudNumberOfTurns);
+            this.tabPagePalletFilm.Controls.Add(this.lbNumberOfTurns);
             this.tabPagePalletFilm.Controls.Add(this.cbPalletFilm);
-            this.tabPagePalletFilm.Controls.Add(this.chkbFilm);
+            this.tabPagePalletFilm.Controls.Add(this.chkbPalletFilm);
             resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
-            this.tabPagePalletFilm.UseVisualStyleBackColor = false;
             // 
             // cbPalletFilm
             // 
@@ -630,11 +618,37 @@
             resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
             this.cbPalletFilm.Name = "cbPalletFilm";
             // 
-            // chkbFilm
+            // chkbPalletFilm
             // 
-            resources.ApplyResources(this.chkbFilm, "chkbFilm");
-            this.chkbFilm.Name = "chkbFilm";
-            this.chkbFilm.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.chkbPalletFilm, "chkbPalletFilm");
+            this.chkbPalletFilm.Name = "chkbPalletFilm";
+            this.chkbPalletFilm.UseVisualStyleBackColor = true;
+            this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.onPalletFilmChecked);
+            // 
+            // lbNumberOfTurns
+            // 
+            resources.ApplyResources(this.lbNumberOfTurns, "lbNumberOfTurns");
+            this.lbNumberOfTurns.Name = "lbNumberOfTurns";
+            // 
+            // nudNumberOfTurns
+            // 
+            resources.ApplyResources(this.nudNumberOfTurns, "nudNumberOfTurns");
+            this.nudNumberOfTurns.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudNumberOfTurns.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNumberOfTurns.Name = "nudNumberOfTurns";
+            this.nudNumberOfTurns.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FormNewAnalysis
             // 
@@ -698,6 +712,7 @@
             this.tabPagePalletCap.PerformLayout();
             this.tabPagePalletFilm.ResumeLayout(false);
             this.tabPagePalletFilm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfTurns)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,15 +777,15 @@
         private System.Windows.Forms.TabPage tabPageInterlayer;
         private System.Windows.Forms.TabPage tabPageInterlayerAntiSlip;
         private System.Windows.Forms.TabPage tabPagePalletCorners;
-        private System.Windows.Forms.RadioButton rbStart2;
-        private System.Windows.Forms.RadioButton rbStart1;
-        private System.Windows.Forms.ComboBox cbCorners;
-        private System.Windows.Forms.CheckBox chkbCorners;
+        private System.Windows.Forms.ComboBox cbPalletCorners;
+        private System.Windows.Forms.CheckBox chkbPalletCorners;
         private System.Windows.Forms.TabPage tabPagePalletCap;
         private System.Windows.Forms.CheckBox chkbPalletCap;
         private System.Windows.Forms.TabPage tabPagePalletFilm;
         private System.Windows.Forms.ComboBox cbPalletCap;
         private System.Windows.Forms.ComboBox cbPalletFilm;
-        private System.Windows.Forms.CheckBox chkbFilm;
+        private System.Windows.Forms.CheckBox chkbPalletFilm;
+        private System.Windows.Forms.NumericUpDown nudNumberOfTurns;
+        private System.Windows.Forms.Label lbNumberOfTurns;
     }
 }

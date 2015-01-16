@@ -1144,6 +1144,33 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cap.
+        /// </summary>
+        internal static string ID_PALLETCAP {
+            get {
+                return ResourceManager.GetString("ID_PALLETCAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet cap length should exceed pallet length + overhang X....
+        /// </summary>
+        internal static string ID_PALLETCAPNOTLONGENOUGH {
+            get {
+                return ResourceManager.GetString("ID_PALLETCAPNOTLONGENOUGH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet cap width should exceed pallet width + overhang Y....
+        /// </summary>
+        internal static string ID_PALLETCAPNOTWIDEENOUGH {
+            get {
+                return ResourceManager.GetString("ID_PALLETCAPNOTWIDEENOUGH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit pallet {0}....
         /// </summary>
         internal static string ID_PALLETCAPTIONEDIT {
@@ -1153,11 +1180,29 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Corners.
+        /// </summary>
+        internal static string ID_PALLETCORNERS {
+            get {
+                return ResourceManager.GetString("ID_PALLETCORNERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallet count.
         /// </summary>
         internal static string ID_PALLETCOUNT {
             get {
                 return ResourceManager.GetString("ID_PALLETCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Film.
+        /// </summary>
+        internal static string ID_PALLETFILM {
+            get {
+                return ResourceManager.GetString("ID_PALLETFILM", resourceCulture);
             }
         }
         
@@ -1284,6 +1329,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         internal static string ID_USEATLEASTONESTOPSTACKINGCRITERION {
             get {
                 return ResourceManager.GetString("ID_USEATLEASTONESTOPSTACKINGCRITERION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use transparency and/or hatching.
+        /// </summary>
+        internal static string ID_USETRANSPARENCYORHATCHING {
+            get {
+                return ResourceManager.GetString("ID_USETRANSPARENCYORHATCHING", resourceCulture);
             }
         }
         

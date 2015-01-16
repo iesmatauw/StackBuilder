@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using TreeDim.StackBuilder.Basics;
+using TreeDim.StackBuilder.Desktop.Properties;
 #endregion
 
 namespace TreeDim.StackBuilder.Desktop
@@ -15,26 +16,48 @@ namespace TreeDim.StackBuilder.Desktop
     public partial class FormNewPalletFilm : FormNewBase
     {
         #region Constructor
-        public FormNewPalletFilm(Document doc)
-            : base(doc, null)
-        {
-            InitializeComponent();
-
-            // initialize hatching
-            chkbHatching.Checked = true;
-            nudHatchSpacing.Value = (decimal)UnitsManager.ConvertLengthFrom(100.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-            chkbHatching_CheckedChanged(this, null);
-            // units
-            UnitsManager.AdaptUnitLabels(this);
-        }
         public FormNewPalletFilm(Document doc, PalletFilmProperties item)
             : base(doc, item)
         {
+            InitializeComponent();
+
+            if (null != item)
+            {
+                chkbTransparency.Checked = item.UseTransparency;
+                chkbHatching.Checked = item.UseHatching;
+                HatchSpacing = UnitsManager.ConvertLengthFrom(item.HatchSpacing, UnitsManager.UnitSystem.UNIT_METRIC1);
+                HatchAngle = item.HatchAngle;
+                FilmColor = item.Color;
+            }
+            else
+            {
+                chkbTransparency.Checked = true;
+                chkbHatching.Checked = true;
+                HatchSpacing = UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                HatchAngle = 45.0;
+                FilmColor = item.Color;
+            }
+            chkbHatching_CheckedChanged(this, null);
+            UpdateStatus(string.Empty);
+            // units
+            UnitsManager.AdaptUnitLabels(this);
+        }
+        #endregion
+
+        #region FormNewBase overrides
+        public override string ItemDefaultName
+        {   get { return Resources.ID_PALLETFILM; } }
+        public override void UpdateStatus(string message)
+        {
+            if (!UseTransparency && !UseHatching)
+                message = Resources.ID_USETRANSPARENCYORHATCHING;
+
+            base.UpdateStatus(message);
         }
         #endregion
 
         #region Public properties
-        public Color Color
+        public Color FilmColor
         {
             get { return cbColor.Color; }
             set { cbColor.Color = value; }
@@ -54,6 +77,11 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudHatchSpacing.Value; }
             set { nudHatchSpacing.Value = (decimal)value; }
         }
+        public double HatchAngle
+        {
+            get { return (double)nudHatchAngle.Value; }
+            set { nudHatchAngle.Value = (decimal)value; }
+        }
         #endregion
 
         #region Event handlers
@@ -61,6 +89,9 @@ namespace TreeDim.StackBuilder.Desktop
         {
             lbHatchSpacing.Enabled = UseHatching;
             nudHatchSpacing.Enabled = UseHatching;
+            lbHatchAngle.Enabled = UseHatching;
+            nudHatchAngle.Enabled = UseHatching;
+            UpdateStatus(string.Empty);
         }
         #endregion
     }

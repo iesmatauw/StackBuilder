@@ -119,7 +119,7 @@ namespace TreeDim.StackBuilder.Desktop
 
                 // fill interlayer combo
                 foreach (InterlayerProperties interlayer in _interlayerProperties)
-                    cbInterlayers.Items.Add(new InterlayerItem(interlayer));
+                    cbInterlayers.Items.Add(new ItemBaseEncapsulator(interlayer));
                 if (cbInterlayers.Items.Count > 0)
                 {
                     cbInterlayers.SelectedIndex = 0;
@@ -127,7 +127,7 @@ namespace TreeDim.StackBuilder.Desktop
                     {
                         for (int i = 0; i < cbInterlayers.Items.Count; ++i)
                         {
-                            InterlayerItem interlayerItem = cbInterlayers.Items[i] as InterlayerItem;
+                            ItemBaseEncapsulator interlayerItem = cbInterlayers.Items[i] as ItemBaseEncapsulator;
                             if (interlayerItem.Item == _analysis.InterlayerProperties)
                             {
                                 cbInterlayers.SelectedIndex = i;
@@ -147,7 +147,7 @@ namespace TreeDim.StackBuilder.Desktop
 
                 // fill interlayer combo
                 foreach (InterlayerProperties interlayer in _interlayerProperties)
-                    cbInterlayersAntiSlip.Items.Add(new InterlayerItem(interlayer));
+                    cbInterlayersAntiSlip.Items.Add(new ItemBaseEncapsulator(interlayer));
                 if (cbInterlayersAntiSlip.Items.Count > 0)
                 {
                     cbInterlayersAntiSlip.SelectedIndex = 0;
@@ -155,7 +155,7 @@ namespace TreeDim.StackBuilder.Desktop
                     {
                         for (int i = 0; i < cbInterlayersAntiSlip.Items.Count; ++i)
                         {
-                            InterlayerItem interlayerItem = cbInterlayersAntiSlip.Items[i] as InterlayerItem;
+                            ItemBaseEncapsulator interlayerItem = cbInterlayersAntiSlip.Items[i] as ItemBaseEncapsulator;
                             if (interlayerItem.Item == _analysis.InterlayerPropertiesAntiSlip)
                             {
                                 cbInterlayersAntiSlip.SelectedIndex = i;

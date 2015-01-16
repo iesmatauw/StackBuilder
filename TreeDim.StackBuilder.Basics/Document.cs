@@ -382,7 +382,10 @@ namespace TreeDim.StackBuilder.Basics
             // instantiate and initialize
             PalletCapProperties palletCap = new PalletCapProperties(
                 this,
-                name, description);
+                name, description,
+                length, width, height,
+                innerLength, innerWidth, innerHeight,
+                weight, color);
             // insert in list
             _typeList.Add(palletCap);
             // notify listeners
@@ -393,7 +396,7 @@ namespace TreeDim.StackBuilder.Basics
         public PalletFilmProperties CreateNewPalletFilm(
             string name, string description,
             bool useTransparency,
-            bool useHatching, double hatchSpacing,
+            bool useHatching, double hatchSpacing, double hatchAngle,
             Color color)
         {
             // instantiate and initialize
@@ -401,7 +404,7 @@ namespace TreeDim.StackBuilder.Basics
                 this,
                 name, description,
                 useTransparency,
-                useHatching, hatchSpacing,
+                useHatching, hatchSpacing, hatchAngle,
                 color);
             // insert in list
             _typeList.Add(palletFilm);
@@ -505,10 +508,15 @@ namespace TreeDim.StackBuilder.Basics
             string name, string description
             , BProperties box, PalletProperties pallet
             , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
+            , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
             , PalletConstraintSet constraintSet
             , ICasePalletAnalysisSolver solver)
         {
-            CasePalletAnalysis analysis = new CasePalletAnalysis(box, pallet, interlayer, interlayerAntiSlip, constraintSet);
+            CasePalletAnalysis analysis = new CasePalletAnalysis(
+                box, pallet,
+                interlayer, interlayerAntiSlip,
+                palletCorners, palletCap, palletFilm,
+                constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -540,10 +548,15 @@ namespace TreeDim.StackBuilder.Basics
             string name, string description
             , BProperties box, PalletProperties pallet
             , InterlayerProperties interlayer, InterlayerProperties interlayerAntiSlip
+            , PalletCornerProperties palletCorners, PalletCapProperties palletCap, PalletFilmProperties palletFilm
             , PalletConstraintSet constraintSet
             , List<CasePalletSolution> solutions)
         {
-            CasePalletAnalysis analysis = new CasePalletAnalysis(box, pallet, interlayer, interlayerAntiSlip, constraintSet);
+            CasePalletAnalysis analysis = new CasePalletAnalysis(
+                box, pallet,
+                interlayer, interlayerAntiSlip,
+                palletCorners, palletCap, palletFilm,
+                constraintSet);
             analysis.Name = name;
             analysis.Description = description;
             // insert in list
@@ -779,6 +792,9 @@ namespace TreeDim.StackBuilder.Basics
                 || item.GetType() == typeof(CaseOfBoxesProperties)
                 || item.GetType() == typeof(PalletProperties)
                 || item.GetType() == typeof(InterlayerProperties)
+                || item.GetType() == typeof(PalletCornerProperties)
+                || item.GetType() == typeof(PalletCapProperties)
+                || item.GetType() == typeof(PalletFilmProperties)
                 || item.GetType() == typeof(TruckProperties)
                 || item.GetType() == typeof(CylinderProperties))
             {
@@ -1449,9 +1465,9 @@ namespace TreeDim.StackBuilder.Basics
             string slength = eltPalletCapProperties.Attributes["Length"].Value;
             string swidth = eltPalletCapProperties.Attributes["Width"].Value;
             string sheight = eltPalletCapProperties.Attributes["Height"].Value;
-            string sinnerlength = eltPalletCapProperties.Attributes["InnerLength"].Value;
-            string sinnerwidth = eltPalletCapProperties.Attributes["InnerWidth"].Value;
-            string sinnerheight = eltPalletCapProperties.Attributes["InnerHeight"].Value;
+            string sinnerlength = eltPalletCapProperties.Attributes["InsideLength"].Value;
+            string sinnerwidth = eltPalletCapProperties.Attributes["InsideWidth"].Value;
+            string sinnerheight = eltPalletCapProperties.Attributes["InsideHeight"].Value;
             string sweight = eltPalletCapProperties.Attributes["Weight"].Value;
             string sColor = eltPalletCapProperties.Attributes["Color"].Value;
 
@@ -1474,13 +1490,20 @@ namespace TreeDim.StackBuilder.Basics
             string sid = eltPalletFilmProperties.Attributes["Id"].Value;
             string sname = eltPalletFilmProperties.Attributes["Name"].Value;
             string sdescription = eltPalletFilmProperties.Attributes["Description"].Value;
+            bool useTransparency = bool.Parse(eltPalletFilmProperties.Attributes["Transparency"].Value);
+            bool useHatching = bool.Parse(eltPalletFilmProperties.Attributes["Hatching"].Value);
+            string sHatchSpacing = eltPalletFilmProperties.Attributes["HatchSpacing"].Value;
+            string sHatchAngle = eltPalletFilmProperties.Attributes["HatchAngle"].Value;
+            string sColor = eltPalletFilmProperties.Attributes["Color"].Value;
 
             PalletFilmProperties palletFilmProperties = CreateNewPalletFilm(
                 sname,
                 sdescription,
-                eltPalletFilmProperties.Attributes["Transparency"].Value,
-                eltPalletFilmProperties.Attributes["Hatching"].Value,
-
+                useTransparency,
+                useHatching,
+                UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHatchSpacing, System.Globalization.CultureInfo.InvariantCulture), _unitSystem),
+                Convert.ToDouble(sHatchAngle, System.Globalization.CultureInfo.InvariantCulture),
+                Color.FromArgb(System.Convert.ToInt32(sColor))
                 );
             palletFilmProperties.Guid = new Guid(sid);
         }
@@ -1553,6 +1576,15 @@ namespace TreeDim.StackBuilder.Basics
             string sInterlayerAntiSlipId = string.Empty;
             if (eltAnalysis.HasAttribute("InterlayerAntiSlipId"))
                 sInterlayerAntiSlipId = eltAnalysis.Attributes["InterlayerAntiSlipId"].Value;
+            string sPalletCornerId = string.Empty;
+            if (eltAnalysis.HasAttribute("PalletCornerId"))
+                sPalletCornerId = eltAnalysis.Attributes["PalletCornerId"].Value;
+            string sPalletCapId = string.Empty;
+            if (eltAnalysis.HasAttribute("PalletCapId"))
+                sPalletCapId = eltAnalysis.Attributes["PalletCapId"].Value;
+            string sPalletFilmId = string.Empty;
+            if (eltAnalysis.HasAttribute("PalletFilmId"))
+                sPalletFilmId = eltAnalysis.Attributes["PalletFilmId"].Value;
 
             if (string.Equals(eltAnalysis.Name, "AnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -1597,6 +1629,9 @@ namespace TreeDim.StackBuilder.Basics
                     , GetTypeByGuid(new Guid(sPalletId)) as PalletProperties
                     , string.IsNullOrEmpty(sInterlayerId) ? null : GetTypeByGuid(new Guid(sInterlayerId)) as InterlayerProperties
                     , string.IsNullOrEmpty(sInterlayerAntiSlipId) ? null : GetTypeByGuid( new Guid(sInterlayerAntiSlipId) ) as InterlayerProperties
+                    , string.IsNullOrEmpty(sPalletCornerId) ? null : GetTypeByGuid( new Guid(sPalletCornerId) ) as PalletCornerProperties
+                    , string.IsNullOrEmpty(sPalletCapId) ? null : GetTypeByGuid( new Guid(sPalletCapId) ) as PalletCapProperties
+                    , string.IsNullOrEmpty(sPalletFilmId) ? null : GetTypeByGuid( new Guid(sPalletFilmId) ) as PalletFilmProperties
                     , constraintSet
                     , solutions);
                 // save selected solutions
@@ -1965,6 +2000,9 @@ namespace TreeDim.StackBuilder.Basics
             // number of solutions to keep
             if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
                 constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
+            // pallet film turns
+            if (eltConstraintSet.HasAttribute("PalletFilmTurns"))
+                constraints.PalletFilmTurns = int.Parse(eltConstraintSet.Attributes["PalletFilmTurns"].Value);
             // sanity check
             if (!constraints.IsValid)
                 throw new Exception("Invalid constraint set");
@@ -2847,7 +2885,7 @@ namespace TreeDim.StackBuilder.Basics
         public void Save(PalletCapProperties capProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create PalletCornerProperties element
-            XmlElement xmlCapProperties = xmlDoc.CreateElement("PalletCaproperties");
+            XmlElement xmlCapProperties = xmlDoc.CreateElement("PalletCapProperties");
             parentElement.AppendChild(xmlCapProperties);
             // Id
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
@@ -2904,19 +2942,34 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
             guidAttribute.Value = filmProperties.Guid.ToString();
             xmlFilmProperties.Attributes.Append(guidAttribute);
-            // name
+            // Name
             XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
             nameAttribute.Value = filmProperties.Name;
             xmlFilmProperties.Attributes.Append(nameAttribute);
-            // description
+            // Description
             XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
             descAttribute.Value = filmProperties.Description;
             xmlFilmProperties.Attributes.Append(descAttribute);
-            // color
+            // Transparency
+            XmlAttribute transparencyAttribute = xmlDoc.CreateAttribute("Transparency");
+            transparencyAttribute.Value = filmProperties.UseTransparency.ToString();
+            xmlFilmProperties.Attributes.Append(transparencyAttribute);
+            // Hatching
+            XmlAttribute hatchingAttribute = xmlDoc.CreateAttribute("Hatching");
+            hatchingAttribute.Value = filmProperties.UseHatching.ToString();
+            xmlFilmProperties.Attributes.Append(hatchingAttribute);
+            // HatchSpacing
+            XmlAttribute hatchSpacingAttribute = xmlDoc.CreateAttribute("HatchSpacing");
+            hatchSpacingAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", filmProperties.HatchSpacing);
+            xmlFilmProperties.Attributes.Append(hatchSpacingAttribute);
+            // HatchAngle
+            XmlAttribute hatchAngleAttribute = xmlDoc.CreateAttribute("HatchAngle");
+            hatchAngleAttribute.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", filmProperties.HatchAngle);
+            xmlFilmProperties.Attributes.Append(hatchAngleAttribute);
+            // Color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
             colorAttribute.Value = string.Format("{0}", filmProperties.Color.ToArgb());
             xmlFilmProperties.Attributes.Append(colorAttribute); 
-
         }
 
         public void Save(BundleProperties bundleProperties, XmlElement parentElement, XmlDocument xmlDoc)
@@ -3201,11 +3254,33 @@ namespace TreeDim.StackBuilder.Basics
                 interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerProperties.Guid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
             }
+            // InterlayerAntiSlipId
             if (null != analysis.InterlayerPropertiesAntiSlip)
             {
                 XmlAttribute interlayerIdAttribute = xmlDoc.CreateAttribute("InterlayerAntiSlipId");
                 interlayerIdAttribute.Value = string.Format("{0}", analysis.InterlayerPropertiesAntiSlip.Guid);
                 xmlAnalysisElt.Attributes.Append(interlayerIdAttribute);
+            }
+            // PalletCornerId
+            if (null != analysis.PalletCornerProperties)
+            {
+                XmlAttribute palletCornerAttribute = xmlDoc.CreateAttribute("PalletCornerId");
+                palletCornerAttribute.Value = string.Format("{0}", analysis.PalletCornerProperties.Guid);
+                xmlAnalysisElt.Attributes.Append(palletCornerAttribute);
+            }
+            // PalletCapId
+            if (null != analysis.PalletCapProperties)
+            {
+                XmlAttribute palletCapIdAttribute = xmlDoc.CreateAttribute("PalletCapId");
+                palletCapIdAttribute.Value = string.Format("{0}", analysis.PalletCapProperties.Guid);
+                xmlAnalysisElt.Attributes.Append(palletCapIdAttribute);
+            }
+            // PalletFilmId
+            if (null != analysis.PalletFilmProperties)
+            {
+                XmlAttribute palletFilmIdAttribute = xmlDoc.CreateAttribute("PalletFilmId");
+                palletFilmIdAttribute.Value = string.Format("{0}", analysis.PalletFilmProperties.Guid);
+                xmlAnalysisElt.Attributes.Append(palletFilmIdAttribute);
             }
             // ###
             // ConstraintSet
@@ -3275,6 +3350,13 @@ namespace TreeDim.StackBuilder.Basics
                 XmlAttribute numberOfSolutionsKept = xmlDoc.CreateAttribute("NumberOfSolutions");
                 numberOfSolutionsKept.Value = string.Format("{0}", analysis.ConstraintSet.NumberOfSolutionsKept);
                 constraintSetElement.Attributes.Append(numberOfSolutionsKept);
+            }
+            // pallet film turns
+            if (analysis.HasPalletFilm)
+            {
+                XmlAttribute palletFilmTurns = xmlDoc.CreateAttribute("PalletFilmTurns");
+                palletFilmTurns.Value = string.Format("{0}", analysis.ConstraintSet.PalletFilmTurns);
+                constraintSetElement.Attributes.Append(palletFilmTurns);
             }
             xmlAnalysisElt.AppendChild(constraintSetElement);
 

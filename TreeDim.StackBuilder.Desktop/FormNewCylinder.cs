@@ -35,6 +35,7 @@ namespace TreeDim.StackBuilder.Desktop
             UnitsManager.AdaptUnitLabels(this);
             // save document reference
             _document = document;
+            // name / description
             tbName.Text = _document.GetValidNewTypeName(Resources.ID_CYLINDER);
             tbDescription.Text = tbName.Text;
             // properties

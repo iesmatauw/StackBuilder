@@ -108,6 +108,20 @@ namespace Sharp3D.Math.Core
 			_m31 = column1.Z; _m32 = column2.Z; _m33 = column3.Z; _m34 = column4.Z;
 			_m41 = column1.W; _m42 = column2.W; _m43 = column3.W; _m44 = column4.W;
 		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Matrix4D"/> structure with the specified values.
+        /// </summary>
+        /// <param name="column1">A <see cref="Vector3D"/> instance holding values for the first column.</param>
+        /// <param name="column2">A <see cref="Vector3D"/> instance holding values for the second column.</param>
+        /// <param name="column3">A <see cref="Vector3D"/> instance holding values for the third column.</param>
+        /// <param name="column4">A <see cref="Vector3D"/> instance holding values for the fourth column.</param>
+        public Matrix4D(Vector3D column1, Vector3D column2, Vector3D column3, Vector3D column4)
+        {
+            _m11 = column1.X; _m12 = column2.X; _m13 = column3.X; _m14 = column4.X;
+            _m21 = column1.Y; _m22 = column2.Y; _m23 = column3.Y; _m24 = column4.Y;
+            _m31 = column1.Z; _m32 = column2.Z; _m33 = column3.Z; _m34 = column4.Z;
+            _m41 = 0.0; _m42 = 0.0; _m43 = 0.0; _m44 = 1.0;
+        }
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Matrix4D"/> class using a given matrix.
 		/// </summary>

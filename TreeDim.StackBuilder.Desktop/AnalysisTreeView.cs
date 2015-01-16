@@ -1309,6 +1309,12 @@ namespace TreeDim.StackBuilder.Desktop
                 nodeType = NodeTag.NodeType.NT_CASEOFBOXES;
             else if (itemBase.GetType() == typeof(InterlayerProperties))
                 nodeType = NodeTag.NodeType.NT_INTERLAYER;
+            else if (itemBase.GetType() == typeof(PalletCornerProperties))
+                nodeType = NodeTag.NodeType.NT_PALLETCORNERS;
+            else if (itemBase.GetType() == typeof(PalletCapProperties))
+                nodeType = NodeTag.NodeType.NT_PALLETCAP;
+            else if (itemBase.GetType() == typeof(PalletFilmProperties))
+                nodeType = NodeTag.NodeType.NT_PALLETFILM;
             else if (itemBase.GetType() == typeof(PalletProperties))
                 nodeType = NodeTag.NodeType.NT_PALLET;
             else if (itemBase.GetType() == typeof(TruckProperties))

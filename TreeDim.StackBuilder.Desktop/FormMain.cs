@@ -449,6 +449,49 @@ namespace TreeDim.StackBuilder.Desktop
                         truck.EndUpdate();
                     }
                 }
+                else if (itemProp.GetType() == typeof(PalletCornerProperties))
+                {
+                    PalletCornerProperties corner = itemProp as PalletCornerProperties;
+                    FormNewPalletCorners form = new FormNewPalletCorners(eventArg.Document, corner);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        corner.Name = form.ItemName;
+                        corner.Description = form.ItemDescription;
+                        corner.Length = form.CornerLength;
+                        corner.Width = form.CornerWidth;
+                        corner.Thickness = form.CornerThickness;
+                        corner.Color = form.Color;
+                        corner.EndUpdate();                    
+                    }
+                }
+                else if (itemProp.GetType() == typeof(PalletCapProperties))
+                {
+                    PalletCapProperties cap = itemProp as PalletCapProperties;
+                    FormNewPalletCap form = new FormNewPalletCap(eventArg.Document, cap);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        cap.Name = form.ItemName;
+                        cap.Description = form.ItemDescription;
+                        cap.Color = form.CapColor;
+                        cap.EndUpdate();
+                    }
+                }
+                else if (itemProp.GetType() == typeof(PalletFilmProperties))
+                {
+                    PalletFilmProperties film = itemProp as PalletFilmProperties;
+                    FormNewPalletFilm form = new FormNewPalletFilm(eventArg.Document, film);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        film.Name = form.ItemName;
+                        film.Description = form.ItemDescription;
+                        film.UseTransparency = form.UseTransparency;
+                        film.UseHatching = form.UseHatching;
+                        film.HatchSpacing = form.HatchSpacing;
+                        film.HatchAngle = form.HatchAngle;
+                        film.Color = form.FilmColor;
+                        film.EndUpdate();
+                    }
+                }
                 else
                     Debug.Assert(false);
             }

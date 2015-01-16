@@ -12,7 +12,7 @@ namespace TreeDim.StackBuilder.Basics
     {
         #region Data members
         public bool _useHatching, _useTransparency;
-        public double _hatchSpacing;
+        public double _hatchSpacing, _hatchAngle;
         public Color _color; 
         #endregion
 
@@ -25,13 +25,14 @@ namespace TreeDim.StackBuilder.Basics
         public PalletFilmProperties(Document doc,
             string name, string description,
             bool useTransparency,
-            bool useHatching, double hatchSpacing,
+            bool useHatching, double hatchSpacing, double hatchAngle,
             Color color)
             : base(doc, name, description)
         {
             _useTransparency = useTransparency;
             _useHatching = useHatching;
             _hatchSpacing = hatchSpacing;
+            _hatchAngle = hatchAngle;
             _color = color;
         }
         #endregion
@@ -51,6 +52,11 @@ namespace TreeDim.StackBuilder.Basics
         {
             get { return _hatchSpacing; }
             set { _hatchSpacing = value; }
+        }
+        public double HatchAngle
+        {
+            get { return _hatchAngle; }
+            set { _hatchAngle = value; }
         }
         public Color Color
         {

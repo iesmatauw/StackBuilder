@@ -46,6 +46,78 @@ namespace TreeDim.StackBuilder.Graphics
                 Pallet pallet = new Pallet(_analysis.PalletProperties);
                 pallet.Draw(graphics, Transform3D.Identity);
             }
+            // load bounding box
+            BBox3D loadBBox = _solution.LoadBoundingBox; 
+            BBox3D loadBBoxWDeco = _solution.LoadBoundingBoxWDeco;
+
+            #region Pallet film : begin
+            // draw film
+            Film film = null;
+            if (_solution.Analysis.HasPalletFilm)
+            {
+                PalletFilmProperties palletFilmProperties = _solution.Analysis.PalletFilmProperties;
+                film = new Film(
+                    palletFilmProperties.Color,
+                    palletFilmProperties.UseTransparency,
+                    palletFilmProperties.UseHatching,
+                    palletFilmProperties.HatchSpacing,
+                    palletFilmProperties.HatchAngle);
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin,
+                    HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Length * Vector3D.XAxis,
+                    HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Length * Vector3D.XAxis + loadBBoxWDeco.Width * Vector3D.YAxis,
+                    HalfAxis.HAxis.AXIS_X_N, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Width * Vector3D.YAxis,
+                    HalfAxis.HAxis.AXIS_Y_N, HalfAxis.HAxis.AXIS_Z_P, new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), 0.0));
+                film.AddRectangle(new FilmRectangle(loadBBoxWDeco.PtMin + loadBBoxWDeco.Height * Vector3D.ZAxis,
+                    HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Width),
+                    UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1)));
+                film.DrawBegin(graphics);
+            }
+            #endregion
+
+            #region Pallet corners
+            // *** pallet corners 
+            // positions
+            Vector3D[] cornerPositions =
+            {
+                loadBBox.PtMin
+                , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y, loadBBox.PtMin.Z)
+                , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
+                , new Vector3D(loadBBox.PtMin.X, loadBBox.PtMax.Y, loadBBox.PtMin.Z)
+            };
+            // length axes
+            HalfAxis.HAxis[] lAxes =
+            {
+                HalfAxis.HAxis.AXIS_X_P,
+                HalfAxis.HAxis.AXIS_Y_P,
+                HalfAxis.HAxis.AXIS_X_N,
+                HalfAxis.HAxis.AXIS_Y_N
+            };
+            // width axes
+            HalfAxis.HAxis[] wAxes =
+            {
+                HalfAxis.HAxis.AXIS_Y_P,
+                HalfAxis.HAxis.AXIS_X_N,
+                HalfAxis.HAxis.AXIS_Y_N,
+                HalfAxis.HAxis.AXIS_X_P
+            };
+            // corners
+            Corner[] corners = new Corner[4];
+            if (_solution.Analysis.HasPalletCorners)
+            {
+                for (int i = 0; i < 4; ++i)
+                {
+                    corners[i] = new Corner(_solution.Analysis.PalletCornerProperties);
+                    corners[i].Height = Math.Min(_solution.Analysis.PalletCornerProperties.Length, loadBBox.Height);
+                    corners[i].SetPosition(cornerPositions[i], lAxes[i], wAxes[i]);
+                    corners[i].DrawBegin(graphics);
+                }
+            }
+            // *** pallet corners : end
+            #endregion
+
             // draw solution
             uint pickId = 0;
             foreach (ILayer layer in _solution)
@@ -72,6 +144,7 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.AddBox(box);
                 }
             }
+
             if (_showDimensions)
             {
                 graphics.AddDimensions(
@@ -82,18 +155,41 @@ namespace TreeDim.StackBuilder.Graphics
                     , Color.Red, true));
             }
 
+            // pallet corners
+            if (_solution.Analysis.HasPalletCorners)
+            {
+                for (int i = 0; i < 4; ++i)
+                    corners[i].DrawEnd(graphics);
+            }
+            // pallet cap
+            if (_solution.Analysis.HasPalletCap)
+            {
+                PalletCapProperties capProperties = _solution.Analysis.PalletCapProperties;
+                Vector3D pos = new Vector3D(
+                    0.5 * (_analysis.PalletProperties.Length - capProperties.Length),
+                    0.5 * (_analysis.PalletProperties.Width - capProperties.Width),
+                    loadBBox.PtMax.Z - capProperties.InsideHeight);
+                PalletCap cap = new PalletCap(0, capProperties, pos);
+                cap.DrawEnd(graphics);
+            }
+            // pallet film
+            if (_solution.Analysis.HasPalletFilm)
+            {
+                film.DrawEnd(graphics);
+            }
             // flush
+            graphics.EnableFaceSorting = false;
             graphics.Flush();
         }
         BBox3D BoundingBoxDim(int index)
         {
             switch (index)
             {
-                case 0: return _solution.BoundingBox;
-                case 1: return _solution.LoadBoundingBox;
+                case 0: return _solution.BoundingBoxWDeco;//_solution.BoundingBox;
+                case 1: return _solution.LoadBoundingBoxWDeco;//_solution.LoadBoundingBox;
                 case 2: return _analysis.PalletProperties.BoundingBox;
                 case 3: return new BBox3D(0.0, 0.0, 0.0, _analysis.PalletProperties.Length, _analysis.PalletProperties.Width, 0.0);
-                default: return _solution.BoundingBox;
+                default: return _solution.BoundingBoxWDeco;
             }
         }
         /// <summary>

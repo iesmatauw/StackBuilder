@@ -69,17 +69,19 @@ namespace TreeDim.StackBuilder.Graphics
         /// textures
         /// </summary>
         private List<Texture> _textureList = new List<Texture>();
+        private bool _isSolid = false;
         #endregion
 
         #region Constructor
-        public Face(uint pickId, Vector3D[] vertices)
+        public Face(uint pickId, Vector3D[] vertices, bool isSolid)
         {
             _points = vertices;
             if (_points.Length < 3)
                 throw new GraphicsException("Face is degenerated");
             _pickingId = pickId;
+            _isSolid = isSolid;
         }
-        public Face(uint pickId, Vector3D[] vertices, Color colorFill, Color colorPath)
+        public Face(uint pickId, Vector3D[] vertices, Color colorFill, Color colorPath, bool isSolid)
         {
             _points = vertices;
             if (_points.Length < 3)
@@ -87,13 +89,7 @@ namespace TreeDim.StackBuilder.Graphics
             _pickingId = pickId;
             _colorFill = colorFill;
             _colorPath = colorPath;
-        }
-        public Face(uint pickId, Vector3D[] vertices, bool[] isInter)
-        {
-            _points = vertices;
-            if (_points.Length < 3)
-                throw new GraphicsException("Face is degenerated");
-            _pickingId = pickId;
+            _isSolid = isSolid;
         }
         /// <summary>
         /// Face constructor
@@ -103,7 +99,8 @@ namespace TreeDim.StackBuilder.Graphics
         /// <param name="pt1">Lower right point</param>
         /// <param name="pt2">Upper right point</param>
         /// <param name="pt3">Upper left point</param>
-        public Face(uint pickId, Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3)
+        /// <param name="isSolid">Is solid</param>
+        public Face(uint pickId, Vector3D pt0, Vector3D pt1, Vector3D pt2, Vector3D pt3, bool isSolid)
         {
             _pickingId = pickId;
             _points = new Vector3D[4];
@@ -111,6 +108,7 @@ namespace TreeDim.StackBuilder.Graphics
             _points[1] = pt1;
             _points[2] = pt2;
             _points[3] = pt3;
+            _isSolid = isSolid;
         }
         #endregion
 
@@ -130,6 +128,11 @@ namespace TreeDim.StackBuilder.Graphics
         {
             get { return _colorPath; }
             set { _colorPath = value; }
+        }
+        public bool IsSolid
+        {
+            set { _isSolid = value; }
+            get { return _isSolid; }
         }
         /// <summary>
         /// The array of 3D Points corresponding to the corners of this Face

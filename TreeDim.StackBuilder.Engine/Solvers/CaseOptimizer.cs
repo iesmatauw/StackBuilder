@@ -86,7 +86,11 @@ namespace TreeDim.StackBuilder.Engine
                 Vector3D outerDimensions = caseDefinition.OuterDimensions(_boxProperties, _caseOptimConstraintSet);
                 BoxProperties bProperties = new BoxProperties(_palletProperties.ParentDocument, outerDimensions.X, outerDimensions.Y, outerDimensions.Z);
                 // build analysis
-                CasePalletAnalysis casePalletAnalysis = new CasePalletAnalysis(bProperties, _palletProperties, null, null, _palletConstraintSet);
+                CasePalletAnalysis casePalletAnalysis = new CasePalletAnalysis(
+                    bProperties, _palletProperties,
+                    null, null,
+                    null, null, null,
+                    _palletConstraintSet);
                 // instantiate solver
                 CasePalletSolver solver = new CasePalletSolver();
                 // solve

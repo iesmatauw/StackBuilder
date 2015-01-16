@@ -111,6 +111,21 @@ namespace TreeDim.StackBuilder.Graphics
                 _tapeColor = boxProperties.TapeColor;
             }
         }
+        public Box(uint pickId, PalletCapProperties capProperties, Vector3D position)
+        {
+            _dim[0] = capProperties.Length;
+            _dim[1] = capProperties.Width;
+            _dim[2] = capProperties.Height;
+
+            _colors = new Color[6];
+            this.SetAllFacesColor(capProperties.Color);
+
+            Position = position;
+
+            LengthAxis = Vector3D.XAxis;
+            WidthAxis = Vector3D.YAxis;
+
+        }
         public Box(uint pickId, BProperties bProperties, BoxPosition bPosition)
         {
             if (!bPosition.IsValid)
@@ -524,12 +539,12 @@ namespace TreeDim.StackBuilder.Graphics
                 points[7] = _position + _dim[2] * heightAxis + _dim[1] * _widthAxis;
 
                 Face[] faces = new Face[6];
-                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }); // AXIS_X_N
-                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[2], points[6], points[5] }); // AXIS_X_P
-                faces[2] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[5], points[4] }); // AXIS_Y_N
-                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[3], points[7], points[6] }); // AXIS_Y_P
-                faces[4] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }); // AXIS_Z_N
-                faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }); // AXIS_Z_P
+                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, false); // AXIS_X_N
+                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, false); // AXIS_X_P
+                faces[2] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, false); // AXIS_Y_N
+                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, false); // AXIS_Y_P
+                faces[4] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, false); // AXIS_Z_N
+                faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, false); // AXIS_Z_P
 
                 int i = 0;
                 foreach (Face face in faces)
@@ -642,20 +657,7 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
     }
     #endregion
-    /*
-    #region Corner
-    public class Corner : Drawable
-    {
-        #region Data members
-        private Color _color;
-        #endregion
-
-        #region Constructor
-        #endregion
-    }
-    #endregion
-    */ 
-
+ 
     #region TriangleIndices
     public class TriangleIndices
     {

@@ -51,7 +51,7 @@
             this.uLengthHeight = new System.Windows.Forms.Label();
             this.uMassWeight = new System.Windows.Forms.Label();
             this.uLengthInsideLength = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.uLengthInsideWidth = new System.Windows.Forms.Label();
             this.uLengthInsideHeight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapInnerLength)).BeginInit();
@@ -73,6 +73,7 @@
             0,
             0});
             this.nudCapLength.Name = "nudCapLength";
+            this.nudCapLength.ValueChanged += new System.EventHandler(this.UpdateThicknesses);
             // 
             // nudCapInnerLength
             // 
@@ -84,6 +85,7 @@
             0,
             0});
             this.nudCapInnerLength.Name = "nudCapInnerLength";
+            this.nudCapInnerLength.ValueChanged += new System.EventHandler(this.UpdateThicknesses);
             // 
             // nudCapWidth
             // 
@@ -95,6 +97,7 @@
             0,
             0});
             this.nudCapWidth.Name = "nudCapWidth";
+            this.nudCapWidth.ValueChanged += new System.EventHandler(this.UpdateThicknesses);
             // 
             // nudCapInnerWidth
             // 
@@ -106,6 +109,7 @@
             0,
             0});
             this.nudCapInnerWidth.Name = "nudCapInnerWidth";
+            this.nudCapInnerWidth.ValueChanged += new System.EventHandler(this.UpdateThicknesses);
             // 
             // nudCapHeight
             // 
@@ -117,6 +121,7 @@
             0,
             0});
             this.nudCapHeight.Name = "nudCapHeight";
+            this.nudCapHeight.ValueChanged += new System.EventHandler(this.UpdateThicknesses);
             // 
             // nudCapInnerHeight
             // 
@@ -128,6 +133,7 @@
             0,
             0});
             this.nudCapInnerHeight.Name = "nudCapInnerHeight";
+            this.nudCapInnerHeight.ValueChanged += new System.EventHandler(this.UpdateThicknesses);
             // 
             // nudCapWeight
             // 
@@ -175,8 +181,13 @@
             resources.GetString("cbColor.Items3"),
             resources.GetString("cbColor.Items4"),
             resources.GetString("cbColor.Items5"),
-            resources.GetString("cbColor.Items6")});
+            resources.GetString("cbColor.Items6"),
+            resources.GetString("cbColor.Items7"),
+            resources.GetString("cbColor.Items8"),
+            resources.GetString("cbColor.Items9"),
+            resources.GetString("cbColor.Items10")});
             this.cbColor.Name = "cbColor";
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.cbColor_SelectedColorChanged);
             // 
             // label1
             // 
@@ -229,10 +240,10 @@
             resources.ApplyResources(this.uLengthInsideLength, "uLengthInsideLength");
             this.uLengthInsideLength.Name = "uLengthInsideLength";
             // 
-            // label9
+            // uLengthInsideWidth
             // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
+            resources.ApplyResources(this.uLengthInsideWidth, "uLengthInsideWidth");
+            this.uLengthInsideWidth.Name = "uLengthInsideWidth";
             // 
             // uLengthInsideHeight
             // 
@@ -243,7 +254,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.uLengthInsideHeight);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.uLengthInsideWidth);
             this.Controls.Add(this.uLengthInsideLength);
             this.Controls.Add(this.uMassWeight);
             this.Controls.Add(this.uLengthHeight);
@@ -289,7 +300,7 @@
             this.Controls.SetChildIndex(this.uLengthHeight, 0);
             this.Controls.SetChildIndex(this.uMassWeight, 0);
             this.Controls.SetChildIndex(this.uLengthInsideLength, 0);
-            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.uLengthInsideWidth, 0);
             this.Controls.SetChildIndex(this.uLengthInsideHeight, 0);
             ((System.ComponentModel.ISupportInitialize)(this.nudCapLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapInnerLength)).EndInit();
@@ -328,7 +339,7 @@
         private System.Windows.Forms.Label uLengthHeight;
         private System.Windows.Forms.Label uMassWeight;
         private System.Windows.Forms.Label uLengthInsideLength;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label uLengthInsideWidth;
         private System.Windows.Forms.Label uLengthInsideHeight;
     }
 }

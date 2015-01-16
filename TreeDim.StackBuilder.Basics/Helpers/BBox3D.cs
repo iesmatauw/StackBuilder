@@ -101,6 +101,7 @@ namespace TreeDim.StackBuilder.Basics
         public double Width { get { return _ptMax.Y - _ptMin.Y; } }
         public double Height { get { return _ptMax.Z - _ptMin.Z; } }
         public Vector3D PtMin { get { return _ptMin; } }
+        public Vector3D PtMax { get { return _ptMax; } }
         #endregion
 
         #region ICloneable Members

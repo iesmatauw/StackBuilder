@@ -730,6 +730,44 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="palletCorner" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="Length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="thickness" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_palletcorner_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="palletCap" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="length" type="xs:string"/>
+                    <xs:element name="width" type="xs:string"/>
+                    <xs:element name="height" type="xs:string"/>
+                    <xs:element name="innerLength" type="xs:string"/>
+                    <xs:element name="innerWidth" type="xs:string"/>
+                    <xs:element name="innerHeight" type="xs:string"/>
+                    <xs:element name="weight" type="xs:string"/>
+                    <xs:element name="view_palletcap_iso" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="palletFilm" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="description" type="xs:string"/>
+                    <xs:element name="numberOfTurns" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="constraintSet" minOccurs="1" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>

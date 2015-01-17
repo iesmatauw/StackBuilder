@@ -721,6 +721,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void onPalletCapChecked(object sender, EventArgs e)
         {
             cbPalletCap.Enabled = chkbPalletCap.Enabled && chkbPalletCap.Checked;
+            bnUseCapDimensions.Visible = chkbPalletCap.Enabled && chkbPalletCap.Checked;
             UpdateButtonOkStatus();
         }
 
@@ -737,6 +738,14 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateButtonOkStatus();
         }
+        private void bnUseCapDimensions_Click(object sender, EventArgs e)
+        {
+            if (chkbPalletCap.Enabled && chkbPalletCap.Checked)
+            {
+                OverhangX = SelectedPalletCap.Length - SelectedPallet.Length;
+                OverhangY = SelectedPalletCap.Width - SelectedPallet.Width;
+            }
+        }
         #endregion
 
         #region Box position drawings
@@ -749,7 +758,5 @@ namespace TreeDim.StackBuilder.Desktop
             BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
         }
         #endregion
-
-
     }
 }

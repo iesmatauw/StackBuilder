@@ -408,7 +408,12 @@ namespace TreeDim.StackBuilder.Basics
         {
             get
             {
-                return Analysis.PalletProperties.Weight + CaseCount * Analysis.BProperties.Weight;
+                return Analysis.PalletProperties.Weight
+                    + CaseCount * Analysis.BProperties.Weight
+                    + (Analysis.HasInterlayer ? InterlayerCount * Analysis.InterlayerProperties.Weight : 0.0)
+                    + (Analysis.HasInterlayerAntiSlip ? Analysis.InterlayerPropertiesAntiSlip.Weight : 0.0)
+                    + (Analysis.HasPalletCorners ? Analysis.PalletCornerProperties.Weight * 4.0 : 0.0)
+                    + (Analysis.HasPalletCap ? Analysis.PalletCapProperties.Weight : 0.0);
             }
         }
         public BBox3D LoadBoundingBox

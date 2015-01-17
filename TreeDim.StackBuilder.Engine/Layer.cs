@@ -102,24 +102,28 @@ namespace TreeDim.StackBuilder.Engine
         /// <summary>
         /// Layer pallet analysis constructor (inversed = false)
         /// </summary>
-        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
+        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties,
+            PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho)
         {
+            double cornerThickness = null != cornerProperties ? cornerProperties.Thickness : 0.0;
             _axisOrtho = axisOrtho;
             _inversed = false;
-            _palletLength = palletProperties.Length + constraintSet.OverhangX;
-            _palletWidth = palletProperties.Width + constraintSet.OverhangY;
+            _palletLength = palletProperties.Length + constraintSet.OverhangX - 2.0 * cornerThickness;
+            _palletWidth = palletProperties.Width + constraintSet.OverhangY - 2.0 * cornerThickness;
             Initialize(boxProperties);
         }
 
         /// <summary>
         /// Layer pallet analysis constructor (inversed = false)
         /// </summary>
-        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho, bool inversed)
+        public Layer(BProperties boxProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties,
+            PalletConstraintSet constraintSet, HalfAxis.HAxis axisOrtho, bool inversed)
         {
+            double cornerThickness = null != cornerProperties ? cornerProperties.Thickness : 0.0;
             _axisOrtho = axisOrtho;
             _inversed = inversed;
-            _palletLength = palletProperties.Length + constraintSet.OverhangX;
-            _palletWidth = palletProperties.Width + constraintSet.OverhangY;
+            _palletLength = palletProperties.Length + constraintSet.OverhangX - 2.0 * cornerThickness;
+            _palletWidth = palletProperties.Width + constraintSet.OverhangY - 2.0 * cornerThickness;
             Initialize(boxProperties);
         }
 

@@ -22,6 +22,8 @@ namespace TreeDim.StackBuilder.Engine
         private BProperties _bProperties;
         private PalletProperties _palletProperties;
         private InterlayerProperties _interlayerProperties, _interlayerPropertiesAntiSlip;
+        private PalletCornerProperties _cornerProperties;
+        private PalletCapProperties _capProperties;
         private PalletConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(CasePalletSolver));
         #endregion
@@ -44,6 +46,8 @@ namespace TreeDim.StackBuilder.Engine
             _palletProperties = analysis.PalletProperties;
             _interlayerProperties = analysis.InterlayerProperties;
             _interlayerPropertiesAntiSlip = analysis.InterlayerPropertiesAntiSlip;
+            _cornerProperties = analysis.PalletCornerProperties;
+            _capProperties = analysis.PalletCapProperties;
             _constraintSet = analysis.ConstraintSet;
             // check contraint set validity
             if (!_constraintSet.IsValid)
@@ -72,7 +76,8 @@ namespace TreeDim.StackBuilder.Engine
 
         #region Private methods
         private Layer GenerateBestLayer(
-            BProperties bProperties, PalletProperties palletProperties, PalletConstraintSet constraintSet, HalfAxis.HAxis hAxis)
+            BProperties bProperties, PalletProperties palletProperties, PalletCornerProperties cornerProperties,
+            PalletConstraintSet constraintSet, HalfAxis.HAxis hAxis)
         {
             Layer bestLayer = null;
             // loop through all patterns
@@ -82,7 +87,8 @@ namespace TreeDim.StackBuilder.Engine
                 if (!_constraintSet.AllowPattern(pattern.Name)) continue;
 
                 // direction 1
-                Layer layer1 = new Layer(bProperties, palletProperties, constraintSet, hAxis);
+                Layer layer1 = new Layer(bProperties, palletProperties, cornerProperties,
+                    constraintSet, hAxis);
                 double actualLength = 0.0, actualWidth = 0.0;
                 pattern.GetLayerDimensionsChecked(layer1, out actualLength, out actualWidth);
                 pattern.GenerateLayer(layer1, actualLength, actualWidth);
@@ -90,7 +96,8 @@ namespace TreeDim.StackBuilder.Engine
                 if (null == bestLayer || bestLayer.Count < layer1.Count)
                     bestLayer = layer1;
                 // direction 2 (opposite)
-                Layer layer2 = new Layer(bProperties, palletProperties, constraintSet, HalfAxis.Opposite(hAxis));
+                Layer layer2 = new Layer(bProperties, palletProperties, cornerProperties,
+                    constraintSet, HalfAxis.Opposite(hAxis));
                 actualLength = 0.0; actualWidth = 0.0;
                 pattern.GetLayerDimensionsChecked(layer2, out actualLength, out actualWidth);
                 pattern.GenerateLayer(layer2, actualLength, actualWidth);
@@ -107,9 +114,9 @@ namespace TreeDim.StackBuilder.Engine
             Layer[] bestLayers = new Layer[3];
             if (_constraintSet.AllowLastLayerOrientationChange)
             {
-                bestLayers[0] = GenerateBestLayer(_bProperties, _palletProperties, _constraintSet, HalfAxis.HAxis.AXIS_X_P);
-                bestLayers[1] = GenerateBestLayer(_bProperties, _palletProperties, _constraintSet, HalfAxis.HAxis.AXIS_Y_P);
-                bestLayers[2] = GenerateBestLayer(_bProperties, _palletProperties, _constraintSet, HalfAxis.HAxis.AXIS_Z_P);
+                bestLayers[0] = GenerateBestLayer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, HalfAxis.HAxis.AXIS_X_P);
+                bestLayers[1] = GenerateBestLayer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, HalfAxis.HAxis.AXIS_Y_P);
+                bestLayers[2] = GenerateBestLayer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, HalfAxis.HAxis.AXIS_Z_P);
             }
 
             List<CasePalletSolution> solutions = new List<CasePalletSolution>();
@@ -134,10 +141,10 @@ namespace TreeDim.StackBuilder.Engine
                         try
                         {
                             // build 2 layers (pallet length/width)
-                            Layer layer1 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho1);
-                            Layer layer1_inv = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho1, true);
-                            Layer layer2 = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho2);
-                            Layer layer2_inv = new Layer(_bProperties, _palletProperties, _constraintSet, axisOrtho2, true);
+                            Layer layer1 = new Layer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, axisOrtho1);
+                            Layer layer1_inv = new Layer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, axisOrtho1, true);
+                            Layer layer2 = new Layer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, axisOrtho2);
+                            Layer layer2_inv = new Layer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, axisOrtho2, true);
                             double actualLength1 = 0.0, actualLength2 = 0.0, actualWidth1 = 0.0, actualWidth2 = 0.0;
                             pattern.GetLayerDimensionsChecked(layer1, out actualLength1, out actualWidth1);
                             pattern.GetLayerDimensionsChecked(layer2, out actualLength2, out actualWidth2);
@@ -205,11 +212,12 @@ namespace TreeDim.StackBuilder.Engine
                                 CasePalletSolution sol = new CasePalletSolution(null, title, layer1T == layer2T);
                                 int iLayerIndex = 0;
                                 double zLayer = _palletProperties.Height;
+                                double capThickness = null != _capProperties ? _capProperties.Thickness : 0;
                                 int iInterlayer = 0;
                                 int iCount = 0;
 
                                 bool maxWeightReached = _constraintSet.UseMaximumPalletWeight && (_palletProperties.Weight + _bProperties.Weight > _constraintSet.MaximumPalletWeight);
-                                bool maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + _bProperties.Dimension(axisOrtho1) > _constraintSet.MaximumHeight);
+                                bool maxHeightReached = _constraintSet.UseMaximumHeight && (zLayer + capThickness + _bProperties.Dimension(axisOrtho1) > _constraintSet.MaximumHeight);
                                 bool maxNumberReached = false;
 
                                 // insert anti-slip interlayer id there is one
@@ -233,23 +241,22 @@ namespace TreeDim.StackBuilder.Engine
                                     }
 
                                     // select current layer type
+                                    double cornerThickness = null != _cornerProperties ? _cornerProperties.Thickness : 0.0;
                                     Layer currentLayer = iLayerIndex % 2 == 0 ? layer1T : layer2T;
                                     BoxLayer layer = sol.CreateNewLayer(zLayer, pattern.Name);
 
                                     foreach (LayerPosition layerPos in currentLayer)
                                     {
                                         ++iCount;
-
                                         maxWeightReached = _constraintSet.UseMaximumPalletWeight && ((iCount * _bProperties.Weight + _palletProperties.Weight) > _constraintSet.MaximumPalletWeight);
                                         maxNumberReached = _constraintSet.UseMaximumNumberOfCases && (iCount > _constraintSet.MaximumNumberOfItems);
-
                                         if (!maxWeightReached && !maxNumberReached)
                                         {
                                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                             BoxPosition boxPos = new BoxPosition(
                                                 layerPosTemp.Position
-                                                    - 0.5 *_constraintSet.OverhangX * Vector3D.XAxis
-                                                    - 0.5 *_constraintSet.OverhangY * Vector3D.YAxis
+                                                    - (0.5 *_constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis 
+                                                    - (0.5 * _constraintSet.OverhangY - cornerThickness)* Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
                                                 , layerPosTemp.LengthAxis
                                                 , layerPosTemp.WidthAxis
@@ -294,6 +301,8 @@ namespace TreeDim.StackBuilder.Engine
 
                                     if (null != bestLayer)
                                     {
+                                        double cornerThickness = null != _cornerProperties ? _cornerProperties.Thickness : 0.0;
+
                                         for (int iAddLayer = 0; iAddLayer < ibestLayerCount; ++iAddLayer)
                                         {
                                             BoxLayer layer = sol.CreateNewLayer(zLayer, string.Empty);
@@ -303,8 +312,8 @@ namespace TreeDim.StackBuilder.Engine
                                                 LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                                                 BoxPosition boxPos = new BoxPosition(
                                                     layerPosTemp.Position
-                                                    - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
-                                                    - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
+                                                    - (0.5 * _constraintSet.OverhangX - cornerThickness)* Vector3D.XAxis
+                                                    - (0.5 * _constraintSet.OverhangY - cornerThickness) * Vector3D.YAxis
                                                     + zLayer * Vector3D.ZAxis
                                                     , layerPosTemp.LengthAxis
                                                     , layerPosTemp.WidthAxis
@@ -377,9 +386,9 @@ namespace TreeDim.StackBuilder.Engine
 
             // generate best layers
             Layer[] bestLayers = new Layer[3];
-            bestLayers[0] = GenerateBestLayer(_bProperties, _palletProperties, _constraintSet, HalfAxis.HAxis.AXIS_X_P);
-            bestLayers[1] = GenerateBestLayer(_bProperties, _palletProperties, _constraintSet, HalfAxis.HAxis.AXIS_Y_P);
-            bestLayers[2] = GenerateBestLayer(_bProperties, _palletProperties, _constraintSet, HalfAxis.HAxis.AXIS_Z_P);
+            bestLayers[0] = GenerateBestLayer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, HalfAxis.HAxis.AXIS_X_P);
+            bestLayers[1] = GenerateBestLayer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, HalfAxis.HAxis.AXIS_Y_P);
+            bestLayers[2] = GenerateBestLayer(_bProperties, _palletProperties, _cornerProperties, _constraintSet, HalfAxis.HAxis.AXIS_Z_P);
 
             string[] dir = { "X", "Y", "Z" };
             for (int i = 0; i < 3; ++i)
@@ -400,6 +409,7 @@ namespace TreeDim.StackBuilder.Engine
                     // sol0
                     CasePalletSolution sol0 = new CasePalletSolution(null, string.Format("combination_{0}{1}", dir[i % 3], dir[(i % 3) + 1]), false);
                     double zLayer = _palletProperties.Height;
+                    double cornerThickness = null != _cornerProperties ? _cornerProperties.Thickness : 0.0;
 
                     for (int j = 0; j < noLayer0; ++j)
                     {
@@ -427,8 +437,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
-                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
+                                - (0.5 * _constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis
+                                - (0.5 * _constraintSet.OverhangY - cornerThickness) * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis
@@ -451,8 +461,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
-                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
+                                - (0.5 * _constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis
+                                - (0.5 * _constraintSet.OverhangY - cornerThickness) * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis
@@ -469,8 +479,8 @@ namespace TreeDim.StackBuilder.Engine
                             LayerPosition layerPosTemp = AdjustLayerPosition(layerPos);
                             BoxPosition boxPos = new BoxPosition(
                                 layerPosTemp.Position
-                                - 0.5 * _constraintSet.OverhangX * Vector3D.XAxis
-                                - 0.5 * _constraintSet.OverhangY * Vector3D.YAxis
+                                - (0.5 * _constraintSet.OverhangX - cornerThickness) * Vector3D.XAxis
+                                - (0.5 * _constraintSet.OverhangY - cornerThickness) * Vector3D.YAxis
                                 + zLayer * Vector3D.ZAxis
                                 , layerPosTemp.LengthAxis
                                 , layerPosTemp.WidthAxis

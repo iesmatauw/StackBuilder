@@ -44,6 +44,7 @@ namespace TreeDim.StackBuilder.Basics
         public double InsideLength { get { return _insideLength; } }
         public double InsideWidth { get { return _insideWidth; } }
         public double InsideHeight { get { return _insideHeight; } }
+        public double Thickness { get { return _height - _insideHeight; } }
         public double Weight
         {
             get { return _weight; }

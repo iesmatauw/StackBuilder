@@ -1448,6 +1448,7 @@ namespace TreeDim.StackBuilder.Desktop
             Document doc = caseAnalysis.ParentDocument;
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS, doc, caseAnalysis));
+            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_BOXCASEPALLETANALYSIS) node...");
             // insert selected solution node
             TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
             nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CASESOLUTION, doc, caseAnalysis, selSolution);
@@ -1462,6 +1463,7 @@ namespace TreeDim.StackBuilder.Desktop
             Document doc = analysis.ParentDocument;
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
+            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_CASEPALLETANALYSIS) node...");
             // insert case/pallet/interlayer node
             CasePalletAnalysis_InsertSubNodes(doc, analysis, parentNode);
             // expand tree node
@@ -1474,6 +1476,7 @@ namespace TreeDim.StackBuilder.Desktop
             Document doc = analysis.ParentDocument;
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSIS, doc, analysis));
+            if (null == parentNode) throw new Exception("Failed to locate Analysis (NT_CASEPALLETANALYSIS) node...");
             // insert selected solution node
             TreeNode nodeSelSolution = new TreeNode(selSolution.Name, 15, 15);
             nodeSelSolution.Tag = new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION, doc, analysis, selSolution);

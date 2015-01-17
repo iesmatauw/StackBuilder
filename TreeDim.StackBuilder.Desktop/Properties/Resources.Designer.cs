@@ -937,6 +937,15 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thickness should not exceed width.
+        /// </summary>
+        internal static string ID_INVALIDTHICKNESSWIDTHPAIR {
+            get {
+                return ResourceManager.GetString("ID_INVALIDTHICKNESSWIDTHPAIR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layer pattern.
         /// </summary>
         internal static string ID_LAYERPATTERN {

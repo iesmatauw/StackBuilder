@@ -732,6 +732,11 @@ namespace TreeDim.StackBuilder.Desktop
             nudNumberOfTurns.Enabled = palletFilmEnabled;
             UpdateButtonOkStatus();
         }
+
+        private void onOverhangModified(object sender, EventArgs e)
+        {
+            UpdateButtonOkStatus();
+        }
         #endregion
 
         #region Box position drawings
@@ -744,5 +749,7 @@ namespace TreeDim.StackBuilder.Desktop
             BoxToPictureBox.Draw(selectedBox, HalfAxis.HAxis.AXIS_Z_P, pictureBoxPositionZ);
         }
         #endregion
+
+
     }
 }

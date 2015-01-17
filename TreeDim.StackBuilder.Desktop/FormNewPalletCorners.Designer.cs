@@ -89,6 +89,7 @@
             this.nudLength.Name = "nudLength";
             this.nudLength.Size = new System.Drawing.Size(66, 20);
             this.nudLength.TabIndex = 10;
+            this.nudLength.ValueChanged += new System.EventHandler(this.onValueChanged);
             // 
             // nudWidth
             // 
@@ -102,6 +103,7 @@
             this.nudWidth.Name = "nudWidth";
             this.nudWidth.Size = new System.Drawing.Size(66, 20);
             this.nudWidth.TabIndex = 11;
+            this.nudWidth.ValueChanged += new System.EventHandler(this.onValueChanged);
             // 
             // nudThickness
             // 
@@ -115,6 +117,7 @@
             this.nudThickness.Name = "nudThickness";
             this.nudThickness.Size = new System.Drawing.Size(66, 20);
             this.nudThickness.TabIndex = 12;
+            this.nudThickness.ValueChanged += new System.EventHandler(this.onValueChanged);
             // 
             // uLengthLength
             // 
@@ -176,11 +179,13 @@
             this.cbColorCorners.Items.AddRange(new object[] {
             "Color",
             "Color",
+            "Color",
             "Color"});
             this.cbColorCorners.Location = new System.Drawing.Point(111, 201);
             this.cbColorCorners.Name = "cbColorCorners";
             this.cbColorCorners.Size = new System.Drawing.Size(66, 22);
             this.cbColorCorners.TabIndex = 22;
+            this.cbColorCorners.SelectedColorChanged += new System.EventHandler(this.onValueChanged);
             // 
             // lbWeight
             // 
@@ -203,6 +208,7 @@
             this.nudWeight.Name = "nudWeight";
             this.nudWeight.Size = new System.Drawing.Size(66, 20);
             this.nudWeight.TabIndex = 24;
+            this.nudWeight.ValueChanged += new System.EventHandler(this.onValueChanged);
             // 
             // uMassWeight
             // 

@@ -739,7 +739,7 @@
                     <xs:element name="width" type="xs:string"/>
                     <xs:element name="thickness" type="xs:string"/>
                     <xs:element name="weight" type="xs:string"/>
-                    <xs:element name="view_palletcorner_iso" type="xs:string"/>
+                    <xs:element name="view_palletCorner_iso" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -755,7 +755,7 @@
                     <xs:element name="innerWidth" type="xs:string"/>
                     <xs:element name="innerHeight" type="xs:string"/>
                     <xs:element name="weight" type="xs:string"/>
-                    <xs:element name="view_palletcap_iso" type="xs:string"/>
+                    <xs:element name="view_palletCap_iso" type="xs:string"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>

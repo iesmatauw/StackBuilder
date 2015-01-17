@@ -23,8 +23,9 @@ namespace TreeDim.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public Corner(PalletCornerProperties cornerProperties)
+        public Corner(uint pickId, PalletCornerProperties cornerProperties)
         {
+            _pickId = pickId;
             _w = cornerProperties.Width;
             _th = cornerProperties.Thickness;
             _height = cornerProperties.Length;

@@ -150,6 +150,9 @@
     <xsl:apply-templates select="box"></xsl:apply-templates>
     <xsl:apply-templates select="caseOfBoxes"></xsl:apply-templates>
     <xsl:apply-templates select="interlayer"></xsl:apply-templates>
+    <xsl:apply-templates select="palletCorner"></xsl:apply-templates>
+    <xsl:apply-templates select="palletCap"></xsl:apply-templates>
+    <xsl:apply-templates select="palletFilm"></xsl:apply-templates>
     <xsl:apply-templates select="pallet"></xsl:apply-templates>
     <xsl:apply-templates select="constraintSet"></xsl:apply-templates>
     <xsl:apply-templates select="caseOptimConstraintSet"></xsl:apply-templates>
@@ -671,8 +674,209 @@
     </table>
   </xsl:template>
   <!--#### PALLET CORNER ####-->
+  <xsl:template match="palletCorner">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='PalletCorner']"/>
+    </h3>
+    <table class="style1">
+      <tr>
+        <td class="style2">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Name']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="2">
+          <xsl:value-of select="name"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Description']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="2">
+          <xsl:value-of select="description"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2 " colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="length/value"></xsl:value-of>
+        </td>
+        <td align="middle" colspan="2" rowspan="4">
+          <xsl:apply-templates select="view_palletCorner_iso"></xsl:apply-templates>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="width/value"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2"  colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Thickness']"/> (<xsl:value-of select="thickness/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3"  colspan="1">
+          <xsl:value-of select="thickness/value"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2"  colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3"  colspan="1">
+          <xsl:value-of select="weight/value"></xsl:value-of>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
   <!--#### PALLET CAP ####-->
+  <xsl:template match="palletCap">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='PalletCap']"/>
+    </h3>
+    <table class="style1" cellpadding="4">
+      <tr>
+        <td class="style2">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Name']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="name"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Description']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="description"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Ext. length']"/> (<xsl:value-of select="length/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="length/value"></xsl:value-of>
+        </td>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Interior length']"/> (<xsl:value-of select="innerLength/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="innerLength/value"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Ext. width']"/> (<xsl:value-of select="width/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="width/value"></xsl:value-of>
+        </td>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Interior width']"/> (<xsl:value-of select="innerWidth/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="innerWidth/value"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Ext. height']"/> (<xsl:value-of select="height/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="height/value"></xsl:value-of>
+        </td>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Interior height']"/> (<xsl:value-of select="innerHeight/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="innerHeight/value"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Weight']"/> (<xsl:value-of select="weight/unit"></xsl:value-of>)
+          </b>
+        </td>
+        <td class="style3" colspan="1">
+          <xsl:value-of select="weight/value"></xsl:value-of>
+        </td>
+        <td colspan="2" align="middle">
+          <xsl:apply-templates select="view_palletCap_iso"></xsl:apply-templates>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
   <!--#### PALLET FILM ####-->
+  <xsl:template match ="palletFilm">
+    <h3>
+      <xsl:value-of select="$loc/str[@name='PalletFilm']"/>
+    </h3>
+    <table class="style1"  cellpadding="4">
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Name']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="name"></xsl:value-of>
+        </td>
+      </tr>
+      <tr>
+        <td class="style2" colspan="1">
+          <b>
+            <xsl:value-of select="$loc/str[@name='Description']"/>
+          </b>
+        </td>
+        <td class="style3" colspan="3">
+          <xsl:value-of select="description"></xsl:value-of>
+        </td>
+      </tr>
+      <td class="style2" colspan="1">
+        <b>
+          <xsl:value-of select="$loc/str[@name='NumberOfTurns']"/>
+        </b>
+      </td>
+      <td class="style3" colspan="3">
+        <xsl:value-of select="numberOfTurns"></xsl:value-of>
+      </td>
+      <tr>
+    </tr>
+    </table>
+  </xsl:template>
   <!--#### BUNDLE ####-->
   <xsl:template match="bundle">
     <h3>
@@ -1573,6 +1777,14 @@
   <!--INTERLAYER-->
   <xsl:template match="view_interlayer_iso">
     <img src="images\view_interlayer_iso.png" width="150" height="150" align="middle"></img>
+  </xsl:template>
+  <!--PALLETCORNER-->
+  <xsl:template match="view_palletCorner_iso">
+    <img src="images\view_palletCorner_iso.png" width="150" height="150" align="middle"></img>
+  </xsl:template>
+  <!--PALLETCAP-->
+  <xsl:template match="view_palletCap_iso">
+    <img src="images\view_palletCap_iso.png" width="150" height="150" align="middle"></img>  
   </xsl:template>
   <!--BUNDLE-->
   <xsl:template match="view_bundle_iso">

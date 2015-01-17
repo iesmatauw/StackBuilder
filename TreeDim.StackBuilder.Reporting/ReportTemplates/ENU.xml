@@ -103,4 +103,8 @@
   <str name="Case filling constraint">Case filling constraint</str>
   <str name="Limit reached">Limit reached</str>
   <str name="Index">Index</str>
+  <str name="PalletCorner">Pallet corners</str>
+  <str name="PalletCap">Pallet cap</str>
+  <str name="PalletFilm">Pallet film</str>
+  <str name="NumberOfTurns">Number of turns</str>
 </strings>

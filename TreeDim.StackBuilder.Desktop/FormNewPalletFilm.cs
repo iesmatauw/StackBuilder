@@ -35,7 +35,7 @@ namespace TreeDim.StackBuilder.Desktop
                 chkbHatching.Checked = true;
                 HatchSpacing = UnitsManager.ConvertLengthFrom(150.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 HatchAngle = 45.0;
-                FilmColor = item.Color;
+                FilmColor = Color.LightSkyBlue;
             }
             chkbHatching_CheckedChanged(this, null);
             UpdateStatus(string.Empty);

@@ -284,7 +284,7 @@ namespace TreeDim.StackBuilder.Desktop
                 CreateNewPalletCorners(form.ItemName, form.ItemDescription,
                     form.CornerLength, form.CornerWidth, form.CornerThickness,
                     form.CornerWeight,
-                    form.Color);
+                    form.CornerColor);
         }
         /// <summary>
         /// Creates a new pallet cap

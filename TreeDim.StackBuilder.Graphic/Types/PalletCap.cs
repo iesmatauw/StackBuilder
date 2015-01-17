@@ -12,7 +12,7 @@ using TreeDim.StackBuilder.Basics;
 namespace TreeDim.StackBuilder.Graphics
 {
     #region PalletCap
-    class PalletCap : Drawable
+    public class PalletCap : Drawable
     {
         #region Data members
         private uint _pickId = 0;

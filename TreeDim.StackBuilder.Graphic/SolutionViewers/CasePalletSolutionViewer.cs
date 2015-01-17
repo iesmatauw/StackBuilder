@@ -109,7 +109,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 for (int i = 0; i < 4; ++i)
                 {
-                    corners[i] = new Corner(_solution.Analysis.PalletCornerProperties);
+                    corners[i] = new Corner(0, _solution.Analysis.PalletCornerProperties);
                     corners[i].Height = Math.Min(_solution.Analysis.PalletCornerProperties.Length, loadBBox.Height);
                     corners[i].SetPosition(cornerPositions[i], lAxes[i], wAxes[i]);
                     corners[i].DrawBegin(graphics);

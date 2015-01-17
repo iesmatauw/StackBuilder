@@ -52,7 +52,7 @@ namespace TreeDim.StackBuilder.Desktop
                 CapHeight = UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1);
 
                 CapWeight = UnitsManager.ConvertSurfaceMassFrom(0.5, UnitsManager.UnitSystem.UNIT_METRIC1);
-                CapColor = Color.Beige;
+                CapColor = Color.Khaki;
             }
             UpdateStatus(string.Empty);
         }
@@ -120,7 +120,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void cbColor_SelectedColorChanged(object sender, EventArgs e)
         {
-            DrawBox();
+            DrawCap();
         }
         private void UpdateThicknesses(object sender, EventArgs e)
         {
@@ -135,14 +135,15 @@ namespace TreeDim.StackBuilder.Desktop
                 if (nudCapHeight == nud && CapHeight > thickness)
                     CapInnerHeight = CapHeight - thickness;
             }
-
-            DrawBox();
+            // update
             UpdateStatus(string.Empty);
+            // draw cap
+            DrawCap();
         }
         #endregion
 
-        #region Draw box
-        private void DrawBox()
+        #region Draw cap
+        private void DrawCap()
         {
             try
             {
@@ -164,8 +165,8 @@ namespace TreeDim.StackBuilder.Desktop
                         CapInnerLength, CapInnerWidth, CapInnerHeight,
                         CapWeight, CapColor);
 
-                    Box box = new Box(0, palletCapProperties, Vector3D.Zero);
-                    graphics.AddBox(box);
+                    PalletCap palletCap = new PalletCap(0, palletCapProperties, Vector3D.Zero);
+                    palletCap.Draw(graphics);
                     graphics.AddDimensions(new DimensionCube(CapLength, CapWidth, CapHeight));
                     graphics.Flush();
                 }

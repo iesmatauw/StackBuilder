@@ -92,10 +92,10 @@
             this.cbPalletCap = new System.Windows.Forms.ComboBox();
             this.chkbPalletCap = new System.Windows.Forms.CheckBox();
             this.tabPagePalletFilm = new System.Windows.Forms.TabPage();
+            this.nudNumberOfTurns = new System.Windows.Forms.NumericUpDown();
+            this.lbNumberOfTurns = new System.Windows.Forms.Label();
             this.cbPalletFilm = new System.Windows.Forms.ComboBox();
             this.chkbPalletFilm = new System.Windows.Forms.CheckBox();
-            this.lbNumberOfTurns = new System.Windows.Forms.Label();
-            this.nudNumberOfTurns = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -422,6 +422,7 @@
             0,
             -2147483648});
             this.nudPalletOverhangX.Name = "nudPalletOverhangX";
+            this.nudPalletOverhangX.ValueChanged += new System.EventHandler(this.onOverhangModified);
             // 
             // nudPalletOverhangY
             // 
@@ -611,25 +612,6 @@
             resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             // 
-            // cbPalletFilm
-            // 
-            this.cbPalletFilm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPalletFilm.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
-            this.cbPalletFilm.Name = "cbPalletFilm";
-            // 
-            // chkbPalletFilm
-            // 
-            resources.ApplyResources(this.chkbPalletFilm, "chkbPalletFilm");
-            this.chkbPalletFilm.Name = "chkbPalletFilm";
-            this.chkbPalletFilm.UseVisualStyleBackColor = true;
-            this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.onPalletFilmChecked);
-            // 
-            // lbNumberOfTurns
-            // 
-            resources.ApplyResources(this.lbNumberOfTurns, "lbNumberOfTurns");
-            this.lbNumberOfTurns.Name = "lbNumberOfTurns";
-            // 
             // nudNumberOfTurns
             // 
             resources.ApplyResources(this.nudNumberOfTurns, "nudNumberOfTurns");
@@ -649,6 +631,25 @@
             0,
             0,
             0});
+            // 
+            // lbNumberOfTurns
+            // 
+            resources.ApplyResources(this.lbNumberOfTurns, "lbNumberOfTurns");
+            this.lbNumberOfTurns.Name = "lbNumberOfTurns";
+            // 
+            // cbPalletFilm
+            // 
+            this.cbPalletFilm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletFilm.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPalletFilm, "cbPalletFilm");
+            this.cbPalletFilm.Name = "cbPalletFilm";
+            // 
+            // chkbPalletFilm
+            // 
+            resources.ApplyResources(this.chkbPalletFilm, "chkbPalletFilm");
+            this.chkbPalletFilm.Name = "chkbPalletFilm";
+            this.chkbPalletFilm.UseVisualStyleBackColor = true;
+            this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.onPalletFilmChecked);
             // 
             // FormNewAnalysis
             // 

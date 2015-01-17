@@ -104,4 +104,8 @@
   <str name="Case filling constraint">Contraintes encaissage</str>
   <str name="Limit reached">Limite atteinte</str>
   <str name="Index">Index</str>
+  <str name="PalletCorner">Cornières</str>
+  <str name="PalletCap">Coiffe</str>
+  <str name="PalletFilm">Film</str>
+  <str name="NumberOfTurns">Nombre de tours</str>
 </strings>

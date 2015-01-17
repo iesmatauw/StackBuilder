@@ -598,4 +598,7 @@ Closing form...</value>
   <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
     <value>Pallet cap width should exceed pallet width + overhang Y...</value>
   </data>
+  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+    <value>Thickness should not exceed width</value>
+  </data>
 </root>

@@ -460,7 +460,7 @@ namespace TreeDim.StackBuilder.Desktop
                         corner.Length = form.CornerLength;
                         corner.Width = form.CornerWidth;
                         corner.Thickness = form.CornerThickness;
-                        corner.Color = form.Color;
+                        corner.Color = form.CornerColor;
                         corner.EndUpdate();                    
                     }
                 }

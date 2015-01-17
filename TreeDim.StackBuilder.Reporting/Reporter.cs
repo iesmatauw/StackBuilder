@@ -575,6 +575,12 @@ namespace TreeDim.StackBuilder.Reporting
                 AppendBundleElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // interlayer
             AppendInterlayerElement(analysis.InterlayerProperties, elemPalletAnalysis, xmlDoc);
+            // pallet corners
+            AppendPalletCornerElement(analysis.PalletCornerProperties, elemPalletAnalysis, xmlDoc);
+            // pallet cap
+            AppendPalletCapElement(analysis.PalletCapProperties, elemPalletAnalysis, xmlDoc);
+            // pallet film
+            AppendPalletFilmElement(analysis.PalletFilmProperties, analysis, elemPalletAnalysis, xmlDoc);
             // constraintSet
             AppendConstraintSet(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             // solution
@@ -1163,6 +1169,119 @@ namespace TreeDim.StackBuilder.Reporting
             elemInterlayer.AppendChild(elemImage);
             // save image ?
             SaveImageAs(graphics.Bitmap, "view_interlayer_iso.png");
+        }
+
+        private void AppendPalletCornerElement(PalletCornerProperties palletCornerProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        {
+            // sanity check
+            if (null == palletCornerProp) return;
+            // namespace
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // interlayer
+            XmlElement elemPalletCorner = xmlDoc.CreateElement("palletCorner", ns);
+            elemPalletAnalysis.AppendChild(elemPalletCorner);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = palletCornerProp.Name;
+            elemPalletCorner.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = palletCornerProp.Description;
+            elemPalletCorner.AppendChild(elemDescription);
+
+            AppendElementValue(xmlDoc, elemPalletCorner, "length", UnitsManager.LengthUnitString, palletCornerProp.Length);
+            AppendElementValue(xmlDoc, elemPalletCorner, "width", UnitsManager.LengthUnitString, palletCornerProp.Width);
+            AppendElementValue(xmlDoc, elemPalletCorner, "thickness", UnitsManager.LengthUnitString, palletCornerProp.Thickness);
+            AppendElementValue(xmlDoc, elemPalletCorner, "weight", UnitsManager.LengthUnitString, palletCornerProp.Weight);
+            // ---
+            // view_palletCorner_iso
+            // build image
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+            graphics.CameraPosition = Graphics3D.Corner_0;
+            Corner corner = new Corner(0, palletCornerProp);
+            corner.Draw(graphics);
+            graphics.Flush();
+            // save image ?
+            SaveImageAs(graphics.Bitmap, "view_palletCorner_iso.png");
+            // ---
+            // view_palletCorner_iso
+            XmlElement elemImage = xmlDoc.CreateElement("view_palletCorner_iso", ns);
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
+            elemImage.Attributes.Append(styleAttribute);
+            elemPalletCorner.AppendChild(elemImage);
+        }
+
+        private void AppendPalletCapElement(PalletCapProperties palletCapProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        {
+            // sanity check
+            if (null == palletCapProp) return;
+            // namespace
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // interlayer
+            XmlElement elemPalletCap = xmlDoc.CreateElement("palletCap", ns);
+            elemPalletAnalysis.AppendChild(elemPalletCap);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = palletCapProp.Name;
+            elemPalletCap.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = palletCapProp.Description;
+            elemPalletCap.AppendChild(elemDescription);
+
+            AppendElementValue(xmlDoc, elemPalletCap, "length", UnitsManager.LengthUnitString, palletCapProp.Length);
+            AppendElementValue(xmlDoc, elemPalletCap, "width", UnitsManager.LengthUnitString, palletCapProp.Width);
+            AppendElementValue(xmlDoc, elemPalletCap, "height", UnitsManager.LengthUnitString, palletCapProp.Height);
+            AppendElementValue(xmlDoc, elemPalletCap, "innerLength", UnitsManager.LengthUnitString, palletCapProp.InsideLength);
+            AppendElementValue(xmlDoc, elemPalletCap, "innerWidth", UnitsManager.LengthUnitString, palletCapProp.InsideWidth);
+            AppendElementValue(xmlDoc, elemPalletCap, "innerHeight", UnitsManager.LengthUnitString, palletCapProp.InsideHeight);
+            AppendElementValue(xmlDoc, elemPalletCap, "weight", UnitsManager.MassUnitString, palletCapProp.Weight);
+            // ---
+            // view_palletCap_iso
+            // build image
+            Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
+            graphics.CameraPosition = Graphics3D.Corner_0;
+            PalletCap palletCap = new PalletCap(0, palletCapProp, Vector3D.Zero);
+            palletCap.Draw(graphics);
+            graphics.AddDimensions(new DimensionCube(palletCapProp.Length, palletCapProp.Width, palletCapProp.Height));
+            graphics.Flush();
+            // save image ?
+            SaveImageAs(graphics.Bitmap, "view_palletCap_iso.png");
+            // ---
+            // view_palletCap_iso
+            XmlElement elemImage = xmlDoc.CreateElement("view_palletCap_iso", ns);
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
+            elemImage.InnerText = Convert.ToBase64String((byte[])converter.ConvertTo(graphics.Bitmap, typeof(byte[])));
+            XmlAttribute styleAttribute = xmlDoc.CreateAttribute("style");
+            styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
+            elemImage.Attributes.Append(styleAttribute);
+            elemPalletCap.AppendChild(elemImage);
+        }
+
+        private void AppendPalletFilmElement(PalletFilmProperties palletFilmProp, CasePalletAnalysis analyis, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        {
+            // sanity check
+            if (null == palletFilmProp) return;
+            // namespace
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // interlayer
+            XmlElement elemPalletFilm = xmlDoc.CreateElement("palletFilm", ns);
+            elemPalletAnalysis.AppendChild(elemPalletFilm);
+            // name
+            XmlElement elemName = xmlDoc.CreateElement("name", ns);
+            elemName.InnerText = palletFilmProp.Name;
+            elemPalletFilm.AppendChild(elemName);
+            // description
+            XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
+            elemDescription.InnerText = palletFilmProp.Description;
+            elemPalletFilm.AppendChild(elemDescription);
+            // number of turns
+            XmlElement elemNumberOfTurns = xmlDoc.CreateElement("numberOfTurns", ns);
+            elemNumberOfTurns.InnerText = analyis.ConstraintSet.PalletFilmTurns.ToString();
+            elemPalletFilm.AppendChild(elemNumberOfTurns);
         }
 
         private void AppendSolutionElement(ReportData inputData, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)

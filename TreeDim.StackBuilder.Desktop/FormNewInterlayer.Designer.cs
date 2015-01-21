@@ -52,8 +52,7 @@
             this.gbWeight = new System.Windows.Forms.GroupBox();
             this.uMassWeight = new System.Windows.Forms.Label();
             this.gbColor = new System.Windows.Forms.GroupBox();
-            this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new System.Windows.Forms.PictureBox();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
@@ -63,8 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             this.gbWeight.SuspendLayout();
             this.gbColor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,7 +253,8 @@
             resources.GetString("cbColor.Items26"),
             resources.GetString("cbColor.Items27"),
             resources.GetString("cbColor.Items28"),
-            resources.GetString("cbColor.Items29")});
+            resources.GetString("cbColor.Items29"),
+            resources.GetString("cbColor.Items30")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onInterlayerPropertyChanged);
             // 
@@ -303,21 +302,11 @@
             this.gbColor.Name = "gbColor";
             this.gbColor.TabStop = false;
             // 
-            // trackBarHorizAngle
+            // graphCtrl
             // 
-            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
-            this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Maximum = 360;
-            this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.TickFrequency = 90;
-            this.trackBarHorizAngle.Value = 225;
-            this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
-            // 
-            // pictureBox
-            // 
-            resources.ApplyResources(this.pictureBox, "pictureBox");
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.TabStop = false;
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.TabStop = false;
             // 
             // statusStripDef
             // 
@@ -340,10 +329,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.statusStripDef);
-            this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.gbColor);
             this.Controls.Add(this.gbWeight);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbDimensions);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbName);
@@ -368,8 +356,7 @@
             this.gbWeight.PerformLayout();
             this.gbColor.ResumeLayout(false);
             this.gbColor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
@@ -392,14 +379,13 @@
         private System.Windows.Forms.Label lbThickness;
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.Label lbLength;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.PictureBox graphCtrl;
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.NumericUpDown nudWeight;
         private System.Windows.Forms.Label lbWeight;
         private System.Windows.Forms.GroupBox gbWeight;
         private System.Windows.Forms.GroupBox gbColor;
-        private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private System.Windows.Forms.Label uLengthWidth;
         private System.Windows.Forms.Label uLengthLength;
         private System.Windows.Forms.Label uLengthThickness;

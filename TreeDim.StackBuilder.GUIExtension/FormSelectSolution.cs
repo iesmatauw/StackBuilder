@@ -310,9 +310,7 @@ namespace TreeDim.StackBuilder.GUIExtension
                     , _cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
                     , _cameraDistance * Math.Sin(angleVertRad));
                 // set camera target
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                // set light direction
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                graphics.Target = Vector3D.Zero;
                 // set viewport (not actually needed)
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // show images

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewTruck));
             this.bnCancel = new System.Windows.Forms.Button();
             this.bnOK = new System.Windows.Forms.Button();
-            this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.lbDescription = new System.Windows.Forms.Label();
@@ -47,17 +46,15 @@
             this.lbLength = new System.Windows.Forms.Label();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbColor = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.label1 = new System.Windows.Forms.Label();
             this.nudAdmissibleLoadWeight = new System.Windows.Forms.NumericUpDown();
             this.uMassAdmissibleLoad = new System.Windows.Forms.Label();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
@@ -75,15 +72,6 @@
             this.bnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bnOK.Name = "bnOK";
             this.bnOK.UseVisualStyleBackColor = true;
-            // 
-            // trackBarHorizAngle
-            // 
-            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
-            this.trackBarHorizAngle.Maximum = 360;
-            this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.TickFrequency = 90;
-            this.trackBarHorizAngle.Value = 225;
-            this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
             // 
             // tbName
             // 
@@ -219,7 +207,8 @@
             resources.GetString("cbColor.Items33"),
             resources.GetString("cbColor.Items34"),
             resources.GetString("cbColor.Items35"),
-            resources.GetString("cbColor.Items36")});
+            resources.GetString("cbColor.Items36"),
+            resources.GetString("cbColor.Items37")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onTruckPropertyChanged);
             // 
@@ -228,11 +217,11 @@
             resources.ApplyResources(this.lbColor, "lbColor");
             this.lbColor.Name = "lbColor";
             // 
-            // pictureBox
+            // graphCtrl
             // 
-            resources.ApplyResources(this.pictureBox, "pictureBox");
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.TabStop = false;
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.TabStop = false;
             // 
             // label1
             // 
@@ -292,8 +281,7 @@
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.trackBarHorizAngle);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOK);
             this.MaximizeBox = false;
@@ -303,25 +291,20 @@
             this.ShowInTaskbar = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewTruck_FormClosing);
             this.Load += new System.EventHandler(this.FormNewTruck_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdmissibleLoadWeight)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         #endregion
 
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Button bnOK;
-        private System.Windows.Forms.TrackBar trackBarHorizAngle;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label lbDescription;

@@ -149,9 +149,6 @@
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -164,6 +161,9 @@
   </data>
   <data name="checkBoxPositionX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="cbCase.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionY.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
@@ -207,8 +207,11 @@
   <data name="&gt;&gt;lbCase.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nudMaximumNumberOfBoxes.Name" xml:space="preserve">
-    <value>nudMaximumNumberOfBoxes</value>
+  <data name="lbBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionX.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
@@ -234,11 +237,8 @@
   <data name="checkBoxPositionY.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 17</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 43</value>
-  </data>
-  <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
+  <data name="&gt;&gt;checkBoxPositionY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cbBox.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -269,6 +269,9 @@
   </data>
   <data name="pictureBoxPositionX.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 92</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPositionZ.Name" xml:space="preserve">
+    <value>pictureBoxPositionZ</value>
   </data>
   <data name="checkBoxPositionX.Text" xml:space="preserve">
     <value>X</value>
@@ -312,9 +315,6 @@
   <data name="pictureBoxPositionZ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;gbStopStackingCondition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="tbDescription.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -329,6 +329,9 @@
   </data>
   <data name="checkBoxPositionY.Text" xml:space="preserve">
     <value>Y</value>
+  </data>
+  <data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionY.Name" xml:space="preserve">
     <value>pictureBoxPositionY</value>
@@ -360,20 +363,23 @@
   <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="nudMaximumNumberOfBoxes.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="&gt;&gt;lbCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxPositionY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 117</value>
   </data>
   <data name="checkBoxPositionZ.Location" type="System.Drawing.Point, System.Drawing">
     <value>254, 117</value>
+  </data>
+  <data name="lbStopStacking.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;lbStopStacking.Name" xml:space="preserve">
     <value>lbStopStacking</value>
   </data>
   <data name="checkBoxPositionZ.Text" xml:space="preserve">
     <value>Z</value>
-  </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionX.Name" xml:space="preserve">
     <value>pictureBoxPositionX</value>
@@ -396,6 +402,9 @@
   <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="&gt;&gt;lbBox.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
@@ -411,6 +420,9 @@
   <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="bnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -425,9 +437,6 @@
   </data>
   <data name="chkIncludeCases.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 89</value>
-  </data>
-  <data name="&gt;&gt;chkIncludeCases.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="lbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 9</value>
@@ -447,17 +456,8 @@
   <data name="&gt;&gt;statusStripDef.Name" xml:space="preserve">
     <value>statusStripDef</value>
   </data>
-  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lbStopStacking.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
-  </data>
-  <data name="nudMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
-  </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionX.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -480,8 +480,11 @@
   <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="bnOk.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 43</value>
   </data>
   <data name="lbStopStacking.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 24</value>
@@ -495,9 +498,6 @@
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;checkBoxPositionY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 13</value>
   </data>
@@ -507,8 +507,8 @@
   <data name="lbCase.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
   </data>
-  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
   </data>
   <data name="checkBoxPositionZ.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -525,9 +525,6 @@
   <data name="chkIncludeCases.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 17</value>
   </data>
-  <data name="lbName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
   <data name="&gt;&gt;uMassCaseWeight.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -543,17 +540,20 @@
   <data name="uMassCaseWeight.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
+  <data name="cbBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 62</value>
+  </data>
   <data name="chkIncludeCases.Text" xml:space="preserve">
     <value>Also include cases</value>
   </data>
   <data name="&gt;&gt;lbStopStacking.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="uMassCaseWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionX.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -567,17 +567,20 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewBoxCaseAnalysis</value>
   </data>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 9</value>
+  </data>
   <data name="&gt;&gt;nudMaximumNumberOfBoxes.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
-  </data>
-  <data name="&gt;&gt;lbStopStacking.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbBox.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="cbCase.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
+  </data>
+  <data name="&gt;&gt;nudMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 17</value>
@@ -585,8 +588,8 @@
   <data name="&gt;&gt;lbBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBoxPositionZ.Name" xml:space="preserve">
-    <value>checkBoxPositionZ</value>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionX.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
@@ -594,14 +597,8 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbStopStacking.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="&gt;&gt;checkBoxPositionY.Name" xml:space="preserve">
     <value>checkBoxPositionY</value>
-  </data>
-  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="&gt;&gt;statusStripDef.Parent" xml:space="preserve">
     <value>$this</value>
@@ -621,8 +618,8 @@
   <data name="&gt;&gt;uMassCaseWeight.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
   </data>
-  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="&gt;&gt;gbAllowedBoxPositions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -645,14 +642,17 @@
   <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
     <value>lbDescription</value>
   </data>
+  <data name="&gt;&gt;checkBoxMaximumCaseWeight.Parent" xml:space="preserve">
+    <value>gbStopStackingCondition</value>
+  </data>
   <data name="checkBoxPositionY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;cbBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;uMassCaseWeight.Name" xml:space="preserve">
-    <value>uMassCaseWeight</value>
+  <data name="checkBoxMaximumNumberOfBoxes.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionZ.Parent" xml:space="preserve">
     <value>gbAllowedBoxPositions</value>
@@ -672,8 +672,8 @@
   <data name="&gt;&gt;checkBoxMaximumCaseWeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 9</value>
+  <data name="&gt;&gt;nudMaximumNumberOfBoxes.Name" xml:space="preserve">
+    <value>nudMaximumNumberOfBoxes</value>
   </data>
   <data name="&gt;&gt;tbName.Name" xml:space="preserve">
     <value>tbName</value>
@@ -687,11 +687,11 @@
   <data name="&gt;&gt;cbCase.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBoxPositionZ.Name" xml:space="preserve">
-    <value>pictureBoxPositionZ</value>
+  <data name="nudMaximumNumberOfBoxes.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
+  <data name="statusStripDef.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
   </data>
   <data name="&gt;&gt;pictureBoxPositionZ.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -708,17 +708,17 @@
   <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
     <value>Allowed box positions</value>
   </data>
-  <data name="&gt;&gt;lbCase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;statusStripDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBoxMaximumCaseWeight.Parent" xml:space="preserve">
-    <value>gbStopStackingCondition</value>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbCase.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;gbStopStackingCondition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>584, 376</value>
@@ -732,14 +732,14 @@
   <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="cbBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 62</value>
+  <data name="&gt;&gt;toolStripStatusLabelDef.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.Parent" xml:space="preserve">
     <value>gbStopStackingCondition</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;chkIncludeCases.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbBox.Name" xml:space="preserve">
     <value>cbBox</value>
@@ -774,26 +774,26 @@
   <data name="&gt;&gt;cbBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
+  <data name="&gt;&gt;checkBoxPositionZ.Name" xml:space="preserve">
+    <value>checkBoxPositionZ</value>
   </data>
   <data name="checkBoxMaximumCaseWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nudMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
   </data>
   <data name="statusStripDef.Size" type="System.Drawing.Size, System.Drawing">
     <value>584, 22</value>
   </data>
-  <data name="checkBoxPositionY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 117</value>
+  <data name="&gt;&gt;checkBoxMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;checkBoxPositionY.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lbName.Text" xml:space="preserve">
-    <value>Name</value>
+  <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -801,8 +801,8 @@
   <data name="tbDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 35</value>
   </data>
-  <data name="bnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="&gt;&gt;uMassCaseWeight.Name" xml:space="preserve">
+    <value>uMassCaseWeight</value>
   </data>
   <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 259</value>
@@ -816,19 +816,16 @@
   <data name="lbCase.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="lbBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="&gt;&gt;lbStopStacking.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudMaximumNumberOfBoxes.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>es-ES</value>
   </metadata>
 </root>

@@ -17,7 +17,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewTruck : Form
+    public partial class FormNewTruck : Form, IDrawingContainer
     {
         #region Data members
         [NonSerialized]private Document _document;
@@ -79,10 +79,10 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form override
-        protected override void OnResize(EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            DrawTruck();
-            base.OnResize(e);
+            base.OnLoad(e);
+            graphCtrl.DrawingContainer = this;
         }
         #endregion
 
@@ -146,38 +146,16 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Draw truck
-        private void DrawTruck()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
-            {
-                // get horizontal angle
-                double angle = trackBarHorizAngle.Value;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-
-                if (TruckLength == 0 || TruckWidth == 0 || TruckHeight == 0)
-                    return;
-
-                TruckProperties truckProperties = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight);
-                truckProperties.Color = TruckColor;
-                Truck truck = new Truck(truckProperties);
-                truck.DrawBegin(graphics);
-                truck.DrawEnd(graphics);
-                graphics.AddDimensions(new DimensionCube(TruckLength, TruckWidth, TruckHeight));
-                graphics.Flush();
-                // set to picture box
-                pictureBox.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            if (TruckLength == 0 || TruckWidth == 0 || TruckHeight == 0)
+                return;
+            TruckProperties truckProperties = new TruckProperties(null, TruckLength, TruckWidth, TruckHeight);
+            truckProperties.Color = TruckColor;
+            Truck truck = new Truck(truckProperties);
+            truck.DrawBegin(graphics);
+            truck.DrawEnd(graphics);
+            graphics.AddDimensions(new DimensionCube(TruckLength, TruckWidth, TruckHeight));
         }
         #endregion
 
@@ -202,12 +180,7 @@ namespace TreeDim.StackBuilder.Desktop
 
         private void onTruckPropertyChanged(object sender, EventArgs e)
         {
-            DrawTruck();
-        }
-
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            DrawTruck();
+            graphCtrl.Invalidate();
         }
 
         private void onNameDescriptionChanged(object sender, EventArgs e)
@@ -222,7 +195,6 @@ namespace TreeDim.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewTruckPosition)
                 Settings.Default.FormNewTruckPosition.Restore(this);
-            DrawTruck();
         }
 
         private void FormNewTruck_FormClosing(object sender, FormClosingEventArgs e)

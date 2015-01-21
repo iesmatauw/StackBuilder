@@ -17,7 +17,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class DockContentTruckAnalysis :  DockContent, IView, IItemListener
+    public partial class DockContentTruckAnalysis :  DockContent, IView, IItemListener, IDrawingContainer
     {
         #region Data members
         /// <summary>
@@ -58,6 +58,8 @@ namespace TreeDim.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            //
+            graphCtrlSolution.DrawingContainer = this;
             // text
             this.Text = _truckAnalysis.Name + "-" + _truckAnalysis.ParentDocument.Name;
             // fill grid
@@ -199,7 +201,7 @@ namespace TreeDim.StackBuilder.Desktop
             gridSolutions.Selection.SelectRow(1, true);
             if (_truckAnalysis.Solutions.Count > 0)
                 _sol = _truckAnalysis.Solutions[0];
-            Draw();
+            graphCtrlSolution.Invalidate();
         }
         #endregion
 
@@ -232,12 +234,7 @@ namespace TreeDim.StackBuilder.Desktop
             // update select/unselect button text
             UpdateSelectButtonText();
             // redraw
-            Draw();            
-        }
-        private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
-        {
-            // redraw
-            Draw();
+            graphCtrlSolution.Invalidate();            
         }
         private void btSelectSolution_Click(object sender, EventArgs e)
         {
@@ -300,7 +297,7 @@ namespace TreeDim.StackBuilder.Desktop
             if (_truckAnalysis.Solutions.Count > 0)
                 _sol = _truckAnalysis.Solutions[0];
             // draw
-            Draw();
+            graphCtrlSolution.Invalidate();
         }
         public void Kill(ItemBase item)
         {
@@ -317,55 +314,18 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Drawing
-        private void Draw()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
-            {
-                // sanity check
-                if (pictureBoxTruckSolution.Size.Width < 1 || pictureBoxTruckSolution.Size.Height < 1)
-                    return;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxTruckSolution.Size);
-                // set camera position
-                graphics.CameraPosition = _cameraPosition;
-                // show images
-                graphics.ShowTextures = toolStripShowImages.Checked;
-                // instantiate solution viewer
-                if (null == _sol)   return;
-                // show dimensions when in corner views
-                if (Vector3D.Equals(_cameraPosition, Graphics3D.Corner_0)
-                    || Vector3D.Equals(_cameraPosition, Graphics3D.Corner_90)
-                    || Vector3D.Equals(_cameraPosition, Graphics3D.Corner_180)
-                    || Vector3D.Equals(_cameraPosition, Graphics3D.Corner_270))
-                {
-                    TruckProperties truckProp = _sol.ParentTruckAnalysis.TruckProperties;
-                    graphics.AddDimensions(new DimensionCube(_sol.LoadBoundingBox, Color.Red, false));
-                    graphics.AddDimensions(new DimensionCube(Vector3D.Zero, truckProp.Length, truckProp.Width, truckProp.Height, Color.Black, true));
-                }
-                // draw solution
-                TruckSolutionViewer sv = new TruckSolutionViewer(_sol);
-                sv.Draw(graphics);
-                // show generated bitmap on picture box control
-                pictureBoxTruckSolution.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            TruckProperties truckProp = _sol.ParentTruckAnalysis.TruckProperties;
+            graphics.AddDimensions(new DimensionCube(_sol.LoadBoundingBox, Color.Red, false));
+            graphics.AddDimensions(new DimensionCube(Vector3D.Zero, truckProp.Length, truckProp.Width, truckProp.Height, Color.Black, true));
+            // draw solution
+            TruckSolutionViewer sv = new TruckSolutionViewer(_sol);
+            sv.Draw(graphics);
         }
         #endregion
 
         #region Handlers to define point of view
-        private void onViewCorner_0(object sender, EventArgs e)        {  _cameraPosition = Graphics3D.Corner_0;    Draw();     }
-        private void onViewCorner_90(object sender, EventArgs e)       {  _cameraPosition = Graphics3D.Corner_90;   Draw();     }
-        private void onViewCorner_180(object sender, EventArgs e)      {  _cameraPosition = Graphics3D.Corner_180;  Draw();     }
-        private void onViewCorner_270(object sender, EventArgs e)      {  _cameraPosition = Graphics3D.Corner_270;  Draw();     }
-        private void onViewSideFront(object sender, EventArgs e)       {  _cameraPosition = Graphics3D.Front;       Draw();     }
-        private void onViewSideLeft(object sender, EventArgs e)        {  _cameraPosition = Graphics3D.Left;        Draw();     }
-        private void onViewSideRear(object sender, EventArgs e)        {  _cameraPosition = Graphics3D.Back;        Draw();     }
-        private void onViewSideRight(object sender, EventArgs e)       {  _cameraPosition = Graphics3D.Right;       Draw();     }
-        private void onViewTop(object sender, EventArgs e)             {  _cameraPosition = Graphics3D.Top;         Draw();     }
-        private void toolStripButtonShowImages_Click(object sender, EventArgs e)    { toolStripShowImages.Checked = !toolStripShowImages.Checked; Draw(); }
         #endregion
     }
 }

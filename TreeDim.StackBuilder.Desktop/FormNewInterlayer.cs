@@ -15,7 +15,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewInterlayer : Form
+    public partial class FormNewInterlayer : Form, IDrawingContainer
     {
         #region Data members
         private Document _document;
@@ -36,8 +36,6 @@ namespace TreeDim.StackBuilder.Desktop
             // initialize value
             InterlayerLength = UnitsManager.ConvertLengthFrom(1200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             InterlayerWidth = UnitsManager.ConvertLengthFrom(1000.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -59,19 +57,16 @@ namespace TreeDim.StackBuilder.Desktop
             Thickness = _interlayerProperties.Thickness;
             Weight = _interlayerProperties.Weight;
             this.Color = _interlayerProperties.Color;
-
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }
         #endregion
 
         #region Form override
-        protected override void OnResize(EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            DrawInterlayer();
-            base.OnResize(e);
+            base.OnLoad(e);
+            graphCtrl.Invalidate();
         }
         #endregion
 
@@ -114,17 +109,9 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Handlers
-        private void onLoad(object sender, EventArgs e)
-        {
-            DrawInterlayer();
-        }
         private void onInterlayerPropertyChanged(object sender, EventArgs e)
         {
-            DrawInterlayer();
-        }
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            DrawInterlayer();
+            graphCtrl.Invalidate();
         }
         private void UpdateButtonOkStatus()
         {
@@ -150,30 +137,15 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
-        #region Draw interlayer
-        private void DrawInterlayer()
+        #region IDrawingContainer
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         { 
-            // get horizontal angle
-            double angle = trackBarHorizAngle.Value;
-            // instantiate graphics
-            Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-            graphics.CameraPosition = new Vector3D(
-                Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                , 10000.0);
-            graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-            graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-            graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-            // draw
             InterlayerProperties interlayerProperties = new InterlayerProperties(
                 null, tbName.Text, tbDescription.Text
                 , InterlayerLength, InterlayerWidth
                 , Thickness, Weight, Color);
             Box box = new Box(0, interlayerProperties);
             graphics.AddBox(box);
-            graphics.Flush();
-            // set to picture box
-            pictureBox.Image = graphics.Bitmap;
         }
         #endregion
 
@@ -183,7 +155,7 @@ namespace TreeDim.StackBuilder.Desktop
             // windows settings
             if (null != Settings.Default.FormNewInterlayerPosition)
                 Settings.Default.FormNewInterlayerPosition.Restore(this);
-            DrawInterlayer();
+            graphCtrl.Invalidate();
         }
         private void FormNewInterlayer_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -65,7 +65,14 @@ namespace TreeDim.StackBuilder.Graphics
             // draw case (back faces)
             Case case_ = _caseProperties != null ? new Case(_caseProperties, transf) : null;
             if (null != case_)
-                case_.DrawBegin(graphics);
+            {
+                // add inside faces
+                Face[] faces = case_.Faces;
+                for (int i = 0; i < 6; ++i)
+                    faces[i].IsSolid = false;
+                foreach (Face f in faces)
+                     graphics.AddFace(f);
+            }
             // add boxes
             uint pickId = 0;
             for (int i=0; i<_caseDefinition.Arrangement._iLength; ++i)
@@ -82,11 +89,6 @@ namespace TreeDim.StackBuilder.Graphics
                 Vector3D innerDimensions = _caseDefinition.InnerDimensions(_boxProperties);
                 graphics.AddDimensions(DimensionCube.Transform(new DimensionCube(innerOffset, innerDimensions.X, innerDimensions.Y, innerDimensions.Z, Color.Red, false), transf));
             }
-            // flush
-            graphics.Flush();
-            // draw case (front faces)
-            if (null != case_)
-                case_.DrawEnd(graphics);
         }
         #endregion
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,282 +59,219 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="&gt;&gt;toolStripViews.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainerHoriz.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-	<data name="&gt;&gt;toolStripCornerView2.Name" xml:space="preserve">
-    <value>toolStripCornerView2</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitContainerHoriz.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="gridSolutions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-		<value>Fill</value>
-	</data>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="toolStripCornerView0.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="toolStripLeftView.ToolTipText" xml:space="preserve">
-    <value>Left view</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="splitContainerHoriz.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
-	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="toolStripViews.TabIndex" type="System.Int32, mscorlib">
-		<value>15</value>
-	</data>
-	<data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerHoriz</value>
+  <data name="btSelectSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-	<data name="pictureBoxTruckSolution.Location" type="System.Drawing.Point, System.Drawing">
-		<value>1, 1</value>
-	</data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
+  <data name="btSelectSolution.Location" type="System.Drawing.Point, System.Drawing">
+    <value>501, 454</value>
   </data>
-	<data name="toolStripTopView.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="toolStripCornerView2.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="&gt;&gt;toolStripCornerView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btSelectSolution.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 28</value>
   </data>
-	<data name="&gt;&gt;toolStripFrontView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;pictureBoxTruckSolution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="pictureBoxTruckSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Top, Bottom, Left, Right</value>
-	</data>
-	<data name="toolStripBackView.ToolTipText" xml:space="preserve">
-    <value>Back view</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;toolStripShowImages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;toolStripViews.Name" xml:space="preserve">
-    <value>toolStripViews</value>
-  </data>
-	<data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
-    <value>SourceGrid.Grid, SourceGrid, Version=4.30.3918.24227, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
-  </data>
-	<data name="&gt;&gt;toolStripCornerView2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-		<value>6, 13</value>
-	</data>
-	<data name="gridSolutions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-		<value>1, 1, 1, 1</value>
-	</data>
-	<data name="&gt;&gt;toolStripTopView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
-		<value>604, 617</value>
-	</data>
-	<data name="&gt;&gt;toolStripRightView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="toolStripBackView.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="splitContainerHoriz.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-		<value>Horizontal</value>
-	</data>
-	<data name="btSelectSolution.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="toolStripCornerView3.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="&gt;&gt;pictureBoxTruckSolution.Name" xml:space="preserve">
-    <value>pictureBoxTruckSolution</value>
-  </data>
-	<data name="btSelectSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-		<value>Bottom, Right</value>
-	</data>
-	<data name="&gt;&gt;toolStripLeftView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
-		<value>468</value>
-	</data>
-	<data name="&gt;&gt;toolStripViews.ZOrder" xml:space="preserve">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btSelectSolution.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-	<data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btSelectSolution.Text" xml:space="preserve">
+    <value>Select</value>
   </data>
-	<data name="toolStripCornerView0.Text" xml:space="preserve">
-    <value>Corner view 0°</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btSelectSolution.Name" xml:space="preserve">
+    <value>btSelectSolution</value>
   </data>
-	<data name="btSelectSolution.Size" type="System.Drawing.Size, System.Drawing">
-		<value>100, 28</value>
-	</data>
-	<data name="toolStripTopView.Text" xml:space="preserve">
-    <value>Top view</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
-    <value>gridSolutions</value>
+  <data name="&gt;&gt;btSelectSolution.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-	<data name="&gt;&gt;toolStripShowImages.Name" xml:space="preserve">
-    <value>toolStripShowImages</value>
-  </data>
-	<data name="&gt;&gt;btSelectSolution.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btSelectSolution.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
   </data>
-	<data name="&gt;&gt;toolStripCornerView3.Name" xml:space="preserve">
-    <value>toolStripCornerView3</value>
-  </data>
-	<data name="gridSolutions.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-		<value>GrowAndShrink</value>
-	</data>
-	<data name="btSelectSolution.Text" xml:space="preserve">
-    <value>Select</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
-    <value>splitContainerHoriz</value>
-  </data>
-	<data name="splitContainerHoriz.TabIndex" type="System.Int32, mscorlib">
-		<value>16</value>
-	</data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-	<data name="toolStripRightView.Text" xml:space="preserve">
-    <value>Back view</value>
-  <comment></comment></data>
-	<data name="toolStripRightView.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-		<value>6, 25</value>
-	</data>
-	<data name="toolStripRightView.ToolTipText" xml:space="preserve">
-    <value>Right view</value>
-  <comment></comment></data>
-	<data name="toolStripBackView.Text" xml:space="preserve">
-    <value>Rear view</value>
-  <comment></comment></data>
-	<data name="toolStripFrontView.Text" xml:space="preserve">
-    <value>Front view</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;toolStripCornerView0.Name" xml:space="preserve">
-    <value>toolStripCornerView0</value>
-  </data>
-	<data name="toolStripLeftView.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="&gt;&gt;toolStripViews.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="toolStripCornerView1.Text" xml:space="preserve">
-    <value>Corner view 90°</value>
-  <comment></comment></data>
-	<data name="toolStripCornerView2.Text" xml:space="preserve">
-    <value>Corner view 180°</value>
-  <comment></comment></data>
-	<data name="toolStripCornerView3.Text" xml:space="preserve">
-    <value>Corner view 270°</value>
-  <comment></comment></data>
-	<data name="toolStripCornerView1.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="&gt;&gt;splitContainerHoriz.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;btSelectSolution.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btSelectSolution.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-	<data name="toolStripShowImages.Text" xml:space="preserve">
-    <value>Show images</value>
-  <comment></comment></data>
-	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-		<value>604, 642</value>
-	</data>
-	<data name="&gt;&gt;toolStripTopView.Name" xml:space="preserve">
-    <value>toolStripTopView</value>
+  <data name="graphCtrlSolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-	<data name="toolStripShowImages.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="toolStripViews.Size" type="System.Drawing.Size, System.Drawing">
-		<value>604, 25</value>
-	</data>
-	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-		<value>
+  <data name="graphCtrlSolution.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="graphCtrlSolution.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
+    <value>601, 449</value>
+  </data>
+  <data name="graphCtrlSolution.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
+    <value>graphCtrlSolution</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerHoriz</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridSolutions.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="gridSolutions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gridSolutions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 152</value>
+  </data>
+  <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
+    <value>gridSolutions</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.30.3918.24227, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerHoriz</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 642</value>
+  </data>
+  <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
+    <value>486</value>
+  </data>
+  <data name="splitContainerHoriz.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
+    <value>splitContainerHoriz</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>604, 642</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         AAABAAEAEBAAAAAAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -351,128 +288,14 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//
         AADH4wAAAAAAAAABAAAAAQAAAAEAABgBAADYAQAAwAEAAPwBAAD8AQAA/AEAAPwBAAD//wAA
 </value>
-	</data>
-	<data name="gridSolutions.Location" type="System.Drawing.Point, System.Drawing">
-		<value>0, 0</value>
-	</data>
-	<data name="toolStripViews.Text" xml:space="preserve">
-    <value>Views</value>
-  <comment></comment></data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
-    <value>splitContainerHoriz</value>
   </data>
-	<data name="&gt;&gt;toolStripFrontView.Name" xml:space="preserve">
-    <value>toolStripFrontView</value>
-  </data>
-	<data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-		<value>Microsoft Sans Serif, 8.25pt</value>
-	</data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="toolStripFrontView.Size" type="System.Drawing.Size, System.Drawing">
-		<value>23, 22</value>
-	</data>
-	<data name="$this.Text" xml:space="preserve">
+  <data name="$this.Text" xml:space="preserve">
     <value>Truck/Container analysis</value>
-  <comment></comment></data>
-	<data name="pictureBoxTruckSolution.Size" type="System.Drawing.Size, System.Drawing">
-		<value>601, 431</value>
-	</data>
-	<data name="pictureBoxTruckSolution.TabIndex" type="System.Int32, mscorlib">
-		<value>0</value>
-	</data>
-	<data name="&gt;&gt;toolStripRightView.Name" xml:space="preserve">
-    <value>toolStripRightView</value>
   </data>
-	<data name="toolStripLeftView.Text" xml:space="preserve">
-    <value>Right view</value>
-  <comment></comment></data>
-	<data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-		<value>6, 25</value>
-	</data>
-	<data name="&gt;&gt;toolStripBackView.Name" xml:space="preserve">
-    <value>toolStripBackView</value>
-  </data>
-	<data name="&gt;&gt;$this.Name" xml:space="preserve">
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentTruckAnalysis</value>
   </data>
-	<data name="&gt;&gt;btSelectSolution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.7.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
   </data>
-	<data name="&gt;&gt;toolStripCornerView0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;toolStripBackView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="splitContainerHoriz.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-		<value>Fill</value>
-	</data>
-	<data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-	<data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-	<data name="&gt;&gt;toolStripCornerView1.Name" xml:space="preserve">
-    <value>toolStripCornerView1</value>
-  </data>
-	<data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-		<value>604, 145</value>
-	</data>
-	<data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-	<data name="&gt;&gt;btSelectSolution.Name" xml:space="preserve">
-    <value>btSelectSolution</value>
-  </data>
-	<data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="pictureBoxTruckSolution.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-		<value>1, 1, 1, 1</value>
-	</data>
-	<data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-	<data name="&gt;&gt;pictureBoxTruckSolution.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
-  </data>
-	<data name="btSelectSolution.Location" type="System.Drawing.Point, System.Drawing">
-		<value>501, 436</value>
-	</data>
-	<data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="toolStripViews.Location" type="System.Drawing.Point, System.Drawing">
-		<value>0, 0</value>
-	</data>
-	<data name="&gt;&gt;toolStripCornerView3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;toolStripLeftView.Name" xml:space="preserve">
-    <value>toolStripLeftView</value>
-  </data>
-	<data name="splitContainerHoriz.Location" type="System.Drawing.Point, System.Drawing">
-		<value>0, 25</value>
-	</data>
-	<data name="&gt;&gt;pictureBoxTruckSolution.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<metadata name="toolStripViews.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-		<value>0, 0</value>
-	</metadata>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>True</value>
-	</metadata>
-	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>de-DE</value>
-	</metadata>
 </root>

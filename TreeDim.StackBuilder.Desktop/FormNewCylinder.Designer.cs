@@ -49,8 +49,7 @@
             this.uMassWeight = new System.Windows.Forms.Label();
             this.nudWeight = new System.Windows.Forms.NumericUpDown();
             this.lbWeight = new System.Windows.Forms.Label();
-            this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbFaceColor = new System.Windows.Forms.GroupBox();
@@ -66,8 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
             this.gbWeight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.SuspendLayout();
@@ -244,21 +241,11 @@
             resources.ApplyResources(this.lbWeight, "lbWeight");
             this.lbWeight.Name = "lbWeight";
             // 
-            // trackBarHorizAngle
+            // graphCtrl
             // 
-            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
-            this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Maximum = 360;
-            this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.TickFrequency = 90;
-            this.trackBarHorizAngle.Value = 225;
-            this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
-            // 
-            // pictureBox
-            // 
-            resources.ApplyResources(this.pictureBox, "pictureBox");
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.TabStop = false;
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.TabStop = false;
             // 
             // statusStripDef
             // 
@@ -379,7 +366,8 @@
             resources.GetString("cbColorWallInner.Items81"),
             resources.GetString("cbColorWallInner.Items82"),
             resources.GetString("cbColorWallInner.Items83"),
-            resources.GetString("cbColorWallInner.Items84")});
+            resources.GetString("cbColorWallInner.Items84"),
+            resources.GetString("cbColorWallInner.Items85")});
             this.cbColorWallInner.Name = "cbColorWallInner";
             this.cbColorWallInner.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -480,7 +468,8 @@
             resources.GetString("cbColorWallOuter.Items80"),
             resources.GetString("cbColorWallOuter.Items81"),
             resources.GetString("cbColorWallOuter.Items82"),
-            resources.GetString("cbColorWallOuter.Items83")});
+            resources.GetString("cbColorWallOuter.Items83"),
+            resources.GetString("cbColorWallOuter.Items84")});
             this.cbColorWallOuter.Name = "cbColorWallOuter";
             this.cbColorWallOuter.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -580,7 +569,8 @@
             resources.GetString("cbColorTop.Items79"),
             resources.GetString("cbColorTop.Items80"),
             resources.GetString("cbColorTop.Items81"),
-            resources.GetString("cbColorTop.Items82")});
+            resources.GetString("cbColorTop.Items82"),
+            resources.GetString("cbColorTop.Items83")});
             this.cbColorTop.Name = "cbColorTop";
             this.cbColorTop.SelectedColorChanged += new System.EventHandler(this.onCylinderPropertiesChanged);
             // 
@@ -595,8 +585,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.statusStripDef);
-            this.Controls.Add(this.trackBarHorizAngle);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.gbDimensions);
             this.Controls.Add(this.tbDescription);
@@ -618,8 +607,6 @@
             this.gbWeight.ResumeLayout(false);
             this.gbWeight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.gbFaceColor.ResumeLayout(false);
@@ -648,8 +635,7 @@
         private System.Windows.Forms.Label uMassWeight;
         private System.Windows.Forms.NumericUpDown nudWeight;
         private System.Windows.Forms.Label lbWeight;
-        private System.Windows.Forms.TrackBar trackBarHorizAngle;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.GroupBox gbFaceColor;

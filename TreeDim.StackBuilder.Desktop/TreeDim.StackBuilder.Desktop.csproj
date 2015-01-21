@@ -147,12 +147,6 @@
     <Compile Include="DockContentAnalysisCaseOfBoxes.Designer.cs">
       <DependentUpon>DockContentAnalysisCaseOfBoxes.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContentAnalysisCylinder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DockContentAnalysisCylinder.Designer.cs">
-      <DependentUpon>DockContentAnalysisCylinder.cs</DependentUpon>
-    </Compile>
     <Compile Include="DockContentBoxCaseAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>

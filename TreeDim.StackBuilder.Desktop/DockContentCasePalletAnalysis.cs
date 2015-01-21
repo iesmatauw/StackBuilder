@@ -18,7 +18,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class DockContentCasePalletAnalysis : DockContent, IView, IItemListener
+    public partial class DockContentCasePalletAnalysis : DockContent, IView, IItemListener, IDrawingContainer
     {
         #region Data members
         /// <summary>
@@ -76,8 +76,8 @@ namespace TreeDim.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            // initialize toolStripShowImages
-            toolStripShowImages.Checked = Settings.Default.ShowImagesPallet;
+            // initialize drawing container
+            graphCtrlSolution.DrawingContainer = this;
             // set window caption
             this.Text = _analysis.Name + " - " + _analysis.ParentDocument.Name;
             // fill grid
@@ -88,8 +88,6 @@ namespace TreeDim.StackBuilder.Desktop
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            // save settings
-            Settings.Default.ShowImagesPallet = toolStripShowImages.Checked;
         }
         #endregion
 
@@ -262,8 +260,8 @@ namespace TreeDim.StackBuilder.Desktop
         }
         private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
         {
-            // redraw
-            Draw();
+            graphCtrlSolution.Height = this.splitContainerHoriz.Panel1.Height - btSelectSolution.Height - 4;
+            btSelectSolution.Location = new Point(this.splitContainerHoriz.Panel1.Width - btSelectSolution.Width - 2, this.splitContainerHoriz.Panel1.Height - btSelectSolution.Height - 2);
         }
         private void btSelectSolution_Click(object sender, EventArgs e)
         {
@@ -280,14 +278,6 @@ namespace TreeDim.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
-        }
-
-        private void toolStripShowImages_Click(object sender, EventArgs e)
-        {
-            // change state
-            toolStripShowImages.Checked = !toolStripShowImages.Checked;
-            // redraw
-            Draw();
         }
         #endregion
 
@@ -363,6 +353,15 @@ namespace TreeDim.StackBuilder.Desktop
         }
         #endregion
 
+        #region IDrawingContainer
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
+        {
+            // instantiate solution viewer
+            CasePalletSolutionViewer sv = new CasePalletSolutionViewer(GetCurrentSolution());
+            sv.Draw(graphics);
+        }
+        #endregion
+
         #region Public properties
         public CasePalletAnalysis Analysis
         {
@@ -376,110 +375,14 @@ namespace TreeDim.StackBuilder.Desktop
             try
             {
                 // sanity check
-                if (pictureBoxSolution.Size.Width < 1 || pictureBoxSolution.Size.Height < 1)
+                if (graphCtrlSolution.Size.Width < 1 || graphCtrlSolution.Size.Height < 1)
                     return;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
-                // set camera position 
-                double angleHorizRad = trackBarAngleHoriz.Value * Math.PI / 180.0;
-                double angleVertRad = trackBarAngleVert.Value * Math.PI / 180.0;
-                graphics.CameraPosition = new Vector3D(
-                    _cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
-                    , _cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
-                    , _cameraDistance * Math.Sin(angleVertRad));
-                // set camera target
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                // set light direction
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                // set viewport (not actually needed)
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // show images
-                graphics.ShowTextures = toolStripShowImages.Checked;
-                // instantiate solution viewer
-                CasePalletSolutionViewer sv = new CasePalletSolutionViewer(GetCurrentSolution());
-                sv.Draw(graphics);
-
-                // show generated bitmap on picture box control
-                pictureBoxSolution.Image = graphics.Bitmap;
+                graphCtrlSolution.Invalidate();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
-        }
-        #endregion
-
-        #region Handlers to define point of view
-        private void onAngleHorizChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
-
-        private void onAngleVertChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
-        private void onViewSideFront(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 180;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewSideLeft(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 270;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewSideRear(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 90;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewSideRight(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 0;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewCorner_0(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 0;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewCorner_90(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 90;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewCorner_180(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 180;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewCorner_270(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 270;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewTop(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 0;
-            trackBarAngleVert.Value = 90;
-            Draw();
         }
         #endregion
     }

@@ -96,8 +96,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                         // instantiate graphics
                         Graphics3DImage graphics = new Graphics3DImage(new Size(1000, 1000));
                         graphics.CameraPosition = new Vector3D(10000.0, 10000.0, 10000.0);
-                        graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                        graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                        graphics.Target = Vector3D.Zero;
                         graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                         // instantiate solution viewer
                         CasePalletSolutionViewer sv = new CasePalletSolutionViewer(sol);
@@ -137,8 +136,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                         // instantiate graphics
                         Graphics3DImage graphics = new Graphics3DImage(new Size(512, 512));
                         graphics.CameraPosition = new Vector3D(10000.0, 10000.0, 10000.0);
-                        graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                        graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
+                        graphics.Target = Vector3D.Zero;
                         graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                         // instantiate solution viewer
                         CylinderPalletSolutionViewer sv = new CylinderPalletSolutionViewer(sol);

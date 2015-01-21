@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptimizeCase));
             this.splitContainerCasePallet = new System.Windows.Forms.SplitContainer();
-            this.pbBoxesLayout = new System.Windows.Forms.PictureBox();
-            this.pbPallet = new System.Windows.Forms.PictureBox();
+            this.graphCtrlBoxesLayout = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
+            this.graphCtrlPallet = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.btClose = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.chkVerticalOrientationOnly = new System.Windows.Forms.CheckBox();
@@ -80,8 +80,6 @@
             this.splitContainerCasePallet.Panel1.SuspendLayout();
             this.splitContainerCasePallet.Panel2.SuspendLayout();
             this.splitContainerCasePallet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoxesLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPallet)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.gbCase.SuspendLayout();
@@ -108,24 +106,24 @@
             // 
             // splitContainerCasePallet.Panel1
             // 
-            this.splitContainerCasePallet.Panel1.Controls.Add(this.pbBoxesLayout);
+            this.splitContainerCasePallet.Panel1.Controls.Add(this.graphCtrlBoxesLayout);
             // 
             // splitContainerCasePallet.Panel2
             // 
-            this.splitContainerCasePallet.Panel2.Controls.Add(this.pbPallet);
+            this.splitContainerCasePallet.Panel2.Controls.Add(this.graphCtrlPallet);
             this.splitContainerCasePallet.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainerCasePallet_SplitterMoved);
             // 
-            // pbBoxesLayout
+            // graphCtrlBoxesLayout
             // 
-            resources.ApplyResources(this.pbBoxesLayout, "pbBoxesLayout");
-            this.pbBoxesLayout.Name = "pbBoxesLayout";
-            this.pbBoxesLayout.TabStop = false;
+            resources.ApplyResources(this.graphCtrlBoxesLayout, "graphCtrlBoxesLayout");
+            this.graphCtrlBoxesLayout.Name = "graphCtrlBoxesLayout";
+            this.graphCtrlBoxesLayout.TabStop = false;
             // 
-            // pbPallet
+            // graphCtrlPallet
             // 
-            resources.ApplyResources(this.pbPallet, "pbPallet");
-            this.pbPallet.Name = "pbPallet";
-            this.pbPallet.TabStop = false;
+            resources.ApplyResources(this.graphCtrlPallet, "graphCtrlPallet");
+            this.graphCtrlPallet.Name = "graphCtrlPallet";
+            this.graphCtrlPallet.TabStop = false;
             // 
             // btClose
             // 
@@ -556,8 +554,6 @@
             this.splitContainerCasePallet.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCasePallet)).EndInit();
             this.splitContainerCasePallet.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoxesLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPallet)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).EndInit();
@@ -624,8 +620,8 @@
         private System.Windows.Forms.Button btSetMaximum;
         private System.Windows.Forms.Button btSetMinimum;
         private System.Windows.Forms.SplitContainer splitContainerCasePallet;
-        private System.Windows.Forms.PictureBox pbBoxesLayout;
-        private System.Windows.Forms.PictureBox pbPallet;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrlBoxesLayout;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrlPallet;
         private System.Windows.Forms.CheckBox chkVerticalOrientationOnly;
         private System.Windows.Forms.Label uLengthWallThickness;
         private System.Windows.Forms.Label uLengthPalletHeight;

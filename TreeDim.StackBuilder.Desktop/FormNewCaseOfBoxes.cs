@@ -194,7 +194,6 @@ namespace TreeDim.StackBuilder.Desktop
                     , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
                     , 10000.0);
                 graphics1.Target = Vector3D.Zero;
-                graphics1.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 graphics1.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // draw
                 BoxProperties boxProperties = new BoxProperties(null
@@ -214,7 +213,6 @@ namespace TreeDim.StackBuilder.Desktop
                     , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
                     , 10000.0);
                 graphics2.Target = Vector3D.Zero;
-                graphics2.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 graphics2.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // view case definition
                 CaseDefinitionViewer viewer = new CaseDefinitionViewer(_caseOfBoxesProperties.CaseDefinition, _caseOfBoxesProperties.InsideBoxProperties, _caseOfBoxesProperties.CaseOptimConstraintSet);

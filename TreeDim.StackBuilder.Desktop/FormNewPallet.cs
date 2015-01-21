@@ -17,7 +17,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewPallet : Form
+    public partial class FormNewPallet : Form, IDrawingContainer
     {
         #region Data members
         [NonSerialized]private Document _document;
@@ -66,10 +66,15 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Form override
-        protected override void OnResize(EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            DrawPallet();
-            base.OnResize(e);
+            base.OnLoad(e);
+            graphCtrl.DrawingContainer = this;
+            // update status
+            UpdateButtonOkStatus();
+            // windows settings
+            if (null != Settings.Default.FormNewPalletPosition)
+                Settings.Default.FormNewPalletPosition.Restore(this);
         }
         #endregion
 
@@ -135,45 +140,22 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Draw pallet
-        private void DrawPallet()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
             if (0 == cbType.Items.Count)
                 return;
-            try
-            {
-                double angle = trackBarHorizAngle.Value;
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-
-                PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight);
-                palletProperties.Color = PalletColor;
-                Pallet pallet = new Pallet(palletProperties);
-                pallet.Draw(graphics, Transform3D.Identity);
-                graphics.AddDimensions(new DimensionCube(PalletLength, PalletWidth, PalletHeight));
-                graphics.Flush();
-                pictureBox.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, PalletLength, PalletWidth, PalletHeight);
+            palletProperties.Color = PalletColor;
+            Pallet pallet = new Pallet(palletProperties);
+            pallet.Draw(graphics, Transform3D.Identity);
+            graphics.AddDimensions(new DimensionCube(PalletLength, PalletWidth, PalletHeight));
         }
         #endregion
 
         #region Handlers
         private void onPalletPropertyChanged(object sender, EventArgs e)
         {
-            DrawPallet();
-        }
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            DrawPallet();
+            graphCtrl.Invalidate();
         }
 
         private void UpdateButtonOkStatus()
@@ -214,20 +196,11 @@ namespace TreeDim.StackBuilder.Desktop
             Weight = UnitsManager.ConvertMassFrom(palletData.Weight, UnitsManager.UnitSystem.UNIT_METRIC1);
             PalletColor = palletData.Color;
 
-            DrawPallet();
+            graphCtrl.Invalidate();
         }
         #endregion
 
         #region Load / FormClosing event
-        private void FormNewPallet_Load(object sender, EventArgs e)
-        {
-            UpdateButtonOkStatus();
-
-            // windows settings
-            if (null != Settings.Default.FormNewPalletPosition)
-                Settings.Default.FormNewPalletPosition.Restore(this);
-            DrawPallet();
-        }
         private void FormNewPallet_FormClosing(object sender, FormClosingEventArgs e)
         {
             // window position

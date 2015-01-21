@@ -18,7 +18,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewCylinder : Form
+    public partial class FormNewCylinder : Form, IDrawingContainer
     {
         #region Data members
         [NonSerialized]
@@ -46,8 +46,6 @@ namespace TreeDim.StackBuilder.Desktop
             cbColorWallOuter.Color = System.Drawing.Color.LightSkyBlue;
             cbColorWallInner.Color = System.Drawing.Color.Chocolate;
             cbColorTop.Color = System.Drawing.Color.Gray;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -69,10 +67,16 @@ namespace TreeDim.StackBuilder.Desktop
             cbColorWallInner.Color = cylinder.ColorWallInner;
             cbColorTop.Color = cylinder.ColorTop;
             nudWeight.Value = (decimal)cylinder.Weight;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();        
+        }
+        #endregion
+
+        #region Form override
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            graphCtrl.DrawingContainer = this;
         }
         #endregion
 
@@ -130,7 +134,7 @@ namespace TreeDim.StackBuilder.Desktop
             // update ok button status
             UpdateButtonOkStatus();
             // update cylinder drawing
-            DrawCylinder();
+            graphCtrl.Invalidate();
         }
 
         private void UpdateButtonOkStatus()
@@ -155,43 +159,17 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripStatusLabelDef.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             toolStripStatusLabelDef.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
         }
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            DrawCylinder();
-        }
         #endregion
 
         #region Draw cylinder
-        public void DrawCylinder()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
-            {
-                // get horizontal angle
-                double angle = trackBarHorizAngle.Value;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = Vector3D.Zero;
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // draw
-                CylinderProperties cylProperties = new CylinderProperties(
-                    null, CylinderName, Description
-                    , RadiusOuter, RadiusInner, CylinderHeight, Weight
-                    , ColorTop, ColorWallOuter, ColorWallInner);
-                Cylinder cyl = new Cylinder(0, cylProperties);
-                graphics.AddCylinder(cyl);
-                graphics.Flush();
-                // set to picture box
-                pictureBox.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            CylinderProperties cylProperties = new CylinderProperties(
+                null, CylinderName, Description
+                , RadiusOuter, RadiusInner, CylinderHeight, Weight
+                , ColorTop, ColorWallOuter, ColorWallInner);
+            Cylinder cyl = new Cylinder(0, cylProperties);
+            graphics.AddCylinder(cyl);
         }
         #endregion
     }

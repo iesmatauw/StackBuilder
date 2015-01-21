@@ -32,10 +32,6 @@ namespace TreeDim.StackBuilder.Graphics
         /// </summary>
         private Vector3D _vCameraPos = new Vector3D(0.0, 0.0, -1000.0);
         /// <summary>
-        /// Light position
-        /// </summary>
-        private Vector3D _vLight = new Vector3D(-0.75, -0.5, 1.0);
-        /// <summary>
         /// Target position
         /// </summary>
         private Vector3D _vTarget = Vector3D.Zero;
@@ -155,6 +151,16 @@ namespace TreeDim.StackBuilder.Graphics
             set { _vTarget = value; }
         }
 
+        public Vector3D VLight
+        {
+            get
+            {
+                Vector3D vLight = _vCameraPos - _vTarget;
+                vLight.Normalize();
+                return vLight;
+            }
+        }
+
         public Vector3D ViewDirection
         {
             get
@@ -162,18 +168,6 @@ namespace TreeDim.StackBuilder.Graphics
                 Vector3D viewDir = _vTarget - _vCameraPos;
                 viewDir.Normalize();
                 return viewDir;
-            }
-        }
-        /// <summary>
-        /// gets or sets light direction
-        /// </summary>
-        public Vector3D LightDirection
-        {
-            get { return _vLight; }
-            set
-            {
-                _vLight = value;
-                _vLight.Normalize();
             }
         }
 
@@ -331,7 +325,7 @@ namespace TreeDim.StackBuilder.Graphics
         public void Flush()
         {
             // initialize
-            _vLight = _vCameraPos - _vTarget; _vLight.Normalize();
+            Vector3D vLight = _vCameraPos - _vTarget; vLight.Normalize();
             _boxDrawingCounter = 0;
             _currentTransf = null;
             System.Drawing.Graphics g = Graphics;
@@ -633,7 +627,7 @@ namespace TreeDim.StackBuilder.Graphics
                 return;
 
             // compute face color
-            double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
+            double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
             Color color = Color.FromArgb(
                 face.IsSolid ? 255 : (dir == FaceDir.FRONT ? 64 : 255)
                 , (int)(face.ColorFill.R * cosA)
@@ -674,7 +668,7 @@ namespace TreeDim.StackBuilder.Graphics
                     continue;
                 // color
                 faces[i].ColorFill = box.Colors[i];
-                double cosA = System.Math.Abs(Vector3D.DotProduct(faces[i].Normal, _vLight));
+                double cosA = System.Math.Abs(Vector3D.DotProduct(faces[i].Normal, VLight));
                 Color color = Color.FromArgb((int)(faces[i].ColorFill.R * cosA), (int)(faces[i].ColorFill.G * cosA), (int)(faces[i].ColorFill.B * cosA));
                 // points
                 Vector3D[] points3D = faces[i].Points;
@@ -721,7 +715,7 @@ namespace TreeDim.StackBuilder.Graphics
             if (box.ShowTape && faces[5].IsVisible(_vTarget - _vCameraPos))
             {
                 // get color
-                double cosA = System.Math.Abs(Vector3D.DotProduct(faces[5].Normal, _vLight));
+                double cosA = System.Math.Abs(Vector3D.DotProduct(faces[5].Normal, VLight));
                 Color color = Color.FromArgb((int)(box.TapeColor.R * cosA), (int)(box.TapeColor.G * cosA), (int)(box.TapeColor.B * cosA));
                 // instantiate brush
                 Brush brushTape = new SolidBrush(color);
@@ -786,7 +780,7 @@ namespace TreeDim.StackBuilder.Graphics
                     continue;
 
                 // color
-                double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, _vLight));
+                double cosA = System.Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
                 if (cosA < 0 || cosA > 1) cosA = 1.0;
                 Color color = Color.FromArgb((int)(face.ColorFill.R * cosA), (int)(face.ColorFill.G * cosA), (int)(face.ColorFill.B * cosA));
                 // brush
@@ -796,7 +790,7 @@ namespace TreeDim.StackBuilder.Graphics
                 g.FillPolygon(brush, ptsFace);
             }
             // top
-            double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vLight));
+            double cosTop = System.Math.Abs(Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), VLight));
             Color colorTop = Color.FromArgb((int)(cyl.ColorTop.R * cosTop), (int)(cyl.ColorTop.G * cosTop), (int)(cyl.ColorTop.B * cosTop));
             Brush brushTop = new SolidBrush(colorTop);
             bool topVisible = Vector3D.DotProduct(HalfAxis.ToVector3D(cyl.Position.Direction), _vTarget - _vCameraPos) < 0;

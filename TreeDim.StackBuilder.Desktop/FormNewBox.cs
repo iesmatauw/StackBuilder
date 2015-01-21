@@ -18,7 +18,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewBox : Form
+    public partial class FormNewBox : Form, IDrawingContainer
     {
         #region Mode enum
         public enum Mode
@@ -91,8 +91,6 @@ namespace TreeDim.StackBuilder.Desktop
             _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
             // set default face
             cbFace.SelectedIndex = 0;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -136,8 +134,6 @@ namespace TreeDim.StackBuilder.Desktop
             cbTapeColor.Color = _boxProperties.TapeColor;
             // set default face
             cbFace.SelectedIndex = 0;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -265,6 +261,8 @@ namespace TreeDim.StackBuilder.Desktop
         #region Load / FormClosing event
         private void FormNewBox_Load(object sender, EventArgs e)
         {
+            graphCtrl.DrawingContainer = this;
+
             // show hide inside dimensions controls
             nudInsideLength.Visible = _mode == Mode.MODE_CASE;
             nudInsideWidth.Visible = _mode == Mode.MODE_CASE;
@@ -289,7 +287,7 @@ namespace TreeDim.StackBuilder.Desktop
             // update tape definition controls
             checkBoxTape_CheckedChanged(this, null);
             // update box drawing
-            DrawBox();
+            graphCtrl.Invalidate();
             // windows settings
             if (null != Settings.Default.FormNewBoxPosition)
                 Settings.Default.FormNewBoxPosition.Restore(this);
@@ -307,7 +305,6 @@ namespace TreeDim.StackBuilder.Desktop
         #region Form override
         protected override void OnResize(EventArgs e)
         {
-            DrawBox();
  	         base.OnResize(e);
         }
         #endregion
@@ -340,7 +337,7 @@ namespace TreeDim.StackBuilder.Desktop
             // update ok button status
             UpdateButtonOkStatus();
             // update box drawing
-            DrawBox();
+            graphCtrl.Invalidate();
         }
 
         private void onSelectedFaceChanged(object sender, EventArgs e)
@@ -348,7 +345,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get current index
             int iSel = cbFace.SelectedIndex;
             cbColor.Color = _faceColors[iSel];
-            DrawBox();
+            graphCtrl.Invalidate();
         }
         private void onFaceColorChanged(object sender, EventArgs e)
         {
@@ -363,12 +360,7 @@ namespace TreeDim.StackBuilder.Desktop
                 for (int i = 0; i < 6; ++i)
                     _faceColors[i] = cbColor.Color;
             }
-            DrawBox();
-        }
-
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            DrawBox();
+            graphCtrl.Invalidate();
         }
 
         private void UpdateButtonOkStatus()
@@ -421,7 +413,7 @@ namespace TreeDim.StackBuilder.Desktop
                 form.Textures = _textures;
                 if (DialogResult.OK == form.ShowDialog())
                     _textures = form.Textures;
-                DrawBox();
+                graphCtrl.Invalidate();
             }
             catch (Exception ex)
             {
@@ -435,8 +427,7 @@ namespace TreeDim.StackBuilder.Desktop
             lbTapeWidth.Enabled = checkBoxTape.Checked;
             nudTapeWidth.Enabled = checkBoxTape.Checked;
             uLengthTapeWidth.Enabled = checkBoxTape.Checked;
-
-            DrawBox();
+            graphCtrl.Invalidate();
         }      
         #endregion
 
@@ -450,39 +441,17 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Draw box
-        private void DrawBox()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
-            {
-                // get horizontal angle
-                double angle = trackBarHorizAngle.Value;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = Vector3D.Zero;
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // draw
-                BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
-                boxProperties.SetAllColors(_faceColors);
-                boxProperties.TextureList = _textures;
-                boxProperties.ShowTape = ShowTape;
-                boxProperties.TapeColor = TapeColor;
-                boxProperties.TapeWidth = TapeWidth;
-                Box box = new Box(0, boxProperties);
-                graphics.AddBox(box);
-                graphics.AddDimensions(new DimensionCube((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value));
-                graphics.Flush();
-                // set to picture box
-                pictureBox.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString()); 
-            }
+            BoxProperties boxProperties = new BoxProperties(null, (double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value);
+            boxProperties.SetAllColors(_faceColors);
+            boxProperties.TextureList = _textures;
+            boxProperties.ShowTape = ShowTape;
+            boxProperties.TapeColor = TapeColor;
+            boxProperties.TapeWidth = TapeWidth;
+            Box box = new Box(0, boxProperties);
+            graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube((double)nudLength.Value, (double)nudWidth.Value, (double)nudHeight.Value));
         }
         #endregion
     }

@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="tbDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
     <value>92, 12</value>
@@ -223,7 +223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -253,7 +253,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -283,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="uLengthDiameterOuter.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -538,7 +538,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="uMassWeight.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -643,61 +643,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
-  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="trackBarHorizAngle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 328</value>
-  </data>
-  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 45</value>
-  </data>
-  <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
-    <value>trackBarHorizAngle</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="pictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="graphCtrl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
     <value>368, 67</value>
   </data>
-  <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 255</value>
   </data>
-  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
-    <value>pictureBox</value>
+  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
+    <value>graphCtrl</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -961,10 +934,10 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items74" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items75" xml:space="preserve">
-    <value>Color</value>
+    <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Items76" xml:space="preserve">
     <value>Color</value>
@@ -979,7 +952,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items80" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items81" xml:space="preserve">
     <value>Farbe</value>
@@ -991,6 +964,9 @@
     <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Items84" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallInner.Items85" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Location" type="System.Drawing.Point, System.Drawing">
@@ -1006,7 +982,7 @@
     <value>cbColorWallInner</value>
   </data>
   <data name="&gt;&gt;cbColorWallInner.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5431.20842, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5437.17761, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWallInner.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1270,10 +1246,10 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items73" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items74" xml:space="preserve">
-    <value>Color</value>
+    <value>Farbe</value>
   </data>
   <data name="cbColorWallOuter.Items75" xml:space="preserve">
     <value>Color</value>
@@ -1288,7 +1264,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items79" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallOuter.Items80" xml:space="preserve">
     <value>Farbe</value>
@@ -1300,6 +1276,9 @@
     <value>Farbe</value>
   </data>
   <data name="cbColorWallOuter.Items83" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items84" xml:space="preserve">
     <value>Farbe</value>
   </data>
   <data name="cbColorWallOuter.Location" type="System.Drawing.Point, System.Drawing">
@@ -1315,7 +1294,7 @@
     <value>cbColorWallOuter</value>
   </data>
   <data name="&gt;&gt;cbColorWallOuter.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5431.20842, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5437.17761, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWallOuter.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1573,7 +1552,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorTop.Items72" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorTop.Items73" xml:space="preserve">
     <value>Farbe</value>
@@ -1605,6 +1584,9 @@
   <data name="cbColorTop.Items82" xml:space="preserve">
     <value>Farbe</value>
   </data>
+  <data name="cbColorTop.Items83" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
   <data name="cbColorTop.Location" type="System.Drawing.Point, System.Drawing">
     <value>90, 13</value>
   </data>
@@ -1618,7 +1600,7 @@
     <value>cbColorTop</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5431.20842, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5437.17761, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Parent" xml:space="preserve">
     <value>gbFaceColor</value>

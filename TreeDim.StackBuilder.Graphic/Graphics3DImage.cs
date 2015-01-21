@@ -5,6 +5,7 @@ using System.Text;
 
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Windows.Forms;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics
@@ -45,6 +46,33 @@ namespace TreeDim.StackBuilder.Graphics
         public Bitmap Bitmap
         {
             get { return _bitmap; }
+        }
+        #endregion
+    }
+
+    public class Graphics3DForm : Graphics3D
+    {
+        #region Data members
+        private System.Drawing.Graphics _g;
+        private Control _ctrl;
+        #endregion
+
+        #region Constructor
+        public Graphics3DForm(Control ctrl, System.Drawing.Graphics g)
+        {
+            _ctrl = ctrl;
+            _g = g;
+        }
+        #endregion
+
+        #region Graphics3D abstract method implementation
+        public override Size Size
+        {
+            get { return _ctrl.Size; }
+        }
+        public override System.Drawing.Graphics Graphics
+        {
+            get { return _g; }
         }
         #endregion
     }

@@ -18,7 +18,7 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewPalletCorners : FormNewBase
+    public partial class FormNewPalletCorners : FormNewBase, IDrawingContainer
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPalletCorners));
@@ -57,6 +57,11 @@ namespace TreeDim.StackBuilder.Desktop
         {
             get { return Resources.ID_PALLETCORNERS; }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            graphCtrl.DrawingContainer = this;
+        }
         #endregion
 
         #region Public properties
@@ -91,7 +96,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void onValueChanged(object sender, EventArgs e)
         {
             UpdateStatus(string.Empty);
-            DrawCorner();
+            graphCtrl.Invalidate();
         }
         #endregion
 
@@ -104,39 +109,20 @@ namespace TreeDim.StackBuilder.Desktop
         }
 
         #region Draw corner
-        private void DrawCorner()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
+            if (CornerLength > 0 && CornerWidth > 0 && CornerThickness > 0
+                && CornerThickness < CornerWidth)
             {
-                double angle = 45;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = Vector3D.Zero;
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+                // draw
+                PalletCornerProperties palletCornerProperties = new PalletCornerProperties(
+                    null, ItemName, ItemDescription, CornerLength, CornerWidth, CornerThickness,
+                    CornerWeight, CornerColor);
 
-                if (CornerLength > 0 && CornerWidth > 0 && CornerThickness > 0
-                    && CornerThickness < CornerWidth)
-                {
-                    // draw
-                    PalletCornerProperties palletCornerProperties = new PalletCornerProperties(
-                        null, ItemName, ItemDescription, CornerLength, CornerWidth, CornerThickness,
-                        CornerWeight, CornerColor);
-
-                    Corner palletCap = new Corner(0, palletCornerProperties);
-                    palletCap.Draw(graphics);
-                    graphics.AddDimensions(new DimensionCube(CornerWidth, CornerWidth, CornerLength));
-                }
-                graphics.Flush();
-                pictureBox.Image = graphics.Bitmap;
+                Corner palletCap = new Corner(0, palletCornerProperties);
+                palletCap.Draw(graphics);
+                graphics.AddDimensions(new DimensionCube(CornerWidth, CornerWidth, CornerLength));
             }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }        
         }
         #endregion
 

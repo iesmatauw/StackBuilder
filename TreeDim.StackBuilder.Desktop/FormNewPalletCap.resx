@@ -413,6 +413,9 @@
   <data name="cbColor.Items10" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>111, 167</value>
   </data>
@@ -542,25 +545,25 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="pbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
     <value>312, 144</value>
   </data>
-  <data name="pbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 187</value>
   </data>
-  <data name="pbPalletCap.TabIndex" type="System.Int32, mscorlib">
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="&gt;&gt;pbPalletCap.Name" xml:space="preserve">
-    <value>pbPalletCap</value>
+  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
+    <value>graphCtrl</value>
   </data>
-  <data name="&gt;&gt;pbPalletCap.Type" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pbPalletCap.Parent" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pbPalletCap.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="uLengthLength.AutoSize" type="System.Boolean, mscorlib">

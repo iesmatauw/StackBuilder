@@ -18,7 +18,7 @@ using Sharp3D.Math.Core;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewPalletCap : FormNewBase
+    public partial class FormNewPalletCap : FormNewBase, IDrawingContainer
     {
         #region Data members
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPalletCap));
@@ -59,6 +59,12 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region FormNewBase overrides
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            graphCtrl.DrawingContainer = this;
+        }
+
         public override string ItemDefaultName
         { get { return Resources.ID_PALLETCAP; } }
 
@@ -120,7 +126,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void cbColor_SelectedColorChanged(object sender, EventArgs e)
         {
-            DrawCap();
+            graphCtrl.Invalidate();
         }
         private void UpdateThicknesses(object sender, EventArgs e)
         {
@@ -138,47 +144,25 @@ namespace TreeDim.StackBuilder.Desktop
             // update
             UpdateStatus(string.Empty);
             // draw cap
-            DrawCap();
+            graphCtrl.Invalidate();
         }
         #endregion
 
         #region Draw cap
-        private void DrawCap()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
+            if (CapLength > 0 && CapWidth > 0 && CapHeight > 0)
             {
-                double angle = 45;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pbPalletCap.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = Vector3D.Zero;
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-
-                if (CapLength > 0 && CapWidth > 0 && CapHeight > 0)
-                {
-                    // draw
-                    PalletCapProperties palletCapProperties = new PalletCapProperties(
-                        null, ItemName, ItemDescription, CapLength, CapWidth, CapHeight,
-                        CapInnerLength, CapInnerWidth, CapInnerHeight,
-                        CapWeight, CapColor);
-
-                    PalletCap palletCap = new PalletCap(0, palletCapProperties, Vector3D.Zero);
-                    palletCap.Draw(graphics);
-                    graphics.AddDimensions(new DimensionCube(CapLength, CapWidth, CapHeight));
-                    graphics.Flush();
-                }
-                pbPalletCap.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
+                // draw
+                PalletCapProperties palletCapProperties = new PalletCapProperties(
+                    null, ItemName, ItemDescription, CapLength, CapWidth, CapHeight,
+                    CapInnerLength, CapInnerWidth, CapInnerHeight,
+                    CapWeight, CapColor);
+                PalletCap palletCap = new PalletCap(0, palletCapProperties, Vector3D.Zero);
+                palletCap.Draw(graphics);
+                graphics.AddDimensions(new DimensionCube(CapLength, CapWidth, CapHeight));
             }
         }
         #endregion
-
-
     }
 }

@@ -45,7 +45,7 @@
             this.lbInsideLength = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pbPalletCap = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.uLengthLength = new System.Windows.Forms.Label();
             this.uLengthWidth = new System.Windows.Forms.Label();
             this.uLengthHeight = new System.Windows.Forms.Label();
@@ -60,7 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCapHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapInnerHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPalletCap)).BeginInit();
             this.SuspendLayout();
             // 
             // nudCapLength
@@ -185,7 +184,8 @@
             resources.GetString("cbColor.Items7"),
             resources.GetString("cbColor.Items8"),
             resources.GetString("cbColor.Items9"),
-            resources.GetString("cbColor.Items10")});
+            resources.GetString("cbColor.Items10"),
+            resources.GetString("cbColor.Items11")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.cbColor_SelectedColorChanged);
             // 
@@ -209,11 +209,11 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // pbPalletCap
+            // graphCtrl
             // 
-            resources.ApplyResources(this.pbPalletCap, "pbPalletCap");
-            this.pbPalletCap.Name = "pbPalletCap";
-            this.pbPalletCap.TabStop = false;
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.TabStop = false;
             // 
             // uLengthLength
             // 
@@ -260,7 +260,7 @@
             this.Controls.Add(this.uLengthHeight);
             this.Controls.Add(this.uLengthWidth);
             this.Controls.Add(this.uLengthLength);
-            this.Controls.Add(this.pbPalletCap);
+            this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbInsideLength);
@@ -294,7 +294,7 @@
             this.Controls.SetChildIndex(this.lbInsideLength, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.pbPalletCap, 0);
+            this.Controls.SetChildIndex(this.graphCtrl, 0);
             this.Controls.SetChildIndex(this.uLengthLength, 0);
             this.Controls.SetChildIndex(this.uLengthWidth, 0);
             this.Controls.SetChildIndex(this.uLengthHeight, 0);
@@ -309,10 +309,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCapHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapInnerHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapWeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPalletCap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -333,7 +331,7 @@
         private System.Windows.Forms.Label lbInsideLength;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pbPalletCap;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.Label uLengthLength;
         private System.Windows.Forms.Label uLengthWidth;
         private System.Windows.Forms.Label uLengthHeight;

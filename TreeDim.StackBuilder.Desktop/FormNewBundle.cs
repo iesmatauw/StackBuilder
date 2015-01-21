@@ -17,7 +17,7 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewBundle : Form
+    public partial class FormNewBundle : Form, IDrawingContainer
     {
         #region Data members
         private Document _document;
@@ -41,8 +41,6 @@ namespace TreeDim.StackBuilder.Desktop
             BundleWidth = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             UnitThickness = UnitsManager.ConvertLengthFrom(5.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             NoFlats = 10;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok buttons
             UpdateButtonOkStatus();
         }
@@ -64,8 +62,6 @@ namespace TreeDim.StackBuilder.Desktop
             UnitThickness = bundleProperties.UnitThickness;
             UnitWeight = bundleProperties.UnitWeight;
             NoFlats = bundleProperties.NoFlats;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 225;
             // disable Ok buttons
             UpdateButtonOkStatus();
         }
@@ -74,6 +70,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Load / FormClosing event handlers
         private void FormNewBundle_Load(object sender, EventArgs e)
         {
+            graphCtrl.DrawingContainer = this;
             // windows settings
             if (null != Settings.Default.FormNewBundlePosition)
                 Settings.Default.FormNewBundlePosition.Restore(this);
@@ -90,7 +87,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Form override
         protected override void OnResize(EventArgs e)
         {
-            DrawBundle();
+            graphCtrl.Invalidate();
             base.OnResize(e);
         }
         #endregion
@@ -141,11 +138,7 @@ namespace TreeDim.StackBuilder.Desktop
         #region Handlers
         private void onBundlePropertyChanged(object sender, EventArgs e)
         {
-            DrawBundle();
-        }
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            DrawBundle();
+            graphCtrl.Invalidate();
         }
         private void UpdateButtonOkStatus()
         {
@@ -173,35 +166,14 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Draw bundle
-        private void DrawBundle()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
-            {
-                // get horizontal angle
-                double angle = trackBarHorizAngle.Value;
-                // graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBox.Size);
-                graphics.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-
-                BundleProperties bundleProperties = new BundleProperties(
-                    null, BundleName, Description
-                    , BundleLength, BundleWidth, UnitThickness, UnitWeight, NoFlats, Color);
-                Box box = new Box(0, bundleProperties);
-                graphics.AddBox(box);
-                graphics.AddDimensions(new DimensionCube(BundleLength, BundleWidth, UnitThickness * NoFlats));
-                graphics.Flush();
-                pictureBox.Image = graphics.Bitmap;
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }
+            BundleProperties bundleProperties = new BundleProperties(
+                null, BundleName, Description
+                , BundleLength, BundleWidth, UnitThickness, UnitWeight, NoFlats, Color);
+            Box box = new Box(0, bundleProperties);
+            graphics.AddBox(box);
+            graphics.AddDimensions(new DimensionCube(BundleLength, BundleWidth, UnitThickness * NoFlats));
         }
         #endregion
     }

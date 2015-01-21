@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sharp3D.Math.Core;
+
+using TreeDim.StackBuilder.Basics;
 #endregion
 
 namespace TreeDim.StackBuilder.Graphics
@@ -25,7 +27,7 @@ namespace TreeDim.StackBuilder.Graphics
     internal class BoxComparerXMin : IComparer<Box>
     {
         #region Data members
-        private Vector3D _direction; 
+        private Vector3D _direction;
         #endregion
 
         #region Constructor
@@ -58,7 +60,7 @@ namespace TreeDim.StackBuilder.Graphics
                     else if (b1.YMax == b2.YMax)
                         return 0;
                     else
-                        return 1;                   
+                        return 1;
                 }
             }
             else
@@ -100,7 +102,7 @@ namespace TreeDim.StackBuilder.Graphics
                     else if (b1.YMax == b2.YMax)
                         return 0;
                     else
-                        return 1;                    
+                        return 1;
                 }
             }
             else
@@ -110,23 +112,35 @@ namespace TreeDim.StackBuilder.Graphics
     }
     #endregion
 
+    #region BoxelOrderer
     public class BoxelOrderer
     {
         #region Data members
         private List<Box> _boxes = new List<Box>();
         private static readonly double _epsilon = 0.0001;
         private Vector3D _direction;
+        private double _tuneParam = 1.0;
         #endregion
 
         #region Constructor
         public BoxelOrderer()
         {
             _direction = new Vector3D(1000.0, 1000.0, -1000.0);
+            _tuneParam = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
         }
         public BoxelOrderer(List<Box> boxes)
         {
+            _boxes.AddRange(boxes);
             _direction = new Vector3D(1000.0, 1000.0, -1000.0);
-            _boxes.AddRange(boxes);        
+            _tuneParam = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+        }
+        #endregion
+
+        #region Public properties
+        public double TuneParam
+        {
+            get { return _tuneParam; }
+            set { _tuneParam = value; }
         }
         #endregion
 
@@ -178,8 +192,8 @@ namespace TreeDim.StackBuilder.Graphics
         #region Public properties
         public Vector3D Direction
         {
-            get { return _direction;    }
-            set { _direction = value;   }
+            get { return _direction; }
+            set { _direction = value; }
         }
         #endregion
 
@@ -187,7 +201,7 @@ namespace TreeDim.StackBuilder.Graphics
         private void SortLayer(ref List<Box> layerList)
         {
             foreach (Box b in layerList)
-                b.ApplyElong(-0.2);
+                b.ApplyElong(-_tuneParam);
 
             // build y list
             List<double> yList = new List<double>();
@@ -273,7 +287,7 @@ namespace TreeDim.StackBuilder.Graphics
             layerList.AddRange(resList);
 
             foreach (Box b in layerList)
-                b.ApplyElong(0.2);
+                b.ApplyElong(_tuneParam);
         }
 
         private List<Box> GetByYMin(List<Box> inList, double y)
@@ -295,7 +309,7 @@ namespace TreeDim.StackBuilder.Graphics
         }
 
         private void CleanByYMax(List<Box> lb, double y)
-        { 
+        {
             bool found = true;
             while (found)
             {
@@ -326,10 +340,11 @@ namespace TreeDim.StackBuilder.Graphics
                         lb.Remove(b);
                         found = true;
                         break;
-                    }               
+                    }
                 }
             }
         }
         #endregion
     }
+    #endregion
 }

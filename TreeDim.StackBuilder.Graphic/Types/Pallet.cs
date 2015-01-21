@@ -98,7 +98,7 @@ namespace TreeDim.StackBuilder.Graphics
                     };
                     Vector3D dimensions = new Vector3D(1200.0, 1000.0, 150.0);
                     Position[] positions = {
-                        new Position(0, new Vector3D(0.0, 0.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
+                        new Position(0, Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P)
                     };
                     _pool.Add(new PalletData("Block", "Block", lumbers, positions, dimensions, 20, Color.Yellow));
                 }

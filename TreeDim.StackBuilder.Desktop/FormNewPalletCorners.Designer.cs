@@ -37,7 +37,7 @@
             this.uLengthLength = new System.Windows.Forms.Label();
             this.uLengthWidth = new System.Windows.Forms.Label();
             this.uLengthThickness = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.lbColor = new System.Windows.Forms.Label();
             this.cbColorCorners = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbWeight = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,17 +145,17 @@
             this.uLengthThickness.TabIndex = 15;
             this.uLengthThickness.Text = "uLength";
             // 
-            // pictureBox
+            // graphCtrl
             // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.graphCtrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox.Location = new System.Drawing.Point(362, 70);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(210, 255);
-            this.pictureBox.TabIndex = 20;
-            this.pictureBox.TabStop = false;
+            this.graphCtrl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.graphCtrl.Location = new System.Drawing.Point(362, 70);
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.Size = new System.Drawing.Size(210, 255);
+            this.graphCtrl.TabIndex = 20;
+            this.graphCtrl.TabStop = false;
             // 
             // lbColor
             // 
@@ -177,6 +176,7 @@
             this.cbColorCorners.IntegralHeight = false;
             this.cbColorCorners.ItemHeight = 16;
             this.cbColorCorners.Items.AddRange(new object[] {
+            "Color",
             "Color",
             "Color",
             "Color",
@@ -228,7 +228,7 @@
             this.Controls.Add(this.lbWeight);
             this.Controls.Add(this.cbColorCorners);
             this.Controls.Add(this.lbColor);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.uLengthThickness);
             this.Controls.Add(this.uLengthWidth);
             this.Controls.Add(this.uLengthLength);
@@ -249,7 +249,7 @@
             this.Controls.SetChildIndex(this.uLengthLength, 0);
             this.Controls.SetChildIndex(this.uLengthWidth, 0);
             this.Controls.SetChildIndex(this.uLengthThickness, 0);
-            this.Controls.SetChildIndex(this.pictureBox, 0);
+            this.Controls.SetChildIndex(this.graphCtrl, 0);
             this.Controls.SetChildIndex(this.lbColor, 0);
             this.Controls.SetChildIndex(this.cbColorCorners, 0);
             this.Controls.SetChildIndex(this.lbWeight, 0);
@@ -258,7 +258,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -276,7 +275,7 @@
         private System.Windows.Forms.Label uLengthLength;
         private System.Windows.Forms.Label uLengthWidth;
         private System.Windows.Forms.Label uLengthThickness;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.Label lbColor;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColorCorners;
         private System.Windows.Forms.Label lbWeight;

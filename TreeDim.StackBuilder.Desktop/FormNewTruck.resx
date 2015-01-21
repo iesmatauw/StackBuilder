@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>20</value>
   </data>
   <data name="bnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -172,31 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;bnOK.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="trackBarHorizAngle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="trackBarHorizAngle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 265</value>
-  </data>
-  <data name="trackBarHorizAngle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 45</value>
-  </data>
-  <data name="trackBarHorizAngle.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Name" xml:space="preserve">
-    <value>trackBarHorizAngle</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;trackBarHorizAngle.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="tbName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -681,6 +657,9 @@
   <data name="cbColor.Items36" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 79</value>
   </data>
@@ -694,7 +673,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5465.12073, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=1.1.5437.17761, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -732,29 +711,29 @@
   <data name="&gt;&gt;lbColor.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
     <value>292, 79</value>
   </data>
-  <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 180</value>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 258</value>
   </data>
-  <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Name" xml:space="preserve">
-    <value>pictureBox</value>
+  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
+    <value>graphCtrl</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pictureBox.ZOrder" xml:space="preserve">
-    <value>20</value>
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
+    <value>19</value>
   </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -843,6 +822,12 @@
   <metadata name="statusStripDef.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 590</value>
   </metadata>
+  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 17</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
   <data name="statusStripDef.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 340</value>
   </data>
@@ -866,12 +851,6 @@
   </data>
   <data name="&gt;&gt;statusStripDef.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
-  </data>
-  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
-    <value>toolStripStatusLabelDef</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

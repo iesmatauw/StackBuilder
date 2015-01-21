@@ -42,7 +42,6 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.lbThickness = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
             this.uLengthThickness = new System.Windows.Forms.Label();
             this.uLengthWidth = new System.Windows.Forms.Label();
@@ -55,30 +54,28 @@
             this.lbLength = new System.Windows.Forms.Label();
             this.bnCancel = new System.Windows.Forms.Button();
             this.bnOk = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.graphCtrl = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbFaceColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             this.gbWeight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             this.gbDimensions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Beige;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -111,7 +108,8 @@
             resources.GetString("cbColor.Items28"),
             resources.GetString("cbColor.Items29"),
             resources.GetString("cbColor.Items30"),
-            resources.GetString("cbColor.Items31")});
+            resources.GetString("cbColor.Items31"),
+            resources.GetString("cbColor.Items32")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onBundlePropertyChanged);
             // 
@@ -132,21 +130,21 @@
             // 
             // gbFaceColor
             // 
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.lbColor);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
             // nudWeight
             // 
-            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.DecimalPlaces = 3;
             this.nudWeight.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
+            resources.ApplyResources(this.nudWeight, "nudWeight");
             this.nudWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -157,8 +155,8 @@
             // 
             // nudLength
             // 
-            resources.ApplyResources(this.nudLength, "nudLength");
             this.nudLength.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudLength, "nudLength");
             this.nudLength.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -179,10 +177,10 @@
             // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uMassWeight);
             this.gbWeight.Controls.Add(this.nudWeight);
             this.gbWeight.Controls.Add(this.lbWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -213,19 +211,8 @@
             resources.ApplyResources(this.lblDescription, "lblDescription");
             this.lblDescription.Name = "lblDescription";
             // 
-            // trackBarHorizAngle
-            // 
-            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
-            this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Maximum = 360;
-            this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.TickFrequency = 90;
-            this.trackBarHorizAngle.Value = 225;
-            this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
-            // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uLengthThickness);
             this.gbDimensions.Controls.Add(this.uLengthWidth);
             this.gbDimensions.Controls.Add(this.uLengthLength);
@@ -237,6 +224,7 @@
             this.gbDimensions.Controls.Add(this.lbThickness);
             this.gbDimensions.Controls.Add(this.lbWidth);
             this.gbDimensions.Controls.Add(this.lbLength);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -283,8 +271,8 @@
             // 
             // nudThickness
             // 
-            resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudThickness, "nudThickness");
             this.nudThickness.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -305,8 +293,8 @@
             // 
             // nudWidth
             // 
-            resources.ApplyResources(this.nudWidth, "nudWidth");
             this.nudWidth.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudWidth, "nudWidth");
             this.nudWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -349,25 +337,25 @@
             this.bnOk.Name = "bnOk";
             this.bnOk.UseVisualStyleBackColor = true;
             // 
-            // pictureBox
+            // graphCtrl
             // 
-            resources.ApplyResources(this.pictureBox, "pictureBox");
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.TabStop = false;
+            resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.Name = "graphCtrl";
+            this.graphCtrl.TabStop = false;
             // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             this.statusStripDef.SizingGrip = false;
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewBundle
             // 
@@ -376,12 +364,11 @@
             this.Controls.Add(this.statusStripDef);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.gbFaceColor);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.gbWeight);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.gbDimensions);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnOk);
@@ -398,20 +385,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             this.gbWeight.ResumeLayout(false);
             this.gbWeight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             this.gbDimensions.ResumeLayout(false);
             this.gbDimensions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNoFlats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         #endregion
 
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
@@ -421,13 +405,12 @@
         private System.Windows.Forms.GroupBox gbFaceColor;
         private System.Windows.Forms.NumericUpDown nudWeight;
         private System.Windows.Forms.NumericUpDown nudLength;
-        private System.Windows.Forms.PictureBox pictureBox;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.GroupBox gbWeight;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lbThickness;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private System.Windows.Forms.GroupBox gbDimensions;
         private System.Windows.Forms.NumericUpDown nudThickness;
         private System.Windows.Forms.NumericUpDown nudWidth;

@@ -84,9 +84,6 @@ namespace TreeDim.StackBuilder.Graphics
                         , Color.Red, true));
                 }
             }
-
-            // flush
-            graphics.Flush();
         }
         public void Draw(Graphics2D graphics)
         {
@@ -212,8 +209,6 @@ namespace TreeDim.StackBuilder.Graphics
                     new DimensionCube(BoundingBoxDim(Properties.Settings.Default.DimCasePalletSol2)
                     , Color.Red, true));
             }
-            // flush
-            graphics.Flush();
         }
 
         public void Draw(Graphics2D graphics)

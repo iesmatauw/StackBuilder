@@ -46,12 +46,11 @@ namespace TreeDim.StackBuilder.Graphics
                 caseProperties = palletAnalysis.BProperties as BoxProperties;
             }
             if (null == caseProperties) return;
+            // draw case (inside)
             Case case_ = new Case(caseProperties);
-            case_.DrawBegin(graphics);
-
+            case_.DrawInside(graphics);
             // get case analysis
             BoxCasePalletAnalysis caseAnalysis = _caseSolution.ParentCaseAnalysis;
-
             // draw solution
             uint pickId = 0;
             foreach (ILayer layer in _caseSolution)
@@ -73,16 +72,9 @@ namespace TreeDim.StackBuilder.Graphics
                     graphics.AddBox(box);
                 }
             }
-
-            case_.DrawEnd(graphics);
-
             // get case analysis
             if (_showDimensions)
-            {
                 graphics.AddDimensions(new DimensionCube(_caseSolution.CaseLength, _caseSolution.CaseWidth, _caseSolution.CaseHeight));
-            }
-            // flush
-            graphics.Flush();
         }
         /// <summary>
         /// Draw a 2D representation of first (and second, if solution does not have homogeneous layers) layer(s)
@@ -166,8 +158,6 @@ namespace TreeDim.StackBuilder.Graphics
                 }
                 ++iLayer;
             }
-            // flush
-            graphics.Flush();
         }
         #endregion
 

@@ -66,12 +66,8 @@ namespace TreeDim.StackBuilder.Graphics
             Case case_ = _caseProperties != null ? new Case(_caseProperties, transf) : null;
             if (null != case_)
             {
-                // add inside faces
-                Face[] faces = case_.Faces;
-                for (int i = 0; i < 6; ++i)
-                    faces[i].IsSolid = false;
-                foreach (Face f in faces)
-                     graphics.AddFace(f);
+                // draw case (inside)
+                case_.DrawInside(graphics);
             }
             // add boxes
             uint pickId = 0;

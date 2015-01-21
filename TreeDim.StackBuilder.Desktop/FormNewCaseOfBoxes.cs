@@ -21,7 +21,8 @@ namespace TreeDim.StackBuilder.Desktop
     /// <summary>
     /// Form used to edit CaseOfBoxesProperties object
     /// </summary>
-    public partial class FormNewCaseOfBoxes : Form
+    public partial class FormNewCaseOfBoxes
+        : Form, IDrawingContainer
     {
         #region Data members
         private Document _document;
@@ -63,8 +64,6 @@ namespace TreeDim.StackBuilder.Desktop
             _textures = caseOfBoxProperties.TextureList;
             // set default face
             cbFace.SelectedIndex = 0;
-            // set horizontal angle
-            trackBarHorizAngle.Value = 45;
             // disable Ok button
             UpdateButtonOkStatus();
         }
@@ -73,10 +72,13 @@ namespace TreeDim.StackBuilder.Desktop
         #region Load / FormClosing event
         private void FormNewCaseOfBoxes_Load(object sender, EventArgs e)
         {
+            graphCtrlBoxCase.DrawingContainer = this;
+            graphCtrlCaseDefinition.DrawingContainer = this;
             // windows settings
             if (null != Settings.Default.FormNewCaseOfBoxesPosition)
                 Settings.Default.FormNewCaseOfBoxesPosition.Restore(this);
-            Draw();
+            graphCtrlBoxCase.Invalidate();
+            graphCtrlCaseDefinition.Invalidate();
         }
         private void FormNewCaseOfBoxes_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -127,10 +129,6 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void onHorizAngleChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
         private void chkAllFaces_CheckedChanged(object sender, EventArgs e)
         {
             lbFace.Enabled = !chkAllFaces.Checked;
@@ -138,16 +136,12 @@ namespace TreeDim.StackBuilder.Desktop
             if (chkAllFaces.Checked)
                 cbColor.Color = _faceColors[0];
         }
-        private void pictureBox_SizeChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
         private void onSelectedFaceChanged(object sender, EventArgs e)
         {
             // get current index
             int iSel = cbFace.SelectedIndex;
             cbColor.Color = _faceColors[iSel];
-            Draw();
+            graphCtrlBoxCase.Invalidate();
         }
         private void onFaceColorChanged(object sender, EventArgs e)
         {
@@ -161,7 +155,7 @@ namespace TreeDim.StackBuilder.Desktop
                 for (int i = 0; i < 6; ++i)
                     _faceColors[i] = cbColor.Color;
             }
-            Draw();
+            graphCtrlBoxCase.Invalidate();
         }
         private void btBitmaps_Click(object sender, EventArgs e)
         {
@@ -171,7 +165,7 @@ namespace TreeDim.StackBuilder.Desktop
                 form.Textures = _textures;
                 if (DialogResult.OK == form.ShowDialog())
                     _textures = form.Textures;
-                Draw();
+                graphCtrlBoxCase.Invalidate();
             }
             catch (Exception ex)
             {
@@ -181,50 +175,25 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Draw
-        private void Draw()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
+            if (graphCtrlBoxCase == ctrl)
             {
-                // get horizontal angle
-                double angle = trackBarHorizAngle.Value;
-                // instantiate graphics
-                Graphics3DImage graphics1 = new Graphics3DImage(pictureBoxCase.Size);
-                graphics1.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics1.Target = Vector3D.Zero;
-                graphics1.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // draw
                 BoxProperties boxProperties = new BoxProperties(null
                     , _caseOfBoxesProperties.Length, _caseOfBoxesProperties.Width, _caseOfBoxesProperties.Height);
                 boxProperties.SetAllColors(_faceColors);
                 boxProperties.TextureList = _textures;
                 Box box = new Box(0, boxProperties);
-                graphics1.AddBox(box);
-                graphics1.AddDimensions(new DimensionCube(_caseOfBoxesProperties.Length, _caseOfBoxesProperties.Width, _caseOfBoxesProperties.Height));
-                graphics1.Flush();
-                // set to picture box
-                pictureBoxCase.Image = graphics1.Bitmap;
-                // instantiate graphics
-                Graphics3DImage graphics2 = new Graphics3DImage(pictureBoxCaseDefinition.Size);
-                graphics2.CameraPosition = new Vector3D(
-                    Math.Cos(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , Math.Sin(angle * Math.PI / 180.0) * Math.Sqrt(2.0) * 10000.0
-                    , 10000.0);
-                graphics2.Target = Vector3D.Zero;
-                graphics2.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // view case definition
+                graphics.AddBox(box);
+                graphics.AddDimensions(new DimensionCube(_caseOfBoxesProperties.Length, _caseOfBoxesProperties.Width, _caseOfBoxesProperties.Height));
+            }
+            else if (graphCtrlCaseDefinition == ctrl)
+            {
                 CaseDefinitionViewer viewer = new CaseDefinitionViewer(_caseOfBoxesProperties.CaseDefinition, _caseOfBoxesProperties.InsideBoxProperties, _caseOfBoxesProperties.CaseOptimConstraintSet);
                 viewer.CaseProperties = _caseOfBoxesProperties;
                 viewer.Orientation = new Basics.Orientation(HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                viewer.Draw(graphics2);  
-                graphics2.Flush();
-                // set to picture box
-                pictureBoxCaseDefinition.Image = graphics2.Bitmap;
+                viewer.Draw(graphics);  
             }
-            catch (Exception ex)
-            { _log.Error(ex.ToString()); }
         }
         #endregion
 

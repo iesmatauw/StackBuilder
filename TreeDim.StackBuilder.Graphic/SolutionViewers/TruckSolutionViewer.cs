@@ -103,7 +103,6 @@ namespace TreeDim.StackBuilder.Graphics
 
             // fluch
             graphics.UseBoxelOrderer = false; // can not use boxel orderer for full truck view -> too slow...
-            graphics.Flush();
         }
 
         public void Draw(Graphics2D graphics)

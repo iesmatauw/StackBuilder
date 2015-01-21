@@ -124,7 +124,9 @@ namespace TreeDim.StackBuilder.Engine
                                     BoxCasePalletSolution sol = new BoxCasePalletSolution(null, title, desc, layer1T == layer2T);
                                     int iLayerIndex = 0;
                                     bool innerLoopStop = false;
-                                    double zLayer = 0.0; // caseProperties.Height;
+                                    double offsetX = 0.5 * (caseProperties.Length - caseProperties.InsideLength);
+                                    double offsetY = 0.5 * (caseProperties.Width - caseProperties.InsideWidth);
+                                    double zLayer = 0.5 * (caseProperties.Height - caseProperties.InsideHeight);
                                     int iInterlayer = 0;
                                     int boxCount = 0;
 
@@ -158,7 +160,10 @@ namespace TreeDim.StackBuilder.Engine
                                             if (!innerLoopStop)
                                             {
                                                 BoxPosition boxPos = new BoxPosition(
-                                                    layerPos.Position + zLayer * Vector3D.ZAxis
+                                                    layerPos.Position
+                                                    + offsetX * Vector3D.XAxis
+                                                    + offsetY * Vector3D.YAxis
+                                                    + zLayer * Vector3D.ZAxis
                                                     , layerPos.LengthAxis
                                                     , layerPos.WidthAxis
                                                     );

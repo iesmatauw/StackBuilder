@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewCaseOfBoxes));
             this.splitContainerCaseOfBoxes = new System.Windows.Forms.SplitContainer();
-            this.pictureBoxCaseDefinition = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCase = new System.Windows.Forms.PictureBox();
+            this.graphCtrlCaseDefinition = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
+            this.graphCtrlBoxCase = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.lbName = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
             this.bnOK = new System.Windows.Forms.Button();
@@ -44,17 +44,13 @@
             this.chkAllFaces = new System.Windows.Forms.CheckBox();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbFace = new System.Windows.Forms.Label();
-            this.trackBarHorizAngle = new System.Windows.Forms.TrackBar();
             this.statusStripDef = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelDef = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCaseOfBoxes)).BeginInit();
             this.splitContainerCaseOfBoxes.Panel1.SuspendLayout();
             this.splitContainerCaseOfBoxes.Panel2.SuspendLayout();
             this.splitContainerCaseOfBoxes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaseDefinition)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).BeginInit();
             this.gbFaceColor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).BeginInit();
             this.statusStripDef.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,27 +61,23 @@
             // 
             // splitContainerCaseOfBoxes.Panel1
             // 
-            resources.ApplyResources(this.splitContainerCaseOfBoxes.Panel1, "splitContainerCaseOfBoxes.Panel1");
-            this.splitContainerCaseOfBoxes.Panel1.Controls.Add(this.pictureBoxCaseDefinition);
+            this.splitContainerCaseOfBoxes.Panel1.Controls.Add(this.graphCtrlCaseDefinition);
             // 
             // splitContainerCaseOfBoxes.Panel2
             // 
-            resources.ApplyResources(this.splitContainerCaseOfBoxes.Panel2, "splitContainerCaseOfBoxes.Panel2");
-            this.splitContainerCaseOfBoxes.Panel2.Controls.Add(this.pictureBoxCase);
+            this.splitContainerCaseOfBoxes.Panel2.Controls.Add(this.graphCtrlBoxCase);
             // 
-            // pictureBoxCaseDefinition
+            // graphCtrlCaseDefinition
             // 
-            resources.ApplyResources(this.pictureBoxCaseDefinition, "pictureBoxCaseDefinition");
-            this.pictureBoxCaseDefinition.Name = "pictureBoxCaseDefinition";
-            this.pictureBoxCaseDefinition.TabStop = false;
-            this.pictureBoxCaseDefinition.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
+            resources.ApplyResources(this.graphCtrlCaseDefinition, "graphCtrlCaseDefinition");
+            this.graphCtrlCaseDefinition.Name = "graphCtrlCaseDefinition";
+            this.graphCtrlCaseDefinition.TabStop = false;
             // 
-            // pictureBoxCase
+            // graphCtrlBoxCase
             // 
-            resources.ApplyResources(this.pictureBoxCase, "pictureBoxCase");
-            this.pictureBoxCase.Name = "pictureBoxCase";
-            this.pictureBoxCase.TabStop = false;
-            this.pictureBoxCase.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
+            resources.ApplyResources(this.graphCtrlBoxCase, "graphCtrlBoxCase");
+            this.graphCtrlBoxCase.Name = "graphCtrlBoxCase";
+            this.graphCtrlBoxCase.TabStop = false;
             // 
             // lbName
             // 
@@ -132,7 +124,6 @@
             // 
             // cbFace
             // 
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -142,6 +133,7 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.onSelectedFaceChanged);
             // 
@@ -165,12 +157,12 @@
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -232,7 +224,9 @@
             resources.GetString("cbColor.Items57"),
             resources.GetString("cbColor.Items58"),
             resources.GetString("cbColor.Items59"),
-            resources.GetString("cbColor.Items60")});
+            resources.GetString("cbColor.Items60"),
+            resources.GetString("cbColor.Items61"),
+            resources.GetString("cbColor.Items62")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.onFaceColorChanged);
             // 
@@ -241,27 +235,18 @@
             resources.ApplyResources(this.lbFace, "lbFace");
             this.lbFace.Name = "lbFace";
             // 
-            // trackBarHorizAngle
-            // 
-            resources.ApplyResources(this.trackBarHorizAngle, "trackBarHorizAngle");
-            this.trackBarHorizAngle.LargeChange = 90;
-            this.trackBarHorizAngle.Maximum = 360;
-            this.trackBarHorizAngle.Name = "trackBarHorizAngle";
-            this.trackBarHorizAngle.TickFrequency = 90;
-            this.trackBarHorizAngle.ValueChanged += new System.EventHandler(this.onHorizAngleChanged);
-            // 
             // statusStripDef
             // 
-            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelDef});
+            resources.ApplyResources(this.statusStripDef, "statusStripDef");
             this.statusStripDef.Name = "statusStripDef";
             // 
             // toolStripStatusLabelDef
             // 
-            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             this.toolStripStatusLabelDef.ForeColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelDef.Name = "toolStripStatusLabelDef";
+            resources.ApplyResources(this.toolStripStatusLabelDef, "toolStripStatusLabelDef");
             // 
             // FormNewCaseOfBoxes
             // 
@@ -271,7 +256,6 @@
             this.CancelButton = this.bnCancel;
             this.Controls.Add(this.gbFaceColor);
             this.Controls.Add(this.statusStripDef);
-            this.Controls.Add(this.trackBarHorizAngle);
             this.Controls.Add(this.splitContainerCaseOfBoxes);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbName);
@@ -289,11 +273,8 @@
             this.splitContainerCaseOfBoxes.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerCaseOfBoxes)).EndInit();
             this.splitContainerCaseOfBoxes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaseDefinition)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCase)).EndInit();
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizAngle)).EndInit();
             this.statusStripDef.ResumeLayout(false);
             this.statusStripDef.PerformLayout();
             this.ResumeLayout(false);
@@ -316,10 +297,9 @@
         private System.Windows.Forms.CheckBox chkAllFaces;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
         private System.Windows.Forms.Label lbFace;
-        private System.Windows.Forms.TrackBar trackBarHorizAngle;
         private System.Windows.Forms.StatusStrip statusStripDef;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
-        private System.Windows.Forms.PictureBox pictureBoxCaseDefinition;
-        private System.Windows.Forms.PictureBox pictureBoxCase;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrlCaseDefinition;
+        private TreeDim.StackBuilder.Graphics.Graphics3DControl graphCtrlBoxCase;
     }
 }

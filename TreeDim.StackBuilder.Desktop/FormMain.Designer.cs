@@ -101,8 +101,8 @@
             this.toolStripButtonAddNewPallet = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonCreateNewInterlayer = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPalletCap = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPalletCorners = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPalletCap = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPalletFilm = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAddNewTruck = new System.Windows.Forms.ToolStripButton();
@@ -123,6 +123,8 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripMenuItemHelpStartPage = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -436,6 +438,8 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemHelpStartPage,
+            this.toolStripSeparator16,
             this.helpToolStripMenuItemHelp,
             this.tutorialToolStripMenuItem,
             this.toolStripSeparator9,
@@ -591,6 +595,13 @@
             this.toolStripButtonCreateNewInterlayer.Name = "toolStripButtonCreateNewInterlayer";
             this.toolStripButtonCreateNewInterlayer.Click += new System.EventHandler(this.toolAddNewInterlayer);
             // 
+            // toolStripButtonPalletCorners
+            // 
+            this.toolStripButtonPalletCorners.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonPalletCorners, "toolStripButtonPalletCorners");
+            this.toolStripButtonPalletCorners.Name = "toolStripButtonPalletCorners";
+            this.toolStripButtonPalletCorners.Click += new System.EventHandler(this.toolAddNewPalletCorners);
+            // 
             // toolStripButtonPalletCap
             // 
             this.toolStripButtonPalletCap.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -598,13 +609,6 @@
             resources.ApplyResources(this.toolStripButtonPalletCap, "toolStripButtonPalletCap");
             this.toolStripButtonPalletCap.Name = "toolStripButtonPalletCap";
             this.toolStripButtonPalletCap.Click += new System.EventHandler(this.toolAddNewPalletCap);
-            // 
-            // toolStripButtonPalletCorners
-            // 
-            this.toolStripButtonPalletCorners.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonPalletCorners, "toolStripButtonPalletCorners");
-            this.toolStripButtonPalletCorners.Name = "toolStripButtonPalletCorners";
-            this.toolStripButtonPalletCorners.Click += new System.EventHandler(this.toolAddNewPalletCorners);
             // 
             // toolStripButtonPalletFilm
             // 
@@ -727,6 +731,17 @@
             this.saveFileDialogWebGL.DefaultExt = "html";
             resources.ApplyResources(this.saveFileDialogWebGL, "saveFileDialogWebGL");
             // 
+            // toolStripMenuItemHelpStartPage
+            // 
+            this.toolStripMenuItemHelpStartPage.Name = "toolStripMenuItemHelpStartPage";
+            resources.ApplyResources(this.toolStripMenuItemHelpStartPage, "toolStripMenuItemHelpStartPage");
+            this.toolStripMenuItemHelpStartPage.Click += new System.EventHandler(this.ShowStartPage);
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -827,5 +842,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripButton toolStripButtonPalletFilm;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItemPalletFilm;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelpStartPage;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
     }
 }

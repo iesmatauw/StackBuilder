@@ -177,9 +177,7 @@ namespace TreeDim.StackBuilder.Graphics
             {
                 film.DrawEnd(graphics);
             }
-            // flush
             graphics.EnableFaceSorting = false;
-            graphics.Flush();
         }
         BBox3D BoundingBoxDim(int index)
         {
@@ -234,9 +232,6 @@ namespace TreeDim.StackBuilder.Graphics
             // show dimensions
             graphics.AddDimensions(new DimensionCube(solution.BoundingBox, Color.Black, false));
             graphics.AddDimensions(new DimensionCube(solution.LoadBoundingBox, Color.Red, true));
-
-            // flush
-            graphics.Flush();
         }
         /// <summary>
         /// Draw a 2D representation of first (and second, if solution does not have homogeneous layers) layer(s)

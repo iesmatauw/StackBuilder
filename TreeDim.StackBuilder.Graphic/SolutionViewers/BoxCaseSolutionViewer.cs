@@ -42,13 +42,9 @@ namespace TreeDim.StackBuilder.Graphics
             BoxProperties boxProperties = boxCaseAnalysis.BoxProperties;
             if (null == boxProperties) return;
             BoxProperties caseProperties = boxCaseAnalysis.CaseProperties;
+            // draw case (inside)
             Case case_ = new Case(caseProperties);
-
-            // add inside faces
-            Face[] insideFaces = case_.InsideFaces;
-            foreach (Face f in insideFaces)
-                graphics.AddFace(f);
-
+            case_.DrawInside(graphics);
             // draw solution
             uint pickId = 0;
             foreach (ILayer layer in _boxCaseSolution)
@@ -60,8 +56,6 @@ namespace TreeDim.StackBuilder.Graphics
                         graphics.AddBox(new Box(pickId++, boxProperties, bPosition));
                 }
             }
-
-
             // get case analysis
             if (_showDimensions)
             {
@@ -75,8 +69,6 @@ namespace TreeDim.StackBuilder.Graphics
                     , System.Drawing.Color.Red
                     , true));
             }
-            // flush
-            graphics.Flush();
         }
 
         /// <summary>

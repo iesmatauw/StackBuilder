@@ -23,7 +23,8 @@ namespace TreeDim.StackBuilder.Desktop
     /// <summary>
     /// Form used to browse/select case analysis solutions
     /// </summary>
-    public partial class DockContentBoxCasePalletAnalysis : DockContent, IView, IItemListener
+    public partial class DockContentBoxCasePalletAnalysis
+        : DockContent, IView, IItemListener, IDrawingContainer
     {
         #region Data members
         /// <summary>
@@ -73,15 +74,13 @@ namespace TreeDim.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            // set drawing container
+            graphCtrlCaseSolution.DrawingContainer = this;
+            graphCtrlPalletSolution.DrawingContainer = this;
             // text
             this.Text = _caseAnalysis.Name + " - " + _caseAnalysis.ParentDocument.Name;
-            // show images
-            toolStripShowImages.Checked = Settings.Default.ShowImagesCase;
             // fill grid
             FillGrid();
-            // show or hide pallet solution view
-            toolStripShowPallet.Checked = Settings.Default.ShowPalletSolution_CaseAnalysis;
-            ShowHidePalletView();
             // attach grid selection event handler
             gridSolutions.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(onGridSolutionSelectionChanged);
         }
@@ -206,7 +205,8 @@ namespace TreeDim.StackBuilder.Desktop
             // select first solution
             gridSolutions.Selection.SelectRow(1, true);
             // draw
-            Draw();
+            graphCtrlCaseSolution.Invalidate();
+            graphCtrlPalletSolution.Invalidate();
         }
         #endregion
 
@@ -219,11 +219,6 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Event handlers
-        private void toolStripShowPallet_Click(object sender, EventArgs e)
-        {
-            toolStripShowPallet.Checked = !toolStripShowPallet.Checked;
-            ShowHidePalletView();
-        }
         private void onGridSolutionSelectionChanged(object sender, SourceGrid.RangeRegionChangedEventArgs e)
         {
             SourceGrid.RangeRegion region = gridSolutions.Selection.GetSelectionRegion();
@@ -233,7 +228,8 @@ namespace TreeDim.StackBuilder.Desktop
             // update select/unselect button text
             UpdateSelectButtonText();
             // redraw
-            Draw();
+            graphCtrlCaseSolution.Invalidate();
+            graphCtrlPalletSolution.Invalidate();
         }
         // checkbox event handler
         void clickEvent_Click(object sender, EventArgs e)
@@ -244,18 +240,6 @@ namespace TreeDim.StackBuilder.Desktop
                 _caseAnalysis.SelectSolutionByIndex(iSel);
             else
                 _caseAnalysis.UnselectSolutionByIndex(iSel);
-        }
-        private void pictureBoxSolution_SizeChanged(object sender, EventArgs e)
-        {
-            // redraw
-            Draw();
-        }
-        #endregion
-
-        #region Helpers
-        private void ShowHidePalletView()
-        {
-            splitContainerVert.Panel2Collapsed = !toolStripShowPallet.Checked;
         }
         #endregion
 
@@ -292,6 +276,22 @@ namespace TreeDim.StackBuilder.Desktop
             if (-1 == iIndexSol) return null;
             else return _caseAnalysis.Solutions[iIndexSol];
         }
+        private void btSelectSolution_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int iSel = GetCurrentSolutionIndex();
+                if (-1 == iSel) return;
+                if (!_caseAnalysis.HasSolutionSelected(iSel))
+                    _caseAnalysis.SelectSolutionByIndex(iSel);
+                else
+                    _caseAnalysis.UnselectSolutionByIndex(iSel);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         #endregion
 
         #region ItemListener implementation
@@ -307,7 +307,8 @@ namespace TreeDim.StackBuilder.Desktop
             if (gridSolutions.RowsCount > 0)
                 gridSolutions.Selection.SelectRow(1, true);
             // draw
-            Draw();
+            graphCtrlCaseSolution.Invalidate();
+            graphCtrlPalletSolution.Invalidate();
         }
         /// <summary>
         /// overrides IItemListener.Kill
@@ -332,152 +333,20 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Drawing
-        private void Draw()
+        public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            try
+            if (graphCtrlCaseSolution == ctrl)
             {
-                // sanity check
-                if (pictureBoxSolution.Size.Width < 1 || pictureBoxSolution.Size.Height < 1)
-                    return;
-                // instantiate graphics
-                Graphics3DImage graphics = new Graphics3DImage(pictureBoxSolution.Size);
-                // set camera position 
-                double angleHorizRad = trackBarAngleHoriz.Value * Math.PI / 180.0;
-                double angleVertRad = trackBarAngleVert.Value * Math.PI / 180.0;
-                graphics.CameraPosition = new Vector3D(
-                    _cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
-                    , _cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
-                    , _cameraDistance * Math.Sin(angleVertRad));
-                // set camera target
-                graphics.Target = Vector3D.Zero;
-                // set viewport (not actually needed)
-                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-                // show images
-                graphics.ShowTextures = toolStripShowImages.Checked;
                 // instantiate solution viewer
                 BoxCasePalletSolutionViewer sv = new BoxCasePalletSolutionViewer(GetCurrentSolution());
                 sv.Draw(graphics);
-                // show generated bitmap on picture box control
-                pictureBoxSolution.Image = graphics.Bitmap;
-
-                if (toolStripShowPallet.Checked)    // also draws pallet solution
-                {
+            }
+            else if (graphCtrlPalletSolution == ctrl)
+            {
                     CasePalletSolution sol = GetCurrentSolution().PalletSolutionDesc.LoadPalletSolution();
-                    // instantiate graphics
-                    Graphics3DImage graphicsPallet = new Graphics3DImage(pictureBoxPalletSolution.Size);
-                    graphicsPallet.CameraPosition = Graphics3D.Corner_0;
-                    graphicsPallet.Target = Vector3D.Zero;
-                    graphicsPallet.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                     // instantial solution viewer
                     CasePalletSolutionViewer svPallet = new CasePalletSolutionViewer(sol);
-                    svPallet.Draw(graphicsPallet);
-                    // show generated bitmap
-                    pictureBoxPalletSolution.Image = graphicsPallet.Bitmap;
-                }
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
-            }            
-        }
-        #endregion
-
-        #region Handlers to define point of view
-        private void onAngleHorizChanged(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = trackBarAngleHoriz.Value;
-            Draw();
-        }
-
-        private void onAngleVertChanged(object sender, EventArgs e)
-        {
-            trackBarAngleVert.Value = trackBarAngleVert.Value;
-            Draw();
-        }
-        private void onViewSideFront(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 0;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-        private void onViewSideLeft(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 90;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewSideRear(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 180;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewSideRight(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 270;
-            trackBarAngleVert.Value = 0;
-            Draw();
-        }
-
-        private void onViewCorner_0(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 0;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewCorner_90(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 90;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewCorner_180(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 180;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewCorner_270(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 45 + 270;
-            trackBarAngleVert.Value = 45;
-            Draw();
-        }
-
-        private void onViewTop(object sender, EventArgs e)
-        {
-            trackBarAngleHoriz.Value = 0;
-            trackBarAngleVert.Value = 90;
-            Draw();
-        }
-
-        private void toolStripShowImages_Click(object sender, EventArgs e)
-        {
-            toolStripShowImages.Checked = !toolStripShowImages.Checked;
-            Draw();
-        }
-        #endregion
-
-        #region Event handlers
-        private void btSelectSolution_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int iSel = GetCurrentSolutionIndex();
-                if (-1 == iSel) return;
-                if (!_caseAnalysis.HasSolutionSelected(iSel))
-                    _caseAnalysis.SelectSolutionByIndex(iSel);
-                else
-                    _caseAnalysis.UnselectSolutionByIndex(iSel);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.ToString());
+                    svPallet.Draw(graphics);
             }
         }
         #endregion

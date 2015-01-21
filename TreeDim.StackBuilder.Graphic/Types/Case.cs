@@ -149,7 +149,17 @@ namespace TreeDim.StackBuilder.Graphics
         }
         public override void DrawEnd(Graphics3D graphics)
         {
+        }
+        #endregion
 
+        #region Inside drawing
+        public void DrawInside(Graphics3D graphics)
+        {
+            Face[] faces = Faces;
+            for (int i = 0; i < 6; ++i)
+                faces[i].IsSolid = false;
+            foreach (Face face in faces)
+                graphics.AddFace(face);
         }
         #endregion
     }

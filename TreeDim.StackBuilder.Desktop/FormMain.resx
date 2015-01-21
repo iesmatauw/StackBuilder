@@ -619,6 +619,15 @@
   <data name="toolStripMenuItemTools.Text" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="toolStripMenuItemHelpStartPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>Show Start Page</value>
+  </data>
+  <data name="toolStripSeparator16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 6</value>
+  </data>
   <data name="helpToolStripMenuItemHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -1749,16 +1758,16 @@
   <data name="&gt;&gt;toolStripButtonCreateNewInterlayer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonPalletCap.Name" xml:space="preserve">
-    <value>toolStripButtonPalletCap</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPalletCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripButtonPalletCorners.Name" xml:space="preserve">
     <value>toolStripButtonPalletCorners</value>
   </data>
   <data name="&gt;&gt;toolStripButtonPalletCorners.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPalletCap.Name" xml:space="preserve">
+    <value>toolStripButtonPalletCap</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPalletCap.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripButtonPalletFilm.Name" xml:space="preserve">
@@ -1880,6 +1889,18 @@
   </data>
   <data name="&gt;&gt;saveFileDialogWebGL.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemHelpStartPage.Name" xml:space="preserve">
+    <value>toolStripMenuItemHelpStartPage</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemHelpStartPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator16.Name" xml:space="preserve">
+    <value>toolStripSeparator16</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

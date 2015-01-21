@@ -29,7 +29,8 @@ using treeDiM.StackBuilder.Plugin;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormMain : Form, IDocumentFactory, IMRUClient, IDocumentListener
+    public partial class FormMain
+        : Form, IDocumentFactory, IMRUClient, IDocumentListener
     {
         #region Data members
         /// <summary>
@@ -37,7 +38,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         private DockContentDocumentExplorer _documentExplorer = new DockContentDocumentExplorer();
         private DockContentLogConsole _logConsole = new DockContentLogConsole();
-        DockContentStartPage _dockStartPage = new DockContentStartPage();
+        private DockContentStartPage _dockStartPage;
         private ToolStripProfessionalRenderer _defaultRenderer = new ToolStripProfessionalRenderer(new PropertyGridEx.CustomColorScheme());
         private DeserializeDockContent _deserializeDockContent;
         /// <summary>
@@ -148,10 +149,11 @@ namespace TreeDim.StackBuilder.Desktop
                 return Path.ChangeExtension(cultURL, Path.GetExtension(Settings.Default.StartPageUrl));
             }
         }
-        public void ShowStartPage()
+        public void ShowStartPage(object sender, EventArgs e)
         {
-            if (!IsWebSiteReachable || null == _dockStartPage)
+            if (!IsWebSiteReachable)
                 return;
+            _dockStartPage = new DockContentStartPage();
             _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             _dockStartPage.Url = new System.Uri(StartPageURL);
         }
@@ -173,16 +175,22 @@ namespace TreeDim.StackBuilder.Desktop
             _documentExplorer.DocumentTreeView.SolutionReportHtmlClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionReportHtmlClicked);
             _documentExplorer.DocumentTreeView.SolutionColladaExportClicked += new AnalysisTreeView.AnalysisNodeClickHandler(DocumentTreeView_SolutionColladaExportClicked);
             ShowLogConsole();
-            ShowStartPage();
+            ShowStartPage(this, null);
         }
 
         public void ShowLogConsole()
         { 
             // show or hide log console ?
             if (AssemblyConf == "debug" || Settings.Default.ShowLogConsole)
+            {
+                _logConsole = new DockContentLogConsole();
                 _logConsole.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
+            }
             else
-                _logConsole.Hide();
+            {
+                _logConsole.Close();
+                _logConsole = null;
+            }
         }
 
         private IDockContent ReloadContent(string persistString)
@@ -1532,6 +1540,8 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
 
 
 

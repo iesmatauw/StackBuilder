@@ -3,7 +3,7 @@
   <!-- Show registration dialog ?-->
   <?define registdlg="true"?>
   <!--Serial number-->
-  <?define serial="FX13VR60ZH00"?>
+  <?define serial="FX15VR70ZH00"?>
   <!--Email-->
   <?define email=autokey@treedim.com?>
   <Fragment>

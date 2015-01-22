@@ -35,7 +35,6 @@
             // webBrowserStartPage
             // 
             resources.ApplyResources(this.webBrowserStartPage, "webBrowserStartPage");
-            this.webBrowserStartPage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserStartPage.Name = "webBrowserStartPage";
             // 
             // DockContentStartPage
@@ -43,9 +42,11 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.webBrowserStartPage);
+            this.HideOnClose = true;
             this.Name = "DockContentStartPage";
             this.ShowInTaskbar = false;
             this.ResumeLayout(false);
+
         }
         #endregion
 

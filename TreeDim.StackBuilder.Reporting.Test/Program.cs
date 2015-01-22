@@ -88,6 +88,9 @@ namespace TreeDim.StackBuilder.Reporting.Test
             {
                 _log.Info(string.Format("Loaded cylinder/pallet analysis {0}", analysis.Name));
             }
+            public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
+            { 
+            }
             public void OnNewBoxCaseAnalysisCreated(Document doc, BoxCaseAnalysis analysis)
             { 
                 _log.Info(string.Format("Loaded box/case analysis {0}", analysis.Name));
@@ -117,6 +120,7 @@ namespace TreeDim.StackBuilder.Reporting.Test
             public void OnDocumentClosed(Document doc)
             { 
             }
+
             #endregion
         }
         #endregion

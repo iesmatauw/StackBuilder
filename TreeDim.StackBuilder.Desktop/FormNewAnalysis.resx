@@ -1099,7 +1099,7 @@
     <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangLength.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="lbPalletOverhangWidth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1126,7 +1126,7 @@
     <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;lbPalletOverhangWidth.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="nudPalletOverhangX.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 18</value>
@@ -1147,7 +1147,7 @@
     <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;nudPalletOverhangX.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="nudPalletOverhangY.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 43</value>
@@ -1168,31 +1168,7 @@
     <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;nudPalletOverhangY.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="bnUseCapDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 16</value>
-  </data>
-  <data name="bnUseCapDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 44</value>
-  </data>
-  <data name="bnUseCapDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
-  <data name="bnUseCapDimensions.Text" xml:space="preserve">
-    <value>Use cap dimensions</value>
-  </data>
-  <data name="&gt;&gt;bnUseCapDimensions.Name" xml:space="preserve">
-    <value>bnUseCapDimensions</value>
-  </data>
-  <data name="&gt;&gt;bnUseCapDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnUseCapDimensions.Parent" xml:space="preserve">
-    <value>gbOverhangUnderhang</value>
-  </data>
-  <data name="&gt;&gt;bnUseCapDimensions.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="uLengthOverhangY.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1219,7 +1195,7 @@
     <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;uLengthOverhangY.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="uLengthOverhangX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1246,7 +1222,7 @@
     <value>gbOverhangUnderhang</value>
   </data>
   <data name="&gt;&gt;uLengthOverhangX.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="gbOverhangUnderhang.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 196</value>

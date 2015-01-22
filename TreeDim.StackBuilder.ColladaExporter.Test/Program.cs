@@ -136,6 +136,15 @@ namespace TreeDim.StackBuilder.ColladaExporter.Test
         public void OnDocumentClosed(Document doc)
         {
         }
+        /*
+        public void OnNewCylinderPalletAnalysisCreated(Document doc, CylinderPalletAnalysis analysis)
+        { 
+        }
+        */ 
+        public void OnNewHCylinderPalletAnalysisCreated(Document doc, HCylinderPalletAnalysis analysis)
+        { 
+        }
+
         #endregion
     }
     #endregion

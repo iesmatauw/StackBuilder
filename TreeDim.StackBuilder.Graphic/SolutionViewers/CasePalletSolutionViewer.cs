@@ -162,7 +162,7 @@ namespace TreeDim.StackBuilder.Graphics
                     corners[i].DrawEnd(graphics);
             }
             // pallet cap
-            if (_solution.Analysis.HasPalletCap)
+            if (_solution.HasPalletCap)
             {
                 PalletCapProperties capProperties = _solution.Analysis.PalletCapProperties;
                 Vector3D pos = new Vector3D(

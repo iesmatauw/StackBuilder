@@ -96,7 +96,6 @@
             this.lbNumberOfTurns = new System.Windows.Forms.Label();
             this.cbPalletFilm = new System.Windows.Forms.ComboBox();
             this.chkbPalletFilm = new System.Windows.Forms.CheckBox();
-            this.bnUseCapDimensions = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPositionZ)).BeginInit();
@@ -443,7 +442,6 @@
             // 
             // gbOverhangUnderhang
             // 
-            this.gbOverhangUnderhang.Controls.Add(this.bnUseCapDimensions);
             this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.uLengthOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
@@ -653,13 +651,6 @@
             this.chkbPalletFilm.UseVisualStyleBackColor = true;
             this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.onPalletFilmChecked);
             // 
-            // bnUseCapDimensions
-            // 
-            resources.ApplyResources(this.bnUseCapDimensions, "bnUseCapDimensions");
-            this.bnUseCapDimensions.Name = "bnUseCapDimensions";
-            this.bnUseCapDimensions.UseVisualStyleBackColor = true;
-            this.bnUseCapDimensions.Click += new System.EventHandler(this.bnUseCapDimensions_Click);
-            // 
             // FormNewAnalysis
             // 
             this.AcceptButton = this.bnOk;
@@ -797,6 +788,5 @@
         private System.Windows.Forms.CheckBox chkbPalletFilm;
         private System.Windows.Forms.NumericUpDown nudNumberOfTurns;
         private System.Windows.Forms.Label lbNumberOfTurns;
-        private System.Windows.Forms.Button bnUseCapDimensions;
     }
 }

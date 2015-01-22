@@ -373,6 +373,10 @@ namespace TreeDim.StackBuilder.GUIExtension
                     , caseProperties
                     , palletProperties
                     , null
+                    , null
+                    , null
+                    , null
+                    , null
                     , BuildPalletConstraintSet()
                     , palletSolutionList);
             }
@@ -696,8 +700,6 @@ namespace TreeDim.StackBuilder.GUIExtension
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 // set camera target
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                // set light direction
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 // set viewport (not actually needed)
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // show images
@@ -728,8 +730,6 @@ namespace TreeDim.StackBuilder.GUIExtension
                 graphics.CameraPosition = Graphics3D.Corner_0;
                 // set camera target
                 graphics.Target = new Vector3D(0.0, 0.0, 0.0);
-                // set light direction
-                graphics.LightDirection = new Vector3D(-0.75, -0.5, 1.0);
                 // set viewport (not actually needed)
                 graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
                 // show images

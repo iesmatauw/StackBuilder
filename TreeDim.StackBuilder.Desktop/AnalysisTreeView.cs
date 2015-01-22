@@ -1259,7 +1259,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_CASEPALLETANALYSISSOLUTION, doc, analysis, selSolution));
             // insert truckAnalysis node
-            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 13, 13);
+            TreeNode nodeTruckAnalysis = new TreeNode(truckAnalysis.Name, 16, 16);
             nodeTruckAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_TRUCKANALYSIS, doc, analysis, selSolution, truckAnalysis);
             parentNode.Nodes.Add(nodeTruckAnalysis);
             // expand parent tree node

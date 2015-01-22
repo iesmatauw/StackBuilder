@@ -814,5 +814,14 @@ namespace TreeDim.StackBuilder.Desktop.Properties {
                 this["MaximumPalletWeight"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/stackbuilder_donate_page.htm")]
+        public string DonatePageUrl {
+            get {
+                return ((string)(this["DonatePageUrl"]));
+            }
+        }
     }
 }

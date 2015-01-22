@@ -154,7 +154,7 @@
     <value>graphCtrlCaseSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlCaseSolution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlCaseSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -220,7 +220,7 @@
     <value>graphCtrlPalletSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlPalletSolution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlPalletSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel2</value>

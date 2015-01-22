@@ -413,7 +413,7 @@ namespace TreeDim.StackBuilder.Basics
                     + (Analysis.HasInterlayer ? InterlayerCount * Analysis.InterlayerProperties.Weight : 0.0)
                     + (Analysis.HasInterlayerAntiSlip ? Analysis.InterlayerPropertiesAntiSlip.Weight : 0.0)
                     + (Analysis.HasPalletCorners ? Analysis.PalletCornerProperties.Weight * 4.0 : 0.0)
-                    + (Analysis.HasPalletCap ? Analysis.PalletCapProperties.Weight : 0.0);
+                    + (HasPalletCap ? Analysis.PalletCapProperties.Weight : 0.0);
             }
         }
         public BBox3D LoadBoundingBox
@@ -446,7 +446,7 @@ namespace TreeDim.StackBuilder.Basics
                     bbox.Extend(ptMax);
                 }
                 // extend ?
-                if (Analysis.HasPalletCap)
+                if (HasPalletCap)
                 {
                     Vector3D v0 = new Vector3D(
                         0.5 * (Analysis.PalletProperties.Length - Analysis.PalletCapProperties.Length),
@@ -460,6 +460,21 @@ namespace TreeDim.StackBuilder.Basics
                     bbox.Extend(v1);
                 }
                 return bbox;
+            }
+        }
+
+        public bool HasPalletCap
+        {
+            get
+            {
+                if (!Analysis.HasPalletCap)
+                    return false;
+                else
+                {
+                    BBox3D bbox = LoadBoundingBox;
+                    return (bbox.Length < Analysis.PalletCapProperties.InsideLength)
+                        && (bbox.Width < Analysis.PalletCapProperties.InsideWidth);
+                }
             }
         }
 
@@ -514,7 +529,8 @@ namespace TreeDim.StackBuilder.Basics
             get
             {
                 BoxLayer bLayer = this[Count - 1] as BoxLayer;
-                return this[Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(Analysis.BProperties) : 0.0);
+                return this[Count - 1].ZLow + (null != bLayer ? bLayer.Thickness(Analysis.BProperties) : 0.0)
+                    + (HasPalletCap ? (Analysis.PalletCapProperties.Height - Analysis.PalletCapProperties.InsideHeight) : 0.0 );
             }
         }
 

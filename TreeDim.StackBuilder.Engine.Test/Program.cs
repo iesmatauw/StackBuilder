@@ -83,7 +83,10 @@ namespace TreeDim.StackBuilder.Engine.Test
                     Console.WriteLine(constraintSet.ToString());
 
                     // initialize analysis
-                    CasePalletAnalysis analysis = new CasePalletAnalysis(boxProperties, palletProperties, interlayerProperties, constraintSet);
+                    CasePalletAnalysis analysis = new CasePalletAnalysis(
+                        boxProperties, palletProperties, interlayerProperties,
+                        null, null, null, null,
+                        constraintSet);
 
                     // initialize solver
                     CasePalletSolver solver = new CasePalletSolver();
@@ -112,7 +115,8 @@ namespace TreeDim.StackBuilder.Engine.Test
                 {
                     // cylinder
                     Console.WriteLine("=== Cylinder properties ===");
-                    CylinderProperties cylProperties = new CylinderProperties(doc, "Cylinder", "Default cylinder", 90, 100, 1.5, Color.Gray, Color.SkyBlue);
+                    CylinderProperties cylProperties = new CylinderProperties(doc, "Cylinder", "Default cylinder",
+                        90, 45.0, 100, 1.5, Color.Gray, Color.SkyBlue, Color.SkyBlue);
                     Console.WriteLine(cylProperties.ToString());
                     // constraint set
                     Console.WriteLine("=== Constraint set ===");
@@ -125,7 +129,7 @@ namespace TreeDim.StackBuilder.Engine.Test
                     constraintSet.MaximumNumberOfItems = 2000;
                     Console.WriteLine(constraintSet.ToString());
                     // cylinder analysis
-                    CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylProperties, palletProperties, null, constraintSet);
+                    CylinderPalletAnalysis analysis = new CylinderPalletAnalysis(cylProperties, palletProperties, null, null, constraintSet);
                     // initialize solver
                     CylinderSolver solver = new CylinderSolver();
                     solver.ProcessAnalysis(analysis);

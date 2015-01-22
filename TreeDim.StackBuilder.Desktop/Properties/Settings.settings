@@ -206,5 +206,8 @@
     <Setting Name="MaximumPalletWeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
+    <Setting Name="DonatePageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/stackbuilder_donate_page.htm</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

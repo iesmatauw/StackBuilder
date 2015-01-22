@@ -38,13 +38,37 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public double Length { get { return _length; } }
-        public double Width { get { return _width; } }
-        public double Height { get { return _height; } }
-        public double InsideLength { get { return _insideLength; } }
-        public double InsideWidth { get { return _insideWidth; } }
-        public double InsideHeight { get { return _insideHeight; } }
-        public double Thickness { get { return _height - _insideHeight; } }
+        public double Length
+        {
+            get { return _length; }
+            set { _length = Length; }
+        }
+        public double Width
+        {
+            get { return _width; }
+            set { _width = value; }
+        }
+        public double Height
+        {
+            get { return _height; }
+            set { _height = value; }
+        }
+        public double InsideLength
+        {
+            get { return _insideLength; }
+            set { _insideLength = value; }
+        }
+        public double InsideWidth
+        {
+            get { return _insideWidth; }
+            set { _insideWidth = value; }
+        }
+        public double InsideHeight
+        {
+            get { return _insideHeight; }
+            set { _insideHeight = value; }
+        }
+        public double Thickness {   get { return _height - _insideHeight; } }
         public double Weight
         {
             get { return _weight; }

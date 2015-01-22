@@ -38,7 +38,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// </summary>
         private DockContentDocumentExplorer _documentExplorer = new DockContentDocumentExplorer();
         private DockContentLogConsole _logConsole = new DockContentLogConsole();
-        private DockContentStartPage _dockStartPage;
+        private DockContentStartPage _dockStartPage = new DockContentStartPage();
         private ToolStripProfessionalRenderer _defaultRenderer = new ToolStripProfessionalRenderer(new PropertyGridEx.CustomColorScheme());
         private DeserializeDockContent _deserializeDockContent;
         /// <summary>
@@ -151,17 +151,15 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public void ShowStartPage(object sender, EventArgs e)
         {
-            if (!IsWebSiteReachable)
+            if (!IsWebSiteReachable || null != _dockStartPage)
                 return;
-            _dockStartPage = new DockContentStartPage();
             _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             _dockStartPage.Url = new System.Uri(StartPageURL);
         }
         private void CloseStartPage()
         {
             if (null != _dockStartPage)
-                _dockStartPage.Close();
-            _dockStartPage = null;
+                _dockStartPage.Hide();
         }
         #endregion
 
@@ -291,15 +289,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewBox form = new FormNewBox(eventArg.Document, eventArg.ItemBase as BoxProperties);
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        if (box.HasDependingAnalyses)
-                        {
-                            if (DialogResult.Cancel == MessageBox.Show(
-                                string.Format(Resources.ID_DEPENDINGANALYSES, box.Name)
-                                , Application.ProductName
-                                , MessageBoxButtons.OKCancel))
-                                return;
-                        }
-
+                        if (!UserAcknowledgeDependancies(box)) return;
                         box.Name = form.BoxName;
                         box.Description = form.Description;
                         box.Length = form.BoxLength;
@@ -323,14 +313,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewCylinder form = new FormNewCylinder(eventArg.Document, cylinderProperties);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
-                        if (cylinderProperties.HasDependingAnalyses)
-                        {
-                            if (DialogResult.Cancel == MessageBox.Show(
-                               string.Format(Resources.ID_DEPENDINGANALYSES, cylinderProperties.Name)
-                               , Application.ProductName
-                               , MessageBoxButtons.OKCancel))
-                                return;                            
-                        }
+                        if (!UserAcknowledgeDependancies(cylinderProperties)) return;
                         cylinderProperties.Name = form.CylinderName;
                         cylinderProperties.Description = form.Description;
                         cylinderProperties.RadiusOuter = form.RadiusOuter;
@@ -352,14 +335,7 @@ namespace TreeDim.StackBuilder.Desktop
 
                     if (form.ShowDialog() == DialogResult.OK)
                     {
-                        if (caseOfBoxes.HasDependingAnalyses)
-                        {
-                            if (DialogResult.Cancel == MessageBox.Show(
-                               string.Format(Resources.ID_DEPENDINGANALYSES, caseOfBoxes.Name)
-                               , Application.ProductName
-                               , MessageBoxButtons.OKCancel))
-                                return;
-                        }
+                        if (!UserAcknowledgeDependancies(caseOfBoxes)) return;
                         caseOfBoxes.Name = form.CaseName;
                         caseOfBoxes.Description = form.CaseDescription;
                         caseOfBoxes.SetAllColors(form.Colors);
@@ -373,15 +349,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewBundle form = new FormNewBundle(eventArg.Document, bundle);
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        if (bundle.HasDependingAnalyses)
-                        {
-                            if (DialogResult.Cancel == MessageBox.Show(
-                                string.Format(Resources.ID_DEPENDINGANALYSES, bundle.Name)
-                                , Application.ProductName
-                                , MessageBoxButtons.OKCancel))
-                                return;
-                        }
-
+                        if (!UserAcknowledgeDependancies(bundle)) return;
                         bundle.Name = form.BundleName;
                         bundle.Description = form.Description;
                         bundle.Length = form.BundleLength;
@@ -398,14 +366,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewInterlayer form = new FormNewInterlayer(eventArg.Document, interlayer);
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        if (interlayer.HasDependingAnalyses)
-                        {
-                            if (DialogResult.Cancel == MessageBox.Show(
-                                string.Format(Resources.ID_DEPENDINGANALYSES, interlayer.Name)
-                                , Application.ProductName
-                                , MessageBoxButtons.OKCancel))
-                                return;
-                        }
+                        if (!UserAcknowledgeDependancies(interlayer)) return;
                         interlayer.Name = form.InterlayerName;
                         interlayer.Description = form.Description;
                         interlayer.Length = form.InterlayerLength;
@@ -422,14 +383,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewPallet form = new FormNewPallet(eventArg.Document, pallet);
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        if (pallet.HasDependingAnalyses)
-                        {
-                            if (DialogResult.Cancel == MessageBox.Show(
-                                string.Format(Resources.ID_DEPENDINGANALYSES, pallet.Name)
-                                , Application.ProductName
-                                , MessageBoxButtons.OKCancel))
-                                return;
-                        }
+                        if (!UserAcknowledgeDependancies(pallet)) return;
                         pallet.Name = form.PalletName;
                         pallet.Description = form.Description;
                         pallet.Length = form.PalletLength;
@@ -447,6 +401,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewTruck form = new FormNewTruck(eventArg.Document, truck);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (!UserAcknowledgeDependancies(truck)) return;
                         truck.Name = form.TruckName;
                         truck.Description = form.Description;
                         truck.Length = form.TruckLength;
@@ -463,6 +418,7 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewPalletCorners form = new FormNewPalletCorners(eventArg.Document, corner);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (!UserAcknowledgeDependancies(corner)) return;
                         corner.Name = form.ItemName;
                         corner.Description = form.ItemDescription;
                         corner.Length = form.CornerLength;
@@ -478,9 +434,16 @@ namespace TreeDim.StackBuilder.Desktop
                     FormNewPalletCap form = new FormNewPalletCap(eventArg.Document, cap);
                     if (DialogResult.OK == form.ShowDialog())
                     {
+                        if (!UserAcknowledgeDependancies(cap)) return;
                         cap.Name = form.ItemName;
                         cap.Description = form.ItemDescription;
                         cap.Color = form.CapColor;
+                        cap.Length = form.CapLength;
+                        cap.Width = form.CapWidth;
+                        cap.Height = form.CapHeight;
+                        cap.InsideLength = form.CapInnerLength;
+                        cap.InsideWidth = form.CapInnerWidth;
+                        cap.InsideHeight = form.CapInnerHeight;
                         cap.EndUpdate();
                     }
                 }
@@ -527,6 +490,19 @@ namespace TreeDim.StackBuilder.Desktop
                 if (null != ectAnalysis)
                     CreateOrActivateViewECTAnalysis(ectAnalysis);
             }
+        }
+
+        private bool UserAcknowledgeDependancies(ItemBase item)
+        {
+            if (item.HasDependingAnalyses)
+            {
+                if (DialogResult.Cancel == MessageBox.Show(
+                    string.Format(Resources.ID_DEPENDINGANALYSES, item.Name)
+                    , Application.ProductName
+                    , MessageBoxButtons.OKCancel))
+                    return false;
+            }
+            return true;
         }
 
         private string CleanString(string name)
@@ -1532,6 +1508,15 @@ namespace TreeDim.StackBuilder.Desktop
             catch (Exception ex)
             { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void donateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(Properties.Settings.Default.DonatePageUrl);
+            }
+            catch (Exception ex)
+            { _log.Error(ex.ToString()); }
+        }
         #endregion
 
         #region Static instance accessor
@@ -1540,10 +1525,6 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
-
-
-
-
 
 
     }

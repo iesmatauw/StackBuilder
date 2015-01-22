@@ -83,6 +83,8 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemHelpStartPage = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
@@ -123,8 +125,8 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMenuItemHelpStartPage = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -443,9 +445,22 @@
             this.helpToolStripMenuItemHelp,
             this.tutorialToolStripMenuItem,
             this.toolStripSeparator9,
-            this.helpToolStripMenuItemAbout});
+            this.helpToolStripMenuItemAbout,
+            this.toolStripSeparator17,
+            this.donateToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
+            // 
+            // toolStripMenuItemHelpStartPage
+            // 
+            this.toolStripMenuItemHelpStartPage.Name = "toolStripMenuItemHelpStartPage";
+            resources.ApplyResources(this.toolStripMenuItemHelpStartPage, "toolStripMenuItemHelpStartPage");
+            this.toolStripMenuItemHelpStartPage.Click += new System.EventHandler(this.ShowStartPage);
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
             // 
             // helpToolStripMenuItemHelp
             // 
@@ -731,16 +746,16 @@
             this.saveFileDialogWebGL.DefaultExt = "html";
             resources.ApplyResources(this.saveFileDialogWebGL, "saveFileDialogWebGL");
             // 
-            // toolStripMenuItemHelpStartPage
+            // donateToolStripMenuItem
             // 
-            this.toolStripMenuItemHelpStartPage.Name = "toolStripMenuItemHelpStartPage";
-            resources.ApplyResources(this.toolStripMenuItemHelpStartPage, "toolStripMenuItemHelpStartPage");
-            this.toolStripMenuItemHelpStartPage.Click += new System.EventHandler(this.ShowStartPage);
+            this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
+            resources.ApplyResources(this.donateToolStripMenuItem, "donateToolStripMenuItem");
+            this.donateToolStripMenuItem.Click += new System.EventHandler(this.donateToolStripMenuItem_Click);
             // 
-            // toolStripSeparator16
+            // toolStripSeparator17
             // 
-            this.toolStripSeparator16.Name = "toolStripSeparator16";
-            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
             // 
             // FormMain
             // 
@@ -844,5 +859,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItemPalletFilm;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelpStartPage;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
+        private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
     }
 }

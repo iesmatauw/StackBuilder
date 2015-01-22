@@ -49,6 +49,10 @@ namespace TreeDim.StackBuilder.GUIExtension
                 , caseInDoc
                 , palletInDoc
                 , interlayerInDoc
+                , null
+                , null
+                , null
+                , null
                 , formDefinition.Constraints
                 , solver);
              

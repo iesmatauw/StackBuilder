@@ -135,20 +135,20 @@
     <value>NoControl</value>
   </data>
   <data name="graphCtrlSolution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 123</value>
+    <value>3, 3</value>
   </data>
   <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>652, 2</value>
+    <value>598, 475</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="graphCtrlSolution.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>
@@ -163,13 +163,13 @@
     <value>NoControl</value>
   </data>
   <data name="btSelectSolution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1054, 857</value>
+    <value>501, 483</value>
   </data>
   <data name="btSelectSolution.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 30</value>
   </data>
   <data name="btSelectSolution.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+    <value>22</value>
   </data>
   <data name="btSelectSolution.Text" xml:space="preserve">
     <value>Select</value>
@@ -208,10 +208,10 @@
     <value>0, 0</value>
   </data>
   <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 184</value>
+    <value>604, 120</value>
   </data>
   <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
     <value>gridSolutions</value>
@@ -241,10 +241,10 @@
     <value>604, 652</value>
   </data>
   <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
-    <value>464</value>
+    <value>528</value>
   </data>
   <data name="splitContainerHoriz.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>17</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
     <value>splitContainerHoriz</value>

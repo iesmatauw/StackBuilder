@@ -39,19 +39,19 @@
             this.splitContainerHoriz.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // splitContainerHoriz
             // 
             this.splitContainerHoriz.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerHoriz.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerHoriz.Name = "splitContainer1";
+            this.splitContainerHoriz.Name = "splitContainerHoriz";
             this.splitContainerHoriz.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // splitContainerHoriz.Panel1
             // 
             this.splitContainerHoriz.Panel1.Controls.Add(this.graphCtrlSolution);
             this.splitContainerHoriz.Panel1.Controls.Add(this.btSelectSolution);
             // 
-            // splitContainer1.Panel2
+            // splitContainerHoriz.Panel2
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.gridSolutions);
             this.splitContainerHoriz.Size = new System.Drawing.Size(604, 652);
@@ -107,6 +107,7 @@
             this.Controls.Add(this.splitContainerHoriz);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DockContentHCylinderPalletAnalysis";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;

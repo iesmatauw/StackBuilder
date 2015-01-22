@@ -32,8 +32,8 @@
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlCaseSolution = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
-            this.graphCtrlPalletSolution = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.btSelectSolution = new System.Windows.Forms.Button();
+            this.graphCtrlPalletSolution = new TreeDim.StackBuilder.Graphics.Graphics3DControl();
             this.gridSolutions = new SourceGrid.Grid();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
@@ -108,6 +108,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerHoriz);
+            this.HideOnClose = true;
             this.Name = "DockContentBoxCasePalletAnalysis";
             this.ShowInTaskbar = false;
             this.splitContainerHoriz.Panel1.ResumeLayout(false);
@@ -119,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
         #endregion
 

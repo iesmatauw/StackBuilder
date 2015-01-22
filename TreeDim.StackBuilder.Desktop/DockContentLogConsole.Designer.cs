@@ -58,7 +58,7 @@
             this.AutoHideToolStripMenuItem,
             this.HideToolStripMenuItem});
             this.ContextMenuDock.Name = "ContextMenuStrip1";
-            this.ContextMenuDock.Size = new System.Drawing.Size(174, 136);
+            this.ContextMenuDock.Size = new System.Drawing.Size(174, 114);
             this.ContextMenuDock.Text = "Window Position";
             // 
             // FloatingToolStripMenuItem
@@ -107,6 +107,7 @@
             this.Controls.Add(this.richTextBoxLog);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideOnClose = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DockContentLogConsole";

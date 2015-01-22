@@ -658,15 +658,6 @@ namespace TreeDim.StackBuilder.Desktop
                 message = Resources.ID_ALLOWALIGNEDORALTERNATELAYERS;
             else if (!UseMaximumLoadOnBox && !UseMaximumNumberOfBoxes && !UseMaximumPalletHeight && !UseMaximumPalletWeight)
                 message = Resources.ID_USEATLEASTONESTOPSTACKINGCRITERION;
-            else if (chkbPalletCap.Checked)
-            {
-                PalletCapProperties capProperties = SelectedPalletCap;
-                PalletProperties palletProperties = SelectedPallet;
-                if (capProperties.InsideLength < palletProperties.Length + OverhangX)
-                    message = Resources.ID_PALLETCAPNOTLONGENOUGH;
-                else if (capProperties.InsideWidth < palletProperties.Width + OverhangY)
-                    message = Resources.ID_PALLETCAPNOTWIDEENOUGH;
-            }
             //---
             // button OK
             bnOk.Enabled = string.IsNullOrEmpty(message);
@@ -721,7 +712,6 @@ namespace TreeDim.StackBuilder.Desktop
         private void onPalletCapChecked(object sender, EventArgs e)
         {
             cbPalletCap.Enabled = chkbPalletCap.Enabled && chkbPalletCap.Checked;
-            bnUseCapDimensions.Visible = chkbPalletCap.Enabled && chkbPalletCap.Checked;
             UpdateButtonOkStatus();
         }
 
@@ -737,14 +727,6 @@ namespace TreeDim.StackBuilder.Desktop
         private void onOverhangModified(object sender, EventArgs e)
         {
             UpdateButtonOkStatus();
-        }
-        private void bnUseCapDimensions_Click(object sender, EventArgs e)
-        {
-            if (chkbPalletCap.Enabled && chkbPalletCap.Checked)
-            {
-                OverhangX = SelectedPalletCap.Length - SelectedPallet.Length;
-                OverhangY = SelectedPalletCap.Width - SelectedPallet.Width;
-            }
         }
         #endregion
 

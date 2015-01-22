@@ -576,6 +576,9 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     , LoadPalletById(doc, _root.data.items.library_pallets, xmlAnalysis.palletId)
                     , LoadInterlayerById(doc, _root.data.items.library_interlayers, xmlAnalysis.interlayerId)
                     , LoadInterlayerById(doc, _root.data.items.library_interlayers, xmlAnalysis.interlayerAntiSlipId)
+                    , null
+                    , null
+                    , null
                     , constraintSet
                     , new TreeDim.StackBuilder.Engine.CasePalletSolver());
             }
@@ -586,6 +589,10 @@ namespace TreeDim.StackBuilder.XmlFileProcessor
                     bProperties
                     , LoadPalletById(null, _root.data.items.library_pallets, xmlAnalysis.palletId)
                     , LoadInterlayerById(null, _root.data.items.library_interlayers, xmlAnalysis.interlayerId)
+                    , null
+                    , null
+                    , null
+                    , null
                     , constraintSet);
                 // name
                 analysis.Name = xmlAnalysis.name;

@@ -25,6 +25,7 @@
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ESP.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\JPN.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ITA.xml" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsd" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes" />
       </Component>
     </DirectoryRef>

@@ -129,6 +129,7 @@
       <xsl:value-of select="$loc/str[@name='Box/Case analysis']"/>
     </h2>
     <xsl:apply-templates select="box"></xsl:apply-templates>
+    <xsl:apply-templates select="bundle"></xsl:apply-templates>
     <xsl:apply-templates select="caseWithInnerDims"></xsl:apply-templates>
     <xsl:apply-templates select="caseConstraintSet"></xsl:apply-templates>
     <xsl:apply-templates select="boxCaseSolution"></xsl:apply-templates>
@@ -138,6 +139,7 @@
       <xsl:value-of select="$loc/str[@name='Box/Case/Pallet analysis']"/>
     </h2>
     <xsl:apply-templates select="box"></xsl:apply-templates>
+    <xsl:apply-templates select="bundle"></xsl:apply-templates>
     <xsl:apply-templates select="caseWithInnerDims"></xsl:apply-templates>
     <xsl:apply-templates select="boxCasePalletSolution"></xsl:apply-templates>
   </xsl:template>
@@ -889,7 +891,7 @@
             <xsl:value-of select="$loc/str[@name='Name']"/>
           </b>
         </td>
-        <td colspan="2">
+        <td class="style3" colspan="3">
           <xsl:value-of select="name"></xsl:value-of>
         </td>
       </tr>
@@ -899,7 +901,7 @@
             <xsl:value-of select="$loc/str[@name='Description']"/>
           </b>
         </td>
-        <td colspan="2">
+        <td class="style3" colspan="3">
           <xsl:value-of select="description"></xsl:value-of>
         </td>
       </tr>

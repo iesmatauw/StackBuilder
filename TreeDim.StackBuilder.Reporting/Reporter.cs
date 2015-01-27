@@ -23,6 +23,7 @@ using TreeDim.StackBuilder.Graphics;
 
 namespace TreeDim.StackBuilder.Reporting
 {
+    #region MyXmlUrlResolver
     class MyXmlUrlResolver : XmlUrlResolver
     {
         public override Uri ResolveUri(Uri baseUri, string relativeUri)
@@ -33,6 +34,9 @@ namespace TreeDim.StackBuilder.Reporting
                 return base.ResolveUri(new Uri(@"K:\GitHub\StackBuilder\TreeDim.StackBuilder.Reporting\ReportTemplates"), relativeUri);
         }
     }
+    #endregion
+
+    #region ReportData
     /// <summary>
     /// class used to encapsulate an analysis and a solution
     /// </summary>
@@ -331,7 +335,9 @@ namespace TreeDim.StackBuilder.Reporting
         }
         #endregion
     }
+    #endregion
 
+    #region Reporter
     /// <summary>
     /// Generates pallet analyses reports
     /// </summary>
@@ -781,13 +787,13 @@ namespace TreeDim.StackBuilder.Reporting
             SaveImageAs(graphics.Bitmap, "view_cylinder_iso.png");             
         }
 
-        private void AppendBundleElement(BundleProperties bundleProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendBundleElement(BundleProperties bundleProp, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
             if (null == bundleProp) return;
             // bundle
-            XmlElement elemBundle = xmlDoc.CreateElement("bundle", ns);
-            elemPalletAnalysis.AppendChild(elemBundle);
+            XmlElement elemBundle = CreateElement("bundle", null, elemAnalysis, xmlDoc, ns);
+            elemAnalysis.AppendChild(elemBundle);
             // name
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
             elemName.InnerText = bundleProp.Name;
@@ -796,7 +802,7 @@ namespace TreeDim.StackBuilder.Reporting
             XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
             elemDescription.InnerText = bundleProp.Description;
             elemBundle.AppendChild(elemDescription);
-
+            // length / width / number of flats / unit thickness / unit weight / total thickness / total weight
             AppendElementValue(xmlDoc, elemBundle, "length", UnitsManager.LengthUnitString, bundleProp.Length);
             AppendElementValue(xmlDoc, elemBundle, "width", UnitsManager.LengthUnitString, bundleProp.Width);
             AppendElementValue(xmlDoc, elemBundle, "numberOfFlats", bundleProp.NoFlats);
@@ -804,32 +810,6 @@ namespace TreeDim.StackBuilder.Reporting
             AppendElementValue(xmlDoc, elemBundle, "unitWeight", UnitsManager.MassUnitString, bundleProp.UnitWeight);
             AppendElementValue(xmlDoc, elemBundle, "totalThickness", UnitsManager.LengthUnitString, bundleProp.UnitThickness * bundleProp.NoFlats);
             AppendElementValue(xmlDoc, elemBundle, "totalWeight", UnitsManager.MassUnitString, bundleProp.UnitWeight * bundleProp.NoFlats);
-
-            // length
-            XmlElement elemLength = xmlDoc.CreateElement("length", ns);
-            elemLength.InnerText = string.Format("{0:F}", bundleProp.Length);
-            elemBundle.AppendChild(elemLength);
-            // width
-            XmlElement elemWidth = xmlDoc.CreateElement("width", ns);
-            elemWidth.InnerText = string.Format("{0:F}", bundleProp.Width);
-            elemBundle.AppendChild(elemWidth);
-
-            // unitThickness
-            XmlElement elemUnitThickness = xmlDoc.CreateElement("unitThickness", ns);
-            elemUnitThickness.InnerText = string.Format("{0:F}", bundleProp.UnitThickness);
-            elemBundle.AppendChild(elemUnitThickness);
-            // unitWeight
-            XmlElement elemUnitWeight = xmlDoc.CreateElement("unitWeight", ns);
-            elemUnitWeight.InnerText = string.Format("{0:F}", bundleProp.UnitWeight);
-            elemBundle.AppendChild(elemUnitWeight);
-            // totalThickness
-            XmlElement elemTotalThickness = xmlDoc.CreateElement("totalThickness", ns);
-            elemTotalThickness.InnerText = string.Format("{0:F}", bundleProp.UnitThickness * bundleProp.NoFlats);
-            elemBundle.AppendChild(elemTotalThickness);
-            // totalWeight
-            XmlElement elemTotalWeight = xmlDoc.CreateElement("totalWeight", ns);
-            elemTotalWeight.InnerText = string.Format("{0:F}", bundleProp.UnitWeight * bundleProp.NoFlats);
-            elemBundle.AppendChild(elemTotalWeight);
             // --- build image
             Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
             graphics.CameraPosition = Graphics3D.Corner_0;
@@ -1415,6 +1395,8 @@ namespace TreeDim.StackBuilder.Reporting
                 CasePalletSolutionViewer sv = new CasePalletSolutionViewer(sol);
                 sv.ShowDimensions = showDimensions;
                 sv.Draw(graphics);
+                graphics.Flush();
+                SaveImageAs(graphics.Bitmap, viewName + ".png");
                 // ---
                 XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
                 TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
@@ -1423,8 +1405,6 @@ namespace TreeDim.StackBuilder.Reporting
                 styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 3, graphics.Bitmap.Height / 3);
                 elemImage.Attributes.Append(styleAttribute);
                 elemSolution.AppendChild(elemImage);
-                // Save image ?
-                SaveImageAs(graphics.Bitmap, viewName + ".png");
             }
         }
 
@@ -2120,10 +2100,11 @@ namespace TreeDim.StackBuilder.Reporting
             XmlElement elemBoxLayersCount = xmlDoc.CreateElement("boxLayersCount", ns);
             elemBoxLayersCount.InnerText = solution.BoxLayersCount.ToString();
             elemSolution.AppendChild(elemBoxLayersCount);
-
+            // criterions
+            // load weight
             AppendElementValue(xmlDoc, elemSolution, "LoadWeight", UnitsManager.MassUnitString, solution.BoxPerCaseCount * analysis.BProperties.Weight);
+            // case weight
             AppendElementValue(xmlDoc, elemSolution, "CaseWeight", UnitsManager.MassUnitString, solution.CaseWeight);
-
             // EfficiencyWeight
             XmlElement elemEfficiencyWeight = xmlDoc.CreateElement("EfficiencyWeight", ns);
             if (solution.CaseWeight > 0)
@@ -2172,6 +2153,7 @@ namespace TreeDim.StackBuilder.Reporting
                 BoxCaseSolutionViewer sv = new BoxCaseSolutionViewer(solution);
                 sv.ShowDimensions = showDimensions;
                 sv.Draw(graphics);
+                graphics.Flush();
                 // ---
                 XmlElement elemImage = xmlDoc.CreateElement(viewName, ns);
                 TypeConverter converter = TypeDescriptor.GetConverter(typeof(Bitmap));
@@ -2254,6 +2236,8 @@ namespace TreeDim.StackBuilder.Reporting
             // instantiate solution viewer
             BoxCasePalletSolutionViewer sv = new BoxCasePalletSolutionViewer(caseSolution);
             sv.Draw(graphics);
+            graphics.Flush();
+            SaveImageAs(graphics.Bitmap, "view_caseSolution_iso.png");
             // ---
             // view_caseSolution_iso
             XmlElement elemImage = xmlDoc.CreateElement("view_caseSolution_iso", ns);
@@ -2263,8 +2247,6 @@ namespace TreeDim.StackBuilder.Reporting
             styleAttribute.Value = string.Format("width:{0}pt;height:{1}pt", graphics.Bitmap.Width / 4, graphics.Bitmap.Height / 4);
             elemImage.Attributes.Append(styleAttribute);
             elemCaseSolution.AppendChild(elemImage);
-            // save image
-            SaveImageAs(graphics.Bitmap, "view_caseSolution_iso.png");
         }
         #endregion
 
@@ -2390,4 +2372,5 @@ namespace TreeDim.StackBuilder.Reporting
         }
         #endregion
     }
+    #endregion
 }

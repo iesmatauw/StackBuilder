@@ -135,6 +135,7 @@
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\JPN.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ITA.xml" Checksum="yes" />
         <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd" Checksum="yes" />
+        <File Source="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsd" Checksum="yes" />        
         <util:XmlFile Id="SetReportTemplate" File="[BIN]TreeDim.StackBuilder.Desktop.exe.config" Action="setValue" ElementPath="/configuration/userSettings/TreeDim.StackBuilder.Desktop.Properties.Settings/setting[\[]@name='ReportTemplatePath'[\]]/value" Value="[REPORTTEMPLATES]ReportTemplateHtml.xsl"/>
       </Component>
       <Component Id="CompanyLogoTreeDiM" Guid="{CB45D209-A26E-4F7F-8EA2-67FFE2C810B0}">

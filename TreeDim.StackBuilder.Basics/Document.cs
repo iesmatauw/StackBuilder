@@ -702,8 +702,8 @@ namespace TreeDim.StackBuilder.Basics
 
         public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
             string name, string description
-            , BoxProperties boxProperties, BoxProperties caseProperties
-            , BoxCaseConstraintSet constraintSet
+            , BProperties boxProperties, BoxProperties caseProperties
+            , BCaseConstraintSet constraintSet
             , List<BoxCaseSolution> solutions)
         {
             BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
@@ -733,11 +733,14 @@ namespace TreeDim.StackBuilder.Basics
             // insert in list
             _boxCaseAnalyses.Add(analysis);
             // compute analysis
-            solver.ProcessAnalysis(analysis);
-            if (analysis.Solutions.Count < 1)
-            {	// remove analysis from list if it has no valid solution
-                _boxCaseAnalyses.Remove(analysis);
-                return null;
+            if (null != solver)
+            {
+                solver.ProcessAnalysis(analysis);
+                if (analysis.Solutions.Count < 1)
+                {	// remove analysis from list if it has no valid solution
+                    _boxCaseAnalyses.Remove(analysis);
+                    return null;
+                }
             }
             // notify listeners
             NotifyOnNewBoxCaseAnalysis(analysis);
@@ -1838,7 +1841,7 @@ namespace TreeDim.StackBuilder.Basics
                 string sCaseId = eltAnalysis.Attributes["CaseId"].Value;
 
                 // load constraint set / solution list
-                BoxCaseConstraintSet constraintSet = null;
+                BCaseConstraintSet constraintSet = null;
                 List<BoxCaseSolution> solutions = new List<BoxCaseSolution>();
                 List<int> selectedIndices = new List<int>();
 
@@ -1867,15 +1870,17 @@ namespace TreeDim.StackBuilder.Basics
                     }
                 }
 
+                BProperties bProperties = GetTypeByGuid(new Guid(sBoxId)) as BProperties;
+
                 // instantiate box/case analysis
                 BoxCaseAnalysis analysis = CreateNewBoxCaseAnalysis(
-                    sName
-                    , sDescription
-                    , GetTypeByGuid(new Guid(sBoxId)) as BoxProperties
-                    , GetTypeByGuid(new Guid(sCaseId)) as BoxProperties
-                    , constraintSet
-                    , solutions
-                    );
+                         sName
+                         , sDescription
+                         , bProperties
+                         , GetTypeByGuid(new Guid(sCaseId)) as BoxProperties
+                         , constraintSet
+                         , solutions
+                         );
 
                 // save selected solutions
                 foreach (int indexSol in selectedIndices)
@@ -1947,12 +1952,19 @@ namespace TreeDim.StackBuilder.Basics
             return constraints;
         }
 
-        private BoxCaseConstraintSet LoadBoxCaseConstraintSet(XmlElement eltConstraintSet)
+        private BCaseConstraintSet LoadBoxCaseConstraintSet(XmlElement eltConstraintSet)
         {
-            BoxCaseConstraintSet constraints = new BoxCaseConstraintSet();
+            BCaseConstraintSet constraints = null;
+            
             // allowed orthogonal axes
             if (eltConstraintSet.HasAttribute("AllowedBoxPositions"))
-                constraints.AllowOrthoAxisString = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
+            {
+                constraints = new BoxCaseConstraintSet();
+                BoxCaseConstraintSet boxCaseContraintSet = constraints as BoxCaseConstraintSet;
+                boxCaseContraintSet.AllowOrthoAxisString = eltConstraintSet.Attributes["AllowedBoxPositions"].Value;
+            }
+            else
+                constraints = new BundleCaseConstraintSet();
             // maximum case weight
             if (constraints.UseMaximumCaseWeight = eltConstraintSet.HasAttribute("MaximumCaseWeight"))
                 constraints.MaximumCaseWeight = UnitsManager.ConvertMassFrom(double.Parse(eltConstraintSet.Attributes["MaximumCaseWeight"].Value), _unitSystem);
@@ -3549,8 +3561,8 @@ namespace TreeDim.StackBuilder.Basics
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("CaseId");
             palletIdAttribute.Value = string.Format("{0}", analysis.CaseProperties.Guid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
-            // ###
-
+            // Constraint set
+            SaveBoxCaseConstraintSet(analysis.ConstraintSet, xmlAnalysisElt, xmlDoc);
             // Solutions
             int solIndex = 0;
             XmlElement solutionsElt = xmlDoc.CreateElement("Solutions");
@@ -3568,15 +3580,19 @@ namespace TreeDim.StackBuilder.Basics
                 }
         }
 
-        public void SaveBoxCaseConstraintSet(BoxCaseConstraintSet constraintSet, XmlElement xmlAnalysisElt, XmlDocument xmlDoc)
+        public void SaveBoxCaseConstraintSet(BCaseConstraintSet constraintSet, XmlElement xmlAnalysisElt, XmlDocument xmlDoc)
         { 
             // ConstraintSet
             XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSetCase");
             xmlAnalysisElt.AppendChild(constraintSetElement);
-            // allowed box positions
-            XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
-            constraintSetElement.Attributes.Append(allowedAxisAttribute);
-            allowedAxisAttribute.Value = constraintSet.AllowOrthoAxisString;
+            BoxCaseConstraintSet boxCaseContraintSet = constraintSet as BoxCaseConstraintSet;
+            if (null != boxCaseContraintSet)
+            {
+                // allowed box positions
+                XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
+                constraintSetElement.Attributes.Append(allowedAxisAttribute);
+                allowedAxisAttribute.Value = boxCaseContraintSet.AllowOrthoAxisString;
+            }
             // stop criterions
             // 1. maximum number of boxes
             if (constraintSet.UseMaximumNumberOfBoxes)

@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="/treeDim/StackBuilder/ReportTypes"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+>
+  <!--BOX : BEG-->
+  <xs:complexType name="box">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="width" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="height" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="weight" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="admissibleLoadOnTop" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="view_box_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--BOX : END-->
+  <!--BUNDLE : BEG-->
+  <xs:complexType name="bundle">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="width" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="numberOfFlats" type="xs:string"/>
+      <xs:element name="unitThickness" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="unitWeight" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="totalThickness" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="totalWeight" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="view_bundle_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--BENDLE : END-->
+  <!--CASEWITHINNERDIMS : BEG-->
+  <xs:complexType name="caseWithInnerDims">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="width" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="height" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="innerLength" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="innerWidth" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="innerHeight" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="view_case_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--CASEWITHINNERDIMS : END-->
+  <!--PALLET : BEG-->
+  <xs:complexType name="pallet">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="width"  minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="height" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="weight" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="admissibleLoad" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="type" type="xs:string"/>
+      <xs:element name="view_pallet_iso" type="xs:string">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--PALLET : END-->
+  <!--INTERLAYER : BEG-->
+  <xs:complexType name="interlayer">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="description" type="xs:string" />
+      <xs:element name="length" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="width" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="thickness" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="weight" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="view_interlayer_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--INTERLAYER : END-->
+  <!--PALLETCORNER : BEG-->
+  <xs:complexType name="palletCorner">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="Length" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="thickness" type="xs:string"/>
+      <xs:element name="weight" type="xs:string"/>
+      <xs:element name="view_palletCorner_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--PALLETCORNER : END-->
+  <!--PALLETCAP : BEGIN-->
+  <xs:complexType name="palletCap">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" type="xs:string"/>
+      <xs:element name="width" type="xs:string"/>
+      <xs:element name="height" type="xs:string"/>
+      <xs:element name="innerLength" type="xs:string"/>
+      <xs:element name="innerWidth" type="xs:string"/>
+      <xs:element name="innerHeight" type="xs:string"/>
+      <xs:element name="weight" type="xs:string"/>
+      <xs:element name="view_palletCap_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--PALLETCAP : END-->
+  <!--PALLETFILM : BEG-->
+  <xs:complexType name="palletFilm">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="numberOfTurns" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+  <!--PALLETFILM : END-->
+  <!--CYLINDER : BEG-->
+  <xs:complexType name="cylinder">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="radius" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="height" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="weight" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="view_cylinder_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--CYLINDER : END-->
+  <!--TRUCK : BEG-->
+  <xs:complexType name="truck">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="width" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="height" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="admissibleLoad" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="view_truck_iso" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--TRUCK : END-->
+  <!--CASEOFBOXES : BEG-->
+  <xs:complexType name="caseOfBoxes">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="noX" type="xs:string"/>
+      <xs:element name="noY" type="xs:string"/>
+      <xs:element name="noZ" type="xs:string"/>
+      <xs:element name="numberOfBoxes" type="xs:string"/>
+      <xs:element name="dim0" type="xs:string"/>
+      <xs:element name="dim1" type="xs:string"/>
+      <xs:element name="innerLength" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="innerWidth" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="innerHeight" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="innerVolume" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="outerLength" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="outerWidth" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="outerHeight" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="outerVolume" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="emptyWeight" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="unit" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="view_caseOfBoxes_iso1" type="xs:string"/>
+      <xs:element name="view_caseOfBoxes_iso2" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--CASEOFBOXES : END-->
+</xs:schema>

@@ -409,7 +409,7 @@ namespace TreeDim.StackBuilder.Desktop
         /// <returns>created bundle analysis</returns>
         public CasePalletAnalysis CreateNewBundlePalletAnalysisUI()
         {
-            FormNewAnalysisBundle form = new FormNewAnalysisBundle(this);
+            FormNewAnalysisBundle form = new FormNewAnalysisBundle(this, null);
             form.Boxes = Bundles.ToArray();
             form.Pallets = Pallets.ToArray();
             if (DialogResult.OK == form.ShowDialog())
@@ -432,12 +432,8 @@ namespace TreeDim.StackBuilder.Desktop
                 constraintSet.MaximumHeight = form.MaximumPalletHeight;
                 constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
                 constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                // number of solution kept
-                constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
-                if (form.UseNumberOfSolutionsKept)
-                    constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
  
-                return CreateNewCasePalletAnalysis(form.AnalysisName, form.AnalysisDescription,
+                return CreateNewCasePalletAnalysis(form.ItemName, form.ItemDescription,
                     form.SelectedBundle, form.SelectedPallet, null, null,
                     null, null, null,
                     constraintSet, 
@@ -470,6 +466,29 @@ namespace TreeDim.StackBuilder.Desktop
 
                 return CreateNewBoxCaseAnalysis(form.AnalysisName, form.AnalysisDescription
                     , form.SelectedBox, form.SelectedCase
+                    , constraintSet
+                    , new BoxCaseSolver());
+            }
+            return null;
+        }
+
+        public BoxCaseAnalysis CreateNewBundleCaseAnalysisUI()
+        {
+            FormNewAnalysisBundleCase form = new FormNewAnalysisBundleCase(this, null);
+            if (DialogResult.OK == form.ShowDialog())
+            { 
+                // build constraint set
+                BundleCaseConstraintSet constraintSet = new BundleCaseConstraintSet();
+                // maximum case weight
+                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
+                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
+                // maximum number of items
+                constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
+                constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
+
+                return CreateNewBoxCaseAnalysis(
+                    form.ItemName, form.ItemDescription
+                    , form.SelectedBundle, form.SelectedCase
                     , constraintSet
                     , new BoxCaseSolver());
             }
@@ -677,8 +696,8 @@ namespace TreeDim.StackBuilder.Desktop
                 if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
                 {
                     // analysis name / description
-                    analysis.Name = form.AnalysisName;
-                    analysis.Description = form.AnalysisDescription;
+                    analysis.Name = form.ItemName;
+                    analysis.Description = form.ItemDescription;
                     // analysis bundle / pallet
                     analysis.BProperties = form.SelectedBundle;
                     analysis.PalletProperties = form.SelectedPallet;
@@ -701,10 +720,6 @@ namespace TreeDim.StackBuilder.Desktop
                     constraintSet.MaximumHeight = form.MaximumPalletHeight;
                     constraintSet.MaximumNumberOfItems = form.MaximumNumberOfBoxes;
                     constraintSet.MaximumPalletWeight = form.MaximumPalletWeight;
-                    // number of solution kept
-                    constraintSet.UseNumberOfSolutionsKept = form.UseNumberOfSolutionsKept;
-                    if (form.UseNumberOfSolutionsKept)
-                        constraintSet.NumberOfSolutionsKept = form.NumberOfSolutionsKept;
                 }
             }
             if (recomputeRequired)
@@ -785,38 +800,64 @@ namespace TreeDim.StackBuilder.Desktop
         }
 
         /// <summary>
-        /// 
+        /// edit box / case analysis
         /// </summary>
-        /// <param name="boxCaseAnalysis"></param>
         public void EditBoxCaseAnalysis(BoxCaseAnalysis boxCaseAnalysis)
         {
             bool recomputeRequired = false;
-            FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
-            if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
-            { 
-                // analysis name / description
-                boxCaseAnalysis.Name = form.AnalysisName;
-                boxCaseAnalysis.Description = form.AnalysisDescription;
-                // selected box
-                boxCaseAnalysis.BoxProperties = form.SelectedBox;
-                boxCaseAnalysis.CaseProperties = form.SelectedCase;
-                // constraint set
-                BoxCaseConstraintSet constraintSet = boxCaseAnalysis.ConstraintSet;
-                // allowed axes
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
-                constraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
-                // use maximum case weight
-                constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
-                constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
-                // use maximum number of items
-                constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
-                constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
-                // use number of solutions
-                constraintSet.UseNumberOfSolutionsKept = false;
+
+            if (boxCaseAnalysis.IsBoxAnalysis)
+            {
+                FormNewBoxCaseAnalysis form = new FormNewBoxCaseAnalysis(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
+                if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
+                {
+                    // analysis name / description
+                    boxCaseAnalysis.Name = form.AnalysisName;
+                    boxCaseAnalysis.Description = form.AnalysisDescription;
+                    // selected box
+                    boxCaseAnalysis.BProperties = form.SelectedBox;
+                    boxCaseAnalysis.CaseProperties = form.SelectedCase;
+                    // constraint set
+                    BCaseConstraintSet constraintSet = boxCaseAnalysis.ConstraintSet;
+                    BoxCaseConstraintSet boxCaseConstraintSet = constraintSet as BoxCaseConstraintSet;
+                    if (null != boxCaseConstraintSet)
+                    {
+                        // allowed axes
+                        boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_N, form.AllowVerticalX);
+                        boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_X_P, form.AllowVerticalX);
+                        boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_N, form.AllowVerticalY);
+                        boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Y_P, form.AllowVerticalY);
+                        boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_N, form.AllowVerticalZ);
+                        boxCaseConstraintSet.SetAllowedOrthoAxis(HalfAxis.HAxis.AXIS_Z_P, form.AllowVerticalZ);
+                    }
+                    // use maximum case weight
+                    constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
+                    constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
+                    // use maximum number of items
+                    constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
+                    constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
+                }
+            }
+            else if (boxCaseAnalysis.IsBundleAnalysis)
+            {
+                FormNewAnalysisBundleCase form = new FormNewAnalysisBundleCase(boxCaseAnalysis.ParentDocument, boxCaseAnalysis);
+                if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))
+                { 
+                    // analysis name / description
+                    boxCaseAnalysis.Name = form.ItemName;
+                    boxCaseAnalysis.Description = form.ItemDescription;
+                    // selected bundle
+                    boxCaseAnalysis.BProperties = form.SelectedBundle;
+                    boxCaseAnalysis.CaseProperties = form.SelectedCase;
+                    // constraint set
+                    BCaseConstraintSet constraintSet = boxCaseAnalysis.ConstraintSet;
+                    // use maximum case weight
+                    constraintSet.UseMaximumCaseWeight = form.UseMaximumCaseWeight;
+                    constraintSet.MaximumCaseWeight = form.MaximumCaseWeight;
+                    // use maximum number of items
+                    constraintSet.UseMaximumNumberOfBoxes = form.UseMaximumNumberOfBoxes;
+                    constraintSet.MaximumNumberOfBoxes = form.MaximumNumberOfBoxes;
+                }
             }
             if (recomputeRequired)
                 boxCaseAnalysis.OnEndUpdate(null);
@@ -829,7 +870,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             // do we need to recompute analysis
             bool recomputeRequired = false;
-
             FormNewCaseAnalysis form = new FormNewCaseAnalysis(caseAnalysis.ParentDocument, caseAnalysis);
             form.Boxes = Boxes.ToArray();
             if (recomputeRequired = (DialogResult.OK == form.ShowDialog()))

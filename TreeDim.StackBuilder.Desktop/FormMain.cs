@@ -786,13 +786,16 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripButtonCreateNewHCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
             // new box/case analysis
             newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
-            toolStripButtonCreateNewBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
+            toolStripButtonBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             // new box/case/pallet analysis
             newBoxCasePalletOptimizationToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
             toolStripButtonCreateNewBoxCasePalletOptimization.Enabled = (null != doc) && doc.CanCreateBoxCasePalletAnalysis;
-            // new analysis bundle
+            // new analysis bundle/pallet
             newAnalysisBundleToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
             toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
+            // new analysis bundle/case
+            toolStripButtonBundleCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBundleCaseAnalysis;
+            
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
@@ -1168,6 +1171,11 @@ namespace TreeDim.StackBuilder.Desktop
             try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBoxCaseAnalysisUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void toolAddNewBundleCaseAnalysis(object sender, EventArgs e)
+        {
+            try { BoxCaseAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewBundleCaseAnalysisUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }      
         private void toolAddNewCylinderPalletAnalysis(object sender, EventArgs e)
         {
             try { CylinderPalletAnalysis analysis = ((DocumentSB)ActiveDocument).CreateNewCylinderPalletAnalysisUI(); }
@@ -1525,6 +1533,8 @@ namespace TreeDim.StackBuilder.Desktop
             return _instance;
         }
         #endregion
+
+
 
 
     }

@@ -70,11 +70,13 @@ namespace TreeDim.StackBuilder.Desktop
                 {
                     tbName.Text = _analysis.Name;
                     tbDescription.Text = _analysis.Description;
+
+                    BoxProperties boxProperties = _analysis.BProperties as BoxProperties;
+                    if (null != _analysis)
+                        IncludeCaseAsBoxes = boxProperties.HasInsideDimensions;
                 }
-                if (null != _analysis)
-                    IncludeCaseAsBoxes = _analysis.BoxProperties.HasInsideDimensions;
                 // fill boxes combo
-                ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
+                ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BProperties);
                 // fill case properties
                 ComboBoxHelpers.FillCombo(Cases, cbCase, null == _analysis ? null : _analysis.CaseProperties);
                 // allowed position box + allowed patterns
@@ -87,10 +89,13 @@ namespace TreeDim.StackBuilder.Desktop
                 }
                 else
                 {
-                    BoxCaseConstraintSet constraintSet = _analysis.ConstraintSet;
-                    AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
-                    AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
-                    AllowVerticalZ = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P);
+                    BoxCaseConstraintSet constraintSet = _analysis.ConstraintSet as BoxCaseConstraintSet;
+                    if (null != constraintSet)
+                    {
+                        AllowVerticalX = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_X_P);
+                        AllowVerticalY = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Y_P);
+                        AllowVerticalZ = constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_N) || constraintSet.AllowOrthoAxis(HalfAxis.HAxis.AXIS_Z_P);
+                    }
                 }
             }
             catch (Exception ex)
@@ -180,7 +185,7 @@ namespace TreeDim.StackBuilder.Desktop
         private void chkIncludeCases_CheckedChanged(object sender, EventArgs e)
         {
             // fill boxes combo
-            ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
+            ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BProperties);
         }
         #endregion
 
@@ -266,7 +271,7 @@ namespace TreeDim.StackBuilder.Desktop
             set
             {
                 if (chkIncludeCases.Checked != value)
-                    ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BoxProperties);
+                    ComboBoxHelpers.FillCombo(Boxes, cbBox, null == _analysis ? null : _analysis.BProperties);
                 chkIncludeCases.Checked = value;
             }
         }
@@ -309,6 +314,5 @@ namespace TreeDim.StackBuilder.Desktop
             }
         }
         #endregion
-
     }
 }

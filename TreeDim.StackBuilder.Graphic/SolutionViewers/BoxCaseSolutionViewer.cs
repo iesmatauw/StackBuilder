@@ -39,7 +39,7 @@ namespace TreeDim.StackBuilder.Graphics
 
             BoxCaseAnalysis boxCaseAnalysis = _boxCaseSolution.Analysis;
             // retrieve case properties 
-            BoxProperties boxProperties = boxCaseAnalysis.BoxProperties;
+            BProperties boxProperties = boxCaseAnalysis.BProperties;
             if (null == boxProperties) return;
             BoxProperties caseProperties = boxCaseAnalysis.CaseProperties;
             // draw case (inside)
@@ -80,7 +80,7 @@ namespace TreeDim.StackBuilder.Graphics
             // access case properties
             BoxCaseAnalysis boxCaseAnalysis = _boxCaseSolution.Analysis;
             BoxProperties caseProperties = boxCaseAnalysis.CaseProperties;
-            BoxProperties boxProperties = boxCaseAnalysis.BoxProperties;
+            BProperties boxProperties = boxCaseAnalysis.BProperties;
             // initialize Graphics2D object
             graphics.NumberOfViews = 1;
             graphics.SetViewport(0.0f, 0.0f, (float)caseProperties.Length, (float)caseProperties.Width);

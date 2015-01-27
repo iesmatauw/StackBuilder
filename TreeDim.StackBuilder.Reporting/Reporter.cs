@@ -572,7 +572,7 @@ namespace TreeDim.StackBuilder.Reporting
             else if (analysis.BProperties is BoxProperties && inputData.IsCasePalletAnalysis)
                 AppendCaseElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
             else if (analysis.BProperties is BundleProperties)
-                AppendBundleElement(analysis, selSolution.Solution, elemPalletAnalysis, xmlDoc);
+                AppendBundleElement(analysis.BProperties as BundleProperties, elemPalletAnalysis, xmlDoc);
             // interlayer
             AppendInterlayerElement(analysis.InterlayerProperties, elemPalletAnalysis, xmlDoc);
             // pallet corners
@@ -781,11 +781,9 @@ namespace TreeDim.StackBuilder.Reporting
             SaveImageAs(graphics.Bitmap, "view_cylinder_iso.png");             
         }
 
-        private void AppendBundleElement(CasePalletAnalysis analysis, CasePalletSolution sol, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
+        private void AppendBundleElement(BundleProperties bundleProp, XmlElement elemPalletAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
-            // get BundleProperties
-            BundleProperties bundleProp = analysis.BProperties as BundleProperties;
             if (null == bundleProp) return;
             // bundle
             XmlElement elemBundle = xmlDoc.CreateElement("bundle", ns);
@@ -1936,7 +1934,10 @@ namespace TreeDim.StackBuilder.Reporting
             elemDescription.InnerText = boxCaseAnalysis.Description;
             elemBoxCaseAnalysis.AppendChild(elemDescription);
             // box
-            AppendBoxElement(boxCaseAnalysis.BoxProperties, elemBoxCaseAnalysis, xmlDoc);
+            if (boxCaseAnalysis.BProperties is BoxProperties)
+                AppendBoxElement(boxCaseAnalysis.BProperties as BoxProperties, elemBoxCaseAnalysis, xmlDoc);
+            else if (boxCaseAnalysis.BProperties is BundleProperties)
+                AppendBundleElement(boxCaseAnalysis.BProperties as BundleProperties, elemBoxCaseAnalysis, xmlDoc);
             // case
             AppendCaseElement(boxCaseAnalysis.CaseProperties, elemBoxCaseAnalysis, xmlDoc);
             // constraint set
@@ -2022,6 +2023,8 @@ namespace TreeDim.StackBuilder.Reporting
             // save image ?
             SaveImageAs(graphics.Bitmap, "view_box_iso.png");
         }
+
+
         
         private void AppendCaseElement(SelBoxCasePalletSolution caseSolution, XmlElement elemCaseAnalysis, XmlDocument xmlDoc)
         {
@@ -2063,24 +2066,34 @@ namespace TreeDim.StackBuilder.Reporting
             SaveImageAs(graphics.Bitmap, "view_case_iso.png");
         }
 
-        private void AppendBoxCaseConstraintSet(BoxCaseConstraintSet boxCaseConstraintSet, XmlElement elemDocument, XmlDocument xmlDoc)
-        { 
-           string ns = xmlDoc.DocumentElement.NamespaceURI;
+        private void AppendBoxCaseConstraintSet(BCaseConstraintSet bCaseConstraintSet, XmlElement elemDocument, XmlDocument xmlDoc)
+        {
+            string ns = xmlDoc.DocumentElement.NamespaceURI;
             // caseConstraintSet element
-           XmlElement elemCaseConstraintSet = CreateElement("boxCaseConstraintSet", null, elemDocument, xmlDoc, ns);
-           // allowedOrthoAxis
-           CreateElement("allowedOrthoAxis", boxCaseConstraintSet.AllowOrthoAxisString, elemCaseConstraintSet, xmlDoc, ns);
+            XmlElement elemCaseConstraintSet = null;
+            if (bCaseConstraintSet is BoxCaseConstraintSet)
+            {
+                elemCaseConstraintSet = CreateElement("boxCaseConstraintSet", null, elemDocument, xmlDoc, ns);
+                // down cast
+                BoxCaseConstraintSet boxCaseConstraintSet = bCaseConstraintSet as BoxCaseConstraintSet;
+                // allowedOrthoAxis
+                CreateElement("allowedOrthoAxis", boxCaseConstraintSet.AllowOrthoAxisString, elemCaseConstraintSet, xmlDoc, ns);
+            }
+            else if (bCaseConstraintSet is BundleCaseConstraintSet)
+            {
+                elemCaseConstraintSet = CreateElement("bundleCaseConstraintSet", null, elemDocument, xmlDoc, ns);
+            }
             // maximumCaseWeightGroup
-           if (boxCaseConstraintSet.UseMaximumCaseWeight)
+            if (bCaseConstraintSet.UseMaximumCaseWeight)
             {
                 XmlElement maximumCaseWeightGroup = CreateElement("maximumCaseWeightGroup", null, elemCaseConstraintSet, xmlDoc, ns);
-                AppendElementValue(xmlDoc, maximumCaseWeightGroup, "maximumCaseWeight", UnitsManager.MassUnitString, boxCaseConstraintSet.MaximumCaseWeight);
+                AppendElementValue(xmlDoc, maximumCaseWeightGroup, "maximumCaseWeight", UnitsManager.MassUnitString, bCaseConstraintSet.MaximumCaseWeight);
             }
             // minimumBoxPerCaseGroup
-           if (boxCaseConstraintSet.UseMaximumNumberOfBoxes)
+            if (bCaseConstraintSet.UseMaximumNumberOfBoxes)
             {
-                XmlElement minimumBoxPerCaseGroup = CreateElement("MaximumNumberOfBoxes", null, elemCaseConstraintSet, xmlDoc, ns);
-                CreateElement("minimumBoxPerCase", boxCaseConstraintSet.MaximumNumberOfBoxes, minimumBoxPerCaseGroup, xmlDoc, ns);
+                XmlElement maximumBoxPerCaseGroup = CreateElement("MaximumNumberOfBoxesGroup", null, elemCaseConstraintSet, xmlDoc, ns);
+                CreateElement("maximumBoxPerCase", bCaseConstraintSet.MaximumNumberOfBoxes, maximumBoxPerCaseGroup, xmlDoc, ns);
             }
         }
 
@@ -2108,7 +2121,7 @@ namespace TreeDim.StackBuilder.Reporting
             elemBoxLayersCount.InnerText = solution.BoxLayersCount.ToString();
             elemSolution.AppendChild(elemBoxLayersCount);
 
-            AppendElementValue(xmlDoc, elemSolution, "LoadWeight", UnitsManager.MassUnitString, solution.BoxPerCaseCount * analysis.BoxProperties.Weight);
+            AppendElementValue(xmlDoc, elemSolution, "LoadWeight", UnitsManager.MassUnitString, solution.BoxPerCaseCount * analysis.BProperties.Weight);
             AppendElementValue(xmlDoc, elemSolution, "CaseWeight", UnitsManager.MassUnitString, solution.CaseWeight);
 
             // EfficiencyWeight

@@ -17,12 +17,11 @@ using TreeDim.StackBuilder.Desktop.Properties;
 
 namespace TreeDim.StackBuilder.Desktop
 {
-    public partial class FormNewAnalysisBundle : Form
+    public partial class FormNewAnalysisBundle : FormNewBase
     {
         #region Data members
         private BProperties[] _bundles;
         private PalletProperties[] _palletProperties;
-        private Document _document;
         private CasePalletAnalysis _analysis;
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisBundle));
         #endregion
@@ -69,15 +68,8 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Constructor
-        public FormNewAnalysisBundle(Document document)
-        {
-            InitializeComponent();
-            // set unit labels
-            UnitsManager.AdaptUnitLabels(this);
-            // save document reference
-            _document = document;
-        }
         public FormNewAnalysisBundle(Document document, CasePalletAnalysis analysis)
+            : base(document, analysis)
         {
             InitializeComponent();
             // set unit labels
@@ -86,7 +78,15 @@ namespace TreeDim.StackBuilder.Desktop
             _document = document;
             _analysis = analysis;
             // set caption text
-            Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
+            if (null != _analysis)
+                Text = string.Format(Properties.Resources.ID_EDIT, _analysis.Name);
+        }
+        #endregion
+
+        #region FormNewBase override
+        public override void UpdateStatus(string message)
+        {
+            base.UpdateStatus(message);
         }
         #endregion
 
@@ -98,13 +98,13 @@ namespace TreeDim.StackBuilder.Desktop
                 // name / description
                 if (null != _analysis)
                 {
-                    tbName.Text = _analysis.Name;
-                    tbDescription.Text = _analysis.Description;
+                    ItemName = _analysis.Name;
+                    ItemDescription = _analysis.Description;
                 }
                 else
                 {
-                    tbName.Text = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
-                    tbDescription.Text = tbName.Text;
+                    ItemName = _document.GetValidNewAnalysisName(Resources.ID_ANALYSIS);
+                    ItemDescription = ItemName;
                 }
                 // fill boxes combo
                 foreach (BProperties bundle in _bundles)
@@ -182,43 +182,13 @@ namespace TreeDim.StackBuilder.Desktop
                     MaximumPalletHeight = _analysis.ConstraintSet.MaximumHeight;
                     MaximumPalletWeight = _analysis.ConstraintSet.MaximumPalletWeight;
                 }
-                /*
-                // check all patterns
-                string allowedPatterns = Settings.Default.AllowedPatterns;
-                int iCountAllowedPatterns = 0;
-                for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
-                {
-                    string patternName = checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]);
-                    bool patternAllowed = allowedPatterns.Contains(patternName);
-                    checkedListBoxPatterns.SetItemChecked(i, patternAllowed);
-                    if (patternAllowed)
-                        ++iCountAllowedPatterns;
-                }
-                if (iCountAllowedPatterns == 0)
-                    for (int i = 0; i < checkedListBoxPatterns.Items.Count; ++i)
-                        checkedListBoxPatterns.SetItemChecked(i, true);
-                */
                 if (null == _analysis)
                     AllowedPatternsString = Settings.Default.AllowedPatterns;
                 else
                     AllowedPatternsString = _analysis.ConstraintSet.AllowedPatternString;
 
-
-                // keep best solutions
-                if (null == _analysis)
-                {
-                    UseNumberOfSolutionsKept = Settings.Default.KeepBestSolutions;
-                    NumberOfSolutionsKept = Settings.Default.NoSolutionsToKeep;
-                }
-                else
-                {
-                    UseNumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept;
-                    NumberOfSolutionsKept = _analysis.ConstraintSet.UseNumberOfSolutionsKept ? _analysis.ConstraintSet.NumberOfSolutionsKept : Settings.Default.NoSolutionsToKeep;
-                }
-
-                UpdateSolutionsToKeep();
                 UpdateCriterionFields();
-                UpdateButtonOkStatus();
+                UpdateStatus(string.Empty);
 
                 // windows settings
                 if (null != Settings.Default.FormNewAnalysisPosition)
@@ -242,9 +212,6 @@ namespace TreeDim.StackBuilder.Desktop
                     if (checkedListBoxPatterns.GetItemChecked(i))
                         allowedPatterns += checkedListBoxPatterns.GetItemText(checkedListBoxPatterns.Items[i]) + ";";
                 Settings.Default.AllowedPatterns = allowedPatterns;
-                // keep best solutions
-                Settings.Default.KeepBestSolutions = UseNumberOfSolutionsKept;
-                Settings.Default.NoSolutionsToKeep = NumberOfSolutionsKept;                
                 // window position
                 if (null == Settings.Default.FormNewAnalysisPosition)
                     Settings.Default.FormNewAnalysisPosition = new WindowSettings();
@@ -258,14 +225,6 @@ namespace TreeDim.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public string AnalysisName
-        {
-            get { return tbName.Text; }
-        }
-        public string AnalysisDescription
-        {
-            get { return tbDescription.Text; }
-        }
         public BProperties[] Boxes
         {
             get { return _bundles; }
@@ -382,36 +341,9 @@ namespace TreeDim.StackBuilder.Desktop
             get { return (double)nudPalletOverhangY.Value; }
             set { nudPalletOverhangY.Value = (decimal)value; }
         }
-        public bool UseNumberOfSolutionsKept
-        {
-            get { return checkBoxKeepSolutions.Checked; }
-            set { checkBoxKeepSolutions.Checked = value; }
-        }
-        public int NumberOfSolutionsKept
-        {
-            get { return (int)nudSolutions.Value; }
-            set { nudSolutions.Value = (decimal)value; }
-        }
         #endregion
 
         #region Handles
-        private void UpdateButtonOkStatus()
-        {
-            string message = string.Empty;
-            // name
-            if (string.IsNullOrEmpty(tbName.Text))
-                message = Resources.ID_FIELDNAMEEMPTY;
-            else if (!_document.IsValidNewAnalysisName(tbName.Text, _analysis))
-                message = Resources.ID_FIELDNAMEINVALID;
-            // description 
-            else if (string.IsNullOrEmpty(tbDescription.Text))
-                message = message = Resources.ID_FIELDDESCRIPTIONEMPTY;
-            bnOk.Enabled = string.IsNullOrEmpty(message);
-        }
-        private void onNameDescriptionChanged(object sender, EventArgs e)
-        {
-            UpdateButtonOkStatus();
-        }
         private void UpdateCriterionFields()
         { 
             nudMaximumNumberOfBoxes.Enabled = checkBoxMaximumNumberOfBoxes.Checked;
@@ -431,14 +363,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             if (!checkBoxAllowAlignedLayer.Checked && !checkBoxAllowAlternateLayer.Checked)
                 checkBoxAllowAlignedLayer.Checked = true;
-        }
-        private void UpdateSolutionsToKeep()
-        {
-            nudSolutions.Enabled = checkBoxKeepSolutions.Checked;
-        }
-        private void onCheckedChangedKeepSolutions(object sender, EventArgs e)
-        {
-            UpdateSolutionsToKeep();
         }
         #endregion
     }

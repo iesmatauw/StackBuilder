@@ -12,9 +12,9 @@ namespace TreeDim.StackBuilder.Basics
     public class BoxCaseAnalysis : ItemBase
     {
         #region Data members
-        BoxProperties _boxProperties;
+        BProperties _bProperties;
         BoxProperties _caseProperties;
-        BoxCaseConstraintSet _constraintSet;
+        BCaseConstraintSet _constraintSet;
         /// <summary>
         /// List of solutions
         /// </summary>
@@ -45,22 +45,24 @@ namespace TreeDim.StackBuilder.Basics
         #endregion
 
         #region Constructor
-        public BoxCaseAnalysis(BoxProperties boxProperties, BoxProperties caseProperties, BoxCaseConstraintSet constraintSet)
-            : base(boxProperties.ParentDocument)
+        public BoxCaseAnalysis(BProperties bProperties, BoxProperties caseProperties, BCaseConstraintSet constraintSet)
+            : base(bProperties.ParentDocument)
         {
             if (!constraintSet.IsValid)
                 throw new Exception("Using invalid box/case constraintset -> Can not instantiate box/case analysis!");
-            _boxProperties = boxProperties;
+            _bProperties = bProperties;
             _caseProperties = caseProperties;
             _constraintSet = constraintSet;
         }
         #endregion
 
         #region Public properties
-        public BoxProperties BoxProperties
+        public bool IsBundleAnalysis { get { return _bProperties is BundleProperties; } }
+        public bool IsBoxAnalysis { get { return _bProperties is BoxProperties; } }
+        public BProperties BProperties
         {
-            get { return _boxProperties; }
-            set { _boxProperties = value; }
+            get { return _bProperties; }
+            set { _bProperties = value; }
         }
 
         public BoxProperties CaseProperties
@@ -69,7 +71,7 @@ namespace TreeDim.StackBuilder.Basics
             set { _caseProperties = value; }
         }
 
-        public BoxCaseConstraintSet ConstraintSet
+        public BCaseConstraintSet ConstraintSet
         { get { return _constraintSet; } }
 
         public List<BoxCaseSolution> Solutions
@@ -137,7 +139,7 @@ namespace TreeDim.StackBuilder.Basics
         }
         protected override void RemoveItselfFromDependancies()
         {
-            _boxProperties.RemoveDependancy(this);
+            _bProperties.RemoveDependancy(this);
             _caseProperties.RemoveDependancy(this);
             base.RemoveItselfFromDependancies();
         }

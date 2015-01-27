@@ -67,6 +67,7 @@ namespace TreeDim.StackBuilder.Desktop
         public virtual string ItemDefaultName { get { return "Item"; } }
         #endregion
 
+        #region Status toolstrip updating
         public virtual void UpdateStatus(string message)
         {
             // status + message
@@ -86,7 +87,6 @@ namespace TreeDim.StackBuilder.Desktop
         {
             UpdateStatus(string.Empty);
         }
-
-
+        #endregion
     }
 }

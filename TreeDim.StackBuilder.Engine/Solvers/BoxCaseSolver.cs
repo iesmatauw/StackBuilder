@@ -16,10 +16,9 @@ namespace TreeDim.StackBuilder.Engine
     {
         #region Data members
         private static List<LayerPattern> _patterns = new List<LayerPattern>();
-        private BoxProperties _boxProperties;
+        private BProperties _bProperties;
         private BoxProperties _caseProperties;
-        private BoxCaseConstraintSet _constraintSet;
-        private bool _keepAllSolutions = false;
+        private BCaseConstraintSet _constraintSet;
         static readonly ILog _log = LogManager.GetLogger(typeof(BoxCaseSolver));
         #endregion
 
@@ -33,7 +32,7 @@ namespace TreeDim.StackBuilder.Engine
         #region Processing methods
         public void ProcessAnalysis(BoxCaseAnalysis analysis)
         {
-            _boxProperties = analysis.BoxProperties;
+            _bProperties = analysis.BProperties;
             _caseProperties = analysis.CaseProperties;
             _constraintSet = analysis.ConstraintSet;
 
@@ -49,6 +48,7 @@ namespace TreeDim.StackBuilder.Engine
         {
             List<BoxCaseSolution> solutions = new List<BoxCaseSolution>();
 
+            int[] patternColumnCount = new int[6];
             // loop throw all patterns
             foreach (LayerPattern pattern in _patterns)
             {
@@ -56,14 +56,12 @@ namespace TreeDim.StackBuilder.Engine
                 for (int i = 0; i < 6; ++i)
                 {
                     HalfAxis.HAxis axisOrtho = (HalfAxis.HAxis)i;
-
                     if (!_constraintSet.AllowOrthoAxis(axisOrtho))
                         continue;
-
                     try
                     {
                         // build layer
-                        Layer layer = new Layer(_boxProperties, _caseProperties, axisOrtho);
+                        Layer layer = new Layer(_bProperties, _caseProperties, axisOrtho);
                         double actualLength = 0.0, actualWidth = 0.0;
                         pattern.GetLayerDimensionsChecked(layer, out actualLength, out actualWidth);
                         pattern.GenerateLayer(layer, actualLength, actualWidth);
@@ -73,8 +71,8 @@ namespace TreeDim.StackBuilder.Engine
                         double offsetX = 0.5 * (_caseProperties.Length - _caseProperties.InsideLength);
                         double offsetY = 0.5 * (_caseProperties.Width - _caseProperties.InsideWidth);
                         double zLayer = 0.5 * (_caseProperties.Height - _caseProperties.InsideHeight);
-                        bool maxWeightReached = _constraintSet.UseMaximumCaseWeight && (_caseProperties.Weight + _boxProperties.Weight > _constraintSet.MaximumCaseWeight);
-                        bool maxHeightReached = _boxProperties.Dimension(axisOrtho) > _caseProperties.InsideHeight;
+                        bool maxWeightReached = _constraintSet.UseMaximumCaseWeight && (_caseProperties.Weight + _bProperties.Weight > _constraintSet.MaximumCaseWeight);
+                        bool maxHeightReached = _bProperties.Dimension(axisOrtho) > _caseProperties.InsideHeight;
                         bool maxNumberReached = false;
                         int boxCount = 0;
 
@@ -89,7 +87,7 @@ namespace TreeDim.StackBuilder.Engine
                                 if (maxNumberReached = _constraintSet.UseMaximumNumberOfBoxes && (boxCount > _constraintSet.MaximumNumberOfBoxes))
                                     break;
 
-                                double weight = _caseProperties.Weight + boxCount * _boxProperties.Weight;
+                                double weight = _caseProperties.Weight + boxCount * _bProperties.Weight;
                                 maxWeightReached = _constraintSet.UseMaximumCaseWeight && weight >  _constraintSet.MaximumCaseWeight;
                                 if (maxWeightReached)
                                     break;
@@ -113,8 +111,12 @@ namespace TreeDim.StackBuilder.Engine
                         if (maxNumberReached) sol.LimitReached = BoxCaseSolution.Limit.LIMIT_MAXNUMBERREACHED;
                         else if (maxWeightReached) sol.LimitReached = BoxCaseSolution.Limit.LIMIT_MAXWEIGHTREACHED;
                         else if (maxHeightReached) sol.LimitReached = BoxCaseSolution.Limit.LIMIT_MAXHEIGHTREACHED;
+
+                        if (string.Equals(pattern.Name, "Column", StringComparison.CurrentCultureIgnoreCase))
+                            patternColumnCount[i] = Math.Max(patternColumnCount[i], sol.BoxPerCaseCount);
+
                         // insert solution
-                        if (sol.BoxPerCaseCount > 0)
+                        if (sol.BoxPerCaseCount >= patternColumnCount[i])
                             solutions.Add(sol);
                     }
                     catch (NotImplementedException)
@@ -130,15 +132,16 @@ namespace TreeDim.StackBuilder.Engine
 
             // sort solutions
             solutions.Sort();
-
+            /*
             // removes solutions that do not equal the best number
-            if (!_keepAllSolutions && solutions.Count > 0)
+            if (solutions.Count > 0)
             {
                 int indexFrom = 0, maxCount = solutions[0].BoxPerCaseCount;
                 while (indexFrom < solutions.Count && solutions[indexFrom].BoxPerCaseCount == maxCount)
                     ++indexFrom;
                 solutions.RemoveRange(indexFrom, solutions.Count - indexFrom);
             }
+            */ 
             return solutions;        
         }
         #endregion
@@ -155,22 +158,22 @@ namespace TreeDim.StackBuilder.Engine
                 if (layerPosTemp.LengthAxis == HalfAxis.HAxis.AXIS_X_P)
                 {
                     layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_Y_P;
-                    layerPosTemp.Position += new Vector3D(0.0, -_boxProperties.Width, -_boxProperties.Height);
+                    layerPosTemp.Position += new Vector3D(0.0, -_bProperties.Width, -_bProperties.Height);
                 }
                 else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_Y_P)
                 {
                     layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_N;
-                    layerPosTemp.Position += new Vector3D(_boxProperties.Width, 0.0, -_boxProperties.Height);
+                    layerPosTemp.Position += new Vector3D(_bProperties.Width, 0.0, -_bProperties.Height);
                 }
                 else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_X_N)
                 {
                     layerPosTemp.LengthAxis = HalfAxis.HAxis.AXIS_X_P;
-                    layerPosTemp.Position += new Vector3D(-_boxProperties.Length, 0.0, -_boxProperties.Height);
+                    layerPosTemp.Position += new Vector3D(-_bProperties.Length, 0.0, -_bProperties.Height);
                 }
                 else if (layerPos.LengthAxis == HalfAxis.HAxis.AXIS_Y_N)
                 {
                     layerPosTemp.WidthAxis = HalfAxis.HAxis.AXIS_X_P;
-                    layerPosTemp.Position += new Vector3D(-_boxProperties.Width, 0.0, -_boxProperties.Height);
+                    layerPosTemp.Position += new Vector3D(-_bProperties.Width, 0.0, -_bProperties.Height);
                 }
             }
             return layerPosTemp;

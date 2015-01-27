@@ -145,12 +145,12 @@ namespace TreeDim.StackBuilder.Engine
         /// <summary>
         /// Layer case analysis constructor
         /// </summary>
-        public Layer(BoxProperties boxProperties, BoxProperties caseProperties, HalfAxis.HAxis axisOrtho)
+        public Layer(BProperties bProperties, BoxProperties caseProperties, HalfAxis.HAxis axisOrtho)
         {
             _axisOrtho = axisOrtho;
             _palletLength = caseProperties.InsideLength;
             _palletWidth = caseProperties.InsideWidth;
-            Initialize(boxProperties);
+            Initialize(bProperties);
         }
         #endregion
 

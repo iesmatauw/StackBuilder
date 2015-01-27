@@ -160,8 +160,13 @@ namespace TreeDim.StackBuilder.Graphics
             // set direction width
             WidthAxis = HalfAxis.ToVector3D(bPosition.DirectionWidth);
             // IsBundle ?
-            _noFlats = 3;
             _isBundle = bProperties.IsBundle;
+            if (bProperties.IsBundle)
+            {
+                BundleProperties bundleProp = bProperties as BundleProperties;
+                if (null != bundleProp)
+                    _noFlats = bundleProp.NoFlats;
+            }
         }
 
         public Box(uint pickId, InterlayerProperties interlayerProperties)

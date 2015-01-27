@@ -1194,7 +1194,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // get parent node
-            int indexIconAnalysis = 20;
+            int indexIconAnalysis = 17;
             TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
@@ -1214,8 +1214,8 @@ namespace TreeDim.StackBuilder.Desktop
             nodeAnalysis.Nodes.Clear();
             // insert sub box node
             int indexIcon = 3;
-            TreeNode subBoxNode = new TreeNode(analysis.BoxProperties.Name, indexIcon, indexIcon);
-            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISBOX, doc, analysis.BoxProperties);
+            TreeNode subBoxNode = new TreeNode(analysis.BProperties.Name, indexIcon, indexIcon);
+            subBoxNode.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEANALYSISBOX, doc, analysis.BProperties);
             nodeAnalysis.Nodes.Add(subBoxNode);
             // insert sub case node
             indexIcon = 4;

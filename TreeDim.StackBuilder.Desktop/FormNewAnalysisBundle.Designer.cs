@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewAnalysisBundle));
-            this.bnCancel = new System.Windows.Forms.Button();
-            this.bnOk = new System.Windows.Forms.Button();
             this.uLengthPalletOverhangY = new System.Windows.Forms.Label();
             this.uLengthPalletOverhangX = new System.Windows.Forms.Label();
             this.nudPalletOverhangX = new System.Windows.Forms.NumericUpDown();
@@ -45,19 +43,8 @@
             this.lbPallet = new System.Windows.Forms.Label();
             this.lbBundle = new System.Windows.Forms.Label();
             this.cbBox = new System.Windows.Forms.ComboBox();
-            this.tbDescription = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lbDescription = new System.Windows.Forms.Label();
-            this.lbName = new System.Windows.Forms.Label();
             this.checkedListBoxPatterns = new System.Windows.Forms.CheckedListBox();
             this.gbAllowedLayerPatterns = new System.Windows.Forms.GroupBox();
-            this.gbAdditionalData = new System.Windows.Forms.GroupBox();
-            this.lbSolutions = new System.Windows.Forms.Label();
-            this.nudSolutions = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxKeepSolutions = new System.Windows.Forms.CheckBox();
-            this.lbBoxes = new System.Windows.Forms.Label();
-            this.nudNumberOfBoxes = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxNumberOfPallets = new System.Windows.Forms.CheckBox();
             this.gbStopStackingCondition = new System.Windows.Forms.GroupBox();
             this.uLengthPalletHeight = new System.Windows.Forms.Label();
             this.uMassPalletWeight = new System.Windows.Forms.Label();
@@ -73,28 +60,11 @@
             this.gbLayerAlignment.SuspendLayout();
             this.gbOverhangUnderhang.SuspendLayout();
             this.gbAllowedLayerPatterns.SuspendLayout();
-            this.gbAdditionalData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).BeginInit();
             this.gbStopStackingCondition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumNumberOfBoxes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bnCancel
-            // 
-            resources.ApplyResources(this.bnCancel, "bnCancel");
-            this.bnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bnCancel.Name = "bnCancel";
-            this.bnCancel.UseVisualStyleBackColor = true;
-            // 
-            // bnOk
-            // 
-            resources.ApplyResources(this.bnOk, "bnOk");
-            this.bnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bnOk.Name = "bnOk";
-            this.bnOk.UseVisualStyleBackColor = true;
             // 
             // uLengthPalletOverhangY
             // 
@@ -149,9 +119,9 @@
             // 
             // gbLayerAlignment
             // 
-            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlternateLayer);
             this.gbLayerAlignment.Controls.Add(this.checkBoxAllowAlignedLayer);
+            resources.ApplyResources(this.gbLayerAlignment, "gbLayerAlignment");
             this.gbLayerAlignment.Name = "gbLayerAlignment";
             this.gbLayerAlignment.TabStop = false;
             // 
@@ -168,21 +138,21 @@
             // 
             // gbOverhangUnderhang
             // 
-            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Controls.Add(this.uLengthPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.uLengthPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangY);
             this.gbOverhangUnderhang.Controls.Add(this.nudPalletOverhangX);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangWidth);
             this.gbOverhangUnderhang.Controls.Add(this.lbPalletOverhangLength);
+            resources.ApplyResources(this.gbOverhangUnderhang, "gbOverhangUnderhang");
             this.gbOverhangUnderhang.Name = "gbOverhangUnderhang";
             this.gbOverhangUnderhang.TabStop = false;
             // 
             // cbPallet
             // 
-            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPallet.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPallet, "cbPallet");
             this.cbPallet.Name = "cbPallet";
             // 
             // lbPallet
@@ -197,36 +167,13 @@
             // 
             // cbBox
             // 
-            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBox.FormattingEnabled = true;
+            resources.ApplyResources(this.cbBox, "cbBox");
             this.cbBox.Name = "cbBox";
-            // 
-            // tbDescription
-            // 
-            resources.ApplyResources(this.tbDescription, "tbDescription");
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            this.tbName.Name = "tbName";
-            this.tbName.TextChanged += new System.EventHandler(this.onNameDescriptionChanged);
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            this.lbDescription.Name = "lbDescription";
-            // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            this.lbName.Name = "lbName";
             // 
             // checkedListBoxPatterns
             // 
-            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.FormattingEnabled = true;
             this.checkedListBoxPatterns.Items.AddRange(new object[] {
             resources.GetString("checkedListBoxPatterns.Items"),
@@ -235,83 +182,18 @@
             resources.GetString("checkedListBoxPatterns.Items3"),
             resources.GetString("checkedListBoxPatterns.Items4"),
             resources.GetString("checkedListBoxPatterns.Items5")});
+            resources.ApplyResources(this.checkedListBoxPatterns, "checkedListBoxPatterns");
             this.checkedListBoxPatterns.Name = "checkedListBoxPatterns";
             // 
             // gbAllowedLayerPatterns
             // 
-            resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
             this.gbAllowedLayerPatterns.Controls.Add(this.checkedListBoxPatterns);
+            resources.ApplyResources(this.gbAllowedLayerPatterns, "gbAllowedLayerPatterns");
             this.gbAllowedLayerPatterns.Name = "gbAllowedLayerPatterns";
             this.gbAllowedLayerPatterns.TabStop = false;
             // 
-            // gbAdditionalData
-            // 
-            resources.ApplyResources(this.gbAdditionalData, "gbAdditionalData");
-            this.gbAdditionalData.Controls.Add(this.lbSolutions);
-            this.gbAdditionalData.Controls.Add(this.nudSolutions);
-            this.gbAdditionalData.Controls.Add(this.checkBoxKeepSolutions);
-            this.gbAdditionalData.Controls.Add(this.lbBoxes);
-            this.gbAdditionalData.Controls.Add(this.nudNumberOfBoxes);
-            this.gbAdditionalData.Controls.Add(this.checkBoxNumberOfPallets);
-            this.gbAdditionalData.Name = "gbAdditionalData";
-            this.gbAdditionalData.TabStop = false;
-            // 
-            // lbSolutions
-            // 
-            resources.ApplyResources(this.lbSolutions, "lbSolutions");
-            this.lbSolutions.Name = "lbSolutions";
-            // 
-            // nudSolutions
-            // 
-            resources.ApplyResources(this.nudSolutions, "nudSolutions");
-            this.nudSolutions.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudSolutions.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudSolutions.Name = "nudSolutions";
-            this.nudSolutions.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // checkBoxKeepSolutions
-            // 
-            resources.ApplyResources(this.checkBoxKeepSolutions, "checkBoxKeepSolutions");
-            this.checkBoxKeepSolutions.Name = "checkBoxKeepSolutions";
-            this.checkBoxKeepSolutions.UseVisualStyleBackColor = true;
-            this.checkBoxKeepSolutions.CheckedChanged += new System.EventHandler(this.onCheckedChangedKeepSolutions);
-            // 
-            // lbBoxes
-            // 
-            resources.ApplyResources(this.lbBoxes, "lbBoxes");
-            this.lbBoxes.Name = "lbBoxes";
-            // 
-            // nudNumberOfBoxes
-            // 
-            resources.ApplyResources(this.nudNumberOfBoxes, "nudNumberOfBoxes");
-            this.nudNumberOfBoxes.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nudNumberOfBoxes.Name = "nudNumberOfBoxes";
-            // 
-            // checkBoxNumberOfPallets
-            // 
-            resources.ApplyResources(this.checkBoxNumberOfPallets, "checkBoxNumberOfPallets");
-            this.checkBoxNumberOfPallets.Name = "checkBoxNumberOfPallets";
-            this.checkBoxNumberOfPallets.UseVisualStyleBackColor = true;
-            // 
             // gbStopStackingCondition
             // 
-            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Controls.Add(this.uLengthPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.uMassPalletWeight);
             this.gbStopStackingCondition.Controls.Add(this.nudMaximumPalletWeight);
@@ -321,6 +203,7 @@
             this.gbStopStackingCondition.Controls.Add(this.lbStopStacking);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumPalletHeight);
             this.gbStopStackingCondition.Controls.Add(this.checkBoxMaximumNumberOfBoxes);
+            resources.ApplyResources(this.gbStopStackingCondition, "gbStopStackingCondition");
             this.gbStopStackingCondition.Name = "gbStopStackingCondition";
             this.gbStopStackingCondition.TabStop = false;
             // 
@@ -336,8 +219,8 @@
             // 
             // nudMaximumPalletWeight
             // 
-            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.DecimalPlaces = 3;
+            resources.ApplyResources(this.nudMaximumPalletWeight, "nudMaximumPalletWeight");
             this.nudMaximumPalletWeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -392,7 +275,6 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gbAdditionalData);
             this.Controls.Add(this.gbStopStackingCondition);
             this.Controls.Add(this.gbAllowedLayerPatterns);
             this.Controls.Add(this.gbLayerAlignment);
@@ -401,18 +283,17 @@
             this.Controls.Add(this.lbPallet);
             this.Controls.Add(this.lbBundle);
             this.Controls.Add(this.cbBox);
-            this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbDescription);
-            this.Controls.Add(this.lbName);
-            this.Controls.Add(this.bnCancel);
-            this.Controls.Add(this.bnOk);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormNewAnalysisBundle";
-            this.ShowIcon = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNewAnalysisBundle_FormClosing);
             this.Load += new System.EventHandler(this.FormNewAnalysisBundle_Load);
+            this.Controls.SetChildIndex(this.cbBox, 0);
+            this.Controls.SetChildIndex(this.lbBundle, 0);
+            this.Controls.SetChildIndex(this.lbPallet, 0);
+            this.Controls.SetChildIndex(this.cbPallet, 0);
+            this.Controls.SetChildIndex(this.gbOverhangUnderhang, 0);
+            this.Controls.SetChildIndex(this.gbLayerAlignment, 0);
+            this.Controls.SetChildIndex(this.gbAllowedLayerPatterns, 0);
+            this.Controls.SetChildIndex(this.gbStopStackingCondition, 0);
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletOverhangY)).EndInit();
             this.gbLayerAlignment.ResumeLayout(false);
@@ -420,10 +301,6 @@
             this.gbOverhangUnderhang.ResumeLayout(false);
             this.gbOverhangUnderhang.PerformLayout();
             this.gbAllowedLayerPatterns.ResumeLayout(false);
-            this.gbAdditionalData.ResumeLayout(false);
-            this.gbAdditionalData.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSolutions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfBoxes)).EndInit();
             this.gbStopStackingCondition.ResumeLayout(false);
             this.gbStopStackingCondition.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaximumPalletWeight)).EndInit();
@@ -436,8 +313,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bnCancel;
-        private System.Windows.Forms.Button bnOk;
         private System.Windows.Forms.Label uLengthPalletOverhangY;
         private System.Windows.Forms.Label uLengthPalletOverhangX;
         private System.Windows.Forms.NumericUpDown nudPalletOverhangX;
@@ -452,19 +327,8 @@
         private System.Windows.Forms.Label lbPallet;
         private System.Windows.Forms.Label lbBundle;
         private System.Windows.Forms.ComboBox cbBox;
-        private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lbDescription;
-        private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.CheckedListBox checkedListBoxPatterns;
         private System.Windows.Forms.GroupBox gbAllowedLayerPatterns;
-        private System.Windows.Forms.GroupBox gbAdditionalData;
-        private System.Windows.Forms.Label lbSolutions;
-        private System.Windows.Forms.NumericUpDown nudSolutions;
-        private System.Windows.Forms.CheckBox checkBoxKeepSolutions;
-        private System.Windows.Forms.Label lbBoxes;
-        private System.Windows.Forms.NumericUpDown nudNumberOfBoxes;
-        private System.Windows.Forms.CheckBox checkBoxNumberOfPallets;
         private System.Windows.Forms.GroupBox gbStopStackingCondition;
         private System.Windows.Forms.Label uLengthPalletHeight;
         private System.Windows.Forms.Label uMassPalletWeight;

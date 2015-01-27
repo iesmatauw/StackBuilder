@@ -723,8 +723,8 @@ namespace TreeDim.StackBuilder.Basics
 
         public BoxCaseAnalysis CreateNewBoxCaseAnalysis(
             string name, string description
-            , BoxProperties boxProperties, BoxProperties caseProperties
-            , BoxCaseConstraintSet constraintSet
+            , BProperties boxProperties, BoxProperties caseProperties
+            , BCaseConstraintSet constraintSet
             , IBoxCaseAnalysisSolver solver)
         {
             BoxCaseAnalysis analysis = new BoxCaseAnalysis(boxProperties, caseProperties, constraintSet);
@@ -1010,32 +1010,37 @@ namespace TreeDim.StackBuilder.Basics
         public List<CasePalletAnalysis> Analyses
         {    get { return _casePalletAnalyses; }    }
         /// <summary>
-        /// Returns true if pallet analysis can be created i.e. if documents contains at list a case and a pallet
+        /// Returns true if pallet analysis can be created i.e. if documents contains at least a case and a pallet
         /// </summary>
         public bool CanCreateCasePalletAnalysis
         { get { return this.Cases.Count > 0 && this.Pallets.Count > 0; } }
         /// <summary>
-        /// Returns true if a bundle analysis can be created i.e. if documents contains at list a bundle and a case
+        /// Returns true if a bundle analysis can be created i.e. if documents contains at least a bundle and a case
         /// </summary>
         public bool CanCreateBundlePalletAnalysis
         { get { return this.Bundles.Count > 0 && this.Pallets.Count > 0; } }
         /// <summary>
-        /// Returns true if a box case analysis can be created i.e. if document contains at list one box and one case
+        /// Returns true if a box case analysis can be created i.e. if document contains at least one box and one case
         /// </summary>
         public bool CanCreateBoxCaseAnalysis
         { get { return (this.Boxes.Count > 0 && this.Cases.Count > 0) || (this.Cases.Count > 1); } }
         /// <summary>
-        /// Returns true if a case analysis can be created i.e. if documents contains at list a box and pallet solutions database is not empty
+        /// Returns true if a bundle/case analysis can be created i.e. if document contains at least one bundle and one case
+        /// </summary>
+        public bool CanCreateBundleCaseAnalysis
+        { get { return this.Cases.Count > 0 && this.Bundles.Count > 0; } }
+        /// <summary>
+        /// Returns true if a case analysis can be created i.e. if documents contains at least a box and pallet solutions database is not empty
         /// </summary>
         public bool CanCreateBoxCasePalletAnalysis
         { get { return this.Boxes.Count > 0 && !PalletSolutionDatabase.Instance.IsEmpty; } }
         /// <summary>
-        /// Returns true if user can proceed to case optimization i.e. if documents contains at list one box and one pallet 
+        /// Returns true if user can proceed to case optimization i.e. if documents contains at least one box and one pallet 
         /// </summary>
         public bool CanCreateCaseOptimization
         { get { return this.Boxes.Count > 0 && this.Pallets.Count > 0; } }
         /// <summary>
-        /// Returns true if a cylinder/pallet analysis can be created i.e. if document contains at list one cylinder and one pallet
+        /// Returns true if a cylinder/pallet analysis can be created i.e. if document contains at least one cylinder and one pallet
         /// </summary>
         public bool CanCreateCylinderPalletAnalysis
         { get { return this.Cylinders.Count > 0 && this.Pallets.Count > 0; } }
@@ -1954,9 +1959,6 @@ namespace TreeDim.StackBuilder.Basics
             // allowed patterns
             if (constraints.UseMaximumNumberOfBoxes = eltConstraintSet.HasAttribute("ManimumNumberOfItems"))
                 constraints.MaximumNumberOfBoxes = int.Parse(eltConstraintSet.Attributes["ManimumNumberOfItems"].Value);
-            // number of solutions to keep
-            if (constraints.UseNumberOfSolutionsKept = eltConstraintSet.HasAttribute("NumberOfSolutions"))
-                constraints.NumberOfSolutionsKept = int.Parse(eltConstraintSet.Attributes["NumberOfSolutions"].Value);
             // sanity check
             if (!constraints.IsValid)
                 throw new Exception("Invalid constraint set");
@@ -3541,43 +3543,13 @@ namespace TreeDim.StackBuilder.Basics
             xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
             // BoxId
             XmlAttribute boxIdAttribute = xmlDoc.CreateAttribute("BoxId");
-            boxIdAttribute.Value = string.Format("{0}", analysis.BoxProperties.Guid);
+            boxIdAttribute.Value = string.Format("{0}", analysis.BProperties.Guid);
             xmlAnalysisElt.Attributes.Append(boxIdAttribute);
             // PalletId
             XmlAttribute palletIdAttribute = xmlDoc.CreateAttribute("CaseId");
             palletIdAttribute.Value = string.Format("{0}", analysis.CaseProperties.Guid);
             xmlAnalysisElt.Attributes.Append(palletIdAttribute);
             // ###
-            // ConstraintSet
-            XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSetCase");
-            xmlAnalysisElt.AppendChild(constraintSetElement);
-            // allowed box positions
-            XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
-            constraintSetElement.Attributes.Append(allowedAxisAttribute);
-            allowedAxisAttribute.Value = analysis.ConstraintSet.AllowOrthoAxisString;
-            // stop criterions
-            // 1. maximum number of boxes
-            if (analysis.ConstraintSet.UseMaximumNumberOfBoxes)
-            {
-                XmlAttribute maximumNumberOfBoxes = xmlDoc.CreateAttribute("ManimumNumberOfBoxes");
-                maximumNumberOfBoxes.Value = string.Format("{0}", analysis.ConstraintSet.MaximumNumberOfBoxes);
-                constraintSetElement.Attributes.Append(maximumNumberOfBoxes);
-            }
-            // 2. maximum case weight
-            if (analysis.ConstraintSet.UseMaximumCaseWeight)
-            {
-                XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumCaseWeight");
-                maximumPalletWeight.Value = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", analysis.ConstraintSet.MaximumCaseWeight);
-                constraintSetElement.Attributes.Append(maximumPalletWeight);
-            }
-            // number of solutions to keep
-            if (analysis.ConstraintSet.UseNumberOfSolutionsKept)
-            {
-                XmlAttribute numberOfSolutionsKept = xmlDoc.CreateAttribute("NumberOfSolutions");
-                numberOfSolutionsKept.Value = string.Format("{0}", analysis.ConstraintSet.NumberOfSolutionsKept);
-                constraintSetElement.Attributes.Append(numberOfSolutionsKept);
-            }
-            xmlAnalysisElt.AppendChild(constraintSetElement);
 
             // Solutions
             int solIndex = 0;
@@ -3594,6 +3566,36 @@ namespace TreeDim.StackBuilder.Basics
                         , xmlDoc);
                     ++solIndex;
                 }
+        }
+
+        public void SaveBoxCaseConstraintSet(BoxCaseConstraintSet constraintSet, XmlElement xmlAnalysisElt, XmlDocument xmlDoc)
+        { 
+            // ConstraintSet
+            XmlElement constraintSetElement = xmlDoc.CreateElement("ConstraintSetCase");
+            xmlAnalysisElt.AppendChild(constraintSetElement);
+            // allowed box positions
+            XmlAttribute allowedAxisAttribute = xmlDoc.CreateAttribute("AllowedBoxPositions");
+            constraintSetElement.Attributes.Append(allowedAxisAttribute);
+            allowedAxisAttribute.Value = constraintSet.AllowOrthoAxisString;
+            // stop criterions
+            // 1. maximum number of boxes
+            if (constraintSet.UseMaximumNumberOfBoxes)
+            {
+                XmlAttribute maximumNumberOfBoxes = xmlDoc.CreateAttribute("ManimumNumberOfBoxes");
+                maximumNumberOfBoxes.Value = string.Format("{0}", constraintSet.MaximumNumberOfBoxes);
+                constraintSetElement.Attributes.Append(maximumNumberOfBoxes);
+            }
+            // 2. maximum case weight
+            if (constraintSet.UseMaximumCaseWeight)
+            {
+                XmlAttribute maximumPalletWeight = xmlDoc.CreateAttribute("MaximumCaseWeight");
+                maximumPalletWeight.Value = string.Format(
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    "{0}",
+                    constraintSet.MaximumCaseWeight);
+                constraintSetElement.Attributes.Append(maximumPalletWeight);
+            }
+            xmlAnalysisElt.AppendChild(constraintSetElement);
         }
 
         public void SaveBoxCaseSolution(BoxCaseAnalysis analysis, BoxCaseSolution sol, SelBoxCaseSolution selSolution, XmlElement solutionsElt, XmlDocument xmlDoc)

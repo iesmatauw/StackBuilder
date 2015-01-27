@@ -120,22 +120,22 @@ namespace TreeDim.StackBuilder.Basics
                 ILayer layer = this[iLayer];
                 BoxLayer blayer = layer as BoxLayer;
                 if (null != blayer)
-                    bbox.Extend(blayer.BoundingBox(_boxCaseAnalysis.BoxProperties));
+                    bbox.Extend(blayer.BoundingBox(_boxCaseAnalysis.BProperties));
                 ++iLayer;
             }
             return bbox;
         }
         public double VolumeEfficiencyBoxes
         {
-            get { return 100.0 * BoxPerCaseCount * Analysis.BoxProperties.Volume
+            get { return 100.0 * BoxPerCaseCount * Analysis.BProperties.Volume
                     / Analysis.CaseProperties.InsideVolume; }
         }
         public double LoadWeight
-        {   get { return BoxPerCaseCount * _boxCaseAnalysis.BoxProperties.Weight; } }
+        {   get { return BoxPerCaseCount * _boxCaseAnalysis.BProperties.Weight; } }
         public double CaseWeight
         {
             get { return _boxCaseAnalysis.CaseProperties.Weight
-                + BoxPerCaseCount * _boxCaseAnalysis.BoxProperties.Weight; }
+                + BoxPerCaseCount * _boxCaseAnalysis.BProperties.Weight; }
         }
         public BoxCaseSolution.Limit LimitReached
         {
@@ -146,7 +146,7 @@ namespace TreeDim.StackBuilder.Basics
         {   get { return 100.0 * LoadWeight / CaseWeight; } }
         public double EfficiencyVolume
         {
-            get { return 100.0 * BoxPerCaseCount * Analysis.BoxProperties.Volume
+            get { return 100.0 * BoxPerCaseCount * Analysis.BProperties.Volume
                     / Analysis.CaseProperties.InsideVolume; }
         }
         public string Title

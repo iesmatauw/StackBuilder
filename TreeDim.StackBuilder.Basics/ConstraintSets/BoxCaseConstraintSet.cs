@@ -8,7 +8,66 @@ using log4net;
 
 namespace TreeDim.StackBuilder.Basics
 {
-    public class BoxCaseConstraintSet
+    public abstract class BCaseConstraintSet
+    {
+        #region Data members
+        /// <summary>
+        /// maximum case weight
+        /// </summary>
+        private bool _useCaseMaximumWeight = false;
+        private double _maximumCaseWeight;
+        /// <summary>
+        /// maximum number of boxes
+        /// </summary>
+        private bool _useMaximumNumberOfBoxes = false;
+        private int _maximumNumberOfBoxes;
+        #endregion
+
+        #region Maximum case weight
+        /// <summary>
+        /// Use maximum case weight
+        /// </summary>
+        public bool UseMaximumCaseWeight
+        {
+            set { _useCaseMaximumWeight = value; }
+            get { return _useCaseMaximumWeight; }
+        }
+        /// <summary>
+        /// Maximum case weight
+        /// </summary>
+        public double MaximumCaseWeight
+        {
+            set { _maximumCaseWeight = value; }
+            get { return _maximumCaseWeight; }
+        }
+        #endregion
+
+        #region Maximum number of boxes
+        /// <summary>
+        /// Use maximum number of boxes
+        /// </summary>
+        public bool UseMaximumNumberOfBoxes
+        {
+            set { _useMaximumNumberOfBoxes = value; }
+            get { return _useMaximumNumberOfBoxes; }
+        }
+        /// <summary>
+        /// Maximum number of boxes
+        /// </summary>
+        public int MaximumNumberOfBoxes
+        {
+            set { _maximumNumberOfBoxes = value; }
+            get { return _maximumNumberOfBoxes; }
+        }
+        #endregion
+
+        #region Public properties
+        public abstract bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis);
+        public abstract bool IsValid { get; }
+        #endregion
+    }
+
+    public class BoxCaseConstraintSet : BCaseConstraintSet
     {
         #region Data members
         /// <summary>
@@ -16,28 +75,19 @@ namespace TreeDim.StackBuilder.Basics
         /// </summary>
         private bool[] _allowedOrthoAxis = new bool[6];
         /// <summary>
-        /// number of solutions kept
-        /// </summary>
-        private bool _useNoSolutionsKept;
-        private int _noSolutionsKept;
-        /// <summary>
-        /// maximum case weight
-        /// </summary>
-        private bool _useCaseMaximumWeight;
-        private double _maximumCaseWeight;
-        /// <summary>
-        /// maximum number of boxes
-        /// </summary>
-        private bool _useMaximumNumberOfBoxes;
-        private int _maximumNumberOfBoxes;
-        /// <summary>
         /// logger
         /// </summary>
         static readonly ILog _log = LogManager.GetLogger(typeof(BoxCaseConstraintSet));
         #endregion
 
+        #region Constructor
+        public BoxCaseConstraintSet()
+        { 
+        }
+        #endregion
+
         #region Validity
-        public bool IsValid
+        public override bool IsValid
         {
             get
             {
@@ -60,7 +110,7 @@ namespace TreeDim.StackBuilder.Basics
         { 
             for (int i = 0; i < 6; ++i) _allowedOrthoAxis[i] = true;
         }
-        public bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
+        public override bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
             return _allowedOrthoAxis[(int)orthoAxis];
         }
@@ -91,60 +141,22 @@ namespace TreeDim.StackBuilder.Basics
             }
         }
         #endregion
+    }
 
-        #region Maximum case weight
-        /// <summary>
-        /// Use maximum case weight
-        /// </summary>
-        public bool UseMaximumCaseWeight
-        {
-            set { _useCaseMaximumWeight = value; }
-            get { return _useCaseMaximumWeight; }
-        }
-        /// <summary>
-        /// Maximum case weight
-        /// </summary>
-        public double MaximumCaseWeight
-        {
-            set { _maximumCaseWeight = value; }
-            get { return _maximumCaseWeight; }
-        }
-        /// <summary>
-        /// Use maximum number of boxes
-        /// </summary>
-        public bool UseMaximumNumberOfBoxes
-        {
-            set { _useMaximumNumberOfBoxes = value; }
-            get { return _useMaximumNumberOfBoxes; }
-        }
-        /// <summary>
-        /// Maximum number of boxes
-        /// </summary>
-        public int MaximumNumberOfBoxes
-        {
-            set { _maximumNumberOfBoxes = value; }
-            get { return _maximumNumberOfBoxes; }
+    public class BundleCaseConstraintSet : BCaseConstraintSet
+    {
+        #region Constructors
+        public BundleCaseConstraintSet()
+        { 
         }
         #endregion
 
-        #region Number of solutions kept
-        /// <summary>
-        /// Use 
-        /// </summary>
-        public bool UseNumberOfSolutionsKept
+        #region Public properties
+        public override bool AllowOrthoAxis(HalfAxis.HAxis orthoAxis)
         {
-            set { _useNoSolutionsKept = value; }
-            get { return _useNoSolutionsKept; }
+            return (orthoAxis == HalfAxis.HAxis.AXIS_Z_N) || (orthoAxis == HalfAxis.HAxis.AXIS_Z_P);
         }
-        public int NumberOfSolutionsKept
-        {
-            set
-            {
-                _useNoSolutionsKept = true;
-                _noSolutionsKept = value;
-            }
-            get { return _noSolutionsKept; }
-        }
+        public override bool IsValid { get { return true; } }
         #endregion
     }
 }

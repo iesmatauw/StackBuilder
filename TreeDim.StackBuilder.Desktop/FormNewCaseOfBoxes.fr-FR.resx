@@ -353,19 +353,19 @@
 		<value>Colonne</value>
 	</data>
 	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-		<value>Patrons de couche autorisés</value>
+		<value>Disposition de couche autorisées</value>
 	</data>
 	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-		<value>autoriser les couches alignées</value>
+		<value>Autoriser l'alignement des couches</value>
 	</data>
 	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-		<value>quand le nombre total de boîtes atteint</value>
+		<value>Quand le nombre d'étui atteint</value>
 	</data>
 	<data name="lbPallet.Text" xml:space="preserve">
 		<value>Palette</value>
 	</data>
 	<data name="lbSolutions.Text" xml:space="preserve">
-		<value>meilleure(s) solution(s)</value>
+		<value>Meilleurs solutions</value>
 	</data>
 	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
 		<value>Position de boîtes autorisées</value>
@@ -380,7 +380,7 @@
 		<value>Z</value>
 	</data>
 	<data name="gbStopStackingCondition.Text" xml:space="preserve">
-		<value>Conditions additionnelles pour l'arrêt d'empilement</value>
+		<value>Conditions supplémentaires d'arrêt</value>
 	</data>
 	<data name="checkedListBoxPatterns.Items3" xml:space="preserve">
 		<value>Trilock</value>
@@ -404,7 +404,7 @@
 		<value>Conserver les solutions:</value>
 	</data>
 	<data name="lbStopStacking.Text" xml:space="preserve">
-		<value>Arrêter l'empilement:</value>
+		<value>Arrêt de l'empilement:</value>
 	</data>
 	<data name="checkBoxPositionY.Text" xml:space="preserve">
 		<value>Y</value>
@@ -413,18 +413,36 @@
 		<value>pour lesquels la caisse contient au moins</value>
 	</data>
 	<data name="gbSolutionFiltering.Text" xml:space="preserve">
-		<value>Données additionnelles</value>
+		<value>Données supplémentaires</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
 		<value>Boîte(s)</value>
 	</data>
 	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-		<value>autoriser les couches alternées</value>
+		<value>Autoriser l'alternance des couches</value>
 	</data>
 	<data name="checkBoxKeepSolutions.Text" xml:space="preserve">
 		<value>qui sont parmis les</value>
 	</data>
 	<data name="lbKg1.Text" xml:space="preserve">
 		<value>kg</value>
+	</data>
+	<data name="cbColor.Items57" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items58" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items59" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items60" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items61" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items62" xml:space="preserve">
+		<value>Couleur</value>
 	</data>
 </root>

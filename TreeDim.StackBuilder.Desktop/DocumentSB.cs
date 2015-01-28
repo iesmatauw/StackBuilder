@@ -181,7 +181,7 @@ namespace TreeDim.StackBuilder.Desktop
             // check if analysis has valid solutions
             if (!analysis.HasValidSolutions)
             {
-                MessageBox.Show(Properties.Resources.ID_ANALYSISHASNOVALIDSOLUTION, analysis.Name);
+                MessageBox.Show(string.Format(Properties.Resources.ID_ANALYSISHASNOVALIDSOLUTION, analysis.Name));
                 return null;
             }
             // show Box/Case/Pallet analysis view

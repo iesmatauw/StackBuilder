@@ -1218,4 +1218,7 @@
 	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
 		<value>layers</value>
 	</data>
+	<data name="checkBoxInterlayerAntiSlip.Text" xml:space="preserve">
+		<value>Anti-Slip Interlayer</value>
+	</data>
 </root>

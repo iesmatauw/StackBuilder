@@ -189,4 +189,16 @@
 	<data name="lbImage.Text" xml:space="preserve">
 		<value>Images</value>
 	</data>
+	<data name="uLengthOriginX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthSizeX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthOriginY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthSizeY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
 </root>

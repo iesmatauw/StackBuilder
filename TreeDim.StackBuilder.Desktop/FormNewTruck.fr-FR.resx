@@ -266,10 +266,10 @@
     <value>Couleur</value>
   </data>
 	<data name="cbColor.Items31" xml:space="preserve">
-    <value>Color</value>
+    <value>Couleur</value>
   </data>
 	<data name="cbColor.Items32" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Couleur</value>
   </data>
 	<data name="lbColor.Size" type="System.Drawing.Size, System.Drawing">
 		<value>43, 13</value>
@@ -292,4 +292,43 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Créer un nouveau containeur/camion...</value>
   </data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="lbDescription.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="uLengthHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthWidth.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthLength.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="cbColor.Items" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items1" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items33" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items34" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items35" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items36" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items37" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="uMassAdmissibleLoad.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
 </root>

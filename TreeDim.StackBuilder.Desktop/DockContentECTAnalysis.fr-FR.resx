@@ -200,4 +200,7 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Analyse RCV</value>
   </data>
+	<data name="lbThicknessUnit.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
 </root>

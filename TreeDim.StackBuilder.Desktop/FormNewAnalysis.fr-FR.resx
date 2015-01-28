@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,340 +59,382 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bnCancel.Text" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="bnCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
+	<data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>29, 13</value>
+	</data>
+	<data name="label1.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxPositionX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxPositionY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxPositionZ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxPositionX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxPositionY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxPositionZ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 185</value>
-  </data>
-  <data name="gbAllowedBoxPositions.Text" xml:space="preserve">
+	<data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="pictureBoxPositionX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="pictureBoxPositionY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="pictureBoxPositionZ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxPositionX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxPositionY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxPositionZ.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Size" type="System.Drawing.Size, System.Drawing">
+		<value>377, 185</value>
+	</data>
+	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
     <value>Positions de caisses autorisées</value>
   </data>
-  <data name="checkBoxAllowChangingLastLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>287, 17</value>
-  </data>
-  <data name="checkBoxAllowChangingLastLayerOrient.Text" xml:space="preserve">
+	<data name="checkBoxAllowChangingLastLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
+		<value>287, 17</value>
+	</data>
+	<data name="checkBoxAllowChangingLastLayerOrient.Text" xml:space="preserve">
     <value>permettre de changer la direction de la dernière couche</value>
   </data>
-  <data name="checkBoxAllowTwoLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 17</value>
-  </data>
-  <data name="checkBoxAllowTwoLayerOrient.Text" xml:space="preserve">
+	<data name="checkBoxAllowTwoLayerOrient.Size" type="System.Drawing.Size, System.Drawing">
+		<value>342, 17</value>
+	</data>
+	<data name="checkBoxAllowTwoLayerOrient.Text" xml:space="preserve">
     <value>permettre l'utilisation d'une combinaison de 2 directions de couches</value>
   </data>
-  <data name="lbBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<data name="lbBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>25, 13</value>
+	</data>
+	<data name="lbBox.Text" xml:space="preserve">
+    <value>Caisse</value>
   </data>
-  <data name="lbBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
-  </data>
-  <data name="lbBox.Text" xml:space="preserve">
-    <value>Etui</value>
-  </data>
-  <data name="lbPallet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
-  </data>
-  <data name="lbPallet.Text" xml:space="preserve">
+	<data name="lbPallet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
+		<value>40, 13</value>
+	</data>
+	<data name="lbPallet.Text" xml:space="preserve">
     <value>Palette</value>
   </data>
-  <data name="checkedListBoxPatterns.Items" xml:space="preserve">
-    <value>Colonnes</value>
+	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
+    <value>Colonne</value>
   </data>
-  <data name="checkedListBoxPatterns.Items1" xml:space="preserve">
+	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
     <value>Interbloqués</value>
   </data>
-  <data name="checkedListBoxPatterns.Items2" xml:space="preserve">
+	<data name="checkedListBoxPatterns.Items2" xml:space="preserve">
     <value>Diagonale</value>
   </data>
-  <data name="checkedListBoxPatterns.Items4" xml:space="preserve">
+	<data name="checkedListBoxPatterns.Items4" xml:space="preserve">
     <value>Spirale</value>
   </data>
-  <data name="checkedListBoxPatterns.Items5" xml:space="preserve">
+	<data name="checkedListBoxPatterns.Items5" xml:space="preserve">
     <value>Spirale élargie</value>
   </data>
-  <data name="checkedListBoxPatterns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 94</value>
+	<data name="checkedListBoxPatterns.Size" type="System.Drawing.Size, System.Drawing">
+		<value>162, 94</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
+		<value>188, 162</value>
+	</data>
+	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
+    <value>Disposition de couche autorisées</value>
   </data>
-  <data name="gbAllowedLayerPatterns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 162</value>
+	<data name="checkBoxMaximumNumberOfBoxes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 34</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
+		<value>157, 17</value>
+	</data>
+	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
+    <value>Quand le nombre d'étui atteint</value>
   </data>
-  <data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-    <value>Motif de couches autorisées</value>
+	<data name="checkBoxMaximumPalletHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 59</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>166, 17</value>
+	</data>
+	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
+    <value>quand la hauteur de la palette atteint</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<data name="lbStopStacking.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbStopStacking.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 16</value>
+	</data>
+	<data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
+		<value>138, 13</value>
+	</data>
+	<data name="lbStopStacking.Text" xml:space="preserve">
+    <value>Arrêt de l'empilement:</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 34</value>
+	<data name="checkBoxMaximumPalletWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 85</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
+		<value>180, 17</value>
+	</data>
+	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
+    <value>quand le poid total de la palette atteint</value>
   </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 17</value>
-  </data>
-  <data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>le nombre de caisses atteint</value>
-  </data>
-  <data name="checkBoxMaximumPalletHeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 59</value>
-  </data>
-  <data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 17</value>
-  </data>
-  <data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
-    <value>la hauteur de la palette atteint</value>
-  </data>
-  <data name="lbStopStacking.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbStopStacking.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 16</value>
-  </data>
-  <data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 13</value>
-  </data>
-  <data name="lbStopStacking.Text" xml:space="preserve">
-    <value>Arrêter l'empilement lorsque:</value>
-  </data>
-  <data name="checkBoxMaximumPalletWeight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 85</value>
-  </data>
-  <data name="checkBoxMaximumPalletWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 17</value>
-  </data>
-  <data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
-    <value>le poids total de la pallette atteint</value>
-  </data>
-  <data name="checkBoxMaximumLoadOnBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 110</value>
-  </data>
-  <data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 17</value>
-  </data>
-  <data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
+	<data name="checkBoxMaximumLoadOnBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>9, 110</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnBox.Size" type="System.Drawing.Size, System.Drawing">
+		<value>277, 17</value>
+	</data>
+	<data name="checkBoxMaximumLoadOnBox.Text" xml:space="preserve">
     <value>le poids au dessus des caisses les plus basses atteint</value>
   </data>
-  <data name="nudMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 31</value>
-  </data>
-  <data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 56</value>
-  </data>
-  <data name="nudMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 82</value>
-  </data>
-  <data name="nudMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 107</value>
-  </data>
-  <data name="uMassLoadLowerCases.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 112</value>
-  </data>
-  <data name="uMassPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 87</value>
-  </data>
-  <data name="uLengthPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 61</value>
-  </data>
-  <data name="checkBoxInterlayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
-  </data>
-  <data name="checkBoxInterlayer.Text" xml:space="preserve">
+	<data name="nudMaximumNumberOfBoxes.Location" type="System.Drawing.Point, System.Drawing">
+		<value>284, 31</value>
+	</data>
+	<data name="nudMaximumPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>284, 56</value>
+	</data>
+	<data name="nudMaximumPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>284, 82</value>
+	</data>
+	<data name="nudMaximumLoadOnBox.Location" type="System.Drawing.Point, System.Drawing">
+		<value>284, 107</value>
+	</data>
+	<data name="uMassLoadLowerCases.Location" type="System.Drawing.Point, System.Drawing">
+		<value>343, 112</value>
+	</data>
+	<data name="uMassPalletWeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>343, 87</value>
+	</data>
+	<data name="uLengthPalletHeight.Location" type="System.Drawing.Point, System.Drawing">
+		<value>343, 61</value>
+	</data>
+	<data name="checkBoxInterlayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>80, 17</value>
+	</data>
+	<data name="checkBoxInterlayer.Text" xml:space="preserve">
     <value>Intercallaire</value>
   </data>
-  <data name="lbInterlayerFreq1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbInterlayerFreq1.Text" xml:space="preserve">
+	<data name="lbInterlayerFreq1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbInterlayerFreq1.Size" type="System.Drawing.Size, System.Drawing">
+		<value>43, 13</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
     <value>tous les</value>
   </data>
-  <data name="lbInterlayerFreq2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<data name="lbInterlayerFreq2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbInterlayerFreq2.Size" type="System.Drawing.Size, System.Drawing">
+		<value>54, 13</value>
+	</data>
+	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
+    <value>couche</value>
   </data>
-  <data name="lbInterlayerFreq2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 13</value>
-  </data>
-  <data name="lbInterlayerFreq2.Text" xml:space="preserve">
-    <value>couche(s)</value>
-  </data>
-  <data name="lbPalletOverhangLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbPalletOverhangLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
-  </data>
-  <data name="lbPalletOverhangLength.Text" xml:space="preserve">
+	<data name="lbPalletOverhangLength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbPalletOverhangLength.Size" type="System.Drawing.Size, System.Drawing">
+		<value>52, 13</value>
+	</data>
+	<data name="lbPalletOverhangLength.Text" xml:space="preserve">
     <value>Longueur</value>
   </data>
-  <data name="lbPalletOverhangWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbPalletOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="lbPalletOverhangWidth.Text" xml:space="preserve">
+	<data name="lbPalletOverhangWidth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
+		<value>43, 13</value>
+	</data>
+	<data name="lbPalletOverhangWidth.Text" xml:space="preserve">
     <value>Largeur</value>
   </data>
-  <data name="gbOverhangUnderhang.Text" xml:space="preserve">
-    <value>Débord pallette</value>
+	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
+    <value>Débord palette</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<data name="checkBoxAllowAlignedLayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>188, 17</value>
+	</data>
+	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
+    <value>Autoriser l'alignement des couches</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 17</value>
+	<data name="checkBoxAllowAlternateLayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>187, 17</value>
+	</data>
+	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
+    <value>Autoriser l'alternance des couches</value>
   </data>
-  <data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-    <value>autoriser l'alignement des couches</value>
-  </data>
-  <data name="checkBoxAllowAlternateLayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxAllowAlternateLayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 17</value>
-  </data>
-  <data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>autoriser l'alternance des couches</value>
-  </data>
-  <data name="gbLayerAlignment.Text" xml:space="preserve">
+	<data name="gbLayerAlignment.Text" xml:space="preserve">
     <value>Alignement des couches</value>
   </data>
-  <data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 471</value>
+	<data name="gbStopStackingCondition.Location" type="System.Drawing.Point, System.Drawing">
+		<value>8, 471</value>
+	</data>
+	<data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
+		<value>393, 137</value>
+	</data>
+	<data name="gbStopStackingCondition.Text" xml:space="preserve">
+    <value>Conditions supplémentaires d'arrêt</value>
   </data>
-  <data name="gbStopStackingCondition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 137</value>
-  </data>
-  <data name="gbStopStackingCondition.Text" xml:space="preserve">
-    <value>Condition d'arrêt de l'empilement</value>
-  </data>
-  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+	<data name="tabPagePalletCorners.Text" xml:space="preserve">
     <value>Cornières</value>
   </data>
-  <data name="tabPagePalletCap.Text" xml:space="preserve">
+	<data name="tabPagePalletCap.Text" xml:space="preserve">
     <value>Coiffe</value>
   </data>
-  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 17</value>
-  </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
+	<data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+		<value>53, 17</value>
+	</data>
+	<data name="chkbPalletCap.Text" xml:space="preserve">
     <value>Coiffe</value>
   </data>
-  <data name="chkbFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 17</value>
-  </data>
-  <data name="chkbFilm.Text" xml:space="preserve">
+	<data name="chkbFilm.Size" type="System.Drawing.Size, System.Drawing">
+		<value>79, 17</value>
+	</data>
+	<data name="chkbFilm.Text" xml:space="preserve">
     <value>Film palette</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="$this.Text" xml:space="preserve">
     <value>Créer une analyse caisse/palette...</value>
   </data>
+	<data name="bnOk.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="uMassLoadLowerCases.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
+	<data name="uMassPalletWeight.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
+	<data name="uLengthPalletHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthOverhangY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthOverhangX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="checkBoxAntiSlipInterlayer.Text" xml:space="preserve">
+		<value>Intercallaire anti-glisse</value>
+	</data>
+	<data name="tabPageInterlayer.Text" xml:space="preserve">
+		<value>Intercallaires</value>
+	</data>
+	<data name="tabPageInterlayerAntiSlip.Text" xml:space="preserve">
+		<value>Intercallaire anti-glisse</value>
+	</data>
+	<data name="chkbPalletCorners.Text" xml:space="preserve">
+		<value>Cornières</value>
+	</data>
+	<data name="lbNumberOfTurns.Text" xml:space="preserve">
+		<value>Nombre de tour</value>
+	</data>
+	<data name="chkbPalletFilm.Text" xml:space="preserve">
+		<value>Film</value>
+	</data>
+	<data name="tabPagePalletFilm.Text" xml:space="preserve">
+		<value>Film</value>
+	</data>
 </root>

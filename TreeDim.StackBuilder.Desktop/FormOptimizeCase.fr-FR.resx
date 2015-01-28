@@ -220,4 +220,10 @@
 	<data name="$this.Text" xml:space="preserve">
     <value>Recherche des dimensions de caisses optimales...</value>
   </data>
+	<data name="uLengthWallThickness.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthPalletHeight.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
 </root>

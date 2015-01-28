@@ -174,4 +174,13 @@
 	<data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Efficacité volumique (%)</value>
   </data>
+	<data name="ID_LAYERS" xml:space="preserve">
+		<value>couche</value>
+	</data>
+	<data name="ID_LENGTH" xml:space="preserve">
+		<value>Longueur</value>
+	</data>
+	<data name="ID_WIDTH" xml:space="preserve">
+		<value>Largeur</value>
+	</data>
 </root>

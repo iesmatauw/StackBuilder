@@ -63,11 +63,11 @@ namespace TreeDim.StackBuilder.Graphics
                     Vector3D.Zero
                     , caseProperties.Length, caseProperties.Width, caseProperties.Height
                     , System.Drawing.Color.Black
-                    , false));
+                    , true));
                 graphics.AddDimensions(new DimensionCube(
                     _boxCaseSolution.LoadBoundingBox
                     , System.Drawing.Color.Red
-                    , true));
+                    , false));
             }
         }
 
@@ -93,7 +93,6 @@ namespace TreeDim.StackBuilder.Graphics
                 uint pickId = 0;
                 foreach (BoxPosition bPosition in blayer)
                     graphics.DrawBox(new Box(pickId++, boxProperties, bPosition));
-
             }
         }
         #endregion

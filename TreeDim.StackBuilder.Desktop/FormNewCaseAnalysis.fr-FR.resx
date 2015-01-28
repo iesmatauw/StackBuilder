@@ -137,13 +137,13 @@
 		<value>172, 17</value>
 	</data>
 	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>autoriser les couches alternées</value>
+    <value>Autoriser l'alternance des couches</value>
   </data>
 	<data name="checkBoxAllowAlignedLayer.Size" type="System.Drawing.Size, System.Drawing">
 		<value>168, 17</value>
 	</data>
 	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-    <value>autoriser les couches alignées</value>
+    <value>Autoriser l'alignement des couches</value>
   </data>
 	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
     <value>Colonne</value>
@@ -161,7 +161,7 @@
     <value>Spirale élargie</value>
   </data>
 	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-    <value>Patrons de couche autorisés</value>
+    <value>Disposition de couche autorisées</value>
   </data>
 	<data name="gbAllowedBoxPositions.Text" xml:space="preserve">
     <value>Position de boîtes autorisées</value>
@@ -176,22 +176,22 @@
 		<value>101, 13</value>
 	</data>
 	<data name="lbStopStacking.Text" xml:space="preserve">
-    <value>Arrêter l'empilement:</value>
+    <value>Arrêt de l'empilement:</value>
   </data>
 	<data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
 		<value>208, 17</value>
 	</data>
 	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>quand le nombre total de boîtes atteint</value>
+    <value>Quand le nombre d'étui atteint</value>
   </data>
 	<data name="gbStopStackingCondition.Text" xml:space="preserve">
-    <value>Conditions additionnelles pour l'arrêt d'empilement</value>
+    <value>Conditions supplémentaires d'arrêt</value>
   </data>
 	<data name="lbSolutions.Size" type="System.Drawing.Size, System.Drawing">
 		<value>109, 13</value>
 	</data>
 	<data name="lbSolutions.Text" xml:space="preserve">
-    <value>meilleure(s) solution(s)</value>
+    <value>Meilleurs solutions</value>
   </data>
 	<data name="lbBoxes.Size" type="System.Drawing.Size, System.Drawing">
 		<value>44, 13</value>
@@ -218,7 +218,7 @@
     <value>Conserver les solutions:</value>
   </data>
 	<data name="gbSolutionFiltering.Text" xml:space="preserve">
-    <value>Données additionnelles</value>
+    <value>Données supplémentaires</value>
   </data>
 	<data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
 		<value>40, 13</value>
@@ -458,6 +458,24 @@
 		<value>Couleur</value>
 	</data>
 	<data name="cbColor.Items31" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items57" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items58" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items59" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items60" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items61" xml:space="preserve">
+		<value>Couleur</value>
+	</data>
+	<data name="cbColor.Items62" xml:space="preserve">
 		<value>Couleur</value>
 	</data>
 </root>

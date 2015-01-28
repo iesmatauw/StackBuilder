@@ -156,4 +156,7 @@
 	<data name="uLengthRowSpacing.Text" xml:space="preserve">
 		<value>uLunghezza</value>
 	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
 </root>

@@ -16,7 +16,7 @@
   <str name="Allow aligned layers">Autoriser l'alignement des couches</str>
   <str name="Allow alternate layers">Autoriser l'alternance des couches</str>
   <str name="Constraint set">Jeu de containtes</str>
-  <str name="Case optimization constraint set"></str>
+  <str name="Case optimization constraint set">Jeu de contrainte optimisation</str>
   <str name="Wall thickness">Epaisseur mur</str>
   <str name="Case limit (min)">Dimensions min.</str>
   <str name="Case limit (max)">Dimensions max.</str>

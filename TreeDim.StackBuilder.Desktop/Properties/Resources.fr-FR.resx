@@ -269,7 +269,7 @@ Souhaitez-vous continuer?</value>
     <value>A2</value>
   </data>
 	<data name="ID_LAYERS" xml:space="preserve">
-    <value>Couches</value>
+    <value>couche</value>
   </data>
 	<data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
     <value>Définir au moins un patron de rangement</value>
@@ -451,4 +451,37 @@ Souhaitez-vous continuer?</value>
 	<data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
     <value>La caisse {1} ne peut contenir l'étui {0}.</value>
   </data>
+	<data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
+		<value>Ajouter une nouvelle coiffe…</value>
+	</data>
+	<data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
+		<value>Ajouter une nouvelle cornière…</value>
+	</data>
+	<data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
+		<value>Ajouter un nouveau film…</value>
+	</data>
+	<data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+		<value>Coiffes</value>
+	</data>
+	<data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+		<value>Cornières</value>
+	</data>
+	<data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+		<value>Film</value>
+	</data>
+	<data name="ID_PALLETCAP" xml:space="preserve">
+		<value>Coiffe</value>
+	</data>
+	<data name="ID_PALLETCORNERS" xml:space="preserve">
+		<value>Cornières</value>
+	</data>
+	<data name="ID_PALLETFILM" xml:space="preserve">
+		<value>Film</value>
+	</data>
+	<data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+		<value>Utiliser la transparence et/ou hachage</value>
+	</data>
+	<data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+		<value>L'épaisseur doit être inférieure à la largeur</value>
+	</data>
 </root>

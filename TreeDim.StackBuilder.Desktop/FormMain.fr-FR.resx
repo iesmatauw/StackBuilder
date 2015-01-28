@@ -960,4 +960,43 @@
         AAD//wAA//8AAA==
 </value>
 	</data>
+	<data name="newToolStripMenuItemPalletCap.Text" xml:space="preserve">
+		<value>Nouvelle coiffe</value>
+	</data>
+	<data name="newToolStripMenuItemPalletCorners.Text" xml:space="preserve">
+		<value>Nouvelle cornière</value>
+	</data>
+	<data name="newToolStripMenuItemPalletFilm.Text" xml:space="preserve">
+		<value>Nouveau film</value>
+	</data>
+	<data name="newToolStripMenuItemHCylinderPalletAnalysis.Text" xml:space="preserve">
+		<value>Nouvelle analyse cylindre horizontal / palette</value>
+	</data>
+	<data name="newBundleCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+		<value>Nouvelle analyse liasse /caisse</value>
+	</data>
+	<data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+		<value>Afficher la page de démarrage</value>
+	</data>
+	<data name="donateToolStripMenuItem.Text" xml:space="preserve">
+		<value>Faire un don!</value>
+	</data>
+	<data name="toolStripButtonPalletCorners.Text" xml:space="preserve">
+		<value>Ajouter un nouveau type de cornière</value>
+	</data>
+	<data name="toolStripButtonPalletCap.Text" xml:space="preserve">
+		<value>Ajouter une nouvelle coiffe</value>
+	</data>
+	<data name="toolStripButtonPalletFilm.Text" xml:space="preserve">
+		<value>Ajouter un nouveau film</value>
+	</data>
+	<data name="toolStripButtonBoxCaseAnalysis.Text" xml:space="preserve">
+		<value>Créer une nouvelle analyse boîte / caisse</value>
+	</data>
+	<data name="toolStripButtonBoxCaseAnalysis.ToolTipText" xml:space="preserve">
+		<value>Ajouter une nouvelle analyse boîte /caisse</value>
+	</data>
+	<data name="toolStripButtonBundleCaseAnalysis.Text" xml:space="preserve">
+		<value>Ajouter une nouvelle analyse liasse/caisse</value>
+	</data>
 </root>

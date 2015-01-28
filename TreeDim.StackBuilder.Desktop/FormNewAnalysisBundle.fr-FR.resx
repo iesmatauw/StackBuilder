@@ -125,7 +125,7 @@
 		<value>188, 17</value>
 	</data>
 	<data name="checkBoxAllowAlignedLayer.Text" xml:space="preserve">
-    <value>autoriser l'alignement des couches</value>
+    <value>Autoriser l'alignement des couches</value>
   </data>
 	<data name="lbPalletOverhangWidth.Size" type="System.Drawing.Size, System.Drawing">
 		<value>43, 13</value>
@@ -140,7 +140,7 @@
 		<value>187, 17</value>
 	</data>
 	<data name="checkBoxAllowAlternateLayer.Text" xml:space="preserve">
-    <value>autoriser l'alternance des couches</value>
+    <value>Autoriser l'alternance des couches</value>
   </data>
 	<data name="lbPalletOverhangLength.Size" type="System.Drawing.Size, System.Drawing">
 		<value>52, 13</value>
@@ -149,7 +149,7 @@
     <value>Longueur</value>
   </data>
 	<data name="gbOverhangUnderhang.Text" xml:space="preserve">
-    <value>Débord pallette</value>
+    <value>Débord palette</value>
   </data>
 	<data name="lbPallet.Size" type="System.Drawing.Size, System.Drawing">
 		<value>40, 13</value>
@@ -164,7 +164,7 @@
     <value>Nom</value>
   </data>
 	<data name="checkedListBoxPatterns.Items" xml:space="preserve">
-    <value>Colonnes</value>
+    <value>Colonne</value>
   </data>
 	<data name="checkedListBoxPatterns.Items1" xml:space="preserve">
     <value>Interbloqués</value>
@@ -173,10 +173,10 @@
     <value>Spirale</value>
   </data>
 	<data name="gbAllowedLayerPatterns.Text" xml:space="preserve">
-    <value>Motif de couches autorisées</value>
+    <value>Disposition de couche autorisées</value>
   </data>
 	<data name="gbAdditionalData.Text" xml:space="preserve">
-    <value>Données additionnelles</value>
+    <value>Données supplémentaires</value>
   </data>
 	<data name="lbSolutions.Location" type="System.Drawing.Point, System.Drawing">
 		<value>225, 40</value>
@@ -185,7 +185,7 @@
 		<value>109, 13</value>
 	</data>
 	<data name="lbSolutions.Text" xml:space="preserve">
-    <value>meilleure(s) solution(s)</value>
+    <value>Meilleurs solutions</value>
   </data>
 	<data name="nudSolutions.Location" type="System.Drawing.Point, System.Drawing">
 		<value>137, 37</value>
@@ -200,7 +200,7 @@
 		<value>42, 13</value>
 	</data>
 	<data name="lbBoxes.Text" xml:space="preserve">
-    <value>caisses</value>
+    <value>étui(s)</value>
   </data>
 	<data name="checkBoxNumberOfPallets.Size" type="System.Drawing.Size, System.Drawing">
 		<value>223, 17</value>
@@ -209,7 +209,7 @@
     <value>Afficher le nombre de pallettes requis pour</value>
   </data>
 	<data name="gbStopStackingCondition.Text" xml:space="preserve">
-    <value>Condition d'arrêt de l'empilement</value>
+    <value>Conditions supplémentaires d'arrêt</value>
   </data>
 	<data name="lbMm.Location" type="System.Drawing.Point, System.Drawing">
 		<value>279, 71</value>
@@ -230,28 +230,28 @@
 		<value>180, 17</value>
 	</data>
 	<data name="checkBoxMaximumPalletWeight.Text" xml:space="preserve">
-    <value>le poids total de la pallette atteint</value>
+    <value>quand le poid total de la palette atteint</value>
   </data>
 	<data name="lbStopStacking.Size" type="System.Drawing.Size, System.Drawing">
 		<value>138, 13</value>
 	</data>
 	<data name="lbStopStacking.Text" xml:space="preserve">
-    <value>Arrêter l'empilement lorsque:</value>
+    <value>Arrêt de l'empilement:</value>
   </data>
 	<data name="checkBoxMaximumPalletHeight.Size" type="System.Drawing.Size, System.Drawing">
 		<value>166, 17</value>
 	</data>
 	<data name="checkBoxMaximumPalletHeight.Text" xml:space="preserve">
-    <value>la hauteur de la palette atteint</value>
+    <value>quand la hauteur de la palette atteint</value>
   </data>
 	<data name="checkBoxMaximumNumberOfBoxes.Size" type="System.Drawing.Size, System.Drawing">
 		<value>154, 17</value>
 	</data>
 	<data name="checkBoxMaximumNumberOfBoxes.Text" xml:space="preserve">
-    <value>le nombre de bundle atteint</value>
+    <value>Quand le nombre d'étui atteint</value>
   </data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Créer une nouvelle analyse liasse palette...</value>
+    <value>Créer une nouvelle analyse cylindre/palette</value>
   </data>
 	<data name="bnAccept.Text" xml:space="preserve">
 		<value>OK</value>
@@ -299,9 +299,57 @@
 		<value>uMass</value>
 	</data>
 	<data name="checkBoxMaximumLoadOnCylinder.Text" xml:space="preserve">
-		<value>le poids au dessus des cylindres les plus bas atteint</value>
+		<value>quand la charge sur les cylindre les plus bas atteint</value>
 	</data>
 	<data name="checkBoxMaximumNumberOfItems.Text" xml:space="preserve">
-		<value>le nombre de cylindre atteint</value>
+		<value>quand le nombre de cylindre atteint</value>
+	</data>
+	<data name="bnOK.Text" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="label2.Text" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="label3.Text" xml:space="preserve">
+		<value>Cylindre</value>
+	</data>
+	<data name="uLengthOverhangY.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uLengthOverhangX.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="uMassLoadOnLower.Text" xml:space="preserve">
+		<value>uMass</value>
+	</data>
+	<data name="checkBoxInterlayer.Text" xml:space="preserve">
+		<value>Intercallaire</value>
+	</data>
+	<data name="lbInterlayerFreq1.Text" xml:space="preserve">
+		<value>toute les </value>
+	</data>
+	<data name="lbInterlayerFreq2.Text" xml:space="preserve">
+		<value>couche</value>
+	</data>
+	<data name="checkBoxInterlayerAntiSlip.Text" xml:space="preserve">
+		<value>Intercallaire anti-glisse</value>
+	</data>
+	<data name="uLengthRowSpacing.Text" xml:space="preserve">
+		<value>uLength</value>
+	</data>
+	<data name="chkPatternDefault.Text" xml:space="preserve">
+		<value>Défaut</value>
+	</data>
+	<data name="lbRowSpacing.Text" xml:space="preserve">
+		<value>Espace entre rangée</value>
+	</data>
+	<data name="chkPatternColumnized.Text" xml:space="preserve">
+		<value>Avec des intercallaires spéciales pour un rangement colonne</value>
+	</data>
+	<data name="gbPatterns.Text" xml:space="preserve">
+		<value>Disposition</value>
+	</data>
+	<data name="chkPatternStaggered.Text" xml:space="preserve">
+		<value>Pallette avec cadre</value>
 	</data>
 </root>

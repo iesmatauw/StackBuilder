@@ -3,7 +3,8 @@
   <!-- Show registration dialog ?-->
   <?define registdlg="true"?>
   <!--Serial number-->
-  <?define serial="FX15VR70ZH00"?>
+  <?define serial1="FX15VR70ZH00"?>
+  <?define serial2="FX15VR70ZH07"?>
   <!--Email-->
   <?define email=autokey@treedim.com?>
   <Fragment>
@@ -31,8 +32,8 @@
         </Control>
         <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="&amp;Next" Disabled="no">
           <?if $(var.registdlg) = "true"?>
-          <Condition Action="disable"><![CDATA[SERIALNUMBER<>"$(var.serial)"]]></Condition>
-          <Condition Action="enable">SERIALNUMBER="$(var.serial)"</Condition>
+          <Condition Action="disable"><![CDATA[SERIALNUMBER<>"$(var.serial1)" AND SERIALNUMBER<>"$(var.serial2)" AND SERIALNUMBER<>"treeDiM"]]></Condition>
+          <Condition Action="enable">SERIALNUMBER="$(var.serial1)" OR SERIALNUMBER="$(var.serial2)" OR SERIALNUMBER="treeDiM"</Condition>
           <?endif?>
         </Control>
         <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="Cancel">

@@ -207,7 +207,7 @@ $RECYCLE.BIN/
 #############
 ## Python
 #############
-
+*.py[co]
 #############
 ## Samples
 #############
@@ -217,7 +217,12 @@ Samples\*.docx
 Samples\*.doc
 [Ii]mages/
 
-*.py[co]
+#############
+# StackBuilder files
+#############
+*.xlsx
+*.doc
+*.stb
 
 # Packages
 *.egg
@@ -247,8 +252,5 @@ pip-log.txt
 BootstrapperSB/dotNetFx40_Full_x86_x64.exe
 TreeDim.StackBuilder.Desktop/license.txt
 packages/DockPanelSuite.2.9.0.0/content/license.txt
-*.xlsx
-*.doc
-*.stb
-*.stb
-*.stb
+
+

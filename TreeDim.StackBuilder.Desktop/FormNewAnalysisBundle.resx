@@ -807,7 +807,7 @@
     <value>FormNewAnalysisBundle</value>
   </data>
 	<data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Desktop.FormNewBase, TreeDim.StackBuilder.Desktop, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Desktop.FormNewBase, TreeDim.StackBuilder.Desktop, Version=2.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 	<data name="lbBoxes.Text" xml:space="preserve">
 		<value>boxe(s)</value>

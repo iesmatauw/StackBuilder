@@ -928,7 +928,7 @@ namespace TreeDim.StackBuilder.Desktop
             NodeTag.NodeType parentNodeType = NodeTag.NodeType.NT_LISTBOX;
             if (itemProperties.GetType() == typeof(CaseOfBoxesProperties))
             {
-                iconIndex = 14;
+                iconIndex = 17;
                 nodeType = NodeTag.NodeType.NT_CASEOFBOXES;
                 parentNodeType = NodeTag.NodeType.NT_LISTCASE;
             }
@@ -1114,7 +1114,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // insert analysis node
-            int indexIconAnalysis = 17;
+            int indexIconAnalysis = 20;
             TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_CYLINDERPALLETANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
@@ -1154,7 +1154,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // insert analysis node
-            int indexIconAnalysis = 18;
+            int indexIconAnalysis = 21;
             TreeNode nodeAnalysis = new TreeNode(analysis.Name, indexIconAnalysis, indexIconAnalysis);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_HCYLINDERPALLETANALYSIS, doc, analysis);
             parentNode.Nodes.Add(nodeAnalysis);
@@ -1236,7 +1236,7 @@ namespace TreeDim.StackBuilder.Desktop
             // get parent node
             TreeNode parentNode = FindNode(null, new NodeTag(NodeTag.NodeType.NT_LISTANALYSIS, doc));
             // insert case analysis node
-            TreeNode nodeAnalysis = new TreeNode(caseAnalysis.Name, 14, 14);
+            TreeNode nodeAnalysis = new TreeNode(caseAnalysis.Name, 17, 17);
             nodeAnalysis.Tag = new NodeTag(NodeTag.NodeType.NT_BOXCASEPALLETANALYSIS, doc, caseAnalysis);
             parentNode.Nodes.Add(nodeAnalysis);
             parentNode.Expand();

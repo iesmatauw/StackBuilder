@@ -163,7 +163,7 @@
     <value>graphCtrlCase</value>
   </data>
   <data name="&gt;&gt;graphCtrlCase.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlCase.Parent" xml:space="preserve">
     <value>splitContainerVertInside.Panel1</value>
@@ -199,7 +199,7 @@
     <value>graphCtrlPallet</value>
   </data>
   <data name="&gt;&gt;graphCtrlPallet.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlPallet.Parent" xml:space="preserve">
     <value>splitContainerVertInside.Panel2</value>

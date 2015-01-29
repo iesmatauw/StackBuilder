@@ -148,7 +148,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TreeDim.StackBuilder.Graphics.Graphics3DControl, TreeDim.StackBuilder.Graphics, Version=2.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerHoriz.Panel1</value>

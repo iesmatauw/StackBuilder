@@ -151,8 +151,7 @@ namespace TreeDim.StackBuilder.Desktop
         }
         public void ShowStartPage(object sender, EventArgs e)
         {
-            if (!IsWebSiteReachable || null != _dockStartPage)
-                return;
+            if (!IsWebSiteReachable) return;
             _dockStartPage.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
             _dockStartPage.Url = new System.Uri(StartPageURL);
         }

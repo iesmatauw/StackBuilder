@@ -76,6 +76,8 @@
             this.newToolStripMenuItemCylinderPalletAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItemHCylinderPalletAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.newBoxCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newBundleCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.newBoxCasePalletOptimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseOptimisationToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -128,8 +130,6 @@
             this.openFileDialogSB = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSB = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
-            this.newBundleCaseAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -402,6 +402,17 @@
             // 
             resources.ApplyResources(this.newBoxCaseAnalysisToolStripMenuItem, "newBoxCaseAnalysisToolStripMenuItem");
             this.newBoxCaseAnalysisToolStripMenuItem.Name = "newBoxCaseAnalysisToolStripMenuItem";
+            // 
+            // newBundleCaseAnalysisToolStripMenuItem
+            // 
+            resources.ApplyResources(this.newBundleCaseAnalysisToolStripMenuItem, "newBundleCaseAnalysisToolStripMenuItem");
+            this.newBundleCaseAnalysisToolStripMenuItem.Name = "newBundleCaseAnalysisToolStripMenuItem";
+            this.newBundleCaseAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundleCaseAnalysis);
+            // 
+            // toolStripSeparator18
+            // 
+            this.toolStripSeparator18.Name = "toolStripSeparator18";
+            resources.ApplyResources(this.toolStripSeparator18, "toolStripSeparator18");
             // 
             // newBoxCasePalletOptimizationToolStripMenuItem
             // 
@@ -764,17 +775,6 @@
             // 
             this.saveFileDialogWebGL.DefaultExt = "html";
             resources.ApplyResources(this.saveFileDialogWebGL, "saveFileDialogWebGL");
-            // 
-            // toolStripSeparator18
-            // 
-            this.toolStripSeparator18.Name = "toolStripSeparator18";
-            resources.ApplyResources(this.toolStripSeparator18, "toolStripSeparator18");
-            // 
-            // newBundleCaseAnalysisToolStripMenuItem
-            // 
-            resources.ApplyResources(this.newBundleCaseAnalysisToolStripMenuItem, "newBundleCaseAnalysisToolStripMenuItem");
-            this.newBundleCaseAnalysisToolStripMenuItem.Name = "newBundleCaseAnalysisToolStripMenuItem";
-            this.newBundleCaseAnalysisToolStripMenuItem.Click += new System.EventHandler(this.toolAddNewBundleCaseAnalysis);
             // 
             // FormMain
             // 

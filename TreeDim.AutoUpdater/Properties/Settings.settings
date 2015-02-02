@@ -1,12 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TreeDim.AutoUpdater" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TreeDim.AutoUpdater.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="VersionFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">VersionFile.txt</Value>
+      <Value Profile="(Default)">SBVersion.txt</Value>
     </Setting>
     <Setting Name="DownloadURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.picador.fr/StackBuilder/Download/</Value>
+      <Value Profile="(Default)">http://www.picador.org/stackbuilder/download/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

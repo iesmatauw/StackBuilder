@@ -780,9 +780,7 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripButtonCreateNewAnalysis.Enabled = (null != doc) && doc.CanCreateCasePalletAnalysis;
             // new cylinder/pallet analysis
             newToolStripMenuItemCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
-            toolStripButtonCreateNewCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
-            newToolStripMenuItemHCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
-            toolStripButtonCreateNewHCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
+            toolStripSBCylinderPalletAnalysis.Enabled = (null != doc) && doc.CanCreateCylinderPalletAnalysis;
             // new box/case analysis
             newBoxCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
             toolStripButtonBoxCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBoxCaseAnalysis;
@@ -794,7 +792,7 @@ namespace TreeDim.StackBuilder.Desktop
             toolStripButtonCreateNewBundleAnalysis.Enabled = (null != doc) && doc.CanCreateBundlePalletAnalysis;
             // new analysis bundle/case
             toolStripButtonBundleCaseAnalysis.Enabled = (null != doc) && doc.CanCreateBundleCaseAnalysis;
-            
+            newBundleCaseAnalysisToolStripMenuItem.Enabled = (null != doc) && doc.CanCreateBundleCaseAnalysis;
             // case optimisation
             caseOptimisationToolStripMenu.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
             toolStripButtonOptimiseCase.Enabled = (null != doc) && doc.CanCreateCaseOptimization;
